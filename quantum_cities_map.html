@@ -1,0 +1,320 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Quantum Research Cities</title>
+  <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" />
+  <style>
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    body { font-family: Arial, sans-serif; background: #fff; }
+    #map { width: 100%; height: 100vh; min-height: 500px; }
+
+    .map-controls {
+      position: absolute;
+      top: 10px; right: 10px;
+      z-index: 1000;
+      display: flex; gap: 6px;
+    }
+    .map-btn {
+      background: white;
+      border: 1px solid #aaa;
+      border-radius: 4px;
+      padding: 6px 13px;
+      font-size: 13px;
+      cursor: pointer;
+      box-shadow: 0 1px 4px rgba(0,0,0,0.18);
+      color: #333;
+    }
+    .map-btn:hover { background: #f0f0f0; }
+
+    .legend {
+      position: absolute;
+      bottom: 32px; right: 10px;
+      background: white;
+      border: 1px solid #ccc;
+      border-radius: 5px;
+      padding: 11px 15px;
+      font-size: 12px;
+      z-index: 1000;
+      box-shadow: 0 1px 4px rgba(0,0,0,0.15);
+      min-width: 175px;
+    }
+    .legend h4 {
+      margin-bottom: 9px;
+      font-size: 12px;
+      font-weight: 600;
+      color: #333;
+      text-transform: uppercase;
+      letter-spacing: 0.03em;
+    }
+    .legend-section { margin-bottom: 10px; }
+    .legend-section-title {
+      font-size: 11px;
+      color: #777;
+      margin-bottom: 5px;
+      font-style: italic;
+    }
+    .legend-item {
+      display: flex;
+      align-items: center;
+      margin-bottom: 5px;
+      gap: 8px;
+      color: #444;
+    }
+    .legend-dot {
+      border-radius: 50%;
+      flex-shrink: 0;
+      border: 1.5px solid rgba(0,0,0,0.2);
+    }
+    .leaflet-tooltip {
+      font-size: 13px;
+      line-height: 1.5;
+      padding: 7px 10px;
+    }
+    .leaflet-tooltip strong {
+      font-size: 14px;
+      display: block;
+      margin-bottom: 2px;
+    }
+  </style>
+</head>
+<body>
+  <div id="map"></div>
+
+  <div class="map-controls">
+    <button class="map-btn" id="btn-world">World view</button>
+    <button class="map-btn" id="btn-europe">Zoom to Europe</button>
+  </div>
+
+  <div class="legend">
+    <h4>Quantum Research Cities</h4>
+
+    <div class="legend-section">
+      <div class="legend-section-title">Bubble size = collaborations</div>
+      <div class="legend-item">
+        <div class="legend-dot" style="width:9px;height:9px;background:#bbb;border-color:#999;"></div>
+        <span>~25 collaborations</span>
+      </div>
+      <div class="legend-item">
+        <div class="legend-dot" style="width:16px;height:16px;background:#bbb;border-color:#999;"></div>
+        <span>~80 collaborations</span>
+      </div>
+      <div class="legend-item">
+        <div class="legend-dot" style="width:25px;height:25px;background:#bbb;border-color:#999;"></div>
+        <span>~200 collaborations</span>
+      </div>
+    </div>
+
+    <div class="legend-section">
+      <div class="legend-section-title">Bubble color = startups</div>
+      <div class="legend-item">
+        <div class="legend-dot" style="width:13px;height:13px;background:rgba(33,150,166,0.65);border-color:#2196A6;"></div>
+        <span>Has quantum startups</span>
+      </div>
+      <div class="legend-item">
+        <div class="legend-dot" style="width:13px;height:13px;background:rgba(155,155,155,0.55);border-color:#999;"></div>
+        <span>No quantum startups</span>
+      </div>
+    </div>
+  </div>
+
+  <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
+  <script>
+    // [name, lat, lng, institutions, collaborations, quantum_startups]
+    const cities = [
+      ["Abu Dhabi",           24.4539,  54.3773,  10,  46, 0],
+      ["Ahmedabad",           23.0225,  72.5714,   6,  42, 0],
+      ["Almaty",              43.2220,  76.8512,   6,  32, 0],
+      ["Ankara",              39.9334,  32.8597,  10,  43, 0],
+      ["Athens",              37.9838,  23.7275,   5, 155, 0],
+      ["Atlanta, GA",         33.7490, -84.3880,   6,  58, 0],
+      ["Baghdad",             33.3152,  44.3661,   7,  27, 0],
+      ["Bangkok",             13.7563, 100.5018,   6,  16, 1],
+      ["Bari",                41.1171,  16.8719,   7,  14, 1],
+      ["Basel",               47.5596,   7.5886,   6,  38, 1],
+      ["Besançon",            47.2378,   6.0241,   7,  96, 1],
+      ["Bhubaneswar",         20.2961,  85.8245,   5,  55, 1],
+      ["Bilbao",              43.2630,  -2.9350,   6,  72, 1],
+      ["Birmingham",          52.4862,  -1.8904,   5,  21, 1],
+      ["Bologna",             44.4949,  11.3426,   5,  18, 0],
+      ["Bratislava",          48.1486,  17.1077,   8,  61, 0],
+      ["Brisbane",           -27.4698, 153.0251,   8,  20, 1],
+      ["Brussels",            50.8503,   4.3517,   6, 131, 0],
+      ["Bucharest",           44.4268,  26.1025,  12,  65, 0],
+      ["Budapest",            47.4979,  19.0402,   8,  63, 0],
+      ["Buenos Aires",       -34.6037, -58.3816,  11,  63, 0],
+      ["Busan",               35.1796, 129.0756,   6,  15, 1],
+      ["Catania",             37.5079,  15.0830,   5,  16, 0],
+      ["Changchun",           43.8171, 125.3235,   8,  29, 0],
+      ["Changsha",            28.2282, 112.9388,  11,  46, 0],
+      ["Chengdu",             30.5728, 104.0668,  16, 191, 1],
+      ["Chennai",             13.0827,  80.2707,  12,  80, 0],
+      ["Chongqing",           29.4316, 106.9123,  12, 265, 0],
+      ["Cleveland, OH",       41.4993, -81.6944,   5,  33, 0],
+      ["Coimbatore",          11.0168,  76.9558,   5,  24, 0],
+      ["Cologne",             50.9333,   6.9500,   5,   8, 0],
+      ["Concepción",         -36.8270, -73.0498,   6,  31, 1],
+      ["Daejeon",             36.3504, 127.3845,  17,  50, 1],
+      ["Dalian",              38.9140, 121.6147,   7, 124, 0],
+      ["Delhi-NCR Region",    28.6139,  77.2090,  19, 188, 0],
+      ["Doha",                25.2854,  51.5310,   5,  24, 0],
+      ["Dresden",             51.0504,  13.7373,   6,   6, 0],
+      ["Dublin",              53.3498,  -6.2603,  11, 179, 1],
+      ["Florence",            43.7696,  11.2558,   7,  61, 0],
+      ["Frankfurt Metropolitan Area", 50.1109,   8.6821,  10,  51, 2],
+      ["Fukuoka",             33.5902, 130.4017,   7,  10, 1],
+      ["Fuzhou",              26.0745, 119.2965,   6,  37, 0],
+      ["Gothenburg",          57.7089,  11.9746,   5,  52, 1],
+      ["Greater Bay Area (Macau–Zhuhai)", 22.1987, 113.5439, 6, 55, 0],
+      ["Greater Bonn Region", 50.7374,   7.0982,   6,   9, 0],
+      ["Greater Cairo",       30.0444,  31.2357,  12,  22, 0],
+      ["Greater Kuala Lumpur",  3.1390, 101.6869,  15,  69, 0],
+      ["Greater Nagoya Region",35.1815, 136.9066,  14, 115, 0],
+      ["Greater Nice",        43.7102,   7.2620,   7, 116, 0],
+      ["Greater Seattle",     47.6062, -122.3321,   7,  38, 1],
+      ["Greater Yerevan Area", 40.1792,  44.4991,   7, 173, 0],
+      ["Greater Zurich Area",  47.3769,   8.5417,   9, 119, 2],
+      ["Groningen",           53.2194,   6.5665,   4,  93, 2],
+      ["Guiyang",             26.6470, 106.6302,   9,  72, 0],
+      ["Hamburg",             53.5753,  10.0153,   9,  36, 1],
+      ["Hanoi",               21.0285, 105.8542,  13, 110, 0],
+      ["Harbin",              45.8038, 126.5349,   8,  36, 0],
+      ["Ho Chi Minh City",    10.8231, 106.6297,   5,  88, 0],
+      ["Houston, TX",         29.7604, -95.3698,   7,  28, 0],
+      ["Hsinchu",             24.8138, 120.9675,  12,  53, 0],
+      ["Huntsville, AL",      34.7304, -86.5861,   5,  36, 1],
+      ["Hyderabad",           17.3850,  78.4867,   7, 146, 0],
+      ["Islamabad",           33.6844,  73.0479,  10, 100, 0],
+      ["Istanbul",            41.0082,  28.9784,  16, 164, 0],
+      ["Jena",                50.9272,  11.5867,   6,  71, 1],
+      ["Jilin City",          43.8370, 126.5496,   5,  42, 0],
+      ["Jinan",               36.6512, 117.1201,   9,  98, 0],
+      ["Kazan",               55.8304,  49.0661,   6,  64, 0],
+      ["Kharkiv",             49.9935,  36.2304,   7,  65, 0],
+      ["Kolkata",             22.5726,  88.3639,  16, 366, 0],
+      ["Kraków",              50.0647,  19.9450,   5,  34, 1],
+      ["Kyiv",                50.4501,  30.5234,   7,  21, 0],
+      ["Kyoto",               35.0116, 135.7681,   9,  41, 0],
+      ["La Plata",           -34.9215, -57.9545,   5,  66, 0],
+      ["Lahore",              31.5204,  74.3587,   6, 101, 0],
+      ["Lanzhou",             36.0611, 103.8343,   5,  25, 0],
+      ["Leeds",               53.8008,  -1.5491,   3,  24, 2],
+      ["Leipzig",             51.3397,  12.3731,   4,  52, 2],
+      ["Lille Metropolitan Area", 50.6292, 3.0573, 5, 130, 0],
+      ["Lisbon",              38.7223,  -9.1393,   8,  46, 1],
+      ["Liverpool",           53.4084,  -2.9916,   6,  68, 0],
+      ["Los Alamos, NM",      35.8800, -106.3031,  3,  22, 1],
+      ["Lyon",                45.7640,   4.8357,   6,  24, 0],
+      ["Madrid",              40.4168,  -3.7038,  23, 191, 0],
+      ["Marseille",           43.2965,   5.3698,   5,  29, 0],
+      ["Melbourne",          -37.8136, 144.9631,  13,  41, 1],
+      ["Mexico City",         19.4326, -99.1332,   7,  18, 0],
+      ["Milan",               45.4654,   9.1859,  14, 101, 1],
+      ["Moscow",              55.7558,  37.6173,  50, 357, 0],
+      ["Mumbai",              19.0760,  72.8777,  10, 110, 0],
+      ["Nanchang",            28.6820, 115.8579,  14, 129, 0],
+      ["Nanjing",             32.0603, 118.7969,  19, 173, 0],
+      ["Nizhny Novgorod",     56.2965,  43.9361,   6,  62, 0],
+      ["Novosibirsk",         54.9884,  82.9657,   7,  31, 0],
+      ["Osaka",               34.6937, 135.5023,   9,  81, 0],
+      ["Ottawa",              45.4215, -75.6972,  15,  73, 1],
+      ["Philadelphia, PA",    39.9526, -75.1652,   5,   9, 0],
+      ["Pisa",                43.7228,  10.4017,   7, 144, 1],
+      ["Pittsburgh, PA",      40.4406, -79.9959,   7,  27, 0],
+      ["Portland, OR",        45.5231, -122.6765,  5,  19, 0],
+      ["Poznań",              52.4064,  16.9252,   5,  47, 0],
+      ["Prague",              50.0755,  14.4378,  12, 141, 1],
+      ["Pune",                18.5204,  73.8567,   9,  49, 0],
+      ["Qingdao",             36.0671, 120.3826,   7,  26, 0],
+      ["Research Triangle",   35.8801, -78.7880,   5,  26, 1],
+      ["Riga",                56.9460,  24.1059,   7,  75, 0],
+      ["Rio de Janeiro",     -22.9068, -43.1729,   8,  42, 0],
+      ["Riyadh",              24.7136,  46.6753,   6,  33, 0],
+      ["Rome",                41.9028,  12.4964,  22, 231, 0],
+      ["Ruhr Region",         51.4500,   7.0100,   6,  33, 0],
+      ["San Diego, CA",       32.7157, -117.1611,  8,  13, 0],
+      ["San Sebastián",       43.3183,  -1.9812,   4,  75, 1],
+      ["Santiago",           -33.4489, -70.6693,  11,  62, 0],
+      ["São Paulo",          -23.5505, -46.6333,   6,  72, 0],
+      ["Sendai",              38.2682, 140.8694,   5,   6, 0],
+      ["Shenyang",            41.8057, 123.4315,   6,  21, 0],
+      ["Sherbrooke",          45.4042, -71.8929,   6,  15, 3],
+      ["Shijiazhuang",        38.0428, 114.5149,   5,  12, 0],
+      ["St. Gallen",          47.4237,   9.3748,   4,  27, 2],
+      ["St. Petersburg",      59.9311,  30.3609,  14,  64, 1],
+      ["Stockholm",           59.3293,  18.0686,   7,  74, 1],
+      ["Strasbourg",          48.5734,   7.7521,   5,   9, 1],
+      ["Taichung",            24.1477, 120.6736,   5,  36, 0],
+      ["Taipei",              25.0330, 121.5654,  22,  80, 0],
+      ["Taiyuan",             37.8706, 112.5489,  11,  46, 0],
+      ["Tampere",             61.4978,  23.7610,   3,  55, 1],
+      ["Tashkent",            41.2995,  69.2401,   5,  73, 0],
+      ["Tehran",              35.6892,  51.3890,  22,  64, 0],
+      ["Tianjin",             39.3434, 117.3616,  10, 121, 0],
+      ["Tomsk",               56.4977,  84.9744,   5,  59, 0],
+      ["Toulouse",            43.6047,   1.4442,   9, 118, 0],
+      ["Trieste",             45.6495,  13.7768,   7,  31, 0],
+      ["Tunis",               36.8065,  10.1815,   6,  39, 0],
+      ["Turin",               45.0703,   7.6869,   9, 110, 0],
+      ["Ulm",                 48.4011,   9.9876,   3,   2, 2],
+      ["Vienna",              48.2082,  16.3738,  16, 273, 1],
+      ["Warsaw",              52.2297,  21.0122,  13, 106, 0],
+      ["Wuhan",               30.5928, 114.3055,  25, 174, 1],
+      ["Wuhu",                31.3522, 118.3649,   5,  73, 1],
+      ["Wuxi",                31.4712, 120.3121,   6,  83, 0],
+      ["Xi'an",               34.3416, 108.9398,  12,  84, 0],
+      ["Xiangtan",            27.8295, 112.9440,   5,  36, 0],
+      ["Zhengzhou",           34.7472, 113.6249,  11,  90, 0]
+    ];
+
+    const map = L.map('map', { zoomControl: true, scrollWheelZoom: true })
+                 .setView([30, 15], 2);
+
+    L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+      attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors',
+      maxZoom: 18
+    }).addTo(map);
+
+    const SCALE = 1.5;
+
+    cities.forEach(([name, lat, lng, inst, collab, startups]) => {
+      const r = Math.max(4, Math.sqrt(collab) * SCALE);
+      const hasStartups = startups > 0;
+      const fillColor  = hasStartups ? '#2196A6' : '#9E9E9E';
+      const edgeColor  = hasStartups ? '#166d78' : '#6b6b6b';
+
+      const marker = L.circleMarker([lat, lng], {
+        radius: r,
+        fillColor: fillColor,
+        color: edgeColor,
+        weight: 1,
+        fillOpacity: 0.65,
+        interactive: true
+      });
+
+      const startupLine = startups > 0
+        ? `<span style="color:#2196A6;font-weight:600;">&#9632; ${startups} quantum startup${startups > 1 ? 's' : ''}</span>`
+        : `<span style="color:#999;">No quantum startups</span>`;
+
+      marker.bindTooltip(
+        `<strong>${name}</strong>` +
+        `<br>Collaborations: <b>${collab}</b>` +
+        `<br>Institutions: ${inst}` +
+        `<br>${startupLine}`,
+        { sticky: true, direction: 'top', offset: [0, -4] }
+      );
+
+      marker.addTo(map);
+    });
+
+    document.getElementById('btn-world').addEventListener('click', () => {
+      map.setView([30, 15], 2);
+    });
+
+    document.getElementById('btn-europe').addEventListener('click', () => {
+      map.fitBounds([[34, -12], [71, 42]], { padding: [20, 20] });
+    });
+  </script>
+</body>
+</html>
