@@ -1,0 +1,342 @@
+
+<style>
+@import url('https://fonts.googleapis.com/css2?family=Raleway:wght@400;600&display=swap');
+*{font-family:'Raleway',sans-serif;box-sizing:border-box;}
+h2.sr-only{position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0,0,0,0);}
+.filters{display:flex;gap:8px;flex-wrap:wrap;margin-bottom:14px;}
+.btn{padding:6px 16px;border-radius:20px;border:1.5px solid #09435E;background:transparent;font-size:12px;cursor:pointer;font-family:inherit;color:#09435E;transition:all 0.15s;font-weight:400;}
+.btn:hover:not(.active){background:rgba(9,67,94,0.08);}
+.btn.active{color:#fff;border-color:#09435E;background:#09435E;font-weight:600;box-shadow:0 2px 6px rgba(9,67,94,0.35);}
+#tooltip{position:absolute;display:none;background:rgba(0,0,0,0.78);color:#fff;font-size:11px;padding:6px 10px;border-radius:4px;pointer-events:none;white-space:nowrap;line-height:1.6;z-index:20;}
+.label-div{position:absolute;right:8px;font-size:11px;color:#000;text-align:right;width:290px;user-select:text;cursor:text;line-height:1.3;pointer-events:auto;z-index:5;}
+#axisTitle{position:absolute;font-size:11px;color:#000;text-align:center;user-select:text;pointer-events:auto;z-index:5;}
+</style>
+
+<div style="padding:0.5rem 0;">
+  <h2 class="sr-only">Bubble charts filterable by technology category.</h2>
+  <div class="filters">
+    <button class="btn active" onclick="setCategory('digital',this)">Digital</button>
+    <button class="btn" onclick="setCategory('green',this)">Green / energy</button>
+    <button class="btn" onclick="setCategory('bio',this)">Health / life sciences</button>
+    <button class="btn" onclick="setCategory('mixed',this)">Other industries</button>
+    <button class="btn" onclick="setCategory('all',this)">All 44</button>
+  </div>
+
+  <div style="display:flex;gap:16px;align-items:center;justify-content:center;font-size:12px;color:#000;margin-bottom:4px;padding-left:300px;">
+    <span style="display:flex;align-items:center;gap:5px;"><span style="width:11px;height:11px;border-radius:50%;background:#09435E;display:inline-block;"></span>US</span>
+    <span style="display:flex;align-items:center;gap:5px;"><span style="width:11px;height:11px;border-radius:50%;background:#428A8F;display:inline-block;"></span>China</span>
+    <span style="display:flex;align-items:center;gap:5px;"><span style="width:11px;height:11px;border-radius:50%;background:#FF8200;display:inline-block;"></span>EU</span>
+  </div>
+
+  <div id="chartWrap" style="position:relative;width:100%;">
+    <canvas id="chartCanvas" style="display:block;position:relative;z-index:1;"></canvas>
+    <div id="labelCol" style="position:absolute;top:0;left:0;width:300px;z-index:5;"></div>
+    <div id="axisTitle"></div>
+    <div id="tooltip"></div>
+  </div>
+</div>
+
+<script>
+const ALL_SECTORS=[
+  {name:"Artificial Intelligence",cat:"digital",us:143571,cn:26815,eu:23707},
+  {name:"Data Analytics Technologies",cat:"digital",us:168920,cn:35571,eu:31198},
+  {name:"Cloud Computing and Edge Computing",cat:"digital",us:15736,cn:4007,eu:3127},
+  {name:"Cybersecurity Technologies",cat:"digital",us:33198,cn:1549,eu:5064},
+  {name:"Software Engineering and Systems Development",cat:"digital",us:33532,cn:974,eu:3957},
+  {name:"High Performance Computing",cat:"digital",us:15939,cn:3988,eu:2601},
+  {name:"Mobile Networks (e.g. 5G and 6G)",cat:"digital",us:15019,cn:583,eu:328},
+  {name:"Internet of Things (IoT)",cat:"digital",us:8814,cn:3968,eu:1991},
+  {name:"Computer Vision, Language Processing, Object Recognition",cat:"digital",us:29509,cn:3063,eu:3356},
+  {name:"Augmented Reality (AR) and Virtual Reality (VR)",cat:"digital",us:17792,cn:1789,eu:1679},
+  {name:"Blockchain Technologies",cat:"digital",us:19820,cn:368,eu:5096},
+  {name:"Financial Technologies",cat:"digital",us:49056,cn:1254,eu:23319},
+  {name:"Quantum Technologies and Computing",cat:"digital",us:2504,cn:262,eu:980},
+  {name:"Semiconductors and Chips",cat:"digital",us:11505,cn:32590,eu:4868},
+  {name:"Photonics and Spintronics",cat:"digital",us:305,cn:565,eu:267},
+  {name:"Solar Technologies",cat:"green",us:16980,cn:3832,eu:8568},
+  {name:"Wind Technologies",cat:"green",us:1057,cn:726,eu:1033},
+  {name:"Hydrogen Technologies",cat:"green",us:96,cn:299,eu:215},
+  {name:"Batteries",cat:"green",us:12964,cn:12857,eu:7085},
+  {name:"Smart Grids",cat:"green",us:3086,cn:581,eu:618},
+  {name:"Nuclear Energy Technologies",cat:"green",us:1696,cn:155,eu:839},
+  {name:"Hydropower Technologies",cat:"green",us:109,cn:710,eu:684},
+  {name:"Heat Pumps",cat:"green",us:182,cn:200,eu:55},
+  {name:"Recycling Technologies",cat:"green",us:2868,cn:1040,eu:792},
+  {name:"Biofuels",cat:"green",us:469,cn:7,eu:24},
+  {name:"Biobased Materials & Biomanufacturing",cat:"green",us:1252,cn:15,eu:220},
+  {name:"Life Sciences & Pharmaceuticals",cat:"bio",us:59404,cn:20223,eu:10032},
+  {name:"Advanced Therapy Medicinal Products (ATMP)",cat:"bio",us:37265,cn:2789,eu:5388},
+  {name:"Medtech",cat:"bio",us:23960,cn:7652,eu:6036},
+  {name:"Personalised Medicine",cat:"bio",us:15453,cn:1575,eu:3015},
+  {name:"Synthetic Biology",cat:"bio",us:9707,cn:3401,eu:740},
+  {name:"Transport Technologies",cat:"mixed",us:78485,cn:54596,eu:37028},
+  {name:"Drones",cat:"mixed",us:416,cn:0,eu:251},
+  {name:"Aeronautics Technologies",cat:"mixed",us:27283,cn:4089,eu:5541},
+  {name:"Space Technologies",cat:"mixed",us:14806,cn:2608,eu:1985},
+  {name:"Defence Technologies",cat:"mixed",us:15369,cn:24,eu:1004},
+  {name:"Safety and Security Technologies",cat:"mixed",us:17141,cn:1407,eu:2032},
+  {name:"Propulsion Technologies",cat:"mixed",us:28515,cn:5391,eu:6178},
+  {name:"Sensor Technologies",cat:"mixed",us:14561,cn:746,eu:557},
+  {name:"Industrial Automation and Process Control",cat:"mixed",us:8755,cn:3367,eu:2280},
+  {name:"Production Technologies",cat:"mixed",us:8167,cn:4506,eu:1302},
+  {name:"Metals and Minerals Technologies",cat:"mixed",us:3892,cn:429,eu:762},
+  {name:"Additive Manufacturing (3D Printing)",cat:"mixed",us:2813,cn:605,eu:297},
+  {name:"Maritime Technologies",cat:"mixed",us:1571,cn:198,eu:262},
+];
+
+const gdp={us:28710,cn:18750,eu:19470};
+const BREAK=0.10;
+const CAT_CONFIG={
+  digital:{maxVal:0.70,breakPx:0.35},
+  green:  {maxVal:0.08,breakPx:0.50},
+  bio:    {maxVal:0.30,breakPx:0.50},
+  mixed:  {maxVal:0.40,breakPx:0.50},
+  all:    {maxVal:0.70,breakPx:0.35},
+};
+
+const LABEL_COL=300;
+const ROW_H=34;
+const TOP_PAD=34;
+const BOT_PAD=64;
+const RIGHT_PAD=24;
+const LINE_COLOR='rgba(0,0,0,0.2)';
+const GRID_COLOR='rgba(0,0,0,0.06)';
+const FLAGS={us:'🇺🇸',cn:'🇨🇳',eu:'🇪🇺'};
+const CLABELS={us:'US',cn:'China',eu:'EU'};
+
+const COLORS={
+  us:{fill:'rgba(9,67,94,0.8)',    stroke:'#09435E', dimFill:'rgba(9,67,94,0.12)',    dimStroke:'rgba(9,67,94,0.15)'},
+  cn:{fill:'rgba(66,138,143,0.8)', stroke:'#428A8F', dimFill:'rgba(66,138,143,0.12)', dimStroke:'rgba(66,138,143,0.15)'},
+  eu:{fill:'rgba(255,130,0,0.8)',  stroke:'#FF8200', dimFill:'rgba(255,130,0,0.12)',  dimStroke:'rgba(255,130,0,0.15)'},
+};
+
+function fmtNum(n){return n.toLocaleString('en-US');}
+function toGDP(val,c){return(val/(gdp[c]*1000))*100;}
+function bubbleR(val){return Math.sqrt(val/200);}
+function toDisplay(v,maxVal,breakPx){
+  v=Math.min(v,maxVal);
+  if(maxVal<=BREAK) return maxVal>0?v/maxVal:0;
+  if(v<=BREAK) return(v/BREAK)*breakPx;
+  return breakPx+((v-BREAK)/(maxVal-BREAK))*(1-breakPx);
+}
+function makeTicks(cat,maxVal){
+  if(cat==='green'){
+    const t=[];let v=0;
+    while(v<=maxVal+0.0001){t.push(Math.round(v*100)/100);v=Math.round((v+0.01)*1000)/1000;}
+    return t;
+  }
+  if(maxVal<=BREAK){
+    const t=[];let v=0;
+    while(v<=maxVal+0.001){t.push(Math.round(v*100)/100);v+=0.02;}
+    return t;
+  }
+  const t=[0,0.02,0.04,0.06,0.08,0.10];
+  let v=0.20;while(v<=maxVal+0.001){t.push(Math.round(v*100)/100);v+=0.10;}
+  return t;
+}
+
+let currentSectors=[];
+let currentCat='digital';
+let hovered=null;
+// Store bubble positions as they're drawn so tooltip can reference exact cx
+let bubblePositions=[];
+
+const canvas=document.getElementById('chartCanvas');
+const ctx=canvas.getContext('2d');
+const wrap=document.getElementById('chartWrap');
+const tip=document.getElementById('tooltip');
+const labelCol=document.getElementById('labelCol');
+const axisTitle=document.getElementById('axisTitle');
+
+function getPlot(n,cssW){
+  return{x:LABEL_COL,y:TOP_PAD,w:cssW-LABEL_COL-RIGHT_PAD,h:n*ROW_H};
+}
+
+function tickPx(v,p,maxVal,breakPx){
+  if(v===0) return p.x;
+  return Math.round(p.x+toDisplay(v,maxVal,breakPx)*p.w);
+}
+
+function syncDomainLabels(sectors,p){
+  labelCol.innerHTML='';
+  labelCol.style.height=(p.y+p.h+BOT_PAD)+'px';
+  sectors.forEach((s,i)=>{
+    const cy=p.y+i*ROW_H+ROW_H/2;
+    const div=document.createElement('div');
+    div.className='label-div';
+    if(s.name==="Computer Vision, Language Processing, Object Recognition"){
+      div.style.top=(cy-16)+'px';
+      div.style.whiteSpace='normal';
+      div.innerHTML='Computer Vision, Language Processing,<br>Object Recognition';
+    } else {
+      div.style.top=(cy-9)+'px';
+      div.style.whiteSpace='nowrap';
+      div.textContent=s.name;
+    }
+    labelCol.appendChild(div);
+  });
+}
+
+function syncAxisTitle(p,cssH){
+  axisTitle.textContent='Startup investment to GDP (%)';
+  axisTitle.style.left=p.x+'px';
+  axisTitle.style.width=p.w+'px';
+  axisTitle.style.top=(cssH-16)+'px';
+}
+
+function drawLines(p,n,ticks,maxVal,breakPx){
+  ctx.lineWidth=1;
+  ctx.strokeStyle=GRID_COLOR;
+  for(let i=0;i<n;i++){
+    const cy=p.y+i*ROW_H+ROW_H/2;
+    ctx.beginPath();ctx.moveTo(p.x,cy);ctx.lineTo(p.x+p.w,cy);ctx.stroke();
+  }
+  ctx.strokeStyle=LINE_COLOR;
+  const tickY=p.y+p.h;
+  ticks.forEach(v=>{
+    const px=tickPx(v,p,maxVal,breakPx);
+    ctx.beginPath();ctx.moveTo(px+0.5,tickY);ctx.lineTo(px+0.5,tickY+4);ctx.stroke();
+  });
+  ctx.beginPath();ctx.moveTo(p.x,p.y);ctx.lineTo(p.x,p.y+p.h);ctx.stroke();
+  ctx.beginPath();ctx.moveTo(p.x,p.y+p.h);ctx.lineTo(p.x+p.w,p.y+p.h);ctx.stroke();
+}
+
+function drawTickLabels(p,ticks,maxVal,breakPx){
+  const tickY=p.y+p.h;
+  ctx.fillStyle='#000';
+  ctx.font="10px 'Raleway',sans-serif";
+  ctx.textAlign='right';
+  ctx.textBaseline='middle';
+  ticks.forEach(v=>{
+    const px=tickPx(v,p,maxVal,breakPx);
+    ctx.save();
+    ctx.translate(px,tickY+6);
+    ctx.rotate(-Math.PI/4);
+    ctx.fillText(v.toFixed(2)+'%',0,0);
+    ctx.restore();
+  });
+}
+
+function drawBubbles(sectors,p,maxVal,breakPx,record){
+  if(record) bubblePositions=[];
+  ['eu','cn','us'].forEach(key=>{
+    const c=COLORS[key];
+    sectors.forEach((s,i)=>{
+      const val=s[key];
+      if(val<=0) return;
+      const pct=toGDP(val,key);
+      const cx=p.x+toDisplay(pct,maxVal,breakPx)*p.w;
+      const cy=p.y+i*ROW_H+ROW_H/2;
+      const r=Math.max(bubbleR(val),2);
+      if(record) bubblePositions.push({sectorIdx:i,key,cx,cy,r,pct,rawVal:val,name:s.name});
+      const isHovered=hovered&&hovered.sectorIdx===i&&hovered.key===key;
+      const isDimmed=hovered&&!isHovered;
+      ctx.beginPath();ctx.arc(cx,cy,r,0,Math.PI*2);
+      ctx.fillStyle=isDimmed?c.dimFill:c.fill;ctx.fill();
+      ctx.strokeStyle=isDimmed?c.dimStroke:c.stroke;ctx.lineWidth=1;ctx.stroke();
+    });
+  });
+}
+
+function fullRedraw(cat){
+  const sectors=(cat==='all'?[...ALL_SECTORS]:ALL_SECTORS.filter(s=>s.cat===cat))
+    .sort((a,b)=>(b.us+b.cn+b.eu)-(a.us+a.cn+a.eu));
+  currentSectors=sectors;
+  currentCat=cat;
+  hovered=null;
+  const n=sectors.length;
+  const {maxVal,breakPx}=CAT_CONFIG[cat];
+  const ticks=makeTicks(cat,maxVal);
+
+  const dpr=window.devicePixelRatio||1;
+  const cssW=wrap.clientWidth||680;
+  const cssH=TOP_PAD+n*ROW_H+BOT_PAD;
+
+  canvas.style.width=cssW+'px';
+  canvas.style.height=cssH+'px';
+  canvas.width=Math.round(cssW*dpr);
+  canvas.height=Math.round(cssH*dpr);
+  ctx.setTransform(1,0,0,1,0,0);
+  ctx.scale(dpr,dpr);
+  wrap.style.height=cssH+'px';
+
+  const p=getPlot(n,cssW);
+  ctx.clearRect(0,0,cssW,cssH);
+
+  drawBubbles(sectors,p,maxVal,breakPx,true);
+  drawLines(p,n,ticks,maxVal,breakPx);
+  drawTickLabels(p,ticks,maxVal,breakPx);
+  syncDomainLabels(sectors,p);
+  syncAxisTitle(p,cssH);
+}
+
+function redrawBubblesOnly(){
+  const n=currentSectors.length;
+  const {maxVal,breakPx}=CAT_CONFIG[currentCat];
+  const ticks=makeTicks(currentCat,maxVal);
+  const cssW=canvas.offsetWidth;
+  const p=getPlot(n,cssW);
+  ctx.clearRect(p.x,0,p.w,p.y+p.h);
+  drawBubbles(currentSectors,p,maxVal,breakPx,false);
+  drawLines(p,n,ticks,maxVal,breakPx);
+}
+
+function showTooltip(bp,mx,my){
+  tip.innerHTML=
+    `<div style="font-weight:600;margin-bottom:3px;">${FLAGS[bp.key]} ${CLABELS[bp.key]}</div>`+
+    `<div style="display:flex;justify-content:space-between;gap:20px;">`+
+      `<span style="color:rgba(255,255,255,0.75);">${bp.name}</span>`+
+      `<span style="font-weight:600;">${bp.pct.toFixed(3)}% of GDP</span>`+
+    `</div>`+
+    `<div style="display:flex;justify-content:space-between;gap:20px;">`+
+      `<span style="visibility:hidden;">${bp.name}</span>`+
+      `<span style="color:#fff;font-weight:400;font-size:10px;">$${fmtNum(bp.rawVal)}M</span>`+
+    `</div>`;
+  tip.style.display='block';
+
+  const tipW=tip.offsetWidth||220;
+  const wrapW=wrap.offsetWidth||680;
+  // Use the recorded bubble cx (actual drawn pixel) to decide direction
+  const spaceRight=wrapW-bp.cx-14;
+  if(spaceRight>=tipW+4){
+    tip.style.left=(mx+14)+'px';
+  } else {
+    tip.style.left=(mx-tipW-14)+'px';
+  }
+  tip.style.top=Math.max(0,my-18)+'px';
+}
+
+canvas.addEventListener('mousemove',e=>{
+  const rect=canvas.getBoundingClientRect();
+  const mx=e.clientX-rect.left;
+  const my=e.clientY-rect.top;
+
+  let found=null;
+  for(const bp of bubblePositions){
+    if(Math.hypot(mx-bp.cx,my-bp.cy)<=bp.r+3){found=bp;break;}
+  }
+
+  const prevKey=hovered?hovered.sectorIdx+':'+hovered.key:null;
+  const nextKey=found?found.sectorIdx+':'+found.key:null;
+  if(prevKey!==nextKey){
+    hovered=found?{sectorIdx:found.sectorIdx,key:found.key}:null;
+    redrawBubblesOnly();
+  }
+  if(found){showTooltip(found,mx,my);}
+  else{tip.style.display='none';}
+});
+
+canvas.addEventListener('mouseleave',()=>{
+  tip.style.display='none';
+  if(hovered){hovered=null;redrawBubblesOnly();}
+});
+
+function setCategory(cat,btn){
+  document.querySelectorAll('.btn').forEach(b=>b.classList.remove('active'));
+  btn.classList.add('active');
+  fullRedraw(cat);
+}
+
+fullRedraw('digital');
+window.addEventListener('resize',()=>fullRedraw(currentCat));
+</script>

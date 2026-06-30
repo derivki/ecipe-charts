@@ -1,0 +1,258 @@
+
+<link href="https://fonts.googleapis.com/css2?family=Raleway:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+* { box-sizing: border-box; margin: 0; padding: 0; font-family: 'Raleway', var(--font-sans), sans-serif; }
+.wrap { padding: 1rem 0; }
+.controls { display: flex; flex-wrap: wrap; gap: 10px; margin-bottom: 1.25rem; align-items: center; }
+.controls select, .controls input { font-size: 13px; padding: 6px 10px; border-radius: var(--border-radius-md); border: 0.5px solid var(--color-border-secondary); background: var(--color-background-primary); color: var(--color-text-primary); font-family: 'Raleway', sans-serif; }
+.controls label { font-size: 13px; color: var(--color-text-secondary); }
+.stats { display: flex; gap: 10px; margin-bottom: 1.25rem; flex-wrap: wrap; }
+.stat { background: var(--color-background-secondary); border-radius: var(--border-radius-md); padding: 10px 14px; flex: 1; min-width: 100px; }
+.stat-val { font-size: 22px; font-weight: 600; color: var(--color-text-primary); }
+.stat-lbl { font-size: 11px; color: var(--color-text-secondary); margin-top: 2px; }
+table { width: 100%; border-collapse: collapse; font-size: 13px; font-family: 'Raleway', sans-serif; }
+thead th { padding: 8px 10px; text-align: left; font-weight: 600; font-size: 12px; color: var(--color-text-secondary); border-bottom: 0.5px solid var(--color-border-tertiary); cursor: pointer; white-space: nowrap; user-select: none; }
+thead th:hover { color: var(--color-text-primary); }
+thead th .sort-arrow { margin-left: 4px; opacity: 0.4; }
+thead th.active .sort-arrow { opacity: 1; }
+tbody tr { border-bottom: 0.5px solid var(--color-border-tertiary); transition: background 0.1s; cursor: pointer; }
+tbody tr:hover { background: var(--color-background-secondary); }
+tbody tr.selected { background: var(--color-background-info); }
+td { padding: 7px 10px; vertical-align: middle; }
+.rank-badge { display: inline-flex; align-items: center; justify-content: center; width: 26px; height: 26px; border-radius: 50%; font-size: 12px; font-weight: 600; }
+.rank-top { background: #FAC775; color: #412402; }
+.rank-mid { background: var(--color-background-secondary); color: var(--color-text-secondary); }
+.rank-low { background: #F7C1C1; color: #501313; }
+.cluster-name { font-weight: 600; color: var(--color-text-primary); }
+.country-tag { font-size: 11px; color: var(--color-text-secondary); margin-top: 1px; }
+.region-pill { display: inline-block; font-size: 10px; padding: 2px 7px; border-radius: 20px; font-weight: 600; }
+.r-uk { background: #B5D4F4; color: #042C53; }
+.r-us { background: #C0DD97; color: #173404; }
+.r-eu { background: #CECBF6; color: #26215C; }
+.r-ch { background: #FAC775; color: #412402; }
+.r-rw { background: #F5C4B3; color: #4A1B0C; }
+.bar-wrap { display: flex; align-items: center; gap: 6px; }
+.bar-bg { flex: 1; height: 6px; background: var(--color-background-secondary); border-radius: 3px; overflow: hidden; }
+.bar-fill { height: 100%; border-radius: 3px; }
+.dim-val { font-size: 11px; color: var(--color-text-secondary); min-width: 22px; text-align: right; }
+.detail-panel { background: var(--color-background-secondary); border-radius: var(--border-radius-lg); padding: 1rem 1.25rem; margin-top: 1rem; border: 0.5px solid var(--color-border-tertiary); }
+.detail-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 12px; margin-top: 10px; }
+.dim-card { background: var(--color-background-primary); border-radius: var(--border-radius-md); padding: 10px 12px; border: 0.5px solid var(--color-border-tertiary); }
+.dim-card-title { font-size: 11px; color: var(--color-text-secondary); margin-bottom: 6px; font-weight: 500; }
+.dim-card-rank { font-size: 20px; font-weight: 600; }
+.dim-card-label { font-size: 11px; color: var(--color-text-secondary); margin-top: 2px; line-height: 1.5; }
+</style>
+<div class="wrap">
+<h2 class="sr-only">Interactive ranking of 45 global quantum clusters by market orientation, collaboration intensity, and ecosystem maturity</h2>
+<div class="stats">
+  <div class="stat"><div class="stat-val" id="s-total">45</div><div class="stat-lbl">Total clusters</div></div>
+  <div class="stat"><div class="stat-val" id="s-showing">45</div><div class="stat-lbl">Showing</div></div>
+  <div class="stat"><div class="stat-val" id="s-regions">5</div><div class="stat-lbl">Regions</div></div>
+</div>
+<div class="controls">
+  <div>
+    <label>Region </label>
+    <select id="reg-filter">
+      <option value="">All regions</option>
+      <option value="US">US</option>
+      <option value="UK, Canada, and Australia">UK / Canada / Australia</option>
+      <option value="EU">EU</option>
+      <option value="China">China</option>
+      <option value="Rest of the World">Rest of the world</option>
+    </select>
+  </div>
+  <div>
+    <label>Sort by </label>
+    <select id="sort-by">
+      <option value="rank">Overall rank</option>
+      <option value="market">Market orientation</option>
+      <option value="collab">Collaboration intensity</option>
+      <option value="eco">Ecosystem maturity</option>
+    </select>
+  </div>
+  <input type="text" id="search" placeholder="Search cluster…" style="width:160px;">
+</div>
+<div style="overflow-x:auto;">
+<table id="main-table">
+<thead>
+<tr>
+  <th data-col="rank">Rank <span class="sort-arrow">↕</span></th>
+  <th data-col="name">Cluster <span class="sort-arrow">↕</span></th>
+  <th data-col="region">Region <span class="sort-arrow">↕</span></th>
+  <th data-col="market" title="Market Orientation rank">Market <span class="sort-arrow">↕</span></th>
+  <th data-col="collab" title="Collaboration Intensity rank">Collab <span class="sort-arrow">↕</span></th>
+  <th data-col="eco" title="Ecosystem Maturity rank">Ecosystem <span class="sort-arrow">↕</span></th>
+</tr>
+</thead>
+<tbody id="tbody"></tbody>
+</table>
+</div>
+<div id="detail-panel" style="display:none;" class="detail-panel"></div>
+</div>
+
+<script>
+const data = [
+  {rank:1,name:"Cambridge",country:"UK",region:"UK, Canada, and Australia",market:2,collab:11,eco:2},
+  {rank:2,name:"Greater Helsinki",country:"Finland",region:"EU",market:2,collab:15,eco:4},
+  {rank:3,name:"Oxford",country:"UK",region:"UK, Canada, and Australia",market:8,collab:5,eco:3},
+  {rank:4,name:"San Francisco Bay Area",country:"US",region:"US",market:1,collab:11,eco:8},
+  {rank:5,name:"Greater Glasgow",country:"UK",region:"UK, Canada, and Australia",market:16,collab:4,eco:5},
+  {rank:6,name:"Tel Aviv Metropolitan Area",country:"Israel",region:"Rest of the World",market:6,collab:19,eco:7},
+  {rank:7,name:"Karlsruhe",country:"Germany",region:"EU",market:20,collab:2,eco:6},
+  {rank:8,name:"Hefei",country:"China",region:"China",market:4,collab:6,eco:24},
+  {rank:9,name:"Denver–Boulder Region",country:"US",region:"US",market:4,collab:28,eco:15},
+  {rank:10,name:"Greater Geneva–Bern Area",country:"Switzerland",region:"Rest of the World",market:12,collab:6,eco:15},
+  {rank:11,name:"Bristol–Bath Region",country:"UK",region:"UK, Canada, and Australia",market:20,collab:23,eco:1},
+  {rank:12,name:"Canberra",country:"Australia",region:"UK, Canada, and Australia",market:9,collab:25,eco:11},
+  {rank:12,name:"Toronto–Waterloo Corridor",country:"Canada",region:"UK, Canada, and Australia",market:10,collab:31,eco:8},
+  {rank:14,name:"Greater Boston",country:"US",region:"US",market:11,collab:32,eco:14},
+  {rank:14,name:"London Commuter Belt",country:"UK",region:"UK, Canada, and Australia",market:16,collab:10,eco:23},
+  {rank:16,name:"Greater Copenhagen",country:"Denmark",region:"EU",market:26,collab:6,eco:13},
+  {rank:17,name:"Greater Sydney",country:"Australia",region:"UK, Canada, and Australia",market:15,collab:21,eco:19},
+  {rank:18,name:"Greater Washington",country:"US",region:"US",market:7,collab:17,eco:31},
+  {rank:19,name:"Metro Vancouver",country:"Canada",region:"UK, Canada, and Australia",market:14,collab:35,eco:20},
+  {rank:20,name:"Greater Paris",country:"France",region:"EU",market:13,collab:33,eco:24},
+  {rank:21,name:"Greater Austin",country:"US",region:"US",market:20,collab:27,eco:27},
+  {rank:22,name:"Munich Metropolitan Area",country:"Germany",region:"EU",market:18,collab:40,eco:22},
+  {rank:23,name:"Randstad Region",country:"Netherlands",region:"EU",market:31,collab:28,eco:15},
+  {rank:24,name:"Grenoble",country:"France",region:"EU",market:23,collab:42,eco:18},
+  {rank:25,name:"Singapore",country:"Singapore",region:"Rest of the World",market:39,collab:28,eco:10},
+  {rank:26,name:"Shanghai",country:"China",region:"China",market:30,collab:1,eco:42},
+  {rank:27,name:"Greater New York",country:"US",region:"US",market:24,collab:18,eco:40},
+  {rank:28,name:"Stuttgart Metropolitan Area",country:"Germany",region:"EU",market:25,collab:22,eco:33},
+  {rank:29,name:"Beijing",country:"China",region:"China",market:27,collab:23,eco:32},
+  {rank:29,name:"Greater Montreal",country:"Canada",region:"UK, Canada, and Australia",market:36,collab:20,eco:24},
+  {rank:29,name:"Greater Tokyo",country:"Japan",region:"Rest of the World",market:28,collab:16,eco:34},
+  {rank:32,name:"Bangalore",country:"India",region:"Rest of the World",market:34,collab:6,eco:35},
+  {rank:32,name:"Shenzhen–HK–Guangzhou",country:"China",region:"China",market:19,collab:11,eco:45},
+  {rank:34,name:"Hangzhou",country:"China",region:"China",market:35,collab:11,eco:39},
+  {rank:35,name:"Greater Adelaide",country:"Australia",region:"UK, Canada, and Australia",market:32,collab:44,eco:12},
+  {rank:36,name:"Barcelona Metropolitan Area",country:"Spain",region:"EU",market:41,collab:34,eco:28},
+  {rank:36,name:"Greater Los Angeles",country:"US",region:"US",market:44,collab:2,eco:40},
+  {rank:38,name:"Valencia Metropolitan Area",country:"Spain",region:"EU",market:37,collab:38,eco:28},
+  {rank:39,name:"Berlin Metropolitan Area",country:"Germany",region:"EU",market:41,collab:37,eco:28},
+  {rank:40,name:"Chicagoland",country:"US",region:"US",market:45,collab:39,eco:21},
+  {rank:41,name:"Indianapolis Metropolitan Area",country:"US",region:"US",market:29,collab:43,eco:35},
+  {rank:42,name:"Dallas–Fort Worth Metroplex",country:"US",region:"US",market:33,collab:41,eco:35},
+  {rank:43,name:"Seoul Metropolitan Area",country:"South Korea",region:"Rest of the World",market:40,collab:25,eco:43},
+  {rank:44,name:"Suzhou",country:"China",region:"China",market:43,collab:36,eco:44},
+  {rank:45,name:"Dubai",country:"UAE",region:"Rest of the World",market:37,collab:45,eco:38},
+];
+
+const regionClass = {
+  "US":"r-us","UK, Canada, and Australia":"r-uk","EU":"r-eu","China":"r-ch","Rest of the World":"r-rw"
+};
+const regionLabel = {
+  "US":"US","UK, Canada, and Australia":"UK/CA/AU","EU":"EU","China":"China","Rest of the World":"Rest"
+};
+const dimColors = { market:"#378ADD", collab:"#1D9E75", eco:"#D85A30" };
+
+let currentSort = {col:"rank", asc:true};
+let selectedRow = null;
+
+function rankColor(r) {
+  if (r <= 15) return "rank-top";
+  if (r <= 30) return "rank-mid";
+  return "rank-low";
+}
+
+function barHtml(val, color) {
+  const pct = Math.round((1 - (val - 1) / 44) * 100);
+  return `<div class="bar-wrap"><div class="bar-bg"><div class="bar-fill" style="width:${pct}%;background:${color}"></div></div><span class="dim-val">#${val}</span></div>`;
+}
+
+function render() {
+  const reg = document.getElementById('reg-filter').value;
+  const q = document.getElementById('search').value.toLowerCase();
+  let rows = data.filter(d => (!reg || d.region === reg) && (!q || d.name.toLowerCase().includes(q) || d.country.toLowerCase().includes(q)));
+
+  const col = currentSort.col;
+  rows.sort((a, b) => {
+    let av = a[col], bv = b[col];
+    if (typeof av === 'string') { av = av.toLowerCase(); bv = bv.toLowerCase(); }
+    return currentSort.asc ? (av > bv ? 1 : -1) : (av < bv ? 1 : -1);
+  });
+
+  document.getElementById('s-showing').textContent = rows.length;
+  document.getElementById('s-regions').textContent = new Set(rows.map(d => d.region)).size;
+
+  const tbody = document.getElementById('tbody');
+  tbody.innerHTML = rows.map(d => `
+    <tr data-name="${d.name}" class="${selectedRow === d.name ? 'selected' : ''}">
+      <td><span class="rank-badge ${rankColor(d.rank)}">${d.rank}</span></td>
+      <td><div class="cluster-name">${d.name}</div><div class="country-tag">${d.country}</div></td>
+      <td><span class="region-pill ${regionClass[d.region]}">${regionLabel[d.region]}</span></td>
+      <td>${barHtml(d.market, dimColors.market)}</td>
+      <td>${barHtml(d.collab, dimColors.collab)}</td>
+      <td>${barHtml(d.eco, dimColors.eco)}</td>
+    </tr>
+  `).join('');
+
+  tbody.querySelectorAll('tr').forEach(tr => {
+    tr.addEventListener('click', () => {
+      const name = tr.dataset.name;
+      if (selectedRow === name) {
+        selectedRow = null;
+        document.getElementById('detail-panel').style.display = 'none';
+      } else {
+        selectedRow = name;
+        showDetail(data.find(d => d.name === name));
+      }
+      render();
+    });
+  });
+
+  document.querySelectorAll('thead th[data-col]').forEach(th => {
+    th.classList.toggle('active', th.dataset.col === currentSort.col);
+    const arr = th.querySelector('.sort-arrow');
+    if (arr) arr.textContent = th.dataset.col === currentSort.col ? (currentSort.asc ? '↑' : '↓') : '↕';
+  });
+}
+
+function showDetail(d) {
+  const panel = document.getElementById('detail-panel');
+  panel.style.display = 'block';
+  const dims = [
+    {key:'market', label:'Market orientation', color:dimColors.market, desc:'Measures commercialisation strength: total funding, VC intensity relative to GDP, and industry collaboration depth.'},
+    {key:'collab', label:'Collaboration intensity', color:dimColors.collab, desc:'Captures partnership volume, external openness, and brokerage role in the global quantum network.'},
+    {key:'eco', label:'Ecosystem maturity', color:dimColors.eco, desc:'Evaluates institutions per capita, spinout efficiency, and startup-to-institution ratio.'}
+  ];
+  panel.innerHTML = `
+    <div style="display:flex;align-items:baseline;gap:10px;margin-bottom:8px;flex-wrap:wrap;">
+      <span style="font-size:18px;font-weight:600;color:var(--color-text-primary);">${d.name}</span>
+      <span style="font-size:13px;color:var(--color-text-secondary);">${d.country} · Overall rank #${d.rank}</span>
+      <span class="region-pill ${regionClass[d.region]}">${regionLabel[d.region]}</span>
+    </div>
+    <div class="detail-grid">
+      ${dims.map(dim => `
+        <div class="dim-card">
+          <div class="dim-card-title">${dim.label}</div>
+          <div class="dim-card-rank" style="color:${dim.color}">#${d[dim.key]}</div>
+          <div style="height:5px;background:var(--color-background-secondary);border-radius:3px;margin:6px 0;">
+            <div style="height:100%;border-radius:3px;background:${dim.color};width:${Math.round((1-(d[dim.key]-1)/44)*100)}%"></div>
+          </div>
+          <div class="dim-card-label">${dim.desc}</div>
+        </div>
+      `).join('')}
+    </div>
+  `;
+}
+
+document.querySelectorAll('thead th[data-col]').forEach(th => {
+  th.addEventListener('click', () => {
+    if (currentSort.col === th.dataset.col) {
+      currentSort.asc = !currentSort.asc;
+    } else {
+      currentSort.col = th.dataset.col;
+      currentSort.asc = true;
+    }
+    render();
+  });
+});
+
+document.getElementById('reg-filter').addEventListener('change', () => { selectedRow = null; document.getElementById('detail-panel').style.display = 'none'; render(); });
+document.getElementById('search').addEventListener('input', () => { selectedRow = null; document.getElementById('detail-panel').style.display = 'none'; render(); });
+document.getElementById('sort-by').addEventListener('change', e => { currentSort.col = e.target.value; currentSort.asc = true; render(); });
+
+render();
+</script>
