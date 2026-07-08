@@ -1,0 +1,152 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Quantum capital by funding stage</title>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/d3/7.9.0/d3.min.js"></script>
+<style>
+  :root{
+    --ink:#1a2027; --muted:#5d6875; --line:#dfe3e8; --bg:#ffffff; --panel:#f7f8fa;
+    --us:#b5482f; --cn:#3d8b8b; --eu:#d9a520; --uca:#1f4e79; --row:#7b5ea7;
+    --font:"Inter","Helvetica Neue",Arial,sans-serif;
+  }
+  *{box-sizing:border-box;}
+  body{margin:0;background:var(--bg);color:var(--ink);font-family:var(--font);}
+  .wrap{max-width:900px;margin:0 auto;padding:22px 20px 44px;}
+  .eyebrow{font-size:11px;letter-spacing:.14em;text-transform:uppercase;color:var(--muted);font-weight:600;}
+  h1{font-size:21px;line-height:1.25;margin:6px 0 4px;font-weight:650;letter-spacing:-.01em;}
+  .sub{font-size:13px;color:var(--muted);margin:0 0 18px;max-width:640px;line-height:1.45;}
+  .controls{display:flex;flex-wrap:wrap;gap:14px;align-items:flex-end;margin-bottom:12px;}
+  .ctl{display:flex;flex-direction:column;gap:5px;}
+  .ctl label{font-size:10px;letter-spacing:.07em;text-transform:uppercase;color:var(--muted);font-weight:600;}
+  select{appearance:none;font:inherit;font-size:13px;color:var(--ink);background:var(--panel);
+    border:1px solid var(--line);border-radius:7px;padding:7px 28px 7px 10px;cursor:pointer;
+    background-image:url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='10' height='6'><path d='M0 0l5 6 5-6z' fill='%235d6875'/></svg>");
+    background-repeat:no-repeat;background-position:right 10px center;}
+  .seg{display:inline-flex;border:1px solid var(--line);border-radius:7px;overflow:hidden;background:var(--panel);}
+  .seg button{appearance:none;border:0;background:transparent;padding:7px 11px;font:inherit;font-size:12px;color:var(--muted);cursor:pointer;}
+  .seg button+button{border-left:1px solid var(--line);}
+  .seg button.on{background:var(--ink);color:#fff;}
+  .legend{display:flex;flex-wrap:wrap;gap:18px;margin:4px 0 6px;}
+  .lg{display:inline-flex;align-items:center;gap:8px;font-size:12.5px;color:var(--ink);}
+  .lg .sw{width:12px;height:12px;border-radius:3px;}
+  .lg .tot{color:var(--muted);}
+  svg{display:block;width:100%;height:auto;overflow:visible;}
+  .axis path,.axis line{stroke:var(--line);}
+  .axis text{fill:var(--muted);font-size:11px;}
+  .gridline{stroke:var(--line);stroke-dasharray:2 3;opacity:.7;}
+  .stage-lbl{font-size:12px;fill:var(--muted);}
+  .bar-val{font-size:10.5px;fill:var(--muted);font-variant-numeric:tabular-nums;}
+  .tt{position:fixed;pointer-events:none;background:#111820;color:#fff;border-radius:8px;padding:9px 11px;
+    font-size:12px;line-height:1.5;box-shadow:0 6px 24px rgba(0,0,0,.22);opacity:0;transition:opacity .1s;z-index:30;min-width:170px;}
+  .tt .nm{font-weight:700;font-size:13px;margin-bottom:4px;}
+  .tt .row{display:flex;justify-content:space-between;gap:16px;}
+  .tt .row .v{font-variant-numeric:tabular-nums;}
+  .hint{font-size:11.5px;color:var(--muted);margin-top:16px;line-height:1.5;border-top:1px solid var(--line);padding-top:12px;}
+  .hint b{color:var(--ink);font-weight:600;}
+</style>
+</head>
+<body>
+<div class="wrap">
+  <div class="eyebrow">ECIPE Quantum Technologies Tracker</div>
+  <h1>Quantum capital by funding stage</h1>
+  <p class="sub">Total capital raised at each stage of the funding ladder, comparing two blocs. Switch between each bloc's internal mix and absolute amounts.</p>
+
+  <div class="controls">
+    <div class="ctl"><label>Bloc A</label><select id="ra"></select></div>
+    <div class="ctl"><label>Bloc B</label><select id="rb"></select></div>
+    <div class="ctl"><label>Scale</label>
+      <div class="seg" id="scale"><button data-s="share" class="on">% of bloc total</button><button data-s="abs">Absolute&nbsp;$</button></div>
+    </div>
+  </div>
+
+  <div class="legend" id="legend"></div>
+  <svg id="funnel" viewBox="0 0 900 320" preserveAspectRatio="xMidYMid meet"></svg>
+
+  <p class="hint"><b>Figures are announced amounts</b> parsed from the source (dot-thousands separators). Late-stage and growth equity are combined into a single stage. In share mode each bloc's four stages sum to 100 per cent, so shapes are comparable across blocs of very different size; switch to absolute to see raw magnitude.</p>
+</div>
+
+<div class="tt" id="tt"></div>
+
+<script>
+// ---------- real data (US$, dot-thousands parsed); late-stage + growth merged ----------
+const STAGES=["Seed and Angel","Early-stage equity","Late-stage & growth equity","Public equity"];
+const BLOCS={
+  US: {label:"US",             hex:"#b5482f", v:[387364476, 1998099486, 7205261022, 10705619488]},
+  CN: {label:"China",          hex:"#3d8b8b", v:[105337600, 1311514898, 2087631100, 1702056645]},
+  EU: {label:"EU",             hex:"#d9a520", v:[415785731, 2182356940, 872410600,  255903080]},
+  UCA:{label:"UK + AUS + CAN", hex:"#1f4e79", v:[368194164, 1356030580, 1236451350, 664976663]},
+  ROW:{label:"Rest of world",  hex:"#7b5ea7", v:[251390522, 1029232415, 367465000,  873015282]},
+};
+const KEYS=Object.keys(BLOCS);
+Object.values(BLOCS).forEach(b=>b.total=d3.sum(b.v));
+
+const tt=d3.select("#tt");
+function showTT(html,e){tt.html(html).style("opacity",1)
+  .style("left",Math.min(e.clientX+14,window.innerWidth-190)+"px").style("top",(e.clientY-10)+"px");}
+function hideTT(){tt.style("opacity",0);}
+function money(v){return v>=1e9?"$"+(v/1e9).toFixed(2)+"bn":v>=1e6?"$"+(v/1e6).toFixed(0)+"m":"$"+d3.format(",")(v);}
+
+let state={a:"US",b:"EU",scale:"share"};
+KEYS.forEach(k=>{["#ra","#rb"].forEach(s=>d3.select(s).append("option").attr("value",k).text(BLOCS[k].label));});
+d3.select("#ra").property("value","US"); d3.select("#rb").property("value","EU");
+
+function renderLegend(){
+  const sel=[state.a,state.b].map(k=>BLOCS[k]);
+  d3.select("#legend").selectAll(".lg").data(sel,d=>d.label).join("div").attr("class","lg")
+    .html(d=>`<span class="sw" style="background:${d.hex}"></span>${d.label} <span class="tot">· ${money(d.total)} total</span>`);
+}
+
+// ---------- funnel ----------
+const svg=d3.select("#funnel"),W=900,H=320,M={t:16,r:80,b:34,l:180};
+const iw=W-M.l-M.r,ih=H-M.t-M.b;
+const g=svg.append("g").attr("transform",`translate(${M.l},${M.t})`);
+const gGrid=g.append("g"),gBars=g.append("g"),gLbl=g.append("g");
+const gx=g.append("g").attr("class","axis").attr("transform",`translate(0,${ih})`);
+const y=d3.scaleBand().domain(STAGES).range([0,ih]).padding(0.32);
+gLbl.selectAll("text").data(STAGES).join("text").attr("class","stage-lbl")
+  .attr("x",-12).attr("y",d=>y(d)+y.bandwidth()/2).attr("dy","0.32em").attr("text-anchor","end").text(d=>d);
+
+function renderFunnel(){
+  const A=BLOCS[state.a],B=BLOCS[state.b],share=state.scale==="share";
+  const val=(b,i)=>share?b.v[i]/b.total:b.v[i];
+  const maxV=share?d3.max([A,B],b=>d3.max(b.v,x=>x/b.total)):d3.max([A,B],b=>d3.max(b.v));
+  const x=d3.scaleLinear().domain([0,maxV*1.02]).range([0,iw]);
+  const bh=y.bandwidth()/2-2;
+
+  gGrid.selectAll("line").data(x.ticks(5)).join("line").attr("class","gridline")
+    .attr("x1",d=>x(d)).attr("x2",d=>x(d)).attr("y1",0).attr("y2",ih);
+  gx.call(d3.axisBottom(x).ticks(5).tickFormat(share?d3.format(".0%"):v=>"$"+(v>=1e9?v/1e9+"bn":v/1e6+"m")).tickSizeOuter(0));
+
+  const pairs=[[A,0],[B,bh+4]];
+  gBars.selectAll("g.blocrow").data(pairs,p=>p[0].label).join(
+    enter=>enter.append("g").attr("class","blocrow"), u=>u, ex=>ex.remove())
+    .each(function(p){
+      const bloc=p[0],off=p[1];
+      const rows=STAGES.map((s,i)=>({stage:s,i,v:bloc.v[i],val:val(bloc,i)}));
+      const sel=d3.select(this);
+      sel.selectAll("rect").data(rows,d=>d.stage).join("rect")
+        .attr("x",0).attr("y",d=>y(d.stage)+off).attr("height",bh).attr("rx",2)
+        .attr("fill",bloc.hex).attr("fill-opacity",.88).attr("width",d=>x(d.val))
+        .on("mousemove",(e,d)=>showTT(
+          `<div class="nm">${bloc.label} · ${d.stage}</div>`+
+          `<div class="row"><span>Amount</span><span class="v">${money(d.v)}</span></div>`+
+          `<div class="row"><span>Share of bloc</span><span class="v">${(d.v/bloc.total*100).toFixed(1)}%</span></div>`,e))
+        .on("mouseleave",hideTT);
+      sel.selectAll("text").data(rows,d=>d.stage).join("text").attr("class","bar-val")
+        .attr("x",d=>x(d.val)+5).attr("y",d=>y(d.stage)+off+bh/2).attr("dy","0.32em")
+        .text(d=>d.v===0?"":(share?(d.v/bloc.total*100).toFixed(0)+"%":money(d.v)));
+    });
+}
+
+function renderAll(){renderLegend();renderFunnel();}
+d3.select("#ra").on("change",function(){state.a=this.value;renderAll();});
+d3.select("#rb").on("change",function(){state.b=this.value;renderAll();});
+d3.select("#scale").selectAll("button").on("click",function(){
+  d3.select("#scale").selectAll("button").classed("on",false);d3.select(this).classed("on",true);
+  state.scale=this.dataset.s;renderFunnel();});
+renderAll();
+</script>
+</body>
+</html>

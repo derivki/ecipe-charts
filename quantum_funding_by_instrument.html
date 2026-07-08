@@ -1,0 +1,297 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Quantum funding by financing instrument</title>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/d3/7.9.0/d3.min.js"></script>
+<style>
+  :root{
+    --ink:#1a2027;
+    --muted:#5d6875;
+    --line:#dfe3e8;
+    --bg:#ffffff;
+    --vc:#1f4e79;
+    --debt:#3d8b8b;
+    --grant:#d9a520;
+    --pubeq:#7b5ea7;
+    --font: "Inter","Helvetica Neue",Arial,sans-serif;
+  }
+  *{box-sizing:border-box;}
+  body{margin:0;background:var(--bg);color:var(--ink);font-family:var(--font);}
+  .wrap{max-width:920px;margin:0 auto;padding:24px 20px 40px;}
+  .eyebrow{font-size:11px;letter-spacing:.14em;text-transform:uppercase;color:var(--muted);font-weight:600;}
+  h1{font-size:21px;line-height:1.25;margin:6px 0 4px;font-weight:650;letter-spacing:-.01em;}
+  .sub{font-size:13px;color:var(--muted);margin:0 0 18px;max-width:640px;line-height:1.45;}
+  .controls{display:flex;flex-wrap:wrap;gap:16px;align-items:flex-end;margin-bottom:8px;}
+  .ctl{display:flex;flex-direction:column;gap:5px;}
+  .ctl label{font-size:10px;letter-spacing:.08em;text-transform:uppercase;color:var(--muted);font-weight:600;}
+  .seg{display:inline-flex;border:1px solid var(--line);border-radius:7px;overflow:hidden;background:#f7f8fa;}
+  .seg button{appearance:none;border:0;background:transparent;padding:6px 11px;font:inherit;font-size:12px;color:var(--muted);cursor:pointer;transition:.12s;}
+  .seg button+button{border-left:1px solid var(--line);}
+  .seg button.on{background:var(--ink);color:#fff;}
+  .seg button:not(.on):hover{background:#eef0f3;color:var(--ink);}
+  .legend{display:flex;flex-wrap:wrap;gap:14px;margin:10px 0 2px;}
+  .lg{display:inline-flex;align-items:center;gap:7px;font-size:12px;color:var(--muted);cursor:pointer;user-select:none;}
+  .lg .sw{width:12px;height:12px;border-radius:3px;flex:none;}
+  .lg.off{opacity:.35;}
+  .lg .grp{font-size:9px;letter-spacing:.06em;text-transform:uppercase;color:#9aa4b0;margin-left:2px;}
+  svg{display:block;width:100%;height:auto;overflow:visible;}
+  .axis path,.axis line{stroke:var(--line);}
+  .axis text{fill:var(--muted);font-size:11px;}
+  .gridline{stroke:var(--line);stroke-dasharray:2 3;opacity:.7;}
+  .bar rect,.area path{transition:opacity .12s;}
+  .partial-band{fill:#f2f4f7;}
+  .partial-label{fill:#9aa4b0;font-size:10px;font-style:italic;}
+  .tt{position:fixed;pointer-events:none;background:#111820;color:#fff;border-radius:8px;padding:10px 12px;font-size:12px;line-height:1.5;box-shadow:0 6px 24px rgba(0,0,0,.22);opacity:0;transition:opacity .1s;z-index:20;min-width:190px;}
+  .tt .yr{font-weight:700;font-size:13px;margin-bottom:6px;}
+  .tt .row{display:flex;justify-content:space-between;gap:16px;}
+  .tt .row .k{display:inline-flex;align-items:center;gap:6px;color:#c9d2dc;}
+  .tt .row .k i{width:9px;height:9px;border-radius:2px;display:inline-block;}
+  .tt .row .v{font-variant-numeric:tabular-nums;font-weight:600;}
+  .tt .tot{border-top:1px solid rgba(255,255,255,.18);margin-top:6px;padding-top:6px;}
+  .tt .share{color:#f0b84a;font-size:11px;margin-top:3px;}
+  .note{font-size:11.5px;color:var(--muted);margin-top:16px;line-height:1.5;border-top:1px solid var(--line);padding-top:12px;}
+  .note b{color:var(--ink);font-weight:600;}
+</style>
+</head>
+<body>
+<div class="wrap">
+  <div class="eyebrow">ECIPE Quantum Technologies Tracker</div>
+  <h1>Quantum funding by source of capital, 2012–2026</h1>
+  <p class="sub">Announced funding raised by quantum companies each year, split by financing instrument.</p>
+
+  <div class="controls">
+    <div class="ctl">
+      <label>Scale</label>
+      <div class="seg" id="seg-scale">
+        <button data-s="abs" class="on">Absolute&nbsp;$</button>
+        <button data-s="share">% share</button>
+      </div>
+    </div>
+    <div class="ctl">
+      <label>Chart</label>
+      <div class="seg" id="seg-type">
+        <button data-t="bar" class="on">Bars</button>
+        <button data-t="area">Area</button>
+      </div>
+    </div>
+  </div>
+
+  <div class="legend" id="legend"></div>
+  <svg id="chart" viewBox="0 0 920 460" preserveAspectRatio="xMidYMid meet" role="img" aria-label="Stacked chart of quantum funding by instrument"></svg>
+
+  <p class="note">
+    <b>Reading the chart:</b> public equity is negligible before 2020, then in <b>2025</b> it becomes the single largest source of quantum capital ($7.4bn), overtaking VC / private equity. <b>2026 is a partial year</b> (shaded) and is not comparable with full years. Figures are announced/committed amounts; rounds disclosed only as a total, with no instrument split, are excluded from this view.
+  </p>
+</div>
+
+<div class="tt" id="tt"></div>
+
+<script>
+// ---- Data (US$; European dot-separators already parsed to integers) ----
+const RAW_ALL = [
+  {year:2000, vc:0,          debt:0,         grant:234382,     pubeq:0},
+  {year:2001, vc:1162121,    debt:0,         grant:142774,     pubeq:0},
+  {year:2002, vc:8810828,    debt:0,         grant:172144,     pubeq:0},
+  {year:2003, vc:6425000,    debt:0,         grant:69260,      pubeq:0},
+  {year:2004, vc:9695686,    debt:0,         grant:169537,     pubeq:0},
+  {year:2005, vc:0,          debt:5941730,   grant:2215701,    pubeq:0},
+  {year:2006, vc:11294660,   debt:0,         grant:929817,     pubeq:0},
+  {year:2007, vc:0,          debt:0,         grant:1376255,    pubeq:0},
+  {year:2008, vc:28865331,   debt:0,         grant:2687918,    pubeq:0},
+  {year:2009, vc:7320000,    debt:0,         grant:1675963,    pubeq:0},
+  {year:2010, vc:1700380,    debt:0,         grant:948993,     pubeq:0},
+  {year:2011, vc:4177,       debt:0,         grant:2487799,    pubeq:0},
+  {year:2012, vc:37118920,   debt:1902240,   grant:3915086,    pubeq:0},
+  {year:2013, vc:8438480,    debt:0,         grant:2743216,    pubeq:0},
+  {year:2014, vc:64701185,   debt:400000,    grant:4889739,    pubeq:0},
+  {year:2015, vc:164716237,  debt:669623,    grant:16969692,   pubeq:0},
+  {year:2016, vc:101118337,  debt:450000,    grant:11953212,   pubeq:60390600},
+  {year:2017, vc:340819819,  debt:392304,    grant:17806778,   pubeq:0},
+  {year:2018, vc:234994283,  debt:39392247,  grant:37152865,   pubeq:4949605},
+  {year:2019, vc:333122353,  debt:10886299,  grant:46582735,   pubeq:1108138},
+  {year:2020, vc:974095319,  debt:105798625, grant:95865911,   pubeq:131327467},
+  {year:2021, vc:2674228000, debt:75552359,  grant:87843562,   pubeq:924473429},
+  {year:2022, vc:1476567930, debt:196963100, grant:121691260,  pubeq:378350431},
+  {year:2023, vc:2219987821, debt:128141706, grant:141781777,  pubeq:108631867},
+  {year:2024, vc:1894339798, debt:467098706, grant:189337877,  pubeq:1102185597},
+  {year:2025, vc:5772377460, debt:221257600, grant:299156721,  pubeq:7446492657},
+  {year:2026, vc:4810895260, debt:6176100,   grant:1056580271, pubeq:4043661367},
+];
+const START_YEAR = 2012;
+const RAW = RAW_ALL.filter(d=>d.year>=START_YEAR);
+const PARTIAL_YEAR = 2026;
+const Y_CAP = 15e9; // fixed axis cap
+
+const SERIES = {
+  instrument: [
+    {key:"vc",    label:"VC / private equity", color:"var(--vc)",    hex:"#1f4e79"},
+    {key:"debt",  label:"Debt",               color:"var(--debt)",  hex:"#3d8b8b"},
+    {key:"grant", label:"Grant",              color:"var(--grant)", hex:"#d9a520"},
+    {key:"pubeq", label:"Public equity",      color:"var(--pubeq)", hex:"#7b5ea7"},
+  ]
+};
+
+const DATA = { instrument: RAW };
+
+let state = {view:"instrument", scale:"abs", type:"bar", hidden:new Set()};
+
+// ---- layout ----
+const svg = d3.select("#chart");
+const M = {t:16, r:16, b:34, l:64};
+const W = 920, H = 460;
+const iw = W - M.l - M.r, ih = H - M.t - M.b;
+const g = svg.append("g").attr("transform",`translate(${M.l},${M.t})`);
+const gGrid = g.append("g");
+const gPlot = g.append("g");
+const gX = g.append("g").attr("class","axis").attr("transform",`translate(0,${ih})`);
+const gY = g.append("g").attr("class","axis");
+const gPartial = g.append("g");
+const tt = d3.select("#tt");
+
+const x = d3.scaleBand().domain(RAW.map(d=>d.year)).range([0,iw]).padding(0.18);
+const xLin = d3.scalePoint().domain(RAW.map(d=>d.year)).range([x.bandwidth()/2, iw - x.bandwidth()/2]);
+const y = d3.scaleLinear().range([ih,0]);
+
+const fmtAxis = v => state.scale==="share" ? d3.format(".0%")(v)
+                    : "$" + (v>=1e9 ? (v/1e9).toFixed(v>=1e10?0:1)+"bn" : v/1e6+"m");
+const fmtFull = v => v>=1e9 ? "$"+(v/1e9).toFixed(2)+"bn"
+                   : v>=1e6 ? "$"+(v/1e6).toFixed(1)+"m"
+                   : v>=1e3 ? "$"+(v/1e3).toFixed(0)+"k" : "$"+d3.format(",")(v);
+
+function activeSeries(){ return SERIES[state.view].filter(s=>!state.hidden.has(s.key)); }
+
+function stacked(){
+  const keys = activeSeries().map(s=>s.key);
+  const src = DATA[state.view];
+  let rows = src.map(d=>({...d}));
+  if(state.scale==="share"){
+    rows = rows.map(d=>{
+      const tot = keys.reduce((a,k)=>a+d[k],0) || 1;
+      const o={year:d.year}; keys.forEach(k=>o[k]=d[k]/tot); return o;
+    });
+  }
+  return d3.stack().keys(keys)(rows);
+}
+
+function render(){
+  const series = activeSeries();
+  const st = stacked();
+  const maxY = state.scale==="share" ? 1 : Y_CAP;
+  y.domain([0, maxY]);
+
+  // grid
+  gGrid.selectAll("line").data(y.ticks(5)).join("line")
+    .attr("class","gridline").attr("x1",0).attr("x2",iw)
+    .attr("y1",d=>y(d)).attr("y2",d=>y(d));
+
+  // partial-year band
+  const px = x(PARTIAL_YEAR);
+  gPartial.selectAll(".partial-band").data([0]).join("rect")
+    .attr("class","partial-band")
+    .attr("x", px - x.step()*x.paddingInner()/2)
+    .attr("y", 0).attr("width", x.step()).attr("height", ih);
+  gPartial.selectAll(".partial-label").data([0]).join("text")
+    .attr("class","partial-label")
+    .attr("x", px + x.bandwidth()/2).attr("y", 12)
+    .attr("text-anchor","middle").text("YTD");
+
+  const color = k => SERIES[state.view].find(s=>s.key===k).color;
+
+  if(state.type==="bar"){
+    gPlot.selectAll(".area").remove();
+    const layers = gPlot.selectAll(".bar").data(st, d=>d.key)
+      .join(
+        enter=>enter.append("g").attr("class","bar"),
+        u=>u, ex=>ex.remove()
+      )
+      .attr("fill", d=>color(d.key));
+    layers.selectAll("rect").data(d=>d.map(v=>({...v, key:d.key})), d=>d.data.year)
+      .join("rect")
+      .attr("x", d=>x(d.data.year))
+      .attr("width", x.bandwidth())
+      .attr("y", d=>y(d[1]))
+      .attr("height", d=>Math.max(0, y(d[0])-y(d[1])));
+  } else {
+    gPlot.selectAll(".bar").remove();
+    const area = d3.area()
+      .x(d=>xLin(d.data.year))
+      .y0(d=>y(d[0])).y1(d=>y(d[1]))
+      .curve(d3.curveMonotoneX);
+    gPlot.selectAll(".area").data(st, d=>d.key)
+      .join(
+        enter=>enter.append("path").attr("class","area"),
+        u=>u, ex=>ex.remove()
+      )
+      .attr("fill", d=>color(d.key))
+      .attr("fill-opacity",0.92)
+      .attr("d", area);
+  }
+
+  gX.call(d3.axisBottom(x).tickValues(RAW.map(d=>d.year).filter(yr=>yr%5===0||yr===START_YEAR||yr===2026)).tickSizeOuter(0));
+  gY.call(d3.axisLeft(y).ticks(5).tickFormat(fmtAxis).tickSizeOuter(0));
+
+  buildLegend();
+  attachHover();
+}
+
+function buildLegend(){
+  const L = d3.select("#legend").selectAll(".lg")
+    .data(SERIES[state.view], d=>d.key)
+    .join(enter=>{
+      const el = enter.append("div").attr("class","lg");
+      el.append("span").attr("class","sw");
+      el.append("span").attr("class","nm");
+      el.append("span").attr("class","grp");
+      return el;
+    });
+  L.classed("off", d=>state.hidden.has(d.key))
+   .on("click",(e,d)=>{
+      if(state.hidden.has(d.key)) state.hidden.delete(d.key);
+      else if(activeSeries().length>1) state.hidden.add(d.key);
+      render();
+   });
+  L.select(".sw").style("background",d=>d.color);
+  L.select(".nm").text(d=>d.label);
+  L.select(".grp").text(d=>d.grp?("· "+d.grp):"");
+}
+
+function attachHover(){
+  const cover = gPlot.selectAll(".hovercol").data(RAW, d=>d.year)
+    .join("rect").attr("class","hovercol")
+    .attr("x", d=>x(d.year)).attr("width", x.bandwidth())
+    .attr("y",0).attr("height",ih).attr("fill","transparent");
+  cover.on("mousemove", (e,d)=>{
+      const series = activeSeries();
+      const row = DATA[state.view].find(r=>r.year===d.year);
+      const tot = series.reduce((a,s)=>a+row[s.key],0);
+      let html = `<div class="yr">${d.year}${d.year===PARTIAL_YEAR?' · year-to-date':''}</div>`;
+      series.slice().reverse().forEach(s=>{
+        if(row[s.key]<=0) return;
+        html += `<div class="row"><span class="k"><i style="background:${s.hex}"></i>${s.label}</span><span class="v">${fmtFull(row[s.key])}</span></div>`;
+      });
+      html += `<div class="row tot"><span class="k">Total</span><span class="v">${fmtFull(tot)}</span></div>`;
+      tt.html(html).style("opacity",1)
+        .style("left",Math.min(e.clientX+14, window.innerWidth-215)+"px")
+        .style("top",(e.clientY-10)+"px");
+    })
+    .on("mouseleave",()=>tt.style("opacity",0));
+}
+
+// ---- control wiring ----
+function wire(id, attr, key){
+  d3.select(id).selectAll("button").on("click", function(){
+    d3.select(id).selectAll("button").classed("on",false);
+    d3.select(this).classed("on",true);
+    state[key] = this.getAttribute(attr);
+    render();
+  });
+}
+wire("#seg-scale","data-s","scale");
+wire("#seg-type","data-t","type");
+
+render();
+</script>
+</body>
+</html>
