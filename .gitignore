@@ -1,0 +1,28 @@
+# ─────────────────────────────────────────────────────────────────────────────
+# CRITICAL: never commit the raw private database. Only publishable, aggregated
+# outputs (docs/data/*.json) belong in this public repo.
+# ─────────────────────────────────────────────────────────────────────────────
+raw/
+*.xlsx
+*.xls
+*.xlsm
+
+# Generated QA report (regenerated on every run)
+reports/
+
+# Python
+__pycache__/
+*.pyc
+.venv/
+venv/
+.pytest_cache/
+
+# OS / editor
+.DS_Store
+Thumbs.db
+.vscode/
+.idea/
+
+# Local-only working material (not for the public repo)
+html example/
+.claude/

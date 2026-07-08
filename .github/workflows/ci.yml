@@ -1,0 +1,61 @@
+name: CI
+
+# Safety-net that runs on every push / PR. It CANNOT rebuild Stage 1 (the raw
+# xlsx is private and not in the repo) — instead it proves the committed public
+# artifacts are well-formed and that no raw data has leaked in.
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+
+jobs:
+  verify:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      # ── Guardrail: no raw spreadsheet may ever be committed ────────────────
+      - name: Fail if any spreadsheet is tracked
+        run: |
+          if git ls-files | grep -iE '\.(xlsx|xlsm|xls)$'; then
+            echo "::error::A spreadsheet is tracked in the repo. Raw data must stay private (see .gitignore)."
+            exit 1
+          fi
+          echo "OK — no spreadsheet tracked."
+
+      # ── Python: aggregation unit tests ─────────────────────────────────────
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+      - run: python -m pip install -r requirements.txt
+      - name: Run tests
+        run: python -m pytest tests/ -q
+
+      # ── JavaScript: syntax-check every chart file ──────────────────────────
+      - uses: actions/setup-node@v4
+        with:
+          node-version: "20"
+      - name: Syntax-check chart JS
+        run: |
+          for f in docs/assets/theme.js docs/assets/chart-template.js docs/assets/charts/*.js; do
+            node --check "$f" && echo "OK  $f"
+          done
+
+      # ── Validate the published JSON is parseable + has expected keys ────────
+      - name: Validate published JSON
+        run: |
+          python - <<'PY'
+          import json, glob, sys
+          req = {"manifest": {"data_vintage"}}
+          for path in glob.glob("docs/data/*.json"):
+              with open(path, encoding="utf-8") as fh:
+                  obj = json.load(fh)
+              name = path.split("/")[-1].replace(".json", "")
+              if name == "manifest":
+                  assert "data_vintage" in obj, "manifest missing data_vintage"
+              else:
+                  assert "meta" in obj and "data" in obj, f"{name} missing meta/data"
+              print("OK ", path)
+          print("All JSON valid.")
+          PY

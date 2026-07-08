@@ -1,0 +1,5 @@
+# Stage 1 (Python) dependencies — pin exact versions for reproducible builds.
+# Install with:  python -m pip install -r requirements.txt
+openpyxl==3.1.5
+PyYAML==6.0.2
+pytest==8.3.4
