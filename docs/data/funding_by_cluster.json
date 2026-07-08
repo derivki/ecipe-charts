@@ -1,0 +1,229 @@
+{
+  "meta": {
+    "data_vintage": "2026-Q3",
+    "start_year": 2012,
+    "partial_year": 2026
+  },
+  "data": [
+    {
+      "cluster": "San Francisco Bay Area",
+      "companies": 21,
+      "total_funding": 6489553318.6
+    },
+    {
+      "cluster": "Denver–Boulder Region",
+      "companies": 16,
+      "total_funding": 5120377581.26
+    },
+    {
+      "cluster": "Greater Washington",
+      "companies": 11,
+      "total_funding": 4200886278.0
+    },
+    {
+      "cluster": "Shenzhen–Hong Kong–Guangzhou Region",
+      "companies": 4,
+      "total_funding": 2384414786.72
+    },
+    {
+      "cluster": "Greater New York",
+      "companies": 8,
+      "total_funding": 2038371532.0
+    },
+    {
+      "cluster": "Hefei",
+      "companies": 9,
+      "total_funding": 1299177860.74
+    },
+    {
+      "cluster": "Greater Helsinki",
+      "companies": 11,
+      "total_funding": 1133876486.66
+    },
+    {
+      "cluster": "Tel Aviv Metropolitan Area",
+      "companies": 13,
+      "total_funding": 855666000.0
+    },
+    {
+      "cluster": "Greater Paris",
+      "companies": 20,
+      "total_funding": 830139733.93
+    },
+    {
+      "cluster": "Toronto–Waterloo Corridor",
+      "companies": 24,
+      "total_funding": 776103579.74
+    },
+    {
+      "cluster": "Greater Geneva Bern Area",
+      "companies": 10,
+      "total_funding": 752514278.53
+    },
+    {
+      "cluster": "Greater Boston",
+      "companies": 16,
+      "total_funding": 741509420.38
+    },
+    {
+      "cluster": "London Commuter Belt",
+      "companies": 18,
+      "total_funding": 635054625.66
+    },
+    {
+      "cluster": "Shanghai",
+      "companies": 6,
+      "total_funding": 633234500.0
+    },
+    {
+      "cluster": "Beijing",
+      "companies": 10,
+      "total_funding": 621459500.0
+    },
+    {
+      "cluster": "Greater Austin",
+      "companies": 5,
+      "total_funding": 503356939.0
+    },
+    {
+      "cluster": "Metro Vancouver",
+      "companies": 9,
+      "total_funding": 459412107.67
+    },
+    {
+      "cluster": "Greater Sydney",
+      "companies": 8,
+      "total_funding": 424834553.42
+    },
+    {
+      "cluster": "Greater Los Angeles",
+      "companies": 7,
+      "total_funding": 392592649.0
+    },
+    {
+      "cluster": "Randstad Region",
+      "companies": 16,
+      "total_funding": 360974193.24
+    },
+    {
+      "cluster": "Cambridge",
+      "companies": 6,
+      "total_funding": 337342355.97
+    },
+    {
+      "cluster": "Dubai",
+      "companies": 2,
+      "total_funding": 290000000.0
+    },
+    {
+      "cluster": "Munich Metropolitan Area",
+      "companies": 11,
+      "total_funding": 231871357.31
+    },
+    {
+      "cluster": "Grenoble",
+      "companies": 3,
+      "total_funding": 200585731.3
+    },
+    {
+      "cluster": "Hangzhou",
+      "companies": 3,
+      "total_funding": 199104599.49
+    },
+    {
+      "cluster": "Singapore",
+      "companies": 11,
+      "total_funding": 181131490.0
+    },
+    {
+      "cluster": "Greater Copenhagen",
+      "companies": 8,
+      "total_funding": 173411547.47
+    },
+    {
+      "cluster": "Seoul Metropolitan Area",
+      "companies": 8,
+      "total_funding": 161337397.83
+    },
+    {
+      "cluster": "Oxford",
+      "companies": 5,
+      "total_funding": 136960589.67
+    },
+    {
+      "cluster": "Greater Tokyo",
+      "companies": 13,
+      "total_funding": 116274790.0
+    },
+    {
+      "cluster": "Greater Glasgow",
+      "companies": 6,
+      "total_funding": 110845357.82
+    },
+    {
+      "cluster": "Stuttgart Metropolitan Area",
+      "companies": 1,
+      "total_funding": 91828000.0
+    },
+    {
+      "cluster": "Canberra",
+      "companies": 2,
+      "total_funding": 89651974.0
+    },
+    {
+      "cluster": "Greater Montreal",
+      "companies": 7,
+      "total_funding": 71623236.22
+    },
+    {
+      "cluster": "Bangalore",
+      "companies": 6,
+      "total_funding": 63468755.0
+    },
+    {
+      "cluster": "Chicagoland",
+      "companies": 7,
+      "total_funding": 63380644.0
+    },
+    {
+      "cluster": "Berlin Metropolitan Area",
+      "companies": 7,
+      "total_funding": 56010577.41
+    },
+    {
+      "cluster": "Barcelona Metropolitan Area",
+      "companies": 4,
+      "total_funding": 45559443.75
+    },
+    {
+      "cluster": "Bristol–Bath Region",
+      "companies": 7,
+      "total_funding": 38200511.52
+    },
+    {
+      "cluster": "Valencia Metropolitan Area",
+      "companies": 2,
+      "total_funding": 34641920.68
+    },
+    {
+      "cluster": "Suzhou",
+      "companies": 1,
+      "total_funding": 23766600.0
+    },
+    {
+      "cluster": "Karlsruhe",
+      "companies": 1,
+      "total_funding": 19100580.0
+    },
+    {
+      "cluster": "Dallas–Fort Worth Metroplex",
+      "companies": 3,
+      "total_funding": 15722914.0
+    },
+    {
+      "cluster": "Greater Adelaide",
+      "companies": 1,
+      "total_funding": 9395451.28
+    }
+  ]
+}

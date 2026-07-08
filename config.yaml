@@ -1,0 +1,41 @@
+# ─────────────────────────────────────────────────────────────────────────────
+# Quantum Tracker — pipeline configuration
+# Edit this file to change the data vintage, the source file, or aggregation rules.
+# ─────────────────────────────────────────────────────────────────────────────
+
+# Data vintage label shown on every chart and recorded in the manifest.
+# Update this each quarter (e.g. 2026-Q3, 2026-Q4).
+data_vintage: "2026-Q3"
+
+# Source workbook (kept private, git-ignored under raw/).
+source_xlsx: "raw/Quantum startups tracker.xlsx"
+
+# Sheet names inside the workbook.
+sheets:
+  startups: "Quantum startups"
+  rounds: "Funding rounds"
+  correspondence: "Funding correspondence table"
+
+# Where Stage 1 writes published, publishable JSON (served by GitHub Pages).
+output_dir: "docs/data"
+
+# External reference inputs (sourced separately, not derived from the workbook).
+gdp_reference: "data/reference/gdp_by_country.csv"
+
+# First year shown in time-series charts (earlier years are sparse/noisy).
+start_year: 2012
+
+# The most recent year is partial (year-to-date); charts shade it and label "YTD".
+partial_year: 2026
+
+# Canonical category vocabularies — the validator flags any value outside these.
+vocab:
+  region: ["US", "China", "EU", "UK+AUS+CAN", "RoW"]
+  aggregated_funding_stage:
+    ["Seed and Angel", "Early-stage equity", "Late-stage equity",
+     "Growth equity", "Public equity", "Debt", "Grant"]
+  financing_instrument: ["VC / private equity", "Debt", "Public equity", "Grant"]
+
+# A lone em-dash (—, U+2014) is used in the workbook as an "empty / not applicable"
+# marker. Stage 1 normalises these cells to null.
+empty_marker: "—"
