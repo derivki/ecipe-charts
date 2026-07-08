@@ -10,8 +10,18 @@ step is unclear, improve this document — it is the continuity backbone.
 
 ## 0. Prerequisites (first time only)
 - Python 3.12+ and `python -m pip install -r requirements.txt`.
-- Clone/pull the repo. Confirm `raw/` is git-ignored (`git status` should never list an xlsx).
 - Access to the private database on Google Drive.
+- Git is already configured to push to `derivki/ecipe-charts` (remote `origin`, branch `main`).
+  Confirm `raw/` is git-ignored (`git status` should never list an xlsx).
+- **First push:** run `python publish.py` (or `git push -u origin main`). A GitHub login
+  opens in the browser once, then it's remembered.
+- **Point GitHub Pages at `/docs` (one time):** in the repo on GitHub → **Settings → Pages**
+  → *Build and deployment* → Source: **Deploy from a branch** → Branch: **main**, folder:
+  **/docs** → Save. Until this is done, the site keeps serving the old root prototypes,
+  not the new charts. New chart URLs will then be e.g.
+  `https://derivki.github.io/ecipe-charts/funding_by_country.html`.
+- The old prototypes are preserved under `legacy/` in the repo (not served once Pages
+  uses `/docs`).
 
 ## 1. Snapshot the source data
 1. Open the master workbook on Google Drive; make sure the quarter's edits are final.
@@ -52,16 +62,21 @@ python -m http.server 8137 --directory docs
 - Add a dated entry to `CHANGELOG.md`: companies added, corrections, methodology changes.
 - Update `PROJECT_LOG.md` if any decisions or action points changed.
 
-## 7. Publish
+## 7. Publish (one command)
 ```bash
-git add docs/ config.yaml CHANGELOG.md PROJECT_LOG.md
-git commit -m "Data update YYYY-QX"
-git tag vYYYY-QX
-git push && git push --tags
+python publish.py
 ```
-- GitHub Actions (CI) runs automatically: tests + JS syntax + JSON validation +
-  the no-xlsx guardrail. Confirm it passes (green check on the commit).
-- GitHub Pages redeploys `docs/` within a minute or two.
+This re-runs Stage 1, shows you exactly what changed, and **asks for confirmation**
+before it commits, tags (`vYYYY-QX`), and pushes. It refuses to publish if Stage 1
+has ERROR findings or if any spreadsheet is tracked.
+- Options: `python publish.py -m "message"` (custom message), `--no-tag`, `--yes` (skip prompt).
+- The **first ever push** opens a GitHub login in your browser (Git Credential Manager);
+  after that it's remembered.
+- After it pushes: GitHub Actions (CI) verifies the commit (green check) and GitHub
+  Pages redeploys `docs/` within a minute or two.
+
+> Steps 3–6 above (run Stage 1, review the QA report, preview locally) are still worth
+> doing first so you see the charts before they go live. `publish.py` is the final gate.
 
 ## 8. Verify live
 - Open the GitHub Pages chart URL directly; confirm it renders and shows the new vintage.

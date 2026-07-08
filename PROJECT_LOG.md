@@ -67,6 +67,9 @@ Priority: 🔴 high · 🟠 medium · 🟢 low. Owner in brackets.
 | AP-9 | 🟢 | **Ownership migration:** plan personal → ECIPE org move without breaking iframe URLs | Elena |
 | AP-10 | 🟢 | **Populate taxonomy columns** (pillar / stack / stream) to unlock those charts | Team |
 | AP-11 | 🟢 | **Indicator & chart selection:** finalise which indicators/charts to publish | Team |
+| AP-12 | 🔴 | **Switch GitHub Pages to serve `/docs`** (Settings → Pages → main /docs). Until done, the site shows the old root prototypes, not the new charts. | Elena |
+| AP-13 | 🟠 | **Git repo lives inside OneDrive** — risk of `.git` corruption from OneDrive syncing while git writes, especially across two machines. Recommended: rely on GitHub (not OneDrive) to sync the repo — move the folder outside OneDrive, or pause OneDrive during git ops. | Elena |
+| AP-14 | 🟢 | **Commit identity** set to Elena Sisto / elena.sisto@ecipe.org (repo-local). If the `derivki` GitHub account uses a different email, update it so commits link to the profile: `git config user.email <that-email>`. | Elena |
 
 ---
 
@@ -75,6 +78,11 @@ Priority: 🔴 high · 🟠 medium · 🟢 low. Owner in brackets.
 - **D3 continuity risk.** Hand-authored D3 gives full control but is harder to
   inherit than a config value. Mitigations: shared `theme.js` + `chart-template.js`,
   the quarterly runbook, and commented code. Revisit if the team grows without JS skills.
+- **Publishing is not fully automatic — by design.** Stage 1 must run locally (the raw
+  data is private and never in the cloud), and the push has a human review gate
+  (`publish.py` confirms before pushing). "Edit Excel → site updates itself" is not
+  possible without putting raw data in the cloud, which we chose not to do.
+- **Repo inside OneDrive** (AP-13) — see action point; use GitHub, not OneDrive, to sync it.
 
 ---
 
@@ -90,3 +98,9 @@ Priority: 🔴 high · 🟠 medium · 🟢 low. Owner in brackets.
 - Added CI (`.github/workflows/ci.yml`): tests + JS syntax check + JSON validation +
   no-xlsx-leak guardrail.
 - Wrote docs: README, runbook, data dictionary, methodology (stub), CHANGELOG, this log.
+- Measured ECIPE page layout: content column ~797px (AP-7 resolved).
+- Connected local repo to `derivki/ecipe-charts` (confirmed **public**), preserved remote
+  history, archived the 6 uploaded prototypes to `legacy/`. Added `.gitattributes`
+  (LF normalisation) and `publish.py` (one-command review-and-publish). Made the initial
+  commit **locally — not yet pushed**. Remaining to go live: first push + switch Pages to
+  `/docs` (AP-12).
