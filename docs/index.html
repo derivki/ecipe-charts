@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>ECIPE Quantum Technologies Tracker — charts</title>
+<script src="assets/vendor/d3.min.js"></script>
+<style>
+  .grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(240px,1fr));gap:14px;margin-top:18px;}
+  a.card{display:block;text-decoration:none;color:inherit;border:1px solid var(--line);
+    border-radius:10px;padding:16px 16px 18px;transition:.12s;background:var(--panel);}
+  a.card:hover{border-color:#b9c1cb;transform:translateY(-1px);}
+  a.card h3{margin:0 0 4px;font-size:15px;}
+  a.card p{margin:0;font-size:12.5px;color:var(--muted);line-height:1.45;}
+</style>
+</head>
+<body>
+<div class="wrap">
+  <div class="eyebrow">ECIPE Quantum Technologies Tracker</div>
+  <h1>Chart gallery</h1>
+  <p class="sub">Interactive charts generated from the ECIPE quantum startups database. Each chart is also embeddable as a standalone iframe.</p>
+  <div class="vintage" id="vintage"></div>
+
+  <div class="grid">
+    <a class="card" href="funding_by_country.html"><h3>Funding by country →</h3><p>Total funding, company counts, and funding relative to GDP.</p></a>
+    <a class="card" href="funding_by_instrument.html"><h3>Funding by instrument →</h3><p>Annual funding split by source of capital, 2012 onward.</p></a>
+    <a class="card" href="funding_by_stage.html"><h3>Funding by stage →</h3><p>Capital across the equity ladder, comparing two blocs.</p></a>
+  </div>
+</div>
+<script src="assets/theme.js"></script>
+<script src="assets/chart-template.js"></script>
+<script>
+  QT.injectCSS();
+  QT.loadData("manifest").then(m => QT.vintage("#vintage", m)).catch(()=>{});
+</script>
+</body>
+</html>
