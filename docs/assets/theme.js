@@ -45,6 +45,15 @@ window.QT = (function () {
       "RoW":        "#7b5ea7",
     },
     sequential: ["#e8eef4", "#b9cbde", "#7ba0c4", "#3f6fa3", "#1f4e79"],
+    // country collaboration archetype (Paper 08/2025)
+    archetype: {
+      "Global Innovation Hub": "#1f4e79",
+      "Regional Commercial Leader": "#3d8b8b",
+      "Research Networker": "#d9a520",
+      "Emerging Ecosystem": "#7b5ea7",
+    },
+    // institutional domain
+    domain: { research: "#1f4e79", government: "#d9a520", industry: "#3d8b8b" },
   };
 
   // ── Number / currency formatters ──────────────────────────────────────────
@@ -109,6 +118,10 @@ svg{display:block;width:100%;height:auto;overflow:visible;}
 .note{font-size:11.5px;color:var(--muted);margin-top:16px;line-height:1.5;border-top:1px solid var(--line);padding-top:12px;}
 .note b{color:var(--ink);font-weight:600;}
 .qt-title{font-size:21px;line-height:1.25;margin:6px 0 4px;font-weight:650;letter-spacing:-.01em;}
+.nav{display:flex;gap:2px;border-bottom:1px solid var(--line);margin:2px 0 20px;flex-wrap:wrap;}
+.nav a{text-decoration:none;font-size:13px;color:var(--muted);padding:9px 14px;border-bottom:2px solid transparent;margin-bottom:-1px;transition:.12s;}
+.nav a:hover{color:var(--ink);}
+.nav a.on{color:var(--ink);border-bottom-color:var(--ink);font-weight:600;}
 
 /* ── dashboard / overview composition ─────────────────────────────────────── */
 .kpis{display:grid;grid-template-columns:repeat(5,minmax(0,1fr));gap:10px;margin:14px 0 6px;}
@@ -126,6 +139,30 @@ svg{display:block;width:100%;height:auto;overflow:visible;}
 /* ── cluster-concentration mini chart ─────────────────────────────────────── */
 .cc-hero{font-size:30px;font-weight:750;letter-spacing:-.02em;line-height:1;}
 .cc-hero small{font-size:13px;font-weight:600;color:var(--muted);margin-left:6px;}
+
+/* ── sortable table ───────────────────────────────────────────────────────── */
+.tblwrap{overflow-x:auto;border:1px solid var(--line);border-radius:10px;margin-top:6px;max-height:520px;}
+table.qt{border-collapse:collapse;width:100%;font-size:12.5px;min-width:560px;}
+table.qt th,table.qt td{padding:7px 11px;border-bottom:1px solid var(--line);text-align:left;white-space:nowrap;}
+table.qt th{font-size:10px;letter-spacing:.06em;text-transform:uppercase;color:var(--muted);cursor:pointer;user-select:none;position:sticky;top:0;background:var(--panel);}
+table.qt th.num,table.qt td.num{text-align:right;font-variant-numeric:tabular-nums;}
+table.qt th.sorted{color:var(--ink);}
+table.qt tbody tr:hover{background:var(--panel);}
+.rgn{display:inline-block;width:9px;height:9px;border-radius:2px;margin-right:6px;vertical-align:-1px;}
+
+/* ── sliders (stress-test) ────────────────────────────────────────────────── */
+.sliders{display:grid;gap:9px;margin:12px 0 8px;max-width:520px;}
+.srow{display:flex;align-items:center;gap:10px;}
+.srow .nm{font-size:12px;width:150px;color:var(--muted);}
+.srow input[type=range]{flex:1;accent-color:var(--ink);}
+.srow .wv{font-size:12px;font-variant-numeric:tabular-nums;width:34px;text-align:right;font-weight:600;}
+
+/* ── misc ─────────────────────────────────────────────────────────────────── */
+.badge{display:inline-block;font-size:11px;font-weight:600;padding:3px 9px;border-radius:20px;color:#fff;}
+.axis-title{fill:var(--muted);font-size:11px;font-weight:600;}
+.quad-lbl{fill:var(--muted);font-size:10px;opacity:.7;text-transform:uppercase;letter-spacing:.05em;}
+.mockflag{display:inline-block;font-size:10px;font-weight:600;letter-spacing:.04em;text-transform:uppercase;
+  color:#9a6b00;background:#fff4d6;border:1px solid #f0d68a;border-radius:5px;padding:2px 8px;margin-left:8px;}
 
 @media (max-width:720px){
   .kpis{grid-template-columns:1fr 1fr;}
