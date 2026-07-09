@@ -108,6 +108,30 @@ svg{display:block;width:100%;height:auto;overflow:visible;}
 .tt .tot{border-top:1px solid rgba(255,255,255,.18);margin-top:6px;padding-top:6px;}
 .note{font-size:11.5px;color:var(--muted);margin-top:16px;line-height:1.5;border-top:1px solid var(--line);padding-top:12px;}
 .note b{color:var(--ink);font-weight:600;}
+.qt-title{font-size:21px;line-height:1.25;margin:6px 0 4px;font-weight:650;letter-spacing:-.01em;}
+
+/* ── dashboard / overview composition ─────────────────────────────────────── */
+.kpis{display:grid;grid-template-columns:repeat(5,minmax(0,1fr));gap:10px;margin:14px 0 6px;}
+.kpi{border:1px solid var(--line);border-radius:10px;padding:12px 13px;background:var(--panel);}
+.kpi .v{font-size:22px;font-weight:700;letter-spacing:-.02em;font-variant-numeric:tabular-nums;line-height:1.1;}
+.kpi .k{font-size:11px;color:var(--muted);margin-top:3px;line-height:1.3;}
+.kpi .s{font-size:9.5px;color:var(--muted);opacity:.7;margin-top:4px;text-transform:uppercase;letter-spacing:.06em;}
+.dash{display:grid;grid-template-columns:1fr 1fr;gap:14px;margin-top:6px;}
+.panel{border:1px solid var(--line);border-radius:12px;padding:16px 16px 14px;background:var(--bg);min-width:0;}
+.panel.span2{grid-column:1 / -1;}
+.panel .qt-title{font-size:15px;margin:0 0 2px;}
+.panel .vintage{margin-bottom:6px;}
+.panel .note{margin-top:10px;}
+
+/* ── cluster-concentration mini chart ─────────────────────────────────────── */
+.cc-hero{font-size:30px;font-weight:750;letter-spacing:-.02em;line-height:1;}
+.cc-hero small{font-size:13px;font-weight:600;color:var(--muted);margin-left:6px;}
+
+@media (max-width:720px){
+  .kpis{grid-template-columns:1fr 1fr;}
+  .dash{grid-template-columns:1fr;}
+  .panel.span2{grid-column:auto;}
+}
 `;
   }
 

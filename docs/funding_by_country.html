@@ -7,30 +7,13 @@
 <script src="assets/vendor/d3.min.js"></script>
 </head>
 <body>
-<div class="wrap">
-  <div class="eyebrow">ECIPE Quantum Technologies Tracker</div>
-  <h1>Quantum funding and companies by country</h1>
-  <p class="sub">Total announced funding raised by quantum companies, by country of headquarters. Switch the metric to compare company counts or funding relative to GDP.</p>
-  <div class="vintage" id="vintage"></div>
-
-  <div class="controls">
-    <div class="ctl">
-      <label>Metric</label>
-      <div class="seg" id="seg-metric">
-        <button data-m="total_funding" class="on">Total&nbsp;funding</button>
-        <button data-m="companies">Companies</button>
-        <button data-m="funding_to_gdp">Funding&nbsp;÷&nbsp;GDP</button>
-      </div>
-    </div>
-  </div>
-
-  <svg id="chart" role="img" aria-label="Bar chart of quantum funding by country"></svg>
-
-  <p class="note"><b>Top 20 countries shown.</b> Funding is the sum of announced round amounts for companies headquartered in each country; rounds with no disclosed amount are excluded. GDP is an external reference input (see methodology) and the ratio uses total announced funding over the tracked period, not annual flows.</p>
-</div>
-
+<div class="wrap"><div id="root"></div></div>
 <script src="assets/theme.js"></script>
 <script src="assets/chart-template.js"></script>
 <script src="assets/charts/funding_by_country.js"></script>
+<script>
+  QT.injectCSS();
+  QT.charts.fundingByCountry("#root", { eyebrow: "ECIPE Quantum Technologies Tracker" });
+</script>
 </body>
 </html>

@@ -1,0 +1,26 @@
+{
+  "meta": {
+    "data_vintage": "2026-Q3",
+    "start_year": 2012,
+    "partial_year": 2026
+  },
+  "data": {
+    "periods": [
+      {
+        "period": "Up to 2023",
+        "clusters": 92,
+        "non_clusters": 8
+      },
+      {
+        "period": "2024",
+        "clusters": 95,
+        "non_clusters": 5
+      },
+      {
+        "period": "2025 YTD",
+        "clusters": 96,
+        "non_clusters": 4
+      }
+    ]
+  }
+}

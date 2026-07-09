@@ -7,37 +7,13 @@
 <script src="assets/vendor/d3.min.js"></script>
 </head>
 <body>
-<div class="wrap">
-  <div class="eyebrow">ECIPE Quantum Technologies Tracker</div>
-  <h1>Quantum funding by source of capital</h1>
-  <p class="sub">Announced funding raised by quantum companies each year, split by financing instrument.</p>
-  <div class="vintage" id="vintage"></div>
-
-  <div class="controls">
-    <div class="ctl">
-      <label>Scale</label>
-      <div class="seg" id="seg-scale">
-        <button data-s="abs" class="on">Absolute&nbsp;$</button>
-        <button data-s="share">% share</button>
-      </div>
-    </div>
-    <div class="ctl">
-      <label>Chart</label>
-      <div class="seg" id="seg-type">
-        <button data-t="bar" class="on">Bars</button>
-        <button data-t="area">Area</button>
-      </div>
-    </div>
-  </div>
-
-  <div class="legend" id="legend"></div>
-  <svg id="chart" role="img" aria-label="Stacked chart of quantum funding by instrument"></svg>
-
-  <p class="note"><b>The most recent year is partial</b> (shaded, "YTD") and is not comparable with full years. Figures are announced/committed amounts; rounds disclosed only as a total, with no instrument split, are excluded from this view.</p>
-</div>
-
+<div class="wrap"><div id="root"></div></div>
 <script src="assets/theme.js"></script>
 <script src="assets/chart-template.js"></script>
 <script src="assets/charts/funding_by_instrument.js"></script>
+<script>
+  QT.injectCSS();
+  QT.charts.fundingByInstrument("#root", { eyebrow: "ECIPE Quantum Technologies Tracker" });
+</script>
 </body>
 </html>

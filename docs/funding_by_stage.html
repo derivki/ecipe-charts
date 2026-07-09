@@ -7,28 +7,13 @@
 <script src="assets/vendor/d3.min.js"></script>
 </head>
 <body>
-<div class="wrap">
-  <div class="eyebrow">ECIPE Quantum Technologies Tracker</div>
-  <h1>Quantum capital by funding stage</h1>
-  <p class="sub">Total capital raised at each stage of the funding ladder, comparing two blocs. Switch between each bloc's internal mix and absolute amounts.</p>
-  <div class="vintage" id="vintage"></div>
-
-  <div class="controls">
-    <div class="ctl"><label>Bloc A</label><select id="ra"></select></div>
-    <div class="ctl"><label>Bloc B</label><select id="rb"></select></div>
-    <div class="ctl"><label>Scale</label>
-      <div class="seg" id="seg-scale"><button data-s="share" class="on">% of bloc total</button><button data-s="abs">Absolute&nbsp;$</button></div>
-    </div>
-  </div>
-
-  <div class="legend" id="legend"></div>
-  <svg id="chart" role="img" aria-label="Funding by stage, two regions compared"></svg>
-
-  <p class="note"><b>Figures are announced amounts.</b> Late-stage and growth equity are combined into a single stage; debt and grants are excluded from this equity-ladder view. In share mode each bloc's stages sum to 100 per cent, so shapes are comparable across blocs of very different size.</p>
-</div>
-
+<div class="wrap"><div id="root"></div></div>
 <script src="assets/theme.js"></script>
 <script src="assets/chart-template.js"></script>
 <script src="assets/charts/funding_by_stage.js"></script>
+<script>
+  QT.injectCSS();
+  QT.charts.fundingByStage("#root", { eyebrow: "ECIPE Quantum Technologies Tracker" });
+</script>
 </body>
 </html>

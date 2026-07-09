@@ -3,35 +3,51 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>ECIPE Quantum Technologies Tracker — charts</title>
+<title>ECIPE Quantum Technologies Tracker</title>
 <script src="assets/vendor/d3.min.js"></script>
 <style>
-  .grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(240px,1fr));gap:14px;margin-top:18px;}
-  a.card{display:block;text-decoration:none;color:inherit;border:1px solid var(--line);
-    border-radius:10px;padding:16px 16px 18px;transition:.12s;background:var(--panel);}
-  a.card:hover{border-color:#b9c1cb;transform:translateY(-1px);}
-  a.card h3{margin:0 0 4px;font-size:15px;}
-  a.card p{margin:0;font-size:12.5px;color:var(--muted);line-height:1.45;}
+  .links{display:flex;flex-wrap:wrap;gap:10px;margin-top:22px;}
+  .links a{font-size:12.5px;text-decoration:none;color:var(--ink);border:1px solid var(--line);
+    background:var(--panel);border-radius:8px;padding:8px 12px;transition:.12s;}
+  .links a:hover{border-color:#b9c1cb;}
+  .links a b{color:var(--muted);font-weight:500;}
 </style>
 </head>
 <body>
 <div class="wrap">
   <div class="eyebrow">ECIPE Quantum Technologies Tracker</div>
-  <h1>Chart gallery</h1>
-  <p class="sub">Interactive charts generated from the ECIPE quantum startups database. Each chart is also embeddable as a standalone iframe.</p>
+  <h1>The global quantum landscape</h1>
+  <p class="sub">Announced funding, companies and collaboration across the quantum economy — the state of play, from the ECIPE Quantum Database.</p>
   <div class="vintage" id="vintage"></div>
 
-  <div class="grid">
-    <a class="card" href="funding_by_country.html"><h3>Funding by country →</h3><p>Total funding, company counts, and funding relative to GDP.</p></a>
-    <a class="card" href="funding_by_instrument.html"><h3>Funding by instrument →</h3><p>Annual funding split by source of capital, 2012 onward.</p></a>
-    <a class="card" href="funding_by_stage.html"><h3>Funding by stage →</h3><p>Capital across the equity ladder, comparing two blocs.</p></a>
+  <div id="kpis"></div>
+
+  <div class="dash">
+    <div class="panel span2" id="p-funding"></div>
+    <div class="panel" id="p-country"></div>
+    <div class="panel" id="p-cluster"></div>
+  </div>
+
+  <div class="links">
+    <a href="funding_by_country.html"><b>Explore →</b> Funding by country</a>
+    <a href="funding_by_instrument.html"><b>Explore →</b> Funding by instrument</a>
+    <a href="funding_by_stage.html"><b>Explore →</b> Funding by stage</a>
   </div>
 </div>
+
 <script src="assets/theme.js"></script>
 <script src="assets/chart-template.js"></script>
+<script src="assets/charts/overview_kpis.js"></script>
+<script src="assets/charts/cluster_concentration.js"></script>
+<script src="assets/charts/funding_by_instrument.js"></script>
+<script src="assets/charts/funding_by_country.js"></script>
 <script>
   QT.injectCSS();
-  QT.loadData("manifest").then(m => QT.vintage("#vintage", m)).catch(()=>{});
+  QT.loadData("manifest").then(m => QT.vintage("#vintage", m)).catch(() => {});
+  QT.charts.overviewStats("#kpis");
+  QT.charts.fundingByInstrument("#p-funding", { compact: true, title: "Funding over time, by source of capital" });
+  QT.charts.fundingByCountry("#p-country", { compact: true, top: 12, title: "Where the capital is — top countries" });
+  QT.charts.clusterConcentration("#p-cluster", { compact: true, title: "Funding concentrates in clusters" });
 </script>
 </body>
 </html>

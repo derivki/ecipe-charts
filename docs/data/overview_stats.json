@@ -1,0 +1,36 @@
+{
+  "meta": {
+    "data_vintage": "2026-Q3",
+    "start_year": 2012,
+    "partial_year": 2026
+  },
+  "data": {
+    "tiles": [
+      {
+        "value": "$38.8bn",
+        "label": "Total funding tracked",
+        "source": "Database"
+      },
+      {
+        "value": "578",
+        "label": "Quantum companies",
+        "source": "Database"
+      },
+      {
+        "value": "45",
+        "label": "Quantum clusters",
+        "source": "Paper 15/2025"
+      },
+      {
+        "value": "110+",
+        "label": "Countries active",
+        "source": "Paper 08/2025"
+      },
+      {
+        "value": "18,400",
+        "label": "Collaborations",
+        "source": "Paper 08/2025"
+      }
+    ]
+  }
+}
