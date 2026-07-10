@@ -96,7 +96,7 @@ window.QT = (function () {
   --bg:${tokens.bg};--panel:${tokens.panel};--font:${tokens.font};}
 *{box-sizing:border-box;}
 body{margin:0;background:var(--bg);color:var(--ink);font-family:var(--font);}
-.wrap{max-width:920px;margin:0 auto;padding:24px 20px 40px;}
+.wrap{max-width:1320px;margin:0 auto;padding:24px 20px 40px;}
 .eyebrow{font-size:11px;letter-spacing:.14em;text-transform:uppercase;color:var(--muted);font-weight:600;}
 h1{font-size:21px;line-height:1.25;margin:6px 0 4px;font-weight:650;letter-spacing:-.01em;}
 .sub{font-size:13px;color:var(--muted);margin:0 0 16px;max-width:660px;line-height:1.45;}
