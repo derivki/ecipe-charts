@@ -3,56 +3,80 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>ECIPE Quantum Technologies Tracker</title>
+<title>ECIPE Quantum Technologies Tracker — Overview</title>
 <script src="assets/vendor/d3.min.js"></script>
-<style>
-  .links{display:flex;flex-wrap:wrap;gap:10px;margin-top:22px;}
-  .links a{font-size:12.5px;text-decoration:none;color:var(--ink);border:1px solid var(--line);
-    background:var(--panel);border-radius:8px;padding:8px 12px;transition:.12s;}
-  .links a:hover{border-color:#b9c1cb;}
-  .links a b{color:var(--muted);font-weight:500;}
-</style>
 </head>
 <body>
 <div class="wrap">
   <div class="eyebrow">ECIPE Quantum Technologies Tracker</div>
-  <div class="nav">
-    <a href="index.html" class="on">Overview</a>
-    <a href="countries.html">Countries</a>
-    <a href="clusters.html">Clusters</a>
-  </div>
+  <div id="nav"></div>
   <h1>The global quantum landscape</h1>
-  <p class="sub">Announced funding, companies and collaboration across the quantum economy — the state of play, from the ECIPE Quantum Database.</p>
+  <p class="sub">Announced funding, companies and collaboration — the state of play. Pick a layer below to drill into a country or an innovation cluster.</p>
   <div class="vintage" id="vintage"></div>
 
-  <div id="kpis"></div>
+  <div class="kpis" id="kpis"></div>
 
-  <div class="dash">
-    <div class="panel span2" id="p-funding"></div>
-    <div class="panel" id="p-country"></div>
-    <div class="panel" id="p-cluster"></div>
+  <div class="panels g2">
+
+    <div class="panel span2">
+      <div class="ttl">Funding by year and instrument</div>
+      <p class="why">Annual funding split by instrument: VC / private equity, debt, grant, public equity.</p>
+      <div class="controls">
+        <div class="ctl"><label>Scale</label>
+          <div class="seg" id="seg-scale-instrument"><button data-s="abs" class="on">Absolute&nbsp;$</button><button data-s="share">% share</button></div>
+        </div>
+        <div class="ctl"><label>Chart</label>
+          <div class="seg" id="seg-type-instrument"><button data-t="bar" class="on">Bars</button><button data-t="area">Area</button></div>
+        </div>
+      </div>
+      <div class="legend" id="legend-instrument"></div>
+      <svg id="chart-instrument" role="img" aria-label="Funding over time by financing instrument"></svg>
+      <p class="note" style="margin-top:8px;padding-top:8px;"><b>The most recent year is partial</b> (shaded, "YTD") and is not comparable with full years. <a href="funding_by_instrument.html">Open as a standalone page →</a></p>
+    </div>
+
+    <div class="panel">
+      <div class="ttl">Top 8 countries by funding</div>
+      <p class="why">Announced funding raised, top 8 of 38 tracked countries. <a href="funding_by_country.html">Full interactive chart →</a></p>
+      <svg id="chart-country" role="img" aria-label="Top countries by funding"></svg>
+    </div>
+
+    <div class="panel">
+      <div class="ttl" id="cluster-share-headline">Funding sits overwhelmingly in named clusters</div>
+      <p class="why">Share of total tracked funding from companies in a named cluster vs. elsewhere.</p>
+      <svg id="chart-clustershare" role="img" aria-label="Share of funding inside named clusters"></svg>
+      <div class="legend" id="legend-clustershare"></div>
+      <p class="note" style="margin-top:8px;padding-top:8px;">Computed from the funding database: sum of funding for companies with a named cluster (<a href="clusters.html">see the 44 tracked clusters →</a>) over total tracked funding.</p>
+    </div>
+
+    <div class="panel span2">
+      <div class="ttl">Country archetypes: connectedness vs. commercial intensity <span id="badge-archetype"></span></div>
+      <p class="why">One point per country. X-axis: global connectedness. Y-axis: commercial intensity. <a href="countries.html">Explore a country →</a></p>
+      <svg id="chart-archetype" role="img" aria-label="Country archetypes, connectedness versus commercial intensity"></svg>
+      <p class="mocknote" id="mocknote-archetype"></p>
+    </div>
+
+    <div class="panel span2">
+      <div class="ttl">Quantum capital by funding stage</div>
+      <p class="why">Capital raised at each stage of the funding ladder, comparing two blocs.</p>
+      <div class="controls">
+        <div class="ctl"><label>Bloc A</label><select id="stage-ra"></select></div>
+        <div class="ctl"><label>Bloc B</label><select id="stage-rb"></select></div>
+        <div class="ctl"><label>Scale</label>
+          <div class="seg" id="seg-scale-stage"><button data-s="share" class="on">%&nbsp;of&nbsp;bloc&nbsp;total</button><button data-s="abs">Absolute&nbsp;$</button></div>
+        </div>
+      </div>
+      <div class="legend" id="legend-stage"></div>
+      <svg id="chart-stage" role="img" aria-label="Funding by stage, two regions compared"></svg>
+      <p class="note" style="margin-top:8px;padding-top:8px;">Late-stage and growth equity are combined; debt and grants are excluded from this equity-ladder view. <a href="funding_by_stage.html">Open as a standalone page →</a></p>
+    </div>
+
   </div>
 
-  <div class="links">
-    <a href="funding_by_country.html"><b>Explore →</b> Funding by country</a>
-    <a href="funding_by_instrument.html"><b>Explore →</b> Funding by instrument</a>
-    <a href="funding_by_stage.html"><b>Explore →</b> Funding by stage</a>
-  </div>
+  <p class="note">Lead each panel with the takeaway, not a neutral label — one idea per chart. Charts marked <b>illustrative · mock data</b> use placeholder figures pending the next update of the underlying analysis (Occasional Papers 08/2025 and 15/2025) and should not be cited.</p>
 </div>
 
 <script src="assets/theme.js"></script>
 <script src="assets/chart-template.js"></script>
-<script src="assets/charts/overview_kpis.js"></script>
-<script src="assets/charts/cluster_concentration.js"></script>
-<script src="assets/charts/funding_by_instrument.js"></script>
-<script src="assets/charts/funding_by_country.js"></script>
-<script>
-  QT.injectCSS();
-  QT.loadData("manifest").then(m => QT.vintage("#vintage", m)).catch(() => {});
-  QT.charts.overviewStats("#kpis");
-  QT.charts.fundingByInstrument("#p-funding", { compact: true, title: "Funding over time, by source of capital" });
-  QT.charts.fundingByCountry("#p-country", { compact: true, top: 12, title: "Where the capital is — top countries" });
-  QT.charts.clusterConcentration("#p-cluster", { compact: true, title: "Funding concentrates in clusters" });
-</script>
+<script src="assets/charts/overview.js"></script>
 </body>
 </html>

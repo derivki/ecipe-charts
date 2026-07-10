@@ -1,0 +1,54 @@
+{
+  "meta": {
+    "data_vintage": "2026-Q3",
+    "mock": true,
+    "partial_year": 2026,
+    "source_note": "Illustrative placeholder — not derived from the funding database. Pending the next update of the underlying analysis; do not cite as a finding. The 2026 figure (86.2%) is the real value computed from funding_by_cluster.json / funding_by_country.json; the historical path before it is illustrative pending a time-series cluster methodology."
+  },
+  "data": [
+    {
+      "year": 2016,
+      "cluster_share": 0.7
+    },
+    {
+      "year": 2017,
+      "cluster_share": 0.7256
+    },
+    {
+      "year": 2018,
+      "cluster_share": 0.7446
+    },
+    {
+      "year": 2019,
+      "cluster_share": 0.7617
+    },
+    {
+      "year": 2020,
+      "cluster_share": 0.7776
+    },
+    {
+      "year": 2021,
+      "cluster_share": 0.7928
+    },
+    {
+      "year": 2022,
+      "cluster_share": 0.8073
+    },
+    {
+      "year": 2023,
+      "cluster_share": 0.8214
+    },
+    {
+      "year": 2024,
+      "cluster_share": 0.8351
+    },
+    {
+      "year": 2025,
+      "cluster_share": 0.8485
+    },
+    {
+      "year": 2026,
+      "cluster_share": 0.8615
+    }
+  ]
+}

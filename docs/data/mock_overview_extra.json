@@ -1,0 +1,10 @@
+{
+  "meta": {
+    "data_vintage": "2026-Q3",
+    "mock": true,
+    "source_note": "Illustrative placeholder — not derived from the funding database. Pending the next update of the underlying analysis; do not cite as a finding. No collaboration/co-investment network dataset exists in the pipeline yet; this is a rough order-of-magnitude placeholder pending Occasional Paper 08/2025's update."
+  },
+  "data": {
+    "collaborations": 3210
+  }
+}

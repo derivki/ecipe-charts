@@ -1,0 +1,179 @@
+{
+  "meta": {
+    "data_vintage": "2026-Q3",
+    "mock": true,
+    "source_note": "Illustrative placeholder — not derived from the funding database. Pending the next update of the underlying analysis; do not cite as a finding. Cluster names, company counts and funding totals are real (funding_by_cluster.json); coordinates are the cluster's real-world location; the three dimension scores (0-100) and any composite ranking are illustrative placeholders for the Clusters paper's (Occasional Paper 15/2025) methodology.",
+    "dimensions": [
+      "market_orientation",
+      "collaboration_intensity",
+      "ecosystem_maturity"
+    ]
+  },
+  "data": [
+    {
+      "cluster": "San Francisco Bay Area",
+      "region": "North America",
+      "lat": 37.7749,
+      "lon": -122.4194,
+      "companies": 21,
+      "total_funding": 6489553318.6,
+      "market_orientation": 88,
+      "collaboration_intensity": 63,
+      "ecosystem_maturity": 79
+    },
+    {
+      "cluster": "Denver–Boulder Region",
+      "region": "North America",
+      "lat": 39.7392,
+      "lon": -104.9903,
+      "companies": 16,
+      "total_funding": 5120377581.26,
+      "market_orientation": 80,
+      "collaboration_intensity": 60,
+      "ecosystem_maturity": 59
+    },
+    {
+      "cluster": "Greater Washington",
+      "region": "North America",
+      "lat": 38.9072,
+      "lon": -77.0369,
+      "companies": 11,
+      "total_funding": 4200886278.0,
+      "market_orientation": 79,
+      "collaboration_intensity": 68,
+      "ecosystem_maturity": 63
+    },
+    {
+      "cluster": "Shenzhen–Hong Kong–Guangzhou Region",
+      "region": "East Asia",
+      "lat": 22.5431,
+      "lon": 114.0579,
+      "companies": 4,
+      "total_funding": 2384414786.72,
+      "market_orientation": 56,
+      "collaboration_intensity": 41,
+      "ecosystem_maturity": 41
+    },
+    {
+      "cluster": "Greater New York",
+      "region": "North America",
+      "lat": 40.7128,
+      "lon": -74.006,
+      "companies": 8,
+      "total_funding": 2038371532.0,
+      "market_orientation": 54,
+      "collaboration_intensity": 50,
+      "ecosystem_maturity": 47
+    },
+    {
+      "cluster": "Hefei",
+      "region": "East Asia",
+      "lat": 31.8206,
+      "lon": 117.2272,
+      "companies": 9,
+      "total_funding": 1299177860.74,
+      "market_orientation": 52,
+      "collaboration_intensity": 64,
+      "ecosystem_maturity": 48
+    },
+    {
+      "cluster": "Greater Helsinki",
+      "region": "Europe",
+      "lat": 60.1699,
+      "lon": 24.9384,
+      "companies": 11,
+      "total_funding": 1133876486.66,
+      "market_orientation": 55,
+      "collaboration_intensity": 50,
+      "ecosystem_maturity": 52
+    },
+    {
+      "cluster": "Tel Aviv Metropolitan Area",
+      "region": "Other",
+      "lat": 32.0853,
+      "lon": 34.7818,
+      "companies": 13,
+      "total_funding": 855666000.0,
+      "market_orientation": 52,
+      "collaboration_intensity": 41,
+      "ecosystem_maturity": 43
+    },
+    {
+      "cluster": "Greater Paris",
+      "region": "Europe",
+      "lat": 48.8566,
+      "lon": 2.3522,
+      "companies": 20,
+      "total_funding": 830139733.93,
+      "market_orientation": 52,
+      "collaboration_intensity": 62,
+      "ecosystem_maturity": 36
+    },
+    {
+      "cluster": "Toronto–Waterloo Corridor",
+      "region": "North America",
+      "lat": 43.6532,
+      "lon": -79.3832,
+      "companies": 24,
+      "total_funding": 776103579.74,
+      "market_orientation": 55,
+      "collaboration_intensity": 62,
+      "ecosystem_maturity": 46
+    },
+    {
+      "cluster": "Greater Geneva Bern Area",
+      "region": "Europe",
+      "lat": 46.2044,
+      "lon": 6.1432,
+      "companies": 10,
+      "total_funding": 752514278.53,
+      "market_orientation": 53,
+      "collaboration_intensity": 44,
+      "ecosystem_maturity": 43
+    },
+    {
+      "cluster": "Greater Boston",
+      "region": "North America",
+      "lat": 42.3601,
+      "lon": -71.0589,
+      "companies": 16,
+      "total_funding": 741509420.38,
+      "market_orientation": 52,
+      "collaboration_intensity": 57,
+      "ecosystem_maturity": 45
+    },
+    {
+      "cluster": "London Commuter Belt",
+      "region": "Europe",
+      "lat": 51.5074,
+      "lon": -0.1278,
+      "companies": 18,
+      "total_funding": 635054625.66,
+      "market_orientation": 46,
+      "collaboration_intensity": 46,
+      "ecosystem_maturity": 34
+    },
+    {
+      "cluster": "Shanghai",
+      "region": "East Asia",
+      "lat": 31.2304,
+      "lon": 121.4737,
+      "companies": 6,
+      "total_funding": 633234500.0,
+      "market_orientation": 46,
+      "collaboration_intensity": 44,
+      "ecosystem_maturity": 37
+    },
+    {
+      "cluster": "Beijing",
+      "region": "East Asia",
+      "lat": 39.9042,
+      "lon": 116.4074,
+      "companies": 10,
+      "total_funding": 621459500.0,
+      "market_orientation": 46,
+      "collaboration_intensity": 45,
+      "ecosystem_maturity": 37
+    }
+  ]
+}

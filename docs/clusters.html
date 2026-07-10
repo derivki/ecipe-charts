@@ -3,37 +3,76 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Quantum innovation hubs — cluster ranking</title>
+<title>ECIPE Quantum Technologies Tracker — Clusters</title>
 <script src="assets/vendor/d3.min.js"></script>
 </head>
 <body>
 <div class="wrap">
   <div class="eyebrow">ECIPE Quantum Technologies Tracker</div>
-  <div class="nav">
-    <a href="index.html">Overview</a>
-    <a href="countries.html">Countries</a>
-    <a href="clusters.html" class="on">Clusters</a>
-  </div>
-  <h1>Innovation hubs — the 45 quantum clusters</h1>
-  <p class="sub">Ranked on Market Orientation, Collaboration Intensity and Ecosystem Maturity (ECIPE Occasional Paper 15/2025).</p>
+  <div id="nav"></div>
+  <h1>Innovation hubs</h1>
+  <p class="sub">The leading quantum clusters by tracked funding, ranked on Market Orientation, Collaboration Intensity and Ecosystem Maturity. <span id="badge-clusters"></span></p>
   <div class="vintage" id="vintage"></div>
 
-  <div class="dash">
-    <div class="panel span2" id="p-rank"></div>
-    <div class="panel" id="p-stress"></div>
-    <div class="panel" id="p-collab"></div>
+  <div class="chiprow" id="region-chips"></div>
+
+  <div class="panels g2">
+
+    <div class="panel span2">
+      <div class="ttl">Cluster map: funding and composite score</div>
+      <p class="why">Position: real coordinates. Bubble size: funding (real). Colour: composite score (illustrative) — updates with the sliders below.</p>
+      <svg id="chart-map" role="img" aria-label="Map of quantum clusters"></svg>
+    </div>
+
+    <div class="panel span2">
+      <div class="ttl">Re-weight the composite score</div>
+      <p class="why">Adjust each dimension's weight; the table and map above re-sort live.</p>
+      <div class="sliders" id="sliders"></div>
+    </div>
+
+    <div class="panel span2">
+      <div class="ttl">Ranking table: all 15 clusters, three dimensions</div>
+      <p class="why">Click a row for detail. Companies and funding are real; dimension scores and composite are illustrative.</p>
+      <div class="tblwrap" style="overflow-x:auto;">
+        <table class="rtable" id="rtable">
+          <thead><tr>
+            <th data-k="rank" class="num">#</th>
+            <th data-k="cluster">Cluster</th>
+            <th data-k="region">Region</th>
+            <th data-k="companies" class="num">Companies</th>
+            <th data-k="total_funding" class="num">Funding</th>
+            <th data-k="market_orientation" class="num">Market</th>
+            <th data-k="collaboration_intensity" class="num">Collab.</th>
+            <th data-k="ecosystem_maturity" class="num">Maturity</th>
+            <th data-k="composite" class="num sorted">Composite</th>
+          </tr></thead>
+          <tbody></tbody>
+        </table>
+      </div>
+    </div>
+
+    <div class="panel span2">
+      <div class="ttl" id="ttl-clusterdetail">Cluster detail</div>
+      <p class="why">Market orientation, collaboration intensity and ecosystem maturity for the selected cluster.</p>
+      <svg id="chart-dimbars" role="img" aria-label="Cluster dimension detail"></svg>
+    </div>
+
+    <div class="panel span2">
+      <div class="ttl">Cluster share of funding, 2016–2026 <span id="badge-time"></span></div>
+      <p class="why">Share of total funding inside named clusters. Only the 2026 value is real.</p>
+      <svg id="chart-sharetime" role="img" aria-label="Cluster share of funding over time"></svg>
+      <div class="legend" id="legend-sharetime"></div>
+    </div>
+
   </div>
+
+  <p class="mocknote" id="mocknote-clusters"></p>
+  <p class="note">Showing the top 15 clusters by tracked funding, of 44 in the database (<code style="font-family:var(--mono,monospace)">docs/data/funding_by_cluster.json</code> has the full list of company counts and funding by cluster). Composite rank uses equal weights by default; adjust the sliders to test alternative weightings.</p>
 </div>
 
 <script src="assets/theme.js"></script>
 <script src="assets/chart-template.js"></script>
+<script src="assets/vendor/topojson-client.js"></script>
 <script src="assets/charts/clusters.js"></script>
-<script>
-  QT.injectCSS();
-  QT.loadData("manifest").then(m => QT.vintage("#vintage", m)).catch(() => {});
-  QT.charts.clusterRanking("#p-rank", { compact: true, title: "Full ranking (click a column to sort)" });
-  QT.charts.clusterStressTest("#p-stress", { compact: true, top: 12, title: "Stress-test the ranking" });
-  QT.charts.clusterCollaboration("#p-collab", { compact: true, title: "Collaboration intensity" });
-</script>
 </body>
 </html>

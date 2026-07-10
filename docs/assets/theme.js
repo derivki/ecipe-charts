@@ -18,6 +18,15 @@ window.QT = (function () {
     bg:    "#ffffff",
     panel: "#f7f8fa",   // control backgrounds
     font:  '"Inter","Helvetica Neue",Arial,sans-serif',
+    // named accent hues — same five colours already used across the
+    // instrument/stage/region palettes below, reused (not reinvented) for
+    // tab underlines, panel accents and dashboard KPI tiles.
+    accent: "#1f4e79",
+    teal:   "#3d8b8b",
+    gold:   "#d9a520",
+    purple: "#7b5ea7",
+    rust:   "#b5482f",
+    mock:   "#b5482f",  // colour used for the "illustrative / mock data" badge
   };
 
   // ── Categorical palettes ─────────────────────────────────────────────────
@@ -45,15 +54,23 @@ window.QT = (function () {
       "RoW":        "#7b5ea7",
     },
     sequential: ["#e8eef4", "#b9cbde", "#7ba0c4", "#3f6fa3", "#1f4e79"],
-    // country collaboration archetype (Paper 08/2025)
+    // collaboration archetype (country 2×2: connectedness × commercial intensity) — MOCK
     archetype: {
-      "Global Innovation Hub": "#1f4e79",
-      "Regional Commercial Leader": "#3d8b8b",
-      "Research Networker": "#d9a520",
-      "Emerging Ecosystem": "#7b5ea7",
+      "Global Hub":              "#1f4e79",
+      "Research Networker":      "#3d8b8b",
+      "Domestic Commercialiser": "#d9a520",
+      "Emerging Ecosystem":      "#7b5ea7",
     },
-    // institutional domain
-    domain: { research: "#1f4e79", government: "#d9a520", industry: "#3d8b8b" },
+    // institution domain (research / government / industry) — MOCK
+    domain: { research: "#3d8b8b", government: "#d9a520", industry: "#1f4e79" },
+    // cluster ranking dimension (market orientation / collaboration intensity / ecosystem maturity) — MOCK
+    dimension: {
+      market_orientation:      "#1f4e79",
+      collaboration_intensity: "#3d8b8b",
+      ecosystem_maturity:      "#d9a520",
+    },
+    // cluster macro-region (bubble map / region filter) — MOCK grouping of real clusters
+    clusterRegion: { "North America": "#1f4e79", "Europe": "#d9a520", "East Asia": "#b5482f", "Other": "#7b5ea7" },
   };
 
   // ── Number / currency formatters ──────────────────────────────────────────
@@ -117,58 +134,62 @@ svg{display:block;width:100%;height:auto;overflow:visible;}
 .tt .tot{border-top:1px solid rgba(255,255,255,.18);margin-top:6px;padding-top:6px;}
 .note{font-size:11.5px;color:var(--muted);margin-top:16px;line-height:1.5;border-top:1px solid var(--line);padding-top:12px;}
 .note b{color:var(--ink);font-weight:600;}
-.qt-title{font-size:21px;line-height:1.25;margin:6px 0 4px;font-weight:650;letter-spacing:-.01em;}
-.nav{display:flex;gap:2px;border-bottom:1px solid var(--line);margin:2px 0 20px;flex-wrap:wrap;}
-.nav a{text-decoration:none;font-size:13px;color:var(--muted);padding:9px 14px;border-bottom:2px solid transparent;margin-bottom:-1px;transition:.12s;}
-.nav a:hover{color:var(--ink);}
-.nav a.on{color:var(--ink);border-bottom-color:var(--ink);font-weight:600;}
 
-/* ── dashboard / overview composition ─────────────────────────────────────── */
-.kpis{display:grid;grid-template-columns:repeat(5,minmax(0,1fr));gap:10px;margin:14px 0 6px;}
-.kpi{border:1px solid var(--line);border-radius:10px;padding:12px 13px;background:var(--panel);}
-.kpi .v{font-size:22px;font-weight:700;letter-spacing:-.02em;font-variant-numeric:tabular-nums;line-height:1.1;}
-.kpi .k{font-size:11px;color:var(--muted);margin-top:3px;line-height:1.3;}
-.kpi .s{font-size:9.5px;color:var(--muted);opacity:.7;margin-top:4px;text-transform:uppercase;letter-spacing:.06em;}
-.dash{display:grid;grid-template-columns:1fr 1fr;gap:14px;margin-top:6px;}
-.panel{border:1px solid var(--line);border-radius:12px;padding:16px 16px 14px;background:var(--bg);min-width:0;}
-.panel.span2{grid-column:1 / -1;}
-.panel .qt-title{font-size:15px;margin:0 0 2px;}
-.panel .vintage{margin-bottom:6px;}
-.panel .note{margin-top:10px;}
+/* ---------- dashboard nav (Overview / Countries / Clusters) ---------- */
+.tabbar{display:flex;gap:4px;margin:14px 0 6px;border-bottom:1px solid var(--line);}
+.tabbar a{font-size:13px;font-weight:600;color:var(--muted);text-decoration:none;
+  padding:8px 4px;margin-right:18px;border-bottom:2px solid transparent;}
+.tabbar a.on{color:var(--ink);border-bottom-color:${tokens.accent};}
+.tabbar a:hover{color:var(--ink);}
 
-/* ── cluster-concentration mini chart ─────────────────────────────────────── */
-.cc-hero{font-size:30px;font-weight:750;letter-spacing:-.02em;line-height:1;}
-.cc-hero small{font-size:13px;font-weight:600;color:var(--muted);margin-left:6px;}
+/* ---------- KPI tile strip ---------- */
+.kpis{display:grid;grid-template-columns:repeat(auto-fit,minmax(120px,1fr));gap:10px;margin:16px 0 22px;}
+.kpi{border:1px solid var(--line);border-radius:10px;padding:11px 13px;background:var(--panel);}
+.kpi .v{font-size:20px;font-weight:700;letter-spacing:-.02em;font-variant-numeric:tabular-nums;color:var(--ink);}
+.kpi .k{font-size:11px;color:var(--muted);margin-top:2px;line-height:1.3;}
 
-/* ── sortable table ───────────────────────────────────────────────────────── */
-.tblwrap{overflow-x:auto;border:1px solid var(--line);border-radius:10px;margin-top:6px;max-height:520px;}
-table.qt{border-collapse:collapse;width:100%;font-size:12.5px;min-width:560px;}
-table.qt th,table.qt td{padding:7px 11px;border-bottom:1px solid var(--line);text-align:left;white-space:nowrap;}
-table.qt th{font-size:10px;letter-spacing:.06em;text-transform:uppercase;color:var(--muted);cursor:pointer;user-select:none;position:sticky;top:0;background:var(--panel);}
-table.qt th.num,table.qt td.num{text-align:right;font-variant-numeric:tabular-nums;}
-table.qt th.sorted{color:var(--ink);}
-table.qt tbody tr:hover{background:var(--panel);}
-.rgn{display:inline-block;width:9px;height:9px;border-radius:2px;margin-right:6px;vertical-align:-1px;}
+/* ---------- dashboard panel grid ---------- */
+.panels{display:grid;gap:16px;margin-top:6px;}
+.panels.g2{grid-template-columns:1fr 1fr;}
+.panels .span2{grid-column:1/-1;}
+.panel{border:1px solid var(--line);border-radius:11px;padding:15px 16px 14px;background:var(--bg);}
+.panel .ttl{font-size:14px;font-weight:650;letter-spacing:-.005em;margin:0 0 2px;display:flex;align-items:center;gap:8px;flex-wrap:wrap;}
+.panel .why{font-size:12px;color:var(--muted);line-height:1.45;margin:0 0 10px;}
+@media (max-width:760px){ .panels.g2{grid-template-columns:1fr;} }
 
-/* ── sliders (stress-test) ────────────────────────────────────────────────── */
-.sliders{display:grid;gap:9px;margin:12px 0 8px;max-width:520px;}
-.srow{display:flex;align-items:center;gap:10px;}
-.srow .nm{font-size:12px;width:150px;color:var(--muted);}
-.srow input[type=range]{flex:1;accent-color:var(--ink);}
-.srow .wv{font-size:12px;font-variant-numeric:tabular-nums;width:34px;text-align:right;font-weight:600;}
+/* ---------- mock/illustrative data badge ---------- */
+.mockbadge{display:inline-flex;align-items:center;gap:5px;font-size:9.5px;font-weight:700;
+  letter-spacing:.06em;text-transform:uppercase;color:${tokens.mock};
+  border:1px solid color-mix(in srgb, ${tokens.mock} 45%, transparent);
+  background:color-mix(in srgb, ${tokens.mock} 8%, transparent);
+  border-radius:20px;padding:2px 8px;white-space:nowrap;}
+.mocknote{font-size:11px;color:var(--muted);line-height:1.5;margin:2px 0 10px;padding:7px 10px;
+  border-left:2px solid color-mix(in srgb, ${tokens.mock} 55%, transparent);background:var(--panel);border-radius:0 6px 6px 0;}
 
-/* ── misc ─────────────────────────────────────────────────────────────────── */
-.badge{display:inline-block;font-size:11px;font-weight:600;padding:3px 9px;border-radius:20px;color:#fff;}
-.axis-title{fill:var(--muted);font-size:11px;font-weight:600;}
-.quad-lbl{fill:var(--muted);font-size:10px;opacity:.7;text-transform:uppercase;letter-spacing:.05em;}
-.mockflag{display:inline-block;font-size:10px;font-weight:600;letter-spacing:.04em;text-transform:uppercase;
-  color:#9a6b00;background:#fff4d6;border:1px solid #f0d68a;border-radius:5px;padding:2px 8px;margin-left:8px;}
+/* ---------- composite-index sliders (cluster re-weighting) ---------- */
+.sliders{display:flex;flex-direction:column;gap:10px;margin:4px 0 14px;}
+.sliderow{display:grid;grid-template-columns:minmax(0,150px) minmax(0,1fr) 40px;align-items:center;gap:10px;}
+.sliderow label{font-size:11.5px;color:var(--muted);display:flex;align-items:center;gap:6px;min-width:0;overflow:hidden;text-overflow:ellipsis;white-space:nowrap;}
+.sliderow label i{width:9px;height:9px;border-radius:2px;flex:none;}
+.sliderow input[type=range]{width:100%;min-width:0;accent-color:${tokens.accent};}
+.sliderow .pctval{font-size:12px;font-weight:600;color:var(--ink);text-align:right;font-variant-numeric:tabular-nums;}
+@media (max-width:480px){ .sliderow{grid-template-columns:minmax(0,1fr) 34px;grid-template-areas:"slider pct" "label label";}
+  .sliderow label{grid-area:label;} .sliderow input[type=range]{grid-area:slider;} .sliderow .pctval{grid-area:pct;} }
 
-@media (max-width:720px){
-  .kpis{grid-template-columns:1fr 1fr;}
-  .dash{grid-template-columns:1fr;}
-  .panel.span2{grid-column:auto;}
-}
+/* ---------- sortable ranking table ---------- */
+.rtable{width:100%;border-collapse:collapse;font-size:12.5px;}
+.rtable th,.rtable td{text-align:left;padding:8px 10px;border-bottom:1px solid var(--line);}
+.rtable th{font-size:10px;letter-spacing:.06em;text-transform:uppercase;color:var(--muted);
+  cursor:pointer;user-select:none;white-space:nowrap;}
+.rtable th.sorted{color:var(--ink);}
+.rtable th .arrow{opacity:.55;}
+.rtable td.num,.rtable th.num{text-align:right;font-variant-numeric:tabular-nums;}
+.rtable tbody tr:hover{background:var(--panel);}
+.rtable tbody tr.sel{background:color-mix(in srgb, ${tokens.accent} 10%, transparent);}
+.chiprow{display:flex;flex-wrap:wrap;gap:6px;margin:10px 0 2px;}
+.chip{font-size:11.5px;color:var(--muted);border:1px solid var(--line);border-radius:20px;
+  padding:4px 11px;cursor:pointer;background:var(--bg);}
+.chip.on{background:var(--ink);color:#fff;border-color:var(--ink);}
 `;
   }
 

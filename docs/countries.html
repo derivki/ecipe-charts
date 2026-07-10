@@ -3,37 +3,80 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Quantum national ecosystems</title>
+<title>ECIPE Quantum Technologies Tracker — Countries</title>
 <script src="assets/vendor/d3.min.js"></script>
 </head>
 <body>
 <div class="wrap">
   <div class="eyebrow">ECIPE Quantum Technologies Tracker</div>
-  <div class="nav">
-    <a href="index.html">Overview</a>
-    <a href="countries.html" class="on">Countries</a>
-    <a href="clusters.html">Clusters</a>
-  </div>
+  <div id="nav"></div>
   <h1>National ecosystems</h1>
-  <p class="sub">How countries are positioned in the global quantum economy. Funding is real (from the database); the institutional split, archetype position and specialisation are illustrative placeholders until the Paper 08/2025 data is exported.</p>
+  <p class="sub">Choose a country to see how it is positioned in the global quantum economy.</p>
   <div class="vintage" id="vintage"></div>
 
-  <div class="dash">
-    <div class="panel span2" id="p-profile"></div>
-    <div class="panel span2" id="p-arch"></div>
+  <div class="controls">
+    <div class="ctl"><label>Country</label><select id="country-select"></select></div>
+    <div class="ctl">
+      <label>Ranked-bar metric</label>
+      <div class="seg" id="seg-metric-country">
+        <button data-m="total_funding" class="on">Total&nbsp;funding</button>
+        <button data-m="funding_to_gdp">Funding&nbsp;÷&nbsp;GDP</button>
+      </div>
+    </div>
   </div>
+
+  <div class="kpis" id="kpis"></div>
+
+  <div class="panels g2">
+
+    <div class="panel span2">
+      <div class="ttl">Funding by country and cluster — world map</div>
+      <p class="why">Shading = total funding by country. Bubble size = funding for each of the 44 tracked clusters. Scroll/drag to zoom.</p>
+      <div id="worldmap" style="margin-top:6px;"></div>
+      <p class="note" style="margin-top:8px;padding-top:8px;">Countries and clusters are both real (funding database). The underlying world map is a 110m-resolution atlas, so a few very small states (e.g. Singapore) have no polygon to shade — their cluster bubble still plots correctly.</p>
+    </div>
+
+    <div class="panel span2">
+      <div class="ttl" id="ttl-ranked">Country comparison</div>
+      <p class="why">Rank of the selected country among all 38 tracked countries. <a href="funding_by_country.html">Full interactive chart →</a></p>
+      <svg id="chart-ranked" role="img" aria-label="Country ranked by funding"></svg>
+    </div>
+
+    <div class="panel">
+      <div class="ttl">Institution split: research / government / industry <span id="badge-domain"></span></div>
+      <p class="why">Share of institutions by domain. Higher industry share = a more commercially mature ecosystem.</p>
+      <svg id="chart-domain" role="img" aria-label="Institution domain split"></svg>
+      <div class="legend" id="legend-domain"></div>
+    </div>
+
+    <div class="panel">
+      <div class="ttl">Archetype position: connectedness vs. commercial intensity <span id="badge-archetype2"></span></div>
+      <p class="why">Same axes as the Overview chart. This country is highlighted.</p>
+      <svg id="chart-archetype2" role="img" aria-label="Country archetype position"></svg>
+    </div>
+
+    <div class="panel span2">
+      <div class="ttl" id="ttl-rca">National specialisation <span id="badge-rca"></span></div>
+      <p class="why">RCA by technology domain. RCA above 1.0 = specialisation relative to the global average.</p>
+      <svg id="chart-rca" role="img" aria-label="National specialisation (RCA) by domain"></svg>
+    </div>
+
+    <div class="panel span2">
+      <div class="ttl" id="ttl-network">Network role <span id="badge-network"></span></div>
+      <p class="why">Connectedness score (0–100) and top 3 collaboration partners.</p>
+      <div id="network-body"></div>
+    </div>
+
+  </div>
+
+  <p class="mocknote" id="mocknote-country"></p>
+  <p class="note">Ranked-bar and domain-split figures marked <b>illustrative · mock data</b> use placeholder numbers pending the next update of Occasional Paper 08/2025 (national ecosystem mapping) and should not be cited.</p>
 </div>
 
 <script src="assets/theme.js"></script>
 <script src="assets/chart-template.js"></script>
-<script src="assets/charts/country_ecosystems.js"></script>
-<script>
-  QT.injectCSS();
-  QT.loadData("manifest").then(m => QT.vintage("#vintage", m)).catch(() => {});
-  (async () => {
-    const scatter = await QT.charts.archetypeScatter("#p-arch", { compact: true, title: "Collaboration archetypes" });
-    await QT.charts.countryProfile("#p-profile", { compact: true, onSelect: c => scatter.highlight(c) });
-  })();
-</script>
+<script src="assets/vendor/topojson-client.js"></script>
+<script src="assets/charts/world_map.js"></script>
+<script src="assets/charts/countries.js"></script>
 </body>
 </html>

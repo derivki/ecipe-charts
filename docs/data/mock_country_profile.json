@@ -1,0 +1,1833 @@
+{
+  "meta": {
+    "data_vintage": "2026-Q3",
+    "mock": true,
+    "source_note": "Illustrative placeholder — not derived from the funding database. Pending the next update of the underlying analysis; do not cite as a finding. Modelled loosely on Occasional Paper 08/2025 (national ecosystem mapping)."
+  },
+  "data": [
+    {
+      "country": "US",
+      "institutions": 578,
+      "connectedness": 93,
+      "commercial_intensity": 55,
+      "archetype": "Global Hub",
+      "domain_split": {
+        "research": 0.364,
+        "government": 0.185,
+        "industry": 0.451
+      },
+      "rca": [
+        {
+          "domain": "Computing & hardware",
+          "rca": 2.22
+        },
+        {
+          "domain": "Enabling components",
+          "rca": 2.1
+        },
+        {
+          "domain": "Communication & networking",
+          "rca": 1.64
+        },
+        {
+          "domain": "Sensing & metrology",
+          "rca": 1.55
+        },
+        {
+          "domain": "Software & algorithms",
+          "rca": 0.81
+        }
+      ],
+      "top_partners": [
+        {
+          "country": "Canada",
+          "score": 0.77
+        },
+        {
+          "country": "France",
+          "score": 0.65
+        },
+        {
+          "country": "UK",
+          "score": 0.53
+        }
+      ]
+    },
+    {
+      "country": "China",
+      "institutions": 162,
+      "connectedness": 45,
+      "commercial_intensity": 44,
+      "archetype": "Emerging Ecosystem",
+      "domain_split": {
+        "research": 0.429,
+        "government": 0.169,
+        "industry": 0.402
+      },
+      "rca": [
+        {
+          "domain": "Enabling components",
+          "rca": 2.31
+        },
+        {
+          "domain": "Software & algorithms",
+          "rca": 1.94
+        },
+        {
+          "domain": "Sensing & metrology",
+          "rca": 1.84
+        },
+        {
+          "domain": "Communication & networking",
+          "rca": 0.69
+        },
+        {
+          "domain": "Computing & hardware",
+          "rca": 0.56
+        }
+      ],
+      "top_partners": [
+        {
+          "country": "US",
+          "score": 0.8
+        },
+        {
+          "country": "Canada",
+          "score": 0.68
+        },
+        {
+          "country": "France",
+          "score": 0.56
+        }
+      ]
+    },
+    {
+      "country": "UK",
+      "institutions": 250,
+      "connectedness": 60,
+      "commercial_intensity": 49,
+      "archetype": "Research Networker",
+      "domain_split": {
+        "research": 0.405,
+        "government": 0.155,
+        "industry": 0.44
+      },
+      "rca": [
+        {
+          "domain": "Software & algorithms",
+          "rca": 2.37
+        },
+        {
+          "domain": "Sensing & metrology",
+          "rca": 2.27
+        },
+        {
+          "domain": "Enabling components",
+          "rca": 1.8
+        },
+        {
+          "domain": "Communication & networking",
+          "rca": 1.62
+        },
+        {
+          "domain": "Computing & hardware",
+          "rca": 0.64
+        }
+      ],
+      "top_partners": [
+        {
+          "country": "US",
+          "score": 0.56
+        },
+        {
+          "country": "Canada",
+          "score": 0.44
+        },
+        {
+          "country": "Switzerland",
+          "score": 0.32
+        }
+      ]
+    },
+    {
+      "country": "Canada",
+      "institutions": 138,
+      "connectedness": 55,
+      "commercial_intensity": 52,
+      "archetype": "Research Networker",
+      "domain_split": {
+        "research": 0.371,
+        "government": 0.211,
+        "industry": 0.418
+      },
+      "rca": [
+        {
+          "domain": "Software & algorithms",
+          "rca": 2.33
+        },
+        {
+          "domain": "Communication & networking",
+          "rca": 1.34
+        },
+        {
+          "domain": "Sensing & metrology",
+          "rca": 1.32
+        },
+        {
+          "domain": "Computing & hardware",
+          "rca": 0.76
+        },
+        {
+          "domain": "Enabling components",
+          "rca": 0.48
+        }
+      ],
+      "top_partners": [
+        {
+          "country": "US",
+          "score": 0.64
+        },
+        {
+          "country": "Switzerland",
+          "score": 0.52
+        },
+        {
+          "country": "Denmark",
+          "score": 0.4
+        }
+      ]
+    },
+    {
+      "country": "Finland",
+      "institutions": 38,
+      "connectedness": 31,
+      "commercial_intensity": 87,
+      "archetype": "Domestic Commercialiser",
+      "domain_split": {
+        "research": 0.267,
+        "government": 0.081,
+        "industry": 0.652
+      },
+      "rca": [
+        {
+          "domain": "Computing & hardware",
+          "rca": 2.04
+        },
+        {
+          "domain": "Communication & networking",
+          "rca": 1.58
+        },
+        {
+          "domain": "Sensing & metrology",
+          "rca": 1.12
+        },
+        {
+          "domain": "Enabling components",
+          "rca": 1.08
+        },
+        {
+          "domain": "Software & algorithms",
+          "rca": 0.94
+        }
+      ],
+      "top_partners": [
+        {
+          "country": "US",
+          "score": 0.57
+        },
+        {
+          "country": "Canada",
+          "score": 0.45
+        },
+        {
+          "country": "UK",
+          "score": 0.33
+        }
+      ]
+    },
+    {
+      "country": "France",
+      "institutions": 62,
+      "connectedness": 35,
+      "commercial_intensity": 32,
+      "archetype": "Emerging Ecosystem",
+      "domain_split": {
+        "research": 0.407,
+        "government": 0.187,
+        "industry": 0.406
+      },
+      "rca": [
+        {
+          "domain": "Enabling components",
+          "rca": 1.96
+        },
+        {
+          "domain": "Communication & networking",
+          "rca": 1.46
+        },
+        {
+          "domain": "Software & algorithms",
+          "rca": 1.44
+        },
+        {
+          "domain": "Computing & hardware",
+          "rca": 1.26
+        },
+        {
+          "domain": "Sensing & metrology",
+          "rca": 0.6
+        }
+      ],
+      "top_partners": [
+        {
+          "country": "US",
+          "score": 0.71
+        },
+        {
+          "country": "Canada",
+          "score": 0.59
+        },
+        {
+          "country": "UK",
+          "score": 0.47
+        }
+      ]
+    },
+    {
+      "country": "Switzerland",
+      "institutions": 59,
+      "connectedness": 40,
+      "commercial_intensity": 44,
+      "archetype": "Emerging Ecosystem",
+      "domain_split": {
+        "research": 0.474,
+        "government": 0.145,
+        "industry": 0.381
+      },
+      "rca": [
+        {
+          "domain": "Sensing & metrology",
+          "rca": 2.06
+        },
+        {
+          "domain": "Enabling components",
+          "rca": 1.87
+        },
+        {
+          "domain": "Computing & hardware",
+          "rca": 0.74
+        },
+        {
+          "domain": "Software & algorithms",
+          "rca": 0.68
+        },
+        {
+          "domain": "Communication & networking",
+          "rca": 0.67
+        }
+      ],
+      "top_partners": [
+        {
+          "country": "US",
+          "score": 0.63
+        },
+        {
+          "country": "Canada",
+          "score": 0.51
+        },
+        {
+          "country": "Germany",
+          "score": 0.39
+        }
+      ]
+    },
+    {
+      "country": "Israel",
+      "institutions": 48,
+      "connectedness": 38,
+      "commercial_intensity": 55,
+      "archetype": "Domestic Commercialiser",
+      "domain_split": {
+        "research": 0.296,
+        "government": 0.228,
+        "industry": 0.476
+      },
+      "rca": [
+        {
+          "domain": "Enabling components",
+          "rca": 1.12
+        },
+        {
+          "domain": "Communication & networking",
+          "rca": 0.82
+        },
+        {
+          "domain": "Software & algorithms",
+          "rca": 0.81
+        },
+        {
+          "domain": "Sensing & metrology",
+          "rca": 0.5
+        },
+        {
+          "domain": "Computing & hardware",
+          "rca": 0.43
+        }
+      ],
+      "top_partners": [
+        {
+          "country": "US",
+          "score": 0.63
+        },
+        {
+          "country": "China",
+          "score": 0.51
+        },
+        {
+          "country": "France",
+          "score": 0.39
+        }
+      ]
+    },
+    {
+      "country": "Germany",
+      "institutions": 126,
+      "connectedness": 46,
+      "commercial_intensity": 33,
+      "archetype": "Emerging Ecosystem",
+      "domain_split": {
+        "research": 0.386,
+        "government": 0.235,
+        "industry": 0.379
+      },
+      "rca": [
+        {
+          "domain": "Enabling components",
+          "rca": 2.02
+        },
+        {
+          "domain": "Communication & networking",
+          "rca": 1.99
+        },
+        {
+          "domain": "Software & algorithms",
+          "rca": 1.44
+        },
+        {
+          "domain": "Sensing & metrology",
+          "rca": 1.39
+        },
+        {
+          "domain": "Computing & hardware",
+          "rca": 1.23
+        }
+      ],
+      "top_partners": [
+        {
+          "country": "US",
+          "score": 0.57
+        },
+        {
+          "country": "UK",
+          "score": 0.45
+        },
+        {
+          "country": "South Korea",
+          "score": 0.33
+        }
+      ]
+    },
+    {
+      "country": "Netherlands",
+      "institutions": 107,
+      "connectedness": 31,
+      "commercial_intensity": 49,
+      "archetype": "Emerging Ecosystem",
+      "domain_split": {
+        "research": 0.397,
+        "government": 0.216,
+        "industry": 0.387
+      },
+      "rca": [
+        {
+          "domain": "Enabling components",
+          "rca": 2.37
+        },
+        {
+          "domain": "Communication & networking",
+          "rca": 2.18
+        },
+        {
+          "domain": "Sensing & metrology",
+          "rca": 1.38
+        },
+        {
+          "domain": "Software & algorithms",
+          "rca": 1.36
+        },
+        {
+          "domain": "Computing & hardware",
+          "rca": 0.75
+        }
+      ],
+      "top_partners": [
+        {
+          "country": "US",
+          "score": 0.74
+        },
+        {
+          "country": "China",
+          "score": 0.62
+        },
+        {
+          "country": "UK",
+          "score": 0.5
+        }
+      ]
+    },
+    {
+      "country": "Australia",
+      "institutions": 40,
+      "connectedness": 36,
+      "commercial_intensity": 49,
+      "archetype": "Emerging Ecosystem",
+      "domain_split": {
+        "research": 0.422,
+        "government": 0.159,
+        "industry": 0.419
+      },
+      "rca": [
+        {
+          "domain": "Computing & hardware",
+          "rca": 2.29
+        },
+        {
+          "domain": "Sensing & metrology",
+          "rca": 2.1
+        },
+        {
+          "domain": "Software & algorithms",
+          "rca": 2.05
+        },
+        {
+          "domain": "Enabling components",
+          "rca": 2.04
+        },
+        {
+          "domain": "Communication & networking",
+          "rca": 0.42
+        }
+      ],
+      "top_partners": [
+        {
+          "country": "US",
+          "score": 0.7
+        },
+        {
+          "country": "China",
+          "score": 0.58
+        },
+        {
+          "country": "Canada",
+          "score": 0.46
+        }
+      ]
+    },
+    {
+      "country": "Spain",
+      "institutions": 56,
+      "connectedness": 33,
+      "commercial_intensity": 33,
+      "archetype": "Emerging Ecosystem",
+      "domain_split": {
+        "research": 0.482,
+        "government": 0.186,
+        "industry": 0.332
+      },
+      "rca": [
+        {
+          "domain": "Software & algorithms",
+          "rca": 1.83
+        },
+        {
+          "domain": "Communication & networking",
+          "rca": 1.51
+        },
+        {
+          "domain": "Computing & hardware",
+          "rca": 1.09
+        },
+        {
+          "domain": "Enabling components",
+          "rca": 0.59
+        },
+        {
+          "domain": "Sensing & metrology",
+          "rca": 0.42
+        }
+      ],
+      "top_partners": [
+        {
+          "country": "US",
+          "score": 0.57
+        },
+        {
+          "country": "Canada",
+          "score": 0.45
+        },
+        {
+          "country": "Israel",
+          "score": 0.33
+        }
+      ]
+    },
+    {
+      "country": "UAE",
+      "institutions": 9,
+      "connectedness": 35,
+      "commercial_intensity": 36,
+      "archetype": "Emerging Ecosystem",
+      "domain_split": {
+        "research": 0.511,
+        "government": 0.132,
+        "industry": 0.357
+      },
+      "rca": [
+        {
+          "domain": "Computing & hardware",
+          "rca": 2.29
+        },
+        {
+          "domain": "Software & algorithms",
+          "rca": 2.28
+        },
+        {
+          "domain": "Communication & networking",
+          "rca": 2.02
+        },
+        {
+          "domain": "Enabling components",
+          "rca": 1.08
+        },
+        {
+          "domain": "Sensing & metrology",
+          "rca": 0.88
+        }
+      ],
+      "top_partners": [
+        {
+          "country": "US",
+          "score": 0.67
+        },
+        {
+          "country": "Canada",
+          "score": 0.55
+        },
+        {
+          "country": "China",
+          "score": 0.43
+        }
+      ]
+    },
+    {
+      "country": "South Korea",
+      "institutions": 44,
+      "connectedness": 32,
+      "commercial_intensity": 31,
+      "archetype": "Emerging Ecosystem",
+      "domain_split": {
+        "research": 0.459,
+        "government": 0.189,
+        "industry": 0.352
+      },
+      "rca": [
+        {
+          "domain": "Sensing & metrology",
+          "rca": 2.33
+        },
+        {
+          "domain": "Computing & hardware",
+          "rca": 2.13
+        },
+        {
+          "domain": "Software & algorithms",
+          "rca": 2.06
+        },
+        {
+          "domain": "Communication & networking",
+          "rca": 1.72
+        },
+        {
+          "domain": "Enabling components",
+          "rca": 1.32
+        }
+      ],
+      "top_partners": [
+        {
+          "country": "US",
+          "score": 0.55
+        },
+        {
+          "country": "UK",
+          "score": 0.43
+        },
+        {
+          "country": "Germany",
+          "score": 0.31
+        }
+      ]
+    },
+    {
+      "country": "Singapore",
+      "institutions": 35,
+      "connectedness": 40,
+      "commercial_intensity": 30,
+      "archetype": "Emerging Ecosystem",
+      "domain_split": {
+        "research": 0.332,
+        "government": 0.261,
+        "industry": 0.407
+      },
+      "rca": [
+        {
+          "domain": "Communication & networking",
+          "rca": 2.07
+        },
+        {
+          "domain": "Sensing & metrology",
+          "rca": 1.7
+        },
+        {
+          "domain": "Software & algorithms",
+          "rca": 1.25
+        },
+        {
+          "domain": "Enabling components",
+          "rca": 1.18
+        },
+        {
+          "domain": "Computing & hardware",
+          "rca": 0.4
+        }
+      ],
+      "top_partners": [
+        {
+          "country": "US",
+          "score": 0.75
+        },
+        {
+          "country": "China",
+          "score": 0.63
+        },
+        {
+          "country": "India",
+          "score": 0.51
+        }
+      ]
+    },
+    {
+      "country": "Denmark",
+      "institutions": 27,
+      "connectedness": 37,
+      "commercial_intensity": 34,
+      "archetype": "Emerging Ecosystem",
+      "domain_split": {
+        "research": 0.372,
+        "government": 0.288,
+        "industry": 0.34
+      },
+      "rca": [
+        {
+          "domain": "Sensing & metrology",
+          "rca": 1.92
+        },
+        {
+          "domain": "Communication & networking",
+          "rca": 1.7
+        },
+        {
+          "domain": "Enabling components",
+          "rca": 1.64
+        },
+        {
+          "domain": "Computing & hardware",
+          "rca": 1.27
+        },
+        {
+          "domain": "Software & algorithms",
+          "rca": 0.98
+        }
+      ],
+      "top_partners": [
+        {
+          "country": "US",
+          "score": 0.61
+        },
+        {
+          "country": "UK",
+          "score": 0.49
+        },
+        {
+          "country": "Japan",
+          "score": 0.37
+        }
+      ]
+    },
+    {
+      "country": "Japan",
+      "institutions": 51,
+      "connectedness": 30,
+      "commercial_intensity": 33,
+      "archetype": "Emerging Ecosystem",
+      "domain_split": {
+        "research": 0.395,
+        "government": 0.283,
+        "industry": 0.322
+      },
+      "rca": [
+        {
+          "domain": "Computing & hardware",
+          "rca": 1.44
+        },
+        {
+          "domain": "Software & algorithms",
+          "rca": 1.26
+        },
+        {
+          "domain": "Sensing & metrology",
+          "rca": 1.24
+        },
+        {
+          "domain": "Communication & networking",
+          "rca": 1.21
+        },
+        {
+          "domain": "Enabling components",
+          "rca": 0.53
+        }
+      ],
+      "top_partners": [
+        {
+          "country": "US",
+          "score": 0.85
+        },
+        {
+          "country": "Germany",
+          "score": 0.73
+        },
+        {
+          "country": "UK",
+          "score": 0.61
+        }
+      ]
+    },
+    {
+      "country": "Italy",
+      "institutions": 28,
+      "connectedness": 24,
+      "commercial_intensity": 30,
+      "archetype": "Emerging Ecosystem",
+      "domain_split": {
+        "research": 0.396,
+        "government": 0.249,
+        "industry": 0.355
+      },
+      "rca": [
+        {
+          "domain": "Enabling components",
+          "rca": 2.38
+        },
+        {
+          "domain": "Software & algorithms",
+          "rca": 1.97
+        },
+        {
+          "domain": "Sensing & metrology",
+          "rca": 1.33
+        },
+        {
+          "domain": "Communication & networking",
+          "rca": 1.32
+        },
+        {
+          "domain": "Computing & hardware",
+          "rca": 1.22
+        }
+      ],
+      "top_partners": [
+        {
+          "country": "US",
+          "score": 0.71
+        },
+        {
+          "country": "Israel",
+          "score": 0.59
+        },
+        {
+          "country": "South Korea",
+          "score": 0.47
+        }
+      ]
+    },
+    {
+      "country": "Ireland",
+      "institutions": 6,
+      "connectedness": 35,
+      "commercial_intensity": 42,
+      "archetype": "Emerging Ecosystem",
+      "domain_split": {
+        "research": 0.408,
+        "government": 0.185,
+        "industry": 0.407
+      },
+      "rca": [
+        {
+          "domain": "Sensing & metrology",
+          "rca": 2.26
+        },
+        {
+          "domain": "Software & algorithms",
+          "rca": 2.18
+        },
+        {
+          "domain": "Computing & hardware",
+          "rca": 2.02
+        },
+        {
+          "domain": "Communication & networking",
+          "rca": 1.97
+        },
+        {
+          "domain": "Enabling components",
+          "rca": 1.37
+        }
+      ],
+      "top_partners": [
+        {
+          "country": "US",
+          "score": 0.7
+        },
+        {
+          "country": "Denmark",
+          "score": 0.58
+        },
+        {
+          "country": "Bulgaria",
+          "score": 0.46
+        }
+      ]
+    },
+    {
+      "country": "India",
+      "institutions": 50,
+      "connectedness": 30,
+      "commercial_intensity": 35,
+      "archetype": "Emerging Ecosystem",
+      "domain_split": {
+        "research": 0.512,
+        "government": 0.164,
+        "industry": 0.324
+      },
+      "rca": [
+        {
+          "domain": "Sensing & metrology",
+          "rca": 1.94
+        },
+        {
+          "domain": "Computing & hardware",
+          "rca": 1.74
+        },
+        {
+          "domain": "Enabling components",
+          "rca": 1.38
+        },
+        {
+          "domain": "Software & algorithms",
+          "rca": 1.2
+        },
+        {
+          "domain": "Communication & networking",
+          "rca": 0.84
+        }
+      ],
+      "top_partners": [
+        {
+          "country": "US",
+          "score": 0.77
+        },
+        {
+          "country": "Germany",
+          "score": 0.65
+        },
+        {
+          "country": "Australia",
+          "score": 0.53
+        }
+      ]
+    },
+    {
+      "country": "Poland",
+      "institutions": 26,
+      "connectedness": 27,
+      "commercial_intensity": 33,
+      "archetype": "Emerging Ecosystem",
+      "domain_split": {
+        "research": 0.426,
+        "government": 0.199,
+        "industry": 0.375
+      },
+      "rca": [
+        {
+          "domain": "Sensing & metrology",
+          "rca": 2.08
+        },
+        {
+          "domain": "Enabling components",
+          "rca": 1.86
+        },
+        {
+          "domain": "Computing & hardware",
+          "rca": 1.78
+        },
+        {
+          "domain": "Communication & networking",
+          "rca": 1.55
+        },
+        {
+          "domain": "Software & algorithms",
+          "rca": 1.06
+        }
+      ],
+      "top_partners": [
+        {
+          "country": "US",
+          "score": 0.58
+        },
+        {
+          "country": "Australia",
+          "score": 0.46
+        },
+        {
+          "country": "UK",
+          "score": 0.34
+        }
+      ]
+    },
+    {
+      "country": "Austria",
+      "institutions": 17,
+      "connectedness": 24,
+      "commercial_intensity": 45,
+      "archetype": "Emerging Ecosystem",
+      "domain_split": {
+        "research": 0.404,
+        "government": 0.207,
+        "industry": 0.389
+      },
+      "rca": [
+        {
+          "domain": "Enabling components",
+          "rca": 2.24
+        },
+        {
+          "domain": "Software & algorithms",
+          "rca": 2.17
+        },
+        {
+          "domain": "Sensing & metrology",
+          "rca": 1.84
+        },
+        {
+          "domain": "Communication & networking",
+          "rca": 1.72
+        },
+        {
+          "domain": "Computing & hardware",
+          "rca": 1.36
+        }
+      ],
+      "top_partners": [
+        {
+          "country": "US",
+          "score": 0.72
+        },
+        {
+          "country": "Canada",
+          "score": 0.6
+        },
+        {
+          "country": "Netherlands",
+          "score": 0.48
+        }
+      ]
+    },
+    {
+      "country": "Sweden",
+      "institutions": 42,
+      "connectedness": 35,
+      "commercial_intensity": 41,
+      "archetype": "Emerging Ecosystem",
+      "domain_split": {
+        "research": 0.374,
+        "government": 0.277,
+        "industry": 0.349
+      },
+      "rca": [
+        {
+          "domain": "Sensing & metrology",
+          "rca": 2.17
+        },
+        {
+          "domain": "Computing & hardware",
+          "rca": 1.41
+        },
+        {
+          "domain": "Software & algorithms",
+          "rca": 1.4
+        },
+        {
+          "domain": "Communication & networking",
+          "rca": 1.26
+        },
+        {
+          "domain": "Enabling components",
+          "rca": 0.57
+        }
+      ],
+      "top_partners": [
+        {
+          "country": "US",
+          "score": 0.57
+        },
+        {
+          "country": "China",
+          "score": 0.45
+        },
+        {
+          "country": "Singapore",
+          "score": 0.33
+        }
+      ]
+    },
+    {
+      "country": "Belgium",
+      "institutions": 7,
+      "connectedness": 36,
+      "commercial_intensity": 34,
+      "archetype": "Emerging Ecosystem",
+      "domain_split": {
+        "research": 0.525,
+        "government": 0.173,
+        "industry": 0.302
+      },
+      "rca": [
+        {
+          "domain": "Enabling components",
+          "rca": 2.4
+        },
+        {
+          "domain": "Computing & hardware",
+          "rca": 2.39
+        },
+        {
+          "domain": "Software & algorithms",
+          "rca": 2.22
+        },
+        {
+          "domain": "Communication & networking",
+          "rca": 1.23
+        },
+        {
+          "domain": "Sensing & metrology",
+          "rca": 0.83
+        }
+      ],
+      "top_partners": [
+        {
+          "country": "US",
+          "score": 0.78
+        },
+        {
+          "country": "Germany",
+          "score": 0.66
+        },
+        {
+          "country": "China",
+          "score": 0.54
+        }
+      ]
+    },
+    {
+      "country": "Czech Republic",
+      "institutions": 6,
+      "connectedness": 28,
+      "commercial_intensity": 37,
+      "archetype": "Emerging Ecosystem",
+      "domain_split": {
+        "research": 0.335,
+        "government": 0.27,
+        "industry": 0.395
+      },
+      "rca": [
+        {
+          "domain": "Enabling components",
+          "rca": 1.58
+        },
+        {
+          "domain": "Sensing & metrology",
+          "rca": 1.48
+        },
+        {
+          "domain": "Computing & hardware",
+          "rca": 1.38
+        },
+        {
+          "domain": "Software & algorithms",
+          "rca": 1.27
+        },
+        {
+          "domain": "Communication & networking",
+          "rca": 0.91
+        }
+      ],
+      "top_partners": [
+        {
+          "country": "US",
+          "score": 0.55
+        },
+        {
+          "country": "Germany",
+          "score": 0.43
+        },
+        {
+          "country": "China",
+          "score": 0.31
+        }
+      ]
+    },
+    {
+      "country": "Turkey",
+      "institutions": 7,
+      "connectedness": 24,
+      "commercial_intensity": 26,
+      "archetype": "Emerging Ecosystem",
+      "domain_split": {
+        "research": 0.444,
+        "government": 0.18,
+        "industry": 0.376
+      },
+      "rca": [
+        {
+          "domain": "Software & algorithms",
+          "rca": 2.33
+        },
+        {
+          "domain": "Computing & hardware",
+          "rca": 2.09
+        },
+        {
+          "domain": "Communication & networking",
+          "rca": 1.99
+        },
+        {
+          "domain": "Sensing & metrology",
+          "rca": 1.51
+        },
+        {
+          "domain": "Enabling components",
+          "rca": 0.5
+        }
+      ],
+      "top_partners": [
+        {
+          "country": "US",
+          "score": 0.72
+        },
+        {
+          "country": "Germany",
+          "score": 0.6
+        },
+        {
+          "country": "UK",
+          "score": 0.48
+        }
+      ]
+    },
+    {
+      "country": "Chile",
+      "institutions": 9,
+      "connectedness": 23,
+      "commercial_intensity": 40,
+      "archetype": "Emerging Ecosystem",
+      "domain_split": {
+        "research": 0.376,
+        "government": 0.258,
+        "industry": 0.366
+      },
+      "rca": [
+        {
+          "domain": "Software & algorithms",
+          "rca": 2.28
+        },
+        {
+          "domain": "Communication & networking",
+          "rca": 1.7
+        },
+        {
+          "domain": "Computing & hardware",
+          "rca": 1.59
+        },
+        {
+          "domain": "Sensing & metrology",
+          "rca": 1.1
+        },
+        {
+          "domain": "Enabling components",
+          "rca": 0.62
+        }
+      ],
+      "top_partners": [
+        {
+          "country": "US",
+          "score": 0.59
+        },
+        {
+          "country": "UK",
+          "score": 0.47
+        },
+        {
+          "country": "Japan",
+          "score": 0.35
+        }
+      ]
+    },
+    {
+      "country": "Portugal",
+      "institutions": 6,
+      "connectedness": 34,
+      "commercial_intensity": 28,
+      "archetype": "Emerging Ecosystem",
+      "domain_split": {
+        "research": 0.55,
+        "government": 0.139,
+        "industry": 0.311
+      },
+      "rca": [
+        {
+          "domain": "Enabling components",
+          "rca": 2.4
+        },
+        {
+          "domain": "Computing & hardware",
+          "rca": 1.19
+        },
+        {
+          "domain": "Sensing & metrology",
+          "rca": 0.94
+        },
+        {
+          "domain": "Software & algorithms",
+          "rca": 0.67
+        },
+        {
+          "domain": "Communication & networking",
+          "rca": 0.46
+        }
+      ],
+      "top_partners": [
+        {
+          "country": "US",
+          "score": 0.56
+        },
+        {
+          "country": "Canada",
+          "score": 0.44
+        },
+        {
+          "country": "Netherlands",
+          "score": 0.32
+        }
+      ]
+    },
+    {
+      "country": "Taiwan",
+      "institutions": 6,
+      "connectedness": 22,
+      "commercial_intensity": 34,
+      "archetype": "Emerging Ecosystem",
+      "domain_split": {
+        "research": 0.462,
+        "government": 0.207,
+        "industry": 0.331
+      },
+      "rca": [
+        {
+          "domain": "Enabling components",
+          "rca": 1.5
+        },
+        {
+          "domain": "Sensing & metrology",
+          "rca": 1.34
+        },
+        {
+          "domain": "Communication & networking",
+          "rca": 0.87
+        },
+        {
+          "domain": "Computing & hardware",
+          "rca": 0.67
+        },
+        {
+          "domain": "Software & algorithms",
+          "rca": 0.45
+        }
+      ],
+      "top_partners": [
+        {
+          "country": "US",
+          "score": 0.55
+        },
+        {
+          "country": "Germany",
+          "score": 0.43
+        },
+        {
+          "country": "Canada",
+          "score": 0.31
+        }
+      ]
+    },
+    {
+      "country": "Thailand",
+      "institutions": 6,
+      "connectedness": 27,
+      "commercial_intensity": 37,
+      "archetype": "Emerging Ecosystem",
+      "domain_split": {
+        "research": 0.375,
+        "government": 0.227,
+        "industry": 0.398
+      },
+      "rca": [
+        {
+          "domain": "Enabling components",
+          "rca": 2.12
+        },
+        {
+          "domain": "Computing & hardware",
+          "rca": 1.07
+        },
+        {
+          "domain": "Software & algorithms",
+          "rca": 0.83
+        },
+        {
+          "domain": "Sensing & metrology",
+          "rca": 0.51
+        },
+        {
+          "domain": "Communication & networking",
+          "rca": 0.48
+        }
+      ],
+      "top_partners": [
+        {
+          "country": "US",
+          "score": 0.74
+        },
+        {
+          "country": "UK",
+          "score": 0.62
+        },
+        {
+          "country": "China",
+          "score": 0.5
+        }
+      ]
+    },
+    {
+      "country": "Bulgaria",
+      "institutions": 6,
+      "connectedness": 22,
+      "commercial_intensity": 34,
+      "archetype": "Emerging Ecosystem",
+      "domain_split": {
+        "research": 0.434,
+        "government": 0.218,
+        "industry": 0.348
+      },
+      "rca": [
+        {
+          "domain": "Communication & networking",
+          "rca": 2.25
+        },
+        {
+          "domain": "Sensing & metrology",
+          "rca": 1.5
+        },
+        {
+          "domain": "Software & algorithms",
+          "rca": 1.4
+        },
+        {
+          "domain": "Computing & hardware",
+          "rca": 1.05
+        },
+        {
+          "domain": "Enabling components",
+          "rca": 0.73
+        }
+      ],
+      "top_partners": [
+        {
+          "country": "US",
+          "score": 0.85
+        },
+        {
+          "country": "Canada",
+          "score": 0.73
+        },
+        {
+          "country": "Germany",
+          "score": 0.61
+        }
+      ]
+    },
+    {
+      "country": "Russia",
+      "institutions": 8,
+      "connectedness": 30,
+      "commercial_intensity": 25,
+      "archetype": "Emerging Ecosystem",
+      "domain_split": {
+        "research": 0.473,
+        "government": 0.156,
+        "industry": 0.371
+      },
+      "rca": [
+        {
+          "domain": "Software & algorithms",
+          "rca": 1.66
+        },
+        {
+          "domain": "Enabling components",
+          "rca": 1.31
+        },
+        {
+          "domain": "Communication & networking",
+          "rca": 1.18
+        },
+        {
+          "domain": "Computing & hardware",
+          "rca": 1.02
+        },
+        {
+          "domain": "Sensing & metrology",
+          "rca": 0.42
+        }
+      ],
+      "top_partners": [
+        {
+          "country": "US",
+          "score": 0.77
+        },
+        {
+          "country": "UK",
+          "score": 0.65
+        },
+        {
+          "country": "France",
+          "score": 0.53
+        }
+      ]
+    },
+    {
+      "country": "Romania",
+      "institutions": 6,
+      "connectedness": 33,
+      "commercial_intensity": 32,
+      "archetype": "Emerging Ecosystem",
+      "domain_split": {
+        "research": 0.489,
+        "government": 0.129,
+        "industry": 0.382
+      },
+      "rca": [
+        {
+          "domain": "Software & algorithms",
+          "rca": 1.99
+        },
+        {
+          "domain": "Enabling components",
+          "rca": 1.98
+        },
+        {
+          "domain": "Sensing & metrology",
+          "rca": 1.86
+        },
+        {
+          "domain": "Communication & networking",
+          "rca": 1.32
+        },
+        {
+          "domain": "Computing & hardware",
+          "rca": 0.56
+        }
+      ],
+      "top_partners": [
+        {
+          "country": "UK",
+          "score": 0.62
+        },
+        {
+          "country": "US",
+          "score": 0.5
+        },
+        {
+          "country": "France",
+          "score": 0.38
+        }
+      ]
+    },
+    {
+      "country": "Uruguay",
+      "institutions": 6,
+      "connectedness": 22,
+      "commercial_intensity": 28,
+      "archetype": "Emerging Ecosystem",
+      "domain_split": {
+        "research": 0.4,
+        "government": 0.269,
+        "industry": 0.331
+      },
+      "rca": [
+        {
+          "domain": "Communication & networking",
+          "rca": 2.35
+        },
+        {
+          "domain": "Software & algorithms",
+          "rca": 2.31
+        },
+        {
+          "domain": "Computing & hardware",
+          "rca": 2.1
+        },
+        {
+          "domain": "Enabling components",
+          "rca": 1.36
+        },
+        {
+          "domain": "Sensing & metrology",
+          "rca": 0.68
+        }
+      ],
+      "top_partners": [
+        {
+          "country": "US",
+          "score": 0.77
+        },
+        {
+          "country": "Canada",
+          "score": 0.65
+        },
+        {
+          "country": "UK",
+          "score": 0.53
+        }
+      ]
+    },
+    {
+      "country": "Brazil",
+      "institutions": 6,
+      "connectedness": 29,
+      "commercial_intensity": 34,
+      "archetype": "Emerging Ecosystem",
+      "domain_split": {
+        "research": 0.458,
+        "government": 0.234,
+        "industry": 0.308
+      },
+      "rca": [
+        {
+          "domain": "Enabling components",
+          "rca": 2.2
+        },
+        {
+          "domain": "Software & algorithms",
+          "rca": 2.08
+        },
+        {
+          "domain": "Sensing & metrology",
+          "rca": 1.76
+        },
+        {
+          "domain": "Communication & networking",
+          "rca": 1.67
+        },
+        {
+          "domain": "Computing & hardware",
+          "rca": 0.73
+        }
+      ],
+      "top_partners": [
+        {
+          "country": "US",
+          "score": 0.78
+        },
+        {
+          "country": "UK",
+          "score": 0.66
+        },
+        {
+          "country": "Germany",
+          "score": 0.54
+        }
+      ]
+    },
+    {
+      "country": "Greece",
+      "institutions": 6,
+      "connectedness": 28,
+      "commercial_intensity": 29,
+      "archetype": "Emerging Ecosystem",
+      "domain_split": {
+        "research": 0.473,
+        "government": 0.175,
+        "industry": 0.352
+      },
+      "rca": [
+        {
+          "domain": "Sensing & metrology",
+          "rca": 2.33
+        },
+        {
+          "domain": "Computing & hardware",
+          "rca": 1.52
+        },
+        {
+          "domain": "Communication & networking",
+          "rca": 1.25
+        },
+        {
+          "domain": "Software & algorithms",
+          "rca": 1.14
+        },
+        {
+          "domain": "Enabling components",
+          "rca": 0.9
+        }
+      ],
+      "top_partners": [
+        {
+          "country": "US",
+          "score": 0.55
+        },
+        {
+          "country": "France",
+          "score": 0.43
+        },
+        {
+          "country": "Canada",
+          "score": 0.31
+        }
+      ]
+    },
+    {
+      "country": "Norway",
+      "institutions": 6,
+      "connectedness": 26,
+      "commercial_intensity": 31,
+      "archetype": "Emerging Ecosystem",
+      "domain_split": {
+        "research": 0.376,
+        "government": 0.293,
+        "industry": 0.331
+      },
+      "rca": [
+        {
+          "domain": "Communication & networking",
+          "rca": 2.28
+        },
+        {
+          "domain": "Sensing & metrology",
+          "rca": 2.24
+        },
+        {
+          "domain": "Software & algorithms",
+          "rca": 2.22
+        },
+        {
+          "domain": "Computing & hardware",
+          "rca": 2.08
+        },
+        {
+          "domain": "Enabling components",
+          "rca": 1.76
+        }
+      ],
+      "top_partners": [
+        {
+          "country": "US",
+          "score": 0.77
+        },
+        {
+          "country": "China",
+          "score": 0.65
+        },
+        {
+          "country": "India",
+          "score": 0.53
+        }
+      ]
+    },
+    {
+      "country": "Malaysia",
+      "institutions": 6,
+      "connectedness": 34,
+      "commercial_intensity": 44,
+      "archetype": "Emerging Ecosystem",
+      "domain_split": {
+        "research": 0.355,
+        "government": 0.266,
+        "industry": 0.379
+      },
+      "rca": [
+        {
+          "domain": "Enabling components",
+          "rca": 2.05
+        },
+        {
+          "domain": "Sensing & metrology",
+          "rca": 1.89
+        },
+        {
+          "domain": "Communication & networking",
+          "rca": 0.89
+        },
+        {
+          "domain": "Computing & hardware",
+          "rca": 0.48
+        },
+        {
+          "domain": "Software & algorithms",
+          "rca": 0.48
+        }
+      ],
+      "top_partners": [
+        {
+          "country": "UK",
+          "score": 0.74
+        },
+        {
+          "country": "US",
+          "score": 0.62
+        },
+        {
+          "country": "Germany",
+          "score": 0.5
+        }
+      ]
+    }
+  ]
+}

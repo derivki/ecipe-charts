@@ -1,6 +1,6 @@
 {
   "data_vintage": "2026-Q3",
-  "built_at_utc": "2026-07-09T15:00:17+00:00",
+  "built_at_utc": "2026-07-10T09:15:05+00:00",
   "source_xlsx": "raw/Quantum startups tracker.xlsx",
   "source_sha256": "5b4f74df201cbcd866ab0d720fba8cdb126f473388077b369b52cd9a12c847e8",
   "row_counts": {
@@ -11,10 +11,6 @@
     "funding_by_country": 38,
     "funding_by_cluster": 44,
     "funding_by_instrument_year": 15,
-    "funding_by_stage_region": "object",
-    "overview_stats": "object",
-    "cluster_concentration": "object",
-    "clusters": "object",
-    "country_ecosystems": "object"
+    "funding_by_stage_region": "object"
   }
 }

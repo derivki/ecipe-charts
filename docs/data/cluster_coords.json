@@ -1,0 +1,228 @@
+{
+  "meta": {
+    "data_vintage": "2026-Q3",
+    "source_note": "Real-world coordinates transcribed from the legacy prototype (legacy/ecipe-quantum-tracker.html); joined to funding_by_cluster.json by cluster name for the Overview world map."
+  },
+  "data": [
+    {
+      "cluster": "San Francisco Bay Area",
+      "lat": 37.77,
+      "lon": -122.42
+    },
+    {
+      "cluster": "Denver–Boulder Region",
+      "lat": 39.9,
+      "lon": -105.1
+    },
+    {
+      "cluster": "Greater Washington",
+      "lat": 38.9,
+      "lon": -77.04
+    },
+    {
+      "cluster": "Shenzhen–Hong Kong–Guangzhou Region",
+      "lat": 22.8,
+      "lon": 113.9
+    },
+    {
+      "cluster": "Greater New York",
+      "lat": 40.71,
+      "lon": -74.01
+    },
+    {
+      "cluster": "Hefei",
+      "lat": 31.82,
+      "lon": 117.23
+    },
+    {
+      "cluster": "Greater Helsinki",
+      "lat": 60.17,
+      "lon": 24.94
+    },
+    {
+      "cluster": "Tel Aviv Metropolitan Area",
+      "lat": 32.08,
+      "lon": 34.78
+    },
+    {
+      "cluster": "Greater Paris",
+      "lat": 48.86,
+      "lon": 2.35
+    },
+    {
+      "cluster": "Toronto–Waterloo Corridor",
+      "lat": 43.6,
+      "lon": -79.7
+    },
+    {
+      "cluster": "Greater Geneva Bern Area",
+      "lat": 46.5,
+      "lon": 6.8
+    },
+    {
+      "cluster": "Greater Boston",
+      "lat": 42.36,
+      "lon": -71.06
+    },
+    {
+      "cluster": "London Commuter Belt",
+      "lat": 51.51,
+      "lon": -0.13
+    },
+    {
+      "cluster": "Shanghai",
+      "lat": 31.23,
+      "lon": 121.47
+    },
+    {
+      "cluster": "Beijing",
+      "lat": 39.9,
+      "lon": 116.4
+    },
+    {
+      "cluster": "Greater Austin",
+      "lat": 30.27,
+      "lon": -97.74
+    },
+    {
+      "cluster": "Metro Vancouver",
+      "lat": 49.28,
+      "lon": -123.12
+    },
+    {
+      "cluster": "Greater Sydney",
+      "lat": -33.87,
+      "lon": 151.21
+    },
+    {
+      "cluster": "Randstad Region",
+      "lat": 52.1,
+      "lon": 4.6
+    },
+    {
+      "cluster": "Cambridge",
+      "lat": 52.2,
+      "lon": 0.12
+    },
+    {
+      "cluster": "Dubai",
+      "lat": 25.2,
+      "lon": 55.27
+    },
+    {
+      "cluster": "Munich Metropolitan Area",
+      "lat": 48.14,
+      "lon": 11.58
+    },
+    {
+      "cluster": "Grenoble",
+      "lat": 45.19,
+      "lon": 5.72
+    },
+    {
+      "cluster": "Hangzhou",
+      "lat": 30.27,
+      "lon": 120.15
+    },
+    {
+      "cluster": "Singapore",
+      "lat": 1.35,
+      "lon": 103.82
+    },
+    {
+      "cluster": "Greater Copenhagen",
+      "lat": 55.68,
+      "lon": 12.57
+    },
+    {
+      "cluster": "Seoul Metropolitan Area",
+      "lat": 37.57,
+      "lon": 126.98
+    },
+    {
+      "cluster": "Oxford",
+      "lat": 51.75,
+      "lon": -1.26
+    },
+    {
+      "cluster": "Greater Tokyo",
+      "lat": 35.68,
+      "lon": 139.69
+    },
+    {
+      "cluster": "Greater Glasgow",
+      "lat": 55.86,
+      "lon": -4.25
+    },
+    {
+      "cluster": "Stuttgart Metropolitan Area",
+      "lat": 48.78,
+      "lon": 9.18
+    },
+    {
+      "cluster": "Canberra",
+      "lat": -35.28,
+      "lon": 149.13
+    },
+    {
+      "cluster": "Greater Montreal",
+      "lat": 45.5,
+      "lon": -73.57
+    },
+    {
+      "cluster": "Bangalore",
+      "lat": 12.97,
+      "lon": 77.59
+    },
+    {
+      "cluster": "Chicagoland",
+      "lat": 41.88,
+      "lon": -87.63
+    },
+    {
+      "cluster": "Berlin Metropolitan Area",
+      "lat": 52.52,
+      "lon": 13.4
+    },
+    {
+      "cluster": "Barcelona Metropolitan Area",
+      "lat": 41.39,
+      "lon": 2.17
+    },
+    {
+      "cluster": "Greater Los Angeles",
+      "lat": 34.05,
+      "lon": -118.24
+    },
+    {
+      "cluster": "Bristol–Bath Region",
+      "lat": 51.45,
+      "lon": -2.59
+    },
+    {
+      "cluster": "Valencia Metropolitan Area",
+      "lat": 39.47,
+      "lon": -0.38
+    },
+    {
+      "cluster": "Suzhou",
+      "lat": 31.3,
+      "lon": 120.62
+    },
+    {
+      "cluster": "Karlsruhe",
+      "lat": 49.01,
+      "lon": 8.4
+    },
+    {
+      "cluster": "Dallas–Fort Worth Metroplex",
+      "lat": 32.78,
+      "lon": -96.8
+    },
+    {
+      "cluster": "Greater Adelaide",
+      "lat": -34.93,
+      "lon": 138.6
+    }
+  ]
+}
