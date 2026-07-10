@@ -185,6 +185,7 @@ svg{display:block;width:100%;height:auto;overflow:visible;}
 .rtable td.num,.rtable th.num{text-align:right;font-variant-numeric:tabular-nums;}
 .rtable tbody tr:hover{background:var(--panel);}
 .rtable tbody tr.sel{background:color-mix(in srgb, ${tokens.accent} 10%, transparent);}
+.rtable .flag{margin-right:5px;vertical-align:-1px;border-radius:1px;box-shadow:0 0 0 0.5px color-mix(in srgb, ${tokens.ink} 15%, transparent);}
 .chiprow{display:flex;flex-wrap:wrap;gap:6px;margin:10px 0 2px;}
 .chip{font-size:11.5px;color:var(--muted);border:1px solid var(--line);border-radius:20px;
   padding:4px 11px;cursor:pointer;background:var(--bg);}
