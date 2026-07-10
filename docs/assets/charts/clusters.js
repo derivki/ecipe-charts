@@ -13,6 +13,13 @@
   QT.injectCSS();
   QT.nav("#nav", "clusters");
 
+  // Vendored SVG flags (assets/vendor/flags/<code>.svg) — used instead of flag
+  // emoji because Windows browser/font combinations often render flag emoji as
+  // plain two-letter codes rather than a pictorial flag.
+  function flagIcon(code, country) {
+    return `<img class="flag" src="assets/vendor/flags/${code.toLowerCase()}.svg" width="16" height="12" alt="${country}" title="${country}">`;
+  }
+
   const [rankings, shareTime, pipeline, worldTopo] = await Promise.all([
     QT.loadData("mock_cluster_rankings"),
     QT.loadData("mock_cluster_share_time"),
@@ -98,8 +105,24 @@
     // Reversed domain: rank 1 (best) gets the darkest end of the sequential ramp.
     const colorScale = d3.scaleSequential(d3.interpolateRgbBasis(QT.palette.sequential)).domain([N, 1]);
 
-    c.g.selectAll("circle").data(rs, d => d.cluster).join("circle")
-      .attr("cx", d => projection([d.lon, d.lat])[0]).attr("cy", d => projection([d.lon, d.lat])[1])
+    // Several real clusters (e.g. Washington/New York/Boston/Toronto, or
+    // Shenzhen/Hefei/Beijing) sit close enough together that at world-map
+    // scale their bubbles would fully overlap and look like a single blob.
+    // A one-shot force layout nudges overlapping bubbles apart while a weak
+    // pull keeps each one anchored near its true geographic position.
+    const nodes = rs.map(d => {
+      const [px, py] = projection([d.lon, d.lat]);
+      return { ...d, x: px, y: py, x0: px, y0: py };
+    });
+    const sim = d3.forceSimulation(nodes)
+      .force("x", d3.forceX(d => d.x0).strength(0.25))
+      .force("y", d3.forceY(d => d.y0).strength(0.25))
+      .force("collide", d3.forceCollide(d => rFund(d.total_funding) + 1.5))
+      .stop();
+    for (let i = 0; i < 300; i++) sim.tick();
+
+    c.g.selectAll("circle").data(nodes, d => d.cluster).join("circle")
+      .attr("cx", d => d.x).attr("cy", d => d.y)
       .attr("r", d => rFund(d.total_funding))
       .attr("fill", d => colorScale(d.overall_rank)).attr("fill-opacity", 0.85)
       .attr("stroke", d => d.cluster === state.selected ? QT.tokens.ink : "#fff")
@@ -123,11 +146,11 @@
       .on("click", (e, d) => { state.selected = d.cluster; renderAll(); });
 
     tr.selectAll("td").data(d => [
-      d.overall_rank, d.cluster, d.region, QT.fmt.int(d.companies), QT.fmt.money(d.total_funding),
+      d.overall_rank, `${flagIcon(d.country_code, d.country)} ${d.cluster}`, d.region, QT.fmt.int(d.companies), QT.fmt.money(d.total_funding),
       d.market_rank, d.collab_rank, d.maturity_rank,
     ]).join("td")
       .attr("class", (d, i) => [0, 3, 4, 5, 6, 7].includes(i) ? "num" : null)
-      .text(d => d);
+      .html(d => d);
 
     d3.select("#rtable thead").selectAll("th").each(function () {
       const th = d3.select(this), key = th.attr("data-k");

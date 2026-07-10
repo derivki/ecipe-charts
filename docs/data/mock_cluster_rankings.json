@@ -2,7 +2,7 @@
   "meta": {
     "data_vintage": "2026-Q3",
     "mock": true,
-    "source_note": "Illustrative placeholder — not derived from the funding database. Pending the next update of the underlying analysis; do not cite as a finding. Cluster names, company counts and funding totals are real (funding_by_cluster.json); coordinates are the cluster's real-world location; the three dimension scores (0-100) and any composite ranking are illustrative placeholders for the Clusters paper's (Occasional Paper 15/2025) methodology.",
+    "source_note": "Illustrative placeholder — not derived from the funding database. Pending the next update of the underlying analysis; do not cite as a finding. Cluster names, company counts and funding totals are real (funding_by_cluster.json); coordinates are the cluster's real-world location; the three dimension scores (0-100) and any composite ranking are illustrative placeholders for the Clusters paper's (Occasional Paper 15/2025) methodology. Country/flag is a straightforward real-world lookup for each cluster (not a placeholder), added for the ranking table.",
     "dimensions": [
       "market_orientation",
       "collaboration_intensity",
@@ -19,7 +19,9 @@
       "total_funding": 6489553318.6,
       "market_orientation": 88,
       "collaboration_intensity": 63,
-      "ecosystem_maturity": 79
+      "ecosystem_maturity": 79,
+      "country": "United States",
+      "country_code": "US"
     },
     {
       "cluster": "Denver–Boulder Region",
@@ -30,7 +32,9 @@
       "total_funding": 5120377581.26,
       "market_orientation": 80,
       "collaboration_intensity": 60,
-      "ecosystem_maturity": 59
+      "ecosystem_maturity": 59,
+      "country": "United States",
+      "country_code": "US"
     },
     {
       "cluster": "Greater Washington",
@@ -41,7 +45,9 @@
       "total_funding": 4200886278.0,
       "market_orientation": 79,
       "collaboration_intensity": 68,
-      "ecosystem_maturity": 63
+      "ecosystem_maturity": 63,
+      "country": "United States",
+      "country_code": "US"
     },
     {
       "cluster": "Shenzhen–Hong Kong–Guangzhou Region",
@@ -52,7 +58,9 @@
       "total_funding": 2384414786.72,
       "market_orientation": 56,
       "collaboration_intensity": 41,
-      "ecosystem_maturity": 41
+      "ecosystem_maturity": 41,
+      "country": "China",
+      "country_code": "CN"
     },
     {
       "cluster": "Greater New York",
@@ -63,7 +71,9 @@
       "total_funding": 2038371532.0,
       "market_orientation": 54,
       "collaboration_intensity": 50,
-      "ecosystem_maturity": 47
+      "ecosystem_maturity": 47,
+      "country": "United States",
+      "country_code": "US"
     },
     {
       "cluster": "Hefei",
@@ -74,7 +84,9 @@
       "total_funding": 1299177860.74,
       "market_orientation": 52,
       "collaboration_intensity": 64,
-      "ecosystem_maturity": 48
+      "ecosystem_maturity": 48,
+      "country": "China",
+      "country_code": "CN"
     },
     {
       "cluster": "Greater Helsinki",
@@ -85,7 +97,9 @@
       "total_funding": 1133876486.66,
       "market_orientation": 55,
       "collaboration_intensity": 50,
-      "ecosystem_maturity": 52
+      "ecosystem_maturity": 52,
+      "country": "Finland",
+      "country_code": "FI"
     },
     {
       "cluster": "Tel Aviv Metropolitan Area",
@@ -96,7 +110,9 @@
       "total_funding": 855666000.0,
       "market_orientation": 52,
       "collaboration_intensity": 41,
-      "ecosystem_maturity": 43
+      "ecosystem_maturity": 43,
+      "country": "Israel",
+      "country_code": "IL"
     },
     {
       "cluster": "Greater Paris",
@@ -107,7 +123,9 @@
       "total_funding": 830139733.93,
       "market_orientation": 52,
       "collaboration_intensity": 62,
-      "ecosystem_maturity": 36
+      "ecosystem_maturity": 36,
+      "country": "France",
+      "country_code": "FR"
     },
     {
       "cluster": "Toronto–Waterloo Corridor",
@@ -118,7 +136,9 @@
       "total_funding": 776103579.74,
       "market_orientation": 55,
       "collaboration_intensity": 62,
-      "ecosystem_maturity": 46
+      "ecosystem_maturity": 46,
+      "country": "Canada",
+      "country_code": "CA"
     },
     {
       "cluster": "Greater Geneva Bern Area",
@@ -129,7 +149,9 @@
       "total_funding": 752514278.53,
       "market_orientation": 53,
       "collaboration_intensity": 44,
-      "ecosystem_maturity": 43
+      "ecosystem_maturity": 43,
+      "country": "Switzerland",
+      "country_code": "CH"
     },
     {
       "cluster": "Greater Boston",
@@ -140,7 +162,9 @@
       "total_funding": 741509420.38,
       "market_orientation": 52,
       "collaboration_intensity": 57,
-      "ecosystem_maturity": 45
+      "ecosystem_maturity": 45,
+      "country": "United States",
+      "country_code": "US"
     },
     {
       "cluster": "London Commuter Belt",
@@ -151,7 +175,9 @@
       "total_funding": 635054625.66,
       "market_orientation": 46,
       "collaboration_intensity": 46,
-      "ecosystem_maturity": 34
+      "ecosystem_maturity": 34,
+      "country": "United Kingdom",
+      "country_code": "GB"
     },
     {
       "cluster": "Shanghai",
@@ -162,7 +188,9 @@
       "total_funding": 633234500.0,
       "market_orientation": 46,
       "collaboration_intensity": 44,
-      "ecosystem_maturity": 37
+      "ecosystem_maturity": 37,
+      "country": "China",
+      "country_code": "CN"
     },
     {
       "cluster": "Beijing",
@@ -173,7 +201,9 @@
       "total_funding": 621459500.0,
       "market_orientation": 46,
       "collaboration_intensity": 45,
-      "ecosystem_maturity": 37
+      "ecosystem_maturity": 37,
+      "country": "China",
+      "country_code": "CN"
     }
   ]
 }
