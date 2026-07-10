@@ -116,9 +116,17 @@
   /** Small inline ribbon flagging a panel's data as illustrative/mock. */
   QT.mockBadge = function () { return `<span class="mockbadge">Illustrative · mock data</span>`; };
 
+  /** Small inline ribbon flagging a panel's data as taken directly from a published paper (real, but not from the funding database). */
+  QT.citeBadge = function (label) { return `<span class="citebadge">${label || "Published · Occasional Paper 15/2025"}</span>`; };
+
   /** Left-rule note explaining why a panel's numbers are placeholders. */
   QT.mockNote = function (selector, text) {
     d3.select(selector).attr("class", "mocknote").html(text);
+  };
+
+  /** Left-rule note citing a published source for a panel's (non-mock) numbers. */
+  QT.citeNote = function (selector, text) {
+    d3.select(selector).attr("class", "citenote").html(text);
   };
 
   /* ── Auto-resize: report our height to a host page (for responsive iframes) ──

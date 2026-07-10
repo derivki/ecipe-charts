@@ -1,0 +1,14 @@
+{
+  "meta": {
+    "data_vintage": "2026-Q3",
+    "mock": false,
+    "source_note": "Real figures published in the Clusters paper (Occasional Paper 15/2025) — not derived from ECIPE's internal funding database and not illustrative. Established-cluster counts are the paper's full 45-cluster ranking (Table A) tallied by region; quasi-cluster counts are the paper's own Tier 1 + Tier 2 totals by region, stated directly in Section 6 (2 US, 5 UK/Canada/Australia, 15 China, 34 EU, 30 Rest of the World; totalling the paper's reported 86 quasi-clusters worldwide)."
+  },
+  "data": [
+    { "region": "Rest of the World", "established": 7, "quasi": 30 },
+    { "region": "EU", "established": 11, "quasi": 34 },
+    { "region": "China", "established": 6, "quasi": 15 },
+    { "region": "UK, Canada, and Australia", "established": 11, "quasi": 5 },
+    { "region": "US", "established": 10, "quasi": 2 }
+  ]
+}

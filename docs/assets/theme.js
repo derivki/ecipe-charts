@@ -166,15 +166,14 @@ svg{display:block;width:100%;height:auto;overflow:visible;}
 .mocknote{font-size:11px;color:var(--muted);line-height:1.5;margin:2px 0 10px;padding:7px 10px;
   border-left:2px solid color-mix(in srgb, ${tokens.mock} 55%, transparent);background:var(--panel);border-radius:0 6px 6px 0;}
 
-/* ---------- composite-index sliders (cluster re-weighting) ---------- */
-.sliders{display:flex;flex-direction:column;gap:10px;margin:4px 0 14px;}
-.sliderow{display:grid;grid-template-columns:minmax(0,150px) minmax(0,1fr) 40px;align-items:center;gap:10px;}
-.sliderow label{font-size:11.5px;color:var(--muted);display:flex;align-items:center;gap:6px;min-width:0;overflow:hidden;text-overflow:ellipsis;white-space:nowrap;}
-.sliderow label i{width:9px;height:9px;border-radius:2px;flex:none;}
-.sliderow input[type=range]{width:100%;min-width:0;accent-color:${tokens.accent};}
-.sliderow .pctval{font-size:12px;font-weight:600;color:var(--ink);text-align:right;font-variant-numeric:tabular-nums;}
-@media (max-width:480px){ .sliderow{grid-template-columns:minmax(0,1fr) 34px;grid-template-areas:"slider pct" "label label";}
-  .sliderow label{grid-area:label;} .sliderow input[type=range]{grid-area:slider;} .sliderow .pctval{grid-area:pct;} }
+/* ---------- "published in the paper, not mock" badge ---------- */
+.citebadge{display:inline-flex;align-items:center;gap:5px;font-size:9.5px;font-weight:700;
+  letter-spacing:.06em;text-transform:uppercase;color:${tokens.teal};
+  border:1px solid color-mix(in srgb, ${tokens.teal} 45%, transparent);
+  background:color-mix(in srgb, ${tokens.teal} 8%, transparent);
+  border-radius:20px;padding:2px 8px;white-space:nowrap;}
+.citenote{font-size:11px;color:var(--muted);line-height:1.5;margin:2px 0 10px;padding:7px 10px;
+  border-left:2px solid color-mix(in srgb, ${tokens.teal} 55%, transparent);background:var(--panel);border-radius:0 6px 6px 0;}
 
 /* ---------- sortable ranking table ---------- */
 .rtable{width:100%;border-collapse:collapse;font-size:12.5px;}
