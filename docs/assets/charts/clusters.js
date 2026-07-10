@@ -1,56 +1,71 @@
-/* Cluster dashboard (Layer 2) — map + sortable table + detail bars + re-weighting
-   sliders + clusters-vs-non-clusters share over time.
+/* Cluster dashboard (Layer 2) — map + sortable ranking table + detail bars +
+   clusters-vs-non-clusters share over time.
    Real: cluster names, company counts, funding, real-world coordinates
    (docs/data/mock_cluster_rankings.json — only the 3 dimension scores are mock).
-   Mock: market/collaboration/maturity dimension scores, composite ranking, and
-   the historical path of the share-over-time chart (its final-year value is real
-   — see docs/data/mock_cluster_share_time.json meta.source_note). */
+   Mock: market/collaboration/maturity dimension scores, and the historical path
+   of the share-over-time chart (its final-year value is real — see
+   docs/data/mock_cluster_share_time.json meta.source_note).
+   The table and map show each cluster's RANK (1 = best of 15) on every pillar,
+   not the raw 0-100 score — ranking is a more defensible read of an illustrative
+   placeholder score than an arbitrarily-weighted composite would be. The overall
+   rank is simply the average of the three pillar ranks (no weighting). */
 (async function () {
   QT.injectCSS();
   QT.nav("#nav", "clusters");
 
-  const [rankings, shareTime, worldTopo] = await Promise.all([
+  const [rankings, shareTime, pipeline, worldTopo] = await Promise.all([
     QT.loadData("mock_cluster_rankings"),
     QT.loadData("mock_cluster_share_time"),
+    QT.loadData("quasi_cluster_pipeline"),
     fetch("assets/vendor/world-atlas-110m.json").then(r => r.json()),
   ]);
   const land = topojson.feature(worldTopo, worldTopo.objects.countries).features.filter(f => f.properties.name !== "Antarctica");
   QT.vintage("#vintage", { data_vintage: rankings.meta.data_vintage });
   document.getElementById("badge-clusters").innerHTML = QT.mockBadge();
   document.getElementById("badge-time").innerHTML = QT.mockBadge();
+  document.getElementById("badge-pipeline").innerHTML = QT.citeBadge();
   document.getElementById("mocknote-clusters").innerHTML = rankings.meta.source_note;
+  QT.citeNote("#citenote-pipeline", pipeline.meta.source_note);
 
   const tt = QT.tooltip();
   const DIMS = [
-    { key: "market_orientation", label: "Market orientation" },
-    { key: "collaboration_intensity", label: "Collaboration intensity" },
-    { key: "ecosystem_maturity", label: "Ecosystem maturity" },
+    { key: "market_orientation", rankKey: "market_rank", label: "Market orientation" },
+    { key: "collaboration_intensity", rankKey: "collab_rank", label: "Collaboration intensity" },
+    { key: "ecosystem_maturity", rankKey: "maturity_rank", label: "Ecosystem maturity" },
   ];
+  const N = rankings.data.length;
   const REGIONS = ["All", ...Array.from(new Set(rankings.data.map(d => d.region)))];
   const TH_LABELS = {
-    rank: "#", cluster: "Cluster", region: "Region", companies: "Companies", total_funding: "Funding",
-    market_orientation: "Market", collaboration_intensity: "Collab.", ecosystem_maturity: "Maturity", composite: "Composite",
+    overall_rank: "#", cluster: "Cluster", region: "Region", companies: "Companies", total_funding: "Funding",
+    market_rank: "Market", collab_rank: "Collab.", maturity_rank: "Maturity",
   };
+
+  // ---------- rank each cluster on every pillar, once, from the full 15-cluster
+  // set (not the region-filtered view) so a pillar rank always reads "n of 15"
+  // regardless of which region chip is active. Overall rank = average of the
+  // three pillar ranks — no weights.
+  (function assignRanks(data) {
+    DIMS.forEach(dim => {
+      [...data].sort((a, b) => b[dim.key] - a[dim.key] || a.cluster.localeCompare(b.cluster))
+        .forEach((d, i) => { d[dim.rankKey] = i + 1; });
+    });
+    [...data].sort((a, b) => {
+      const avgA = DIMS.reduce((s, dim) => s + a[dim.rankKey], 0) / DIMS.length;
+      const avgB = DIMS.reduce((s, dim) => s + b[dim.rankKey], 0) / DIMS.length;
+      return avgA - avgB || b.total_funding - a.total_funding;
+    }).forEach((d, i) => { d.overall_rank = i + 1; });
+  })(rankings.data);
 
   let state = {
     region: "All",
-    weights: { market_orientation: 1, collaboration_intensity: 1, ecosystem_maturity: 1 },
-    sortKey: "composite", sortDir: "desc",
+    sortKey: "overall_rank", sortDir: "asc",
     selected: rankings.data[0].cluster,
   };
 
-  function composite(d) {
-    const w = state.weights, tot = w.market_orientation + w.collaboration_intensity + w.ecosystem_maturity || 1;
-    return (d.market_orientation * w.market_orientation + d.collaboration_intensity * w.collaboration_intensity + d.ecosystem_maturity * w.ecosystem_maturity) / tot;
-  }
-
   function rows() {
     const filtered = rankings.data.filter(d => state.region === "All" || d.region === state.region);
-    const withComposite = filtered.map(d => ({ ...d, composite: composite(d) }));
     const key = state.sortKey, dir = state.sortDir === "asc" ? 1 : -1;
-    withComposite.sort((a, b) => (a[key] > b[key] ? 1 : a[key] < b[key] ? -1 : 0) * dir);
-    withComposite.forEach((d, i) => d.rank = i + 1);
-    return withComposite;
+    return [...filtered].sort((a, b) => (a[key] > b[key] ? 1 : a[key] < b[key] ? -1 : 0) * dir);
   }
 
   // ---------- region chips ----------
@@ -59,32 +74,19 @@
     .text(d => d)
     .on("click", (e, d) => { state.region = d; renderAll(); });
 
-  // ---------- sliders ----------
-  const sliderSel = d3.select("#sliders").selectAll(".sliderow").data(DIMS).join(enter => {
-    const row = enter.append("div").attr("class", "sliderow");
-    row.append("label").html(d => `<i style="background:${QT.palette.dimension[d.key]}"></i>${d.label}`);
-    row.append("input").attr("type", "range").attr("min", 0).attr("max", 100)
-      .attr("value", d => state.weights[d.key] * 50)
-      .on("input", function (e, d) { state.weights[d.key] = +this.value / 50 || 0.001; renderAll(); });
-    row.append("div").attr("class", "pctval");
-    return row;
-  });
-
-  function updateSliderLabels() {
-    const w = state.weights, tot = w.market_orientation + w.collaboration_intensity + w.ecosystem_maturity;
-    sliderSel.select(".pctval").text(d => QT.fmt.pct0(w[d.key] / tot));
-  }
-
   // ---------- map ----------
   function renderMap() {
     const rs = rows();
     const W = 880, H = 380;
     d3.select("#chart-map").selectAll("*").remove();
     const c = QT.chart("#chart-map", { W, H, margin: { t: 6, r: 6, b: 6, l: 6 } });
-    c.svg.style("overflow", "hidden"); // land/graticule extend past the viewBox at tight regional zoom — clip to the frame
-    const fc = { type: "FeatureCollection", features: rs.map(d => ({ type: "Feature", geometry: { type: "Point", coordinates: [d.lon, d.lat] } })) };
-    const projection = d3.geoEquirectangular().fitExtent([[14, 14], [c.iw - 14, c.ih - 14]], fc);
+    c.svg.style("overflow", "hidden");
+    // Fit to the full world land mass, not to the (region-filtered) cluster
+    // points — fitting to points made the map zoom in wildly (and distort)
+    // whenever a region chip narrowed the set down to a handful of clusters.
+    const projection = d3.geoNaturalEarth1();
     const path = d3.geoPath(projection);
+    projection.fitExtent([[10, 10], [c.iw - 10, c.ih - 14]], { type: "FeatureCollection", features: land });
     const graticule = d3.geoGraticule().step([30, 30]);
 
     c.g.append("path").datum({ type: "Sphere" }).attr("d", path).attr("fill", QT.tokens.panel).attr("stroke", "none");
@@ -93,19 +95,20 @@
     c.g.append("path").datum(graticule()).attr("d", path).attr("fill", "none").attr("stroke", QT.tokens.line).attr("stroke-width", 0.6);
 
     const rFund = d3.scaleSqrt().domain([0, d3.max(rankings.data, d => d.total_funding)]).range([4, 26]);
-    const colorScale = d3.scaleSequential(d3.interpolateRgbBasis(QT.palette.sequential)).domain([d3.min(rs, composite) - 5, d3.max(rs, composite) + 5]);
+    // Reversed domain: rank 1 (best) gets the darkest end of the sequential ramp.
+    const colorScale = d3.scaleSequential(d3.interpolateRgbBasis(QT.palette.sequential)).domain([N, 1]);
 
     c.g.selectAll("circle").data(rs, d => d.cluster).join("circle")
       .attr("cx", d => projection([d.lon, d.lat])[0]).attr("cy", d => projection([d.lon, d.lat])[1])
       .attr("r", d => rFund(d.total_funding))
-      .attr("fill", d => colorScale(composite(d))).attr("fill-opacity", 0.85)
+      .attr("fill", d => colorScale(d.overall_rank)).attr("fill-opacity", 0.85)
       .attr("stroke", d => d.cluster === state.selected ? QT.tokens.ink : "#fff")
       .attr("stroke-width", d => d.cluster === state.selected ? 2.5 : 1)
       .on("mousemove", (e, d) => tt.show(
         `<div class="hd">${d.cluster}</div>` +
         `<div class="row"><span class="k">Funding</span><span class="v">${QT.fmt.money(d.total_funding)}</span></div>` +
         `<div class="row"><span class="k">Companies</span><span class="v">${d.companies}</span></div>` +
-        `<div class="row"><span class="k">Composite</span><span class="v">${composite(d).toFixed(0)}</span></div>`, e))
+        `<div class="row"><span class="k">Overall rank</span><span class="v">#${d.overall_rank} of ${N}</span></div>`, e))
       .on("mouseleave", tt.hide)
       .on("click", (e, d) => { state.selected = d.cluster; renderAll(); });
   }
@@ -120,10 +123,10 @@
       .on("click", (e, d) => { state.selected = d.cluster; renderAll(); });
 
     tr.selectAll("td").data(d => [
-      d.rank, d.cluster, d.region, QT.fmt.int(d.companies), QT.fmt.money(d.total_funding),
-      d.market_orientation, d.collaboration_intensity, d.ecosystem_maturity, composite(d).toFixed(0),
+      d.overall_rank, d.cluster, d.region, QT.fmt.int(d.companies), QT.fmt.money(d.total_funding),
+      d.market_rank, d.collab_rank, d.maturity_rank,
     ]).join("td")
-      .attr("class", (d, i) => [0, 3, 4, 5, 6, 7, 8].includes(i) ? "num" : null)
+      .attr("class", (d, i) => [0, 3, 4, 5, 6, 7].includes(i) ? "num" : null)
       .text(d => d);
 
     d3.select("#rtable thead").selectAll("th").each(function () {
@@ -138,7 +141,7 @@
   function renderDetail() {
     const d = rankings.data.find(x => x.cluster === state.selected);
     d3.select("#ttl-clusterdetail").text(`Cluster detail — ${d.cluster}`);
-    const rs = DIMS.map(dim => ({ ...dim, v: d[dim.key] }));
+    const rs = DIMS.map(dim => ({ ...dim, v: d[dim.key], rank: d[dim.rankKey] }));
 
     const W = 880, H = 150;
     d3.select("#chart-dimbars").selectAll("*").remove();
@@ -149,7 +152,7 @@
     c.gPlot.selectAll("rect").data(rs, r => r.key).join("rect")
       .attr("x", 0).attr("y", r => y(r.label)).attr("height", y.bandwidth()).attr("rx", 2)
       .attr("fill", r => QT.palette.dimension[r.key]).attr("width", r => x(r.v))
-      .on("mousemove", (e, r) => tt.show(`<div class="hd">${r.label}</div><div class="row"><span class="v">${r.v} / 100</span></div>`, e))
+      .on("mousemove", (e, r) => tt.show(`<div class="hd">${r.label}</div><div class="row"><span class="v">${r.v} / 100 · rank ${r.rank} of ${N}</span></div>`, e))
       .on("mouseleave", tt.hide);
     c.gPlot.selectAll("text.bar-val").data(rs, r => r.key).join("text")
       .attr("class", "bar-val").attr("dy", "0.32em")
@@ -188,9 +191,54 @@
     QT.legend("#legend-sharetime", SERIES);
   }
 
+  // ---------- established clusters vs. quasi-cluster pipeline ----------
+  function renderPipeline() {
+    const SERIES = [
+      { key: "established", label: "Established clusters (of 45)", color: QT.tokens.accent },
+      { key: "quasi", label: "Quasi-clusters (of 86)", color: QT.tokens.line },
+    ];
+    // Sorted so the regions with the largest untapped pipeline (relative to what
+    // they've already turned into full clusters) read top-to-bottom.
+    const rs = [...pipeline.data].sort((a, b) => (b.quasi / (b.quasi + b.established)) - (a.quasi / (a.quasi + a.established)));
+
+    const W = 880, H = 40 + rs.length * 46;
+    d3.select("#chart-pipeline").selectAll("*").remove();
+    const c = QT.chart("#chart-pipeline", { W, H, margin: { t: 24, r: 90, b: 6, l: 190 } });
+    const x = d3.scaleLinear().domain([0, 1]).range([0, c.iw]);
+    const y = d3.scaleBand().domain(rs.map(r => r.region)).range([0, c.ih]).padding(0.35);
+
+    // c.gx is pinned to the bottom of the plot by QT.chart; this axis belongs on
+    // top, so it gets its own group at the origin instead of reusing c.gx.
+    c.g.append("g").attr("class", "axis").call(d3.axisTop(x).ticks(5).tickFormat(QT.fmt.pct0).tickSizeOuter(0));
+    c.gGrid.selectAll("line").data(x.ticks(5)).join("line").attr("class", "gridline")
+      .attr("x1", d => x(d)).attr("x2", d => x(d)).attr("y1", 0).attr("y2", c.ih);
+
+    const st = d3.stack().keys(SERIES.map(s => s.key))(rs.map(r => {
+      const tot = r.established + r.quasi;
+      return { region: r.region, established: r.established / tot, quasi: r.quasi / tot, raw: r };
+    }));
+
+    SERIES.forEach((s, i) => {
+      c.gPlot.selectAll(`.seg-${s.key}`).data(st[i], d => d.data.region).join("rect")
+        .attr("class", `seg-${s.key}`).attr("y", d => y(d.data.region)).attr("height", y.bandwidth())
+        .attr("x", d => x(d[0])).attr("width", d => x(d[1]) - x(d[0])).attr("fill", s.color)
+        .on("mousemove", (e, d) => tt.show(
+          `<div class="hd">${d.data.region}</div>` +
+          `<div class="row"><span class="k">${s.label}</span><span class="v">${d.data.raw[s.key]}</span></div>`, e))
+        .on("mouseleave", tt.hide);
+    });
+
+    c.gPlot.selectAll("text.pipeline-ratio").data(rs, r => r.region).join("text")
+      .attr("class", "pipeline-ratio").attr("x", c.iw + 8).attr("y", r => y(r.region) + y.bandwidth() / 2)
+      .attr("dy", "0.32em").style("font-size", "11.5px").style("font-weight", 700).style("fill", QT.tokens.ink)
+      .text(r => QT.fmt.pct0(r.quasi / (r.quasi + r.established)) + " pipeline");
+
+    c.gy.call(d3.axisLeft(y).tickSizeOuter(0)).call(g => g.select(".domain").remove());
+    QT.legend("#legend-pipeline", SERIES);
+  }
+
   function renderAll() {
     d3.select("#region-chips").selectAll(".chip").classed("on", d => d === state.region);
-    updateSliderLabels();
     renderMap(); renderTable(); renderDetail(); renderShareTime();
   }
 
@@ -202,4 +250,5 @@
   });
 
   renderAll();
+  renderPipeline(); // static — doesn't depend on region filter or table sort/selection
 })();
