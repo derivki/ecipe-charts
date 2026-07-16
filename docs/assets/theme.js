@@ -212,6 +212,20 @@ svg{display:block;width:100%;height:auto;overflow:visible;}
 .policy-card .policy-desc{font-size:11.5px;color:var(--muted);line-height:1.4;}
 .policy-empty{font-size:12px;color:var(--muted);padding:10px 0;}
 
+/* ---------- graduated quasi-clusters: featured strip + table pill ---------- */
+.grad-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(210px,1fr));gap:10px;margin-top:4px;}
+.grad-card{border:1px solid var(--line);border-radius:12px;padding:11px 12px 12px;background:var(--bg);
+  display:flex;flex-direction:column;gap:5px;cursor:pointer;transition:border-color .12s,background .12s;}
+.grad-card:hover{border-color:${tokens.teal};background:var(--panel);}
+.grad-card .grad-name{font-size:13px;font-weight:650;color:var(--ink);line-height:1.25;}
+.grad-card .grad-name .flag{margin-right:5px;vertical-align:-1px;border-radius:1px;box-shadow:0 0 0 0.5px color-mix(in srgb, ${tokens.ink} 15%, transparent);}
+.grad-card .grad-meta{font-size:11.5px;color:var(--muted);font-variant-numeric:tabular-nums;}
+.grad-pill{display:inline-flex;align-items:center;gap:3px;align-self:flex-start;font-size:9.5px;font-weight:700;
+  letter-spacing:.05em;text-transform:uppercase;color:${tokens.teal};white-space:nowrap;
+  border:1px solid color-mix(in srgb, ${tokens.teal} 45%, transparent);
+  background:color-mix(in srgb, ${tokens.teal} 10%, transparent);border-radius:20px;padding:2px 8px;}
+.rtable .grad-pill{margin-left:6px;padding:1px 7px;font-size:9px;}
+
 /* ---------- in-map zoom controls (clusters map) ---------- */
 .mapzoom{position:absolute;top:10px;right:10px;display:flex;flex-direction:column;gap:5px;z-index:4;}
 .mapzoom button{width:28px;height:28px;border-radius:3px;border:1px solid var(--line);background:#fff;

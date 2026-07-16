@@ -30,6 +30,7 @@
   QT.vintage("#vintage", { data_vintage: rankings.meta.data_vintage });
   document.getElementById("badge-clusters").innerHTML = QT.mockBadge();
   document.getElementById("badge-time").innerHTML = QT.mockBadge();
+  document.getElementById("badge-graduates").innerHTML = QT.mockBadge();
   document.getElementById("badge-pipeline").innerHTML = QT.citeBadge();
   document.getElementById("mocknote-clusters").innerHTML = rankings.meta.source_note;
   QT.citeNote("#citenote-pipeline", pipeline.meta.source_note);
@@ -183,7 +184,9 @@
       .on("click", (e, d) => { state.selected = d.cluster; renderAll(); });
 
     tr.selectAll("td").data(d => [
-      d.overall_rank, `${flagIcon(d.country_code, d.country)} ${d.cluster}`, d.region, QT.fmt.int(d.companies), QT.fmt.money(d.total_funding),
+      d.overall_rank,
+      `${flagIcon(d.country_code, d.country)} ${d.cluster}${d.graduated ? ' <span class="grad-pill">&#8593; Graduated</span>' : ''}`,
+      d.region, QT.fmt.int(d.companies), QT.fmt.money(d.total_funding),
       d.market_rank, d.collab_rank, d.maturity_rank,
     ]).join("td")
       .attr("class", (d, i) => [0, 3, 4, 5, 6, 7].includes(i) ? "num" : null)
@@ -299,6 +302,28 @@
     QT.legend("#legend-pipeline", SERIES);
   }
 
+  // ---------- new entrants: graduated quasi-clusters (featured strip) ----------
+  // Static — always shows every graduate regardless of the region filter, so the
+  // "who just made it in" story stays front-and-centre. Cards are clickable and
+  // select the cluster in the table/map/detail below.
+  function renderGraduates() {
+    const grads = rankings.data.filter(d => d.graduated);
+    const body = d3.select("#graduates-body");
+    body.selectAll("*").remove();
+    if (!grads.length) {
+      body.append("div").attr("class", "policy-empty").text("No graduations recorded this update.");
+      return;
+    }
+    const grid = body.append("div").attr("class", "grad-grid");
+    const card = grid.selectAll(".grad-card").data(grads, d => d.cluster).join("div")
+      .attr("class", "grad-card")
+      .on("click", (e, d) => { state.selected = d.cluster; renderAll(); });
+    card.append("span").attr("class", "grad-pill").html("&#8593; Graduated");
+    card.append("div").attr("class", "grad-name").html(d => `${flagIcon(d.country_code, d.country)} ${d.cluster}`);
+    card.append("div").attr("class", "grad-meta")
+      .text(d => `${d.region} · ${QT.fmt.money(d.total_funding)}` + (d.from_tier ? ` · from ${d.from_tier}` : ""));
+  }
+
   function renderAll() {
     d3.select("#region-chips").selectAll(".chip").classed("on", d => d === state.region);
     renderMap(); renderTable(); renderDetail(); renderShareTime();
@@ -312,6 +337,7 @@
   });
 
   renderAll();
+  renderGraduates(); // static — always shows every graduate regardless of region filter
   renderPipeline(); // static — doesn't depend on region filter or table sort/selection
   QT.timeSlider("#slider-sharetime", { years: SHARE_YEARS, onChange: w => { shareWin = w; renderShareTime(); } });
 })();
