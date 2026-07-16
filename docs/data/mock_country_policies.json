@@ -1,0 +1,93 @@
+{
+  "meta": {
+    "data_vintage": "2026-Q3",
+    "mock": true,
+    "source_note": "Illustrative placeholder — the flagship policies/programmes below are real, publicly announced initiatives, but the committed-funding figures, statuses and selection shown here are indicative and NOT yet sourced from a maintained ECIPE policy database. Do not cite. Pending a dedicated policy-mapping update."
+  },
+  "data": {
+    "US": [
+      { "title": "National Quantum Initiative Act", "type": "Strategy", "status": "Active", "year": 2018, "public_funding": 1200000000, "note": "Coordinates federal QIS funding across NSF, DOE and NIST." },
+      { "title": "DOE National QIS Research Centers", "type": "R&D institute", "status": "Active", "year": 2020, "public_funding": 625000000, "note": "Five multi-institution centres for computing, sensing and networking." },
+      { "title": "NSF Quantum Leap Challenge Institutes", "type": "R&D institute", "status": "Active", "year": 2020, "public_funding": 300000000, "note": "University-led institutes for research and workforce." },
+      { "title": "NIST Post-Quantum Cryptography Standards", "type": "Procurement", "status": "Active", "year": 2024, "public_funding": null, "note": "Finalised PQC standards guiding federal migration." },
+      { "title": "CHIPS and Science Act quantum provisions", "type": "Funding programme", "status": "Active", "year": 2022, "public_funding": 800000000, "note": "Authorises expanded QIS research and infrastructure." }
+    ],
+    "China": [
+      { "title": "Quantum priority, 14th Five-Year Plan", "type": "Strategy", "status": "Active", "year": 2021, "public_funding": 15000000000, "note": "State priority for quantum computing and communications." },
+      { "title": "National Lab for Quantum Information Sciences (Hefei)", "type": "R&D institute", "status": "Active", "year": 2020, "public_funding": 10000000000, "note": "Flagship national quantum research laboratory." },
+      { "title": "Quantum satellite & intercity network", "type": "Funding programme", "status": "Active", "year": 2016, "public_funding": null, "note": "Micius satellite and QKD backbone." },
+      { "title": "Regional quantum industrial parks", "type": "Funding programme", "status": "Active", "year": 2022, "public_funding": 2000000000, "note": "Hefei/Beijing commercialisation clusters." },
+      { "title": "Quantum-technology export controls", "type": "Export control", "status": "Announced", "year": 2024, "public_funding": null, "note": "Restrictions on quantum-related exports." }
+    ],
+    "UK": [
+      { "title": "National Quantum Strategy", "type": "Strategy", "status": "Active", "year": 2023, "public_funding": 3100000000, "note": "£2.5bn 10-year plan across compute, sensing and comms." },
+      { "title": "National Quantum Computing Centre", "type": "R&D institute", "status": "Active", "year": 2021, "public_funding": 120000000, "note": "National facility for quantum computing." },
+      { "title": "Quantum missions (compute + PNT)", "type": "Funding programme", "status": "Announced", "year": 2024, "public_funding": null, "note": "Moonshot targets to 2035." },
+      { "title": "Quantum procurement pledge", "type": "Procurement", "status": "Announced", "year": 2024, "public_funding": 20000000, "note": "Government as an early adopter of quantum." },
+      { "title": "Quantum Technology Hubs", "type": "R&D institute", "status": "Active", "year": 2014, "public_funding": 400000000, "note": "University-led hubs, now in their third phase." }
+    ],
+    "France": [
+      { "title": "Plan Quantique", "type": "Strategy", "status": "Active", "year": 2021, "public_funding": 2200000000, "note": "€1.8bn national quantum plan." },
+      { "title": "EU Quantum Flagship (participation)", "type": "Funding programme", "status": "Active", "year": 2018, "public_funding": null, "note": "€1bn EU-wide 10-year initiative." },
+      { "title": "National hardware champions support", "type": "Funding programme", "status": "Active", "year": 2022, "public_funding": 150000000, "note": "Backing domestic quantum hardware firms." },
+      { "title": "CEA / CNRS quantum programmes", "type": "R&D institute", "status": "Active", "year": 2021, "public_funding": 300000000, "note": "Public-research quantum centres." },
+      { "title": "GENCI quantum computing procurement", "type": "Procurement", "status": "Active", "year": 2023, "public_funding": 70000000, "note": "Public HPC-quantum acquisition." }
+    ],
+    "Germany": [
+      { "title": "Quantum technologies framework programme", "type": "Strategy", "status": "Active", "year": 2023, "public_funding": 3000000000, "note": "~€3bn federal action plan to 2026." },
+      { "title": "Munich Quantum Valley (and peers)", "type": "R&D institute", "status": "Active", "year": 2021, "public_funding": 300000000, "note": "State-backed regional quantum ecosystems." },
+      { "title": "DLR quantum computing initiative", "type": "Procurement", "status": "Active", "year": 2021, "public_funding": 800000000, "note": "Contracts to build German quantum computers." },
+      { "title": "EU Quantum Flagship (participation)", "type": "Funding programme", "status": "Active", "year": 2018, "public_funding": null, "note": "EU-wide 10-year initiative." },
+      { "title": "PlanQK applications platform", "type": "Funding programme", "status": "Active", "year": 2019, "public_funding": 40000000, "note": "Quantum-application marketplace." }
+    ],
+    "Canada": [
+      { "title": "National Quantum Strategy", "type": "Strategy", "status": "Active", "year": 2023, "public_funding": 270000000, "note": "C$360m across research, talent and commercialisation." },
+      { "title": "NRC quantum sensors & computing", "type": "R&D institute", "status": "Active", "year": 2021, "public_funding": 100000000, "note": "Federal-lab quantum programmes." },
+      { "title": "Domestic hardware support", "type": "Funding programme", "status": "Announced", "year": 2024, "public_funding": null, "note": "Federal/provincial support for hardware firms." },
+      { "title": "Quantum adoption pilots", "type": "Procurement", "status": "Announced", "year": 2024, "public_funding": null, "note": "Government adoption pilots." },
+      { "title": "University quantum institutes (IQC, Perimeter)", "type": "R&D institute", "status": "Active", "year": 2020, "public_funding": 60000000, "note": "Academic quantum research centres." }
+    ],
+    "Netherlands": [
+      { "title": "Quantum Delta NL", "type": "Strategy", "status": "Active", "year": 2021, "public_funding": 700000000, "note": "€615m National Growth Fund programme." },
+      { "title": "QuTech (TU Delft / TNO)", "type": "R&D institute", "status": "Active", "year": 2014, "public_funding": 200000000, "note": "Flagship quantum research institute." },
+      { "title": "House of Quantum", "type": "R&D institute", "status": "Announced", "year": 2024, "public_funding": 50000000, "note": "National quantum hub in Delft." },
+      { "title": "EU Quantum Flagship (participation)", "type": "Funding programme", "status": "Active", "year": 2018, "public_funding": null, "note": "EU-wide 10-year initiative." },
+      { "title": "Quantum talent programme", "type": "Funding programme", "status": "Active", "year": 2022, "public_funding": 30000000, "note": "Skills and workforce development." }
+    ],
+    "Japan": [
+      { "title": "Quantum Technology Innovation Strategy", "type": "Strategy", "status": "Active", "year": 2020, "public_funding": 1000000000, "note": "National strategy and technology roadmap." },
+      { "title": "RIKEN quantum computer programme", "type": "R&D institute", "status": "Active", "year": 2023, "public_funding": 200000000, "note": "Domestic superconducting quantum computers." },
+      { "title": "Q-LEAP flagship programme", "type": "Funding programme", "status": "Active", "year": 2018, "public_funding": 300000000, "note": "Flagship quantum research programme." },
+      { "title": "AIST / NICT deployment", "type": "Procurement", "status": "Active", "year": 2023, "public_funding": 100000000, "note": "Public quantum deployment." },
+      { "title": "Quantum-industry consortium", "type": "Funding programme", "status": "Active", "year": 2021, "public_funding": 50000000, "note": "Public-private council." }
+    ],
+    "Australia": [
+      { "title": "National Quantum Strategy", "type": "Strategy", "status": "Active", "year": 2023, "public_funding": 620000000, "note": "A$940m plan, incl. hardware investment." },
+      { "title": "PsiQuantum Brisbane investment", "type": "Funding programme", "status": "Active", "year": 2024, "public_funding": 620000000, "note": "Federal + Queensland backing for a fault-tolerant computer." },
+      { "title": "Sydney Quantum Academy", "type": "R&D institute", "status": "Active", "year": 2019, "public_funding": 15000000, "note": "University consortium for talent." },
+      { "title": "CSIRO quantum programme", "type": "R&D institute", "status": "Active", "year": 2021, "public_funding": 40000000, "note": "National science-agency roadmap." },
+      { "title": "Critical-tech export controls", "type": "Export control", "status": "Announced", "year": 2024, "public_funding": null, "note": "Quantum on the critical-technology list." }
+    ],
+    "Israel": [
+      { "title": "National Quantum Initiative", "type": "Strategy", "status": "Active", "year": 2022, "public_funding": 350000000, "note": "~₪1.25bn national programme." },
+      { "title": "National Quantum Computing Center", "type": "R&D institute", "status": "Active", "year": 2022, "public_funding": 60000000, "note": "National quantum computing facility." },
+      { "title": "Domestic quantum computer procurement", "type": "Procurement", "status": "Active", "year": 2023, "public_funding": 35000000, "note": "Innovation-authority-backed acquisition." },
+      { "title": "Academic quantum centres", "type": "R&D institute", "status": "Active", "year": 2020, "public_funding": 40000000, "note": "University research centres." },
+      { "title": "Startup grants (Innovation Authority)", "type": "Funding programme", "status": "Active", "year": 2022, "public_funding": 30000000, "note": "Grants to quantum startups." }
+    ],
+    "Finland": [
+      { "title": "VTT quantum computer programme", "type": "R&D institute", "status": "Active", "year": 2020, "public_funding": 25000000, "note": "National quantum-computer build-out roadmap." },
+      { "title": "InstituteQ (Aalto / Helsinki / VTT)", "type": "R&D institute", "status": "Active", "year": 2021, "public_funding": 20000000, "note": "Joint national quantum institute." },
+      { "title": "EU Quantum Flagship (participation)", "type": "Funding programme", "status": "Active", "year": 2018, "public_funding": null, "note": "EU-wide 10-year initiative." },
+      { "title": "National quantum agenda", "type": "Strategy", "status": "Announced", "year": 2023, "public_funding": null, "note": "Coordination roadmap." },
+      { "title": "Domestic hardware support (IQM)", "type": "Funding programme", "status": "Active", "year": 2022, "public_funding": 40000000, "note": "Backing a domestic hardware champion." }
+    ],
+    "Singapore": [
+      { "title": "Quantum Engineering Programme", "type": "Strategy", "status": "Active", "year": 2018, "public_funding": 220000000, "note": "National programme, ~S$300m across phases." },
+      { "title": "National Quantum Office", "type": "R&D institute", "status": "Active", "year": 2022, "public_funding": null, "note": "Coordinates national efforts." },
+      { "title": "National Quantum Computing Hub", "type": "R&D institute", "status": "Active", "year": 2022, "public_funding": 25000000, "note": "Shared access to quantum computing." },
+      { "title": "National Quantum-Safe Network", "type": "Procurement", "status": "Active", "year": 2022, "public_funding": 6000000, "note": "Nationwide quantum-safe comms trial." },
+      { "title": "Foundry & talent programmes", "type": "Funding programme", "status": "Active", "year": 2023, "public_funding": 20000000, "note": "Fabrication and skills." }
+    ]
+  }
+}

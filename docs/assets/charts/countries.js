@@ -7,15 +7,23 @@
   QT.injectCSS();
   QT.nav("#nav", "countries");
 
-  const [country, profile] = await Promise.all([
+  const [country, profile, policies] = await Promise.all([
     QT.loadData("funding_by_country"),
     QT.loadData("mock_country_profile"),
+    QT.loadData("mock_country_policies"),
   ]);
   QT.vintage("#vintage", country.meta);
   document.getElementById("mocknote-country").innerHTML = profile.meta.source_note;
+  document.getElementById("mocknote-policy").innerHTML = policies.meta.source_note;
   ["badge-domain", "badge-archetype2", "badge-rca", "badge-network"].forEach(id => {
     document.getElementById(id).innerHTML = QT.mockBadge();
   });
+  const policyByCountry = new Map(Object.entries(policies.data));
+  const POLICY_COLORS = {
+    "Strategy": QT.tokens.accent, "Funding programme": QT.tokens.gold,
+    "R&D institute": QT.tokens.teal, "Procurement": QT.tokens.purple,
+    "Export control": QT.tokens.rust,
+  };
 
   const tt = QT.tooltip();
   const byName = new Map(country.data.map(d => [d.country, d]));
@@ -200,7 +208,28 @@
     c.gx.call(d3.axisBottom(x).ticks(5).tickFormat(d3.format(".1f")).tickSizeOuter(0));
   }
 
-  function render() { kpis(); rankedBars(); networkPanel(); domainSplit(); archetypePanel(); rcaPanel(); }
+  // ---------- Policy & public programmes (MOCK, curated flagship list) ----------
+  function policiesPanel() {
+    const list = policyByCountry.get(state.country) || [];
+    d3.select("#ttl-policy").html(`Policy &amp; public programmes — ${state.country} <span id="badge-policy">${QT.mockBadge()}</span>`);
+    const body = d3.select("#policy-body");
+    body.selectAll("*").remove();
+    if (!list.length) {
+      body.append("div").attr("class", "policy-empty")
+        .text(`No public programmes catalogued for ${state.country} yet.`);
+      return;
+    }
+    const grid = body.append("div").attr("class", "policy-grid");
+    const card = grid.selectAll(".policy-card").data(list).join("div").attr("class", "policy-card");
+    card.append("span").attr("class", "policy-type")
+      .style("background", d => POLICY_COLORS[d.type] || QT.tokens.muted).text(d => d.type);
+    card.append("div").attr("class", "policy-title").text(d => d.title);
+    card.append("div").attr("class", "policy-meta")
+      .text(d => `${d.status} · ${d.year}` + (d.public_funding != null ? ` · ${QT.fmt.money(d.public_funding)} public` : ""));
+    card.append("div").attr("class", "policy-desc").text(d => d.note);
+  }
+
+  function render() { kpis(); rankedBars(); networkPanel(); policiesPanel(); domainSplit(); archetypePanel(); rcaPanel(); }
 
   sel.on("change", function () { state.country = this.value; render(); });
   QT.segControl("#seg-metric-country", "data-m", m => { state.metric = m; render(); });
