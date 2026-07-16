@@ -1,11 +1,11 @@
-/* Country dashboard (Layer 1) — world map + KPIs + 5 panels for a selected country.
-   Real data: world map, ranked bars (funding_by_country.json / funding_by_cluster.json).
+/* Country dashboard (Layer 1) — KPIs + panels for a selected country.
+   Real data: ranked bars (funding_by_country.json / funding_by_cluster.json).
    Mock data: institutions, domain split, archetype, RCA, network partners
-   (docs/data/mock_country_profile.json — see meta.source_note). */
+   (docs/data/mock_country_profile.json — see meta.source_note).
+   The world map (country choropleth + cluster bubbles) leads the Overview tab. */
 (async function () {
   QT.injectCSS();
   QT.nav("#nav", "countries");
-  renderWorldMap("#worldmap");
 
   const [country, profile] = await Promise.all([
     QT.loadData("funding_by_country"),
@@ -158,26 +158,49 @@
     c.gy.call(d3.axisLeft(y).tickSizeOuter(0)).call(g => g.select(".domain").remove());
   }
 
-  // ---------- Panel 5: network role + top partners (MOCK) ----------
+  // ---------- Collaboration: connectedness + top partners (MOCK) ----------
   function networkPanel() {
     const p = profileByName.get(state.country);
-    d3.select("#ttl-network").html(`Connectedness and top partners — ${state.country} <span id="badge-network">${QT.mockBadge()}</span>`);
-    const body = d3.select("#network-body");
-    body.selectAll("*").remove();
-    body.append("div").style("font-size", "12px").style("color", "var(--muted)").style("margin-bottom", "8px")
-      .html(`Connectedness score <b style="color:var(--ink)">${p.connectedness} / 100</b>`);
-    const rows = body.append("div");
-    p.top_partners.forEach(tp => {
-      const row = rows.append("div").style("display", "flex").style("align-items", "center").style("gap", "10px").style("margin", "6px 0");
-      row.append("div").style("width", "90px").style("font-size", "12.5px").text(tp.country);
-      row.append("div").style("flex", "1").style("height", "8px").style("background", "var(--line)").style("border-radius", "4px")
-        .append("div").style("height", "8px").style("border-radius", "4px").style("background", QT.tokens.teal)
-        .style("width", (tp.score * 100) + "%");
-      row.append("div").style("width", "40px").style("text-align", "right").style("font-size", "11.5px").style("color", "var(--muted)").text(tp.score.toFixed(2));
-    });
+    d3.select("#ttl-network").html(`Collaboration: connectedness &amp; top partners — ${state.country} <span id="badge-network">${QT.mockBadge()}</span>`);
+    const partners = [...p.top_partners].sort((a, b) => b.score - a.score);
+
+    const rowH = 44, topPad = 66, botPad = 24, W = 880;
+    const H = topPad + partners.length * rowH + botPad;
+    d3.select("#chart-network").selectAll("*").remove();
+    const c = QT.chart("#chart-network", { W, H, margin: { t: topPad, r: 64, b: botPad, l: 130 } });
+
+    // ---- connectedness header (lives in the top margin, above the partner bars) ----
+    const hdr = c.svg.append("g").attr("transform", `translate(130,16)`);
+    hdr.append("text").attr("y", 0).attr("font-size", 11).attr("fill", QT.tokens.muted).text("Global connectedness");
+    hdr.append("rect").attr("x", 0).attr("y", 8).attr("width", c.iw).attr("height", 12).attr("rx", 6).attr("fill", QT.tokens.line);
+    hdr.append("rect").attr("x", 0).attr("y", 8).attr("width", c.iw * p.connectedness / 100).attr("height", 12).attr("rx", 6).attr("fill", QT.tokens.accent);
+    hdr.append("text").attr("x", c.iw).attr("y", 18).attr("text-anchor", "end").attr("font-size", 13).attr("font-weight", 700)
+      .attr("fill", QT.tokens.ink).text(`${p.connectedness} / 100`);
+    c.g.append("text").attr("x", -12).attr("y", -10).attr("text-anchor", "end").attr("font-size", 11)
+      .attr("fill", QT.tokens.muted).text("Top partners");
+
+    // ---- top-partner bars (partnership strength 0–1) ----
+    const x = d3.scaleLinear().domain([0, 1]).range([0, c.iw]);
+    const y = d3.scaleBand().domain(partners.map(d => d.country)).range([0, c.ih]).padding(0.4);
+
+    c.g.selectAll("text.plabel").data(partners, d => d.country).join("text")
+      .attr("class", "plabel").attr("x", -12).attr("y", d => y(d.country) + y.bandwidth() / 2).attr("dy", "0.32em")
+      .attr("text-anchor", "end").style("font-size", "12.5px").attr("fill", QT.tokens.ink).text(d => d.country);
+    c.gPlot.selectAll("rect.track").data(partners, d => d.country).join("rect")
+      .attr("class", "track").attr("x", 0).attr("y", d => y(d.country)).attr("width", c.iw).attr("height", y.bandwidth())
+      .attr("rx", 3).attr("fill", QT.tokens.line).attr("fill-opacity", 0.6);
+    c.gPlot.selectAll("rect.fill").data(partners, d => d.country).join("rect")
+      .attr("class", "fill").attr("x", 0).attr("y", d => y(d.country)).attr("height", y.bandwidth()).attr("rx", 3)
+      .attr("fill", QT.tokens.teal).attr("width", d => x(d.score))
+      .on("mousemove", (e, d) => tt.show(`<div class="hd">${state.country} · ${d.country}</div><div class="row"><span class="k">Partnership strength</span><span class="v">${d.score.toFixed(2)}</span></div>`, e))
+      .on("mouseleave", tt.hide);
+    c.gPlot.selectAll("text.bar-val").data(partners, d => d.country).join("text")
+      .attr("class", "bar-val").attr("dy", "0.32em").attr("y", d => y(d.country) + y.bandwidth() / 2)
+      .attr("x", d => x(d.score) + 6).text(d => d.score.toFixed(2));
+    c.gx.call(d3.axisBottom(x).ticks(5).tickFormat(d3.format(".1f")).tickSizeOuter(0));
   }
 
-  function render() { kpis(); rankedBars(); domainSplit(); archetypePanel(); rcaPanel(); networkPanel(); }
+  function render() { kpis(); rankedBars(); networkPanel(); domainSplit(); archetypePanel(); rcaPanel(); }
 
   sel.on("change", function () { state.country = this.value; render(); });
   QT.segControl("#seg-metric-country", "data-m", m => { state.metric = m; render(); });

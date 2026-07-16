@@ -115,8 +115,10 @@ select{appearance:none;font:inherit;font-size:13px;color:var(--ink);background:v
   background-image:url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='10' height='6'><path d='M0 0l5 6 5-6z' fill='%235d6875'/></svg>");
   background-repeat:no-repeat;background-position:right 10px center;}
 .legend{display:flex;flex-wrap:wrap;gap:14px;margin:10px 0 2px;}
-.lg{display:inline-flex;align-items:center;gap:7px;font-size:12px;color:var(--muted);cursor:pointer;user-select:none;}
-.lg .sw{width:12px;height:12px;border-radius:3px;flex:none;}
+.lg{display:inline-flex;align-items:center;gap:7px;font-size:12px;color:var(--muted);cursor:default;user-select:none;}
+.lg.clickable{cursor:pointer;}
+.lg .sw{width:12px;height:12px;border-radius:50%;flex:none;}
+.lg.clickable .sw{border-radius:3px;}
 .lg.off{opacity:.35;}
 svg{display:block;width:100%;height:auto;overflow:visible;}
 .axis path,.axis line{stroke:var(--line);}
@@ -186,6 +188,23 @@ svg{display:block;width:100%;height:auto;overflow:visible;}
 .rtable tbody tr:hover{background:var(--panel);}
 .rtable tbody tr.sel{background:color-mix(in srgb, ${tokens.accent} 10%, transparent);}
 .rtable .flag{margin-right:5px;vertical-align:-1px;border-radius:1px;box-shadow:0 0 0 0.5px color-mix(in srgb, ${tokens.ink} 15%, transparent);}
+/* ---------- year-range time slider ---------- */
+/* track, range, handles and labels all use left:<pct>% of the same content box,
+   so the 9px side margins keep the end handles from clipping the panel edge. */
+.tslider{position:relative;height:38px;min-width:200px;margin:2px 9px 0;}
+.ts-track{position:absolute;top:9px;left:0;right:0;height:5px;border-radius:3px;background:var(--line);}
+.ts-range{position:absolute;top:9px;height:5px;border-radius:3px;background:var(--ink);pointer-events:none;}
+.ts-handle{position:absolute;top:2px;width:18px;height:18px;border-radius:50%;background:#fff;
+  border:2px solid var(--ink);cursor:grab;box-shadow:0 1px 3px rgba(20,40,70,.2);touch-action:none;z-index:2;transform:translateX(-50%);}
+.ts-handle:active{cursor:grabbing;}
+.ts-lab{position:absolute;top:23px;font-size:10.5px;color:var(--muted);font-variant-numeric:tabular-nums;transform:translateX(-50%);white-space:nowrap;}
+
+/* ---------- in-map zoom controls (clusters map) ---------- */
+.mapzoom{position:absolute;top:10px;right:10px;display:flex;flex-direction:column;gap:5px;z-index:4;}
+.mapzoom button{width:28px;height:28px;border-radius:3px;border:1px solid var(--line);background:#fff;
+  color:var(--muted);font-size:15px;font-weight:600;line-height:1;cursor:pointer;
+  display:flex;align-items:center;justify-content:center;box-shadow:0 1px 3px rgba(20,40,70,.08);}
+.mapzoom button:hover{border-color:var(--ink);color:var(--ink);}
 .chiprow{display:flex;flex-wrap:wrap;gap:6px;margin:10px 0 2px;}
 .chip{font-size:11.5px;color:var(--muted);border:1px solid var(--line);border-radius:20px;
   padding:4px 11px;cursor:pointer;background:var(--bg);}

@@ -19,6 +19,13 @@
   <div class="panels g2">
 
     <div class="panel span2">
+      <div class="ttl">Funding by country and cluster — world map</div>
+      <p class="why">Shading = funding by country. Bubble size = funding for each of the 44 tracked clusters. Use <b>All funding / Public only</b> to switch to public funding (grants + public equity). Scroll/drag to zoom.</p>
+      <div id="worldmap" style="margin-top:6px;"></div>
+      <p class="note" style="margin-top:8px;padding-top:8px;">Countries and clusters are both real (funding database). The underlying world map is a 110m-resolution atlas, so a few very small states (e.g. Singapore) have no polygon to shade — their cluster bubble still plots correctly.</p>
+    </div>
+
+    <div class="panel span2">
       <div class="ttl">Funding by year and instrument</div>
       <p class="why">Annual funding split by instrument: VC / private equity, debt, grant, public equity.</p>
       <div class="controls">
@@ -28,15 +35,18 @@
         <div class="ctl"><label>Chart</label>
           <div class="seg" id="seg-type-instrument"><button data-t="bar" class="on">Bars</button><button data-t="area">Area</button></div>
         </div>
+        <div class="ctl" style="flex:1;min-width:240px;"><label>Years</label>
+          <div id="slider-instrument"></div>
+        </div>
       </div>
       <div class="legend" id="legend-instrument"></div>
       <svg id="chart-instrument" role="img" aria-label="Funding over time by financing instrument"></svg>
-      <p class="note" style="margin-top:8px;padding-top:8px;"><b>The most recent year is partial</b> (shaded, "YTD") and is not comparable with full years. <a href="funding_by_instrument.html">Open as a standalone page →</a></p>
+      <p class="note" style="margin-top:8px;padding-top:8px;"><b>The most recent year is partial</b> (shaded, "YTD") and is not comparable with full years.</p>
     </div>
 
     <div class="panel">
       <div class="ttl">Top 8 countries by funding</div>
-      <p class="why">Announced funding raised, top 8 of 38 tracked countries. <a href="funding_by_country.html">Full interactive chart →</a></p>
+      <p class="why">Announced funding raised, top 8 of 38 tracked countries.</p>
       <svg id="chart-country" role="img" aria-label="Top countries by funding"></svg>
     </div>
 
@@ -67,7 +77,7 @@
       </div>
       <div class="legend" id="legend-stage"></div>
       <svg id="chart-stage" role="img" aria-label="Funding by stage, two regions compared"></svg>
-      <p class="note" style="margin-top:8px;padding-top:8px;">Late-stage and growth equity are combined; debt and grants are excluded from this equity-ladder view. <a href="funding_by_stage.html">Open as a standalone page →</a></p>
+      <p class="note" style="margin-top:8px;padding-top:8px;">Late-stage and growth equity are combined; debt and grants are excluded from this equity-ladder view.</p>
     </div>
 
   </div>
@@ -77,6 +87,8 @@
 
 <script src="assets/theme.js"></script>
 <script src="assets/chart-template.js"></script>
+<script src="assets/vendor/topojson-client.js"></script>
+<script src="assets/charts/world_map.js"></script>
 <script src="assets/charts/overview.js"></script>
 </body>
 </html>

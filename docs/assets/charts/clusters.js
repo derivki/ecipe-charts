@@ -82,24 +82,39 @@
     .on("click", (e, d) => { state.region = d; renderAll(); });
 
   // ---------- map ----------
+  // Compute the d3.zoom transform that frames a region's clusters. "All" (or an
+  // empty set) resets to the full-world view; any region fits its cluster points
+  // — padded — into the plot, so picking a chip zooms straight to that region
+  // instead of leaving a few dots stranded on a world map.
+  function regionTransform(pts, iw, ih) {
+    if (state.region === "All" || pts.length === 0) return d3.zoomIdentity;
+    let x0 = d3.min(pts, p => p[0]), x1 = d3.max(pts, p => p[0]);
+    let y0 = d3.min(pts, p => p[1]), y1 = d3.max(pts, p => p[1]);
+    const padX = (x1 - x0) * 0.4 + 48, padY = (y1 - y0) * 0.4 + 48;
+    x0 -= padX; x1 += padX; y0 -= padY; y1 += padY;
+    const k = Math.max(1, Math.min(8, 0.95 * Math.min(iw / (x1 - x0), ih / (y1 - y0))));
+    return d3.zoomIdentity.translate(iw / 2 - k * (x0 + x1) / 2, ih / 2 - k * (y0 + y1) / 2).scale(k);
+  }
+
   function renderMap() {
     const rs = rows();
     const W = 880, H = 380;
     d3.select("#chart-map").selectAll("*").remove();
     const c = QT.chart("#chart-map", { W, H, margin: { t: 6, r: 6, b: 6, l: 6 } });
     c.svg.style("overflow", "hidden");
-    // Fit to the full world land mass, not to the (region-filtered) cluster
-    // points — fitting to points made the map zoom in wildly (and distort)
-    // whenever a region chip narrowed the set down to a handful of clusters.
+    // Base projection always fits the full world land mass (not the filtered
+    // points, which distorts) — region focus is applied afterwards as a zoom
+    // transform on the gZoom layer, so geography never warps.
     const projection = d3.geoNaturalEarth1();
     const path = d3.geoPath(projection);
     projection.fitExtent([[10, 10], [c.iw - 10, c.ih - 14]], { type: "FeatureCollection", features: land });
     const graticule = d3.geoGraticule().step([30, 30]);
 
-    c.g.append("path").datum({ type: "Sphere" }).attr("d", path).attr("fill", QT.tokens.panel).attr("stroke", "none");
-    c.g.selectAll("path.land").data(land).join("path").attr("class", "land")
+    const gZoom = c.g.append("g");
+    gZoom.append("path").datum({ type: "Sphere" }).attr("d", path).attr("fill", QT.tokens.panel).attr("stroke", "none");
+    gZoom.selectAll("path.land").data(land).join("path").attr("class", "land")
       .attr("d", path).attr("fill", "#E4E9EE").attr("stroke", "#fff").attr("stroke-width", 0.5);
-    c.g.append("path").datum(graticule()).attr("d", path).attr("fill", "none").attr("stroke", QT.tokens.line).attr("stroke-width", 0.6);
+    gZoom.append("path").datum(graticule()).attr("d", path).attr("fill", "none").attr("stroke", QT.tokens.line).attr("stroke-width", 0.6);
 
     const rFund = d3.scaleSqrt().domain([0, d3.max(rankings.data, d => d.total_funding)]).range([4, 26]);
     // Reversed domain: rank 1 (best) gets the darkest end of the sequential ramp.
@@ -121,7 +136,7 @@
       .stop();
     for (let i = 0; i < 300; i++) sim.tick();
 
-    c.g.selectAll("circle").data(nodes, d => d.cluster).join("circle")
+    gZoom.selectAll("circle").data(nodes, d => d.cluster).join("circle")
       .attr("cx", d => d.x).attr("cy", d => d.y)
       .attr("r", d => rFund(d.total_funding))
       .attr("fill", d => colorScale(d.overall_rank)).attr("fill-opacity", 0.85)
@@ -134,6 +149,28 @@
         `<div class="row"><span class="k">Overall rank</span><span class="v">#${d.overall_rank} of ${N}</span></div>`, e))
       .on("mouseleave", tt.hide)
       .on("click", (e, d) => { state.selected = d.cluster; renderAll(); });
+
+    // Pan/zoom on the gZoom layer, plus programmatic region framing. Bubble
+    // radii/strokes are counter-scaled so they keep a constant screen size as
+    // you zoom into a dense region.
+    const zoom = d3.zoom().scaleExtent([1, 8]).on("zoom", ev => {
+      gZoom.attr("transform", ev.transform);
+      gZoom.selectAll("circle")
+        .attr("r", d => rFund(d.total_funding) / ev.transform.k)
+        .attr("stroke-width", d => (d.cluster === state.selected ? 2.5 : 1) / ev.transform.k);
+      gZoom.selectAll("path.land").attr("stroke-width", 0.5 / ev.transform.k);
+    });
+    c.svg.call(zoom);
+
+    // Frame the selected region immediately (no transition) so the zoom is
+    // applied even in environments that throttle requestAnimationFrame; the
+    // manual zoom buttons animate for a smoother feel where rAF is available.
+    const target = regionTransform(nodes.map(d => [d.x0, d.y0]), c.iw, c.ih);
+    c.svg.call(zoom.transform, target);
+
+    d3.select("#map-zin").on("click", () => c.svg.transition().duration(300).call(zoom.scaleBy, 1.6));
+    d3.select("#map-zout").on("click", () => c.svg.transition().duration(300).call(zoom.scaleBy, 1 / 1.6));
+    d3.select("#map-zreset").on("click", () => c.svg.call(zoom.transform, target));
   }
 
   // ---------- table ----------
@@ -185,8 +222,10 @@
   }
 
   // ---------- share over time ----------
+  const SHARE_YEARS = shareTime.data.map(r => r.year);
+  let shareWin = [SHARE_YEARS[0], SHARE_YEARS[SHARE_YEARS.length - 1]];
   function renderShareTime() {
-    const rowsT = shareTime.data;
+    const rowsT = shareTime.data.filter(r => r.year >= shareWin[0] && r.year <= shareWin[1]);
     const SERIES = [
       { key: "cluster", label: "In a named cluster", color: QT.tokens.accent },
       { key: "other", label: "Elsewhere", color: QT.tokens.line },
@@ -274,4 +313,5 @@
 
   renderAll();
   renderPipeline(); // static — doesn't depend on region filter or table sort/selection
+  QT.timeSlider("#slider-sharetime", { years: SHARE_YEARS, onChange: w => { shareWin = w; renderShareTime(); } });
 })();

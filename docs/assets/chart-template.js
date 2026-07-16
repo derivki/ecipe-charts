@@ -62,6 +62,55 @@
     });
   };
 
+  /** Dual-handle year-range slider for time-series charts. Renders into an empty
+      element and fires onChange([loYear, hiYear]) as the user drags. `years` is the
+      ascending list of available years; the slider starts at the full range.
+      Snaps to whole years. Returns { value: () => [lo, hi] }. */
+  QT.timeSlider = function (selector, { years, onChange } = {}) {
+    const root = d3.select(selector).classed("tslider", true);
+    root.selectAll("*").remove();
+    const n = years.length;
+    let lo = 0, hi = n - 1;
+
+    const track  = root.append("div").attr("class", "ts-track");
+    const range  = root.append("div").attr("class", "ts-range");
+    const hLo    = root.append("div").attr("class", "ts-handle");
+    const hHi    = root.append("div").attr("class", "ts-handle");
+    const labLo  = root.append("div").attr("class", "ts-lab");
+    const labHi  = root.append("div").attr("class", "ts-lab");
+
+    const pct = i => (n > 1 ? (i / (n - 1)) * 100 : 0);
+    function paint() {
+      hLo.style("left", pct(lo) + "%");
+      hHi.style("left", pct(hi) + "%");
+      range.style("left", pct(lo) + "%").style("width", (pct(hi) - pct(lo)) + "%");
+      labLo.style("left", pct(lo) + "%").text(years[lo]);
+      labHi.style("left", pct(hi) + "%").text(years[hi]);
+    }
+    function nearest(clientX) {
+      const r = track.node().getBoundingClientRect();
+      const f = Math.max(0, Math.min(1, (clientX - r.left) / r.width));
+      return Math.round(f * (n - 1));
+    }
+    const emit = () => onChange && onChange([years[lo], years[hi]]);
+    function drag(which) {
+      return d3.drag().on("start drag", ev => {
+        const i = nearest(ev.sourceEvent.clientX);
+        if (which === "lo") lo = Math.min(i, hi); else hi = Math.max(i, lo);
+        paint(); emit();
+      });
+    }
+    hLo.call(drag("lo"));
+    hHi.call(drag("hi"));
+    track.on("click", ev => {
+      const i = nearest(ev.clientX);
+      if (Math.abs(i - lo) <= Math.abs(i - hi)) lo = Math.min(i, hi); else hi = Math.max(i, lo);
+      paint(); emit();
+    });
+    paint();
+    return { value: () => [years[lo], years[hi]] };
+  };
+
   /** Build a clickable legend. items: [{key,label,color}]. */
   QT.legend = function (selector, items, { hidden, onToggle } = {}) {
     hidden = hidden || new Set();
@@ -73,6 +122,9 @@
         return el;
       });
     sel.classed("off", d => hidden.has(d.key));
+    // Only legends wired to toggle series get the square swatch + pointer cursor
+    // (see theme.js). Static legends render round swatches that echo the mark.
+    sel.classed("clickable", !!onToggle);
     sel.select(".sw").style("background", d => d.color);
     sel.select(".nm").text(d => d.label);
     if (onToggle) sel.on("click", (e, d) => onToggle(d.key));

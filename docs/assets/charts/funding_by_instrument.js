@@ -14,19 +14,21 @@
 
   // normalise rows to {year, <key>...}
   const rows = raw.map(r => Object.assign({ year: r.year }, ...KEYS.map(k => ({ [k]: r[k] || 0 }))));
+  const ALL_YEARS = rows.map(d => d.year);
 
   const W = 920, H = 460;
   const c = QT.chart("#chart", { W, H, margin: { t: 16, r: 16, b: 34, l: 64 } });
-  const x = d3.scaleBand().domain(rows.map(d => d.year)).range([0, c.iw]).padding(0.18);
-  const xLin = d3.scalePoint().domain(rows.map(d => d.year)).range([x.bandwidth() / 2, c.iw - x.bandwidth() / 2]);
+  const x = d3.scaleBand().range([0, c.iw]).padding(0.18);
+  const xLin = d3.scalePoint();
   const y = d3.scaleLinear().range([c.ih, 0]);
 
-  let state = { scale: "abs", type: "bar", hidden: new Set() };
+  let state = { scale: "abs", type: "bar", hidden: new Set(), win: [ALL_YEARS[0], ALL_YEARS[ALL_YEARS.length - 1]] };
   const active = () => SERIES.filter(s => !state.hidden.has(s.key));
+  const visRows = () => rows.filter(d => d.year >= state.win[0] && d.year <= state.win[1]);
 
   function stacked() {
     const keys = active().map(s => s.key);
-    let src = rows.map(d => ({ ...d }));
+    let src = visRows().map(d => ({ ...d }));
     if (state.scale === "share") {
       src = src.map(d => {
         const tot = keys.reduce((a, k) => a + d[k], 0) || 1;
@@ -37,6 +39,9 @@
   }
 
   function render() {
+    const years = visRows().map(d => d.year);
+    x.domain(years);
+    xLin.domain(years).range([x.bandwidth() / 2, c.iw - x.bandwidth() / 2]);
     const st = stacked();
     y.domain([0, state.scale === "share" ? 1 : d3.max(st, s => d3.max(s, d => d[1])) * 1.02 || 1]);
     const fmtAxis = state.scale === "share" ? QT.fmt.pct0 : QT.fmt.axisMoney;
@@ -74,8 +79,9 @@
         .attr("fill", d => color(d.key)).attr("fill-opacity", 0.92).attr("d", area);
     }
 
-    c.gx.call(d3.axisBottom(x).tickValues(rows.map(d => d.year)
-      .filter(yr => yr % 5 === 0 || yr === rows[0].year || yr === PARTIAL)).tickSizeOuter(0));
+    const vYears = visRows().map(d => d.year);
+    c.gx.call(d3.axisBottom(x).tickValues(vYears
+      .filter(yr => yr % 5 === 0 || yr === vYears[0] || yr === vYears[vYears.length - 1] || yr === PARTIAL)).tickSizeOuter(0));
     c.gy.call(d3.axisLeft(y).ticks(5).tickFormat(fmtAxis).tickSizeOuter(0));
 
     QT.legend("#legend", SERIES, {
@@ -90,7 +96,7 @@
   }
 
   function hover() {
-    c.gPlot.selectAll(".hovercol").data(rows, d => d.year).join("rect")
+    c.gPlot.selectAll(".hovercol").data(visRows(), d => d.year).join("rect")
       .attr("class", "hovercol").attr("x", d => x(d.year)).attr("width", x.bandwidth())
       .attr("y", 0).attr("height", c.ih).attr("fill", "transparent")
       .on("mousemove", (e, d) => {
@@ -109,5 +115,6 @@
 
   QT.segControl("#seg-scale", "data-s", s => { state.scale = s; render(); });
   QT.segControl("#seg-type", "data-t", t => { state.type = t; render(); });
+  QT.timeSlider("#slider-years", { years: ALL_YEARS, onChange: w => { state.win = w; render(); } });
   render();
 })();

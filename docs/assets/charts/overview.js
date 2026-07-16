@@ -3,10 +3,12 @@
    cluster-share-of-funding (computed client-side from the two real datasets below).
    Mock data: collaborations KPI, archetype scatter (docs-internal papers
    08/2025 and 15/2025 have not been updated yet — see mock_*.json meta.source_note).
-   The world map (country choropleth + cluster bubbles) lives on countries.html now. */
+   The world map (country choropleth + cluster bubbles, with an all/public-funding
+   toggle) leads this Overview tab — see assets/charts/world_map.js. */
 (async function () {
   QT.injectCSS();
   QT.nav("#nav", "overview");
+  renderWorldMap("#worldmap");
 
   const [country, cluster, instrYear, stageRegion, manifest, profile, extra] = await Promise.all([
     QT.loadData("funding_by_country"),
@@ -39,19 +41,21 @@
     const SERIES = KEYS.map(k => ({ key: k, label: k, color: QT.palette.instrument[k] }));
     const PARTIAL = instrYear.meta.partial_year;
     const rows = instrYear.data.map(r => Object.assign({ year: r.year }, ...KEYS.map(k => ({ [k]: r[k] || 0 }))));
+    const ALL_YEARS = rows.map(d => d.year);
 
-    const state = { scale: "abs", type: "bar", hidden: new Set() };
+    const state = { scale: "abs", type: "bar", hidden: new Set(), win: [ALL_YEARS[0], ALL_YEARS[ALL_YEARS.length - 1]] };
     const active = () => SERIES.filter(s => !state.hidden.has(s.key));
+    const visRows = () => rows.filter(d => d.year >= state.win[0] && d.year <= state.win[1]);
 
     const W = 880, H = 320;
     const c = QT.chart("#chart-instrument", { W, H, margin: { t: 16, r: 16, b: 34, l: 62 } });
-    const x = d3.scaleBand().domain(rows.map(d => d.year)).range([0, c.iw]).padding(0.18);
-    const xLin = d3.scalePoint().domain(rows.map(d => d.year)).range([x.bandwidth() / 2, c.iw - x.bandwidth() / 2]);
+    const x = d3.scaleBand().range([0, c.iw]).padding(0.18);
+    const xLin = d3.scalePoint();
     const y = d3.scaleLinear().range([c.ih, 0]);
 
     function stacked() {
       const keys = active().map(s => s.key);
-      let src = rows.map(d => ({ ...d }));
+      let src = visRows().map(d => ({ ...d }));
       if (state.scale === "share") src = src.map(d => {
         const tot = keys.reduce((a, k) => a + d[k], 0) || 1;
         const o = { year: d.year }; keys.forEach(k => o[k] = d[k] / tot); return o;
@@ -60,6 +64,9 @@
     }
 
     function render() {
+      const years = visRows().map(d => d.year);
+      x.domain(years);
+      xLin.domain(years).range([x.bandwidth() / 2, c.iw - x.bandwidth() / 2]);
       const st = stacked();
       y.domain([0, state.scale === "share" ? 1 : d3.max(st, s => d3.max(s, d => d[1])) * 1.02 || 1]);
       const color = k => QT.palette.instrument[k];
@@ -91,7 +98,8 @@
           .attr("fill", d => color(d.key)).attr("fill-opacity", 0.92).attr("d", area);
       }
 
-      c.gx.call(d3.axisBottom(x).tickValues(rows.map(d => d.year).filter(yr => yr % 5 === 0 || yr === rows[0].year || yr === PARTIAL)).tickSizeOuter(0));
+      const vYears = visRows().map(d => d.year);
+      c.gx.call(d3.axisBottom(x).tickValues(vYears.filter(yr => yr % 5 === 0 || yr === vYears[0] || yr === vYears[vYears.length - 1] || yr === PARTIAL)).tickSizeOuter(0));
       c.gy.call(d3.axisLeft(y).ticks(5).tickFormat(state.scale === "share" ? QT.fmt.pct0 : QT.fmt.axisMoney).tickSizeOuter(0));
 
       QT.legend("#legend-instrument", SERIES, {
@@ -106,7 +114,7 @@
     }
 
     function hover() {
-      c.gPlot.selectAll(".hovercol").data(rows, d => d.year).join("rect")
+      c.gPlot.selectAll(".hovercol").data(visRows(), d => d.year).join("rect")
         .attr("class", "hovercol").attr("x", d => x(d.year)).attr("width", x.bandwidth())
         .attr("y", 0).attr("height", c.ih).attr("fill", "transparent")
         .on("mousemove", (e, d) => {
@@ -121,6 +129,7 @@
 
     QT.segControl("#seg-scale-instrument", "data-s", s => { state.scale = s; render(); });
     QT.segControl("#seg-type-instrument", "data-t", t => { state.type = t; render(); });
+    QT.timeSlider("#slider-instrument", { years: ALL_YEARS, onChange: w => { state.win = w; render(); } });
     render();
   })();
 
@@ -236,10 +245,10 @@
     d3.select("#stage-rb").property("value", state.b);
 
     const W = 880, H = 300;
-    const c = QT.chart("#chart-stage", { W, H, margin: { t: 16, r: 70, b: 30, l: 170 } });
+    const c = QT.chart("#chart-stage", { W, H, margin: { t: 16, r: 70, b: 30, l: 215 } });
     const yb = d3.scaleBand().domain(STAGES).range([0, c.ih]).padding(0.32);
     c.g.append("g").selectAll("text").data(STAGES).join("text")
-      .attr("class", "bar-val").style("font-size", "12px")
+      .attr("class", "bar-val").style("font-size", "11px")
       .attr("x", -12).attr("y", d => yb(d) + yb.bandwidth() / 2).attr("dy", "0.32em")
       .attr("text-anchor", "end").attr("fill", QT.tokens.muted).text(d => d);
 
