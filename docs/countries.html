@@ -30,16 +30,15 @@
   <div class="panels g2">
 
     <div class="panel span2">
-      <div class="ttl">Funding by country and cluster — world map</div>
-      <p class="why">Shading = total funding by country. Bubble size = funding for each of the 44 tracked clusters. Scroll/drag to zoom.</p>
-      <div id="worldmap" style="margin-top:6px;"></div>
-      <p class="note" style="margin-top:8px;padding-top:8px;">Countries and clusters are both real (funding database). The underlying world map is a 110m-resolution atlas, so a few very small states (e.g. Singapore) have no polygon to shade — their cluster bubble still plots correctly.</p>
+      <div class="ttl" id="ttl-ranked">Country comparison</div>
+      <p class="why">Rank of the selected country among all 38 tracked countries.</p>
+      <svg id="chart-ranked" role="img" aria-label="Country ranked by funding"></svg>
     </div>
 
     <div class="panel span2">
-      <div class="ttl" id="ttl-ranked">Country comparison</div>
-      <p class="why">Rank of the selected country among all 38 tracked countries. <a href="funding_by_country.html">Full interactive chart →</a></p>
-      <svg id="chart-ranked" role="img" aria-label="Country ranked by funding"></svg>
+      <div class="ttl" id="ttl-network">Collaboration: connectedness &amp; top partners <span id="badge-network"></span></div>
+      <p class="why">How globally connected this country's quantum ecosystem is (0–100), and the strength of its three leading collaboration partners.</p>
+      <svg id="chart-network" role="img" aria-label="Connectedness and top collaboration partners"></svg>
     </div>
 
     <div class="panel">
@@ -61,12 +60,6 @@
       <svg id="chart-rca" role="img" aria-label="National specialisation (RCA) by domain"></svg>
     </div>
 
-    <div class="panel span2">
-      <div class="ttl" id="ttl-network">Network role <span id="badge-network"></span></div>
-      <p class="why">Connectedness score (0–100) and top 3 collaboration partners.</p>
-      <div id="network-body"></div>
-    </div>
-
   </div>
 
   <p class="mocknote" id="mocknote-country"></p>
@@ -75,8 +68,6 @@
 
 <script src="assets/theme.js"></script>
 <script src="assets/chart-template.js"></script>
-<script src="assets/vendor/topojson-client.js"></script>
-<script src="assets/charts/world_map.js"></script>
 <script src="assets/charts/countries.js"></script>
 </body>
 </html>

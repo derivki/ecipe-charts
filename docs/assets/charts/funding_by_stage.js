@@ -21,10 +21,10 @@
   d3.select("#rb").property("value", state.b);
 
   const W = 900, H = 320;
-  const c = QT.chart("#chart", { W, H, margin: { t: 16, r: 80, b: 34, l: 180 } });
+  const c = QT.chart("#chart", { W, H, margin: { t: 16, r: 80, b: 34, l: 215 } });
   const y = d3.scaleBand().domain(STAGES).range([0, c.ih]).padding(0.32);
   c.g.append("g").selectAll("text").data(STAGES).join("text")
-    .attr("class", "bar-val").style("font-size", "12px")
+    .attr("class", "bar-val").style("font-size", "11px")
     .attr("x", -12).attr("y", d => y(d) + y.bandwidth() / 2).attr("dy", "0.32em")
     .attr("text-anchor", "end").attr("fill", QT.tokens.muted).text(d => d);
 

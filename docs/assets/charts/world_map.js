@@ -4,7 +4,11 @@
    pipeline's real, current data: funding_by_country.json, funding_by_cluster.json +
    cluster_coords.json (real-world coordinates transcribed from the legacy file).
    Countries the 110m atlas has no polygon for (e.g. Singapore) simply have nothing to
-   shade — a resolution limit of the atlas, not a bug; their cluster bubbles still plot. */
+   shade — a resolution limit of the atlas, not a bug; their cluster bubbles still plot.
+
+   A metric toggle ("All funding" / "Public only") switches every layer — choropleth,
+   bubbles, legend and tooltips — between total_funding and public_funding (grants +
+   public equity), both emitted per country/cluster by the Stage-1 pipeline. */
 (function () {
   const CSS = `
 .wm-wrap{position:relative;}
@@ -15,8 +19,15 @@
 .wm-country.hl{stroke:#119B92;stroke-width:1.2px;}
 .wm-graticule{fill:none;stroke:rgba(20,45,80,0.06);stroke-width:0.5px;}
 .wm-sphere{fill:none;stroke:rgba(20,45,80,0.14);stroke-width:0.8px;}
-.wm-cluster{fill:#F5C544;fill-opacity:0.82;stroke:#5a3c00;stroke-width:0.7px;cursor:pointer;transition:fill-opacity .15s;}
+.wm-cluster{fill:#F5C544;fill-opacity:0.82;stroke:#5a3c00;stroke-width:0.7px;cursor:pointer;transition:fill-opacity .15s,r .25s ease;}
 .wm-cluster:hover{fill-opacity:1;stroke:#1a1200;stroke-width:1.2px;}
+.wm-toggle{position:absolute;top:10px;left:12px;z-index:4;display:inline-flex;border:1px solid var(--line);
+  border-radius:7px;overflow:hidden;background:#fff;box-shadow:0 1px 3px rgba(20,40,70,0.08);}
+.wm-toggle button{appearance:none;border:0;background:transparent;padding:6px 11px;font:inherit;font-size:12px;
+  color:var(--muted);cursor:pointer;transition:.12s;}
+.wm-toggle button+button{border-left:1px solid var(--line);}
+.wm-toggle button.on{background:var(--ink);color:#fff;}
+.wm-toggle button:not(.on):hover{background:#eef0f3;color:var(--ink);}
 .wm-zoom{position:absolute;top:10px;right:10px;display:flex;flex-direction:column;gap:5px;z-index:4;}
 .wm-zoom button{width:28px;height:28px;border-radius:3px;border:1px solid var(--line);
   background:#fff;color:var(--muted);font-size:15px;cursor:pointer;font-weight:600;
@@ -55,11 +66,19 @@
     Uruguay: "Uruguay", Brazil: "Brazil", Greece: "Greece", Norway: "Norway", Malaysia: "Malaysia",
   };
 
+  const METRICS = {
+    total_funding:  { title: "Funding by country",        dot: "Cluster (size = funding)",        label: "Total funding" },
+    public_funding: { title: "Public funding by country", dot: "Cluster (size = public funding)", label: "Public funding" },
+  };
+
   window.renderWorldMap = async function (selector) {
     injectCSS();
     const root = d3.select(selector);
     root.attr("class", "wm-wrap");
     const frame = root.append("div").attr("class", "wm-frame");
+    frame.append("div").attr("class", "wm-toggle").html(
+      `<button id="wm-mtotal" class="on" title="All funding">All funding</button>` +
+      `<button id="wm-mpublic" title="Public funding only (grants + public equity)">Public only</button>`);
     frame.append("div").attr("class", "wm-zoom").html(
       `<button id="wm-zin" title="Zoom in">+</button><button id="wm-zout" title="Zoom out">−</button><button id="wm-zreset" title="Reset">↻</button>`);
     const legend = frame.append("div").attr("class", "wm-legend");
@@ -80,21 +99,17 @@
       .filter(d => coordsByCluster.has(d.cluster))
       .map(d => ({ ...d, ...coordsByCluster.get(d.cluster) }));
 
-    const maxF = d3.max(countryData.data, d => d.total_funding) || 1;
-    const ramp = d3.interpolateRgbBasis(["#102f6b", "#2f56a2", "#6f5896", "#b0374f", "#8a1220"]);
-    const pscale = d3.scalePow().exponent(0.45).domain([0, maxF]).range([0, 1]).clamp(true);
-    const fundColour = f => ramp(pscale(f));
+    let metric = "total_funding";
+    const cVal = d => d[metric] != null ? d[metric] : null;
 
-    legend.html(
-      `<div class="lg-title">Funding by country</div>` +
-      `<div class="wm-lg-bar" id="wm-lg-bar"></div>` +
-      `<div class="wm-lg-scale"><span>$0</span><span>${QT.fmt.axisMoney(maxF)}</span></div>` +
-      `<div class="wm-lg-sep"></div>` +
-      `<div class="wm-lg-row"><span class="wm-lg-dot"></span>Cluster (size = funding)</div>` +
-      `<div class="wm-lg-nd"><span class="wm-lg-ndsw"></span>No companies tracked</div>`
-    );
-    legend.select("#wm-lg-bar").style("background",
-      `linear-gradient(90deg, ${fundColour(0)}, ${ramp(0.35)}, ${ramp(0.6)}, ${ramp(0.82)}, ${fundColour(maxF)})`);
+    const ramp = d3.interpolateRgbBasis(["#102f6b", "#2f56a2", "#6f5896", "#b0374f", "#8a1220"]);
+    let maxF, pscale, rScale;
+    function rebuildScales() {
+      maxF = d3.max(countryData.data, d => cVal(d)) || 1;
+      pscale = d3.scalePow().exponent(0.45).domain([0, maxF]).range([0, 1]).clamp(true);
+      rScale = d3.scaleSqrt().domain([0, d3.max(clusters, d => d[metric] || 0) || 1]).range([3, 26]);
+    }
+    const fundColour = f => ramp(pscale(f));
 
     const W = 1180, H = 560;
     const svg = frame.append("svg").attr("viewBox", `0 0 ${W} ${H}`).attr("preserveAspectRatio", "xMidYMid meet")
@@ -116,33 +131,64 @@
     }
     function hideTip() { tip.style("opacity", 0); }
 
-    g.selectAll("path.wm-country").data(land).join("path")
+    const countrySel = g.selectAll("path.wm-country").data(land).join("path")
       .attr("class", "wm-country").attr("d", path)
-      .attr("fill", d => {
-        const rec = countryByAtlasName.get(d.properties.name);
-        return rec && rec.total_funding != null ? fundColour(rec.total_funding) : "#E4E9EE";
-      })
       .on("mousemove", (e, d) => {
         const rec = countryByAtlasName.get(d.properties.name);
         showTip(rec
           ? `<div class="hd">${d.properties.name}</div>` +
             `<div class="row"><span class="k">Companies</span><span class="v">${QT.fmt.int(rec.companies)}</span></div>` +
-            `<div class="row"><span class="k">Total funding</span><span class="v">${QT.fmt.money(rec.total_funding)}</span></div>`
+            `<div class="row"><span class="k">Total funding</span><span class="v">${QT.fmt.money(rec.total_funding)}</span></div>` +
+            (rec.public_funding != null ? `<div class="row"><span class="k">Public funding</span><span class="v">${QT.fmt.money(rec.public_funding)}</span></div>` : "")
           : `<div class="hd">${d.properties.name}</div><div class="row"><span class="k">No companies tracked</span></div>`, e);
       })
       .on("mouseenter", function () { d3.select(this).classed("hl", true); })
       .on("mouseleave", function () { d3.select(this).classed("hl", false); hideTip(); });
 
-    const rScale = d3.scaleSqrt().domain([0, d3.max(clusters, d => d.total_funding)]).range([3, 26]);
-    g.selectAll("circle.wm-cluster").data([...clusters].sort((a, b) => b.total_funding - a.total_funding)).join("circle")
+    const bubbleSel = g.selectAll("circle.wm-cluster")
+      .data([...clusters].sort((a, b) => b.total_funding - a.total_funding)).join("circle")
       .attr("class", "wm-cluster")
       .attr("cx", d => projection([d.lon, d.lat])[0]).attr("cy", d => projection([d.lon, d.lat])[1])
-      .attr("r", d => rScale(d.total_funding))
       .on("mousemove", (e, d) => showTip(
         `<div class="hd">${d.cluster}</div>` +
         `<div class="row"><span class="k">Companies</span><span class="v">${QT.fmt.int(d.companies)}</span></div>` +
-        `<div class="row"><span class="k">Total funding</span><span class="v">${QT.fmt.money(d.total_funding)}</span></div>`, e))
+        `<div class="row"><span class="k">Total funding</span><span class="v">${QT.fmt.money(d.total_funding)}</span></div>` +
+        (d.public_funding != null ? `<div class="row"><span class="k">Public funding</span><span class="v">${QT.fmt.money(d.public_funding)}</span></div>` : ""), e))
       .on("mouseleave", hideTip);
+
+    function update() {
+      rebuildScales();
+      const M = METRICS[metric];
+      countrySel.attr("fill", d => {
+        const rec = countryByAtlasName.get(d.properties.name);
+        return rec && cVal(rec) != null ? fundColour(cVal(rec)) : "#E4E9EE";
+      });
+      bubbleSel.attr("r", d => rScale(d[metric] || 0));
+      legend.html(
+        `<div class="lg-title">${M.title}</div>` +
+        `<div class="wm-lg-bar" id="wm-lg-bar"></div>` +
+        `<div class="wm-lg-scale"><span>$0</span><span>${QT.fmt.axisMoney(maxF)}</span></div>` +
+        `<div class="wm-lg-sep"></div>` +
+        `<div class="wm-lg-row"><span class="wm-lg-dot"></span>${M.dot}</div>` +
+        `<div class="wm-lg-nd"><span class="wm-lg-ndsw"></span>No companies tracked</div>`
+      );
+      legend.select("#wm-lg-bar").style("background",
+        `linear-gradient(90deg, ${fundColour(0)}, ${ramp(0.35)}, ${ramp(0.6)}, ${ramp(0.82)}, ${fundColour(maxF)})`);
+    }
+    update();
+
+    root.select("#wm-mtotal").on("click", function () {
+      if (metric === "total_funding") return;
+      metric = "total_funding";
+      d3.select(this).classed("on", true); root.select("#wm-mpublic").classed("on", false);
+      update();
+    });
+    root.select("#wm-mpublic").on("click", function () {
+      if (metric === "public_funding") return;
+      metric = "public_funding";
+      d3.select(this).classed("on", true); root.select("#wm-mtotal").classed("on", false);
+      update();
+    });
 
     const zoom = d3.zoom().scaleExtent([1, 8]).on("zoom", ev => g.attr("transform", ev.transform));
     svg.call(zoom);

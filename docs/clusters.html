@@ -20,8 +20,13 @@
 
     <div class="panel span2">
       <div class="ttl">Cluster map: funding and overall rank</div>
-      <p class="why">Position: real coordinates. Bubble size: funding (real). Colour: overall rank (illustrative) — 1 = best of 15.</p>
-      <svg id="chart-map" role="img" aria-label="Map of quantum clusters"></svg>
+      <p class="why">Position: real coordinates. Bubble size: funding (real). Colour: overall rank (illustrative) — 1 = best of 15. Pick a region above to zoom in; scroll/drag to explore.</p>
+      <div id="map-wrap" style="position:relative;">
+        <div class="mapzoom" id="map-zoom">
+          <button id="map-zin" title="Zoom in">+</button><button id="map-zout" title="Zoom out">−</button><button id="map-zreset" title="Reset view">↻</button>
+        </div>
+        <svg id="chart-map" role="img" aria-label="Map of quantum clusters"></svg>
+      </div>
     </div>
 
     <div class="panel span2">
@@ -53,6 +58,7 @@
     <div class="panel span2">
       <div class="ttl">Cluster share of funding, 2016–2026 <span id="badge-time"></span></div>
       <p class="why">Share of total funding inside named clusters. Only the 2026 value is real.</p>
+      <div class="controls"><div class="ctl" style="flex:1;min-width:240px;"><label>Years</label><div id="slider-sharetime"></div></div></div>
       <svg id="chart-sharetime" role="img" aria-label="Cluster share of funding over time"></svg>
       <div class="legend" id="legend-sharetime"></div>
     </div>

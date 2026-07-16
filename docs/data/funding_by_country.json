@@ -9,6 +9,7 @@
       "country": "US",
       "companies": 141,
       "total_funding": 22568818783.98,
+      "public_funding": 12037787003.95,
       "gdp": 30769700000000.0,
       "funding_to_gdp": 0.0007334754249791222
     },
@@ -16,6 +17,7 @@
       "country": "China",
       "companies": 39,
       "total_funding": 5242705236.95,
+      "public_funding": 1738221638.63,
       "gdp": 19498039388042.61,
       "funding_to_gdp": 0.00026888371351644366
     },
@@ -23,6 +25,7 @@
       "country": "UK",
       "companies": 66,
       "total_funding": 2061556346.3,
+      "public_funding": 393928000.1,
       "gdp": 4002587541846.0146,
       "funding_to_gdp": 0.0005150559043992074
     },
@@ -30,6 +33,7 @@
       "country": "Canada",
       "companies": 54,
       "total_funding": 1417182632.29,
+      "public_funding": 505707218.5,
       "gdp": 2319899772425.92,
       "funding_to_gdp": 0.0006108809738837882
     },
@@ -37,6 +41,7 @@
       "country": "Finland",
       "companies": 14,
       "total_funding": 1178658545.53,
+      "public_funding": 258152057.13,
       "gdp": 317039368819.6074,
       "funding_to_gdp": 0.0037177040501991474
     },
@@ -44,6 +49,7 @@
       "country": "France",
       "companies": 27,
       "total_funding": 1045808545.2,
+      "public_funding": 108154327.6,
       "gdp": 3366315927447.3286,
       "funding_to_gdp": 0.00031066856698396125
     },
@@ -51,6 +57,7 @@
       "country": "Switzerland",
       "companies": 18,
       "total_funding": 870193685.54,
+      "public_funding": 718578559.84,
       "gdp": 1043529899250.9229,
       "funding_to_gdp": 0.0008338943485645301
     },
@@ -58,6 +65,7 @@
       "country": "Israel",
       "companies": 15,
       "total_funding": 858176000.0,
+      "public_funding": 20411000.0,
       "gdp": 610777842873.5946,
       "funding_to_gdp": 0.0014050542435567795
     },
@@ -65,6 +73,7 @@
       "country": "Germany",
       "companies": 38,
       "total_funding": 656194025.83,
+      "public_funding": 115873301.93,
       "gdp": 5050922925047.052,
       "funding_to_gdp": 0.00012991566800023608
     },
@@ -72,6 +81,7 @@
       "country": "Netherlands",
       "companies": 23,
       "total_funding": 589717065.56,
+      "public_funding": 52603775.2,
       "gdp": 1332767651100.3904,
       "funding_to_gdp": 0.00044247552457846206
     },
@@ -79,6 +89,7 @@
       "country": "Australia",
       "companies": 16,
       "total_funding": 543685903.46,
+      "public_funding": 53119038.46,
       "gdp": 1798518933689.2104,
       "funding_to_gdp": 0.00030229645808935954
     },
@@ -86,6 +97,7 @@
       "country": "Spain",
       "companies": 13,
       "total_funding": 398978285.13,
+      "public_funding": 22639732.13,
       "gdp": 1906453309985.8796,
       "funding_to_gdp": 0.00020927776360348796
     },
@@ -93,6 +105,7 @@
       "country": "UAE",
       "companies": 2,
       "total_funding": 290000000.0,
+      "public_funding": 0.0,
       "gdp": 552324919095.8721,
       "funding_to_gdp": 0.000525053261175895
     },
@@ -100,6 +113,7 @@
       "country": "South Korea",
       "companies": 11,
       "total_funding": 197355137.83,
+      "public_funding": 62408246.05,
       "gdp": 1872374961553.146,
       "funding_to_gdp": 0.00010540364076786242
     },
@@ -107,6 +121,7 @@
       "country": "Singapore",
       "companies": 11,
       "total_funding": 181131490.0,
+      "public_funding": 120362300.0,
       "gdp": 603869516998.738,
       "funding_to_gdp": 0.0002999513717801697
     },
@@ -114,6 +129,7 @@
       "country": "Denmark",
       "companies": 8,
       "total_funding": 173411547.47,
+      "public_funding": 12337487.47,
       "gdp": 462526660468.3925,
       "funding_to_gdp": 0.00037492227430106886
     },
@@ -121,6 +137,7 @@
       "country": "Japan",
       "companies": 15,
       "total_funding": 127938110.0,
+      "public_funding": 21627560.0,
       "gdp": 4435162999976.941,
       "funding_to_gdp": 2.8846315231405284e-05
     },
@@ -128,6 +145,7 @@
       "country": "Italy",
       "companies": 8,
       "total_funding": 109384126.53,
+      "public_funding": 55306068.53,
       "gdp": 2551556954100.349,
       "funding_to_gdp": 4.286956101788433e-05
     },
@@ -135,6 +153,7 @@
       "country": "Ireland",
       "companies": 1,
       "total_funding": 83332750.0,
+      "public_funding": 2633750.0,
       "gdp": 721701359046.3127,
       "funding_to_gdp": 0.00011546708199374805
     },
@@ -142,6 +161,7 @@
       "country": "India",
       "companies": 16,
       "total_funding": 70319520.24,
+      "public_funding": 6505665.0,
       "gdp": 3956067115771.6313,
       "funding_to_gdp": 1.7775108000199883e-05
     },
@@ -149,6 +169,7 @@
       "country": "Poland",
       "companies": 6,
       "total_funding": 34015973.63,
+      "public_funding": 29378503.63,
       "gdp": 1035491784197.4406,
       "funding_to_gdp": 3.285006616811656e-05
     },
@@ -156,6 +177,7 @@
       "country": "Austria",
       "companies": 5,
       "total_funding": 27332968.98,
+      "public_funding": 4970868.98,
       "gdp": 579470021095.4176,
       "funding_to_gdp": 4.7168909497820683e-05
     },
@@ -163,6 +185,7 @@
       "country": "Sweden",
       "companies": 9,
       "total_funding": 18596123.08,
+      "public_funding": 4834110.41,
       "gdp": 668998664082.0807,
       "funding_to_gdp": 2.77969509979116e-05
     },
@@ -170,6 +193,7 @@
       "country": "Belgium",
       "companies": 3,
       "total_funding": 14445342.56,
+      "public_funding": 3452602.56,
       "gdp": 725466462859.646,
       "funding_to_gdp": 1.991179922902198e-05
     },
@@ -177,6 +201,7 @@
       "country": "Czech Republic",
       "companies": 1,
       "total_funding": 12249320.0,
+      "public_funding": 0.0,
       "gdp": 391026962800.4753,
       "funding_to_gdp": 3.132602394543907e-05
     },
@@ -184,6 +209,7 @@
       "country": "Turkey",
       "companies": 2,
       "total_funding": 4275360.0,
+      "public_funding": 108210.0,
       "gdp": 1597293229287.0005,
       "funding_to_gdp": 2.676628136656182e-06
     },
@@ -191,6 +217,7 @@
       "country": "Chile",
       "companies": 2,
       "total_funding": 2614560.81,
+      "public_funding": 614560.81,
       "gdp": 357371159574.86163,
       "funding_to_gdp": 7.316093474667492e-06
     },
@@ -198,6 +225,7 @@
       "country": "Portugal",
       "companies": 1,
       "total_funding": 2164200.0,
+      "public_funding": 0.0,
       "gdp": 346639825141.82104,
       "funding_to_gdp": 6.243368023609402e-06
     },
@@ -205,6 +233,7 @@
       "country": "Taiwan",
       "companies": 1,
       "total_funding": 2040000.0,
+      "public_funding": 40000.0,
       "gdp": 920050000000.0,
       "funding_to_gdp": 2.217270800499973e-06
     },
@@ -212,6 +241,7 @@
       "country": "Thailand",
       "companies": 1,
       "total_funding": 858000.0,
+      "public_funding": 0.0,
       "gdp": 577009981112.015,
       "funding_to_gdp": 1.486976010963381e-06
     },
@@ -219,6 +249,7 @@
       "country": "Bulgaria",
       "companies": 1,
       "total_funding": 550000.0,
+      "public_funding": 0.0,
       "gdp": 130777235529.60565,
       "funding_to_gdp": 4.205624914555483e-06
     },
@@ -226,6 +257,7 @@
       "country": "Russia",
       "companies": 3,
       "total_funding": 509393.06,
+      "public_funding": 427973.06,
       "gdp": 2561310169358.743,
       "funding_to_gdp": 1.9887988184583403e-07
     },
@@ -233,6 +265,7 @@
       "country": "Romania",
       "companies": 1,
       "total_funding": 370169.12,
+      "public_funding": 239276.12,
       "gdp": 428677977854.82605,
       "funding_to_gdp": 8.635132554566628e-07
     },
@@ -240,6 +273,7 @@
       "country": "Uruguay",
       "companies": 1,
       "total_funding": 200000.0,
+      "public_funding": 200000.0,
       "gdp": 85347696277.68594,
       "funding_to_gdp": 2.3433555763389687e-06
     },
@@ -247,6 +281,7 @@
       "country": "Brazil",
       "companies": 1,
       "total_funding": 143018.27,
+      "public_funding": 143018.27,
       "gdp": 2279920092492.1333,
       "funding_to_gdp": 6.272950796432066e-08
     },
@@ -254,6 +289,7 @@
       "country": "Greece",
       "companies": 1,
       "total_funding": 0.0,
+      "public_funding": 0.0,
       "gdp": 280635521324.4408,
       "funding_to_gdp": 0.0
     },
@@ -261,6 +297,7 @@
       "country": "Norway",
       "companies": 1,
       "total_funding": 0.0,
+      "public_funding": 0.0,
       "gdp": 530755719438.87946,
       "funding_to_gdp": 0.0
     },
@@ -268,6 +305,7 @@
       "country": "Malaysia",
       "companies": 1,
       "total_funding": 0.0,
+      "public_funding": 0.0,
       "gdp": 472193128644.5973,
       "funding_to_gdp": 0.0
     }
