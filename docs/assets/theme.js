@@ -198,6 +198,19 @@ svg{display:block;width:100%;height:auto;overflow:visible;}
   border:2px solid var(--ink);cursor:grab;box-shadow:0 1px 3px rgba(20,40,70,.2);touch-action:none;z-index:2;transform:translateX(-50%);}
 .ts-handle:active{cursor:grabbing;}
 .ts-lab{position:absolute;top:23px;font-size:10.5px;color:var(--muted);font-variant-numeric:tabular-nums;transform:translateX(-50%);white-space:nowrap;}
+/* time slider placed directly under a chart (rather than in the controls row) */
+.tslider-ctl{margin-top:12px;}
+
+/* ---------- policy & programmes cards (countries tab) ---------- */
+.policy-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(250px,1fr));gap:10px;margin-top:4px;}
+.policy-card{border:1px solid var(--line);border-radius:9px;padding:11px 12px 12px;background:var(--bg);
+  display:flex;flex-direction:column;gap:5px;}
+.policy-card .policy-type{align-self:flex-start;font-size:9px;font-weight:700;letter-spacing:.06em;
+  text-transform:uppercase;color:#fff;border-radius:20px;padding:2px 8px;}
+.policy-card .policy-title{font-size:13px;font-weight:650;color:var(--ink);line-height:1.25;}
+.policy-card .policy-meta{font-size:11px;color:var(--muted);font-variant-numeric:tabular-nums;}
+.policy-card .policy-desc{font-size:11.5px;color:var(--muted);line-height:1.4;}
+.policy-empty{font-size:12px;color:var(--muted);padding:10px 0;}
 
 /* ---------- in-map zoom controls (clusters map) ---------- */
 .mapzoom{position:absolute;top:10px;right:10px;display:flex;flex-direction:column;gap:5px;z-index:4;}
