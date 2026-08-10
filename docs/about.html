@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Quantum Technologies Tracker — About</title>
+<script src="assets/vendor/d3.min.js"></script>
+</head>
+<body>
+<div class="wrap">
+  <div id="nav"></div>
+  <h1>About this tracker</h1>
+  <!-- DRAFT copy — replace with Dyuti/Andrea's final wording -->
+  <p class="sub">What the Quantum Technologies Tracker covers, how it is built, and how to read it.</p>
+  <div class="vintage" id="vintage"></div>
+
+  <div class="panels g2">
+
+    <div class="panel span2">
+      <div class="ttl">What this is</div>
+      <p class="why">A short introduction to the project.</p>
+      <p style="font-size:13px;line-height:1.6;color:var(--ink);margin:0;">
+        The Quantum Technologies Tracker follows announced funding, company formation and
+        international collaboration across the global quantum computing and quantum
+        technologies ecosystem. It is built and maintained by ECIPE (the European Centre
+        for International Political Economy) from a proprietary database of quantum
+        startups and their funding rounds, and is updated quarterly.
+      </p>
+    </div>
+
+    <div class="panel">
+      <div class="ttl">Data &amp; methodology</div>
+      <p class="why">How the figures on this site are produced.</p>
+      <p style="font-size:12.5px;line-height:1.6;color:var(--ink);margin:0;">
+        Every published figure is computed directly from two underlying tables — a company
+        register and a funding-rounds ledger — rather than maintained by hand, so it can be
+        reproduced and re-checked each quarter. <b>Public funding</b> means grants and public
+        equity (government-sourced instruments); <b>private funding</b> means VC/private
+        equity and debt. Panels marked <span class="mockbadge" style="vertical-align:1px;">Illustrative · mock data</span>
+        use placeholder figures pending publication of the underlying analysis and should
+        not be cited.
+      </p>
+    </div>
+
+    <div class="panel">
+      <div class="ttl">Trusted by</div>
+      <p class="why">Partners and users of this tracker.</p>
+      <!-- Placeholder — swap for real logos once FE/Natalia provide them -->
+      <div class="trustedby" id="trustedby-about"></div>
+      <p class="note" style="margin-top:8px;padding-top:8px;">Logos pending — this section will list ECIPE's partner organisations.</p>
+    </div>
+
+    <div class="panel span2">
+      <div class="ttl">Contact &amp; citation</div>
+      <p class="why">How to reference this tracker or get in touch.</p>
+      <p style="font-size:12.5px;line-height:1.6;color:var(--ink);margin:0;">
+        Questions about the data or methodology can be directed to ECIPE. Please cite this
+        tracker as: <i>ECIPE, Quantum Technologies Tracker</i>, accessed <span id="cite-date"></span>.
+      </p>
+    </div>
+
+  </div>
+</div>
+
+<script src="assets/theme.js"></script>
+<script src="assets/chart-template.js"></script>
+<script>
+(async function () {
+  QT.injectCSS();
+  QT.nav("#nav", "about");
+  const manifest = await QT.loadData("manifest");
+  QT.vintage("#vintage", manifest);
+  d3.select("#trustedby-about").html(
+    `<span class="trustedby-chip">ECIPE</span><span class="trustedby-chip">Partner logo</span><span class="trustedby-chip">Partner logo</span>`
+  );
+  d3.select("#cite-date").text(QT.fmt.vintage(manifest.data_vintage));
+})();
+</script>
+</body>
+</html>

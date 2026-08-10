@@ -71,6 +71,14 @@ window.QT = (function () {
     },
     // cluster macro-region (bubble map / region filter) — MOCK grouping of real clusters
     clusterRegion: { "North America": "#1f4e79", "Europe": "#d9a520", "East Asia": "#b5482f", "Other": "#7b5ea7" },
+    // company founding origin (Companies tab) — the only populated company-classification field
+    origin: {
+      "University spinout": "#1f4e79", "Research spinout": "#3d8b8b", "Corporate spinout": "#d9a520",
+      "Joint venture": "#7b5ea7", "Merger": "#b5482f", "Subsidiary": "#8a8f66", "Hybrid spinout": "#5d6875",
+      "Not specified": "#c7ced6",
+    },
+    // company ownership status (Companies tab)
+    ownership: { "Private": "#1f4e79", "Public": "#d9a520", "Corporate": "#7b5ea7" },
   };
 
   // ── Number / currency formatters ──────────────────────────────────────────
@@ -87,6 +95,11 @@ window.QT = (function () {
     pct0: v => d3.format(".0%")(v),
     pct1: v => (v * 100).toFixed(1) + "%",
     int:  v => d3.format(",")(v),
+    // "2026-Q3" -> "Q3 2026" (quarter first, year after)
+    vintage: v => {
+      const m = /^(\d{4})-Q(\d)$/.exec(v || "");
+      return m ? `Q${m[2]} ${m[1]}` : v;
+    },
   };
 
   // ── Shared stylesheet (mirrors the tokens) ────────────────────────────────
@@ -144,17 +157,22 @@ svg{display:block;width:100%;height:auto;overflow:visible;}
 .tabbar a.on{color:var(--ink);border-bottom-color:${tokens.accent};}
 .tabbar a:hover{color:var(--ink);}
 
+/* ---------- "trusted by" logo strip (placeholder pending real logos) ---------- */
+.trustedby{display:flex;flex-wrap:wrap;align-items:center;gap:10px;margin:2px 0 16px;}
+.trustedby-label{font-size:10px;letter-spacing:.08em;text-transform:uppercase;color:var(--muted);font-weight:600;}
+.trustedby-chip{font-size:11.5px;color:var(--muted);background:var(--panel);border-radius:6px;padding:5px 11px;font-style:italic;}
+
 /* ---------- KPI tile strip ---------- */
-.kpis{display:grid;grid-template-columns:repeat(auto-fit,minmax(120px,1fr));gap:10px;margin:16px 0 22px;}
-.kpi{border:1px solid var(--line);border-radius:10px;padding:11px 13px;background:var(--panel);}
-.kpi .v{font-size:20px;font-weight:700;letter-spacing:-.02em;font-variant-numeric:tabular-nums;color:var(--ink);}
-.kpi .k{font-size:11px;color:var(--muted);margin-top:2px;line-height:1.3;}
+.kpis{display:grid;grid-template-columns:repeat(auto-fit,minmax(130px,1fr));gap:12px;margin:18px 0 24px;}
+.kpi{border:none;border-radius:12px;padding:14px 16px;background:color-mix(in srgb, ${tokens.accent} 5%, ${tokens.panel});}
+.kpi .v{font-size:21px;font-weight:700;letter-spacing:-.02em;font-variant-numeric:tabular-nums;color:var(--ink);}
+.kpi .k{font-size:11px;color:var(--muted);margin-top:3px;line-height:1.3;}
 
 /* ---------- dashboard panel grid ---------- */
-.panels{display:grid;gap:16px;margin-top:6px;}
+.panels{display:grid;gap:18px;margin-top:8px;}
 .panels.g2{grid-template-columns:1fr 1fr;}
 .panels .span2{grid-column:1/-1;}
-.panel{border:1px solid var(--line);border-radius:11px;padding:15px 16px 14px;background:var(--bg);}
+.panel{border:none;border-radius:14px;padding:19px 20px 18px;background:var(--panel);}
 .panel .ttl{font-size:14px;font-weight:650;letter-spacing:-.005em;margin:0 0 2px;display:flex;align-items:center;gap:8px;flex-wrap:wrap;}
 .panel .why{font-size:12px;color:var(--muted);line-height:1.45;margin:0 0 10px;}
 @media (max-width:760px){ .panels.g2{grid-template-columns:1fr;} }
@@ -203,7 +221,7 @@ svg{display:block;width:100%;height:auto;overflow:visible;}
 
 /* ---------- policy & programmes cards (countries tab) ---------- */
 .policy-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(250px,1fr));gap:10px;margin-top:4px;}
-.policy-card{border:1px solid var(--line);border-radius:9px;padding:11px 12px 12px;background:var(--bg);
+.policy-card{border:none;border-radius:9px;padding:11px 12px 12px;background:var(--bg);
   display:flex;flex-direction:column;gap:5px;}
 .policy-card .policy-type{align-self:flex-start;font-size:9px;font-weight:700;letter-spacing:.06em;
   text-transform:uppercase;color:#fff;border-radius:20px;padding:2px 8px;}
@@ -214,9 +232,9 @@ svg{display:block;width:100%;height:auto;overflow:visible;}
 
 /* ---------- graduated quasi-clusters: featured strip + table pill ---------- */
 .grad-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(210px,1fr));gap:10px;margin-top:4px;}
-.grad-card{border:1px solid var(--line);border-radius:12px;padding:11px 12px 12px;background:var(--bg);
-  display:flex;flex-direction:column;gap:5px;cursor:pointer;transition:border-color .12s,background .12s;}
-.grad-card:hover{border-color:${tokens.teal};background:var(--panel);}
+.grad-card{border:none;border-radius:12px;padding:11px 12px 12px;background:var(--bg);
+  display:flex;flex-direction:column;gap:5px;cursor:pointer;transition:box-shadow .12s,background .12s;}
+.grad-card:hover{box-shadow:inset 0 0 0 1.5px ${tokens.teal};background:var(--panel);}
 .grad-card .grad-name{font-size:13px;font-weight:650;color:var(--ink);line-height:1.25;}
 .grad-card .grad-name .flag{margin-right:5px;vertical-align:-1px;border-radius:1px;box-shadow:0 0 0 0.5px color-mix(in srgb, ${tokens.ink} 15%, transparent);}
 .grad-card .grad-meta{font-size:11.5px;color:var(--muted);font-variant-numeric:tabular-nums;}

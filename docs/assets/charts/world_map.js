@@ -6,14 +6,16 @@
    Countries the 110m atlas has no polygon for (e.g. Singapore) simply have nothing to
    shade — a resolution limit of the atlas, not a bug; their cluster bubbles still plot.
 
-   A metric toggle ("All funding" / "Public only") switches every layer — choropleth,
-   bubbles, legend and tooltips — between total_funding and public_funding (grants +
-   public equity), both emitted per country/cluster by the Stage-1 pipeline. */
+   A metric toggle ("Public" / "Private") switches the choropleth, legend and
+   tooltips between public_funding (grants + public equity, from Stage 1) and
+   private_funding (computed client-side as total_funding - public_funding).
+   Cluster bubbles are opt-in via renderWorldMap(selector, {showClusters:true}) —
+   the Overview map omits them (see docs/index.html). */
 (function () {
   const CSS = `
 .wm-wrap{position:relative;}
 .wm-frame{position:relative;background:radial-gradient(120% 130% at 32% 0%,#F1F5F9,#FFFFFF 72%);
-  border:1px solid var(--line);border-radius:8px;overflow:hidden;}
+  border-radius:8px;overflow:hidden;}
 .wm-frame svg{display:block;width:100%;height:auto;}
 .wm-country{stroke:#FFFFFF;stroke-width:0.6px;cursor:default;transition:fill .25s ease;}
 .wm-country.hl{stroke:#119B92;stroke-width:1.2px;}
@@ -67,18 +69,19 @@
   };
 
   const METRICS = {
-    total_funding:  { title: "Funding by country",        dot: "Cluster (size = funding)",        label: "Total funding" },
-    public_funding: { title: "Public funding by country", dot: "Cluster (size = public funding)", label: "Public funding" },
+    public_funding:  { title: "Public funding by country",  dot: "Cluster (size = public funding)",  label: "Public funding" },
+    private_funding: { title: "Private funding by country", dot: "Cluster (size = private funding)", label: "Private funding" },
   };
 
-  window.renderWorldMap = async function (selector) {
+  window.renderWorldMap = async function (selector, opts) {
+    const showClusters = !!(opts && opts.showClusters);
     injectCSS();
     const root = d3.select(selector);
     root.attr("class", "wm-wrap");
     const frame = root.append("div").attr("class", "wm-frame");
     frame.append("div").attr("class", "wm-toggle").html(
-      `<button id="wm-mtotal" class="on" title="All funding">All funding</button>` +
-      `<button id="wm-mpublic" title="Public funding only (grants + public equity)">Public only</button>`);
+      `<button id="wm-mpublic" class="on" title="Public funding only (grants + public equity)">Public</button>` +
+      `<button id="wm-mprivate" title="Private funding only (VC / private equity + debt)">Private</button>`);
     frame.append("div").attr("class", "wm-zoom").html(
       `<button id="wm-zin" title="Zoom in">+</button><button id="wm-zout" title="Zoom out">−</button><button id="wm-zreset" title="Reset">↻</button>`);
     const legend = frame.append("div").attr("class", "wm-legend");
@@ -91,15 +94,16 @@
       fetch("assets/vendor/world-atlas-110m.json").then(r => r.json()),
     ]);
 
+    const withPrivate = d => ({ ...d, private_funding: d.total_funding != null && d.public_funding != null ? d.total_funding - d.public_funding : null });
     const countryByAtlasName = new Map(
-      countryData.data.map(d => [ATLAS_NAME[d.country] || d.country, d])
+      countryData.data.map(withPrivate).map(d => [ATLAS_NAME[d.country] || d.country, d])
     );
     const coordsByCluster = new Map(coordsData.data.map(d => [d.cluster, d]));
-    const clusters = clusterData.data
+    const clusters = clusterData.data.map(withPrivate)
       .filter(d => coordsByCluster.has(d.cluster))
       .map(d => ({ ...d, ...coordsByCluster.get(d.cluster) }));
 
-    let metric = "total_funding";
+    let metric = "public_funding";
     const cVal = d => d[metric] != null ? d[metric] : null;
 
     const ramp = d3.interpolateRgbBasis(["#102f6b", "#2f56a2", "#6f5896", "#b0374f", "#8a1220"]);
@@ -139,13 +143,14 @@
           ? `<div class="hd">${d.properties.name}</div>` +
             `<div class="row"><span class="k">Companies</span><span class="v">${QT.fmt.int(rec.companies)}</span></div>` +
             `<div class="row"><span class="k">Total funding</span><span class="v">${QT.fmt.money(rec.total_funding)}</span></div>` +
-            (rec.public_funding != null ? `<div class="row"><span class="k">Public funding</span><span class="v">${QT.fmt.money(rec.public_funding)}</span></div>` : "")
+            (rec.public_funding != null ? `<div class="row"><span class="k">Public funding</span><span class="v">${QT.fmt.money(rec.public_funding)}</span></div>` : "") +
+            (rec.private_funding != null ? `<div class="row"><span class="k">Private funding</span><span class="v">${QT.fmt.money(rec.private_funding)}</span></div>` : "")
           : `<div class="hd">${d.properties.name}</div><div class="row"><span class="k">No companies tracked</span></div>`, e);
       })
       .on("mouseenter", function () { d3.select(this).classed("hl", true); })
       .on("mouseleave", function () { d3.select(this).classed("hl", false); hideTip(); });
 
-    const bubbleSel = g.selectAll("circle.wm-cluster")
+    const bubbleSel = showClusters ? g.selectAll("circle.wm-cluster")
       .data([...clusters].sort((a, b) => b.total_funding - a.total_funding)).join("circle")
       .attr("class", "wm-cluster")
       .attr("cx", d => projection([d.lon, d.lat])[0]).attr("cy", d => projection([d.lon, d.lat])[1])
@@ -153,8 +158,9 @@
         `<div class="hd">${d.cluster}</div>` +
         `<div class="row"><span class="k">Companies</span><span class="v">${QT.fmt.int(d.companies)}</span></div>` +
         `<div class="row"><span class="k">Total funding</span><span class="v">${QT.fmt.money(d.total_funding)}</span></div>` +
-        (d.public_funding != null ? `<div class="row"><span class="k">Public funding</span><span class="v">${QT.fmt.money(d.public_funding)}</span></div>` : ""), e))
-      .on("mouseleave", hideTip);
+        (d.public_funding != null ? `<div class="row"><span class="k">Public funding</span><span class="v">${QT.fmt.money(d.public_funding)}</span></div>` : "") +
+        (d.private_funding != null ? `<div class="row"><span class="k">Private funding</span><span class="v">${QT.fmt.money(d.private_funding)}</span></div>` : ""), e))
+      .on("mouseleave", hideTip) : null;
 
     function update() {
       rebuildScales();
@@ -163,13 +169,12 @@
         const rec = countryByAtlasName.get(d.properties.name);
         return rec && cVal(rec) != null ? fundColour(cVal(rec)) : "#E4E9EE";
       });
-      bubbleSel.attr("r", d => rScale(d[metric] || 0));
+      if (bubbleSel) bubbleSel.attr("r", d => rScale(d[metric] || 0));
       legend.html(
         `<div class="lg-title">${M.title}</div>` +
         `<div class="wm-lg-bar" id="wm-lg-bar"></div>` +
         `<div class="wm-lg-scale"><span>$0</span><span>${QT.fmt.axisMoney(maxF)}</span></div>` +
-        `<div class="wm-lg-sep"></div>` +
-        `<div class="wm-lg-row"><span class="wm-lg-dot"></span>${M.dot}</div>` +
+        (showClusters ? `<div class="wm-lg-sep"></div><div class="wm-lg-row"><span class="wm-lg-dot"></span>${M.dot}</div>` : "") +
         `<div class="wm-lg-nd"><span class="wm-lg-ndsw"></span>No companies tracked</div>`
       );
       legend.select("#wm-lg-bar").style("background",
@@ -177,16 +182,16 @@
     }
     update();
 
-    root.select("#wm-mtotal").on("click", function () {
-      if (metric === "total_funding") return;
-      metric = "total_funding";
-      d3.select(this).classed("on", true); root.select("#wm-mpublic").classed("on", false);
-      update();
-    });
     root.select("#wm-mpublic").on("click", function () {
       if (metric === "public_funding") return;
       metric = "public_funding";
-      d3.select(this).classed("on", true); root.select("#wm-mtotal").classed("on", false);
+      d3.select(this).classed("on", true); root.select("#wm-mprivate").classed("on", false);
+      update();
+    });
+    root.select("#wm-mprivate").on("click", function () {
+      if (metric === "private_funding") return;
+      metric = "private_funding";
+      d3.select(this).classed("on", true); root.select("#wm-mpublic").classed("on", false);
       update();
     });
 
