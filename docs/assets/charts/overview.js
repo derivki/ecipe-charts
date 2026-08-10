@@ -1,23 +1,29 @@
-/* Overview dashboard (Layer 0) — KPI strip + 5 panels.
-   Real data: funding-over-time, funding-by-country, funding-by-stage,
-   cluster-share-of-funding (computed client-side from the two real datasets below).
-   Mock data: collaborations KPI, archetype scatter (docs-internal papers
-   08/2025 and 15/2025 have not been updated yet — see mock_*.json meta.source_note).
-   The world map (country choropleth + cluster bubbles, with an all/public-funding
-   toggle) leads this Overview tab — see assets/charts/world_map.js. */
+/* Overview dashboard (Layer 0) — KPI strip + panels, all real data (funding
+   database + the Stage-1 companies index). The world map (country choropleth,
+   public/private toggle, no cluster bubbles) leads this tab — see
+   assets/charts/world_map.js. The "trusted by" strip is a placeholder pending
+   real partner logos from FE/Natalia. */
 (async function () {
   QT.injectCSS();
   QT.nav("#nav", "overview");
-  renderWorldMap("#worldmap");
+  renderWorldMap("#worldmap", { showClusters: false });
 
-  const [country, cluster, instrYear, stageRegion, manifest, profile, extra] = await Promise.all([
+  // Placeholder "trusted by" strip — swap for real logos once FE/Natalia provide them.
+  (function trustedBy() {
+    const NAMES = ["ECIPE", "Partner logo", "Partner logo", "Partner logo"];
+    d3.select("#trustedby").html(
+      `<span class="trustedby-label">Trusted by</span>` +
+      NAMES.map(n => `<span class="trustedby-chip">${n}</span>`).join("")
+    );
+  })();
+
+  const [country, cluster, instrYear, stageRegion, manifest, companies] = await Promise.all([
     QT.loadData("funding_by_country"),
     QT.loadData("funding_by_cluster"),
     QT.loadData("funding_by_instrument_year"),
     QT.loadData("funding_by_stage_region"),
     QT.loadData("manifest"),
-    QT.loadData("mock_country_profile"),
-    QT.loadData("mock_overview_extra"),
+    QT.loadData("companies"),
   ]);
   QT.vintage("#vintage", country.meta);
 
@@ -25,13 +31,12 @@
 
   // ---------- KPI strip ----------
   const totalFunding = d3.sum(country.data, d => d.total_funding);
-  const totalClusterFunding = d3.sum(cluster.data, d => d.total_funding);
   QT.kpis("#kpis", [
     { v: QT.fmt.axisMoney(totalFunding), k: "Total funding tracked" },
     { v: QT.fmt.int(manifest.row_counts.startups), k: "Quantum companies" },
     { v: QT.fmt.int(cluster.data.length), k: "Quantum clusters" },
     { v: QT.fmt.int(country.data.length), k: "Countries with quantum companies" },
-    { v: QT.fmt.int(extra.data.collaborations), k: "Collaborations (illustrative)" },
+    { v: QT.fmt.int(manifest.row_counts.institutions), k: "Institutions of origin" },
   ]);
 
 
@@ -133,103 +138,77 @@
     render();
   })();
 
-  // ---------- Panel 2: funding by country (teaser top-8 bar) ----------
-  (function fundingByCountry() {
-    const TOP = 8;
-    const accent = QT.tokens.accent;
-    const rows = country.data.filter(d => d.total_funding != null).sort((a, b) => b.total_funding - a.total_funding).slice(0, TOP);
+  // ---------- Panel 2: countries by funding — full ranking, bracketed 10 at a time (REAL) ----------
+  (function countriesByFunding() {
+    const BRACKET = 10;
+    const state = { metric: "total_funding", page: 0 };
+    const METRIC_LABEL = { total_funding: "Total funding", public_funding: "Public funding", private_funding: "Private funding" };
 
-    const W = 420, H = 260;
-    const c = QT.chart("#chart-country", { W, H, margin: { t: 6, r: 56, b: 26, l: 90 } });
+    function rankedRows() {
+      return country.data
+        .map(d => ({ ...d, private_funding: d.total_funding != null && d.public_funding != null ? d.total_funding - d.public_funding : null }))
+        .filter(d => d[state.metric] != null)
+        .sort((a, b) => b[state.metric] - a[state.metric]);
+    }
+
+    function render() {
+      const all = rankedRows();
+      const pages = Math.ceil(all.length / BRACKET);
+      state.page = Math.max(0, Math.min(state.page, pages - 1));
+      const rows = all.slice(state.page * BRACKET, state.page * BRACKET + BRACKET);
+
+      d3.select("#bracket-country").selectAll(".chip").data(d3.range(pages), p => p)
+        .join("span").attr("class", "chip").classed("on", p => p === state.page)
+        .text(p => `${p * BRACKET + 1}–${Math.min((p + 1) * BRACKET, all.length)}`)
+        .on("click", (e, p) => { state.page = p; render(); });
+
+      const W = 880, H = 46 + rows.length * 30;
+      const c = QT.chart("#chart-country", { W, H, margin: { t: 6, r: 56, b: 26, l: 130 } });
+      const x = d3.scaleLinear().domain([0, d3.max(all, d => d[state.metric]) * 1.05]).range([0, c.iw]);
+      const y = d3.scaleBand().domain(rows.map(d => d.country)).range([0, c.ih]).padding(0.22);
+
+      c.gGrid.selectAll("line").data(x.ticks(4)).join("line").attr("class", "gridline")
+        .attr("y1", 0).attr("y2", c.ih).attr("x1", d => x(d)).attr("x2", d => x(d));
+      c.gPlot.selectAll("rect").data(rows, d => d.country).join("rect")
+        .attr("x", 0).attr("y", d => y(d.country)).attr("height", y.bandwidth()).attr("rx", 2)
+        .attr("fill", QT.tokens.accent).attr("fill-opacity", 0.9).attr("width", d => x(d[state.metric]))
+        .on("mousemove", (e, d) => tt.show(`<div class="hd">${d.country}</div><div class="row"><span class="k">Rank</span><span class="v">${all.indexOf(d) + 1} of ${all.length}</span></div><div class="row"><span class="k">${METRIC_LABEL[state.metric]}</span><span class="v">${QT.fmt.money(d[state.metric])}</span></div>`, e))
+        .on("mouseleave", tt.hide);
+      c.gPlot.selectAll("text.bar-val").data(rows, d => d.country).join("text")
+        .attr("class", "bar-val").attr("dy", "0.32em")
+        .attr("y", d => y(d.country) + y.bandwidth() / 2).attr("x", d => x(d[state.metric]) + 6)
+        .text(d => QT.fmt.money(d[state.metric]));
+      c.gx.call(d3.axisBottom(x).ticks(4).tickFormat(QT.fmt.axisMoney).tickSizeOuter(0));
+      c.gy.call(d3.axisLeft(y).tickSizeOuter(0)).call(g => g.select(".domain").remove());
+    }
+
+    QT.segControl("#seg-metric-country", "data-m", m => { state.metric = m; state.page = 0; render(); });
+    render();
+  })();
+
+  // ---------- Panel 3: top companies by funding (REAL, teaser for the Companies tab) ----------
+  (function topCompanies() {
+    const TOP = 8;
+    const rows = companies.data.filter(d => d.total_funding > 0).slice(0, TOP);
+
+    const W = 880, H = 260;
+    const c = QT.chart("#chart-companies", { W, H, margin: { t: 6, r: 56, b: 26, l: 150 } });
     const x = d3.scaleLinear().domain([0, d3.max(rows, d => d.total_funding) * 1.05]).range([0, c.iw]);
-    const y = d3.scaleBand().domain(rows.map(d => d.country)).range([0, c.ih]).padding(0.22);
+    const y = d3.scaleBand().domain(rows.map(d => d.company)).range([0, c.ih]).padding(0.22);
 
     c.gGrid.selectAll("line").data(x.ticks(4)).join("line").attr("class", "gridline")
       .attr("y1", 0).attr("y2", c.ih).attr("x1", d => x(d)).attr("x2", d => x(d));
-    c.gPlot.selectAll("rect").data(rows, d => d.country).join("rect")
-      .attr("x", 0).attr("y", d => y(d.country)).attr("height", y.bandwidth()).attr("rx", 2)
-      .attr("fill", accent).attr("fill-opacity", 0.9).attr("width", d => x(d.total_funding))
-      .on("mousemove", (e, d) => tt.show(`<div class="hd">${d.country}</div><div class="row"><span class="k">Total funding</span><span class="v">${QT.fmt.money(d.total_funding)}</span></div>`, e))
+    c.gPlot.selectAll("rect").data(rows, d => d.company).join("rect")
+      .attr("x", 0).attr("y", d => y(d.company)).attr("height", y.bandwidth()).attr("rx", 2)
+      .attr("fill", QT.tokens.teal).attr("fill-opacity", 0.9).attr("width", d => x(d.total_funding))
+      .on("mousemove", (e, d) => tt.show(`<div class="hd">${d.company}</div><div class="row"><span class="k">Country</span><span class="v">${d.country || "—"}</span></div><div class="row"><span class="k">Total funding</span><span class="v">${QT.fmt.money(d.total_funding)}</span></div>`, e))
       .on("mouseleave", tt.hide);
-    c.gPlot.selectAll("text.bar-val").data(rows, d => d.country).join("text")
+    c.gPlot.selectAll("text.bar-val").data(rows, d => d.company).join("text")
       .attr("class", "bar-val").attr("dy", "0.32em")
-      .attr("y", d => y(d.country) + y.bandwidth() / 2).attr("x", d => x(d.total_funding) + 6)
+      .attr("y", d => y(d.company) + y.bandwidth() / 2).attr("x", d => x(d.total_funding) + 6)
       .text(d => QT.fmt.money(d.total_funding));
     c.gx.call(d3.axisBottom(x).ticks(4).tickFormat(QT.fmt.axisMoney).tickSizeOuter(0));
     c.gy.call(d3.axisLeft(y).tickSizeOuter(0)).call(g => g.select(".domain").remove());
-  })();
-
-  // ---------- Panel 3: cluster share of funding (real, hero stat + 100% bar) ----------
-  (function clusterShare() {
-    const share = totalClusterFunding / totalFunding;
-    d3.select("#cluster-share-headline").text(`${QT.fmt.pct0(share)} of funding sits in a named cluster`);
-
-    const segs = [
-      { key: "cluster", v: share, label: "In a named cluster", color: QT.tokens.accent },
-      { key: "other", v: 1 - share, label: "Elsewhere", color: QT.tokens.line },
-    ];
-
-    const W = 420, H = 170;
-    const c = QT.chart("#chart-clustershare", { W, H, margin: { t: 4, r: 4, b: 4, l: 4 } });
-    const cx = c.iw / 2, cy = c.ih / 2;
-    const r = Math.min(c.iw, c.ih) / 2 - 4;
-    const rInner = r * 0.64;
-    const ring = c.g.append("g").attr("transform", `translate(${cx},${cy})`);
-
-    ring.append("path")
-      .attr("d", d3.arc().innerRadius(rInner).outerRadius(r).startAngle(0).endAngle(2 * Math.PI)())
-      .attr("fill", QT.tokens.line)
-      .on("mousemove", (e) => tt.show(`<div class="hd">Elsewhere</div><div class="row"><span class="v">${QT.fmt.pct1(1 - share)}</span></div>`, e))
-      .on("mouseleave", tt.hide);
-    ring.append("path")
-      .attr("d", d3.arc().innerRadius(rInner).outerRadius(r).startAngle(0).endAngle(share * 2 * Math.PI)())
-      .attr("fill", QT.tokens.accent)
-      .on("mousemove", (e) => tt.show(`<div class="hd">In a named cluster</div><div class="row"><span class="v">${QT.fmt.pct1(share)}</span></div>`, e))
-      .on("mouseleave", tt.hide);
-    ring.append("text").attr("text-anchor", "middle").attr("dy", "0.32em")
-      .attr("font-size", 27).attr("font-weight", 700).attr("fill", QT.tokens.ink).text(QT.fmt.pct1(share));
-
-    QT.legend("#legend-clustershare", segs.map(s => ({ key: s.key, label: s.label, color: s.color })));
-  })();
-
-  // ---------- Panel 4: collaboration archetypes (2×2 scatter, MOCK) ----------
-  (function archetypes() {
-    document.getElementById("badge-archetype").innerHTML = QT.mockBadge();
-    QT.mockNote("#mocknote-archetype", profile.meta.source_note);
-
-    const rows = profile.data;
-    const THRESH = 55;
-    const W = 880, H = 340;
-    const c = QT.chart("#chart-archetype", { W, H, margin: { t: 10, r: 20, b: 34, l: 46 } });
-    const x = d3.scaleLinear().domain([0, 100]).range([0, c.iw]);
-    const y = d3.scaleLinear().domain([0, 100]).range([c.ih, 0]);
-
-    c.g.append("line").attr("x1", x(THRESH)).attr("x2", x(THRESH)).attr("y1", 0).attr("y2", c.ih).attr("class", "gridline");
-    c.g.append("line").attr("x1", 0).attr("x2", c.iw).attr("y1", y(THRESH)).attr("y2", y(THRESH)).attr("class", "gridline");
-
-    const quadLabel = (qx, qy, text, anchor) => c.g.append("text")
-      .attr("x", qx).attr("y", qy).attr("text-anchor", anchor).attr("font-size", 11)
-      .attr("fill", QT.tokens.muted).attr("font-style", "italic").text(text);
-    quadLabel(c.iw - 6, 14, "Global Hub", "end");
-    quadLabel(6, 14, "Domestic Commercialiser", "start");
-    quadLabel(c.iw - 6, c.ih - 8, "Research Networker", "end");
-    quadLabel(6, c.ih - 8, "Emerging Ecosystem", "start");
-
-    c.gPlot.selectAll("circle").data(rows, d => d.country).join("circle")
-      .attr("cx", d => x(d.connectedness)).attr("cy", d => y(d.commercial_intensity))
-      .attr("r", 5.5).attr("fill", d => QT.palette.archetype[d.archetype]).attr("fill-opacity", 0.85)
-      .attr("stroke", "#fff").attr("stroke-width", 1)
-      .on("mousemove", (e, d) => tt.show(
-        `<div class="hd">${d.country}</div>` +
-        `<div class="row"><span class="k">Archetype</span><span class="v">${d.archetype}</span></div>` +
-        `<div class="row"><span class="k">Connectedness</span><span class="v">${d.connectedness}</span></div>` +
-        `<div class="row"><span class="k">Commercial intensity</span><span class="v">${d.commercial_intensity}</span></div>`, e))
-      .on("mouseleave", tt.hide);
-
-    c.gx.call(d3.axisBottom(x).ticks(5).tickSizeOuter(0));
-    c.gy.call(d3.axisLeft(y).ticks(5).tickSizeOuter(0));
-    c.g.append("text").attr("x", c.iw / 2).attr("y", c.ih + 30).attr("text-anchor", "middle").attr("font-size", 11).attr("fill", QT.tokens.muted).text("Global connectedness →");
-    c.g.append("text").attr("x", -c.ih / 2).attr("y", -32).attr("transform", "rotate(-90)").attr("text-anchor", "middle").attr("font-size", 11).attr("fill", QT.tokens.muted).text("Commercial intensity →");
   })();
 
   // ---------- Panel: funding by stage, two blocs compared (REAL) ----------

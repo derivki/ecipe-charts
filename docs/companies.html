@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Quantum Technologies Tracker — Companies</title>
+<script src="assets/vendor/d3.min.js"></script>
+</head>
+<body>
+<div class="wrap">
+  <div id="nav"></div>
+  <h1>Quantum companies</h1>
+  <p class="sub">Every tracked quantum company, its funding, and how and when it was founded.</p>
+  <div class="vintage" id="vintage"></div>
+
+  <div class="kpis" id="kpis"></div>
+
+  <div class="panels g2">
+
+    <div class="panel span2">
+      <div class="ttl">Funding by company, over time</div>
+      <p class="why">Each bubble is one company. X-axis: founding year. Size: total funding raised. Colour: how the company originated.</p>
+      <div class="legend" id="legend-bubble"></div>
+      <svg id="chart-bubble" role="img" aria-label="Company funding bubble chart"></svg>
+      <p class="note" style="margin-top:8px;padding-top:8px;">Placeholder view pending the dedicated bubble-chart design (Andrea). Coloured by <b>founding origin</b> — the workbook's technology-pillar and stack-layer classification is not yet populated, so it cannot drive colour here yet.</p>
+    </div>
+
+    <div class="panel span2">
+      <div class="ttl">Top 20 companies by funding</div>
+      <p class="why">The highest-funded quantum companies tracked worldwide.</p>
+      <svg id="chart-top" role="img" aria-label="Top companies by funding"></svg>
+    </div>
+
+    <div class="panel">
+      <div class="ttl">Companies by founding origin</div>
+      <p class="why">Share of tracked companies by how they were founded (spinout, merger, joint venture…).</p>
+      <svg id="chart-origin" role="img" aria-label="Companies by founding origin"></svg>
+      <div class="legend" id="legend-origin"></div>
+      <p class="note" style="margin-top:8px;padding-top:8px;">This is the only company-classification field populated in the current database; a pillar/stack-layer breakdown will replace or supplement it once that data is added.</p>
+    </div>
+
+    <div class="panel">
+      <div class="ttl">Companies by ownership status</div>
+      <p class="why">Public, private, or corporate-owned.</p>
+      <svg id="chart-ownership" role="img" aria-label="Companies by ownership status"></svg>
+      <div class="legend" id="legend-ownership"></div>
+    </div>
+
+  </div>
+</div>
+
+<script src="assets/theme.js"></script>
+<script src="assets/chart-template.js"></script>
+<script src="assets/charts/companies.js"></script>
+</body>
+</html>

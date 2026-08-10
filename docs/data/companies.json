@@ -1,0 +1,5789 @@
+{
+  "meta": {
+    "data_vintage": "2026-Q3",
+    "start_year": 2012,
+    "partial_year": 2026
+  },
+  "data": [
+    {
+      "company": "IONQ",
+      "country": "US",
+      "cluster": "Greater Washington",
+      "founded_year": 2015,
+      "origin": "University spinout",
+      "ownership_status": "Public",
+      "operating_status": "Active",
+      "total_funding": 4165779000.0
+    },
+    {
+      "company": "Quantinuum",
+      "country": "US",
+      "cluster": "Denver–Boulder Region",
+      "founded_year": 2021,
+      "origin": "Merger",
+      "ownership_status": "Public",
+      "operating_status": "Active",
+      "total_funding": 4007456290.25
+    },
+    {
+      "company": "PsiQuantum",
+      "country": "US",
+      "cluster": "San Francisco Bay Area",
+      "founded_year": 2016,
+      "origin": "University spinout",
+      "ownership_status": "Private",
+      "operating_status": "Active",
+      "total_funding": 2395000000.0
+    },
+    {
+      "company": "XtalPi Technology (晶泰科技)",
+      "country": "China",
+      "cluster": "Shenzhen–Hong Kong–Guangzhou Region",
+      "founded_year": 2015,
+      "origin": "University spinout",
+      "ownership_status": "Public",
+      "operating_status": "Active",
+      "total_funding": 2044265786.72
+    },
+    {
+      "company": "Anderon",
+      "country": "US",
+      "cluster": null,
+      "founded_year": 2026,
+      "origin": "Corporate spinout",
+      "ownership_status": "Private",
+      "operating_status": "Active",
+      "total_funding": 2000000000.0
+    },
+    {
+      "company": "Quantum Computing Inc.",
+      "country": "US",
+      "cluster": "Greater New York",
+      "founded_year": 2018,
+      "origin": null,
+      "ownership_status": "Public",
+      "operating_status": "Active",
+      "total_funding": 1741964735.0
+    },
+    {
+      "company": "D-Wave",
+      "country": "US",
+      "cluster": "San Francisco Bay Area",
+      "founded_year": 1999,
+      "origin": "University spinout",
+      "ownership_status": "Public",
+      "operating_status": "Active",
+      "total_funding": 1551061090.03
+    },
+    {
+      "company": "Rigetti Computing",
+      "country": "US",
+      "cluster": "San Francisco Bay Area",
+      "founded_year": 2013,
+      "origin": null,
+      "ownership_status": "Public",
+      "operating_status": "Active",
+      "total_funding": 1141611019.57
+    },
+    {
+      "company": "Infleqtion",
+      "country": "US",
+      "cluster": "Denver–Boulder Region",
+      "founded_year": 2007,
+      "origin": "Research spinout",
+      "ownership_status": "Public",
+      "operating_status": "Active",
+      "total_funding": 955444683.01
+    },
+    {
+      "company": "SandboxAQ",
+      "country": "US",
+      "cluster": "San Francisco Bay Area",
+      "founded_year": 2016,
+      "origin": "Corporate spinout",
+      "ownership_status": "Private",
+      "operating_status": "Active",
+      "total_funding": 950000000.0
+    },
+    {
+      "company": "IQM Quantum Computers",
+      "country": "Finland",
+      "cluster": "Greater Helsinki",
+      "founded_year": 2018,
+      "origin": "Research spinout",
+      "ownership_status": "Public",
+      "operating_status": "Active",
+      "total_funding": 838082360.0
+    },
+    {
+      "company": "SEALSQ",
+      "country": "Switzerland",
+      "cluster": "Greater Geneva Bern Area",
+      "founded_year": 2022,
+      "origin": "Corporate spinout",
+      "ownership_status": "Public",
+      "operating_status": "Active",
+      "total_funding": 693905439.0
+    },
+    {
+      "company": "Xanadu",
+      "country": "Canada",
+      "cluster": "Toronto–Waterloo Corridor",
+      "founded_year": 2016,
+      "origin": null,
+      "ownership_status": "Public",
+      "operating_status": "Active",
+      "total_funding": 614236700.0
+    },
+    {
+      "company": "SkyWater Technology",
+      "country": "US",
+      "cluster": null,
+      "founded_year": 2017,
+      "origin": "Corporate spinout",
+      "ownership_status": "Public",
+      "operating_status": "Active",
+      "total_funding": 525986000.0
+    },
+    {
+      "company": "Oxford Quantum Circuits",
+      "country": "UK",
+      "cluster": null,
+      "founded_year": 2017,
+      "origin": "University spinout",
+      "ownership_status": "Private",
+      "operating_status": "Active",
+      "total_funding": 503113330.74
+    },
+    {
+      "company": "QuantumCTek (国盾量子)",
+      "country": "China",
+      "cluster": "Hefei",
+      "founded_year": 2009,
+      "origin": "University spinout",
+      "ownership_status": "Public",
+      "operating_status": "Active",
+      "total_funding": 458877160.74
+    },
+    {
+      "company": "China Telecom Quantum Group (中电信量子集团)",
+      "country": "China",
+      "cluster": "Hefei",
+      "founded_year": 2023,
+      "origin": "Subsidiary",
+      "ownership_status": "Corporate",
+      "operating_status": "Active",
+      "total_funding": 424200000.0
+    },
+    {
+      "company": "Photonic Inc.",
+      "country": "Canada",
+      "cluster": "Metro Vancouver",
+      "founded_year": 2016,
+      "origin": "University spinout",
+      "ownership_status": "Private",
+      "operating_status": "Active",
+      "total_funding": 357179200.0
+    },
+    {
+      "company": "PASQAL",
+      "country": "France",
+      "cluster": "Greater Paris",
+      "founded_year": 2019,
+      "origin": "University spinout",
+      "ownership_status": "Private",
+      "operating_status": "Active",
+      "total_funding": 340410167.05
+    },
+    {
+      "company": "SpinQ (量旋科技)",
+      "country": "China",
+      "cluster": "Shenzhen–Hong Kong–Guangzhou Region",
+      "founded_year": 2018,
+      "origin": null,
+      "ownership_status": "Private",
+      "operating_status": "Active",
+      "total_funding": 340049000.0
+    },
+    {
+      "company": "CAS Quantum Network (国科量子)",
+      "country": "China",
+      "cluster": "Shanghai",
+      "founded_year": 2016,
+      "origin": "Research spinout",
+      "ownership_status": "Private",
+      "operating_status": "Active",
+      "total_funding": 304950000.0
+    },
+    {
+      "company": "Atom Computing",
+      "country": "US",
+      "cluster": "San Francisco Bay Area",
+      "founded_year": 2018,
+      "origin": "University spinout",
+      "ownership_status": "Private",
+      "operating_status": "Active",
+      "total_funding": 302131999.0
+    },
+    {
+      "company": "Oratomic",
+      "country": "US",
+      "cluster": "Greater Los Angeles",
+      "founded_year": 2026,
+      "origin": "University spinout",
+      "ownership_status": "Private",
+      "operating_status": "Active",
+      "total_funding": 300000000.0
+    },
+    {
+      "company": "QuEra Computing",
+      "country": "US",
+      "cluster": "Greater Boston",
+      "founded_year": 2018,
+      "origin": "University spinout",
+      "ownership_status": "Private",
+      "operating_status": "Active",
+      "total_funding": 292000000.0
+    },
+    {
+      "company": "XPANCEO",
+      "country": "UAE",
+      "cluster": "Dubai",
+      "founded_year": 2021,
+      "origin": null,
+      "ownership_status": "Private",
+      "operating_status": "Active",
+      "total_funding": 290000000.0
+    },
+    {
+      "company": "Multiverse Computing",
+      "country": "Spain",
+      "cluster": null,
+      "founded_year": 2019,
+      "origin": null,
+      "ownership_status": "Private",
+      "operating_status": "Active",
+      "total_funding": 269630000.0
+    },
+    {
+      "company": "TuringQ (图灵量子)",
+      "country": "China",
+      "cluster": "Shanghai",
+      "founded_year": 2021,
+      "origin": "University spinout",
+      "ownership_status": "Private",
+      "operating_status": "Active",
+      "total_funding": 264070000.0
+    },
+    {
+      "company": "Quantum Machines",
+      "country": "Israel",
+      "cluster": "Tel Aviv Metropolitan Area",
+      "founded_year": 2018,
+      "origin": null,
+      "ownership_status": "Private",
+      "operating_status": "Active",
+      "total_funding": 263000000.0
+    },
+    {
+      "company": "QBoson / Bose Quantum (玻色量子)",
+      "country": "China",
+      "cluster": "Beijing",
+      "founded_year": 2020,
+      "origin": null,
+      "ownership_status": "Private",
+      "operating_status": "Active",
+      "total_funding": 256018000.0
+    },
+    {
+      "company": "Arqit Quantum Inc.",
+      "country": "UK",
+      "cluster": "London Commuter Belt",
+      "founded_year": 2017,
+      "origin": null,
+      "ownership_status": "Public",
+      "operating_status": "Active",
+      "total_funding": 254327874.0
+    },
+    {
+      "company": "Quantum Motion",
+      "country": "UK",
+      "cluster": "London Commuter Belt",
+      "founded_year": 2017,
+      "origin": "University spinout",
+      "ownership_status": "Private",
+      "operating_status": "Active",
+      "total_funding": 232529665.23
+    },
+    {
+      "company": "EigenQ",
+      "country": "US",
+      "cluster": "Greater Austin",
+      "founded_year": 2025,
+      "origin": null,
+      "ownership_status": "Private",
+      "operating_status": "Active",
+      "total_funding": 224780847.0
+    },
+    {
+      "company": "Classiq",
+      "country": "Israel",
+      "cluster": "Tel Aviv Metropolitan Area",
+      "founded_year": 2020,
+      "origin": null,
+      "ownership_status": "Private",
+      "operating_status": "Active",
+      "total_funding": 218500000.0
+    },
+    {
+      "company": "QuantWare",
+      "country": "Netherlands",
+      "cluster": "Randstad Region",
+      "founded_year": 2021,
+      "origin": "University spinout",
+      "ownership_status": "Private",
+      "operating_status": "Active",
+      "total_funding": 216316160.21
+    },
+    {
+      "company": "Bluefors",
+      "country": "Finland",
+      "cluster": "Greater Helsinki",
+      "founded_year": 2008,
+      "origin": "University spinout",
+      "ownership_status": "Private",
+      "operating_status": "Active",
+      "total_funding": 213869163.73
+    },
+    {
+      "company": "Origin Quantum (本源量子)",
+      "country": "China",
+      "cluster": "Hefei",
+      "founded_year": 2017,
+      "origin": "University spinout",
+      "ownership_status": "Private",
+      "operating_status": "Active",
+      "total_funding": 194470000.0
+    },
+    {
+      "company": "Cornami",
+      "country": "US",
+      "cluster": "Greater Austin",
+      "founded_year": 2012,
+      "origin": null,
+      "ownership_status": "Private",
+      "operating_status": "Active",
+      "total_funding": 191275066.0
+    },
+    {
+      "company": "Fullcryo (中科富海)",
+      "country": "China",
+      "cluster": "Beijing",
+      "founded_year": 2016,
+      "origin": "Research spinout",
+      "ownership_status": "Private",
+      "operating_status": "Active",
+      "total_funding": 188760000.0
+    },
+    {
+      "company": "Quobly",
+      "country": "France",
+      "cluster": "Grenoble",
+      "founded_year": 2022,
+      "origin": "Research spinout",
+      "ownership_status": "Private",
+      "operating_status": "Active",
+      "total_funding": 187339953.78
+    },
+    {
+      "company": "CIQTEK (国仪量子)",
+      "country": "China",
+      "cluster": "Hefei",
+      "founded_year": 2016,
+      "origin": "University spinout",
+      "ownership_status": "Private",
+      "operating_status": "Active",
+      "total_funding": 184734100.0
+    },
+    {
+      "company": "SMART Photonics",
+      "country": "Netherlands",
+      "cluster": null,
+      "founded_year": 2012,
+      "origin": "Hybrid spinout",
+      "ownership_status": "Private",
+      "operating_status": "Active",
+      "total_funding": 172983575.0
+    },
+    {
+      "company": "Quantum Art",
+      "country": "Israel",
+      "cluster": "Tel Aviv Metropolitan Area",
+      "founded_year": 2022,
+      "origin": "University spinout",
+      "ownership_status": "Private",
+      "operating_status": "Active",
+      "total_funding": 164000000.0
+    },
+    {
+      "company": "Alice & Bob",
+      "country": "France",
+      "cluster": "Greater Paris",
+      "founded_year": 2020,
+      "origin": "University spinout",
+      "ownership_status": "Private",
+      "operating_status": "Active",
+      "total_funding": 159000000.0
+    },
+    {
+      "company": "Horizon Quantum",
+      "country": "Singapore",
+      "cluster": "Singapore",
+      "founded_year": 2018,
+      "origin": "Research spinout",
+      "ownership_status": "Public",
+      "operating_status": "Active",
+      "total_funding": 141330000.0
+    },
+    {
+      "company": "Silicon Quantum Computing",
+      "country": "Australia",
+      "cluster": "Greater Sydney",
+      "founded_year": 2017,
+      "origin": "University spinout",
+      "ownership_status": "Private",
+      "operating_status": "Active",
+      "total_funding": 139257200.0
+    },
+    {
+      "company": "Sygaldry",
+      "country": "US",
+      "cluster": null,
+      "founded_year": 2024,
+      "origin": null,
+      "ownership_status": "Private",
+      "operating_status": "Active",
+      "total_funding": 139000000.0
+    },
+    {
+      "company": "SEEQC",
+      "country": "US",
+      "cluster": "Greater New York",
+      "founded_year": 2018,
+      "origin": "Corporate spinout",
+      "ownership_status": "Private",
+      "operating_status": "Active",
+      "total_funding": 137405103.0
+    },
+    {
+      "company": "HyperLight",
+      "country": "US",
+      "cluster": "Greater Boston",
+      "founded_year": 2018,
+      "origin": "University spinout",
+      "ownership_status": "Private",
+      "operating_status": "Active",
+      "total_funding": 135400000.0
+    },
+    {
+      "company": "Q-CTRL",
+      "country": "Australia",
+      "cluster": "Greater Sydney",
+      "founded_year": 2017,
+      "origin": "University spinout",
+      "ownership_status": "Private",
+      "operating_status": "Active",
+      "total_funding": 134964493.23
+    },
+    {
+      "company": "QTEC (九州量子)",
+      "country": "China",
+      "cluster": "Hangzhou",
+      "founded_year": 2012,
+      "origin": null,
+      "ownership_status": "Public",
+      "operating_status": "Active",
+      "total_funding": 132614599.49
+    },
+    {
+      "company": "Cambridge Quantum Computing",
+      "country": "UK",
+      "cluster": "Cambridge",
+      "founded_year": 2014,
+      "origin": null,
+      "ownership_status": "Private",
+      "operating_status": "Merged",
+      "total_funding": 123207543.3
+    },
+    {
+      "company": "Riverlane",
+      "country": "UK",
+      "cluster": "Cambridge",
+      "founded_year": 2016,
+      "origin": "University spinout",
+      "ownership_status": "Private",
+      "operating_status": "Active",
+      "total_funding": 120537835.0
+    },
+    {
+      "company": "NVision Imaging Technologies",
+      "country": "Germany",
+      "cluster": null,
+      "founded_year": 2015,
+      "origin": "University spinout",
+      "ownership_status": "Private",
+      "operating_status": "Active",
+      "total_funding": 117950017.01
+    },
+    {
+      "company": "Zapata Quantum",
+      "country": "US",
+      "cluster": "Greater Boston",
+      "founded_year": 2017,
+      "origin": "University spinout",
+      "ownership_status": "Public",
+      "operating_status": "Active",
+      "total_funding": 115989000.0
+    },
+    {
+      "company": "Diraq",
+      "country": "Australia",
+      "cluster": "Greater Sydney",
+      "founded_year": 2022,
+      "origin": "University spinout",
+      "ownership_status": "Private",
+      "operating_status": "Active",
+      "total_funding": 113309550.0
+    },
+    {
+      "company": "AQEMIA",
+      "country": "France",
+      "cluster": "Greater Paris",
+      "founded_year": 2019,
+      "origin": "University spinout",
+      "ownership_status": "Private",
+      "operating_status": "Active",
+      "total_funding": 110591100.0
+    },
+    {
+      "company": "ParTec",
+      "country": "Germany",
+      "cluster": "Munich Metropolitan Area",
+      "founded_year": 1999,
+      "origin": "University spinout",
+      "ownership_status": "Public",
+      "operating_status": "Active",
+      "total_funding": 104057782.53
+    },
+    {
+      "company": "QuNorth",
+      "country": "Denmark",
+      "cluster": "Greater Copenhagen",
+      "founded_year": 2025,
+      "origin": "Joint venture",
+      "ownership_status": "Private",
+      "operating_status": "Active",
+      "total_funding": 92930000.0
+    },
+    {
+      "company": "Q.ANT",
+      "country": "Germany",
+      "cluster": "Stuttgart Metropolitan Area",
+      "founded_year": 2018,
+      "origin": "Corporate spinout",
+      "ownership_status": "Private",
+      "operating_status": "Active",
+      "total_funding": 91828000.0
+    },
+    {
+      "company": "Quandela",
+      "country": "France",
+      "cluster": "Greater Paris",
+      "founded_year": 2017,
+      "origin": "Research spinout",
+      "ownership_status": "Private",
+      "operating_status": "Active",
+      "total_funding": 87547531.93
+    },
+    {
+      "company": "eleQtron",
+      "country": "Germany",
+      "cluster": null,
+      "founded_year": 2020,
+      "origin": "University spinout",
+      "ownership_status": "Private",
+      "operating_status": "Active",
+      "total_funding": 86418100.0
+    },
+    {
+      "company": "Terra Quantum",
+      "country": "Switzerland",
+      "cluster": null,
+      "founded_year": 2019,
+      "origin": null,
+      "ownership_status": "Private",
+      "operating_status": "Active",
+      "total_funding": 86382000.0
+    },
+    {
+      "company": "Equal1",
+      "country": "Ireland",
+      "cluster": null,
+      "founded_year": 2017,
+      "origin": "University spinout",
+      "ownership_status": "Private",
+      "operating_status": "Active",
+      "total_funding": 83332750.0
+    },
+    {
+      "company": "Flexcompute",
+      "country": "US",
+      "cluster": "Greater Boston",
+      "founded_year": 2015,
+      "origin": "University spinout",
+      "ownership_status": "Private",
+      "operating_status": "Active",
+      "total_funding": 82337082.0
+    },
+    {
+      "company": "Quantum Circuits",
+      "country": "US",
+      "cluster": null,
+      "founded_year": 2015,
+      "origin": "University spinout",
+      "ownership_status": "Private",
+      "operating_status": "Acquired – operating",
+      "total_funding": 80000000.0
+    },
+    {
+      "company": "AmpliTech",
+      "country": "US",
+      "cluster": "Greater New York",
+      "founded_year": 2002,
+      "origin": null,
+      "ownership_status": "Public",
+      "operating_status": "Active",
+      "total_funding": 79405709.0
+    },
+    {
+      "company": "Nu Quantum",
+      "country": "UK",
+      "cluster": "Cambridge",
+      "founded_year": 2018,
+      "origin": "University spinout",
+      "ownership_status": "Private",
+      "operating_status": "Active",
+      "total_funding": 79335248.46
+    },
+    {
+      "company": "M Squared Lasers",
+      "country": "UK",
+      "cluster": "Greater Glasgow",
+      "founded_year": 2006,
+      "origin": null,
+      "ownership_status": "Private",
+      "operating_status": "Acquired – absorbed",
+      "total_funding": 79329237.53
+    },
+    {
+      "company": "Quantum Source",
+      "country": "Israel",
+      "cluster": "Tel Aviv Metropolitan Area",
+      "founded_year": 2021,
+      "origin": "University spinout",
+      "ownership_status": "Private",
+      "operating_status": "Active",
+      "total_funding": 77000000.0
+    },
+    {
+      "company": "Qolab",
+      "country": "US",
+      "cluster": "Greater Los Angeles",
+      "founded_year": 2022,
+      "origin": "University spinout",
+      "ownership_status": "Private",
+      "operating_status": "Active",
+      "total_funding": 73700000.0
+    },
+    {
+      "company": "Huayi Quantum / HYQ Bit (华翊量子)",
+      "country": "China",
+      "cluster": "Beijing",
+      "founded_year": 2022,
+      "origin": "University spinout",
+      "ownership_status": "Private",
+      "operating_status": "Active",
+      "total_funding": 70560000.0
+    },
+    {
+      "company": "PQShield",
+      "country": "UK",
+      "cluster": "Oxford",
+      "founded_year": 2018,
+      "origin": "University spinout",
+      "ownership_status": "Private",
+      "operating_status": "Active",
+      "total_funding": 66067304.15
+    },
+    {
+      "company": "Maybell Quantum",
+      "country": "US",
+      "cluster": "Denver–Boulder Region",
+      "founded_year": 2021,
+      "origin": null,
+      "ownership_status": "Private",
+      "operating_status": "Active",
+      "total_funding": 65500000.0
+    },
+    {
+      "company": "Optalysys",
+      "country": "UK",
+      "cluster": null,
+      "founded_year": 2013,
+      "origin": "University spinout",
+      "ownership_status": "Private",
+      "operating_status": "Active",
+      "total_funding": 64398828.13
+    },
+    {
+      "company": "ICTK",
+      "country": "South Korea",
+      "cluster": "Seoul Metropolitan Area",
+      "founded_year": 2017,
+      "origin": "Corporate spinout",
+      "ownership_status": "Public",
+      "operating_status": "Active",
+      "total_funding": 60651254.45
+    },
+    {
+      "company": "OTI Lumionics",
+      "country": "Canada",
+      "cluster": "Toronto–Waterloo Corridor",
+      "founded_year": 2011,
+      "origin": "University spinout",
+      "ownership_status": "Private",
+      "operating_status": "Active",
+      "total_funding": 60069623.47
+    },
+    {
+      "company": "planqc",
+      "country": "Germany",
+      "cluster": "Munich Metropolitan Area",
+      "founded_year": 2022,
+      "origin": "Research spinout",
+      "ownership_status": "Private",
+      "operating_status": "Active",
+      "total_funding": 58970000.0
+    },
+    {
+      "company": "Phasecraft",
+      "country": "UK",
+      "cluster": "London Commuter Belt",
+      "founded_year": 2018,
+      "origin": "University spinout",
+      "ownership_status": "Private",
+      "operating_status": "Active",
+      "total_funding": 58398695.09
+    },
+    {
+      "company": "Taiyi Quantum (太一量生)",
+      "country": "China",
+      "cluster": "Shanghai",
+      "founded_year": 2026,
+      "origin": null,
+      "ownership_status": "Private",
+      "operating_status": "Active",
+      "total_funding": 58260000.0
+    },
+    {
+      "company": "Ephos",
+      "country": "Italy",
+      "cluster": null,
+      "founded_year": 2022,
+      "origin": "Research spinout",
+      "ownership_status": "Private",
+      "operating_status": "Active",
+      "total_funding": 55419899.78
+    },
+    {
+      "company": "SDT",
+      "country": "South Korea",
+      "cluster": "Seoul Metropolitan Area",
+      "founded_year": 2017,
+      "origin": null,
+      "ownership_status": "Private",
+      "operating_status": "Active",
+      "total_funding": 55390100.0
+    },
+    {
+      "company": "Nord Quantique",
+      "country": "Canada",
+      "cluster": null,
+      "founded_year": 2020,
+      "origin": "University spinout",
+      "ownership_status": "Private",
+      "operating_status": "Active",
+      "total_funding": 55055440.0
+    },
+    {
+      "company": "Monarch Quantum",
+      "country": "US",
+      "cluster": null,
+      "founded_year": 2025,
+      "origin": null,
+      "ownership_status": "Private",
+      "operating_status": "Active",
+      "total_funding": 55000000.0
+    },
+    {
+      "company": "Peratech",
+      "country": "UK",
+      "cluster": null,
+      "founded_year": 1996,
+      "origin": null,
+      "ownership_status": "Private",
+      "operating_status": "Defunct",
+      "total_funding": 50406466.7
+    },
+    {
+      "company": "Quantum Generative Materials / GenMat",
+      "country": "US",
+      "cluster": "Greater Austin",
+      "founded_year": 2021,
+      "origin": null,
+      "ownership_status": "Private",
+      "operating_status": "Acquired – operating",
+      "total_funding": 50000000.0
+    },
+    {
+      "company": "BTQ Technologies",
+      "country": "Canada",
+      "cluster": "Metro Vancouver",
+      "founded_year": 2021,
+      "origin": null,
+      "ownership_status": "Public",
+      "operating_status": "Active",
+      "total_funding": 47719187.59
+    },
+    {
+      "company": "Quantum Brilliance",
+      "country": "Australia",
+      "cluster": "Canberra",
+      "founded_year": 2019,
+      "origin": "University spinout",
+      "ownership_status": "Private",
+      "operating_status": "Active",
+      "total_funding": 47700000.0
+    },
+    {
+      "company": "Quantix EdgeS",
+      "country": "Spain",
+      "cluster": null,
+      "founded_year": 2024,
+      "origin": "Joint venture",
+      "ownership_status": "Private",
+      "operating_status": "Active",
+      "total_funding": 45789300.0
+    },
+    {
+      "company": "Oxford Ionics",
+      "country": "UK",
+      "cluster": "Oxford",
+      "founded_year": 2019,
+      "origin": "University spinout",
+      "ownership_status": "Private",
+      "operating_status": "Acquired – operating",
+      "total_funding": 44110346.52
+    },
+    {
+      "company": "Peptone",
+      "country": "UK",
+      "cluster": null,
+      "founded_year": 2018,
+      "origin": null,
+      "ownership_status": "Private",
+      "operating_status": "Active",
+      "total_funding": 42500000.0
+    },
+    {
+      "company": "QpiAI",
+      "country": "India",
+      "cluster": "Bangalore",
+      "founded_year": 2019,
+      "origin": null,
+      "ownership_status": "Private",
+      "operating_status": "Active",
+      "total_funding": 42000000.0
+    },
+    {
+      "company": "QuintessenceLabs",
+      "country": "Australia",
+      "cluster": "Canberra",
+      "founded_year": 2008,
+      "origin": "University spinout",
+      "ownership_status": "Private",
+      "operating_status": "Active",
+      "total_funding": 41951974.0
+    },
+    {
+      "company": "Algorithmiq",
+      "country": "Italy",
+      "cluster": null,
+      "founded_year": 2020,
+      "origin": null,
+      "ownership_status": "Private",
+      "operating_status": "Active",
+      "total_funding": 39899170.0
+    },
+    {
+      "company": "QC Ware",
+      "country": "US",
+      "cluster": "San Francisco Bay Area",
+      "founded_year": 2014,
+      "origin": null,
+      "ownership_status": "Private",
+      "operating_status": "Active",
+      "total_funding": 38845387.0
+    },
+    {
+      "company": "1QBit",
+      "country": "Canada",
+      "cluster": "Metro Vancouver",
+      "founded_year": 2012,
+      "origin": null,
+      "ownership_status": "Private",
+      "operating_status": "Active",
+      "total_funding": 37914951.51
+    },
+    {
+      "company": "Aliro Quantum",
+      "country": "US",
+      "cluster": "Greater Boston",
+      "founded_year": 2019,
+      "origin": "University spinout",
+      "ownership_status": "Private",
+      "operating_status": "Active",
+      "total_funding": 37800000.0
+    },
+    {
+      "company": "Logical Qubit (逻辑比特)",
+      "country": "China",
+      "cluster": "Hangzhou",
+      "founded_year": 2022,
+      "origin": "University spinout",
+      "ownership_status": "Private",
+      "operating_status": "Active",
+      "total_funding": 37410000.0
+    },
+    {
+      "company": "UbiQD",
+      "country": "US",
+      "cluster": null,
+      "founded_year": 2014,
+      "origin": "Research spinout",
+      "ownership_status": "Private",
+      "operating_status": "Active",
+      "total_funding": 36187000.0
+    },
+    {
+      "company": "Sparrow Quantum",
+      "country": "Denmark",
+      "cluster": "Greater Copenhagen",
+      "founded_year": 2016,
+      "origin": "University spinout",
+      "ownership_status": "Private",
+      "operating_status": "Active",
+      "total_funding": 35592700.0
+    },
+    {
+      "company": "QuamCore",
+      "country": "Israel",
+      "cluster": "Tel Aviv Metropolitan Area",
+      "founded_year": 2022,
+      "origin": null,
+      "ownership_status": "Private",
+      "operating_status": "Active",
+      "total_funding": 35000000.0
+    },
+    {
+      "company": "ORCA Computing",
+      "country": "UK",
+      "cluster": "London Commuter Belt",
+      "founded_year": 2019,
+      "origin": "University spinout",
+      "ownership_status": "Private",
+      "operating_status": "Active",
+      "total_funding": 34587686.27
+    },
+    {
+      "company": "CAS Cold Atom (中科酷原)",
+      "country": "China",
+      "cluster": null,
+      "founded_year": 2020,
+      "origin": "Research spinout",
+      "ownership_status": "Private",
+      "operating_status": "Active",
+      "total_funding": 34188000.0
+    },
+    {
+      "company": "kiutra",
+      "country": "Germany",
+      "cluster": "Munich Metropolitan Area",
+      "founded_year": 2018,
+      "origin": "University spinout",
+      "ownership_status": "Private",
+      "operating_status": "Active",
+      "total_funding": 33283120.59
+    },
+    {
+      "company": "iPronics",
+      "country": "Spain",
+      "cluster": "Valencia Metropolitan Area",
+      "founded_year": 2019,
+      "origin": "University spinout",
+      "ownership_status": "Private",
+      "operating_status": "Active",
+      "total_funding": 33087993.8
+    },
+    {
+      "company": "C12 Quantum Electronics",
+      "country": "France",
+      "cluster": "Greater Paris",
+      "founded_year": 2020,
+      "origin": "University spinout",
+      "ownership_status": "Private",
+      "operating_status": "Active",
+      "total_funding": 32826708.31
+    },
+    {
+      "company": "Kvantify",
+      "country": "Denmark",
+      "cluster": "Greater Copenhagen",
+      "founded_year": 2022,
+      "origin": "University spinout",
+      "ownership_status": "Private",
+      "operating_status": "Active",
+      "total_funding": 32202900.0
+    },
+    {
+      "company": "Quantum Corridor",
+      "country": "US",
+      "cluster": "Chicagoland",
+      "founded_year": 2021,
+      "origin": null,
+      "ownership_status": "Private",
+      "operating_status": "Active",
+      "total_funding": 30995000.0
+    },
+    {
+      "company": "Qedma",
+      "country": "Israel",
+      "cluster": "Tel Aviv Metropolitan Area",
+      "founded_year": 2020,
+      "origin": null,
+      "ownership_status": "Private",
+      "operating_status": "Active",
+      "total_funding": 30700000.0
+    },
+    {
+      "company": "Quantum eMotion",
+      "country": "Canada",
+      "cluster": "Greater Montreal",
+      "founded_year": 2007,
+      "origin": "University spinout",
+      "ownership_status": "Public",
+      "operating_status": "Active",
+      "total_funding": 30355372.32
+    },
+    {
+      "company": "QuSecure",
+      "country": "US",
+      "cluster": "San Francisco Bay Area",
+      "founded_year": 2019,
+      "origin": null,
+      "ownership_status": "Private",
+      "operating_status": "Active",
+      "total_funding": 29900000.0
+    },
+    {
+      "company": "QphoX",
+      "country": "Netherlands",
+      "cluster": "Randstad Region",
+      "founded_year": 2021,
+      "origin": "University spinout",
+      "ownership_status": "Private",
+      "operating_status": "Active",
+      "total_funding": 29761300.0
+    },
+    {
+      "company": "Niobium Microsystems",
+      "country": "US",
+      "cluster": null,
+      "founded_year": 2021,
+      "origin": "Corporate spinout",
+      "ownership_status": "Private",
+      "operating_status": "Active",
+      "total_funding": 29549910.0
+    },
+    {
+      "company": "Qutwo",
+      "country": "Finland",
+      "cluster": "Greater Helsinki",
+      "founded_year": 2026,
+      "origin": null,
+      "ownership_status": "Private",
+      "operating_status": "Active",
+      "total_funding": 29195000.0
+    },
+    {
+      "company": "MatriQ / Atomic Matrix (原子矩阵)",
+      "country": "China",
+      "cluster": "Hangzhou",
+      "founded_year": 2025,
+      "origin": null,
+      "ownership_status": "Private",
+      "operating_status": "Active",
+      "total_funding": 29080000.0
+    },
+    {
+      "company": "Zhongchuangwei Quantum (中创为量子)",
+      "country": "China",
+      "cluster": "Beijing",
+      "founded_year": 2014,
+      "origin": null,
+      "ownership_status": "Private",
+      "operating_status": "Active",
+      "total_funding": 28940000.0
+    },
+    {
+      "company": "Qblox",
+      "country": "Netherlands",
+      "cluster": "Randstad Region",
+      "founded_year": 2018,
+      "origin": "Research spinout",
+      "ownership_status": "Private",
+      "operating_status": "Active",
+      "total_funding": 28824941.26
+    },
+    {
+      "company": "Guoce Quantum (国测量子)",
+      "country": "China",
+      "cluster": null,
+      "founded_year": 2023,
+      "origin": "University spinout",
+      "ownership_status": "Private",
+      "operating_status": "Active",
+      "total_funding": 28440000.0
+    },
+    {
+      "company": "ISARA",
+      "country": "Canada",
+      "cluster": "Toronto–Waterloo Corridor",
+      "founded_year": 2015,
+      "origin": null,
+      "ownership_status": "Private",
+      "operating_status": "Active",
+      "total_funding": 28204140.0
+    },
+    {
+      "company": "Strangeworks",
+      "country": "US",
+      "cluster": "Greater Austin",
+      "founded_year": 2018,
+      "origin": null,
+      "ownership_status": "Private",
+      "operating_status": "Active",
+      "total_funding": 28000000.0
+    },
+    {
+      "company": "Nanofiber Quantum Technologies",
+      "country": "US",
+      "cluster": "San Francisco Bay Area",
+      "founded_year": 2022,
+      "origin": "University spinout",
+      "ownership_status": "Private",
+      "operating_status": "Active",
+      "total_funding": 27639636.0
+    },
+    {
+      "company": "Chipiron",
+      "country": "France",
+      "cluster": "Greater Paris",
+      "founded_year": 2020,
+      "origin": null,
+      "ownership_status": "Private",
+      "operating_status": "Active",
+      "total_funding": 27558647.6
+    },
+    {
+      "company": "QunaSys",
+      "country": "Japan",
+      "cluster": "Greater Tokyo",
+      "founded_year": 2018,
+      "origin": "University spinout",
+      "ownership_status": "Private",
+      "operating_status": "Active",
+      "total_funding": 27323000.0
+    },
+    {
+      "company": "Qubit Pharmaceuticals",
+      "country": "France",
+      "cluster": "Greater Paris",
+      "founded_year": 2020,
+      "origin": null,
+      "ownership_status": "Private",
+      "operating_status": "Active",
+      "total_funding": 26088100.0
+    },
+    {
+      "company": "Archer Materials",
+      "country": "Australia",
+      "cluster": "Greater Sydney",
+      "founded_year": 2007,
+      "origin": null,
+      "ownership_status": "Public",
+      "operating_status": "Active",
+      "total_funding": 26030617.69
+    },
+    {
+      "company": "Project Eleven",
+      "country": "US",
+      "cluster": "Greater New York",
+      "founded_year": 2024,
+      "origin": null,
+      "ownership_status": "Private",
+      "operating_status": "Active",
+      "total_funding": 26000000.0
+    },
+    {
+      "company": "SemiQon",
+      "country": "Finland",
+      "cluster": "Greater Helsinki",
+      "founded_year": 2023,
+      "origin": "Research spinout",
+      "ownership_status": "Private",
+      "operating_status": "Active",
+      "total_funding": 25845260.0
+    },
+    {
+      "company": "QuiX Quantum",
+      "country": "Netherlands",
+      "cluster": null,
+      "founded_year": 2019,
+      "origin": "University spinout",
+      "ownership_status": "Private",
+      "operating_status": "Active",
+      "total_funding": 25426419.27
+    },
+    {
+      "company": "KM Labs",
+      "country": "US",
+      "cluster": "Denver–Boulder Region",
+      "founded_year": 1994,
+      "origin": "University spinout",
+      "ownership_status": "Private",
+      "operating_status": "Active",
+      "total_funding": 24450924.0
+    },
+    {
+      "company": "Q-Factor",
+      "country": "Israel",
+      "cluster": "Tel Aviv Metropolitan Area",
+      "founded_year": 2026,
+      "origin": "University spinout",
+      "ownership_status": "Private",
+      "operating_status": "Active",
+      "total_funding": 24000000.0
+    },
+    {
+      "company": "Mesolight (星烁纳米)",
+      "country": "China",
+      "cluster": "Suzhou",
+      "founded_year": 2022,
+      "origin": null,
+      "ownership_status": "Private",
+      "operating_status": "Active",
+      "total_funding": 23766600.0
+    },
+    {
+      "company": "QLM Technology",
+      "country": "UK",
+      "cluster": null,
+      "founded_year": 2017,
+      "origin": "University spinout",
+      "ownership_status": "Private",
+      "operating_status": "Active",
+      "total_funding": 23720680.0
+    },
+    {
+      "company": "Quantum Xchange",
+      "country": "US",
+      "cluster": "Greater Washington",
+      "founded_year": 2018,
+      "origin": null,
+      "ownership_status": "Private",
+      "operating_status": "Active",
+      "total_funding": 23500000.0
+    },
+    {
+      "company": "Creotech Quantum",
+      "country": "Poland",
+      "cluster": null,
+      "founded_year": 2026,
+      "origin": "Corporate spinout",
+      "ownership_status": "Public",
+      "operating_status": "Active",
+      "total_funding": 22403080.0
+    },
+    {
+      "company": "PharmCADD",
+      "country": "South Korea",
+      "cluster": null,
+      "founded_year": 2019,
+      "origin": null,
+      "ownership_status": "Private",
+      "operating_status": "Active",
+      "total_funding": 22186240.0
+    },
+    {
+      "company": "Qunnect",
+      "country": "US",
+      "cluster": "Greater New York",
+      "founded_year": 2017,
+      "origin": "University spinout",
+      "ownership_status": "Private",
+      "operating_status": "Active",
+      "total_funding": 22150000.0
+    },
+    {
+      "company": "Vector Atomic",
+      "country": "US",
+      "cluster": "San Francisco Bay Area",
+      "founded_year": 2018,
+      "origin": null,
+      "ownership_status": "Private",
+      "operating_status": "Acquired – operating",
+      "total_funding": 21689829.0
+    },
+    {
+      "company": "Quanscient",
+      "country": "Finland",
+      "cluster": null,
+      "founded_year": 2021,
+      "origin": null,
+      "ownership_status": "Private",
+      "operating_status": "Active",
+      "total_funding": 21522630.0
+    },
+    {
+      "company": "Universal Quantum",
+      "country": "UK",
+      "cluster": null,
+      "founded_year": 2018,
+      "origin": "University spinout",
+      "ownership_status": "Private",
+      "operating_status": "Active",
+      "total_funding": 20073504.51
+    },
+    {
+      "company": "Longxun Quantum (龙讯旷腾)",
+      "country": "China",
+      "cluster": "Beijing",
+      "founded_year": 2015,
+      "origin": null,
+      "ownership_status": "Private",
+      "operating_status": "Active",
+      "total_funding": 20026000.0
+    },
+    {
+      "company": "AMCG",
+      "country": "South Korea",
+      "cluster": "Seoul Metropolitan Area",
+      "founded_year": 2021,
+      "origin": "Research spinout",
+      "ownership_status": "Public",
+      "operating_status": "Active",
+      "total_funding": 20018641.61
+    },
+    {
+      "company": "Lastwall",
+      "country": "Canada",
+      "cluster": null,
+      "founded_year": 2013,
+      "origin": null,
+      "ownership_status": "Private",
+      "operating_status": "Active",
+      "total_funding": 19978620.0
+    },
+    {
+      "company": "Delft Circuits",
+      "country": "Netherlands",
+      "cluster": "Randstad Region",
+      "founded_year": 2017,
+      "origin": "University spinout",
+      "ownership_status": "Private",
+      "operating_status": "Active",
+      "total_funding": 19516488.87
+    },
+    {
+      "company": "AEPONYX",
+      "country": "Canada",
+      "cluster": "Greater Montreal",
+      "founded_year": 2012,
+      "origin": null,
+      "ownership_status": "Private",
+      "operating_status": "Acquired – operating",
+      "total_funding": 19333648.6
+    },
+    {
+      "company": "Quanta-Well (科微量子)",
+      "country": "China",
+      "cluster": "Beijing",
+      "founded_year": 2024,
+      "origin": "Research spinout",
+      "ownership_status": "Private",
+      "operating_status": "Active",
+      "total_funding": 19239500.0
+    },
+    {
+      "company": "HQS Quantum Simulations",
+      "country": "Germany",
+      "cluster": "Karlsruhe",
+      "founded_year": 2017,
+      "origin": "University spinout",
+      "ownership_status": "Private",
+      "operating_status": "Active",
+      "total_funding": 19100580.0
+    },
+    {
+      "company": "QNu Labs",
+      "country": "India",
+      "cluster": "Bangalore",
+      "founded_year": 2016,
+      "origin": "University spinout",
+      "ownership_status": "Private",
+      "operating_status": "Active",
+      "total_funding": 18992720.0
+    },
+    {
+      "company": "Quantum Transistors",
+      "country": "Israel",
+      "cluster": "Tel Aviv Metropolitan Area",
+      "founded_year": 2022,
+      "origin": null,
+      "ownership_status": "Private",
+      "operating_status": "Active",
+      "total_funding": 18938500.0
+    },
+    {
+      "company": "Groove Quantum",
+      "country": "Netherlands",
+      "cluster": "Randstad Region",
+      "founded_year": 2024,
+      "origin": "Research spinout",
+      "ownership_status": "Private",
+      "operating_status": "Active",
+      "total_funding": 18726400.0
+    },
+    {
+      "company": "Pixel Photonics",
+      "country": "Germany",
+      "cluster": null,
+      "founded_year": 2020,
+      "origin": "University spinout",
+      "ownership_status": "Private",
+      "operating_status": "Active",
+      "total_funding": 18454525.0
+    },
+    {
+      "company": "Quantune",
+      "country": "Germany",
+      "cluster": "Berlin Metropolitan Area",
+      "founded_year": 2019,
+      "origin": "University spinout",
+      "ownership_status": "Private",
+      "operating_status": "Active",
+      "total_funding": 18298755.15
+    },
+    {
+      "company": "Yaqumo",
+      "country": "Japan",
+      "cluster": "Greater Tokyo",
+      "founded_year": 2025,
+      "origin": "Research spinout",
+      "ownership_status": "Private",
+      "operating_status": "Active",
+      "total_funding": 18057600.0
+    },
+    {
+      "company": "Lightsynq",
+      "country": "US",
+      "cluster": "Greater Boston",
+      "founded_year": 2024,
+      "origin": "University spinout",
+      "ownership_status": "Private",
+      "operating_status": "Acquired – operating",
+      "total_funding": 18000000.0
+    },
+    {
+      "company": "Crypto Quantique",
+      "country": "UK",
+      "cluster": "London Commuter Belt",
+      "founded_year": 2016,
+      "origin": null,
+      "ownership_status": "Private",
+      "operating_status": "Active",
+      "total_funding": 17994656.4
+    },
+    {
+      "company": "LQUOM",
+      "country": "Japan",
+      "cluster": "Greater Tokyo",
+      "founded_year": 2020,
+      "origin": "University spinout",
+      "ownership_status": "Private",
+      "operating_status": "Active",
+      "total_funding": 17972024.0
+    },
+    {
+      "company": "Sitehop",
+      "country": "UK",
+      "cluster": null,
+      "founded_year": 2021,
+      "origin": null,
+      "ownership_status": "Private",
+      "operating_status": "Active",
+      "total_funding": 17519600.0
+    },
+    {
+      "company": "Ggquanta (国光量子)",
+      "country": "China",
+      "cluster": "Beijing",
+      "founded_year": 2021,
+      "origin": null,
+      "ownership_status": "Private",
+      "operating_status": "Active",
+      "total_funding": 17484000.0
+    },
+    {
+      "company": "Mesa Quantum",
+      "country": "US",
+      "cluster": "Denver–Boulder Region",
+      "founded_year": 2023,
+      "origin": "Research spinout",
+      "ownership_status": "Private",
+      "operating_status": "Active",
+      "total_funding": 17422602.0
+    },
+    {
+      "company": "MiQro Era (微观纪元)",
+      "country": "China",
+      "cluster": "Hefei",
+      "founded_year": 2022,
+      "origin": "University spinout",
+      "ownership_status": "Private",
+      "operating_status": "Active",
+      "total_funding": 17316000.0
+    },
+    {
+      "company": "QANplatform",
+      "country": null,
+      "cluster": null,
+      "founded_year": 2019,
+      "origin": null,
+      "ownership_status": "Private",
+      "operating_status": "Active",
+      "total_funding": 17100000.0
+    },
+    {
+      "company": "Qilimanjaro Quantum Tech",
+      "country": "Spain",
+      "cluster": "Barcelona Metropolitan Area",
+      "founded_year": 2019,
+      "origin": "University spinout",
+      "ownership_status": "Private",
+      "operating_status": "Active",
+      "total_funding": 16992165.8
+    },
+    {
+      "company": "QuantrolOx",
+      "country": "Finland",
+      "cluster": "Greater Helsinki",
+      "founded_year": 2021,
+      "origin": "University spinout",
+      "ownership_status": "Private",
+      "operating_status": "Active",
+      "total_funding": 16875770.55
+    },
+    {
+      "company": "Orange Quantum Systems",
+      "country": "Netherlands",
+      "cluster": "Randstad Region",
+      "founded_year": 2020,
+      "origin": "Research spinout",
+      "ownership_status": "Private",
+      "operating_status": "Active",
+      "total_funding": 16500000.0
+    },
+    {
+      "company": "Anyon Systems",
+      "country": "Canada",
+      "cluster": "Greater Montreal",
+      "founded_year": 2014,
+      "origin": null,
+      "ownership_status": "Private",
+      "operating_status": "Active",
+      "total_funding": 16463400.0
+    },
+    {
+      "company": "HYPRES",
+      "country": "US",
+      "cluster": "Greater New York",
+      "founded_year": 1983,
+      "origin": null,
+      "ownership_status": "Private",
+      "operating_status": "Active",
+      "total_funding": 16261440.0
+    },
+    {
+      "company": "Chiral",
+      "country": "Switzerland",
+      "cluster": null,
+      "founded_year": 2023,
+      "origin": "University spinout",
+      "ownership_status": "Private",
+      "operating_status": "Active",
+      "total_funding": 16022063.0
+    },
+    {
+      "company": "ID Quantique",
+      "country": "Switzerland",
+      "cluster": "Greater Geneva Bern Area",
+      "founded_year": 2001,
+      "origin": "University spinout",
+      "ownership_status": "Private",
+      "operating_status": "Acquired – operating",
+      "total_funding": 15903050.88
+    },
+    {
+      "company": "Quantum Base",
+      "country": "UK",
+      "cluster": null,
+      "founded_year": 2013,
+      "origin": "University spinout",
+      "ownership_status": "Public",
+      "operating_status": "Active",
+      "total_funding": 15616746.81
+    },
+    {
+      "company": "ProteinQure",
+      "country": "Canada",
+      "cluster": "Toronto–Waterloo Corridor",
+      "founded_year": 2017,
+      "origin": null,
+      "ownership_status": "Private",
+      "operating_status": "Active",
+      "total_funding": 15511000.0
+    },
+    {
+      "company": "Haiqu",
+      "country": "US",
+      "cluster": "Greater New York",
+      "founded_year": 2022,
+      "origin": null,
+      "ownership_status": "Private",
+      "operating_status": "Active",
+      "total_funding": 15000000.0
+    },
+    {
+      "company": "Atomionics",
+      "country": "Singapore",
+      "cluster": "Singapore",
+      "founded_year": 2018,
+      "origin": "Research spinout",
+      "ownership_status": "Private",
+      "operating_status": "Active",
+      "total_funding": 14907850.0
+    },
+    {
+      "company": "Alpine Quantum Technologies",
+      "country": "Austria",
+      "cluster": null,
+      "founded_year": 2018,
+      "origin": "Research spinout",
+      "ownership_status": "Private",
+      "operating_status": "Active",
+      "total_funding": 14718250.0
+    },
+    {
+      "company": "LuxQuanta",
+      "country": "Spain",
+      "cluster": "Barcelona Metropolitan Area",
+      "founded_year": 2021,
+      "origin": "Research spinout",
+      "ownership_status": "Private",
+      "operating_status": "Active",
+      "total_funding": 14692148.47
+    },
+    {
+      "company": "Qosmos / Liangyi Wanxiang (两仪万象)",
+      "country": "China",
+      "cluster": "Beijing",
+      "founded_year": 2024,
+      "origin": "University spinout",
+      "ownership_status": "Private",
+      "operating_status": "Active",
+      "total_funding": 14550000.0
+    },
+    {
+      "company": "Kipu Quantum",
+      "country": "Germany",
+      "cluster": "Berlin Metropolitan Area",
+      "founded_year": 2021,
+      "origin": null,
+      "ownership_status": "Private",
+      "operating_status": "Active",
+      "total_funding": 14522550.0
+    },
+    {
+      "company": "Atlantic Quantum",
+      "country": "US",
+      "cluster": "Greater Boston",
+      "founded_year": 2022,
+      "origin": "University spinout",
+      "ownership_status": "Private",
+      "operating_status": "Acquired – absorbed",
+      "total_funding": 14458628.0
+    },
+    {
+      "company": "OptQC",
+      "country": "Japan",
+      "cluster": "Greater Tokyo",
+      "founded_year": 2024,
+      "origin": "University spinout",
+      "ownership_status": "Private",
+      "operating_status": "Active",
+      "total_funding": 14379200.0
+    },
+    {
+      "company": "QuSpin",
+      "country": "US",
+      "cluster": "Denver–Boulder Region",
+      "founded_year": 2012,
+      "origin": "Research spinout",
+      "ownership_status": "Private",
+      "operating_status": "Active",
+      "total_funding": 14053690.0
+    },
+    {
+      "company": "QSimulate",
+      "country": "US",
+      "cluster": "Greater Boston",
+      "founded_year": 2018,
+      "origin": null,
+      "ownership_status": "Private",
+      "operating_status": "Active",
+      "total_funding": 13889612.0
+    },
+    {
+      "company": "Quside",
+      "country": "Spain",
+      "cluster": "Barcelona Metropolitan Area",
+      "founded_year": 2017,
+      "origin": "Research spinout",
+      "ownership_status": "Private",
+      "operating_status": "Active",
+      "total_funding": 13875129.48
+    },
+    {
+      "company": "Qunova Computing",
+      "country": "South Korea",
+      "cluster": null,
+      "founded_year": 2021,
+      "origin": "University spinout",
+      "ownership_status": "Private",
+      "operating_status": "Active",
+      "total_funding": 13831500.0
+    },
+    {
+      "company": "LightSolver",
+      "country": "Israel",
+      "cluster": "Tel Aviv Metropolitan Area",
+      "founded_year": 2020,
+      "origin": "University spinout",
+      "ownership_status": "Private",
+      "operating_status": "Active",
+      "total_funding": 13527500.0
+    },
+    {
+      "company": "Aegiq",
+      "country": "UK",
+      "cluster": null,
+      "founded_year": 2019,
+      "origin": "University spinout",
+      "ownership_status": "Private",
+      "operating_status": "Active",
+      "total_funding": 13458018.02
+    },
+    {
+      "company": "Vector Photonics",
+      "country": "UK",
+      "cluster": "Greater Glasgow",
+      "founded_year": 2020,
+      "origin": "University spinout",
+      "ownership_status": "Private",
+      "operating_status": "Active",
+      "total_funding": 13191719.7
+    },
+    {
+      "company": "Quantropi",
+      "country": "Canada",
+      "cluster": null,
+      "founded_year": 2018,
+      "origin": null,
+      "ownership_status": "Private",
+      "operating_status": "Active",
+      "total_funding": 13088895.0
+    },
+    {
+      "company": "MagiQ Technologies",
+      "country": "US",
+      "cluster": "Greater Boston",
+      "founded_year": 1999,
+      "origin": null,
+      "ownership_status": "Private",
+      "operating_status": "Active",
+      "total_funding": 13084417.0
+    },
+    {
+      "company": "Quantum Dice",
+      "country": "UK",
+      "cluster": "Oxford",
+      "founded_year": 2020,
+      "origin": "University spinout",
+      "ownership_status": "Private",
+      "operating_status": "Active",
+      "total_funding": 13056832.63
+    },
+    {
+      "company": "Qasky (问天量子)",
+      "country": "China",
+      "cluster": null,
+      "founded_year": 2009,
+      "origin": "Research spinout",
+      "ownership_status": "Private",
+      "operating_status": "Active",
+      "total_funding": 12967390.0
+    },
+    {
+      "company": "Zero Point Motion",
+      "country": "UK",
+      "cluster": "Bristol–Bath Region",
+      "founded_year": 2020,
+      "origin": "University spinout",
+      "ownership_status": "Private",
+      "operating_status": "Active",
+      "total_funding": 12959540.4
+    },
+    {
+      "company": "KETS Quantum Security",
+      "country": "UK",
+      "cluster": "Bristol–Bath Region",
+      "founded_year": 2016,
+      "origin": "University spinout",
+      "ownership_status": "Private",
+      "operating_status": "Active",
+      "total_funding": 12686128.07
+    },
+    {
+      "company": "memQ",
+      "country": "US",
+      "cluster": "Chicagoland",
+      "founded_year": 2021,
+      "origin": "University spinout",
+      "ownership_status": "Private",
+      "operating_status": "Active",
+      "total_funding": 12302763.0
+    },
+    {
+      "company": "Casimir",
+      "country": "US",
+      "cluster": null,
+      "founded_year": 2023,
+      "origin": null,
+      "ownership_status": "Private",
+      "operating_status": "Active",
+      "total_funding": 12274920.0
+    },
+    {
+      "company": "CryptoNext Security",
+      "country": "France",
+      "cluster": "Greater Paris",
+      "founded_year": 2019,
+      "origin": "Research spinout",
+      "ownership_status": "Private",
+      "operating_status": "Active",
+      "total_funding": 12274571.4
+    },
+    {
+      "company": "Wultra",
+      "country": "Czech Republic",
+      "cluster": null,
+      "founded_year": 2014,
+      "origin": null,
+      "ownership_status": "Private",
+      "operating_status": "Active",
+      "total_funding": 12249320.0
+    },
+    {
+      "company": "Post-Quantum",
+      "country": "UK",
+      "cluster": "London Commuter Belt",
+      "founded_year": 2009,
+      "origin": null,
+      "ownership_status": "Private",
+      "operating_status": "Active",
+      "total_funding": 12065360.0
+    },
+    {
+      "company": "Rydberg Technologies",
+      "country": "US",
+      "cluster": null,
+      "founded_year": 2015,
+      "origin": null,
+      "ownership_status": "Private",
+      "operating_status": "Active",
+      "total_funding": 11946565.0
+    },
+    {
+      "company": "mirSense",
+      "country": "France",
+      "cluster": "Greater Paris",
+      "founded_year": 2015,
+      "origin": "Research spinout",
+      "ownership_status": "Private",
+      "operating_status": "Active",
+      "total_funding": 11799606.92
+    },
+    {
+      "company": "Comptek Solutions",
+      "country": "Finland",
+      "cluster": null,
+      "founded_year": 2017,
+      "origin": "University spinout",
+      "ownership_status": "Private",
+      "operating_status": "Active",
+      "total_funding": 11746420.0
+    },
+    {
+      "company": "Imperagen",
+      "country": "UK",
+      "cluster": null,
+      "founded_year": 2021,
+      "origin": "University spinout",
+      "ownership_status": "Private",
+      "operating_status": "Active",
+      "total_funding": 11730747.66
+    },
+    {
+      "company": "EYL",
+      "country": "South Korea",
+      "cluster": "Seoul Metropolitan Area",
+      "founded_year": 2015,
+      "origin": null,
+      "ownership_status": "Private",
+      "operating_status": "Active",
+      "total_funding": 11698450.0
+    },
+    {
+      "company": "Groovenauts",
+      "country": "Japan",
+      "cluster": null,
+      "founded_year": 2011,
+      "origin": null,
+      "ownership_status": "Private",
+      "operating_status": "Active",
+      "total_funding": 11663320.0
+    },
+    {
+      "company": "Polar Light Technologies",
+      "country": "Sweden",
+      "cluster": null,
+      "founded_year": 2014,
+      "origin": "University spinout",
+      "ownership_status": "Private",
+      "operating_status": "Active",
+      "total_funding": 11588976.06
+    },
+    {
+      "company": "Vexlum",
+      "country": "Finland",
+      "cluster": null,
+      "founded_year": 2017,
+      "origin": "University spinout",
+      "ownership_status": "Private",
+      "operating_status": "Active",
+      "total_funding": 11513008.87
+    },
+    {
+      "company": "Q*Bird",
+      "country": "Netherlands",
+      "cluster": "Randstad Region",
+      "founded_year": 2022,
+      "origin": "University spinout",
+      "ownership_status": "Private",
+      "operating_status": "Active",
+      "total_funding": 11481250.0
+    },
+    {
+      "company": "QT Sense",
+      "country": "Netherlands",
+      "cluster": null,
+      "founded_year": 2024,
+      "origin": "University spinout",
+      "ownership_status": "Private",
+      "operating_status": "Active",
+      "total_funding": 11464400.0
+    },
+    {
+      "company": "Neuranics",
+      "country": "UK",
+      "cluster": "Greater Glasgow",
+      "founded_year": 2021,
+      "origin": "University spinout",
+      "ownership_status": "Private",
+      "operating_status": "Active",
+      "total_funding": 11386080.0
+    },
+    {
+      "company": "Cerca Magnetics",
+      "country": "UK",
+      "cluster": null,
+      "founded_year": 2020,
+      "origin": "University spinout",
+      "ownership_status": "Private",
+      "operating_status": "Active",
+      "total_funding": 11384739.41
+    },
+    {
+      "company": "CCRAFT",
+      "country": "Switzerland",
+      "cluster": "Greater Geneva Bern Area",
+      "founded_year": 2025,
+      "origin": "Research spinout",
+      "ownership_status": "Private",
+      "operating_status": "Active",
+      "total_funding": 11161419.0
+    },
+    {
+      "company": "STAR Cryoelectronics",
+      "country": "US",
+      "cluster": null,
+      "founded_year": 1999,
+      "origin": null,
+      "ownership_status": "Private",
+      "operating_status": "Active",
+      "total_funding": 11066487.74
+    },
+    {
+      "company": "QTREX",
+      "country": "Israel",
+      "cluster": "Tel Aviv Metropolitan Area",
+      "founded_year": 2018,
+      "origin": null,
+      "ownership_status": "Public",
+      "operating_status": "Active",
+      "total_funding": 11000000.0
+    },
+    {
+      "company": "Welinq",
+      "country": "France",
+      "cluster": "Greater Paris",
+      "founded_year": 2022,
+      "origin": "University spinout",
+      "ownership_status": "Private",
+      "operating_status": "Active",
+      "total_funding": 10806687.39
+    },
+    {
+      "company": "AOSense",
+      "country": "US",
+      "cluster": "San Francisco Bay Area",
+      "founded_year": 2004,
+      "origin": "University spinout",
+      "ownership_status": "Private",
+      "operating_status": "Active",
+      "total_funding": 10578898.0
+    },
+    {
+      "company": "Quantum Optics Jena",
+      "country": "Germany",
+      "cluster": null,
+      "founded_year": 2020,
+      "origin": "Research spinout",
+      "ownership_status": "Private",
+      "operating_status": "Active",
+      "total_funding": 10469953.56
+    },
+    {
+      "company": "SpeQtral",
+      "country": "Singapore",
+      "cluster": "Singapore",
+      "founded_year": 2017,
+      "origin": "Research spinout",
+      "ownership_status": "Private",
+      "operating_status": "Active",
+      "total_funding": 10200000.0
+    },
+    {
+      "company": "Opsydia",
+      "country": "UK",
+      "cluster": "Oxford",
+      "founded_year": 2017,
+      "origin": "University spinout",
+      "ownership_status": "Private",
+      "operating_status": "Active",
+      "total_funding": 10157540.0
+    },
+    {
+      "company": "LIGENTEC",
+      "country": "Switzerland",
+      "cluster": "Greater Geneva Bern Area",
+      "founded_year": 2016,
+      "origin": "University spinout",
+      "ownership_status": "Private",
+      "operating_status": "Active",
+      "total_funding": 10130516.95
+    },
+    {
+      "company": "DiamFab",
+      "country": "France",
+      "cluster": "Grenoble",
+      "founded_year": 2019,
+      "origin": "Research spinout",
+      "ownership_status": "Private",
+      "operating_status": "Active",
+      "total_funding": 10069436.4
+    },
+    {
+      "company": "Delta.g",
+      "country": "UK",
+      "cluster": null,
+      "founded_year": 2023,
+      "origin": "University spinout",
+      "ownership_status": "Private",
+      "operating_status": "Active",
+      "total_funding": 10041242.72
+    },
+    {
+      "company": "BlueQubit",
+      "country": "US",
+      "cluster": "San Francisco Bay Area",
+      "founded_year": 2022,
+      "origin": null,
+      "ownership_status": "Private",
+      "operating_status": "Active",
+      "total_funding": 10000000.0
+    },
+    {
+      "company": "Zerothird",
+      "country": "Austria",
+      "cluster": null,
+      "founded_year": 2023,
+      "origin": null,
+      "ownership_status": "Private",
+      "operating_status": "Active",
+      "total_funding": 10000000.0
+    },
+    {
+      "company": "Qnami",
+      "country": "Switzerland",
+      "cluster": null,
+      "founded_year": 2016,
+      "origin": "University spinout",
+      "ownership_status": "Private",
+      "operating_status": "Active",
+      "total_funding": 9951320.0
+    },
+    {
+      "company": "QustomDot",
+      "country": "Belgium",
+      "cluster": null,
+      "founded_year": 2020,
+      "origin": "University spinout",
+      "ownership_status": "Private",
+      "operating_status": "Active",
+      "total_funding": 9922942.56
+    },
+    {
+      "company": "Akhetonics",
+      "country": "Germany",
+      "cluster": "Berlin Metropolitan Area",
+      "founded_year": 2021,
+      "origin": null,
+      "ownership_status": "Private",
+      "operating_status": "Active",
+      "total_funding": 9866725.86
+    },
+    {
+      "company": "OEwaves",
+      "country": "US",
+      "cluster": "Greater Los Angeles",
+      "founded_year": 2000,
+      "origin": "Research spinout",
+      "ownership_status": "Private",
+      "operating_status": "Active",
+      "total_funding": 9859420.0
+    },
+    {
+      "company": "Qubitcore",
+      "country": "Japan",
+      "cluster": "Greater Tokyo",
+      "founded_year": 2024,
+      "origin": "University spinout",
+      "ownership_status": "Private",
+      "operating_status": "Active",
+      "total_funding": 9709380.0
+    },
+    {
+      "company": "Wave Photonics",
+      "country": "UK",
+      "cluster": "Cambridge",
+      "founded_year": 2021,
+      "origin": "University spinout",
+      "ownership_status": "Private",
+      "operating_status": "Active",
+      "total_funding": 9627840.29
+    },
+    {
+      "company": "QDI Systems",
+      "country": "Netherlands",
+      "cluster": null,
+      "founded_year": 2019,
+      "origin": "University spinout",
+      "ownership_status": "Private",
+      "operating_status": "Active",
+      "total_funding": 9574584.0
+    },
+    {
+      "company": "Quantum Secure Encryption",
+      "country": "Canada",
+      "cluster": "Metro Vancouver",
+      "founded_year": 2018,
+      "origin": null,
+      "ownership_status": "Public",
+      "operating_status": "Active",
+      "total_funding": 9470633.96
+    },
+    {
+      "company": "QuantX Labs",
+      "country": "Australia",
+      "cluster": "Greater Adelaide",
+      "founded_year": 2016,
+      "origin": "University spinout",
+      "ownership_status": "Private",
+      "operating_status": "Active",
+      "total_funding": 9395451.28
+    },
+    {
+      "company": "Vescent",
+      "country": "US",
+      "cluster": "Denver–Boulder Region",
+      "founded_year": 2002,
+      "origin": null,
+      "ownership_status": "Private",
+      "operating_status": "Active",
+      "total_funding": 9376892.0
+    },
+    {
+      "company": "Anametric",
+      "country": "US",
+      "cluster": "Greater Austin",
+      "founded_year": 2017,
+      "origin": null,
+      "ownership_status": "Private",
+      "operating_status": "Active",
+      "total_funding": 9301026.0
+    },
+    {
+      "company": "QuantumBio",
+      "country": "US",
+      "cluster": null,
+      "founded_year": 2002,
+      "origin": "University spinout",
+      "ownership_status": "Private",
+      "operating_status": "Active",
+      "total_funding": 9287814.0
+    },
+    {
+      "company": "CavilinQ",
+      "country": "US",
+      "cluster": "Greater Boston",
+      "founded_year": 2025,
+      "origin": "University spinout",
+      "ownership_status": "Private",
+      "operating_status": "Active",
+      "total_funding": 9140000.0
+    },
+    {
+      "company": "Silicon Extreme (硅臻量子)",
+      "country": "China",
+      "cluster": "Hefei",
+      "founded_year": 2020,
+      "origin": null,
+      "ownership_status": "Private",
+      "operating_status": "Active",
+      "total_funding": 8747000.0
+    },
+    {
+      "company": "Agnostiq",
+      "country": "Canada",
+      "cluster": "Toronto–Waterloo Corridor",
+      "founded_year": 2018,
+      "origin": null,
+      "ownership_status": "Private",
+      "operating_status": "Acquired – absorbed",
+      "total_funding": 8707238.0
+    },
+    {
+      "company": "Quantum Bridge",
+      "country": "Canada",
+      "cluster": "Toronto–Waterloo Corridor",
+      "founded_year": 2019,
+      "origin": "University spinout",
+      "ownership_status": "Private",
+      "operating_status": "Active",
+      "total_funding": 8659401.0
+    },
+    {
+      "company": "Isentroniq",
+      "country": "France",
+      "cluster": "Greater Paris",
+      "founded_year": 2025,
+      "origin": null,
+      "ownership_status": "Private",
+      "operating_status": "Active",
+      "total_funding": 8479500.0
+    },
+    {
+      "company": "Aquark Technologies",
+      "country": "UK",
+      "cluster": null,
+      "founded_year": 2021,
+      "origin": "University spinout",
+      "ownership_status": "Private",
+      "operating_status": "Active",
+      "total_funding": 8349970.0
+    },
+    {
+      "company": "EeroQ",
+      "country": "US",
+      "cluster": "Chicagoland",
+      "founded_year": 2016,
+      "origin": "University spinout",
+      "ownership_status": "Private",
+      "operating_status": "Active",
+      "total_funding": 8250000.0
+    },
+    {
+      "company": "Qubitekk",
+      "country": "US",
+      "cluster": null,
+      "founded_year": 2013,
+      "origin": null,
+      "ownership_status": "Private",
+      "operating_status": "Acquired – absorbed",
+      "total_funding": 8202445.0
+    },
+    {
+      "company": "A-Star Quantum",
+      "country": "Japan",
+      "cluster": "Greater Tokyo",
+      "founded_year": 2018,
+      "origin": null,
+      "ownership_status": "Private",
+      "operating_status": "Active",
+      "total_funding": 8155950.0
+    },
+    {
+      "company": "Senetas",
+      "country": "Australia",
+      "cluster": null,
+      "founded_year": 1999,
+      "origin": null,
+      "ownership_status": "Public",
+      "operating_status": "Active",
+      "total_funding": 8151584.76
+    },
+    {
+      "company": "BEIT",
+      "country": "Poland",
+      "cluster": null,
+      "founded_year": 2017,
+      "origin": null,
+      "ownership_status": "Private",
+      "operating_status": "Active",
+      "total_funding": 8108854.33
+    },
+    {
+      "company": "KWAN-TEK",
+      "country": "France",
+      "cluster": null,
+      "founded_year": 2020,
+      "origin": null,
+      "ownership_status": "Private",
+      "operating_status": "Active",
+      "total_funding": 8074810.0
+    },
+    {
+      "company": "Nomad Atomics",
+      "country": "Australia",
+      "cluster": null,
+      "founded_year": 2018,
+      "origin": "University spinout",
+      "ownership_status": "Private",
+      "operating_status": "Active",
+      "total_funding": 8020000.0
+    },
+    {
+      "company": "QuantumCore",
+      "country": "Canada",
+      "cluster": "Toronto–Waterloo Corridor",
+      "founded_year": 2025,
+      "origin": "University spinout",
+      "ownership_status": "Public",
+      "operating_status": "Active",
+      "total_funding": 7918159.97
+    },
+    {
+      "company": "Zyvex Labs",
+      "country": "US",
+      "cluster": "Dallas–Fort Worth Metroplex",
+      "founded_year": 2007,
+      "origin": null,
+      "ownership_status": "Private",
+      "operating_status": "Active",
+      "total_funding": 7781524.0
+    },
+    {
+      "company": "SeeDevice",
+      "country": "US",
+      "cluster": "Dallas–Fort Worth Metroplex",
+      "founded_year": 2017,
+      "origin": null,
+      "ownership_status": "Private",
+      "operating_status": "Active",
+      "total_funding": 7766390.0
+    },
+    {
+      "company": "NuCrypt",
+      "country": "US",
+      "cluster": "Chicagoland",
+      "founded_year": 2003,
+      "origin": "University spinout",
+      "ownership_status": "Private",
+      "operating_status": "Acquired – operating",
+      "total_funding": 7752153.0
+    },
+    {
+      "company": "QUDOOR / Qike Quantum (启科量子)",
+      "country": "China",
+      "cluster": "Hefei",
+      "founded_year": 2019,
+      "origin": null,
+      "ownership_status": "Private",
+      "operating_status": "Active",
+      "total_funding": 7750000.0
+    },
+    {
+      "company": "High Q Technologies",
+      "country": "Canada",
+      "cluster": "Toronto–Waterloo Corridor",
+      "founded_year": 2018,
+      "origin": "University spinout",
+      "ownership_status": "Private",
+      "operating_status": "Active",
+      "total_funding": 7636550.0
+    },
+    {
+      "company": "QuantumDiamonds",
+      "country": "Germany",
+      "cluster": "Munich Metropolitan Area",
+      "founded_year": 2022,
+      "origin": "University spinout",
+      "ownership_status": "Private",
+      "operating_status": "Active",
+      "total_funding": 7574700.0
+    },
+    {
+      "company": "Entropica Labs",
+      "country": "Singapore",
+      "cluster": "Singapore",
+      "founded_year": 2018,
+      "origin": "Research spinout",
+      "ownership_status": "Private",
+      "operating_status": "Active",
+      "total_funding": 7382140.0
+    },
+    {
+      "company": "Munich Quantum Instruments",
+      "country": "Germany",
+      "cluster": "Munich Metropolitan Area",
+      "founded_year": 2022,
+      "origin": "University spinout",
+      "ownership_status": "Private",
+      "operating_status": "Active",
+      "total_funding": 7366411.02
+    },
+    {
+      "company": "Adamas Nanotechnologies",
+      "country": "US",
+      "cluster": null,
+      "founded_year": 2010,
+      "origin": null,
+      "ownership_status": "Private",
+      "operating_status": "Active",
+      "total_funding": 7318187.0
+    },
+    {
+      "company": "NKT Photonics",
+      "country": "Denmark",
+      "cluster": "Greater Copenhagen",
+      "founded_year": 2009,
+      "origin": "Merger",
+      "ownership_status": "Private",
+      "operating_status": "Acquired – absorbed",
+      "total_funding": 7262363.34
+    },
+    {
+      "company": "Iceberg Quantum",
+      "country": "Australia",
+      "cluster": "Greater Sydney",
+      "founded_year": 2024,
+      "origin": "University spinout",
+      "ownership_status": "Private",
+      "operating_status": "Active",
+      "total_funding": 7260000.0
+    },
+    {
+      "company": "TreQ",
+      "country": "UK",
+      "cluster": "London Commuter Belt",
+      "founded_year": 2023,
+      "origin": null,
+      "ownership_status": "Private",
+      "operating_status": "Active",
+      "total_funding": 7255490.0
+    },
+    {
+      "company": "AdvR",
+      "country": "US",
+      "cluster": null,
+      "founded_year": 1999,
+      "origin": null,
+      "ownership_status": "Private",
+      "operating_status": "Acquired – operating",
+      "total_funding": 7029344.0
+    },
+    {
+      "company": "Duality Quantum Photonics",
+      "country": "UK",
+      "cluster": "Bristol–Bath Region",
+      "founded_year": 2020,
+      "origin": "University spinout",
+      "ownership_status": "Private",
+      "operating_status": "Active",
+      "total_funding": 6884325.86
+    },
+    {
+      "company": "PINC Technologies",
+      "country": "US",
+      "cluster": "Greater Los Angeles",
+      "founded_year": 2023,
+      "origin": "University spinout",
+      "ownership_status": "Private",
+      "operating_status": "Active",
+      "total_funding": 6800000.0
+    },
+    {
+      "company": "Single Quantum",
+      "country": "Netherlands",
+      "cluster": "Randstad Region",
+      "founded_year": 2012,
+      "origin": "University spinout",
+      "ownership_status": "Private",
+      "operating_status": "Active",
+      "total_funding": 6777072.67
+    },
+    {
+      "company": "Good Chemistry",
+      "country": "Canada",
+      "cluster": "Metro Vancouver",
+      "founded_year": 2021,
+      "origin": "Corporate spinout",
+      "ownership_status": "Private",
+      "operating_status": "Acquired – absorbed",
+      "total_funding": 6700000.0
+    },
+    {
+      "company": "Twinleaf",
+      "country": "US",
+      "cluster": null,
+      "founded_year": 2007,
+      "origin": "University spinout",
+      "ownership_status": "Private",
+      "operating_status": "Active",
+      "total_funding": 6681638.0
+    },
+    {
+      "company": "Quemix",
+      "country": "Japan",
+      "cluster": "Greater Tokyo",
+      "founded_year": 2019,
+      "origin": null,
+      "ownership_status": "Private",
+      "operating_status": "Active",
+      "total_funding": 6484600.0
+    },
+    {
+      "company": "Miraex",
+      "country": "Switzerland",
+      "cluster": "Greater Geneva Bern Area",
+      "founded_year": 2019,
+      "origin": "University spinout",
+      "ownership_status": "Private",
+      "operating_status": "Active",
+      "total_funding": 6478802.7
+    },
+    {
+      "company": "QSIMPLUS",
+      "country": "South Korea",
+      "cluster": "Seoul Metropolitan Area",
+      "founded_year": 2021,
+      "origin": "University spinout",
+      "ownership_status": "Private",
+      "operating_status": "Active",
+      "total_funding": 6400400.0
+    },
+    {
+      "company": "Quoherent",
+      "country": "US",
+      "cluster": null,
+      "founded_year": 2021,
+      "origin": null,
+      "ownership_status": "Private",
+      "operating_status": "Active",
+      "total_funding": 6348976.0
+    },
+    {
+      "company": "Kido Dynamics",
+      "country": "Switzerland",
+      "cluster": "Greater Geneva Bern Area",
+      "founded_year": 2018,
+      "origin": "University spinout",
+      "ownership_status": "Private",
+      "operating_status": "Active",
+      "total_funding": 6177645.0
+    },
+    {
+      "company": "Quranium",
+      "country": "Switzerland",
+      "cluster": "Greater Geneva Bern Area",
+      "founded_year": 2024,
+      "origin": null,
+      "ownership_status": "Private",
+      "operating_status": "Active",
+      "total_funding": 6150000.0
+    },
+    {
+      "company": "BQP",
+      "country": "US",
+      "cluster": null,
+      "founded_year": 2020,
+      "origin": null,
+      "ownership_status": "Private",
+      "operating_status": "Active",
+      "total_funding": 6125000.0
+    },
+    {
+      "company": "Zero Point Cryogenics",
+      "country": "Canada",
+      "cluster": null,
+      "founded_year": 2017,
+      "origin": "University spinout",
+      "ownership_status": "Private",
+      "operating_status": "Active",
+      "total_funding": 6114979.93
+    },
+    {
+      "company": "Cryomagnetics",
+      "country": "US",
+      "cluster": null,
+      "founded_year": 1983,
+      "origin": null,
+      "ownership_status": "Private",
+      "operating_status": "Active",
+      "total_funding": 6015549.0
+    },
+    {
+      "company": "Quantum Intelligence",
+      "country": "South Korea",
+      "cluster": "Seoul Metropolitan Area",
+      "founded_year": 2020,
+      "origin": null,
+      "ownership_status": "Private",
+      "operating_status": "Active",
+      "total_funding": 5984000.0
+    },
+    {
+      "company": "Arclight Quantum (弧光量子)",
+      "country": "China",
+      "cluster": "Beijing",
+      "founded_year": 2020,
+      "origin": "Research spinout",
+      "ownership_status": "Private",
+      "operating_status": "Active",
+      "total_funding": 5882000.0
+    },
+    {
+      "company": "Lake Shore Cryotronics",
+      "country": "US",
+      "cluster": null,
+      "founded_year": 1968,
+      "origin": null,
+      "ownership_status": "Private",
+      "operating_status": "Acquired – operating",
+      "total_funding": 5657230.0
+    },
+    {
+      "company": "evolutionQ",
+      "country": "Canada",
+      "cluster": "Toronto–Waterloo Corridor",
+      "founded_year": 2015,
+      "origin": "University spinout",
+      "ownership_status": "Private",
+      "operating_status": "Active",
+      "total_funding": 5649123.25
+    },
+    {
+      "company": "QC Design",
+      "country": "Germany",
+      "cluster": null,
+      "founded_year": 2021,
+      "origin": null,
+      "ownership_status": "Private",
+      "operating_status": "Active",
+      "total_funding": 5431287.75
+    },
+    {
+      "company": "QMill",
+      "country": "Finland",
+      "cluster": "Greater Helsinki",
+      "founded_year": 2024,
+      "origin": null,
+      "ownership_status": "Private",
+      "operating_status": "Active",
+      "total_funding": 5411000.0
+    },
+    {
+      "company": "LioniX International",
+      "country": "Netherlands",
+      "cluster": null,
+      "founded_year": 2016,
+      "origin": "University spinout",
+      "ownership_status": "Private",
+      "operating_status": "Acquired – operating",
+      "total_funding": 5410650.0
+    },
+    {
+      "company": "PQSecure",
+      "country": "US",
+      "cluster": null,
+      "founded_year": 2017,
+      "origin": "University spinout",
+      "ownership_status": "Private",
+      "operating_status": "Active",
+      "total_funding": 5398416.0
+    },
+    {
+      "company": "CreativeQuantum",
+      "country": "Germany",
+      "cluster": "Berlin Metropolitan Area",
+      "founded_year": 2010,
+      "origin": "University spinout",
+      "ownership_status": "Private",
+      "operating_status": "Active",
+      "total_funding": 5338511.5
+    },
+    {
+      "company": "Diffraqtion",
+      "country": "US",
+      "cluster": "Greater Boston",
+      "founded_year": 2024,
+      "origin": "University spinout",
+      "ownership_status": "Private",
+      "operating_status": "Active",
+      "total_funding": 5330600.0
+    },
+    {
+      "company": "Quanmatic",
+      "country": "Japan",
+      "cluster": "Greater Tokyo",
+      "founded_year": 2022,
+      "origin": "University spinout",
+      "ownership_status": "Private",
+      "operating_status": "Active",
+      "total_funding": 5286550.0
+    },
+    {
+      "company": "Menlo Systems",
+      "country": "Germany",
+      "cluster": "Munich Metropolitan Area",
+      "founded_year": 2001,
+      "origin": "Research spinout",
+      "ownership_status": "Private",
+      "operating_status": "Active",
+      "total_funding": 5210126.69
+    },
+    {
+      "company": "Xairos Systems",
+      "country": "US",
+      "cluster": "Denver–Boulder Region",
+      "founded_year": 2019,
+      "origin": null,
+      "ownership_status": "Private",
+      "operating_status": "Active",
+      "total_funding": 5079728.0
+    },
+    {
+      "company": "infinityQ",
+      "country": "Canada",
+      "cluster": "Greater Montreal",
+      "founded_year": 2020,
+      "origin": null,
+      "ownership_status": "Private",
+      "operating_status": "Active",
+      "total_funding": 5009970.0
+    },
+    {
+      "company": "01 Quantum",
+      "country": "Canada",
+      "cluster": "Toronto–Waterloo Corridor",
+      "founded_year": 1992,
+      "origin": null,
+      "ownership_status": "Public",
+      "operating_status": "Active",
+      "total_funding": 4936764.05
+    },
+    {
+      "company": "Sigma-i",
+      "country": "Japan",
+      "cluster": "Greater Tokyo",
+      "founded_year": 2019,
+      "origin": "University spinout",
+      "ownership_status": "Private",
+      "operating_status": "Active",
+      "total_funding": 4815706.0
+    },
+    {
+      "company": "TOPTICA Photonics",
+      "country": "Germany",
+      "cluster": "Munich Metropolitan Area",
+      "founded_year": 1998,
+      "origin": "Corporate spinout",
+      "ownership_status": "Private",
+      "operating_status": "Active",
+      "total_funding": 4759523.95
+    },
+    {
+      "company": "Quantagonia",
+      "country": "Germany",
+      "cluster": null,
+      "founded_year": 2021,
+      "origin": null,
+      "ownership_status": "Private",
+      "operating_status": "Acquired – absorbed",
+      "total_funding": 4753730.0
+    },
+    {
+      "company": "SBQuantum",
+      "country": "Canada",
+      "cluster": null,
+      "founded_year": 2017,
+      "origin": "University spinout",
+      "ownership_status": "Private",
+      "operating_status": "Active",
+      "total_funding": 4740900.0
+    },
+    {
+      "company": "Crypto4A Technologies",
+      "country": "Canada",
+      "cluster": null,
+      "founded_year": 2017,
+      "origin": null,
+      "ownership_status": "Private",
+      "operating_status": "Active",
+      "total_funding": 4671079.13
+    },
+    {
+      "company": "ZuriQ",
+      "country": "Switzerland",
+      "cluster": null,
+      "founded_year": 2024,
+      "origin": "University spinout",
+      "ownership_status": "Private",
+      "operating_status": "Active",
+      "total_funding": 4586600.0
+    },
+    {
+      "company": "Kuano",
+      "country": "UK",
+      "cluster": "Cambridge",
+      "founded_year": 2020,
+      "origin": "University spinout",
+      "ownership_status": "Private",
+      "operating_status": "Active",
+      "total_funding": 4571736.33
+    },
+    {
+      "company": "Photon Force",
+      "country": "UK",
+      "cluster": null,
+      "founded_year": 2015,
+      "origin": "University spinout",
+      "ownership_status": "Private",
+      "operating_status": "Active",
+      "total_funding": 4557124.57
+    },
+    {
+      "company": "PrediQT Technologies",
+      "country": "Belgium",
+      "cluster": null,
+      "founded_year": 2024,
+      "origin": null,
+      "ownership_status": "Private",
+      "operating_status": "Active",
+      "total_funding": 4522400.0
+    },
+    {
+      "company": "Stable Laser Systems",
+      "country": "US",
+      "cluster": "Denver–Boulder Region",
+      "founded_year": 2009,
+      "origin": "Research spinout",
+      "ownership_status": "Private",
+      "operating_status": "Active",
+      "total_funding": 4441645.0
+    },
+    {
+      "company": "QuantaMap",
+      "country": "Netherlands",
+      "cluster": "Randstad Region",
+      "founded_year": 2022,
+      "origin": "University spinout",
+      "ownership_status": "Private",
+      "operating_status": "Active",
+      "total_funding": 4439940.0
+    },
+    {
+      "company": "Quantistry",
+      "country": "Germany",
+      "cluster": "Berlin Metropolitan Area",
+      "founded_year": 2019,
+      "origin": "University spinout",
+      "ownership_status": "Private",
+      "operating_status": "Active",
+      "total_funding": 4429400.0
+    },
+    {
+      "company": "Bifrost Electronics",
+      "country": "US",
+      "cluster": "Denver–Boulder Region",
+      "founded_year": 2025,
+      "origin": null,
+      "ownership_status": "Private",
+      "operating_status": "Active",
+      "total_funding": 4306000.0
+    },
+    {
+      "company": "QUBITRIUM",
+      "country": "Turkey",
+      "cluster": null,
+      "founded_year": 2020,
+      "origin": "University spinout",
+      "ownership_status": "Private",
+      "operating_status": "Active",
+      "total_funding": 4275360.0
+    },
+    {
+      "company": "Menten AI",
+      "country": "US",
+      "cluster": "San Francisco Bay Area",
+      "founded_year": 2018,
+      "origin": null,
+      "ownership_status": "Private",
+      "operating_status": "Active",
+      "total_funding": 4150000.0
+    },
+    {
+      "company": "QTI",
+      "country": "Italy",
+      "cluster": null,
+      "founded_year": 2020,
+      "origin": "Research spinout",
+      "ownership_status": "Private",
+      "operating_status": "Active",
+      "total_funding": 4148702.63
+    },
+    {
+      "company": "QxBranch",
+      "country": "US",
+      "cluster": "Greater Washington",
+      "founded_year": 2014,
+      "origin": "Corporate spinout",
+      "ownership_status": "Private",
+      "operating_status": "Acquired – absorbed",
+      "total_funding": 4100000.0
+    },
+    {
+      "company": "FieldLine",
+      "country": "US",
+      "cluster": "Denver–Boulder Region",
+      "founded_year": 2017,
+      "origin": "University spinout",
+      "ownership_status": "Private",
+      "operating_status": "Active",
+      "total_funding": 4048350.0
+    },
+    {
+      "company": "Deteqt",
+      "country": "Australia",
+      "cluster": "Greater Sydney",
+      "founded_year": 2023,
+      "origin": "University spinout",
+      "ownership_status": "Private",
+      "operating_status": "Active",
+      "total_funding": 3995325.0
+    },
+    {
+      "company": "Peak Quantum",
+      "country": "Germany",
+      "cluster": "Munich Metropolitan Area",
+      "founded_year": 2024,
+      "origin": "Research spinout",
+      "ownership_status": "Private",
+      "operating_status": "Active",
+      "total_funding": 3863193.75
+    },
+    {
+      "company": "Moth Quantum",
+      "country": "UK",
+      "cluster": "London Commuter Belt",
+      "founded_year": 2022,
+      "origin": null,
+      "ownership_status": "Private",
+      "operating_status": "Active",
+      "total_funding": 3834300.0
+    },
+    {
+      "company": "ThinkQuantum",
+      "country": "Italy",
+      "cluster": null,
+      "founded_year": 2021,
+      "origin": "University spinout",
+      "ownership_status": "Private",
+      "operating_status": "Active",
+      "total_funding": 3671651.62
+    },
+    {
+      "company": "Crypta Labs",
+      "country": "UK",
+      "cluster": "London Commuter Belt",
+      "founded_year": 2014,
+      "origin": null,
+      "ownership_status": "Private",
+      "operating_status": "Active",
+      "total_funding": 3659513.46
+    },
+    {
+      "company": "Photon Queue",
+      "country": "US",
+      "cluster": null,
+      "founded_year": 2024,
+      "origin": "University spinout",
+      "ownership_status": "Private",
+      "operating_status": "Active",
+      "total_funding": 3650000.0
+    },
+    {
+      "company": "DeepLASE",
+      "country": "India",
+      "cluster": null,
+      "founded_year": 2024,
+      "origin": "University spinout",
+      "ownership_status": "Private",
+      "operating_status": "Active",
+      "total_funding": 3634300.0
+    },
+    {
+      "company": "Craft Prospect",
+      "country": "UK",
+      "cluster": "Greater Glasgow",
+      "founded_year": 2017,
+      "origin": null,
+      "ownership_status": "Private",
+      "operating_status": "Active",
+      "total_funding": 3569070.59
+    },
+    {
+      "company": "QFX / Quantum Fabrix",
+      "country": "UK",
+      "cluster": "Oxford",
+      "founded_year": 2024,
+      "origin": "University spinout",
+      "ownership_status": "Private",
+      "operating_status": "Active",
+      "total_funding": 3568566.37
+    },
+    {
+      "company": "Aqarios",
+      "country": "Germany",
+      "cluster": "Munich Metropolitan Area",
+      "founded_year": 2021,
+      "origin": "University spinout",
+      "ownership_status": "Private",
+      "operating_status": "Active",
+      "total_funding": 3493660.02
+    },
+    {
+      "company": "Qubic",
+      "country": "Canada",
+      "cluster": null,
+      "founded_year": 2019,
+      "origin": "University spinout",
+      "ownership_status": "Private",
+      "operating_status": "Active",
+      "total_funding": 3407390.33
+    },
+    {
+      "company": "Quantcore",
+      "country": "UK",
+      "cluster": "Greater Glasgow",
+      "founded_year": 2025,
+      "origin": "University spinout",
+      "ownership_status": "Private",
+      "operating_status": "Active",
+      "total_funding": 3369250.0
+    },
+    {
+      "company": "HyperSphere Technologies",
+      "country": "US",
+      "cluster": null,
+      "founded_year": 2019,
+      "origin": null,
+      "ownership_status": "Private",
+      "operating_status": "Active",
+      "total_funding": 3319995.0
+    },
+    {
+      "company": "Muquans",
+      "country": "France",
+      "cluster": null,
+      "founded_year": 2011,
+      "origin": "Research spinout",
+      "ownership_status": "Private",
+      "operating_status": "Acquired – operating",
+      "total_funding": 3308889.52
+    },
+    {
+      "company": "Fermioniq",
+      "country": "Netherlands",
+      "cluster": "Randstad Region",
+      "founded_year": 2021,
+      "origin": "Research spinout",
+      "ownership_status": "Private",
+      "operating_status": "Active",
+      "total_funding": 3303381.36
+    },
+    {
+      "company": "Silent Waves",
+      "country": "France",
+      "cluster": "Grenoble",
+      "founded_year": 2022,
+      "origin": "Research spinout",
+      "ownership_status": "Private",
+      "operating_status": "Active",
+      "total_funding": 3176341.12
+    },
+    {
+      "company": "XT Quantech (循态量子)",
+      "country": "China",
+      "cluster": "Shanghai",
+      "founded_year": 2017,
+      "origin": "University spinout",
+      "ownership_status": "Private",
+      "operating_status": "Active",
+      "total_funding": 3172500.0
+    },
+    {
+      "company": "High Precision Devices",
+      "country": "US",
+      "cluster": "Denver–Boulder Region",
+      "founded_year": 1993,
+      "origin": null,
+      "ownership_status": "Private",
+      "operating_status": "Acquired – absorbed",
+      "total_funding": 3134495.0
+    },
+    {
+      "company": "Hanhai Quantum (瀚海量子)",
+      "country": "China",
+      "cluster": "Hefei",
+      "founded_year": 2021,
+      "origin": "University spinout",
+      "ownership_status": "Private",
+      "operating_status": "Active",
+      "total_funding": 3083600.0
+    },
+    {
+      "company": "EuQlid",
+      "country": "US",
+      "cluster": "Greater Washington",
+      "founded_year": 2022,
+      "origin": "Corporate spinout",
+      "ownership_status": "Private",
+      "operating_status": "Active",
+      "total_funding": 3000000.0
+    },
+    {
+      "company": "Nullspace",
+      "country": "US",
+      "cluster": null,
+      "founded_year": 2023,
+      "origin": "Corporate spinout",
+      "ownership_status": "Private",
+      "operating_status": "Active",
+      "total_funding": 3000000.0
+    },
+    {
+      "company": "Squareroot8 Technologies",
+      "country": "Singapore",
+      "cluster": "Singapore",
+      "founded_year": 2020,
+      "origin": "University spinout",
+      "ownership_status": "Private",
+      "operating_status": "Active",
+      "total_funding": 3000000.0
+    },
+    {
+      "company": "KEEQuant",
+      "country": "Germany",
+      "cluster": null,
+      "founded_year": 2020,
+      "origin": "Research spinout",
+      "ownership_status": "Private",
+      "operating_status": "Active",
+      "total_funding": 2994554.67
+    },
+    {
+      "company": "Jiuzhang Quantum Technology (九章量子)",
+      "country": "China",
+      "cluster": null,
+      "founded_year": 2022,
+      "origin": "University spinout",
+      "ownership_status": "Private",
+      "operating_status": "Active",
+      "total_funding": 2976000.0
+    },
+    {
+      "company": "Zhongwei Daxin Technology (中微达信)",
+      "country": "China",
+      "cluster": null,
+      "founded_year": 2017,
+      "origin": null,
+      "ownership_status": "Private",
+      "operating_status": "Active",
+      "total_funding": 2976000.0
+    },
+    {
+      "company": "Materials Nexus / MatNex",
+      "country": "UK",
+      "cluster": "London Commuter Belt",
+      "founded_year": 2020,
+      "origin": "University spinout",
+      "ownership_status": "Private",
+      "operating_status": "Active",
+      "total_funding": 2958580.74
+    },
+    {
+      "company": "CUbIQ Technologies",
+      "country": "Netherlands",
+      "cluster": null,
+      "founded_year": 2021,
+      "origin": "University spinout",
+      "ownership_status": "Private",
+      "operating_status": "Active",
+      "total_funding": 2938853.38
+    },
+    {
+      "company": "Planckian",
+      "country": "Italy",
+      "cluster": null,
+      "founded_year": 2023,
+      "origin": "University spinout",
+      "ownership_status": "Private",
+      "operating_status": "Active",
+      "total_funding": 2921670.0
+    },
+    {
+      "company": "Octave Photonics",
+      "country": "US",
+      "cluster": "Denver–Boulder Region",
+      "founded_year": 2019,
+      "origin": "Research spinout",
+      "ownership_status": "Private",
+      "operating_status": "Active",
+      "total_funding": 2882312.0
+    },
+    {
+      "company": "Siloton",
+      "country": "UK",
+      "cluster": "Bristol–Bath Region",
+      "founded_year": 2020,
+      "origin": "University spinout",
+      "ownership_status": "Private",
+      "operating_status": "Active",
+      "total_funding": 2845116.7
+    },
+    {
+      "company": "Anaqor",
+      "country": "Germany",
+      "cluster": "Berlin Metropolitan Area",
+      "founded_year": 2007,
+      "origin": null,
+      "ownership_status": "Private",
+      "operating_status": "Acquired – absorbed",
+      "total_funding": 2831843.04
+    },
+    {
+      "company": "Delft Networks",
+      "country": "Netherlands",
+      "cluster": "Randstad Region",
+      "founded_year": 2024,
+      "origin": "Research spinout",
+      "ownership_status": "Private",
+      "operating_status": "Active",
+      "total_funding": 2826498.87
+    },
+    {
+      "company": "Sacher Lasertechnik",
+      "country": "Germany",
+      "cluster": null,
+      "founded_year": 1994,
+      "origin": "University spinout",
+      "ownership_status": "Private",
+      "operating_status": "Active",
+      "total_funding": 2820228.2
+    },
+    {
+      "company": "Cavero Quantum",
+      "country": "UK",
+      "cluster": null,
+      "founded_year": 2020,
+      "origin": "University spinout",
+      "ownership_status": "Private",
+      "operating_status": "Active",
+      "total_funding": 2811820.0
+    },
+    {
+      "company": "Generative Tensorial Networks / GTN",
+      "country": "UK",
+      "cluster": "London Commuter Belt",
+      "founded_year": 2017,
+      "origin": null,
+      "ownership_status": "Private",
+      "operating_status": "Defunct",
+      "total_funding": 2798460.0
+    },
+    {
+      "company": "Buchou Quantum (不筹量子)",
+      "country": "China",
+      "cluster": "Shanghai",
+      "founded_year": 2025,
+      "origin": "University spinout",
+      "ownership_status": "Private",
+      "operating_status": "Active",
+      "total_funding": 2782000.0
+    },
+    {
+      "company": "SuperQ Quantum Computing",
+      "country": "Canada",
+      "cluster": null,
+      "founded_year": 2021,
+      "origin": null,
+      "ownership_status": "Public",
+      "operating_status": "Active",
+      "total_funding": 2775269.28
+    },
+    {
+      "company": "Qruise",
+      "country": "Germany",
+      "cluster": null,
+      "founded_year": 2021,
+      "origin": "Research spinout",
+      "ownership_status": "Private",
+      "operating_status": "Active",
+      "total_funding": 2697646.7
+    },
+    {
+      "company": "Super.tech",
+      "country": "US",
+      "cluster": "Chicagoland",
+      "founded_year": 2020,
+      "origin": "University spinout",
+      "ownership_status": "Private",
+      "operating_status": "Acquired – absorbed",
+      "total_funding": 2655728.0
+    },
+    {
+      "company": "Synergy Quantum",
+      "country": "India",
+      "cluster": null,
+      "founded_year": 2018,
+      "origin": null,
+      "ownership_status": "Private",
+      "operating_status": "Active",
+      "total_funding": 2555000.0
+    },
+    {
+      "company": "Arctic Instruments",
+      "country": "Finland",
+      "cluster": "Greater Helsinki",
+      "founded_year": 2024,
+      "origin": "Research spinout",
+      "ownership_status": "Private",
+      "operating_status": "Active",
+      "total_funding": 2543170.0
+    },
+    {
+      "company": "HEQA Security",
+      "country": "Israel",
+      "cluster": null,
+      "founded_year": 2018,
+      "origin": "University spinout",
+      "ownership_status": "Private",
+      "operating_status": "Active",
+      "total_funding": 2510000.0
+    },
+    {
+      "company": "pQCee",
+      "country": "Singapore",
+      "cluster": "Singapore",
+      "founded_year": 2022,
+      "origin": null,
+      "ownership_status": "Private",
+      "operating_status": "Active",
+      "total_funding": 2500000.0
+    },
+    {
+      "company": "Quantum Opus",
+      "country": "US",
+      "cluster": null,
+      "founded_year": 2013,
+      "origin": null,
+      "ownership_status": "Private",
+      "operating_status": "Active",
+      "total_funding": 2476170.0
+    },
+    {
+      "company": "Icarus Quantum",
+      "country": "US",
+      "cluster": "Denver–Boulder Region",
+      "founded_year": 2022,
+      "origin": "Research spinout",
+      "ownership_status": "Private",
+      "operating_status": "Active",
+      "total_funding": 2429970.0
+    },
+    {
+      "company": "PolarisQB",
+      "country": "US",
+      "cluster": null,
+      "founded_year": 2020,
+      "origin": null,
+      "ownership_status": "Private",
+      "operating_status": "Active",
+      "total_funding": 2350000.0
+    },
+    {
+      "company": "Alea Quantum Technologies",
+      "country": "Denmark",
+      "cluster": "Greater Copenhagen",
+      "founded_year": 2022,
+      "origin": "University spinout",
+      "ownership_status": "Private",
+      "operating_status": "Active",
+      "total_funding": 2317934.12
+    },
+    {
+      "company": "SeQure Quantum",
+      "country": "Chile",
+      "cluster": null,
+      "founded_year": 2019,
+      "origin": "University spinout",
+      "ownership_status": "Private",
+      "operating_status": "Active",
+      "total_funding": 2314560.81
+    },
+    {
+      "company": "QEYnet",
+      "country": "Canada",
+      "cluster": "Toronto–Waterloo Corridor",
+      "founded_year": 2016,
+      "origin": "University spinout",
+      "ownership_status": "Private",
+      "operating_status": "Active",
+      "total_funding": 2262677.25
+    },
+    {
+      "company": "QPerfect",
+      "country": "France",
+      "cluster": null,
+      "founded_year": 2023,
+      "origin": "Research spinout",
+      "ownership_status": "Private",
+      "operating_status": "Acquired – operating",
+      "total_funding": 2261200.0
+    },
+    {
+      "company": "SiC Systems",
+      "country": "US",
+      "cluster": null,
+      "founded_year": 2025,
+      "origin": "University spinout",
+      "ownership_status": "Private",
+      "operating_status": "Active",
+      "total_funding": 2261200.0
+    },
+    {
+      "company": "Diasense",
+      "country": "Denmark",
+      "cluster": "Greater Copenhagen",
+      "founded_year": 2024,
+      "origin": "University spinout",
+      "ownership_status": "Private",
+      "operating_status": "Active",
+      "total_funding": 2250730.0
+    },
+    {
+      "company": "Photon Spot",
+      "country": "US",
+      "cluster": "Greater Los Angeles",
+      "founded_year": 2009,
+      "origin": "University spinout",
+      "ownership_status": "Private",
+      "operating_status": "Active",
+      "total_funding": 2233229.0
+    },
+    {
+      "company": "Nicslab",
+      "country": "US",
+      "cluster": "San Francisco Bay Area",
+      "founded_year": 2017,
+      "origin": null,
+      "ownership_status": "Private",
+      "operating_status": "Active",
+      "total_funding": 2220000.0
+    },
+    {
+      "company": "QuantumNova",
+      "country": "Portugal",
+      "cluster": null,
+      "founded_year": 2023,
+      "origin": null,
+      "ownership_status": "Private",
+      "operating_status": "Active",
+      "total_funding": 2164200.0
+    },
+    {
+      "company": "Error Corp.",
+      "country": "US",
+      "cluster": "Greater Washington",
+      "founded_year": 2020,
+      "origin": null,
+      "ownership_status": "Private",
+      "operating_status": "Active",
+      "total_funding": 2157336.0
+    },
+    {
+      "company": "American Magnetics",
+      "country": "US",
+      "cluster": null,
+      "founded_year": 1968,
+      "origin": "Research spinout",
+      "ownership_status": "Private",
+      "operating_status": "Active",
+      "total_funding": 2156869.0
+    },
+    {
+      "company": "Xatoms",
+      "country": "Canada",
+      "cluster": "Toronto–Waterloo Corridor",
+      "founded_year": 2023,
+      "origin": "University spinout",
+      "ownership_status": "Private",
+      "operating_status": "Active",
+      "total_funding": 2147400.0
+    },
+    {
+      "company": "Quantum Diamond Technologies / QDTI",
+      "country": "US",
+      "cluster": "Greater Boston",
+      "founded_year": 2015,
+      "origin": "University spinout",
+      "ownership_status": "Private",
+      "operating_status": "Active",
+      "total_funding": 2130566.0
+    },
+    {
+      "company": "Low Noise Factory",
+      "country": "Sweden",
+      "cluster": null,
+      "founded_year": 2005,
+      "origin": "University spinout",
+      "ownership_status": "Private",
+      "operating_status": "Active",
+      "total_funding": 2121190.87
+    },
+    {
+      "company": "VeriQloud",
+      "country": "France",
+      "cluster": "Greater Paris",
+      "founded_year": 2017,
+      "origin": "Research spinout",
+      "ownership_status": "Private",
+      "operating_status": "Active",
+      "total_funding": 2112900.0
+    },
+    {
+      "company": "Rahko",
+      "country": "UK",
+      "cluster": "London Commuter Belt",
+      "founded_year": 2018,
+      "origin": "University spinout",
+      "ownership_status": "Private",
+      "operating_status": "Acquired – operating",
+      "total_funding": 2099052.14
+    },
+    {
+      "company": "American Binary",
+      "country": "US",
+      "cluster": null,
+      "founded_year": 2019,
+      "origin": null,
+      "ownership_status": "Private",
+      "operating_status": "Active",
+      "total_funding": 2095000.0
+    },
+    {
+      "company": "Analog Quantum Circuits",
+      "country": "Australia",
+      "cluster": null,
+      "founded_year": 2021,
+      "origin": "Research spinout",
+      "ownership_status": "Private",
+      "operating_status": "Active",
+      "total_funding": 2084100.0
+    },
+    {
+      "company": "JiJ",
+      "country": "Japan",
+      "cluster": "Greater Tokyo",
+      "founded_year": 2018,
+      "origin": "University spinout",
+      "ownership_status": "Private",
+      "operating_status": "Active",
+      "total_funding": 2054280.0
+    },
+    {
+      "company": "Chelpis Quantum",
+      "country": "Taiwan",
+      "cluster": null,
+      "founded_year": 2017,
+      "origin": "University spinout",
+      "ownership_status": "Private",
+      "operating_status": "Active",
+      "total_funding": 2040000.0
+    },
+    {
+      "company": "nextnano",
+      "country": "Germany",
+      "cluster": "Munich Metropolitan Area",
+      "founded_year": 2012,
+      "origin": "University spinout",
+      "ownership_status": "Private",
+      "operating_status": "Active",
+      "total_funding": 2016889.4
+    },
+    {
+      "company": "Qindom",
+      "country": "Canada",
+      "cluster": "Toronto–Waterloo Corridor",
+      "founded_year": 2018,
+      "origin": null,
+      "ownership_status": "Private",
+      "operating_status": "Defunct",
+      "total_funding": 2000000.0
+    },
+    {
+      "company": "Quanfluence",
+      "country": "India",
+      "cluster": "Bangalore",
+      "founded_year": 2021,
+      "origin": "University spinout",
+      "ownership_status": "Private",
+      "operating_status": "Active",
+      "total_funding": 2000000.0
+    },
+    {
+      "company": "FluoretiQ",
+      "country": "UK",
+      "cluster": "Bristol–Bath Region",
+      "founded_year": 2017,
+      "origin": "University spinout",
+      "ownership_status": "Private",
+      "operating_status": "Active",
+      "total_funding": 1896280.02
+    },
+    {
+      "company": "Xiphera",
+      "country": "Finland",
+      "cluster": "Greater Helsinki",
+      "founded_year": 2017,
+      "origin": null,
+      "ownership_status": "Private",
+      "operating_status": "Active",
+      "total_funding": 1830742.38
+    },
+    {
+      "company": "Singular Photonics",
+      "country": "UK",
+      "cluster": null,
+      "founded_year": 2024,
+      "origin": "University spinout",
+      "ownership_status": "Private",
+      "operating_status": "Active",
+      "total_funding": 1830240.0
+    },
+    {
+      "company": "Sixscape Communications",
+      "country": "Singapore",
+      "cluster": "Singapore",
+      "founded_year": 2016,
+      "origin": null,
+      "ownership_status": "Private",
+      "operating_status": "Active",
+      "total_funding": 1811500.0
+    },
+    {
+      "company": "blueqat",
+      "country": "Japan",
+      "cluster": "Greater Tokyo",
+      "founded_year": 2008,
+      "origin": null,
+      "ownership_status": "Private",
+      "operating_status": "Defunct",
+      "total_funding": 1810000.0
+    },
+    {
+      "company": "BraneCell",
+      "country": "US",
+      "cluster": "Greater Boston",
+      "founded_year": 2015,
+      "origin": null,
+      "ownership_status": "Private",
+      "operating_status": "Active",
+      "total_funding": 1800000.0
+    },
+    {
+      "company": "QC82",
+      "country": "US",
+      "cluster": "Greater Washington",
+      "founded_year": 2020,
+      "origin": "University spinout",
+      "ownership_status": "Private",
+      "operating_status": "Active",
+      "total_funding": 1700000.0
+    },
+    {
+      "company": "Commutator Studios",
+      "country": "Germany",
+      "cluster": null,
+      "founded_year": 2023,
+      "origin": null,
+      "ownership_status": "Private",
+      "operating_status": "Active",
+      "total_funding": 1695900.0
+    },
+    {
+      "company": "Cryomech",
+      "country": "US",
+      "cluster": null,
+      "founded_year": 1963,
+      "origin": null,
+      "ownership_status": "Private",
+      "operating_status": "Acquired – absorbed",
+      "total_funding": 1690046.0
+    },
+    {
+      "company": "Bleximo",
+      "country": "US",
+      "cluster": "San Francisco Bay Area",
+      "founded_year": 2017,
+      "origin": null,
+      "ownership_status": "Private",
+      "operating_status": "Unclear",
+      "total_funding": 1674971.0
+    },
+    {
+      "company": "Diatope",
+      "country": "Germany",
+      "cluster": null,
+      "founded_year": 2021,
+      "origin": "University spinout",
+      "ownership_status": "Private",
+      "operating_status": "Active",
+      "total_funding": 1660014.13
+    },
+    {
+      "company": "QuAIL Technologies",
+      "country": "US",
+      "cluster": null,
+      "founded_year": 2022,
+      "origin": null,
+      "ownership_status": "Private",
+      "operating_status": "Active",
+      "total_funding": 1600000.0
+    },
+    {
+      "company": "GoodLabs Studio",
+      "country": "Canada",
+      "cluster": "Toronto–Waterloo Corridor",
+      "founded_year": 2019,
+      "origin": null,
+      "ownership_status": "Private",
+      "operating_status": "Active",
+      "total_funding": 1595241.44
+    },
+    {
+      "company": "VLC Photonics",
+      "country": "Spain",
+      "cluster": "Valencia Metropolitan Area",
+      "founded_year": 2011,
+      "origin": "University spinout",
+      "ownership_status": "Private",
+      "operating_status": "Acquired – operating",
+      "total_funding": 1553926.88
+    },
+    {
+      "company": "Advanced Research Systems",
+      "country": "US",
+      "cluster": null,
+      "founded_year": 1986,
+      "origin": null,
+      "ownership_status": "Private",
+      "operating_status": "Active",
+      "total_funding": 1549496.0
+    },
+    {
+      "company": "VeriQuantix",
+      "country": "Australia",
+      "cluster": null,
+      "founded_year": 2024,
+      "origin": "University spinout",
+      "ownership_status": "Private",
+      "operating_status": "Active",
+      "total_funding": 1548240.0
+    },
+    {
+      "company": "FrostByte",
+      "country": "Netherlands",
+      "cluster": "Randstad Region",
+      "founded_year": 2025,
+      "origin": "Research spinout",
+      "ownership_status": "Private",
+      "operating_status": "Active",
+      "total_funding": 1520350.0
+    },
+    {
+      "company": "AROBS Polska",
+      "country": "Poland",
+      "cluster": null,
+      "founded_year": 2016,
+      "origin": null,
+      "ownership_status": "Private",
+      "operating_status": "Acquired – operating",
+      "total_funding": 1501002.45
+    },
+    {
+      "company": "QbitLogic",
+      "country": "US",
+      "cluster": null,
+      "founded_year": 2014,
+      "origin": null,
+      "ownership_status": "Private",
+      "operating_status": "Defunct",
+      "total_funding": 1500000.0
+    },
+    {
+      "company": "The Quantum Insider",
+      "country": "Canada",
+      "cluster": "Toronto–Waterloo Corridor",
+      "founded_year": 2018,
+      "origin": null,
+      "ownership_status": "Private",
+      "operating_status": "Active",
+      "total_funding": 1500000.0
+    },
+    {
+      "company": "QubitSolve",
+      "country": "US",
+      "cluster": null,
+      "founded_year": 2022,
+      "origin": null,
+      "ownership_status": "Private",
+      "operating_status": "Active",
+      "total_funding": 1472002.0
+    },
+    {
+      "company": "AUREA Technology",
+      "country": "France",
+      "cluster": null,
+      "founded_year": 2010,
+      "origin": "Research spinout",
+      "ownership_status": "Private",
+      "operating_status": "Active",
+      "total_funding": 1438180.45
+    },
+    {
+      "company": "Rotonium",
+      "country": "Italy",
+      "cluster": null,
+      "founded_year": 2022,
+      "origin": null,
+      "ownership_status": "Private",
+      "operating_status": "Active",
+      "total_funding": 1429260.0
+    },
+    {
+      "company": "Nano-Meta Technologies",
+      "country": "US",
+      "cluster": null,
+      "founded_year": 2010,
+      "origin": "University spinout",
+      "ownership_status": "Private",
+      "operating_status": "Unclear",
+      "total_funding": 1401715.0
+    },
+    {
+      "company": "FirstQFM",
+      "country": "Sweden",
+      "cluster": null,
+      "founded_year": 2025,
+      "origin": null,
+      "ownership_status": "Private",
+      "operating_status": "Active",
+      "total_funding": 1356720.0
+    },
+    {
+      "company": "EdenCode",
+      "country": "US",
+      "cluster": "San Francisco Bay Area",
+      "founded_year": 2025,
+      "origin": null,
+      "ownership_status": "Private",
+      "operating_status": "Active",
+      "total_funding": 1300000.0
+    },
+    {
+      "company": "qutools",
+      "country": "Germany",
+      "cluster": "Munich Metropolitan Area",
+      "founded_year": 2005,
+      "origin": "University spinout",
+      "ownership_status": "Private",
+      "operating_status": "Active",
+      "total_funding": 1275949.36
+    },
+    {
+      "company": "qtlabs",
+      "country": "Austria",
+      "cluster": null,
+      "founded_year": 2017,
+      "origin": "Research spinout",
+      "ownership_status": "Private",
+      "operating_status": "Active",
+      "total_funding": 1245429.47
+    },
+    {
+      "company": "Quantum Mads",
+      "country": "Spain",
+      "cluster": null,
+      "founded_year": 2020,
+      "origin": "Corporate spinout",
+      "ownership_status": "Private",
+      "operating_status": "Active",
+      "total_funding": 1219127.85
+    },
+    {
+      "company": "Keypair",
+      "country": "South Korea",
+      "cluster": "Seoul Metropolitan Area",
+      "founded_year": 2011,
+      "origin": null,
+      "ownership_status": "Private",
+      "operating_status": "Active",
+      "total_funding": 1194551.78
+    },
+    {
+      "company": "QMatter",
+      "country": "UK",
+      "cluster": "London Commuter Belt",
+      "founded_year": 2024,
+      "origin": "University spinout",
+      "ownership_status": "Private",
+      "operating_status": "Active",
+      "total_funding": 1182889.0
+    },
+    {
+      "company": "ParityQC",
+      "country": "Austria",
+      "cluster": null,
+      "founded_year": 2020,
+      "origin": "Research spinout",
+      "ownership_status": "Private",
+      "operating_status": "Active",
+      "total_funding": 1173760.93
+    },
+    {
+      "company": "Foqus Technologies",
+      "country": "Canada",
+      "cluster": "Toronto–Waterloo Corridor",
+      "founded_year": 2021,
+      "origin": "University spinout",
+      "ownership_status": "Private",
+      "operating_status": "Active",
+      "total_funding": 1165186.07
+    },
+    {
+      "company": "Cobolt",
+      "country": "Sweden",
+      "cluster": null,
+      "founded_year": 2000,
+      "origin": "University spinout",
+      "ownership_status": "Private",
+      "operating_status": "Acquired – absorbed",
+      "total_funding": 1162120.68
+    },
+    {
+      "company": "g2-Zero",
+      "country": "Spain",
+      "cluster": null,
+      "founded_year": 2020,
+      "origin": "Research spinout",
+      "ownership_status": "Private",
+      "operating_status": "Active",
+      "total_funding": 1155219.31
+    },
+    {
+      "company": "QSENSATO",
+      "country": "Italy",
+      "cluster": null,
+      "founded_year": 2024,
+      "origin": "University spinout",
+      "ownership_status": "Private",
+      "operating_status": "Active",
+      "total_funding": 1150300.0
+    },
+    {
+      "company": "Montana Instruments",
+      "country": "US",
+      "cluster": null,
+      "founded_year": 2010,
+      "origin": null,
+      "ownership_status": "Private",
+      "operating_status": "Acquired – operating",
+      "total_funding": 1144800.0
+    },
+    {
+      "company": "SaxonQ",
+      "country": "Germany",
+      "cluster": null,
+      "founded_year": 2021,
+      "origin": "University spinout",
+      "ownership_status": "Private",
+      "operating_status": "Active",
+      "total_funding": 1130600.0
+    },
+    {
+      "company": "QodeX Quantum",
+      "country": "US",
+      "cluster": "Chicagoland",
+      "founded_year": 2025,
+      "origin": null,
+      "ownership_status": "Private",
+      "operating_status": "Active",
+      "total_funding": 1125000.0
+    },
+    {
+      "company": "softwareQ",
+      "country": "Canada",
+      "cluster": "Toronto–Waterloo Corridor",
+      "founded_year": 2017,
+      "origin": "University spinout",
+      "ownership_status": "Private",
+      "operating_status": "Active",
+      "total_funding": 1030916.49
+    },
+    {
+      "company": "FinQbit",
+      "country": "Poland",
+      "cluster": null,
+      "founded_year": 2023,
+      "origin": null,
+      "ownership_status": "Private",
+      "operating_status": "Active",
+      "total_funding": 1030713.41
+    },
+    {
+      "company": "Quantum Benchmark",
+      "country": "Canada",
+      "cluster": "Toronto–Waterloo Corridor",
+      "founded_year": 2017,
+      "origin": "University spinout",
+      "ownership_status": "Private",
+      "operating_status": "Acquired – absorbed",
+      "total_funding": 1000000.0
+    },
+    {
+      "company": "Quantum Light",
+      "country": "US",
+      "cluster": "San Francisco Bay Area",
+      "founded_year": 2023,
+      "origin": null,
+      "ownership_status": "Private",
+      "operating_status": "Active",
+      "total_funding": 1000000.0
+    },
+    {
+      "company": "Quantum Resistant Cryptography / QRC",
+      "country": "Switzerland",
+      "cluster": "Greater Geneva Bern Area",
+      "founded_year": 2019,
+      "origin": "Corporate spinout",
+      "ownership_status": "Private",
+      "operating_status": "Active",
+      "total_funding": 1000000.0
+    },
+    {
+      "company": "Rhonexum",
+      "country": "Switzerland",
+      "cluster": "Greater Geneva Bern Area",
+      "founded_year": 2025,
+      "origin": "University spinout",
+      "ownership_status": "Private",
+      "operating_status": "Active",
+      "total_funding": 1000000.0
+    },
+    {
+      "company": "Aluvia Photonics",
+      "country": "Netherlands",
+      "cluster": null,
+      "founded_year": 2022,
+      "origin": "University spinout",
+      "ownership_status": "Private",
+      "operating_status": "Active",
+      "total_funding": 944390.68
+    },
+    {
+      "company": "Quantum Research Sciences",
+      "country": "US",
+      "cluster": null,
+      "founded_year": 2022,
+      "origin": null,
+      "ownership_status": "Private",
+      "operating_status": "Active",
+      "total_funding": 911803.0
+    },
+    {
+      "company": "ConScience",
+      "country": "Sweden",
+      "cluster": null,
+      "founded_year": 2012,
+      "origin": null,
+      "ownership_status": "Private",
+      "operating_status": "Active",
+      "total_funding": 872194.23
+    },
+    {
+      "company": "Phantom Photonics",
+      "country": "Canada",
+      "cluster": "Toronto–Waterloo Corridor",
+      "founded_year": 2023,
+      "origin": "University spinout",
+      "ownership_status": "Private",
+      "operating_status": "Active",
+      "total_funding": 862924.45
+    },
+    {
+      "company": "Quantum Technology Foundation",
+      "country": "Thailand",
+      "cluster": null,
+      "founded_year": 2020,
+      "origin": null,
+      "ownership_status": "Private",
+      "operating_status": "Active",
+      "total_funding": 858000.0
+    },
+    {
+      "company": "Covesion",
+      "country": "UK",
+      "cluster": null,
+      "founded_year": 2009,
+      "origin": "University spinout",
+      "ownership_status": "Private",
+      "operating_status": "Active",
+      "total_funding": 831446.36
+    },
+    {
+      "company": "Light Trace Photonics",
+      "country": "UK",
+      "cluster": "Bristol–Bath Region",
+      "founded_year": 2021,
+      "origin": "University spinout",
+      "ownership_status": "Private",
+      "operating_status": "Active",
+      "total_funding": 797945.65
+    },
+    {
+      "company": "Qoro Quantum",
+      "country": "UK",
+      "cluster": "London Commuter Belt",
+      "founded_year": 2024,
+      "origin": null,
+      "ownership_status": "Private",
+      "operating_status": "Active",
+      "total_funding": 750000.0
+    },
+    {
+      "company": "levelQuantum",
+      "country": "Italy",
+      "cluster": null,
+      "founded_year": 2022,
+      "origin": null,
+      "ownership_status": "Private",
+      "operating_status": "Active",
+      "total_funding": 743472.5
+    },
+    {
+      "company": "PicoQuant",
+      "country": "Germany",
+      "cluster": "Berlin Metropolitan Area",
+      "founded_year": 1996,
+      "origin": null,
+      "ownership_status": "Private",
+      "operating_status": "Active",
+      "total_funding": 722791.86
+    },
+    {
+      "company": "JoS QUANTUM",
+      "country": "Germany",
+      "cluster": null,
+      "founded_year": 2018,
+      "origin": null,
+      "ownership_status": "Private",
+      "operating_status": "Active",
+      "total_funding": 714322.49
+    },
+    {
+      "company": "Arkeon",
+      "country": "Sweden",
+      "cluster": null,
+      "founded_year": 2025,
+      "origin": "Research spinout",
+      "ownership_status": "Private",
+      "operating_status": "Active",
+      "total_funding": 703300.0
+    },
+    {
+      "company": "ResQuant",
+      "country": "Poland",
+      "cluster": null,
+      "founded_year": 2020,
+      "origin": null,
+      "ownership_status": "Private",
+      "operating_status": "Active",
+      "total_funding": 655015.0
+    },
+    {
+      "company": "SavantX",
+      "country": "US",
+      "cluster": null,
+      "founded_year": 2015,
+      "origin": null,
+      "ownership_status": "Private",
+      "operating_status": "Active",
+      "total_funding": 652930.0
+    },
+    {
+      "company": "Quantum Catalyzer / Q-Cat",
+      "country": "US",
+      "cluster": "Greater Washington",
+      "founded_year": 2020,
+      "origin": null,
+      "ownership_status": "Private",
+      "operating_status": "Active",
+      "total_funding": 649942.0
+    },
+    {
+      "company": "Molecular Quantum Solutions",
+      "country": "Denmark",
+      "cluster": "Greater Copenhagen",
+      "founded_year": 2019,
+      "origin": null,
+      "ownership_status": "Private",
+      "operating_status": "Active",
+      "total_funding": 649260.0
+    },
+    {
+      "company": "QCentroid",
+      "country": "Spain",
+      "cluster": null,
+      "founded_year": 2022,
+      "origin": null,
+      "ownership_status": "Private",
+      "operating_status": "Active",
+      "total_funding": 620736.55
+    },
+    {
+      "company": "NovoViz",
+      "country": "Switzerland",
+      "cluster": "Greater Geneva Bern Area",
+      "founded_year": 2024,
+      "origin": "University spinout",
+      "ownership_status": "Private",
+      "operating_status": "Active",
+      "total_funding": 607405.0
+    },
+    {
+      "company": "MagiQware",
+      "country": "Netherlands",
+      "cluster": "Randstad Region",
+      "founded_year": 2025,
+      "origin": "University spinout",
+      "ownership_status": "Private",
+      "operating_status": "Active",
+      "total_funding": 584700.0
+    },
+    {
+      "company": "Qaisec",
+      "country": "Bulgaria",
+      "cluster": null,
+      "founded_year": 2019,
+      "origin": null,
+      "ownership_status": "Private",
+      "operating_status": "Active",
+      "total_funding": 550000.0
+    },
+    {
+      "company": "CogniFrame",
+      "country": "Canada",
+      "cluster": "Toronto–Waterloo Corridor",
+      "founded_year": 2016,
+      "origin": null,
+      "ownership_status": "Private",
+      "operating_status": "Active",
+      "total_funding": 544115.75
+    },
+    {
+      "company": "SECQAI",
+      "country": "UK",
+      "cluster": "London Commuter Belt",
+      "founded_year": 2021,
+      "origin": null,
+      "ownership_status": "Private",
+      "operating_status": "Active",
+      "total_funding": 522223.15
+    },
+    {
+      "company": "Dirac Labs",
+      "country": "US",
+      "cluster": null,
+      "founded_year": 2023,
+      "origin": "University spinout",
+      "ownership_status": "Private",
+      "operating_status": "Active",
+      "total_funding": 510000.0
+    },
+    {
+      "company": "Conductor Quantum",
+      "country": "US",
+      "cluster": "San Francisco Bay Area",
+      "founded_year": 2024,
+      "origin": null,
+      "ownership_status": "Private",
+      "operating_status": "Active",
+      "total_funding": 500000.0
+    },
+    {
+      "company": "Quantopticon",
+      "country": "UK",
+      "cluster": null,
+      "founded_year": 2017,
+      "origin": null,
+      "ownership_status": "Private",
+      "operating_status": "Active",
+      "total_funding": 491613.54
+    },
+    {
+      "company": "QbitSoft",
+      "country": "France",
+      "cluster": "Greater Paris",
+      "founded_year": 2022,
+      "origin": null,
+      "ownership_status": "Private",
+      "operating_status": "Active",
+      "total_funding": 470197.45
+    },
+    {
+      "company": "Quan2D Technologies",
+      "country": "India",
+      "cluster": "Bangalore",
+      "founded_year": 2021,
+      "origin": "University spinout",
+      "ownership_status": "Private",
+      "operating_status": "Active",
+      "total_funding": 468680.0
+    },
+    {
+      "company": "ForeQast.ai",
+      "country": "Canada",
+      "cluster": "Toronto–Waterloo Corridor",
+      "founded_year": 2021,
+      "origin": "Research spinout",
+      "ownership_status": "Private",
+      "operating_status": "Active",
+      "total_funding": 465418.56
+    },
+    {
+      "company": "SCALINQ",
+      "country": "Sweden",
+      "cluster": null,
+      "founded_year": 2022,
+      "origin": "University spinout",
+      "ownership_status": "Private",
+      "operating_status": "Active",
+      "total_funding": 438126.93
+    },
+    {
+      "company": "Ergo Quantum",
+      "country": "Canada",
+      "cluster": "Metro Vancouver",
+      "founded_year": 2021,
+      "origin": null,
+      "ownership_status": "Private",
+      "operating_status": "Active",
+      "total_funding": 428134.61
+    },
+    {
+      "company": "Nanoacademic Technologies",
+      "country": "Canada",
+      "cluster": "Greater Montreal",
+      "founded_year": 2008,
+      "origin": "University spinout",
+      "ownership_status": "Private",
+      "operating_status": "Active",
+      "total_funding": 427995.3
+    },
+    {
+      "company": "Fortytwo Labs",
+      "country": "India",
+      "cluster": null,
+      "founded_year": 2016,
+      "origin": null,
+      "ownership_status": "Private",
+      "operating_status": "Active",
+      "total_funding": 410515.24
+    },
+    {
+      "company": "QHarbor",
+      "country": "Netherlands",
+      "cluster": "Randstad Region",
+      "founded_year": 2024,
+      "origin": "Research spinout",
+      "ownership_status": "Private",
+      "operating_status": "Acquired – operating",
+      "total_funding": 395710.0
+    },
+    {
+      "company": "Quarks Interactive",
+      "country": "Romania",
+      "cluster": null,
+      "founded_year": 2018,
+      "origin": null,
+      "ownership_status": "Private",
+      "operating_status": "Active",
+      "total_funding": 370169.12
+    },
+    {
+      "company": "Quanvia",
+      "country": "Spain",
+      "cluster": null,
+      "founded_year": 2021,
+      "origin": "University spinout",
+      "ownership_status": "Private",
+      "operating_status": "Unclear",
+      "total_funding": 362537.0
+    },
+    {
+      "company": "Intermodulation Products",
+      "country": "Sweden",
+      "cluster": null,
+      "founded_year": 2010,
+      "origin": "University spinout",
+      "ownership_status": "Private",
+      "operating_status": "Active",
+      "total_funding": 353494.31
+    },
+    {
+      "company": "QRate",
+      "country": "Russia",
+      "cluster": null,
+      "founded_year": 2015,
+      "origin": "Research spinout",
+      "ownership_status": "Private",
+      "operating_status": "Active",
+      "total_funding": 352820.0
+    },
+    {
+      "company": "QZabre",
+      "country": "Switzerland",
+      "cluster": null,
+      "founded_year": 2018,
+      "origin": "University spinout",
+      "ownership_status": "Private",
+      "operating_status": "Active",
+      "total_funding": 332694.01
+    },
+    {
+      "company": "Quantum Blockchains",
+      "country": "Poland",
+      "cluster": null,
+      "founded_year": 2021,
+      "origin": null,
+      "ownership_status": "Private",
+      "operating_status": "Active",
+      "total_funding": 317308.44
+    },
+    {
+      "company": "GoQuantum",
+      "country": "Chile",
+      "cluster": null,
+      "founded_year": 2018,
+      "origin": "Corporate spinout",
+      "ownership_status": "Private",
+      "operating_status": "Active",
+      "total_funding": 300000.0
+    },
+    {
+      "company": "qBraid",
+      "country": "US",
+      "cluster": "Chicagoland",
+      "founded_year": 2020,
+      "origin": null,
+      "ownership_status": "Private",
+      "operating_status": "Active",
+      "total_funding": 300000.0
+    },
+    {
+      "company": "Resilient Entanglement",
+      "country": "US",
+      "cluster": "Denver–Boulder Region",
+      "founded_year": 2020,
+      "origin": null,
+      "ownership_status": "Private",
+      "operating_status": "Active",
+      "total_funding": 300000.0
+    },
+    {
+      "company": "Bloq Quantum",
+      "country": "India",
+      "cluster": null,
+      "founded_year": 2024,
+      "origin": null,
+      "ownership_status": "Private",
+      "operating_status": "Active",
+      "total_funding": 250950.0
+    },
+    {
+      "company": "SQK",
+      "country": "US",
+      "cluster": null,
+      "founded_year": 2023,
+      "origin": null,
+      "ownership_status": "Private",
+      "operating_status": "Active",
+      "total_funding": 250000.0
+    },
+    {
+      "company": "ULVAC CRYOGENICS",
+      "country": "Japan",
+      "cluster": "Greater Tokyo",
+      "founded_year": 1981,
+      "origin": "Joint venture",
+      "ownership_status": "Private",
+      "operating_status": "Active",
+      "total_funding": 226500.0
+    },
+    {
+      "company": "Quantastica",
+      "country": "Finland",
+      "cluster": "Greater Helsinki",
+      "founded_year": 2019,
+      "origin": null,
+      "ownership_status": "Private",
+      "operating_status": "Active",
+      "total_funding": 224020.0
+    },
+    {
+      "company": "Zurich Instruments",
+      "country": "Switzerland",
+      "cluster": null,
+      "founded_year": 2008,
+      "origin": "University spinout",
+      "ownership_status": "Private",
+      "operating_status": "Acquired – operating",
+      "total_funding": 223680.0
+    },
+    {
+      "company": "Q-Block Computing",
+      "country": "Canada",
+      "cluster": null,
+      "founded_year": 2020,
+      "origin": "University spinout",
+      "ownership_status": "Private",
+      "operating_status": "Active",
+      "total_funding": 211135.0
+    },
+    {
+      "company": "QDevil",
+      "country": "Denmark",
+      "cluster": "Greater Copenhagen",
+      "founded_year": 2016,
+      "origin": "University spinout",
+      "ownership_status": "Private",
+      "operating_status": "Acquired – absorbed",
+      "total_funding": 205660.0
+    },
+    {
+      "company": "Quantum-South",
+      "country": "Uruguay",
+      "cluster": null,
+      "founded_year": 2019,
+      "origin": "University spinout",
+      "ownership_status": "Private",
+      "operating_status": "Active",
+      "total_funding": 200000.0
+    },
+    {
+      "company": "fragmentiX",
+      "country": "Austria",
+      "cluster": null,
+      "founded_year": 2018,
+      "origin": null,
+      "ownership_status": "Private",
+      "operating_status": "Active",
+      "total_funding": 195528.58
+    },
+    {
+      "company": "ARQUE Systems",
+      "country": "Germany",
+      "cluster": null,
+      "founded_year": 2022,
+      "origin": "Research spinout",
+      "ownership_status": "Private",
+      "operating_status": "Active",
+      "total_funding": 192631.6
+    },
+    {
+      "company": "Qrypt",
+      "country": "US",
+      "cluster": "Greater New York",
+      "founded_year": 2017,
+      "origin": null,
+      "ownership_status": "Private",
+      "operating_status": "Active",
+      "total_funding": 184545.0
+    },
+    {
+      "company": "YQuantum",
+      "country": "Switzerland",
+      "cluster": null,
+      "founded_year": 2024,
+      "origin": "University spinout",
+      "ownership_status": "Private",
+      "operating_status": "Active",
+      "total_funding": 181050.0
+    },
+    {
+      "company": "QuantumAstra",
+      "country": "US",
+      "cluster": "Dallas–Fort Worth Metroplex",
+      "founded_year": 2023,
+      "origin": null,
+      "ownership_status": "Private",
+      "operating_status": "Active",
+      "total_funding": 175000.0
+    },
+    {
+      "company": "Cryoconcept",
+      "country": "France",
+      "cluster": "Greater Paris",
+      "founded_year": 2000,
+      "origin": "Research spinout",
+      "ownership_status": "Private",
+      "operating_status": "Acquired – absorbed",
+      "total_funding": 174015.88
+    },
+    {
+      "company": "SCONTEL",
+      "country": "Russia",
+      "cluster": null,
+      "founded_year": 2004,
+      "origin": "University spinout",
+      "ownership_status": "Private",
+      "operating_status": "Active",
+      "total_funding": 156573.06
+    },
+    {
+      "company": "ApexQubit",
+      "country": "US",
+      "cluster": "San Francisco Bay Area",
+      "founded_year": 2018,
+      "origin": null,
+      "ownership_status": "Private",
+      "operating_status": "Defunct",
+      "total_funding": 150489.0
+    },
+    {
+      "company": "Dobslit",
+      "country": "Brazil",
+      "cluster": null,
+      "founded_year": 2021,
+      "origin": "University spinout",
+      "ownership_status": "Private",
+      "operating_status": "Active",
+      "total_funding": 143018.27
+    },
+    {
+      "company": "Qinara",
+      "country": "UK",
+      "cluster": null,
+      "founded_year": 2024,
+      "origin": null,
+      "ownership_status": "Private",
+      "operating_status": "Active",
+      "total_funding": 142452.0
+    },
+    {
+      "company": "Janis Research",
+      "country": "US",
+      "cluster": "Greater Boston",
+      "founded_year": 1961,
+      "origin": null,
+      "ownership_status": "Private",
+      "operating_status": "Acquired – absorbed",
+      "total_funding": 131470.0
+    },
+    {
+      "company": "Qontrol",
+      "country": "UK",
+      "cluster": "Bristol–Bath Region",
+      "founded_year": 2016,
+      "origin": "University spinout",
+      "ownership_status": "Private",
+      "operating_status": "Active",
+      "total_funding": 131174.82
+    },
+    {
+      "company": "RobQuant",
+      "country": "UK",
+      "cluster": null,
+      "founded_year": 2023,
+      "origin": "University spinout",
+      "ownership_status": "Private",
+      "operating_status": "Active",
+      "total_funding": 110592.49
+    },
+    {
+      "company": "Diamond Quanta",
+      "country": "US",
+      "cluster": "San Francisco Bay Area",
+      "founded_year": 2024,
+      "origin": null,
+      "ownership_status": "Private",
+      "operating_status": "Active",
+      "total_funding": 100000.0
+    },
+    {
+      "company": "QUANTier",
+      "country": "China",
+      "cluster": "Shenzhen–Hong Kong–Guangzhou Region",
+      "founded_year": 2022,
+      "origin": "University spinout",
+      "ownership_status": "Private",
+      "operating_status": "Active",
+      "total_funding": 100000.0
+    },
+    {
+      "company": "nodeQ",
+      "country": "UK",
+      "cluster": "London Commuter Belt",
+      "founded_year": 2021,
+      "origin": null,
+      "ownership_status": "Private",
+      "operating_status": "Active",
+      "total_funding": 90180.18
+    },
+    {
+      "company": "Photarix",
+      "country": "UK",
+      "cluster": null,
+      "founded_year": 2025,
+      "origin": "University spinout",
+      "ownership_status": "Private",
+      "operating_status": "Active",
+      "total_funding": 63741.99
+    },
+    {
+      "company": "4colors Research",
+      "country": "UK",
+      "cluster": "Cambridge",
+      "founded_year": 2016,
+      "origin": null,
+      "ownership_status": "Private",
+      "operating_status": "Active",
+      "total_funding": 62152.6
+    },
+    {
+      "company": "Quantum Rings",
+      "country": "US",
+      "cluster": "Denver–Boulder Region",
+      "founded_year": 2023,
+      "origin": null,
+      "ownership_status": "Private",
+      "operating_status": "Active",
+      "total_funding": 50000.0
+    },
+    {
+      "company": "Bita Quantum AI",
+      "country": "Canada",
+      "cluster": "Greater Montreal",
+      "founded_year": 2021,
+      "origin": null,
+      "ownership_status": "Private",
+      "operating_status": "Active",
+      "total_funding": 32850.0
+    },
+    {
+      "company": "Quantum Microwave",
+      "country": "US",
+      "cluster": "Greater Boston",
+      "founded_year": 2016,
+      "origin": null,
+      "ownership_status": "Private",
+      "operating_status": "Active",
+      "total_funding": 18045.38
+    },
+    {
+      "company": "Eigensystems",
+      "country": "Australia",
+      "cluster": "Greater Sydney",
+      "founded_year": 2022,
+      "origin": "University spinout",
+      "ownership_status": "Private",
+      "operating_status": "Active",
+      "total_funding": 17367.5
+    },
+    {
+      "company": "Taqbit Labs",
+      "country": "India",
+      "cluster": "Bangalore",
+      "founded_year": 2017,
+      "origin": null,
+      "ownership_status": "Private",
+      "operating_status": "Active",
+      "total_funding": 6144.0
+    },
+    {
+      "company": "Pramatra Space",
+      "country": "India",
+      "cluster": "Bangalore",
+      "founded_year": 2023,
+      "origin": null,
+      "ownership_status": "Private",
+      "operating_status": "Active",
+      "total_funding": 1211.0
+    },
+    {
+      "company": "ZebraKet",
+      "country": "Canada",
+      "cluster": "Toronto–Waterloo Corridor",
+      "founded_year": 2021,
+      "origin": null,
+      "ownership_status": "Private",
+      "operating_status": "Acquired – absorbed",
+      "total_funding": 1000.0
+    },
+    {
+      "company": "ColibrITD",
+      "country": "France",
+      "cluster": "Greater Paris",
+      "founded_year": 2019,
+      "origin": null,
+      "ownership_status": "Private",
+      "operating_status": "Active",
+      "total_funding": 0.0
+    },
+    {
+      "company": "ENQUANTUM",
+      "country": "Israel",
+      "cluster": "Tel Aviv Metropolitan Area",
+      "founded_year": 2020,
+      "origin": null,
+      "ownership_status": "Private",
+      "operating_status": "Acquired – operating",
+      "total_funding": 0.0
+    },
+    {
+      "company": "AbaQus",
+      "country": "Canada",
+      "cluster": "Metro Vancouver",
+      "founded_year": 2021,
+      "origin": null,
+      "ownership_status": "Private",
+      "operating_status": "Active",
+      "total_funding": 0.0
+    },
+    {
+      "company": "Analog Physics",
+      "country": "US",
+      "cluster": null,
+      "founded_year": 2024,
+      "origin": null,
+      "ownership_status": "Private",
+      "operating_status": "Active",
+      "total_funding": 0.0
+    },
+    {
+      "company": "Anyon Technologies",
+      "country": "Singapore",
+      "cluster": "Singapore",
+      "founded_year": 2021,
+      "origin": null,
+      "ownership_status": "Private",
+      "operating_status": "Active",
+      "total_funding": 0.0
+    },
+    {
+      "company": "AQSolotl",
+      "country": "Singapore",
+      "cluster": "Singapore",
+      "founded_year": 2024,
+      "origin": "University spinout",
+      "ownership_status": "Private",
+      "operating_status": "Active",
+      "total_funding": 0.0
+    },
+    {
+      "company": "Arithmos Quantum Technologies",
+      "country": "UAE",
+      "cluster": "Dubai",
+      "founded_year": 2025,
+      "origin": null,
+      "ownership_status": "Private",
+      "operating_status": "Active",
+      "total_funding": 0.0
+    },
+    {
+      "company": "Arq Quantum Technologies",
+      "country": "Spain",
+      "cluster": "Barcelona Metropolitan Area",
+      "founded_year": 2025,
+      "origin": "Research spinout",
+      "ownership_status": "Private",
+      "operating_status": "Active",
+      "total_funding": 0.0
+    },
+    {
+      "company": "Associated Opto-Electronics (Chongqing)",
+      "country": "China",
+      "cluster": null,
+      "founded_year": 1999,
+      "origin": null,
+      "ownership_status": "Private",
+      "operating_status": "Active",
+      "total_funding": 0.0
+    },
+    {
+      "company": "Bandelier Technologies",
+      "country": "US",
+      "cluster": null,
+      "founded_year": 2025,
+      "origin": null,
+      "ownership_status": "Private",
+      "operating_status": "Active",
+      "total_funding": 0.0
+    },
+    {
+      "company": "Bikash's Quantum",
+      "country": "India",
+      "cluster": null,
+      "founded_year": 2019,
+      "origin": null,
+      "ownership_status": "Private",
+      "operating_status": "Active",
+      "total_funding": 0.0
+    },
+    {
+      "company": "Blackhills Quantum",
+      "country": "Belgium",
+      "cluster": null,
+      "founded_year": 2020,
+      "origin": null,
+      "ownership_status": "Private",
+      "operating_status": "Active",
+      "total_funding": 0.0
+    },
+    {
+      "company": "Compute Everything",
+      "country": "Canada",
+      "cluster": null,
+      "founded_year": 2024,
+      "origin": null,
+      "ownership_status": "Private",
+      "operating_status": "Active",
+      "total_funding": 0.0
+    },
+    {
+      "company": "Driven Quantum Technologies",
+      "country": "US",
+      "cluster": "Greater Washington",
+      "founded_year": 2019,
+      "origin": null,
+      "ownership_status": "Private",
+      "operating_status": "Active",
+      "total_funding": 0.0
+    },
+    {
+      "company": "Emergence Quantum",
+      "country": "Australia",
+      "cluster": "Greater Sydney",
+      "founded_year": 2025,
+      "origin": "University spinout",
+      "ownership_status": "Private",
+      "operating_status": "Active",
+      "total_funding": 0.0
+    },
+    {
+      "company": "Entoptica",
+      "country": "China",
+      "cluster": "Shenzhen–Hong Kong–Guangzhou Region",
+      "founded_year": 2024,
+      "origin": "Research spinout",
+      "ownership_status": "Private",
+      "operating_status": "Active",
+      "total_funding": 0.0
+    },
+    {
+      "company": "ExeQuantum",
+      "country": "Australia",
+      "cluster": null,
+      "founded_year": 2023,
+      "origin": null,
+      "ownership_status": "Private",
+      "operating_status": "Active",
+      "total_funding": 0.0
+    },
+    {
+      "company": "GEM Systems",
+      "country": "Canada",
+      "cluster": "Toronto–Waterloo Corridor",
+      "founded_year": 1980,
+      "origin": null,
+      "ownership_status": "Private",
+      "operating_status": "Active",
+      "total_funding": 0.0
+    },
+    {
+      "company": "Glory China Quantum Lidar / Guoyao Quantum (国耀量子)",
+      "country": "China",
+      "cluster": "Shanghai",
+      "founded_year": 2017,
+      "origin": "University spinout",
+      "ownership_status": "Private",
+      "operating_status": "Unclear",
+      "total_funding": 0.0
+    },
+    {
+      "company": "Hadamard",
+      "country": "US",
+      "cluster": null,
+      "founded_year": 2018,
+      "origin": null,
+      "ownership_status": "Private",
+      "operating_status": "Active",
+      "total_funding": 0.0
+    },
+    {
+      "company": "Intelliconnect",
+      "country": "UK",
+      "cluster": null,
+      "founded_year": 2003,
+      "origin": null,
+      "ownership_status": "Private",
+      "operating_status": "Acquired – operating",
+      "total_funding": 0.0
+    },
+    {
+      "company": "Ki3 Photonics",
+      "country": "Canada",
+      "cluster": "Greater Montreal",
+      "founded_year": 2015,
+      "origin": "University spinout",
+      "ownership_status": "Private",
+      "operating_status": "Active",
+      "total_funding": 0.0
+    },
+    {
+      "company": "Korea Quantum Computing",
+      "country": "South Korea",
+      "cluster": null,
+      "founded_year": 2021,
+      "origin": null,
+      "ownership_status": "Private",
+      "operating_status": "Active",
+      "total_funding": 0.0
+    },
+    {
+      "company": "Leiden Cryogenics",
+      "country": "Netherlands",
+      "cluster": "Randstad Region",
+      "founded_year": 1992,
+      "origin": "University spinout",
+      "ownership_status": "Private",
+      "operating_status": "Active",
+      "total_funding": 0.0
+    },
+    {
+      "company": "Marqov",
+      "country": "US",
+      "cluster": "San Francisco Bay Area",
+      "founded_year": 2025,
+      "origin": null,
+      "ownership_status": "Private",
+      "operating_status": "Active",
+      "total_funding": 0.0
+    },
+    {
+      "company": "MQTEK (太微量子)",
+      "country": "China",
+      "cluster": "Hefei",
+      "founded_year": 2021,
+      "origin": "University spinout",
+      "ownership_status": "Private",
+      "operating_status": "Active",
+      "total_funding": 0.0
+    },
+    {
+      "company": "NeoQuortex",
+      "country": "US",
+      "cluster": "Greater Washington",
+      "founded_year": 2025,
+      "origin": null,
+      "ownership_status": "Private",
+      "operating_status": "Active",
+      "total_funding": 0.0
+    },
+    {
+      "company": "neQxt",
+      "country": "Germany",
+      "cluster": null,
+      "founded_year": 2022,
+      "origin": "University spinout",
+      "ownership_status": "Private",
+      "operating_status": "Active",
+      "total_funding": 0.0
+    },
+    {
+      "company": "Noisy Labs",
+      "country": "Germany",
+      "cluster": null,
+      "founded_year": 2023,
+      "origin": "University spinout",
+      "ownership_status": "Private",
+      "operating_status": "Active",
+      "total_funding": 0.0
+    },
+    {
+      "company": "Omni Circuit Boards",
+      "country": "Canada",
+      "cluster": "Metro Vancouver",
+      "founded_year": 1985,
+      "origin": null,
+      "ownership_status": "Private",
+      "operating_status": "Acquired – absorbed",
+      "total_funding": 0.0
+    },
+    {
+      "company": "ORIENTOM",
+      "country": "South Korea",
+      "cluster": "Seoul Metropolitan Area",
+      "founded_year": 2013,
+      "origin": null,
+      "ownership_status": "Private",
+      "operating_status": "Active",
+      "total_funding": 0.0
+    },
+    {
+      "company": "Patero",
+      "country": "US",
+      "cluster": "Greater Washington",
+      "founded_year": 2017,
+      "origin": null,
+      "ownership_status": "Private",
+      "operating_status": "Active",
+      "total_funding": 0.0
+    },
+    {
+      "company": "Phase Space Computing",
+      "country": "Sweden",
+      "cluster": null,
+      "founded_year": 2017,
+      "origin": "University spinout",
+      "ownership_status": "Private",
+      "operating_status": "Active",
+      "total_funding": 0.0
+    },
+    {
+      "company": "Pidust Quantum Computing",
+      "country": "Greece",
+      "cluster": null,
+      "founded_year": 2019,
+      "origin": null,
+      "ownership_status": "Private",
+      "operating_status": "Defunct",
+      "total_funding": 0.0
+    },
+    {
+      "company": "PLASSYS BESTEK",
+      "country": "France",
+      "cluster": "Greater Paris",
+      "founded_year": 1987,
+      "origin": null,
+      "ownership_status": "Private",
+      "operating_status": "Acquired – operating",
+      "total_funding": 0.0
+    },
+    {
+      "company": "PrenishQ",
+      "country": "India",
+      "cluster": null,
+      "founded_year": 2022,
+      "origin": "University spinout",
+      "ownership_status": "Private",
+      "operating_status": "Active",
+      "total_funding": 0.0
+    },
+    {
+      "company": "Qarakal",
+      "country": "Israel",
+      "cluster": "Tel Aviv Metropolitan Area",
+      "founded_year": 2024,
+      "origin": null,
+      "ownership_status": "Private",
+      "operating_status": "Active",
+      "total_funding": 0.0
+    },
+    {
+      "company": "Qavis / Qoordinate",
+      "country": "Turkey",
+      "cluster": null,
+      "founded_year": 2023,
+      "origin": null,
+      "ownership_status": "Private",
+      "operating_status": "Active",
+      "total_funding": 0.0
+    },
+    {
+      "company": "QDaria",
+      "country": "Norway",
+      "cluster": null,
+      "founded_year": 2020,
+      "origin": null,
+      "ownership_status": "Private",
+      "operating_status": "Active",
+      "total_funding": 0.0
+    },
+    {
+      "company": "QDX",
+      "country": "Singapore",
+      "cluster": "Singapore",
+      "founded_year": 2023,
+      "origin": null,
+      "ownership_status": "Private",
+      "operating_status": "Active",
+      "total_funding": 0.0
+    },
+    {
+      "company": "Qkrishi",
+      "country": "India",
+      "cluster": null,
+      "founded_year": 2021,
+      "origin": null,
+      "ownership_status": "Private",
+      "operating_status": "Active",
+      "total_funding": 0.0
+    },
+    {
+      "company": "Qlok",
+      "country": "US",
+      "cluster": null,
+      "founded_year": 2025,
+      "origin": null,
+      "ownership_status": "Private",
+      "operating_status": "Active",
+      "total_funding": 0.0
+    },
+    {
+      "company": "QMware",
+      "country": "Switzerland",
+      "cluster": null,
+      "founded_year": 2019,
+      "origin": "Joint venture",
+      "ownership_status": "Private",
+      "operating_status": "Active",
+      "total_funding": 0.0
+    },
+    {
+      "company": "Qnity",
+      "country": "France",
+      "cluster": "Greater Paris",
+      "founded_year": 2025,
+      "origin": null,
+      "ownership_status": "Private",
+      "operating_status": "Active",
+      "total_funding": 0.0
+    },
+    {
+      "company": "Qomputing.AI",
+      "country": "India",
+      "cluster": null,
+      "founded_year": 2025,
+      "origin": null,
+      "ownership_status": "Private",
+      "operating_status": "Active",
+      "total_funding": 0.0
+    },
+    {
+      "company": "Qrithm",
+      "country": "US",
+      "cluster": "Greater Los Angeles",
+      "founded_year": 2018,
+      "origin": null,
+      "ownership_status": "Private",
+      "operating_status": "Active",
+      "total_funding": 0.0
+    },
+    {
+      "company": "QryptoCyber",
+      "country": "US",
+      "cluster": "Greater Washington",
+      "founded_year": 2023,
+      "origin": null,
+      "ownership_status": "Private",
+      "operating_status": "Active",
+      "total_funding": 0.0
+    },
+    {
+      "company": "Qtonic Quantum",
+      "country": "US",
+      "cluster": null,
+      "founded_year": 2024,
+      "origin": null,
+      "ownership_status": "Private",
+      "operating_status": "Active",
+      "total_funding": 0.0
+    },
+    {
+      "company": "Qu & Co",
+      "country": "Netherlands",
+      "cluster": "Randstad Region",
+      "founded_year": 2017,
+      "origin": null,
+      "ownership_status": "Private",
+      "operating_status": "Acquired – absorbed",
+      "total_funding": 0.0
+    },
+    {
+      "company": "Qu-aid",
+      "country": "UK",
+      "cluster": "London Commuter Belt",
+      "founded_year": 2021,
+      "origin": null,
+      "ownership_status": "Private",
+      "operating_status": "Unclear",
+      "total_funding": 0.0
+    },
+    {
+      "company": "QuantFi",
+      "country": "France",
+      "cluster": "Greater Paris",
+      "founded_year": 2019,
+      "origin": null,
+      "ownership_status": "Private",
+      "operating_status": "Defunct",
+      "total_funding": 0.0
+    },
+    {
+      "company": "Quanttelecom",
+      "country": "Russia",
+      "cluster": null,
+      "founded_year": 2014,
+      "origin": "University spinout",
+      "ownership_status": "Private",
+      "operating_status": "Acquired – operating",
+      "total_funding": 0.0
+    },
+    {
+      "company": "Quantum Design",
+      "country": "US",
+      "cluster": null,
+      "founded_year": 1982,
+      "origin": null,
+      "ownership_status": "Private",
+      "operating_status": "Acquired – operating",
+      "total_funding": 0.0
+    },
+    {
+      "company": "Quantum Elements",
+      "country": "US",
+      "cluster": "Greater Los Angeles",
+      "founded_year": 2023,
+      "origin": null,
+      "ownership_status": "Private",
+      "operating_status": "Active",
+      "total_funding": 0.0
+    },
+    {
+      "company": "Quantum Foundry",
+      "country": "US",
+      "cluster": "Greater Boston",
+      "founded_year": 2024,
+      "origin": null,
+      "ownership_status": "Private",
+      "operating_status": "Active",
+      "total_funding": 0.0
+    },
+    {
+      "company": "Quantum Knight",
+      "country": "US",
+      "cluster": "San Francisco Bay Area",
+      "founded_year": 2023,
+      "origin": null,
+      "ownership_status": "Private",
+      "operating_status": "Active",
+      "total_funding": 0.0
+    },
+    {
+      "company": "Quantum Physics Corner",
+      "country": "UK",
+      "cluster": "London Commuter Belt",
+      "founded_year": 2022,
+      "origin": null,
+      "ownership_status": "Private",
+      "operating_status": "Active",
+      "total_funding": 0.0
+    },
+    {
+      "company": "Quantum Security Defence",
+      "country": "UK",
+      "cluster": null,
+      "founded_year": 2024,
+      "origin": null,
+      "ownership_status": "Private",
+      "operating_status": "Active",
+      "total_funding": 0.0
+    },
+    {
+      "company": "Quantum Signals",
+      "country": "France",
+      "cluster": "Greater Paris",
+      "founded_year": 2024,
+      "origin": null,
+      "ownership_status": "Private",
+      "operating_status": "Active",
+      "total_funding": 0.0
+    },
+    {
+      "company": "Quantum Software Technology",
+      "country": "Spain",
+      "cluster": null,
+      "founded_year": 2017,
+      "origin": null,
+      "ownership_status": "Private",
+      "operating_status": "Defunct",
+      "total_funding": 0.0
+    },
+    {
+      "company": "QuantyMize",
+      "country": "Israel",
+      "cluster": "Tel Aviv Metropolitan Area",
+      "founded_year": 2023,
+      "origin": null,
+      "ownership_status": "Private",
+      "operating_status": "Active",
+      "total_funding": 0.0
+    },
+    {
+      "company": "Qubit Value",
+      "country": "Finland",
+      "cluster": "Greater Helsinki",
+      "founded_year": 2021,
+      "origin": null,
+      "ownership_status": "Private",
+      "operating_status": "Active",
+      "total_funding": 0.0
+    },
+    {
+      "company": "Qubo Consulting",
+      "country": "Canada",
+      "cluster": null,
+      "founded_year": 2023,
+      "origin": "University spinout",
+      "ownership_status": "Private",
+      "operating_status": "Active",
+      "total_funding": 0.0
+    },
+    {
+      "company": "QUDORA Technologies",
+      "country": "Germany",
+      "cluster": null,
+      "founded_year": 2021,
+      "origin": "Research spinout",
+      "ownership_status": "Private",
+      "operating_status": "Active",
+      "total_funding": 0.0
+    },
+    {
+      "company": "QuEL",
+      "country": "Japan",
+      "cluster": "Greater Tokyo",
+      "founded_year": 2021,
+      "origin": "University spinout",
+      "ownership_status": "Private",
+      "operating_status": "Active",
+      "total_funding": 0.0
+    },
+    {
+      "company": "Qulabs",
+      "country": "India",
+      "cluster": null,
+      "founded_year": 2018,
+      "origin": null,
+      "ownership_status": "Private",
+      "operating_status": "Active",
+      "total_funding": 0.0
+    },
+    {
+      "company": "Quminex",
+      "country": "Canada",
+      "cluster": null,
+      "founded_year": 2024,
+      "origin": null,
+      "ownership_status": "Private",
+      "operating_status": "Active",
+      "total_funding": 0.0
+    },
+    {
+      "company": "QuPrayog",
+      "country": "India",
+      "cluster": null,
+      "founded_year": 2024,
+      "origin": null,
+      "ownership_status": "Private",
+      "operating_status": "Active",
+      "total_funding": 0.0
+    },
+    {
+      "company": "QURECA",
+      "country": "UK",
+      "cluster": "Greater Glasgow",
+      "founded_year": 2019,
+      "origin": "University spinout",
+      "ownership_status": "Private",
+      "operating_status": "Active",
+      "total_funding": 0.0
+    },
+    {
+      "company": "QuRISK",
+      "country": "France",
+      "cluster": "Greater Paris",
+      "founded_year": 2021,
+      "origin": null,
+      "ownership_status": "Private",
+      "operating_status": "Active",
+      "total_funding": 0.0
+    },
+    {
+      "company": "Real Random",
+      "country": "US",
+      "cluster": null,
+      "founded_year": 2014,
+      "origin": null,
+      "ownership_status": "Private",
+      "operating_status": "Active",
+      "total_funding": 0.0
+    },
+    {
+      "company": "S-Fifteen Instruments",
+      "country": "Singapore",
+      "cluster": "Singapore",
+      "founded_year": 2017,
+      "origin": "Research spinout",
+      "ownership_status": "Private",
+      "operating_status": "Active",
+      "total_funding": 0.0
+    },
+    {
+      "company": "Scale Quantum (标度量子)",
+      "country": "China",
+      "cluster": "Beijing",
+      "founded_year": 2022,
+      "origin": "University spinout",
+      "ownership_status": "Private",
+      "operating_status": "Active",
+      "total_funding": 0.0
+    },
+    {
+      "company": "SEA Quantum",
+      "country": "Malaysia",
+      "cluster": null,
+      "founded_year": 2022,
+      "origin": null,
+      "ownership_status": "Private",
+      "operating_status": "Active",
+      "total_funding": 0.0
+    },
+    {
+      "company": "SilQ Connect",
+      "country": "Canada",
+      "cluster": null,
+      "founded_year": 2023,
+      "origin": null,
+      "ownership_status": "Private",
+      "operating_status": "Active",
+      "total_funding": 0.0
+    },
+    {
+      "company": "Snowdrop",
+      "country": "Canada",
+      "cluster": "Metro Vancouver",
+      "founded_year": 2024,
+      "origin": null,
+      "ownership_status": "Private",
+      "operating_status": "Active",
+      "total_funding": 0.0
+    },
+    {
+      "company": "Staque",
+      "country": "Canada",
+      "cluster": null,
+      "founded_year": 2021,
+      "origin": null,
+      "ownership_status": "Private",
+      "operating_status": "Acquired – operating",
+      "total_funding": 0.0
+    },
+    {
+      "company": "Tabor Electronics",
+      "country": "Israel",
+      "cluster": null,
+      "founded_year": 1971,
+      "origin": "Corporate spinout",
+      "ownership_status": "Private",
+      "operating_status": "Active",
+      "total_funding": 0.0
+    },
+    {
+      "company": "The Phoenix Company of Chicago",
+      "country": "US",
+      "cluster": null,
+      "founded_year": 1969,
+      "origin": null,
+      "ownership_status": "Private",
+      "operating_status": "Active",
+      "total_funding": 0.0
+    },
+    {
+      "company": "Tokyo Quantum Computing",
+      "country": "Japan",
+      "cluster": null,
+      "founded_year": 2017,
+      "origin": null,
+      "ownership_status": "Private",
+      "operating_status": "Unclear",
+      "total_funding": 0.0
+    },
+    {
+      "company": "TundraSystems Global",
+      "country": "UK",
+      "cluster": null,
+      "founded_year": 2014,
+      "origin": null,
+      "ownership_status": "Private",
+      "operating_status": "Active",
+      "total_funding": 0.0
+    },
+    {
+      "company": "Unitary Zero Space",
+      "country": "Finland",
+      "cluster": "Greater Helsinki",
+      "founded_year": 2020,
+      "origin": null,
+      "ownership_status": "Private",
+      "operating_status": "Active",
+      "total_funding": 0.0
+    },
+    {
+      "company": "XeedQ",
+      "country": "Germany",
+      "cluster": null,
+      "founded_year": 2021,
+      "origin": null,
+      "ownership_status": "Private",
+      "operating_status": "Active",
+      "total_funding": 0.0
+    },
+    {
+      "company": "yiyaniQ",
+      "country": "Canada",
+      "cluster": "Toronto–Waterloo Corridor",
+      "founded_year": 2021,
+      "origin": "Research spinout",
+      "ownership_status": "Private",
+      "operating_status": "Active",
+      "total_funding": 0.0
+    }
+  ]
+}

@@ -133,17 +133,20 @@
   /** Write the "as of <vintage>" line into an element. */
   QT.vintage = function (selector, meta) {
     if (meta && meta.data_vintage)
-      d3.select(selector).html(`Data as of <b>${meta.data_vintage}</b>`);
+      d3.select(selector).html(`Data as of <b>${QT.fmt.vintage(meta.data_vintage)}</b>`);
   };
 
-  /** Dashboard tab bar: Overview / Countries / Clusters. `active` is one of
-      "overview" | "countries" | "clusters". Injected into an empty <div id="nav">
-      already present in the page, so every dashboard page shares one implementation. */
+  /** Dashboard tab bar: Overview / Countries / Clusters / Companies / About. `active`
+      is one of "overview" | "countries" | "clusters" | "companies" | "about".
+      Injected into an empty <div id="nav"> already present in the page, so every
+      dashboard page shares one implementation. */
   QT.nav = function (selector, active) {
     const TABS = [
       { key: "overview",  label: "Overview",  href: "index.html" },
       { key: "countries", label: "Countries",  href: "countries.html" },
       { key: "clusters",  label: "Clusters",   href: "clusters.html" },
+      { key: "companies", label: "Companies",  href: "companies.html" },
+      { key: "about",     label: "About",      href: "about.html" },
     ];
     d3.select(selector).attr("class", "tabbar").selectAll("a").data(TABS, d => d.key)
       .join("a")
