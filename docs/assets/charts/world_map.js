@@ -12,6 +12,7 @@
    Cluster bubbles are opt-in via renderWorldMap(selector, {showClusters:true}) —
    the Overview map omits them (see docs/index.html). */
 (function () {
+  const T = window.QT.tokens;
   const CSS = `
 .wm-wrap{position:relative;}
 .wm-frame{position:relative;background:radial-gradient(120% 130% at 32% 0%,#F1F5F9,#FFFFFF 72%);
@@ -21,7 +22,7 @@
 .wm-country.hl{stroke:#119B92;stroke-width:1.2px;}
 .wm-graticule{fill:none;stroke:rgba(20,45,80,0.06);stroke-width:0.5px;}
 .wm-sphere{fill:none;stroke:rgba(20,45,80,0.14);stroke-width:0.8px;}
-.wm-cluster{fill:#F5C544;fill-opacity:0.82;stroke:#5a3c00;stroke-width:0.7px;cursor:pointer;transition:fill-opacity .15s,r .25s ease;}
+.wm-cluster{fill:${T.clusterBubble};fill-opacity:0.82;stroke:${T.clusterBubbleStroke};stroke-width:0.7px;cursor:pointer;transition:fill-opacity .15s,r .25s ease;}
 .wm-cluster:hover{fill-opacity:1;stroke:#1a1200;stroke-width:1.2px;}
 .wm-toggle{position:absolute;top:10px;left:12px;z-index:4;display:inline-flex;border:1px solid var(--line);
   border-radius:7px;overflow:hidden;background:#fff;box-shadow:0 1px 3px rgba(20,40,70,0.08);}
@@ -44,9 +45,9 @@
 .wm-lg-scale{display:flex;justify-content:space-between;font-size:9.5px;color:var(--muted);}
 .wm-lg-sep{height:1px;background:var(--line);margin:9px 0 8px;}
 .wm-lg-row{display:flex;align-items:center;gap:7px;font-size:10.5px;color:var(--muted);}
-.wm-lg-dot{width:11px;height:11px;border-radius:50%;background:#F5C544;opacity:.85;border:0.8px solid #5a3c00;flex:none;}
+.wm-lg-dot{width:11px;height:11px;border-radius:50%;background:${T.clusterBubble};opacity:.85;border:0.8px solid ${T.clusterBubbleStroke};flex:none;}
 .wm-lg-nd{display:flex;align-items:center;gap:7px;font-size:10.5px;color:var(--muted);margin-top:6px;}
-.wm-lg-ndsw{width:11px;height:11px;border-radius:2px;background:#E4E9EE;border:1px solid #C7D0D8;flex:none;}
+.wm-lg-ndsw{width:11px;height:11px;border-radius:2px;background:${T.noData};border:1px solid ${T.noDataBorder};flex:none;}
 `;
   function injectCSS() {
     if (document.getElementById("wm-css")) return;
@@ -106,7 +107,11 @@
     let metric = "public_funding";
     const cVal = d => d[metric] != null ? d[metric] : null;
 
-    const ramp = d3.interpolateRgbBasis(["#102f6b", "#2f56a2", "#6f5896", "#b0374f", "#8a1220"]);
+    // Funding is a non-negative quantity, not a two-sided measure, so it
+    // reads as a sequential ramp — QT.palette.sequential, the same navy
+    // ramp the Clusters map uses for overall rank, so both maps' "more
+    // funding/better rank" encoding matches instead of one reading red.
+    const ramp = d3.interpolateRgbBasis(QT.palette.sequential);
     let maxF, pscale, rScale;
     function rebuildScales() {
       maxF = d3.max(countryData.data, d => cVal(d)) || 1;
@@ -167,7 +172,7 @@
       const M = METRICS[metric];
       countrySel.attr("fill", d => {
         const rec = countryByAtlasName.get(d.properties.name);
-        return rec && cVal(rec) != null ? fundColour(cVal(rec)) : "#E4E9EE";
+        return rec && cVal(rec) != null ? fundColour(cVal(rec)) : QT.tokens.noData;
       });
       if (bubbleSel) bubbleSel.attr("r", d => rScale(d[metric] || 0));
       legend.html(

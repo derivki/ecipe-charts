@@ -9,15 +9,15 @@
    not the raw 0-100 score — ranking is a more defensible read of an illustrative
    placeholder score than an arbitrarily-weighted composite would be. The overall
    rank is simply the average of the three pillar ranks (no weighting). */
-(async function () {
+QT.boot(async function () {
   QT.injectCSS();
   QT.nav("#nav", "clusters");
 
-  // Vendored SVG flags (assets/vendor/flags/<code>.svg) — used instead of flag
+  // Vendored PNG flags (assets/vendor/flags/<code>.png) — used instead of flag
   // emoji because Windows browser/font combinations often render flag emoji as
   // plain two-letter codes rather than a pictorial flag.
   function flagIcon(code, country) {
-    return `<img class="flag" src="assets/vendor/flags/${code.toLowerCase()}.svg" width="16" height="12" alt="${country}" title="${country}">`;
+    return `<img class="flag" src="assets/vendor/flags/${code.toLowerCase()}.png" width="16" height="12" alt="${country}" title="${country}">`;
   }
 
   const [rankings, shareTime, pipeline, worldTopo] = await Promise.all([
@@ -114,7 +114,7 @@
     const gZoom = c.g.append("g");
     gZoom.append("path").datum({ type: "Sphere" }).attr("d", path).attr("fill", QT.tokens.panel).attr("stroke", "none");
     gZoom.selectAll("path.land").data(land).join("path").attr("class", "land")
-      .attr("d", path).attr("fill", "#E4E9EE").attr("stroke", "#fff").attr("stroke-width", 0.5);
+      .attr("d", path).attr("fill", QT.tokens.noData).attr("stroke", "#fff").attr("stroke-width", 0.5);
     gZoom.append("path").datum(graticule()).attr("d", path).attr("fill", "none").attr("stroke", QT.tokens.line).attr("stroke-width", 0.6);
 
     const rFund = d3.scaleSqrt().domain([0, d3.max(rankings.data, d => d.total_funding)]).range([4, 26]);
@@ -203,7 +203,7 @@
   // ---------- cluster detail bars ----------
   function renderDetail() {
     const d = rankings.data.find(x => x.cluster === state.selected);
-    d3.select("#ttl-clusterdetail").text(`Cluster detail — ${d.cluster}`);
+    d3.select("#ttl-clusterdetail").html(`Cluster detail — ${d.cluster} ${QT.mockBadge()}`);
     const rs = DIMS.map(dim => ({ ...dim, v: d[dim.key], rank: d[dim.rankKey] }));
 
     const W = 880, H = 150;
@@ -340,4 +340,4 @@
   renderGraduates(); // static — always shows every graduate regardless of region filter
   renderPipeline(); // static — doesn't depend on region filter or table sort/selection
   QT.timeSlider("#slider-sharetime", { years: SHARE_YEARS, onChange: w => { shareWin = w; renderShareTime(); } });
-})();
+});

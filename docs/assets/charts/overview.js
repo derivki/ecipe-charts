@@ -3,10 +3,17 @@
    public/private toggle, no cluster bubbles) leads this tab — see
    assets/charts/world_map.js. The "trusted by" strip is a placeholder pending
    real partner logos from FE/Natalia. */
-(async function () {
+QT.boot(async function () {
   QT.injectCSS();
   QT.nav("#nav", "overview");
-  renderWorldMap("#worldmap", { showClusters: false });
+  // Not awaited — the map has its own data fetches and should render in
+  // parallel with the Promise.all below, not block it. Still needs its own
+  // catch: an un-awaited rejection here would otherwise be silent.
+  renderWorldMap("#worldmap", { showClusters: false }).catch(err => {
+    console.error(err);
+    document.getElementById("worldmap").innerHTML =
+      `<div class="load-error"><p><b>The map couldn't load.</b> <code>${err && err.message || ""}</code></p></div>`;
+  });
 
   // Placeholder "trusted by" strip — swap for real logos once FE/Natalia provide them.
   (function trustedBy() {
@@ -274,4 +281,4 @@
     QT.segControl("#seg-scale-stage", "data-s", s => { state.scale = s; render(); });
     render();
   })();
-})();
+});

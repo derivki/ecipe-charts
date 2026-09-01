@@ -130,6 +130,26 @@
     if (onToggle) sel.on("click", (e, d) => onToggle(d.key));
   };
 
+  /** Run a page's async render function; if it rejects (a missing/renamed
+      dataset, a network hiccup), show a recoverable message instead of
+      leaving the page silently blank. Wrap every chart page's top-level
+      IIFE with this: QT.boot(async function () { ...same body... }); */
+  QT.boot = function (renderPage) {
+    renderPage().catch(err => {
+      console.error(err);
+      const host = document.querySelector(".wrap") || document.body;
+      const box = document.createElement("div");
+      box.className = "load-error";
+      box.innerHTML = `<p><b>This page couldn't load its data.</b> ${err && err.message ? `<code>${err.message}</code>` : "Something went wrong while fetching it."}</p>`;
+      const retry = document.createElement("button");
+      retry.type = "button";
+      retry.textContent = "Try again";
+      retry.addEventListener("click", () => location.reload());
+      box.appendChild(retry);
+      host.prepend(box);
+    });
+  };
+
   /** Write the "as of <vintage>" line into an element. */
   QT.vintage = function (selector, meta) {
     if (meta && meta.data_vintage)
@@ -165,11 +185,12 @@
         return el;
       });
     sel.select(".v").html(d => d.v);
-    sel.select(".k").text(d => d.k);
+    sel.select(".k").html(d => d.k);
   };
 
-  /** Small inline ribbon flagging a panel's data as illustrative/mock. */
-  QT.mockBadge = function () { return `<span class="mockbadge">Illustrative · mock data</span>`; };
+  /** Small inline ribbon flagging a panel's data as illustrative/mock. Pass a
+      shorter label (e.g. "Mock") where the badge sits somewhere tight, like a KPI tile. */
+  QT.mockBadge = function (label) { return `<span class="mockbadge">${label || "Illustrative · mock data"}</span>`; };
 
   /** Small inline ribbon flagging a panel's data as taken directly from a published paper (real, but not from the funding database). */
   QT.citeBadge = function (label) { return `<span class="citebadge">${label || "Published · Occasional Paper 15/2025"}</span>`; };

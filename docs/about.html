@@ -10,28 +10,23 @@
 <div class="wrap">
   <div id="nav"></div>
   <h1>About this tracker</h1>
-  <!-- DRAFT copy — replace with Dyuti/Andrea's final wording -->
-  <p class="sub">What the Quantum Technologies Tracker covers, how it is built, and how to read it.</p>
   <div class="vintage" id="vintage"></div>
 
-  <div class="panels g2">
+  <div class="about-body">
 
-    <div class="panel span2">
-      <div class="ttl">What this is</div>
-      <p class="why">A short introduction to the project.</p>
-      <p style="font-size:13px;line-height:1.6;color:var(--ink);margin:0;">
-        The Quantum Technologies Tracker follows announced funding, company formation and
-        international collaboration across the global quantum computing and quantum
-        technologies ecosystem. It is built and maintained by ECIPE (the European Centre
-        for International Political Economy) from a proprietary database of quantum
-        startups and their funding rounds, and is updated quarterly.
+    <section class="about-section">
+      <h2>What this is</h2>
+      <p>
+        Explore the companies building quantum technologies and the institutions researching
+        them. Trace private and public funding across every segment of the industry. Compare
+        national ecosystems and innovation clusters, and the collaborations that link them
+        within and across borders. Free, interactive, and updated quarterly by ECIPE.
       </p>
-    </div>
+    </section>
 
-    <div class="panel">
-      <div class="ttl">Data &amp; methodology</div>
-      <p class="why">How the figures on this site are produced.</p>
-      <p style="font-size:12.5px;line-height:1.6;color:var(--ink);margin:0;">
+    <section class="about-section">
+      <h2>Data &amp; methodology</h2>
+      <p>
         Every published figure is computed directly from two underlying tables — a company
         register and a funding-rounds ledger — rather than maintained by hand, so it can be
         reproduced and re-checked each quarter. <b>Public funding</b> means grants and public
@@ -40,27 +35,34 @@
         use placeholder figures pending publication of the underlying analysis and should
         not be cited.
       </p>
-    </div>
+    </section>
 
-    <div class="panel">
-      <div class="ttl">Trusted by</div>
-      <p class="why">Partners and users of this tracker.</p>
+    <section class="about-section">
+      <h2>Trusted by</h2>
       <!-- Placeholder — swap for real logos once FE/Natalia provide them -->
       <div class="trustedby" id="trustedby-about"></div>
       <p class="note" style="margin-top:8px;padding-top:8px;">Logos pending — this section will list ECIPE's partner organisations.</p>
-    </div>
+    </section>
 
-    <div class="panel span2">
-      <div class="ttl">Contact &amp; citation</div>
-      <p class="why">How to reference this tracker or get in touch.</p>
-      <p style="font-size:12.5px;line-height:1.6;color:var(--ink);margin:0;">
+    <section class="about-section">
+      <h2>Contact &amp; citation</h2>
+      <p>
         Questions about the data or methodology can be directed to ECIPE. Please cite this
         tracker as: <i>ECIPE, Quantum Technologies Tracker</i>, accessed <span id="cite-date"></span>.
       </p>
-    </div>
+    </section>
 
   </div>
 </div>
+
+<style>
+.about-body{max-width:720px;}
+.about-section{padding:22px 0;border-bottom:1px solid var(--line);}
+.about-section:first-child{padding-top:4px;}
+.about-section:last-child{border-bottom:none;}
+.about-section h2{font-size:16px;font-weight:650;letter-spacing:-.01em;margin:0 0 10px;color:var(--ink);}
+.about-section p{font-size:13px;line-height:1.6;color:var(--ink);margin:0;}
+</style>
 
 <script src="assets/theme.js"></script>
 <script src="assets/chart-template.js"></script>

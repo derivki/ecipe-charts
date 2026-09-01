@@ -1,7 +1,7 @@
 /* Funding by financing instrument over time — stacked bars/area, abs/share.
    Reads docs/data/funding_by_instrument_year.json. Refactor of the original
    prototype onto the shared theme/template; data now comes from the pipeline. */
-(async function () {
+QT.boot(async function () {
   QT.injectCSS();
   const loaded = await QT.loadData("funding_by_instrument_year");
   const meta = loaded.meta, raw = loaded.data;
@@ -117,4 +117,4 @@
   QT.segControl("#seg-type", "data-t", t => { state.type = t; render(); });
   QT.timeSlider("#slider-years", { years: ALL_YEARS, onChange: w => { state.win = w; render(); } });
   render();
-})();
+});
