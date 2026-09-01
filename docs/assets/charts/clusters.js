@@ -54,14 +54,16 @@ QT.boot(async function () {
   // three pillar ranks — no weights.
   (function assignRanks(data) {
     DIMS.forEach(dim => {
-      [...data].sort((a, b) => b[dim.key] - a[dim.key] || a.cluster.localeCompare(b.cluster))
+      [...data].sort(QT.rank(dim.key, "cluster"))
         .forEach((d, i) => { d[dim.rankKey] = i + 1; });
     });
-    [...data].sort((a, b) => {
-      const avgA = DIMS.reduce((s, dim) => s + a[dim.rankKey], 0) / DIMS.length;
-      const avgB = DIMS.reduce((s, dim) => s + b[dim.rankKey], 0) / DIMS.length;
-      return avgA - avgB || b.total_funding - a.total_funding;
-    }).forEach((d, i) => { d.overall_rank = i + 1; });
+    const pillarAvg = d => DIMS.reduce((s, dim) => s + d[dim.rankKey], 0) / DIMS.length;
+    [...data].sort((a, b) =>
+      // best (lowest) average pillar rank first, then larger funding, then alphabetical
+      pillarAvg(a) - pillarAvg(b) ||
+      (b.total_funding - a.total_funding) ||
+      QT.alpha(a.cluster, b.cluster)
+    ).forEach((d, i) => { d.overall_rank = i + 1; });
   })(rankings.data);
 
   let state = {
@@ -72,8 +74,9 @@ QT.boot(async function () {
 
   function rows() {
     const filtered = rankings.data.filter(d => state.region === "All" || d.region === state.region);
-    const key = state.sortKey, dir = state.sortDir === "asc" ? 1 : -1;
-    return [...filtered].sort((a, b) => (a[key] > b[key] ? 1 : a[key] < b[key] ? -1 : 0) * dir);
+    // Ties always fall back to cluster name, so clicking a column with many equal
+    // values (e.g. a pillar rank) gives a stable, alphabetical order either way.
+    return [...filtered].sort(QT.rank(state.sortKey, "cluster", state.sortDir));
   }
 
   // ---------- region chips ----------
@@ -264,7 +267,7 @@ QT.boot(async function () {
     ];
     // Sorted so the regions with the largest untapped pipeline (relative to what
     // they've already turned into full clusters) read top-to-bottom.
-    const rs = [...pipeline.data].sort((a, b) => (b.quasi / (b.quasi + b.established)) - (a.quasi / (a.quasi + a.established)));
+    const rs = [...pipeline.data].sort(QT.rank(d => d.quasi / (d.quasi + d.established), "region"));
 
     const W = 880, H = 40 + rs.length * 46;
     d3.select("#chart-pipeline").selectAll("*").remove();

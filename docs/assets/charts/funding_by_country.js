@@ -24,7 +24,7 @@ QT.boot(async function () {
   function rows() {
     return data
       .filter(d => d[metric] != null)
-      .sort((a, b) => b[metric] - a[metric])
+      .sort(QT.rank(metric, "country"))
       .slice(0, TOP);
   }
 

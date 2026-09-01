@@ -109,6 +109,42 @@ window.QT = (function () {
     },
   };
 
+  // ── Ordering ──────────────────────────────────────────────────────────────
+  // Ranked output must be REPRODUCIBLE. A bare `(a,b) => b.v - a.v` leaves tied
+  // rows in whatever order the source array happened to have, so a quarterly
+  // refresh can silently reshuffle them. Ties therefore break alphabetically on
+  // a label — which matters most exactly where the data is thin and ties are the
+  // norm (institutions with one spinout, exchanges with one listing, the 36
+  // acquirers that have made exactly one acquisition).
+  //
+  // `value` and `label` each take a key name OR an accessor function, so a new
+  // chart adopts the same ordering without this file having to know its fields.
+  const accessor = k => (typeof k === "function" ? k : d => d[k]);
+
+  // Locale-aware, case-insensitive, digit-aware ("Q9" before "Q10").
+  const alpha = (a, b) =>
+    String(a ?? "").localeCompare(String(b ?? ""), undefined, { sensitivity: "base", numeric: true });
+
+  /**
+   * Comparator ordering by `value` (descending unless dir === "asc"), with ties
+   * broken alphabetically by `label`. Works for numeric and string values alike.
+   * Null/undefined values always sort last, in both directions, so "no data"
+   * never outranks a real figure.
+   */
+  const rank = (value, label, dir) => {
+    const v = accessor(value), l = accessor(label);
+    const sign = dir === "asc" ? 1 : -1;
+    return (a, b) => {
+      const av = v(a), bv = v(b);
+      if (av == null || bv == null) {
+        if (av == null && bv == null) return alpha(l(a), l(b));
+        return av == null ? 1 : -1;
+      }
+      if (av !== bv) return av > bv ? sign : -sign;
+      return alpha(l(a), l(b));
+    };
+  };
+
   // ── Shared stylesheet (mirrors the tokens) ────────────────────────────────
   function css() {
     return `
@@ -280,5 +316,5 @@ svg{display:block;width:100%;height:auto;overflow:visible;}
     document.head.appendChild(s);
   }
 
-  return { tokens, palette, fmt, injectCSS };
+  return { tokens, palette, fmt, rank, alpha, injectCSS };
 })();

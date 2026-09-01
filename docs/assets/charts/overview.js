@@ -155,7 +155,7 @@ QT.boot(async function () {
       return country.data
         .map(d => ({ ...d, private_funding: d.total_funding != null && d.public_funding != null ? d.total_funding - d.public_funding : null }))
         .filter(d => d[state.metric] != null)
-        .sort((a, b) => b[state.metric] - a[state.metric]);
+        .sort(QT.rank(state.metric, "country"));
     }
 
     function render() {
