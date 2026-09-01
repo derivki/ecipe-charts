@@ -103,13 +103,36 @@ QT.boot(async function () {
                colW: Math.max(x1 - x0, labelW) };
     });
 
-    // All regions on ONE row, always: the panel's job is a side-by-side regional
-    // comparison, and wrapping one region onto its own line reads as if it belongs
-    // to a different grouping. When the row needs more than W the viewBox widens
-    // instead, so the SVG scales down to the panel and the row stays intact.
+    // Wrap onto several rows rather than one: five regions across a single line
+    // leaves each pack too narrow to read, and the panel is only ~800px wide in
+    // the WordPress embed. Rows are BALANCED rather than filled greedily -- a
+    // plain left-to-right wrap strands the last region alone on its own line,
+    // which reads as a separate grouping instead of a continuation.
     const needW = d3.sum(cols, c => c.colW) + GAP * (cols.length - 1);
-    const vbW = Math.max(W, needW);
-    const H = LABEL_H + d3.max(cols, c => c.packH) + 8;
+    const nRows = Math.max(1, Math.ceil(needW / W));
+    const target = needW / nRows;
+
+    const rowsOut = [];
+    let row = [], used = 0;
+    cols.forEach((col, i) => {
+      const remaining = cols.length - i;
+      const rowsLeft = nRows - rowsOut.length;
+      // Start a new row once this one has reached its share, but never leave
+      // fewer regions than rows still to fill.
+      const wouldOrphan = remaining <= rowsLeft - 1;
+      if (row.length && !wouldOrphan && rowsLeft > 1 &&
+          used + col.colW + GAP > target * 1.12) {
+        rowsOut.push(row); row = []; used = 0;
+      }
+      row.push(col);
+      used += col.colW + (row.length > 1 ? GAP : 0);
+    });
+    if (row.length) rowsOut.push(row);
+
+    const rowHeights = rowsOut.map(r => LABEL_H + d3.max(r, c => c.packH));
+    const vbW = Math.max(W, d3.max(rowsOut,
+      r => d3.sum(r, c => c.colW) + GAP * (r.length - 1)));
+    const H = d3.sum(rowHeights) + GAP * (rowsOut.length - 1) + 8;
 
     d3.select("#chart-mcap").selectAll("*").remove();
     const svg = d3.select("#chart-mcap").append("svg")
@@ -117,18 +140,23 @@ QT.boot(async function () {
       .attr("aria-label", "Market capitalisation of listed quantum companies, grouped by region");
     const g = svg.append("g");
 
-    // Packs sit on a shared vertical centre so bubble sizes compare across
-    // regions by eye, with each caption centred over its own column.
+    // Within a row, packs share a vertical centre so bubble sizes stay comparable
+    // by eye; each caption is centred over its own column.
     const placed = [];
-    let xCursor = (vbW - needW) / 2;
-    const midY = 4 + LABEL_H + d3.max(cols, c => c.packH) / 2;
-    cols.forEach(col => {
-      placed.push({ ...col,
-        ox: xCursor + col.colW / 2 - col.cx,
-        oy: midY - col.cy,
-        labelX: xCursor + col.colW / 2,
-        labelY: 4 + LABEL_H - 9 });
-      xCursor += col.colW + GAP;
+    let yCursor = 4;
+    rowsOut.forEach((r, ri) => {
+      const rowW = d3.sum(r, c => c.colW) + GAP * (r.length - 1);
+      const rowPackH = d3.max(r, c => c.packH);
+      let xCursor = (vbW - rowW) / 2;               // centre each row
+      r.forEach(col => {
+        placed.push({ ...col,
+          ox: xCursor + col.colW / 2 - col.cx,
+          oy: yCursor + LABEL_H + rowPackH / 2 - col.cy,
+          labelX: xCursor + col.colW / 2,
+          labelY: yCursor + LABEL_H - 9 });
+        xCursor += col.colW + GAP;
+      });
+      yCursor += rowHeights[ri] + GAP;
     });
 
     placed.forEach(({ reg, nodes, caption, ox, oy, labelX, labelY }) => {
