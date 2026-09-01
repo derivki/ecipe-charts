@@ -10,7 +10,7 @@
 <div class="wrap">
   <div id="nav"></div>
   <h1>Quantum companies</h1>
-  <p class="sub">Every tracked quantum company, its funding, and how and when it was founded.</p>
+  <p class="sub">Every tracked quantum company: what it raised, where it came from, and what it is worth.</p>
   <div class="vintage" id="vintage"></div>
 
   <div class="kpis" id="kpis"></div>
@@ -18,11 +18,23 @@
   <div class="panels g2">
 
     <div class="panel span2">
-      <div class="ttl">Funding by company, over time</div>
-      <p class="why">Each bubble is one company. X-axis: founding year. Size: total funding raised. Colour: how the company originated.</p>
-      <div class="legend" id="legend-bubble"></div>
-      <svg id="chart-bubble" role="img" aria-label="Company funding bubble chart"></svg>
-      <p class="note" style="margin-top:8px;padding-top:8px;">Placeholder view pending the dedicated bubble-chart design (Andrea). Coloured by <b>founding origin</b> — the workbook's technology-pillar and stack-layer classification is not yet populated, so it cannot drive colour here yet.</p>
+      <div class="ttl">Market capitalisation of listed quantum companies, by region</div>
+      <p class="why">Every publicly listed company in the database, sized by market capitalisation and grouped by the region of its headquarters. Bubble area is proportional to value. Hover for the figure.</p>
+      <div id="chart-mcap"></div>
+      <p class="note" style="margin-top:8px;padding-top:8px;"><b>Only listed companies appear here</b> — <span id="mcap-count"></span> of the tracked total. The other companies are private, so no market value exists to plot; funding raised is the comparable measure for them, in the panels below. <span id="mcap-override-note"></span></p>
+    </div>
+
+    <div class="panel span2">
+      <div class="ttl">Parent institutions by funding raised by their spinouts</div>
+      <p class="why">Institutions ranked by the total funding raised by the companies that came out of them — not by how many they produced. Use the toggle to compare the two.</p>
+      <div class="controls">
+        <div class="ctl"><label>Rank by</label>
+          <div class="seg" id="seg-inst-metric"><button data-m="total_funding" class="on">Funding raised</button><button data-m="n_spinouts">Number of spinouts</button></div>
+        </div>
+        <div class="ctl"><label>Showing</label><div class="chiprow" id="bracket-inst"></div></div>
+      </div>
+      <svg id="chart-inst" role="img" aria-label="Parent institutions ranked by funding raised by their spinouts"></svg>
+      <p class="note" style="margin-top:8px;padding-top:8px;">A company with more than one institution of origin counts under each, so funding is deliberately counted for every co-parent — the question is what came out of an institution, not how to divide the sector up. Institutions of origin are recorded for <span id="inst-coverage"></span>; the rest were founded independently, which is a recorded answer rather than missing data.</p>
     </div>
 
     <div class="panel span2">
@@ -31,22 +43,38 @@
       <svg id="chart-top" role="img" aria-label="Top companies by funding"></svg>
     </div>
 
-    <div class="panel">
-      <div class="ttl">Companies by founding origin</div>
-      <p class="why">Share of tracked companies by how they were founded (spinout, merger, joint venture…).</p>
-      <svg id="chart-origin" role="img" aria-label="Companies by founding origin"></svg>
-      <div class="legend" id="legend-origin"></div>
-      <p class="note" style="margin-top:8px;padding-top:8px;">This is the only company-classification field populated in the current database; a pillar/stack-layer breakdown will replace or supplement it once that data is added.</p>
+    <div class="panel span2">
+      <div class="ttl">Funding by stack layer</div>
+      <p class="why">Where the money sits in the quantum stack. Bar length is funding; the number on the right is how many companies share it.</p>
+      <svg id="chart-stack" role="img" aria-label="Funding by stack layer"></svg>
+      <p class="note" style="margin-top:8px;padding-top:8px;">Every company carries exactly one stack layer, so unlike the pillar and stream axes this one partitions the sector cleanly.</p>
     </div>
 
     <div class="panel">
-      <div class="ttl">Companies by ownership status</div>
-      <p class="why">Public, private, or corporate-owned.</p>
-      <svg id="chart-ownership" role="img" aria-label="Companies by ownership status"></svg>
-      <div class="legend" id="legend-ownership"></div>
+      <div class="ttl">How companies are founded</div>
+      <p class="why">Institutional origin versus independent founding, and the split within institutional.</p>
+      <svg id="chart-origin" role="img" aria-label="Companies by founding origin"></svg>
+      <div class="legend" id="legend-origin"></div>
+      <p class="note" style="margin-top:8px;padding-top:8px;">A blank origin in the workbook means <b>not a spinout</b> — the controlled vocabulary lists only non-organic origins, so an independently founded company is recorded by the absence of one. This is a complete split, not a coverage gap.</p>
+    </div>
+
+    <div class="panel">
+      <div class="ttl">Companies by founding year</div>
+      <p class="why">When the tracked companies were founded.</p>
+      <svg id="chart-founded" role="img" aria-label="Companies by founding year"></svg>
+      <p class="note" style="margin-top:8px;padding-top:8px;">Chart starts at <span id="founded-from"></span>; a handful of older companies predate it. <b>The most recent year is partial</b> and is not comparable with full years.</p>
+    </div>
+
+    <div class="panel span2">
+      <div class="ttl">Listed companies by stock exchange</div>
+      <p class="why">Where the listed quantum companies are traded.</p>
+      <svg id="chart-exchange" role="img" aria-label="Listed companies by stock exchange"></svg>
+      <p class="note" style="margin-top:8px;padding-top:8px;">Dual-listed companies are counted on both venues, so listings exceed companies — <span id="exchange-count"></span>.</p>
     </div>
 
   </div>
+
+  <p class="note">Every panel on this tab is computed directly from the funding database. Market capitalisation is the one figure that moves independently of the data vintage — see the note on the first panel.</p>
 </div>
 
 <script src="assets/theme.js"></script>

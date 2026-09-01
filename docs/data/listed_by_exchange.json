@@ -1,0 +1,180 @@
+{
+  "meta": {
+    "data_vintage": "2026-Q3",
+    "start_year": 2012,
+    "partial_year": 2026
+  },
+  "data": [
+    {
+      "exchange": "Nasdaq Stock Market",
+      "n_listings": 12,
+      "companies": [
+        "AmpliTech",
+        "Arqit Quantum Inc.",
+        "BTQ Technologies",
+        "D-Wave",
+        "Horizon Quantum",
+        "IQM Quantum Computers",
+        "QTREX",
+        "Quantinuum",
+        "Quantum Computing Inc.",
+        "Rigetti Computing",
+        "SEALSQ",
+        "Xanadu"
+      ],
+      "country_code": "us",
+      "country": "United States"
+    },
+    {
+      "exchange": "Canadian Securities Exchange",
+      "n_listings": 4,
+      "companies": [
+        "Integrated Quantum Technologies",
+        "Quantum Secure Encryption",
+        "QuantumCore",
+        "SuperQ Quantum Computing"
+      ],
+      "country_code": "ca",
+      "country": "Canada"
+    },
+    {
+      "exchange": "New York Stock Exchange",
+      "n_listings": 3,
+      "companies": [
+        "Infleqtion",
+        "IonQ",
+        "Quantum eMotion"
+      ],
+      "country_code": "us",
+      "country": "United States"
+    },
+    {
+      "exchange": "Australian Securities Exchange",
+      "n_listings": 2,
+      "companies": [
+        "Archer Materials",
+        "Senetas"
+      ],
+      "country_code": "au",
+      "country": "Australia"
+    },
+    {
+      "exchange": "TSX Venture Exchange",
+      "n_listings": 2,
+      "companies": [
+        "01 Quantum",
+        "Quantum eMotion"
+      ],
+      "country_code": "ca",
+      "country": "Canada"
+    },
+    {
+      "exchange": "Düsseldorf Stock Exchange",
+      "n_listings": 1,
+      "companies": [
+        "Aqarios"
+      ],
+      "country_code": "de",
+      "country": "Germany"
+    },
+    {
+      "exchange": "Hamburg Stock Exchange",
+      "n_listings": 1,
+      "companies": [
+        "ParTec"
+      ],
+      "country_code": "de",
+      "country": "Germany"
+    },
+    {
+      "exchange": "Hong Kong Stock Exchange",
+      "n_listings": 1,
+      "companies": [
+        "XtalPi Technology (晶泰科技)"
+      ],
+      "country_code": null,
+      "country": "Hong Kong"
+    },
+    {
+      "exchange": "Korea Stock Exchange",
+      "n_listings": 1,
+      "companies": [
+        "ICTK"
+      ],
+      "country_code": "kr",
+      "country": "South Korea"
+    },
+    {
+      "exchange": "London Stock Exchange",
+      "n_listings": 1,
+      "companies": [
+        "Quantum Base"
+      ],
+      "country_code": "gb",
+      "country": "United Kingdom"
+    },
+    {
+      "exchange": "NASDAQ Helsinki",
+      "n_listings": 1,
+      "companies": [
+        "IQM Quantum Computers"
+      ],
+      "country_code": "fi",
+      "country": "Finland"
+    },
+    {
+      "exchange": "National Equities Exchange and Quotations",
+      "n_listings": 1,
+      "companies": [
+        "QTEC (九州量子)"
+      ],
+      "country_code": "cn",
+      "country": "China"
+    },
+    {
+      "exchange": "NEO Exchange",
+      "n_listings": 1,
+      "companies": [
+        "BTQ Technologies"
+      ],
+      "country_code": "ca",
+      "country": "Canada"
+    },
+    {
+      "exchange": "OTC Markets",
+      "n_listings": 1,
+      "companies": [
+        "Zapata Quantum"
+      ],
+      "country_code": "us",
+      "country": "United States"
+    },
+    {
+      "exchange": "Shanghai Stock Exchange",
+      "n_listings": 1,
+      "companies": [
+        "QuantumCTek (国盾量子)"
+      ],
+      "country_code": "cn",
+      "country": "China"
+    },
+    {
+      "exchange": "Toronto Stock Exchange",
+      "n_listings": 1,
+      "companies": [
+        "Xanadu"
+      ],
+      "country_code": "ca",
+      "country": "Canada"
+    },
+    {
+      "exchange": "Warsaw Stock Exchange",
+      "n_listings": 1,
+      "companies": [
+        "Creotech Quantum"
+      ],
+      "country_code": "pl",
+      "country": "Poland"
+    }
+  ]
+}

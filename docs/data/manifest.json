@@ -1,6 +1,6 @@
 {
   "data_vintage": "2026-Q3",
-  "built_at_utc": "2026-09-01T13:43:56+00:00",
+  "built_at_utc": "2026-09-01T15:02:59+00:00",
   "source_xlsx": "raw/Quantum startups tracker.xlsx",
   "source_sha256": "117f8e97a42120d2ff2ec30ef398c9ef8a1fc4eaf1ea0c5dc8859db543af0ea7",
   "row_counts": {
@@ -14,6 +14,8 @@
     "funding_by_cluster": 42,
     "funding_by_instrument_year": 15,
     "funding_by_stage_region": "object",
-    "companies": 675
+    "companies": 675,
+    "institution_spinouts": 232,
+    "listed_by_exchange": 17
   }
 }
