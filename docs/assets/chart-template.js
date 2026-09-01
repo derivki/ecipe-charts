@@ -208,15 +208,30 @@
   /* ── Auto-resize: report our height to a host page (for responsive iframes) ──
      Posts {type:'qt-embed-size', height} to the parent whenever our content
      height changes. Harmless if the host doesn't listen. See the runbook for the
-     matching WordPress snippet. */
+     matching WordPress snippet.
+     +6px buffer: an exact-pixel match is fragile — a font swap or subpixel
+     rounding difference between the measurement moment and final paint can push
+     real content 1px past an exactly-sized host iframe, which then falls back to
+     showing its own internal scrollbar (since the embed doesn't set
+     scrolling="no"). A few px of harmless blank space at the bottom avoids that. */
   (function reportHeight() {
     const send = () => {
-      const h = Math.ceil(document.documentElement.getBoundingClientRect().height);
+      const h = Math.ceil(document.documentElement.getBoundingClientRect().height) + 6;
       try { window.parent.postMessage({ type: "qt-embed-size", height: h }, "*"); } catch (e) {}
     };
     window.addEventListener("load", send);
     window.addEventListener("resize", send);
     if (window.ResizeObserver) new ResizeObserver(send).observe(document.body);
     setTimeout(send, 800); // after the chart's async render
+
+    // Belt-and-suspenders: when embedded, never show OUR OWN scroll UI — the
+    // host iframe (sized from the message above) owns all scrolling. Guards
+    // against the buffer above still being insufficient in some edge case.
+    // Skipped when viewed standalone (window.self === window.top), so direct
+    // links to a chart page keep normal scrolling.
+    if (window.self !== window.top) {
+      document.documentElement.style.overflow = "hidden";
+      document.body.style.overflow = "hidden";
+    }
   })();
 })();
