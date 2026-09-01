@@ -53,6 +53,10 @@ QT.boot(async function () {
     QT.kpis("#kpis", [
       { v: QT.fmt.axisMoney(c.total_funding), k: `Total funding · rank ${rank} of ${ranked.length}` },
       { v: QT.fmt.int(c.companies), k: "Companies" },
+      // Distinct named clusters this country's companies sit in. Real, but the
+      // cluster field is still being filled in, so this rises as curation
+      // continues — it is a count of hubs recorded, not of hubs that exist.
+      { v: QT.fmt.int(c.clusters), k: "Quantum clusters" },
       { v: QT.fmt.int(p.institutions), k: `Institutions ${QT.mockBadge("Mock")}` },
       { v: `<span style="font-size:14px;color:${QT.tokens.purple}">${p.archetype}</span>`, k: `Collaboration archetype ${QT.mockBadge("Mock")}` },
     ]);
