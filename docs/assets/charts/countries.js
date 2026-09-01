@@ -34,17 +34,29 @@ QT.boot(async function () {
   const profileByName = new Map(profile.data.map(d => [d.country, d]));
   const ranked = [...country.data].filter(d => d.total_funding != null).sort(QT.rank("total_funding", "country"));
 
+  // The ranked bars show PRIVATE capital (VC / private equity + debt), not total:
+  // the panel is about where commercial money goes, and total funding is dominated
+  // by government programmes in several countries, which flattens that signal.
+  // Both metrics are the private figure, so the toggle changes only the
+  // denominator — absolute dollars versus dollars per unit of GDP.
+  // `title` is carried separately rather than lower-casing `label` in the heading:
+  // that turned "Private funding ÷ GDP" into "... ÷ gdp".
   const METRICS = {
-    total_funding:  { label: "Total funding", fmt: QT.fmt.axisMoney, ttfmt: QT.fmt.money },
-    funding_to_gdp: { label: "Funding ÷ GDP", fmt: QT.fmt.pct1,       ttfmt: QT.fmt.pct1 },
+    private_funding:        { label: "Private funding", title: "private funding",
+                              fmt: QT.fmt.axisMoney, ttfmt: QT.fmt.money },
+    private_funding_to_gdp: { label: "Private funding ÷ GDP", title: "private funding ÷ GDP",
+                              fmt: QT.fmt.pct1, ttfmt: QT.fmt.pct1 },
   };
 
   const sel = d3.select("#country-select");
   sel.selectAll("option").data(ranked).join("option")
     .attr("value", d => d.country).text((d, i) => `${d.country}`);
 
-  let state = { country: byName.has("France") ? "France" : ranked[0].country, metric: "total_funding" };
+  let state = { country: byName.has("France") ? "France" : ranked[0].country, metric: "private_funding" };
   sel.property("value", state.country);
+  // Filled from the data rather than hardcoded — the copy previously said "38
+  // tracked countries" while the dataset had grown to 43.
+  d3.select("#ranked-n").text(country.data.length);
 
   function kpis() {
     const c = byName.get(state.country);
@@ -65,8 +77,15 @@ QT.boot(async function () {
   // ---------- Panel 1: ranked bars, selected country highlighted (REAL) ----------
   function rankedBars() {
     const M = METRICS[state.metric];
-    d3.select("#ttl-ranked").text(`Country ranking: ${M.label.toLowerCase()} — ${state.country} highlighted`);
-    let rows = ranked.filter(d => d[state.metric] != null).slice(0, 20);
+    d3.select("#ttl-ranked").text(`Country ranking: ${M.title} — ${state.country} highlighted`);
+    // Rank by the metric ON SCREEN. This used to slice the top 20 from `ranked`,
+    // which is ordered by TOTAL funding, so the ÷ GDP view drew its bars in
+    // total-funding order — descending by label, jumbled by length.
+    const byMetric = [...country.data]
+      .filter(d => d[state.metric] != null)
+      .sort(QT.rank(state.metric, "country"));
+    let rows = byMetric.slice(0, 20);
+    // Always show the selected country, even when it falls outside the top 20.
     if (!rows.some(d => d.country === state.country) && byName.get(state.country)[state.metric] != null) {
       rows = rows.slice(0, 19).concat([byName.get(state.country)]).sort(QT.rank(state.metric, "country"));
     }

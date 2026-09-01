@@ -18,8 +18,8 @@
     <div class="ctl">
       <label>Ranked-bar metric</label>
       <div class="seg" id="seg-metric-country">
-        <button data-m="total_funding" class="on">Total&nbsp;funding</button>
-        <button data-m="funding_to_gdp">Funding&nbsp;÷&nbsp;GDP</button>
+        <button data-m="private_funding" class="on">Private&nbsp;funding</button>
+        <button data-m="private_funding_to_gdp">Private&nbsp;funding&nbsp;÷&nbsp;GDP</button>
       </div>
     </div>
   </div>
@@ -30,7 +30,7 @@
 
     <div class="panel span2">
       <div class="ttl" id="ttl-ranked">Country comparison</div>
-      <p class="why">Rank of the selected country among all 38 tracked countries.</p>
+      <p class="why">Rank of the selected country among all <span id="ranked-n">tracked</span> countries, by private capital (VC / private equity and debt) — the government-sourced share is excluded.</p>
       <svg id="chart-ranked" role="img" aria-label="Country ranked by funding"></svg>
     </div>
 

@@ -277,7 +277,9 @@ QT.boot(async function () {
       c.gx.call(d3.axisBottom(x).ticks(4).tickFormat(money ? QT.fmt.axisMoney : d3.format("d")).tickSizeOuter(0));
     }
 
-    QT.segControl("#seg-inst-metric", "m", m => { state.metric = m; state.page = 0; render(); });
+    // NB: segControl reads getAttribute(dataAttr), so this is the full attribute
+    // name, not the suffix — "m" silently yields null and blanks the chart.
+    QT.segControl("#seg-inst-metric", "data-m", m => { state.metric = m; state.page = 0; render(); });
     render();
 
     const withInst = new Set();
