@@ -58,10 +58,29 @@ QT.boot(async function () {
   // tracked countries" while the dataset had grown to 43.
   d3.select("#ranked-n").text(country.data.length);
 
+  /* The illustrative profile covers 38 of the 43 countries in the dropdown
+     (Cyprus, Malta, Pakistan, Saudi Arabia, Slovenia and Tunisia have none), so
+     every mock-backed panel has to survive a missing one. They previously did not:
+     `kpis()` dereferenced the profile directly and threw, and because `render()`
+     calls `kpis()` FIRST, that exception aborted the whole re-render — picking one
+     of those six left the entire page, real panels included, still showing the
+     previous country. Failing softly per panel keeps the real data working
+     regardless of mock coverage. */
+  function emptyPanel(selector, message) {
+    d3.select(selector).selectAll("*").remove();
+    d3.select(selector).attr("viewBox", "0 0 880 56")
+      .append("text").attr("x", 4).attr("y", 32)
+      .attr("font-size", 12).attr("fill", QT.tokens.muted)
+      .text(message);
+  }
+  const noProfileNote = () =>
+    `No illustrative profile for ${state.country} yet — covers ${profile.data.length} of ${country.data.length} tracked countries.`;
+
   function kpis() {
     const c = byName.get(state.country);
     const p = profileByName.get(state.country);
     const rank = ranked.findIndex(d => d.country === state.country) + 1;
+    const mock = (v, fmt) => (p ? fmt(v) : "—");
     QT.kpis("#kpis", [
       { v: QT.fmt.axisMoney(c.total_funding), k: `Total funding · rank ${rank} of ${ranked.length}` },
       { v: QT.fmt.int(c.companies), k: "Companies" },
@@ -69,8 +88,9 @@ QT.boot(async function () {
       // cluster field is still being filled in, so this rises as curation
       // continues — it is a count of hubs recorded, not of hubs that exist.
       { v: QT.fmt.int(c.clusters), k: "Quantum clusters" },
-      { v: QT.fmt.int(p.institutions), k: `Institutions ${QT.mockBadge("Mock")}` },
-      { v: `<span style="font-size:14px;color:${QT.tokens.purple}">${p.archetype}</span>`, k: `Collaboration archetype ${QT.mockBadge("Mock")}` },
+      { v: mock(p && p.institutions, QT.fmt.int), k: `Institutions ${QT.mockBadge("Mock")}` },
+      { v: p ? `<span style="font-size:14px;color:${QT.tokens.purple}">${p.archetype}</span>` : "—",
+        k: `Collaboration archetype ${QT.mockBadge("Mock")}` },
     ]);
   }
 
@@ -84,38 +104,96 @@ QT.boot(async function () {
     const byMetric = [...country.data]
       .filter(d => d[state.metric] != null)
       .sort(QT.rank(state.metric, "country"));
-    let rows = byMetric.slice(0, 20);
-    // Always show the selected country, even when it falls outside the top 20.
-    if (!rows.some(d => d.country === state.country) && byName.get(state.country)[state.metric] != null) {
-      rows = rows.slice(0, 19).concat([byName.get(state.country)]).sort(QT.rank(state.metric, "country"));
-    }
 
-    const W = 880, H = 480;
+    /* Leaders + a window around the selection, with an explicit break between.
+       A flat top-20 could not answer "where does my country sit?" for the ~half
+       of the list that never appears in it: appending the selection to the bottom
+       put it out of rank order, and for the 11 countries whose private funding is
+       0 it drew a zero-width bar, so choosing them looked like nothing happened.
+       Showing the leaders for scale, then the selection among its actual
+       neighbours, answers both "who leads" and "who is around me". */
+    const TOP = 5, WINDOW = 5;
+    const idx = byMetric.findIndex(d => d.country === state.country);
+    let blocks, skipped = 0;
+    if (idx < 0) {
+      // Selected country has no value for this metric — show the leaders alone.
+      blocks = [byMetric.slice(0, TOP + WINDOW * 2 + 1)];
+    } else {
+      const lo = Math.max(0, idx - WINDOW);
+      const hi = Math.min(byMetric.length, idx + WINDOW + 1);
+      if (lo <= TOP) {
+        // Window reaches (or overlaps) the leaders — one contiguous run, no break.
+        // Floored at TOP + WINDOW + 1 so picking a leader does not collapse the
+        // chart to a stub: selecting #1 would otherwise show only six rows.
+        blocks = [byMetric.slice(0, Math.max(hi, TOP + WINDOW + 1))];
+      } else {
+        blocks = [byMetric.slice(0, TOP), byMetric.slice(lo, hi)];
+        skipped = lo - TOP;
+      }
+    }
+    // A sentinel row carries the break; `country` doubles as the band-scale key,
+    // so it must not collide with a real country name.
+    const BREAK = "─break─";
+    const rows = [];
+    blocks.forEach((b, i) => {
+      if (i) rows.push({ country: BREAK, isBreak: true });
+      rows.push(...b);
+    });
+    const rankOf = d => byMetric.indexOf(d) + 1;
+
+    // Height follows the row count so bar thickness stays constant whether the
+    // view is one contiguous run or two blocks plus a break.
+    const W = 880, H = 38 + rows.length * 22;
     d3.select("#chart-ranked").selectAll("*").remove();
     const c = QT.chart("#chart-ranked", { W, H, margin: { t: 8, r: 70, b: 30, l: 110 } });
-    const x = d3.scaleLinear().domain([0, d3.max(rows, d => d[state.metric]) * 1.02]).range([0, c.iw]);
+    const bars = rows.filter(d => !d.isBreak);
+    const x = d3.scaleLinear().domain([0, d3.max(bars, d => d[state.metric]) * 1.02]).range([0, c.iw]);
     const y = d3.scaleBand().domain(rows.map(d => d.country)).range([0, c.ih]).padding(0.18);
 
     c.gGrid.selectAll("line").data(x.ticks(5)).join("line").attr("class", "gridline")
       .attr("y1", 0).attr("y2", c.ih).attr("x1", d => x(d)).attr("x2", d => x(d));
-    c.gPlot.selectAll("rect").data(rows, d => d.country).join("rect")
+
+    // The break: a dashed rule across the plot, labelled with what it hides.
+    const brk = rows.find(d => d.isBreak);
+    if (brk) {
+      const my = y(BREAK) + y.bandwidth() / 2;
+      c.gPlot.append("line")
+        .attr("x1", 0).attr("x2", c.iw).attr("y1", my).attr("y2", my)
+        .attr("stroke", QT.tokens.line).attr("stroke-width", 1).attr("stroke-dasharray", "4 4");
+      c.gPlot.append("text")
+        .attr("x", 4).attr("y", my).attr("dy", "-0.4em")
+        .attr("font-size", 10.5).attr("fill", QT.tokens.muted)
+        .text(`${skipped} ${skipped === 1 ? "country" : "countries"} not shown`);
+    }
+
+    c.gPlot.selectAll("rect").data(bars, d => d.country).join("rect")
       .attr("x", 0).attr("y", d => y(d.country)).attr("height", y.bandwidth()).attr("rx", 2)
       .attr("fill", d => d.country === state.country ? QT.tokens.accent : QT.tokens.line)
       .attr("width", d => x(d[state.metric]))
-      .on("mousemove", (e, d) => tt.show(`<div class="hd">${d.country}</div><div class="row"><span class="k">${M.label}</span><span class="v">${M.ttfmt(d[state.metric])}</span></div>`, e))
+      .on("mousemove", (e, d) => tt.show(
+        `<div class="hd">${d.country}</div>` +
+        `<div class="row"><span class="k">Rank</span><span class="v">${rankOf(d)} of ${byMetric.length}</span></div>` +
+        `<div class="row"><span class="k">${M.label}</span><span class="v">${M.ttfmt(d[state.metric])}</span></div>`, e))
       .on("mouseleave", tt.hide);
-    c.gPlot.selectAll("text.bar-val").data(rows, d => d.country).join("text")
+    c.gPlot.selectAll("text.bar-val").data(bars, d => d.country).join("text")
       .attr("class", "bar-val").attr("dy", "0.32em")
       .attr("y", d => y(d.country) + y.bandwidth() / 2).attr("x", d => x(d[state.metric]) + 6)
       .text(d => M.ttfmt(d[state.metric]));
     c.gx.call(d3.axisBottom(x).ticks(5).tickFormat(M.fmt).tickSizeOuter(0));
+    // Rank prefixes the label: with a break in the axis, position alone no longer
+    // tells you where a row sits in the full list.
+    const rankByName = new Map(bars.map(d => [d.country, rankOf(d)]));
     c.gy.call(d3.axisLeft(y).tickSizeOuter(0)).call(g => g.select(".domain").remove())
-      .selectAll("text").attr("font-weight", d => d === state.country ? 700 : 400);
+      .selectAll("text")
+      .attr("font-weight", d => d === state.country ? 700 : 400)
+      .attr("fill", d => d === BREAK ? QT.tokens.muted : null)
+      .text(d => d === BREAK ? "⋯" : `${rankByName.get(d)}. ${d}`);
   }
 
   // ---------- Panel 2: institution domain split (MOCK, 100% stacked bar) ----------
   function domainSplit() {
     const p = profileByName.get(state.country);
+    if (!p) return emptyPanel("#chart-domain", noProfileNote());
     const avgIndustry = d3.mean(profile.data, d => d.domain_split.industry);
     const segs = ["research", "government", "industry"].map(k => ({ key: k, v: p.domain_split[k], label: k[0].toUpperCase() + k.slice(1), color: QT.palette.domain[k] }));
 
@@ -171,6 +249,7 @@ QT.boot(async function () {
   function rcaPanel() {
     const p = profileByName.get(state.country);
     d3.select("#ttl-rca").html(`National specialisation (RCA) — ${state.country} <span id="badge-rca">${QT.mockBadge()}</span>`);
+    if (!p) return emptyPanel("#chart-rca", noProfileNote());
     const rows = [...p.rca].sort(QT.rank("rca", "domain"));
 
     const W = 880, H = 190;
@@ -197,6 +276,7 @@ QT.boot(async function () {
   function networkPanel() {
     const p = profileByName.get(state.country);
     d3.select("#ttl-network").html(`Collaboration: connectedness &amp; top partners — ${state.country} <span id="badge-network">${QT.mockBadge()}</span>`);
+    if (!p) return emptyPanel("#chart-network", noProfileNote());
     const partners = [...p.top_partners].sort(QT.rank("score", "country"));
 
     const rowH = 44, topPad = 66, botPad = 24, W = 880;
