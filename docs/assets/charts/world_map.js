@@ -156,7 +156,7 @@
       .on("mouseleave", function () { d3.select(this).classed("hl", false); hideTip(); });
 
     const bubbleSel = showClusters ? g.selectAll("circle.wm-cluster")
-      .data([...clusters].sort((a, b) => b.total_funding - a.total_funding)).join("circle")
+      .data([...clusters].sort(QT.rank("total_funding", "cluster"))).join("circle")
       .attr("class", "wm-cluster")
       .attr("cx", d => projection([d.lon, d.lat])[0]).attr("cy", d => projection([d.lon, d.lat])[1])
       .on("mousemove", (e, d) => showTip(

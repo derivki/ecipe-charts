@@ -32,7 +32,7 @@ QT.boot(async function () {
   const tt = QT.tooltip();
   const byName = new Map(country.data.map(d => [d.country, d]));
   const profileByName = new Map(profile.data.map(d => [d.country, d]));
-  const ranked = [...country.data].filter(d => d.total_funding != null).sort((a, b) => b.total_funding - a.total_funding);
+  const ranked = [...country.data].filter(d => d.total_funding != null).sort(QT.rank("total_funding", "country"));
 
   const METRICS = {
     total_funding:  { label: "Total funding", fmt: QT.fmt.axisMoney, ttfmt: QT.fmt.money },
@@ -64,7 +64,7 @@ QT.boot(async function () {
     d3.select("#ttl-ranked").text(`Country ranking: ${M.label.toLowerCase()} — ${state.country} highlighted`);
     let rows = ranked.filter(d => d[state.metric] != null).slice(0, 20);
     if (!rows.some(d => d.country === state.country) && byName.get(state.country)[state.metric] != null) {
-      rows = rows.slice(0, 19).concat([byName.get(state.country)]).sort((a, b) => b[state.metric] - a[state.metric]);
+      rows = rows.slice(0, 19).concat([byName.get(state.country)]).sort(QT.rank(state.metric, "country"));
     }
 
     const W = 880, H = 480;
@@ -148,7 +148,7 @@ QT.boot(async function () {
   function rcaPanel() {
     const p = profileByName.get(state.country);
     d3.select("#ttl-rca").html(`National specialisation (RCA) — ${state.country} <span id="badge-rca">${QT.mockBadge()}</span>`);
-    const rows = [...p.rca].sort((a, b) => b.rca - a.rca);
+    const rows = [...p.rca].sort(QT.rank("rca", "domain"));
 
     const W = 880, H = 190;
     d3.select("#chart-rca").selectAll("*").remove();
@@ -174,7 +174,7 @@ QT.boot(async function () {
   function networkPanel() {
     const p = profileByName.get(state.country);
     d3.select("#ttl-network").html(`Collaboration: connectedness &amp; top partners — ${state.country} <span id="badge-network">${QT.mockBadge()}</span>`);
-    const partners = [...p.top_partners].sort((a, b) => b.score - a.score);
+    const partners = [...p.top_partners].sort(QT.rank("score", "country"));
 
     const rowH = 44, topPad = 66, botPad = 24, W = 880;
     const H = topPad + partners.length * rowH + botPad;

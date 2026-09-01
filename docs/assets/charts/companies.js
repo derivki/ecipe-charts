@@ -89,7 +89,7 @@ QT.boot(async function () {
   (function originDonut() {
     const counts = d3.rollup(rows, v => v.length, ORIGIN_LABEL);
     const segs = [...counts.entries()].map(([k, v]) => ({ key: k, label: k, v, color: QT.palette.origin[k] || QT.palette.origin["Not specified"] }))
-      .sort((a, b) => b.v - a.v);
+      .sort(QT.rank("v", "label"));
     const total = d3.sum(segs, d => d.v);
 
     const W = 420, H = 220;
@@ -114,7 +114,7 @@ QT.boot(async function () {
   (function ownershipBar() {
     const counts = d3.rollup(rows, v => v.length, d => d.ownership_status || "Unknown");
     const segs = [...counts.entries()].map(([k, v]) => ({ key: k, label: k, v, color: QT.palette.ownership[k] || QT.tokens.muted }))
-      .sort((a, b) => b.v - a.v);
+      .sort(QT.rank("v", "label"));
 
     const W = 420, H = 100;
     const c = QT.chart("#chart-ownership", { W, H, margin: { t: 10, r: 10, b: 10, l: 10 } });
