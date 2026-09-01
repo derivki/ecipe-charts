@@ -1,6 +1,6 @@
 /* Funding by stage — two regions overlaid, absolute or share-of-bloc.
    Reads docs/data/funding_by_stage_region.json. Refactor of the funnel prototype. */
-(async function () {
+QT.boot(async function () {
   QT.injectCSS();
   const { data, meta } = await QT.loadData("funding_by_stage_region");
   QT.vintage("#vintage", meta);
@@ -73,4 +73,4 @@
   d3.select("#rb").on("change", function () { state.b = this.value; render(); });
   QT.segControl("#seg-scale", "data-s", s => { state.scale = s; render(); });
   render();
-})();
+});

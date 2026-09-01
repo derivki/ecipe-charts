@@ -27,6 +27,13 @@ window.QT = (function () {
     purple: "#7b5ea7",
     rust:   "#b5482f",
     mock:   "#b5482f",  // colour used for the "illustrative / mock data" badge
+    // world/cluster map only — extracted from the legacy port so both maps
+    // (world_map.js, clusters.js) share one definition instead of repeating
+    // the same literal hex in each file.
+    noData:            "#E4E9EE", // country/land fill when there's no tracked data
+    noDataBorder:      "#C7D0D8", // legend swatch border for the no-data key
+    clusterBubble:       "#F5C544", // world-map cluster bubble fill
+    clusterBubbleStroke: "#5a3c00", // world-map cluster bubble stroke
   };
 
   // ── Categorical palettes ─────────────────────────────────────────────────
@@ -151,7 +158,7 @@ svg{display:block;width:100%;height:auto;overflow:visible;}
 .note b{color:var(--ink);font-weight:600;}
 
 /* ---------- dashboard nav (Overview / Countries / Clusters) ---------- */
-.tabbar{display:flex;gap:4px;margin:14px 0 6px;border-bottom:1px solid var(--line);}
+.tabbar{display:flex;flex-wrap:wrap;gap:4px 0;margin:14px 0 6px;border-bottom:1px solid var(--line);}
 .tabbar a{font-size:13px;font-weight:600;color:var(--muted);text-decoration:none;
   padding:8px 4px;margin-right:18px;border-bottom:2px solid transparent;}
 .tabbar a.on{color:var(--ink);border-bottom-color:${tokens.accent};}
@@ -185,6 +192,16 @@ svg{display:block;width:100%;height:auto;overflow:visible;}
   border-radius:20px;padding:2px 8px;white-space:nowrap;}
 .mocknote{font-size:11px;color:var(--muted);line-height:1.5;margin:2px 0 10px;padding:7px 10px;
   border-left:2px solid color-mix(in srgb, ${tokens.mock} 55%, transparent);background:var(--panel);border-radius:0 6px 6px 0;}
+
+/* ---------- data load failure (QT.boot) ---------- */
+.load-error{font-size:13px;color:var(--ink);line-height:1.55;margin:0 0 18px;padding:14px 16px;
+  border:1px solid color-mix(in srgb, ${tokens.rust} 40%, transparent);
+  background:color-mix(in srgb, ${tokens.rust} 6%, transparent);border-radius:10px;}
+.load-error p{margin:0 0 10px;}
+.load-error code{font-size:11.5px;color:var(--muted);background:var(--panel);padding:1px 6px;border-radius:4px;}
+.load-error button{appearance:none;border:none;border-radius:7px;padding:7px 14px;font:inherit;font-size:12.5px;
+  font-weight:600;color:#fff;background:${tokens.rust};cursor:pointer;}
+.load-error button:hover{opacity:.9;}
 
 /* ---------- "published in the paper, not mock" badge ---------- */
 .citebadge{display:inline-flex;align-items:center;gap:5px;font-size:9.5px;font-weight:700;

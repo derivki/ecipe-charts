@@ -1,6 +1,6 @@
 /* Funding by country — horizontal bars, switchable metric.
    Reads docs/data/funding_by_country.json. Design comes from QT (theme.js). */
-(async function () {
+QT.boot(async function () {
   QT.injectCSS();
   const { data, meta } = await QT.loadData("funding_by_country");
   QT.vintage("#vintage", meta);
@@ -64,4 +64,4 @@
 
   QT.segControl("#seg-metric", "data-m", m => { metric = m; render(); });
   render();
-})();
+});

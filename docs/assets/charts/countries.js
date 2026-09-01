@@ -3,7 +3,7 @@
    Mock data: institutions, domain split, archetype, RCA, network partners
    (docs/data/mock_country_profile.json — see meta.source_note).
    The world map (country choropleth + cluster bubbles) leads the Overview tab. */
-(async function () {
+QT.boot(async function () {
   QT.injectCSS();
   QT.nav("#nav", "countries");
 
@@ -20,8 +20,12 @@
   });
   const policyByCountry = new Map(Object.entries(policies.data));
   const POLICY_COLORS = {
-    "Strategy": QT.tokens.accent, "Funding programme": QT.tokens.gold,
-    "R&D institute": QT.tokens.teal, "Procurement": QT.tokens.purple,
+    // Gold and teal at full strength fail WCAG AA for white badge text (2.2:1
+    // and 4.0:1 respectively) — darkened here, locally, so the shared
+    // tokens.gold/tokens.teal used elsewhere (instrument/stage/region
+    // palettes) are untouched.
+    "Strategy": QT.tokens.accent, "Funding programme": `color-mix(in srgb, ${QT.tokens.gold} 60%, black)`,
+    "R&D institute": `color-mix(in srgb, ${QT.tokens.teal} 80%, black)`, "Procurement": QT.tokens.purple,
     "Export control": QT.tokens.rust,
   };
 
@@ -49,8 +53,8 @@
     QT.kpis("#kpis", [
       { v: QT.fmt.axisMoney(c.total_funding), k: `Total funding · rank ${rank} of ${ranked.length}` },
       { v: QT.fmt.int(c.companies), k: "Companies" },
-      { v: QT.fmt.int(p.institutions) + "*", k: "Institutions (illustrative)" },
-      { v: `<span style="font-size:14px;color:${QT.tokens.purple}">${p.archetype}</span>`, k: "Collaboration archetype (illustrative)" },
+      { v: QT.fmt.int(p.institutions), k: `Institutions ${QT.mockBadge("Mock")}` },
+      { v: `<span style="font-size:14px;color:${QT.tokens.purple}">${p.archetype}</span>`, k: `Collaboration archetype ${QT.mockBadge("Mock")}` },
     ]);
   }
 
@@ -234,4 +238,4 @@
   sel.on("change", function () { state.country = this.value; render(); });
   QT.segControl("#seg-metric-country", "data-m", m => { state.metric = m; render(); });
   render();
-})();
+});

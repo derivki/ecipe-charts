@@ -1,0 +1,225 @@
+{
+  "meta": {
+    "data_vintage": "2026-Q3",
+    "coverage": "industry (curated) + academic (OpenAlex, primary_topic.id, 2018-2026, <=5 institutions/paper); company detail: 675 companies from the 2026-Q3 startup tracker projection",
+    "counting": "binary (v1): one dyad = one collaboration regardless of how many underlying records support it; no weight or time series yet (v2, Phase 8)"
+  },
+  "data": [
+    {
+      "icb4_sector": "Software",
+      "entities": 170
+    },
+    {
+      "icb4_sector": "Computer Services",
+      "entities": 104
+    },
+    {
+      "icb4_sector": "Electronic Equipment",
+      "entities": 97
+    },
+    {
+      "icb4_sector": "Semiconductors",
+      "entities": 68
+    },
+    {
+      "icb4_sector": "Computer Hardware",
+      "entities": 57
+    },
+    {
+      "icb4_sector": "Aerospace & Defence",
+      "entities": 47
+    },
+    {
+      "icb4_sector": "Fixed Line Telecommunications",
+      "entities": 41
+    },
+    {
+      "icb4_sector": "Pharmaceuticals",
+      "entities": 40
+    },
+    {
+      "icb4_sector": "Banks",
+      "entities": 36
+    },
+    {
+      "icb4_sector": "Telecommunications Equipment",
+      "entities": 27
+    },
+    {
+      "icb4_sector": "Biotechnology",
+      "entities": 22
+    },
+    {
+      "icb4_sector": "Electrical Components & Equipment",
+      "entities": 20
+    },
+    {
+      "icb4_sector": "Industrial Machinery",
+      "entities": 18
+    },
+    {
+      "icb4_sector": "Support Services",
+      "entities": 16
+    },
+    {
+      "icb4_sector": "Automobiles & Parts",
+      "entities": 13
+    },
+    {
+      "icb4_sector": "Media",
+      "entities": 12
+    },
+    {
+      "icb4_sector": "Transportation Services",
+      "entities": 11
+    },
+    {
+      "icb4_sector": "Medical Equipment",
+      "entities": 11
+    },
+    {
+      "icb4_sector": "Chemicals",
+      "entities": 10
+    },
+    {
+      "icb4_sector": "Business Support Services",
+      "entities": 9
+    },
+    {
+      "icb4_sector": "Specialty Chemicals",
+      "entities": 8
+    },
+    {
+      "icb4_sector": "Renewable Energy Equipment",
+      "entities": 8
+    },
+    {
+      "icb4_sector": "Construction & Materials",
+      "entities": 7
+    },
+    {
+      "icb4_sector": "Investment Services",
+      "entities": 7
+    },
+    {
+      "icb4_sector": "Financial Services",
+      "entities": 7
+    },
+    {
+      "icb4_sector": "Diversified Industrials",
+      "entities": 6
+    },
+    {
+      "icb4_sector": "Exploration & Production",
+      "entities": 6
+    },
+    {
+      "icb4_sector": "Electricity",
+      "entities": 5
+    },
+    {
+      "icb4_sector": "General Industrials",
+      "entities": 5
+    },
+    {
+      "icb4_sector": "Asset Managers",
+      "entities": 4
+    },
+    {
+      "icb4_sector": "Industrial Suppliers",
+      "entities": 4
+    },
+    {
+      "icb4_sector": "Health Care Providers",
+      "entities": 4
+    },
+    {
+      "icb4_sector": "Health Care Equipment & Services",
+      "entities": 3
+    },
+    {
+      "icb4_sector": "Industrial Metals & Mining",
+      "entities": 3
+    },
+    {
+      "icb4_sector": "Oil & Gas Producers",
+      "entities": 3
+    },
+    {
+      "icb4_sector": "Consumer Finance",
+      "entities": 2
+    },
+    {
+      "icb4_sector": "Conventional Electricity",
+      "entities": 2
+    },
+    {
+      "icb4_sector": "Industrial Transportation",
+      "entities": 2
+    },
+    {
+      "icb4_sector": "Food Producers",
+      "entities": 2
+    },
+    {
+      "icb4_sector": "Personal Goods",
+      "entities": 2
+    },
+    {
+      "icb4_sector": "Full Line Insurance",
+      "entities": 2
+    },
+    {
+      "icb4_sector": "Business Training & Employment Agencies",
+      "entities": 2
+    },
+    {
+      "icb4_sector": "Broadline Retailers",
+      "entities": 1
+    },
+    {
+      "icb4_sector": "General Mining",
+      "entities": 1
+    },
+    {
+      "icb4_sector": "Building Materials & Fixtures",
+      "entities": 1
+    },
+    {
+      "icb4_sector": "Containers & Packaging",
+      "entities": 1
+    },
+    {
+      "icb4_sector": "Durable Household Products",
+      "entities": 1
+    },
+    {
+      "icb4_sector": "Gambling",
+      "entities": 1
+    },
+    {
+      "icb4_sector": "Real Estate Holding & Development",
+      "entities": 1
+    },
+    {
+      "icb4_sector": "Coal",
+      "entities": 1
+    },
+    {
+      "icb4_sector": "General Retailers",
+      "entities": 1
+    },
+    {
+      "icb4_sector": "Iron & Steel",
+      "entities": 1
+    },
+    {
+      "icb4_sector": "Oil Equipment, Services & Distribution",
+      "entities": 1
+    },
+    {
+      "icb4_sector": "Specialty Finance",
+      "entities": 1
+    }
+  ]
+}

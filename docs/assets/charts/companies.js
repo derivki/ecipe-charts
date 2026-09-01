@@ -5,7 +5,7 @@
    classification panel use "founding origin" (spinout/merger/joint venture)
    instead — the only company-classification field with real values today.
    The bubble chart itself is a placeholder pending Andrea's dedicated design. */
-(async function () {
+QT.boot(async function () {
   QT.injectCSS();
   QT.nav("#nav", "companies");
 
@@ -130,4 +130,4 @@
 
     QT.legend("#legend-ownership", segs.map(s => ({ key: s.key, label: `${s.label} (${s.v})`, color: s.color })));
   })();
-})();
+});

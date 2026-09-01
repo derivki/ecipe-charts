@@ -1,0 +1,45 @@
+{
+  "meta": {
+    "data_vintage": "2026-Q3",
+    "coverage": "industry (curated) + academic (OpenAlex, primary_topic.id, 2018-2026, <=5 institutions/paper); company detail: 675 companies from the 2026-Q3 startup tracker projection",
+    "counting": "binary (v1): one dyad = one collaboration regardless of how many underlying records support it; no weight or time series yet (v2, Phase 8)"
+  },
+  "data": [
+    {
+      "stack_layer": "Full Stack",
+      "companies": 29,
+      "total_funding_usd": 17722997452.36,
+      "collaborations": 753
+    },
+    {
+      "stack_layer": "Core Quantum Hardware",
+      "companies": 220,
+      "total_funding_usd": 8384379407.54,
+      "collaborations": 633
+    },
+    {
+      "stack_layer": "Applications & Services",
+      "companies": 162,
+      "total_funding_usd": 4679944008.43,
+      "collaborations": 417
+    },
+    {
+      "stack_layer": "Software & Platforms",
+      "companies": 134,
+      "total_funding_usd": 4247133222.66,
+      "collaborations": 621
+    },
+    {
+      "stack_layer": "Materials & Fabrication",
+      "companies": 23,
+      "total_funding_usd": 2886496917.82,
+      "collaborations": 8
+    },
+    {
+      "stack_layer": "Components & Control",
+      "companies": 107,
+      "total_funding_usd": 1702107804.17,
+      "collaborations": 293
+    }
+  ]
+}
