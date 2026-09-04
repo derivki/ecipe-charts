@@ -211,13 +211,18 @@ svg{display:block;width:100%;height:auto;overflow:visible;}
 .kpi .v{font-size:21px;font-weight:700;letter-spacing:-.02em;font-variant-numeric:tabular-nums;color:var(--ink);}
 .kpi .k{font-size:11px;color:var(--muted);margin-top:3px;line-height:1.3;}
 
-/* ---------- dashboard panel grid ---------- */
-.panels{display:grid;gap:18px;margin-top:8px;}
+/* ---------- dashboard panel grid ----------
+   Panels are UNBOXED: no card fill, no border, no radius. Each chart sits
+   directly on the page, separated from the one above by a hairline rule and
+   generous whitespace. The tinted-card look lives on only in the KPI tiles
+   (.kpi above) — everything else is white. Keep it that way: a filled
+   background here is what made the page read as a stack of widgets. */
+.panels{display:grid;gap:34px 30px;margin-top:10px;}
 .panels.g2{grid-template-columns:1fr 1fr;}
 .panels .span2{grid-column:1/-1;}
-.panel{border:none;border-radius:14px;padding:19px 20px 18px;background:var(--panel);}
+.panel{border:none;border-radius:0;background:none;padding:22px 0 0;border-top:1px solid var(--line);}
 .panel .ttl{font-size:14px;font-weight:650;letter-spacing:-.005em;margin:0 0 2px;display:flex;align-items:center;gap:8px;flex-wrap:wrap;}
-.panel .why{font-size:12px;color:var(--muted);line-height:1.45;margin:0 0 10px;}
+.panel .why{font-size:12px;color:var(--muted);line-height:1.45;margin:0 0 10px;max-width:760px;}
 @media (max-width:760px){ .panels.g2{grid-template-columns:1fr;} }
 
 /* ---------- mock/illustrative data badge ---------- */
@@ -274,7 +279,7 @@ svg{display:block;width:100%;height:auto;overflow:visible;}
 
 /* ---------- policy & programmes cards (countries tab) ---------- */
 .policy-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(250px,1fr));gap:10px;margin-top:4px;}
-.policy-card{border:none;border-radius:9px;padding:11px 12px 12px;background:var(--bg);
+.policy-card{border:1px solid var(--line);border-radius:9px;padding:11px 12px 12px;background:var(--bg);
   display:flex;flex-direction:column;gap:5px;}
 .policy-card .policy-type{align-self:flex-start;font-size:9px;font-weight:700;letter-spacing:.06em;
   text-transform:uppercase;color:#fff;border-radius:20px;padding:2px 8px;}
@@ -285,7 +290,7 @@ svg{display:block;width:100%;height:auto;overflow:visible;}
 
 /* ---------- graduated quasi-clusters: featured strip + table pill ---------- */
 .grad-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(210px,1fr));gap:10px;margin-top:4px;}
-.grad-card{border:none;border-radius:12px;padding:11px 12px 12px;background:var(--bg);
+.grad-card{border:1px solid var(--line);border-radius:12px;padding:11px 12px 12px;background:var(--bg);
   display:flex;flex-direction:column;gap:5px;cursor:pointer;transition:box-shadow .12s,background .12s;}
 .grad-card:hover{box-shadow:inset 0 0 0 1.5px ${tokens.teal};background:var(--panel);}
 .grad-card .grad-name{font-size:13px;font-weight:650;color:var(--ink);line-height:1.25;}
