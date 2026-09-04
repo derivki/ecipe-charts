@@ -7,7 +7,7 @@
   "data": [
     {
       "exchange": "Nasdaq Stock Market",
-      "n_listings": 12,
+      "n_listings": 14,
       "companies": [
         "AmpliTech",
         "Arqit Quantum Inc.",
@@ -15,9 +15,11 @@
         "D-Wave",
         "Horizon Quantum",
         "IQM Quantum Computers",
+        "PASQAL",
         "QTREX",
         "Quantinuum",
         "Quantum Computing Inc.",
+        "Quantum X Labs",
         "Rigetti Computing",
         "SEALSQ",
         "Xanadu"
@@ -47,6 +49,17 @@
       ],
       "country_code": "us",
       "country": "United States"
+    },
+    {
+      "exchange": "Shanghai Stock Exchange",
+      "n_listings": 3,
+      "companies": [
+        "CIQTEK (国仪量子)",
+        "Precilasers (频准激光)",
+        "QuantumCTek (国盾量子)"
+      ],
+      "country_code": "cn",
+      "country": "China"
     },
     {
       "exchange": "Australian Securities Exchange",
@@ -148,15 +161,6 @@
       ],
       "country_code": "us",
       "country": "United States"
-    },
-    {
-      "exchange": "Shanghai Stock Exchange",
-      "n_listings": 1,
-      "companies": [
-        "QuantumCTek (国盾量子)"
-      ],
-      "country_code": "cn",
-      "country": "China"
     },
     {
       "exchange": "Toronto Stock Exchange",
