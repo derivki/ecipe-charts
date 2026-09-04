@@ -1,23 +1,23 @@
 {
   "data_vintage": "2026-Q3",
-  "built_at_utc": "2026-08-19T10:07:44+00:00",
-  "coverage": "industry (curated) + academic (OpenAlex, primary_topic.id, 2018-2026, <=5 institutions/paper); company detail: 675 companies from the 2026-Q3 startup tracker projection",
+  "built_at_utc": "2026-09-04T10:10:20+00:00",
+  "coverage": "industry (curated) + academic (OpenAlex, primary_topic.id, 2018-2026, <=5 institutions/paper); company detail: 711 companies from the 2026-Q3 startup tracker projection",
   "sources": {
-    "institutions_master.csv": "a5bfa12956cf89809b1d364a66b73e9b5be0df005be0b99276c6006ea99dabfb",
-    "name_aliases.csv": "0176cee45a32ffebf346c19900b4d0a9a309b109c796f7c384fcb1d826b0619b",
+    "institutions_master.csv": "60f90b83ff0041aef8d46398a060e5886f769de1bec4e61f1b30ff162f61dcc4",
+    "name_aliases.csv": "de494406cea41504302e11a4cdf3a94789f2bbd35dbe00ba41427388c911e621",
     "collaborations_industry.csv": "de6a23fcb737a435e48098381c090e0c95be92a624bf16ba0e70d5b099e7bd14",
     "dyad_years.csv (private)": "d49fb3f2da81a7a70fa3da987cd5e75957be9ff3fbc56368b1955e15ccc7a2c8",
-    "companies_master.csv": "7431e143fdfe1228ac3b3605d07b5756c5e626507a9f66d06cf4efcdbd5e82ce"
+    "companies_master.csv": "3b76d79f77a81d20a08981796b0d6b632f5c9d3415cf902d2cb165b50caac0f2"
   },
   "row_counts": {
-    "entities": 12701,
+    "entities": 12734,
     "entities_with_collaborations_published": 10211,
     "industry_edges_input": 4603,
     "industry_edges_resolved": 4603,
     "academic_edges": 90221,
     "merged_edges": 93288,
     "unresolved_partner_names": 0,
-    "companies": 675
+    "companies": 711
   },
   "datasets": {
     "collab_rankings": 10211,
@@ -25,7 +25,7 @@
     "collab_categories": 3,
     "collab_sectors": 54,
     "collab_by_country": 140,
-    "collab_companies": 675,
+    "collab_companies": 711,
     "collab_companies_by_pillars": 5,
     "collab_companies_by_stack_layer": 6,
     "collab_companies_by_streams": 48,

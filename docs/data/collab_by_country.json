@@ -1,7 +1,7 @@
 {
   "meta": {
     "data_vintage": "2026-Q3",
-    "coverage": "industry (curated) + academic (OpenAlex, primary_topic.id, 2018-2026, <=5 institutions/paper); company detail: 675 companies from the 2026-Q3 startup tracker projection",
+    "coverage": "industry (curated) + academic (OpenAlex, primary_topic.id, 2018-2026, <=5 institutions/paper); company detail: 711 companies from the 2026-Q3 startup tracker projection",
     "counting": "binary (v1): one dyad = one collaboration regardless of how many underlying records support it; no weight or time series yet (v2, Phase 8)"
   },
   "data": [
@@ -12,8 +12,8 @@
     },
     {
       "country": "US",
-      "entities": 1715,
-      "collaborations": 31293
+      "entities": 1716,
+      "collaborations": 31296
     },
     {
       "country": "Germany",
@@ -27,8 +27,8 @@
     },
     {
       "country": "Japan",
-      "entities": 457,
-      "collaborations": 8040
+      "entities": 456,
+      "collaborations": 8037
     },
     {
       "country": "France",
@@ -37,13 +37,13 @@
     },
     {
       "country": "UK",
-      "entities": 362,
-      "collaborations": 7427
+      "entities": 361,
+      "collaborations": 7422
     },
     {
       "country": "Italy",
-      "entities": 260,
-      "collaborations": 7230
+      "entities": 261,
+      "collaborations": 7233
     },
     {
       "country": "Spain",
@@ -133,7 +133,7 @@
     {
       "country": "Finland",
       "entities": 43,
-      "collaborations": 1101
+      "collaborations": 1103
     },
     {
       "country": "Czech Republic",

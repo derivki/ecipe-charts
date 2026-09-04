@@ -1,21 +1,21 @@
 {
   "meta": {
     "data_vintage": "2026-Q3",
-    "coverage": "industry (curated) + academic (OpenAlex, primary_topic.id, 2018-2026, <=5 institutions/paper); company detail: 675 companies from the 2026-Q3 startup tracker projection",
+    "coverage": "industry (curated) + academic (OpenAlex, primary_topic.id, 2018-2026, <=5 institutions/paper); company detail: 711 companies from the 2026-Q3 startup tracker projection",
     "counting": "binary (v1): one dyad = one collaboration regardless of how many underlying records support it; no weight or time series yet (v2, Phase 8)"
   },
   "data": [
     {
       "partnership_type": "Research to research",
-      "collaborations": 60894
+      "collaborations": 60874
     },
     {
       "partnership_type": "Government to research",
-      "collaborations": 19906
+      "collaborations": 19903
     },
     {
       "partnership_type": "Industry to research",
-      "collaborations": 6595
+      "collaborations": 6611
     },
     {
       "partnership_type": "Government to government",
@@ -23,11 +23,11 @@
     },
     {
       "partnership_type": "Industry to industry",
-      "collaborations": 1588
+      "collaborations": 1592
     },
     {
       "partnership_type": "Industry to government",
-      "collaborations": 1274
+      "collaborations": 1277
     },
     {
       "partnership_type": null,
