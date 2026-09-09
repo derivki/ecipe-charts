@@ -22,6 +22,36 @@
     return res.json();
   };
 
+  /** "Government funding" by country, combining TWO sources per Elena's 2026-09-09
+   *  instruction: Dyuti's government policy register (`government_funding.json`,
+   *  built by src/build_government_funding.py — national programmes announced or
+   *  deployed by governments directly) PLUS the funding database's own
+   *  `public_funding` (Grant + Public equity instruments inside company funding
+   *  rounds — money a government gave or invested straight into a company).
+   *
+   *  This deliberately reverses the 2026-09-08 "Company is ALL company funding,
+   *  Government is the register alone, never add them" split recorded in
+   *  BACKLOG.md AP-36 and in world_map.js's older comment. The two sources can
+   *  overlap (a grant that reached a company could also be counted inside a
+   *  national programme total in the register) and nothing here de-dupes that —
+   *  Elena confirmed a straight sum is fine and the resulting number is an upper
+   *  bound, same spirit as the existing "provisional" note.
+   *
+   *  Used by every view that shows "government funding" (Overview + Countries
+   *  KPI tiles, the world map's Government toggle, the country ranking) so they
+   *  cannot drift apart the way govByCountry used to when each file built its own. */
+  QT.combinedGovByCountry = function (countryRows, govRows) {
+    const byCountry = new Map(govRows.map(d => [d.country, { ...d }]));
+    countryRows.forEach(d => {
+      const pub = d.public_funding || 0;
+      if (pub <= 0) return;
+      const existing = byCountry.get(d.country);
+      if (existing) existing.government_funding = (existing.government_funding || 0) + pub;
+      else byCountry.set(d.country, { country: d.country, government_funding: pub });
+    });
+    return byCountry;
+  };
+
   /** Standard responsive chart frame from a <svg> that already has a viewBox. */
   QT.chart = function (selector, { W, H, margin }) {
     const m = Object.assign({ t: 16, r: 16, b: 34, l: 60 }, margin || {});
