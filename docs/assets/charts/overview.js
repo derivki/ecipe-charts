@@ -258,9 +258,14 @@ QT.boot(async function () {
       d3.select("#chart-country").selectAll("*").remove();
       const W = 880, H = 46 + rows.length * 30;
       const c = QT.chart("#chart-country", { W, H, margin: { t: 6, r: 70, b: 26, l: 130 } });
-      // Domain from the whole ranking, not the visible page, so bar lengths stay
-      // comparable as you page through — and it rescales when the metric changes.
-      const x = d3.scaleLinear().domain([0, d3.max(all, d => d[state.metric]) * 1.05 || 1]).range([0, c.iw]);
+      // Domain from the VISIBLE page, not the whole ranking, so the axis actually
+      // uses the available width for whatever page you're looking at — a page of
+      // countries far down the ranking used to keep the #1 country's scale, so its
+      // own bars were all bunched into a sliver on the left. Rescaling per page
+      // means bar length is no longer comparable page-to-page, but it is still
+      // comparable within a page, and the axis + value labels make the actual
+      // numbers explicit either way.
+      const x = d3.scaleLinear().domain([0, d3.max(rows, d => d[state.metric]) * 1.05 || 1]).range([0, c.iw]);
       const y = d3.scaleBand().domain(rows.map(d => d.country)).range([0, c.ih]).padding(0.22);
 
       c.gGrid.selectAll("line").data(x.ticks(4)).join("line").attr("class", "gridline")
