@@ -182,6 +182,19 @@ QT.boot(async function () {
     // domain because rank 1 is the BEST and takes the dark-blue end.
     const colorScale = d3.scaleSequential(d3.interpolateRgbBasis(QT.palette.clusterRank)).domain([N, 1]);
 
+    // The why-text above the map states the colour encoding in words, but with no
+    // visual key a reader who lands straight on the map just sees bubbles in five
+    // unexplained colours. Idempotent (append once, then just update the label)
+    // because renderMap() re-runs on every region/selection change, and the DOM
+    // node lives in #map-wrap rather than inside the <svg> so it survives the
+    // svg's own selectAll("*").remove() above.
+    let legend = d3.select("#map-wrap .cmap-legend");
+    if (legend.empty()) legend = d3.select("#map-wrap").append("div").attr("class", "cmap-legend");
+    legend.html(
+      `<div class="lg-title">Overall rank</div>` +
+      `<div class="lg-bar" style="background:linear-gradient(to right, ${QT.palette.clusterRank.join(",")})"></div>` +
+      `<div class="lg-scale"><span>1 (best)</span><span>${N} (lowest)</span></div>`);
+
     // Several real clusters (e.g. Washington/New York/Boston/Toronto, or
     // Shenzhen/Hefei/Beijing) sit close enough together that at world-map
     // scale their bubbles would fully overlap and look like a single blob, so

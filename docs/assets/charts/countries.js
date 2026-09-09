@@ -158,25 +158,38 @@ QT.boot(async function () {
     const key = metricKey();
     const S = SOURCES[state.source], MEAS = MEASURES[state.measure];
     const M = { label: S.label + MEAS.suffix, fmt: MEAS.fmt, ttfmt: MEAS.ttfmt };
-    d3.select("#ttl-ranked").text(
-      `Figure 1: Countries ranked by ${S.title}${MEAS.suffix} — ${state.country} highlighted`);
-    d3.select("#why-ranked").html(
-      `Where ${state.country} sits among all tracked countries, by `
-      + `${S.title}${MEAS.suffix}. The leaders are shown for scale, then the selected `
-      + `country among its own neighbours in the ranking. Use <b>Source</b> to switch `
-      + `between company and government funding, and <b>Measure</b> to switch between `
-      + `absolute amounts and share of GDP.`);
-    d3.select("#mocknote-ranked").html(
-      state.source === "government_funding" && govProvisional
-        ? "<b>Government figures are provisional</b> — see the Overview for the full caveat."
-        : "").style("display",
-      state.source === "government_funding" && govProvisional ? null : "none");
     // Rank by the metric ON SCREEN. This used to slice the top 20 from `ranked`,
     // which is ordered by TOTAL funding, so the ÷ GDP view drew its bars in
     // total-funding order — descending by label, jumbled by length.
     const byMetric = [...CHART_DATA]
       .filter(d => d[key] != null && d[key] > 0)
       .sort(QT.rank(key, "country"));
+    // Whether the selected country actually has a value for THIS metric — a country
+    // with zero (e.g. Cyprus has no company funding at all) is filtered out of
+    // byMetric above and so cannot be "highlighted" or shown "among its neighbours".
+    // The title/why text and the leaders-alone fallback below both need to know this,
+    // otherwise the copy claims a highlight that never happens on screen — which is
+    // what made the fallback look like an unexplained, unchanging top-16 chart.
+    const hasSelection = byMetric.some(d => d.country === state.country);
+    d3.select("#ttl-ranked").text(hasSelection
+      ? `Figure 1: Countries ranked by ${S.title}${MEAS.suffix} — ${state.country} highlighted`
+      : `Figure 1: Countries ranked by ${S.title}${MEAS.suffix} — no data for ${state.country}`);
+    d3.select("#why-ranked").html(hasSelection
+      ? `Where ${state.country} sits among all tracked countries, by `
+        + `${S.title}${MEAS.suffix}. The leaders are shown for scale, then the selected `
+        + `country among its own neighbours in the ranking. Use <b>Source</b> to switch `
+        + `between company and government funding, and <b>Measure</b> to switch between `
+        + `absolute amounts and share of GDP.`
+      : `${state.country} has no recorded ${S.title}${MEAS.suffix}, so it cannot be placed in `
+        + `this ranking. The leaders are shown below for reference. Use <b>Source</b> to switch `
+        + `between company and government funding, and <b>Measure</b> to switch between `
+        + `absolute amounts and share of GDP.`);
+    const noDataNote = hasSelection ? "" :
+      `<b>${state.country} has no ${S.title} recorded</b> — showing the leaders only.`;
+    const govNote = state.source === "government_funding" && govProvisional
+      ? "<b>Government figures are provisional</b> — see the Overview for the full caveat." : "";
+    const note = [noDataNote, govNote].filter(Boolean).join(" ");
+    d3.select("#mocknote-ranked").html(note).style("display", note ? null : "none");
 
     /* Leaders + a window around the selection, with an explicit break between.
        A flat top-20 could not answer "where does my country sit?" for the ~half

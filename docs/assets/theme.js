@@ -201,7 +201,7 @@ svg{display:block;width:100%;height:auto;overflow:visible;}
 .tt .tt-list{border-top:1px solid rgba(255,255,255,.18);margin-top:6px;padding-top:6px;max-width:320px;}
 .tt .tt-list .k{display:block;color:#c9d2dc;margin-bottom:2px;}
 .tt .tt-list div{text-align:left;font-weight:500;line-height:1.45;}
-.note{font-size:11.5px;color:var(--muted);margin-top:16px;line-height:1.5;border-top:1px solid var(--line);padding-top:12px;}
+.note{font-size:11.5px;color:var(--muted);margin-top:16px;line-height:1.5;}
 .note b{color:var(--ink);font-weight:600;}
 
 /* ---------- dashboard nav (Overview / Countries / Clusters) ---------- */
@@ -273,10 +273,17 @@ svg{display:block;width:100%;height:auto;overflow:visible;}
   border-left:2px solid color-mix(in srgb, ${tokens.teal} 55%, transparent);background:var(--panel);border-radius:0 6px 6px 0;}
 
 /* ---------- sortable ranking table ---------- */
-.rtable{width:100%;border-collapse:collapse;font-size:12.5px;}
+/* table-layout:fixed + the <colgroup> in clusters.html give each column an explicit
+   share of the width, instead of the browser sizing every column to its widest
+   cell INCLUDING the header. Headers like "Collaboration Intensity" used to force
+   their column (and the whole table) wide even though every cell under it holds a
+   single-digit rank, which is what made the panel need horizontal scrolling. Fixed
+   layout needs the header text to be allowed to wrap onto two lines instead — see
+   the th rule below — since it can no longer grow the column to fit one line. */
+.rtable{width:100%;border-collapse:collapse;font-size:12.5px;table-layout:fixed;}
 .rtable th,.rtable td{text-align:left;padding:8px 10px;border-bottom:1px solid var(--line);}
 .rtable th{font-size:10px;letter-spacing:.06em;text-transform:uppercase;color:var(--muted);
-  cursor:pointer;user-select:none;white-space:nowrap;}
+  cursor:pointer;user-select:none;white-space:normal;line-height:1.35;vertical-align:bottom;}
 .rtable th.sorted{color:var(--ink);}
 .rtable th .arrow{opacity:.55;}
 .rtable td.num,.rtable th.num{text-align:right;font-variant-numeric:tabular-nums;}
@@ -327,6 +334,13 @@ svg{display:block;width:100%;height:auto;overflow:visible;}
   color:var(--muted);font-size:15px;font-weight:600;line-height:1;cursor:pointer;
   display:flex;align-items:center;justify-content:center;box-shadow:0 1px 3px rgba(20,40,70,.08);}
 .mapzoom button:hover{border-color:var(--ink);color:var(--ink);}
+/* ---------- colour-scale key (clusters map) ---------- */
+.cmap-legend{position:absolute;left:12px;bottom:12px;z-index:4;background:#fff;
+  border:1px solid var(--line);border-radius:6px;padding:10px 12px;
+  color:var(--muted);max-width:180px;box-shadow:0 2px 8px rgba(20,40,70,.06);font-size:11px;}
+.cmap-legend .lg-title{font-size:9.5px;font-weight:600;letter-spacing:.1em;text-transform:uppercase;color:var(--muted);margin-bottom:7px;}
+.cmap-legend .lg-bar{height:8px;border-radius:2px;margin-bottom:4px;}
+.cmap-legend .lg-scale{display:flex;justify-content:space-between;font-size:9.5px;color:var(--muted);}
 /* Ranking-movement indicators (Clusters table): up / down / no change vs. last year. */
 .mv{font-size:10px;font-weight:700;margin-left:3px;vertical-align:1px;}
 .mv-up{color:#2f7d4f;} .mv-down{color:${tokens.rust};} .mv-flat{color:${tokens.muted};}
