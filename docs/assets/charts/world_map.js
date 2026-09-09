@@ -72,13 +72,15 @@
   };
 
   /* COMPANY vs GOVERNMENT, not public vs private.
-     The old split was computed inside the funding database: "public" meant grants +
-     public equity taken from company funding ROUNDS, and "private" was the remainder.
-     Elena's 2026-09-08 correction is that this is the wrong axis — a grant that reached
-     a company is company funding. "Company" is now ALL company funding, and "Government"
-     comes from the separate government policy register (docs/data/government_funding.json,
-     built by src/build_government_funding.py). The two overlap by an unknown amount and
-     must never be added, which is what the note under the panel says. */
+     "Company" is ALL company funding (every instrument, from `funding_by_country.json`).
+     "Government" is Dyuti's government policy register (docs/data/government_funding.json,
+     built by src/build_government_funding.py) PLUS the same grants + public equity taken
+     from company funding ROUNDS that used to be called "public funding" — combined by
+     QT.combinedGovByCountry per Elena's 2026-09-09 instruction, reversing the 2026-09-08
+     "never add them" rule recorded in BACKLOG.md AP-36. The caller (Overview/Countries)
+     passes the already-combined map in as opts.government, so this file just renders
+     whatever number it is given. Company and Government therefore overlap by construction,
+     which is why the panel's note calls the totals upper bounds. */
   const METRICS = {
     company_funding: {
       title: "Company funding by country", label: "Company funding",

@@ -20,7 +20,9 @@ QT.boot(async function () {
   // `collaborations` its academic + industry partnerships, exactly as the Overview
   // totals are built. mock_country_profile.json has no collaborations field at all.
   const collabByCountry = new Map(collabCountry.data.map(d => [d.country, d]));
-  const govByCountry = new Map(gov.data.map(d => [d.country, d]));
+  // See QT.combinedGovByCountry: government funding here is Dyuti's register PLUS
+  // the funding database's Grant/Public equity rounds, matching the Overview tab.
+  const govByCountry = QT.combinedGovByCountry(country.data, gov.data);
   const govProvisional = !!gov.meta.provisional;
   QT.vintage("#vintage", country.meta);
   document.getElementById("mocknote-country").innerHTML = profile.meta.source_note;

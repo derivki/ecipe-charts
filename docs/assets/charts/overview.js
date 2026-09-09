@@ -25,8 +25,10 @@ QT.boot(async function () {
   QT.vintage("#vintage", country.meta);
 
   // Government funding by country, keyed for lookup by the map and the ranking.
-  const govByCountry = new Map(gov.data.map(d => [d.country, d]));
-  const govTotal = d3.sum(gov.data, d => d.government_funding);
+  // See QT.combinedGovByCountry for why this is Dyuti's register PLUS the old
+  // company-rounds public_funding, not the register alone.
+  const govByCountry = QT.combinedGovByCountry(country.data, gov.data);
+  const govTotal = d3.sum([...govByCountry.values()], d => d.government_funding);
   const govProvisional = !!gov.meta.provisional;
 
   // Not awaited — the map has its own data fetches and should render in
@@ -65,10 +67,13 @@ QT.boot(async function () {
 
   if (govProvisional) {
     QT.mockNote("#mocknote-map",
-      "<b>Government funding is provisional.</b> It is parsed from a policy register in which " +
-      "amounts are recorded as free text, and the treatment of programmes whose funding periods " +
-      "overlap is not yet settled, so national totals for the largest funders are upper bounds. " +
-      "China is not yet covered by the register and is shown as having no data rather than none. " +
+      "<b>Government funding is provisional.</b> It combines Dyuti's government policy register " +
+      "with grants and public equity that reached companies directly through funding rounds, and " +
+      "the two can overlap by an unknown amount, so this is an upper bound. The register itself " +
+      "parses amounts recorded as free text, and the treatment of programmes whose funding periods " +
+      "overlap is not yet settled, which adds a further upper-bound effect on top for the largest " +
+      "funders. China has no entry in the register yet, so its figure here is grants and public " +
+      "equity from company funding rounds only and understates its government funding. " +
       "Do not cite these figures.");
   }
 
@@ -198,10 +203,12 @@ QT.boot(async function () {
   })();
 
   // ---------- Figure 3: countries ranked by company vs. government funding ----------
-  // The metric is Company or Government, with no "Total". Adding the two would be
-  // wrong: a government grant into a funding round is company funding AND government
-  // funding, so a total double-counts by an unknown amount. That is also why the note
-  // under Figure 1 tells the reader not to add them.
+  // The metric is Company or Government, with no "Total". "Government" already
+  // deliberately double-counts against "Company" (see QT.combinedGovByCountry) — a
+  // government grant into a funding round is counted once as company funding and again
+  // as government funding — so summing the two on top of that would compound an
+  // already-known overlap into a meaningless number. That is also why the note under
+  // Figure 1 flags these as upper bounds rather than citable totals.
   (function countriesByFunding() {
     const BRACKET = 10;
     const state = { metric: "company_funding", page: 0 };

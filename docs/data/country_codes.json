@@ -1,5 +1,6 @@
 {
  "meta": {
+  "data_vintage": "2026-Q3",
   "source": "data/reference/country_iso2.csv + data/reference/country_region.csv",
   "note": "Tracker country name -> lowercase ISO 3166-1 alpha-2. Codes match the flag filenames in docs/assets/vendor/flags/. eu_members lists the Member States the world map falls back to EU-level figures for."
  },
