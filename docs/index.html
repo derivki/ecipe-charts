@@ -4,87 +4,120 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Quantum Technologies Tracker — Overview</title>
+<!-- theme.js self-injects the stylesheet on load, so it belongs in <head>: from the
+     end of <body> the CSS arrived after first paint and every tab switch flashed
+     unstyled HTML. -->
+<script src="assets/theme.js"></script>
 <script src="assets/vendor/d3.min.js"></script>
 </head>
 <body>
 <div class="wrap">
   <div id="nav"></div>
-  <h1>The global quantum landscape</h1>
-  <!-- DRAFT intro copy — replace with Dyuti/Andrea's final wording -->
-  <p class="sub">Quantum technology is moving from the lab to the market. This tracker follows the money: announced funding, company formation and international collaboration across the global quantum ecosystem. Pick a layer below to drill into a country or an innovation cluster.</p>
+  <h1>Quantum Technologies Tracker</h1>
+  <p class="sub">Explore the companies building quantum technologies and the institutions
+  researching them. Trace private and public funding across every segment of the industry.
+  Compare national ecosystems and innovation clusters, and the collaborations that link them
+  within and across borders. Free, interactive, and updated quarterly by ECIPE.</p>
   <div class="vintage" id="vintage"></div>
-
-  <!-- Placeholder "trusted by" strip — swap for real logos once FE/Natalia provide them -->
-  <div class="trustedby" id="trustedby"></div>
 
   <div class="kpis" id="kpis"></div>
 
   <div class="panels g2">
 
     <div class="panel span2">
-      <div class="ttl">Public vs. private funding by country — world map</div>
-      <p class="why">Shading = funding by country. Use <b>Public / Private</b> to switch between government-sourced funding (grants + public equity) and private capital (VC / private equity + debt). Scroll/drag to zoom.</p>
+      <div class="ttl">Figure 1: Global distribution of company vs. government funding</div>
+      <p class="why">Shading indicates funding by country. Use <b>Company / Government</b> to
+      switch between total funding raised by companies and total funding announced or deployed
+      by government entities. Scroll or drag to zoom.</p>
+      <div class="controls">
+        <div class="ctl"><label>Source</label>
+          <div class="seg" id="seg-source-map"><button data-s="company" class="on">Company</button><button data-s="government">Government</button></div>
+        </div>
+      </div>
       <div id="worldmap" style="margin-top:6px;"></div>
-      <p class="note" style="margin-top:8px;padding-top:8px;">Country shading is computed from the funding database. The underlying world map is a 110m-resolution atlas, so a few very small states (e.g. Singapore) have no polygon to shade. Clusters are shown on the <a href="clusters.html">Clusters tab →</a>.</p>
+      <p class="mocknote" id="mocknote-map"></p>
+      <p class="note" style="margin-top:8px;padding-top:8px;">Company and government funding
+      should not be added together, as the two categories may overlap (for example, when
+      governments provide grants, acquire equity stakes directly, or participate in broader
+      financing rounds). The underlying world map is a 110m-resolution atlas, so a few very
+      small states (e.g. Singapore) have no polygon to shade.</p>
     </div>
 
     <div class="panel span2">
-      <div class="ttl">Funding by year and instrument</div>
-      <p class="why">Annual funding split by instrument: VC / private equity, debt, grant, public equity.</p>
+      <div class="ttl">Figure 2: Global company funding by year and financing instrument</div>
+      <p class="why">Total funding by year, broken down by instrument: VC / private equity, debt,
+      grant, public equity. Use <b>Measure</b> to switch between funding amount and percentage of
+      annual funding, and <b>Chart type</b> to switch between bars and area. Click an instrument
+      in the legend to show or hide it.</p>
       <div class="controls">
-        <div class="ctl"><label>Scale</label>
-          <div class="seg" id="seg-scale-instrument"><button data-s="abs" class="on">Absolute&nbsp;$</button><button data-s="share">% share</button></div>
+        <div class="ctl"><label>Measure</label>
+          <div class="seg" id="seg-scale-instrument"><button data-s="abs" class="on">Amount&nbsp;(US$)</button><button data-s="share">%&nbsp;of&nbsp;total</button></div>
         </div>
-        <div class="ctl"><label>Chart</label>
+        <div class="ctl"><label>Chart type</label>
           <div class="seg" id="seg-type-instrument"><button data-t="bar" class="on">Bars</button><button data-t="area">Area</button></div>
         </div>
       </div>
       <div class="legend" id="legend-instrument"></div>
       <svg id="chart-instrument" role="img" aria-label="Funding over time by financing instrument"></svg>
       <div class="ctl tslider-ctl"><label>Years shown</label><div id="slider-instrument"></div></div>
-      <p class="note" style="margin-top:8px;padding-top:8px;"><b>The most recent year is partial</b> (shaded, "YTD") and is not comparable with full years.</p>
+      <p class="note" style="margin-top:8px;padding-top:8px;">Chart starts at <span id="instrument-from"></span>;
+      pre-<span id="instrument-from2"></span> funding is negligible and is therefore not shown.
+      Figures for the most recent year cover funding recorded through the latest available
+      quarter; previous years represent full calendar years.</p>
     </div>
 
     <div class="panel span2">
-      <div class="ttl">Countries by funding</div>
-      <p class="why">All 38 tracked countries, ranked by announced funding. Use <b>Total / Public / Private</b> to change the metric and the bracket buttons to page through the ranking 10 at a time.</p>
+      <div class="ttl">Figure 3: Countries ranked by company vs. government funding</div>
+      <p class="why">Use <b>Company / Government</b> to switch the metric and the range buttons to
+      browse the ranking 10 countries at a time.</p>
       <div class="controls">
         <div class="ctl"><label>Metric</label>
-          <div class="seg" id="seg-metric-country"><button data-m="total_funding" class="on">Total</button><button data-m="public_funding">Public</button><button data-m="private_funding">Private</button></div>
+          <div class="seg" id="seg-metric-country"><button data-m="company_funding" class="on">Company</button><button data-m="government_funding">Government</button></div>
         </div>
-        <div class="ctl"><label>Ranking shown</label><div class="chiprow" id="bracket-country"></div></div>
+        <div class="ctl"><label>Ranking</label><div class="chiprow" id="bracket-country"></div></div>
       </div>
       <svg id="chart-country" role="img" aria-label="Countries ranked by funding"></svg>
+      <p class="mocknote" id="mocknote-country"></p>
+      <p class="note" style="margin-top:8px;padding-top:8px;">The figure includes both the EU as a
+      whole and individual EU Member States.</p>
     </div>
 
     <div class="panel span2">
-      <div class="ttl">Top companies by funding <a href="companies.html" style="font-size:11px;font-weight:600;">Explore the Companies tab →</a></div>
-      <p class="why">The 8 highest-funded quantum companies tracked worldwide.</p>
-      <svg id="chart-companies" role="img" aria-label="Top companies by funding"></svg>
-      <p class="note" style="margin-top:8px;padding-top:8px;">Computed from the funding database (sum of all rounds per company). See the <a href="companies.html">Companies tab</a> for the full ranking and a breakdown by founding origin.</p>
+      <div class="ttl">Figure 4: Top companies by total funding</div>
+      <p class="why">Total funding refers to funding from all instruments: VC / private equity,
+      debt, grant, public equity. <a href="companies.html">Explore the Companies tab →</a></p>
+      <svg id="chart-companies" role="img" aria-label="Top companies by total funding"></svg>
+      <p class="note" style="margin-top:8px;padding-top:8px;">The ranking reflects cumulative
+      funding and may include companies that are now defunct, have been acquired, or have merged
+      with other firms. See the <a href="companies.html">Companies tab</a> for the full ranking.</p>
     </div>
 
     <div class="panel span2">
-      <div class="ttl">Quantum capital by funding stage</div>
-      <p class="why">Capital raised at each stage of the funding ladder, comparing two blocs.</p>
+      <div class="ttl">Figure 5: Capital raised by funding stage and region</div>
+      <p class="why">Compare quantum funding across stages in two regions. Choose the regions to
+      compare and use <b>Measure</b> to switch between funding amount and percentage of each
+      region's total.</p>
       <div class="controls">
-        <div class="ctl"><label>Bloc A</label><select id="stage-ra"></select></div>
-        <div class="ctl"><label>Bloc B</label><select id="stage-rb"></select></div>
-        <div class="ctl"><label>Scale</label>
-          <div class="seg" id="seg-scale-stage"><button data-s="share" class="on">%&nbsp;of&nbsp;bloc&nbsp;total</button><button data-s="abs">Absolute&nbsp;$</button></div>
+        <!-- Chip rows, not <select>s. Elena reported being unable to click the region
+             dropdowns on macOS Chrome; the handler and hit-testing check out here, so
+             rather than ship an unreproducible dependency on the native popup this uses
+             the same chip control as the ranking and cluster-region filters. One less
+             control idiom on the page, and the options are visible without a click. -->
+        <div class="ctl"><label>Region A</label><div class="chiprow" id="stage-ra"></div></div>
+        <div class="ctl"><label>Region B</label><div class="chiprow" id="stage-rb"></div></div>
+        <div class="ctl"><label>Measure</label>
+          <div class="seg" id="seg-scale-stage"><button data-s="share" class="on">%&nbsp;of&nbsp;region&nbsp;total</button><button data-s="abs">Amount&nbsp;(US$)</button></div>
         </div>
       </div>
       <div class="legend" id="legend-stage"></div>
       <svg id="chart-stage" role="img" aria-label="Funding by stage, two regions compared"></svg>
-      <p class="note" style="margin-top:8px;padding-top:8px;">Late-stage and growth equity are combined; debt and grants are excluded from this equity-ladder view.</p>
+      <p class="note" style="margin-top:8px;padding-top:8px;">Late-stage and growth equity are
+      combined; debt and grants are excluded from the funding-stage comparison.</p>
     </div>
 
   </div>
-
-  <p class="note">Every panel on this Overview tab is computed directly from the funding database — none are illustrative. Country-, cluster- and company-level detail (including some illustrative panels not yet backed by published analysis) lives on the <a href="countries.html">Countries</a> and <a href="clusters.html">Clusters</a> tabs.</p>
 </div>
 
-<script src="assets/theme.js"></script>
 <script src="assets/chart-template.js"></script>
 <script src="assets/vendor/topojson-client.js"></script>
 <script src="assets/charts/world_map.js"></script>

@@ -1,50 +1,76 @@
 /* Overview dashboard (Layer 0) — KPI strip + panels, all real data (funding
    database + the Stage-1 companies index). The world map (country choropleth,
-   public/private toggle, no cluster bubbles) leads this tab — see
-   assets/charts/world_map.js. The "trusted by" strip is a placeholder pending
-   real partner logos from FE/Natalia. */
+   company/government toggle, no cluster bubbles) leads this tab — see
+   assets/charts/world_map.js.
+
+   The "trusted by" strip was removed 2026-09-08: Elena's rule is that it appears only
+   once there are real third-party users of the tracker to name, and a strip of
+   "Partner logo" placeholders on the front page of a published tracker claims
+   endorsement that does not exist yet. */
 QT.boot(async function () {
-  QT.injectCSS();
   QT.nav("#nav", "overview");
+
+  const [country, cluster, instrYear, stageRegion, manifest, companies, gov, collabManifest] =
+    await Promise.all([
+      QT.loadData("funding_by_country"),
+      QT.loadData("funding_by_cluster"),
+      QT.loadData("funding_by_instrument_year"),
+      QT.loadData("funding_by_stage_region"),
+      QT.loadData("manifest"),
+      QT.loadData("companies"),
+      QT.loadData("government_funding"),
+      QT.loadData("collab_manifest"),
+      QT.loadFlags(),
+    ]);
+  QT.vintage("#vintage", country.meta);
+
+  // Government funding by country, keyed for lookup by the map and the ranking.
+  const govByCountry = new Map(gov.data.map(d => [d.country, d]));
+  const govTotal = d3.sum(gov.data, d => d.government_funding);
+  const govProvisional = !!gov.meta.provisional;
+
   // Not awaited — the map has its own data fetches and should render in
-  // parallel with the Promise.all below, not block it. Still needs its own
+  // parallel with the Promise.all above, not block it. Still needs its own
   // catch: an un-awaited rejection here would otherwise be silent.
-  renderWorldMap("#worldmap", { showClusters: false }).catch(err => {
+  renderWorldMap("#worldmap", { showClusters: false, government: govByCountry }).catch(err => {
     console.error(err);
     document.getElementById("worldmap").innerHTML =
       `<div class="load-error"><p><b>The map couldn't load.</b> <code>${err && err.message || ""}</code></p></div>`;
   });
 
-  // Placeholder "trusted by" strip — swap for real logos once FE/Natalia provide them.
-  (function trustedBy() {
-    const NAMES = ["ECIPE", "Partner logo", "Partner logo", "Partner logo"];
-    d3.select("#trustedby").html(
-      `<span class="trustedby-label">Trusted by</span>` +
-      NAMES.map(n => `<span class="trustedby-chip">${n}</span>`).join("")
-    );
-  })();
-
-  const [country, cluster, instrYear, stageRegion, manifest, companies] = await Promise.all([
-    QT.loadData("funding_by_country"),
-    QT.loadData("funding_by_cluster"),
-    QT.loadData("funding_by_instrument_year"),
-    QT.loadData("funding_by_stage_region"),
-    QT.loadData("manifest"),
-    QT.loadData("companies"),
-  ]);
-  QT.vintage("#vintage", country.meta);
-
   const tt = QT.tooltip();
 
   // ---------- KPI strip ----------
-  const totalFunding = d3.sum(country.data, d => d.total_funding);
+  // The six tiles Elena specified, in her order. The Countries tab mirrors them.
+  //
+  // Two definitions were settled 2026-09-08 and are worth stating here because both
+  // numbers have plausible-looking alternatives in the data:
+  //   • "Institutions active in quantum" is EVERY entity in the collaboration graph
+  //     (`entities`), not the 244 spinout parent institutions in the funding manifest
+  //     and not the subset that has at least one recorded collaboration.
+  //   • "Quantum collaborations" is academic + industry partnerships summed
+  //     (`merged_edges`). Note that this is ~97% OpenAlex co-authorship, so if the
+  //     panel is ever narrowed to industry only, the TILE NAME has to carry the
+  //     distinction — a footnote will not do the work.
+  const totalCompanyFunding = d3.sum(country.data, d => d.total_funding);
   QT.kpis("#kpis", [
-    { v: QT.fmt.axisMoney(totalFunding), k: "Total funding tracked" },
+    { v: QT.fmt.axisMoney(totalCompanyFunding), k: "Total company funding" },
     { v: QT.fmt.int(manifest.row_counts.startups), k: "Quantum companies" },
+    { v: QT.fmt.axisMoney(govTotal),
+      k: "Total government funding" + (govProvisional ? " " + QT.mockBadge("Provisional") : "") },
     { v: QT.fmt.int(cluster.data.length), k: "Quantum clusters" },
-    { v: QT.fmt.int(country.data.length), k: "Countries with quantum companies" },
-    { v: QT.fmt.int(manifest.row_counts.institutions), k: "Institutions of origin" },
+    { v: QT.fmt.int(collabManifest.row_counts.entities), k: "Institutions active in quantum" },
+    { v: QT.fmt.int(collabManifest.row_counts.merged_edges), k: "Quantum collaborations" },
   ]);
+
+  if (govProvisional) {
+    QT.mockNote("#mocknote-map",
+      "<b>Government funding is provisional.</b> It is parsed from a policy register in which " +
+      "amounts are recorded as free text, and the treatment of programmes whose funding periods " +
+      "overlap is not yet settled, so national totals for the largest funders are upper bounds. " +
+      "China is not yet covered by the register and is shown as having no data rather than none. " +
+      "Do not cite these figures.");
+  }
 
 
   // ---------- Panel 1: funding over time by instrument (full interactive chart) ----------
@@ -86,13 +112,15 @@ QT.boot(async function () {
       c.gGrid.selectAll("line").data(y.ticks(5)).join("line").attr("class", "gridline")
         .attr("x1", 0).attr("x2", c.iw).attr("y1", d => y(d)).attr("y2", d => y(d));
 
-      if (PARTIAL && x(PARTIAL) != null) {
-        c.gOverlay.selectAll(".partial-band").data([0]).join("rect").attr("class", "partial-band")
-          .attr("x", x(PARTIAL) - x.step() * x.paddingInner() / 2).attr("y", 0)
-          .attr("width", x.step()).attr("height", c.ih);
-        c.gOverlay.selectAll(".partial-label").data([0]).join("text").attr("class", "partial-label")
-          .attr("x", x(PARTIAL) + x.bandwidth() / 2).attr("y", 12).attr("text-anchor", "middle").text("YTD");
-      }
+      // The most recent year is NOT shaded and carries no "YTD" label — Elena's
+      // instruction is to "treat it like any other", with the partial-coverage caveat
+      // moved to the note under the chart where it does not distort the series.
+      //
+      // Removing the band also fixes a tooltip bug she reported separately. The band
+      // lived in `gOverlay`, which QT.chart appends AFTER gPlot, and it was a plain
+      // filled <rect> with no `pointer-events:none`. It therefore sat on top of the
+      // invisible hover columns and swallowed every mouse event over the latest year,
+      // so that one bar had no tooltip at all.
 
       if (state.type === "bar") {
         c.gPlot.selectAll(".area").remove();
@@ -126,18 +154,42 @@ QT.boot(async function () {
     }
 
     function hover() {
-      c.gPlot.selectAll(".hovercol").data(visRows(), d => d.year).join("rect")
-        .attr("class", "hovercol").attr("x", d => x(d.year)).attr("width", x.bandwidth())
+      // Hover targets are positioned from the scale the CHART IS ACTUALLY DRAWN WITH.
+      // Bars use the band scale `x`; the area chart uses the point scale `xLin`, and
+      // the hover columns used to be band-positioned in both modes. In area mode every
+      // column was therefore offset by half a band and narrower than the span it was
+      // meant to cover, which is why the tooltip felt unreliable there — and why
+      // Public equity, the thinnest top layer, seemed worst affected: a small vertical
+      // target plus a horizontally displaced hit area misses more often than not.
+      const band = state.type === "bar";
+      const step = band ? x.bandwidth() : (visRows().length > 1 ? (c.iw / visRows().length) : c.iw);
+      const at = d => band ? x(d.year) : Math.max(0, xLin(d.year) - step / 2);
+
+      const cols = c.gPlot.selectAll(".hovercol").data(visRows(), d => d.year).join("rect")
+        .attr("class", "hovercol").attr("x", at).attr("width", step)
         .attr("y", 0).attr("height", c.ih).attr("fill", "transparent")
         .on("mousemove", (e, d) => {
           const ser = active(), tot = ser.reduce((a, s) => a + d[s.key], 0);
-          let html = `<div class="hd">${d.year}${d.year === PARTIAL ? " · year-to-date" : ""}</div>`;
+          let html = `<div class="hd">${d.year}${d.year === PARTIAL ? " · part year" : ""}</div>`;
           ser.slice().reverse().forEach(s => { if (d[s.key] > 0)
             html += `<div class="row"><span class="k"><i style="background:${s.color}"></i>${s.label}</span><span class="v">${QT.fmt.money(d[s.key])}</span></div>`; });
           html += `<div class="row tot"><span class="k">Total</span><span class="v">${QT.fmt.money(tot)}</span></div>`;
           tt.show(html, e);
         }).on("mouseleave", tt.hide);
+
+      // Keep the targets above the marks. The columns are created once and then
+      // re-used, while switching chart type or moving the year slider APPENDS fresh
+      // <g class="bar"> / <path class="area"> elements after them in document order —
+      // which put the marks on top and killed hovering entirely until the next full
+      // redraw. That is the "tooltip doesn't work well when we change the years range"
+      // report. One raise() per render is cheaper than reasoning about join order.
+      cols.raise();
     }
+
+    // Both spans in the note carry the first year in the series, from the data's own
+    // meta rather than a hardcoded 2012 — Elena's closing note asks that numbers in
+    // copy be dynamic so they do not have to be chased every quarter.
+    d3.selectAll("#instrument-from, #instrument-from2").text(instrYear.meta.start_year || ALL_YEARS[0]);
 
     QT.segControl("#seg-scale-instrument", "data-s", s => { state.scale = s; render(); });
     QT.segControl("#seg-type-instrument", "data-t", t => { state.type = t; render(); });
@@ -145,22 +197,45 @@ QT.boot(async function () {
     render();
   })();
 
-  // ---------- Panel 2: countries by funding — full ranking, bracketed 10 at a time (REAL) ----------
+  // ---------- Figure 3: countries ranked by company vs. government funding ----------
+  // The metric is Company or Government, with no "Total". Adding the two would be
+  // wrong: a government grant into a funding round is company funding AND government
+  // funding, so a total double-counts by an unknown amount. That is also why the note
+  // under Figure 1 tells the reader not to add them.
   (function countriesByFunding() {
     const BRACKET = 10;
-    const state = { metric: "total_funding", page: 0 };
-    const METRIC_LABEL = { total_funding: "Total funding", public_funding: "Public funding", private_funding: "Private funding" };
+    const state = { metric: "company_funding", page: 0 };
+    const METRIC_LABEL = { company_funding: "Company funding", government_funding: "Government funding" };
 
+    // The EU appears as its own bar alongside Member States. It has no company-funding
+    // row (companies are counted under the country they are headquartered in, and an
+    // EU-level sum would double-count every one of them), so it is present only for
+    // the government metric — which is where the Flagship and EuroHPC money lives and
+    // where leaving the bloc out understates European public funding badly.
+    const rowsFor = metric => country.data.map(d => ({
+      country: d.country,
+      company_funding: d.total_funding,
+      government_funding: (govByCountry.get(d.country) || {}).government_funding || 0,
+    })).concat(
+      metric === "government_funding" && govByCountry.has("EU")
+        ? [{ country: "EU", company_funding: null,
+             government_funding: govByCountry.get("EU").government_funding }]
+        : []
+    );
+
+    // Only countries that have a value for THIS metric are ranked. 43 countries have
+    // company funding but only 18 have countable government funding, so the range
+    // buttons have to be rebuilt from the filtered list on every metric change rather
+    // than assumed constant — Elena flagged that they were not.
     function rankedRows() {
-      return country.data
-        .map(d => ({ ...d, private_funding: d.total_funding != null && d.public_funding != null ? d.total_funding - d.public_funding : null }))
-        .filter(d => d[state.metric] != null)
+      return rowsFor(state.metric)
+        .filter(d => d[state.metric] != null && d[state.metric] > 0)
         .sort(QT.rank(state.metric, "country"));
     }
 
     function render() {
       const all = rankedRows();
-      const pages = Math.ceil(all.length / BRACKET);
+      const pages = Math.max(1, Math.ceil(all.length / BRACKET));
       state.page = Math.max(0, Math.min(state.page, pages - 1));
       const rows = all.slice(state.page * BRACKET, state.page * BRACKET + BRACKET);
 
@@ -169,9 +244,16 @@ QT.boot(async function () {
         .text(p => `${p * BRACKET + 1}–${Math.min((p + 1) * BRACKET, all.length)}`)
         .on("click", (e, p) => { state.page = p; render(); });
 
+      // Rebuilt from scratch each render. The old code kept one chart instance and
+      // re-joined into it, so a page with fewer rows than the last left the previous
+      // page's labels behind on the y axis — the "labels overlap when you click the
+      // range buttons" bug. A fresh <svg> body per render cannot carry stale marks.
+      d3.select("#chart-country").selectAll("*").remove();
       const W = 880, H = 46 + rows.length * 30;
-      const c = QT.chart("#chart-country", { W, H, margin: { t: 6, r: 56, b: 26, l: 130 } });
-      const x = d3.scaleLinear().domain([0, d3.max(all, d => d[state.metric]) * 1.05]).range([0, c.iw]);
+      const c = QT.chart("#chart-country", { W, H, margin: { t: 6, r: 70, b: 26, l: 130 } });
+      // Domain from the whole ranking, not the visible page, so bar lengths stay
+      // comparable as you page through — and it rescales when the metric changes.
+      const x = d3.scaleLinear().domain([0, d3.max(all, d => d[state.metric]) * 1.05 || 1]).range([0, c.iw]);
       const y = d3.scaleBand().domain(rows.map(d => d.country)).range([0, c.ih]).padding(0.22);
 
       c.gGrid.selectAll("line").data(x.ticks(4)).join("line").attr("class", "gridline")
@@ -179,7 +261,10 @@ QT.boot(async function () {
       c.gPlot.selectAll("rect").data(rows, d => d.country).join("rect")
         .attr("x", 0).attr("y", d => y(d.country)).attr("height", y.bandwidth()).attr("rx", 2)
         .attr("fill", QT.tokens.accent).attr("fill-opacity", 0.9).attr("width", d => x(d[state.metric]))
-        .on("mousemove", (e, d) => tt.show(`<div class="hd">${d.country}</div><div class="row"><span class="k">Rank</span><span class="v">${all.indexOf(d) + 1} of ${all.length}</span></div><div class="row"><span class="k">${METRIC_LABEL[state.metric]}</span><span class="v">${QT.fmt.money(d[state.metric])}</span></div>`, e))
+        .on("mousemove", (e, d) => tt.show(
+          `<div class="hd">${QT.flag(d.country)}${d.country}</div>` +
+          `<div class="row"><span class="k">Rank</span><span class="v">${all.indexOf(d) + 1} of ${all.length}</span></div>` +
+          `<div class="row"><span class="k">${METRIC_LABEL[state.metric]}</span><span class="v">${QT.fmt.money(d[state.metric])}</span></div>`, e))
         .on("mouseleave", tt.hide);
       c.gPlot.selectAll("text.bar-val").data(rows, d => d.country).join("text")
         .attr("class", "bar-val").attr("dy", "0.32em")
@@ -187,19 +272,32 @@ QT.boot(async function () {
         .text(d => QT.fmt.money(d[state.metric]));
       c.gx.call(d3.axisBottom(x).ticks(4).tickFormat(QT.fmt.axisMoney).tickSizeOuter(0));
       c.gy.call(d3.axisLeft(y).tickSizeOuter(0)).call(g => g.select(".domain").remove());
+
+      QT.mockNote("#mocknote-country", state.metric === "government_funding" && govProvisional
+        ? "<b>Government figures are provisional</b> — see the note under Figure 1."
+        : "");
+      d3.select("#mocknote-country").style("display",
+        state.metric === "government_funding" && govProvisional ? null : "none");
     }
 
     QT.segControl("#seg-metric-country", "data-m", m => { state.metric = m; state.page = 0; render(); });
     render();
   })();
 
-  // ---------- Panel 3: top companies by funding (REAL, teaser for the Companies tab) ----------
+  // ---------- Figure 4: top companies by total funding ----------
+  // Ten, not eight. Elena's note was that eight "seems an odd number" — it was, and it
+  // came from nothing but the panel height. Ten is the same round bracket the Companies
+  // tab pages by, so the teaser and the full ranking agree on what a page looks like.
+  // Deliberately kept a plain flagged bar chart rather than a copy of the Companies
+  // tab's Top 30: that one carries a pillar selector and range buttons, which is a
+  // second navigation surface this panel does not want when its job is to hand the
+  // reader on to that tab.
   (function topCompanies() {
-    const TOP = 8;
+    const TOP = 10;
     const rows = companies.data.filter(d => d.total_funding > 0).slice(0, TOP);
 
-    const W = 880, H = 260;
-    const c = QT.chart("#chart-companies", { W, H, margin: { t: 6, r: 56, b: 26, l: 150 } });
+    const W = 880, H = 300;
+    const c = QT.chart("#chart-companies", { W, H, margin: { t: 6, r: 70, b: 26, l: 172 } });
     const x = d3.scaleLinear().domain([0, d3.max(rows, d => d.total_funding) * 1.05]).range([0, c.iw]);
     const y = d3.scaleBand().domain(rows.map(d => d.company)).range([0, c.ih]).padding(0.22);
 
@@ -216,9 +314,13 @@ QT.boot(async function () {
       .text(d => QT.fmt.money(d.total_funding));
     c.gx.call(d3.axisBottom(x).ticks(4).tickFormat(QT.fmt.axisMoney).tickSizeOuter(0));
     c.gy.call(d3.axisLeft(y).tickSizeOuter(0)).call(g => g.select(".domain").remove());
+    // Flags, per Elena: the ranking was "a bit too plain like it's now", and the
+    // company's home country is the one fact a reader wants next to its name here.
+    const countryOfCompany = new Map(rows.map(d => [d.company, d.country]));
+    QT.flagAxis(c.gy, name => countryOfCompany.get(name) || "");
   })();
 
-  // ---------- Panel: funding by stage, two blocs compared (REAL) ----------
+  // ---------- Figure 5: capital raised by funding stage and region ----------
   (function fundingByStage() {
     const STAGES = stageRegion.data.stages;
     const BLOCS = {};
@@ -226,9 +328,27 @@ QT.boot(async function () {
     const KEYS = Object.keys(BLOCS);
 
     const state = { a: KEYS[0], b: KEYS[2] || KEYS[1], scale: "share" };
-    KEYS.forEach(k => ["#stage-ra", "#stage-rb"].forEach(s => d3.select(s).append("option").attr("value", k).text(BLOCS[k].label)));
-    d3.select("#stage-ra").property("value", state.a);
-    d3.select("#stage-rb").property("value", state.b);
+
+    // Chip rows rather than <select>s (see the comment in index.html). Picking the
+    // region already selected on the OTHER side is disabled rather than hidden, so the
+    // two rows always show the same five options in the same order and the reader can
+    // see why a chip is unavailable instead of watching an option disappear.
+    function regionChips() {
+      [["#stage-ra", "a", "b"], ["#stage-rb", "b", "a"]].forEach(([sel, own, other]) => {
+        d3.select(sel).selectAll(".chip").data(KEYS, k => k).join("span")
+          .attr("class", "chip")
+          .classed("on", k => state[own] === k)
+          .classed("off", k => state[other] === k)
+          .attr("title", k => state[other] === k ? "Already selected as the other region" : null)
+          .text(k => BLOCS[k].label)
+          .on("click", (e, k) => {
+            if (state[other] === k || state[own] === k) return;
+            state[own] = k;
+            regionChips();
+            render();
+          });
+      });
+    }
 
     const W = 880, H = 300;
     const c = QT.chart("#chart-stage", { W, H, margin: { t: 16, r: 70, b: 30, l: 215 } });
@@ -276,9 +396,8 @@ QT.boot(async function () {
       legend();
     }
 
-    d3.select("#stage-ra").on("change", function () { state.a = this.value; render(); });
-    d3.select("#stage-rb").on("change", function () { state.b = this.value; render(); });
     QT.segControl("#seg-scale-stage", "data-s", s => { state.scale = s; render(); });
+    regionChips();
     render();
   })();
 });
