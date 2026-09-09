@@ -39,15 +39,30 @@
     };
   };
 
-  /** One shared tooltip element for the whole page. */
+  /** One shared tooltip element for the whole page.
+   *
+   *  FLIPS to the left of the cursor when it would not fit on the right, instead of
+   *  being clamped. The old code did `Math.min(clientX + 14, innerWidth - 200)`, which
+   *  is wrong twice over: 200 is a guess (`.tt` sets only `min-width:180px` and a
+   *  country tooltip is routinely wider), and clamping pins the box against the
+   *  viewport edge under the cursor rather than moving it out of the way. Hovering
+   *  anything near the right edge — Japan and New Zealand on the world map — showed
+   *  half a tooltip. Measuring the real box and flipping fixes both.
+   */
   QT.tooltip = function () {
     let el = d3.select(".tt");
     if (el.empty()) el = d3.select("body").append("div").attr("class", "tt");
+    const GAP = 14;
     return {
       show(html, event) {
-        el.html(html).style("opacity", 1)
-          .style("left", Math.min(event.clientX + 14, window.innerWidth - 200) + "px")
-          .style("top", (event.clientY - 10) + "px");
+        // Set the content before measuring: the width depends on it.
+        el.html(html).style("opacity", 1);
+        const box = el.node().getBoundingClientRect();
+        const fitsRight = event.clientX + GAP + box.width <= window.innerWidth - 8;
+        const left = fitsRight ? event.clientX + GAP : event.clientX - GAP - box.width;
+        // Vertical: keep the whole box on screen without ever covering the cursor.
+        const top = Math.max(8, Math.min(event.clientY - 10, window.innerHeight - box.height - 8));
+        el.style("left", Math.max(8, left) + "px").style("top", top + "px");
       },
       hide() { el.style("opacity", 0); },
     };
@@ -186,6 +201,107 @@
       });
     sel.select(".v").html(d => d.v);
     sel.select(".k").html(d => d.k);
+  };
+
+  /* ── Flags ────────────────────────────────────────────────────────────────
+     Vendored PNGs (assets/vendor/flags/<iso2>.png) rather than flag emoji,
+     because Windows browser/font combinations routinely render flag emoji as a
+     plain two-letter code instead of a picture.
+
+     Call QT.loadFlags() once per page before using QT.flag(). Both chart files
+     that already had a private `flagIcon()` now share this, since Elena's
+     2026-09-08 list adds flags to three more panels and a fourth copy of the
+     same six lines was not worth having.  */
+  let FLAG_CODES = {};
+  QT.loadFlags = async function () {
+    if (Object.keys(FLAG_CODES).length) return FLAG_CODES;
+    try {
+      FLAG_CODES = (await QT.loadData("country_codes")).data || {};
+    } catch (e) {
+      FLAG_CODES = {};   // no flags is a fine degradation; a broken page is not
+    }
+    return FLAG_CODES;
+  };
+
+  /** <img> for a country's flag, by tracker country name or by ISO-2 code.
+      Returns "" when the country is unknown, and removes itself if the .png is
+      missing — so a country with a code but no asset degrades to no flag rather
+      than to a broken-image glyph. */
+  QT.flag = function (country, { code } = {}) {
+    const iso = (code || FLAG_CODES[country] || "").toLowerCase();
+    if (!iso) return "";
+    const safe = String(country || iso).replace(/"/g, "&quot;");
+    return `<img class="flag" src="assets/vendor/flags/${iso}.png" width="16" height="12" ` +
+           `alt="${safe}" title="${safe}" onerror="this.remove()">`;
+  };
+
+  /** Lowercase ISO-2 for a tracker country name, or "" if unknown. */
+  QT.flagCode = function (country) { return (FLAG_CODES[country] || "").toLowerCase(); };
+
+  /** Put a flag in front of each label on a categorical SVG axis.
+   *
+   *  The HTML <img> from QT.flag() cannot go inside an <svg> axis tick, so this appends
+   *  an SVG <image> per tick and shifts the tick's text right to make room. `countryOf`
+   *  maps a tick's datum (the band domain value, e.g. a company name) to the country
+   *  whose flag should show; return "" to leave a tick unflagged rather than blank.
+   *
+   *  Ticks whose flag asset is missing keep their original text position, so a missing
+   *  PNG costs nothing visually instead of leaving a gap where an image should be.
+   */
+  QT.flagAxis = function (axisG, countryOf, { size = 16, gap = 7 } = {}) {
+    const h = Math.round(size * 0.75);
+    // Reserve the slot next to the axis for the flag and push every label left of it,
+    // giving [label] [flag] | bar. Placing the flag on the far side of the label would
+    // need each label's rendered width, which varies per row and is not known until
+    // after layout; reserving a fixed slot keeps flags in one straight column and the
+    // label baselines aligned whether or not a given row has a flag.
+    axisG.selectAll(".tick").each(function (d) {
+      const tick = d3.select(this);
+      tick.selectAll("image.flagtick").remove();
+      tick.select("text").attr("x", -(9 + size + gap));
+      const iso = QT.flagCode(countryOf(d));
+      if (!iso) return;
+      tick.append("image").attr("class", "flagtick")
+        .attr("href", `assets/vendor/flags/${iso}.png`)
+        .attr("width", size).attr("height", h)
+        .attr("x", -(9 + size)).attr("y", -h / 2)
+        .on("error", function () { d3.select(this).remove(); });
+    });
+  };
+
+  /** Binned (class-interval) colour scale over QT.palette.sequential.
+   *
+   *  For choropleths, replacing a continuous d3.scaleSequential. Quantum funding
+   *  is extremely skewed — the US alone is ~4x China and ~12x the UK — so a
+   *  linear ramp puts every country except the US in the palest two shades and
+   *  the map reads as "the US, and nowhere else". Elena asked for categorical
+   *  colours "so as not to have the US dark only". Quantile breaks over the
+   *  countries that actually have funding spread the classes across the data
+   *  rather than across the range, so the middle of the distribution becomes
+   *  legible; the breaks are returned for the legend to label honestly.
+   */
+  QT.binnedScale = function (values, { bins = 5 } = {}) {
+    const vs = values.filter(v => v > 0).sort(d3.ascending);
+    const colors = QT.palette.sequential.slice(-bins);
+    if (!vs.length) return { color: () => QT.tokens.noData, breaks: [], colors };
+    // Quantile breaks, de-duplicated: a tie across a boundary would otherwise
+    // produce two classes with identical bounds and an unreadable legend.
+    const breaks = [];
+    for (let i = 1; i < bins; i++) {
+      const b = d3.quantileSorted(vs, i / bins);
+      if (!breaks.length || b > breaks[breaks.length - 1]) breaks.push(b);
+    }
+    return {
+      breaks,
+      colors: colors.slice(colors.length - (breaks.length + 1)),
+      color(v) {
+        if (!(v > 0)) return QT.tokens.noData;
+        const pal = colors.slice(colors.length - (breaks.length + 1));
+        let i = 0;
+        while (i < breaks.length && v >= breaks[i]) i++;
+        return pal[i];
+      },
+    };
   };
 
   /** Small inline ribbon flagging a panel's data as illustrative/mock. Pass a

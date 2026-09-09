@@ -4,80 +4,128 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Quantum Technologies Tracker — Companies</title>
+<!-- theme.js self-injects the stylesheet on load, so it belongs in <head>: from the
+     end of <body> the CSS arrived after first paint and every tab switch flashed
+     unstyled HTML. -->
+<script src="assets/theme.js"></script>
 <script src="assets/vendor/d3.min.js"></script>
 </head>
 <body>
 <div class="wrap">
   <div id="nav"></div>
   <h1>Quantum companies</h1>
-  <p class="sub">Every tracked quantum company: what it raised, where it came from, and what it is worth.</p>
+  <!-- Deliberately says nothing about coverage or completeness. The previous subtitle
+       ("Every tracked quantum company: what it raised, where it came from...") advertised
+       the shape of the private database, which Elena does not want to reveal. -->
+  <p class="sub">Who is building quantum technologies, what they have raised, and where they
+  came from.</p>
   <div class="vintage" id="vintage"></div>
 
   <div class="kpis" id="kpis"></div>
 
   <div class="panels g2">
 
+    <!-- ORDER (Elena, 2026-09-08): the panels covering all companies come first, and the
+         two that can only speak for the ~35 listed ones come last. Previously market
+         capitalisation led the tab, which put its narrowest panel at the top. -->
+
     <div class="panel span2">
-      <div class="ttl">Market capitalisation of listed quantum companies, by region</div>
-      <p class="why">Every publicly listed company in the database, sized by market capitalisation and grouped by the region of its headquarters. Bubble area is proportional to value. Hover for the figure.</p>
-      <div id="chart-mcap"></div>
-      <p class="note" style="margin-top:8px;padding-top:8px;"><b>Only listed companies appear here</b> — <span id="mcap-count"></span> of the tracked total. The other companies are private, so no market value exists to plot; funding raised is the comparable measure for them, in the panels below. <span id="mcap-override-note"></span></p>
+      <div class="ttl">Figure 1: Top 30 quantum companies by funding</div>
+      <p class="why">Explore the highest-funded quantum companies worldwide, ranked by total
+      funding. Use the pillar selector to view the top companies across the five quantum
+      technology pillars, and the range buttons to browse the ranking 10 companies at a time.</p>
+      <div class="controls">
+        <div class="ctl"><label>Technology pillar</label><div class="chiprow" id="pillar-top"></div></div>
+        <div class="ctl"><label>Ranking</label><div class="chiprow" id="bracket-top"></div></div>
+      </div>
+      <svg id="chart-top" role="img" aria-label="Top quantum companies by funding"></svg>
+      <p class="note" style="margin-top:8px;padding-top:8px;">The ranking reflects cumulative
+      funding and may include companies that are now defunct, have been acquired, or have merged
+      with other firms. Companies are classified here by their primary quantum technology pillar.
+      Additional pillar classifications may apply but are not shown in the ranking.</p>
     </div>
 
     <div class="panel span2">
-      <div class="ttl">Parent institutions by funding raised by their spinouts</div>
-      <p class="why">Institutions ranked by the total funding raised by the companies that came out of them — not by how many they produced. Use the toggle to compare the two.</p>
+      <div class="ttl">Figure 2: Quantum companies by founded year</div>
+      <p class="why">When the tracked companies were founded.</p>
+      <svg id="chart-founded" role="img" aria-label="Quantum companies by founded year"></svg>
+      <p class="note" style="margin-top:8px;padding-top:8px;">Chart starts at
+      <span id="founded-from"></span>; a handful of older companies predate it. The most recent
+      year is partial, and recent years may be underestimated as companies take time to raise
+      funding, emerge from stealth and be captured in the database.</p>
+    </div>
+
+    <div class="panel span2">
+      <div class="ttl">Figure 3: Funding across the quantum technology landscape</div>
+      <p class="why">Compare how global funding is distributed across technology pillars, stack
+      layers and streams. Bar length shows total funding; the number on the right shows the
+      companies represented.</p>
+      <!-- Pillars and stack layers are shown together, one block each, because there are
+           5 and 6 of them. Streams stay behind a toggle: there are 48 distinct streams,
+           which cannot be a third block without swamping the panel. -->
+      <div class="controls">
+        <div class="ctl"><label>Also show</label>
+          <div class="seg" id="seg-streams"><button data-v="off" class="on">Pillars &amp; stack layers</button><button data-v="on">Streams</button></div>
+        </div>
+      </div>
+      <svg id="chart-landscape" role="img" aria-label="Funding by technology pillar, stack layer and stream"></svg>
+      <p class="note" style="margin-top:8px;padding-top:8px;">Companies carry a single stack-layer
+      classification. For technology pillars and streams, multiple classifications may apply, but
+      companies are shown here according to their primary pillar and primary stream.</p>
+    </div>
+
+    <div class="panel span2">
+      <div class="ttl">Figure 4: How companies are founded</div>
+      <p class="why">Institutional origin versus independent founding, and the split within
+      institutional.</p>
+      <svg id="chart-origin" role="img" aria-label="Companies by founding origin"></svg>
+      <div class="legend legend-center" id="legend-origin"></div>
+      <p class="note" style="margin-top:8px;padding-top:8px;">A blank origin in the source data
+      means <b>not a spinout</b> — the controlled vocabulary lists only non-organic origins, so an
+      independently founded company is recorded by the absence of one. This is a complete split,
+      not a coverage gap.</p>
+    </div>
+
+    <div class="panel span2">
+      <div class="ttl">Figure 5: Top 50 parent institutions by spinout activity</div>
+      <p class="why">Compare institutions by the number of spinouts they have produced or by the
+      total funding raised by those spinouts. Use the toggle to switch between rankings and the
+      range buttons to browse the ranking 10 institutions at a time.</p>
       <div class="controls">
         <div class="ctl"><label>Rank by</label>
           <div class="seg" id="seg-inst-metric"><button data-m="total_funding" class="on">Funding raised</button><button data-m="n_spinouts">Number of spinouts</button></div>
         </div>
-        <div class="ctl"><label>Showing</label><div class="chiprow" id="bracket-inst"></div></div>
+        <div class="ctl"><label>Ranking</label><div class="chiprow" id="bracket-inst"></div></div>
       </div>
-      <svg id="chart-inst" role="img" aria-label="Parent institutions ranked by funding raised by their spinouts"></svg>
-      <p class="note" style="margin-top:8px;padding-top:8px;">A company with more than one institution of origin counts under each, so funding is deliberately counted for every co-parent — the question is what came out of an institution, not how to divide the sector up. Institutions of origin are recorded for <span id="inst-coverage"></span>; the rest were founded independently, which is a recorded answer rather than missing data.</p>
+      <svg id="chart-inst" role="img" aria-label="Parent institutions ranked by spinout activity"></svg>
+      <p class="note" style="margin-top:8px;padding-top:8px;">Only companies originating as
+      university, research, corporate or hybrid spinouts are included. Where a spinout has more
+      than one institution of origin, it is counted under each, with its funding attributed to
+      each parent institution.</p>
     </div>
 
     <div class="panel span2">
-      <div class="ttl">Top 20 companies by funding</div>
-      <p class="why">The highest-funded quantum companies tracked worldwide.</p>
-      <svg id="chart-top" role="img" aria-label="Top companies by funding"></svg>
+      <div class="ttl">Figure 6: Market capitalisation of listed quantum companies, by region</div>
+      <p class="why">Every publicly listed company in the database, sized by market capitalisation
+      and grouped by the region of its headquarters. Market capitalisation is as of
+      <span id="mcap-asof"></span>. Hover for more information.</p>
+      <div id="chart-mcap"></div>
+      <p class="note" style="margin-top:8px;padding-top:8px;">Only listed companies appear here —
+      <span id="mcap-count"></span> of the tracked total. The other companies are private, so no
+      market capitalisation exists to plot. <span id="mcap-override-note"></span></p>
     </div>
 
     <div class="panel span2">
-      <div class="ttl">Funding by stack layer</div>
-      <p class="why">Where the money sits in the quantum stack. Bar length is funding; the number on the right is how many companies share it.</p>
-      <svg id="chart-stack" role="img" aria-label="Funding by stack layer"></svg>
-      <p class="note" style="margin-top:8px;padding-top:8px;">Every company carries exactly one stack layer, so unlike the pillar and stream axes this one partitions the sector cleanly.</p>
-    </div>
-
-    <div class="panel">
-      <div class="ttl">How companies are founded</div>
-      <p class="why">Institutional origin versus independent founding, and the split within institutional.</p>
-      <svg id="chart-origin" role="img" aria-label="Companies by founding origin"></svg>
-      <div class="legend" id="legend-origin"></div>
-      <p class="note" style="margin-top:8px;padding-top:8px;">A blank origin in the workbook means <b>not a spinout</b> — the controlled vocabulary lists only non-organic origins, so an independently founded company is recorded by the absence of one. This is a complete split, not a coverage gap.</p>
-    </div>
-
-    <div class="panel">
-      <div class="ttl">Companies by founding year</div>
-      <p class="why">When the tracked companies were founded.</p>
-      <svg id="chart-founded" role="img" aria-label="Companies by founding year"></svg>
-      <p class="note" style="margin-top:8px;padding-top:8px;">Chart starts at <span id="founded-from"></span>; a handful of older companies predate it. <b>The most recent year is partial</b> and is not comparable with full years.</p>
-    </div>
-
-    <div class="panel span2">
-      <div class="ttl">Listed companies by stock exchange</div>
-      <p class="why">Where the listed quantum companies are traded.</p>
-      <svg id="chart-exchange" role="img" aria-label="Listed companies by stock exchange"></svg>
-      <p class="note" style="margin-top:8px;padding-top:8px;">Dual-listed companies are counted on both venues, so listings exceed companies — <span id="exchange-count"></span>.</p>
+      <div class="ttl">Figure 7: Listed quantum companies by stock exchange</div>
+      <p class="why">Where public quantum companies are listed.</p>
+      <svg id="chart-exchange" role="img" aria-label="Listed quantum companies by stock exchange"></svg>
+      <p class="note" style="margin-top:8px;padding-top:8px;">Dual-listed companies are counted on
+      both venues, so listings exceed companies.</p>
     </div>
 
   </div>
-
-  <p class="note">Every panel on this tab is computed directly from the funding database. Market capitalisation is the one figure that moves independently of the data vintage — see the note on the first panel.</p>
 </div>
 
-<script src="assets/theme.js"></script>
 <script src="assets/chart-template.js"></script>
 <script src="assets/charts/companies.js"></script>
 </body>

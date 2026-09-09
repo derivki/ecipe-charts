@@ -61,6 +61,11 @@ window.QT = (function () {
       "RoW":        "#7b5ea7",
     },
     sequential: ["#e8eef4", "#b9cbde", "#7ba0c4", "#3f6fa3", "#1f4e79"],
+    // Cluster overall rank — dark blue (best) through to orange (worst), the encoding
+    // the Clusters paper (Occasional Paper 15/2025) uses in its own figures. Distinct
+    // from `sequential` on purpose: this axis is a RANKING with two meaningful ends,
+    // so it reads as a diverging ramp rather than "more of a good thing".
+    clusterRank: ["#1f4e79", "#4a7fa8", "#9fb8c9", "#e8b06a", "#d97b29"],
     // collaboration archetype (country 2×2: connectedness × commercial intensity) — MOCK
     archetype: {
       "Global Hub":              "#1f4e79",
@@ -190,6 +195,12 @@ svg{display:block;width:100%;height:auto;overflow:visible;}
 .tt .row .k i{width:9px;height:9px;border-radius:2px;display:inline-block;}
 .tt .row .v{font-variant-numeric:tabular-nums;font-weight:600;}
 .tt .tot{border-top:1px solid rgba(255,255,255,.18);margin-top:6px;padding-top:6px;}
+/* A long list inside a tooltip: label above, values as left-aligned wrapped prose.
+   .tt .row is flex with the value right-aligned, which turns twenty company names
+   into a right-ragged column that is hard to read. */
+.tt .tt-list{border-top:1px solid rgba(255,255,255,.18);margin-top:6px;padding-top:6px;max-width:320px;}
+.tt .tt-list .k{display:block;color:#c9d2dc;margin-bottom:2px;}
+.tt .tt-list div{text-align:left;font-weight:500;line-height:1.45;}
 .note{font-size:11.5px;color:var(--muted);margin-top:16px;line-height:1.5;border-top:1px solid var(--line);padding-top:12px;}
 .note b{color:var(--ink);font-weight:600;}
 
@@ -207,6 +218,14 @@ svg{display:block;width:100%;height:auto;overflow:visible;}
 
 /* ---------- KPI tile strip ---------- */
 .kpis{display:grid;grid-template-columns:repeat(auto-fit,minmax(130px,1fr));gap:12px;margin:18px 0 24px;}
+/* Fixed six-across grid for the Countries tab. auto-fit sizes columns from their
+   content, so every change of country visibly resized all six tiles; Elena asked
+   that they stay put whatever is selected. Collapses to 3 then 2 on narrow
+   viewports rather than shrinking below a readable width. */
+.kpis-fixed{grid-template-columns:repeat(6,1fr);}
+@media (max-width:1100px){.kpis-fixed{grid-template-columns:repeat(3,1fr);}}
+@media (max-width:640px){.kpis-fixed{grid-template-columns:repeat(2,1fr);}}
+.archetype-line{font-size:12px;color:var(--muted);margin:-14px 0 22px;}
 .kpi{border:none;border-radius:12px;padding:14px 16px;background:color-mix(in srgb, ${tokens.accent} 5%, ${tokens.panel});}
 .kpi .v{font-size:21px;font-weight:700;letter-spacing:-.02em;font-variant-numeric:tabular-nums;color:var(--ink);}
 .kpi .k{font-size:11px;color:var(--muted);margin-top:3px;line-height:1.3;}
@@ -308,18 +327,46 @@ svg{display:block;width:100%;height:auto;overflow:visible;}
   color:var(--muted);font-size:15px;font-weight:600;line-height:1;cursor:pointer;
   display:flex;align-items:center;justify-content:center;box-shadow:0 1px 3px rgba(20,40,70,.08);}
 .mapzoom button:hover{border-color:var(--ink);color:var(--ink);}
+/* Ranking-movement indicators (Clusters table): up / down / no change vs. last year. */
+.mv{font-size:10px;font-weight:700;margin-left:3px;vertical-align:1px;}
+.mv-up{color:#2f7d4f;} .mv-down{color:${tokens.rust};} .mv-flat{color:${tokens.muted};}
+.rtable .dim{color:${tokens.line};}
+/* Legend centred under its chart, for panels with only two or three keys where a
+   left-aligned legend reads as detached from the figure. */
+.legend-center{justify-content:center;}
+/* Block heading inside a multi-block bar panel (Companies "landscape" figure). */
+.block-title{font-size:9.5px;font-weight:700;letter-spacing:.1em;text-transform:uppercase;fill:${tokens.muted};}
 .chiprow{display:flex;flex-wrap:wrap;gap:6px;margin:10px 0 2px;}
 .chip{font-size:11.5px;color:var(--muted);border:1px solid var(--line);border-radius:20px;
   padding:4px 11px;cursor:pointer;background:var(--bg);}
 .chip.on{background:var(--ink);color:#fff;border-color:var(--ink);}
+/* A chip that is unavailable because the other selector already holds it: still
+   readable, visibly not clickable. */
+.chip.off{opacity:.4;cursor:not-allowed;}
 `;
   }
 
+  // Idempotent, and called once at parse time (below) rather than waiting for a
+  // page's async chart code to ask for it.
+  //
+  // WHY: every page used to call QT.injectCSS() inside its own `async` IIFE, i.e.
+  // after the first `await`. The stylesheet therefore arrived AFTER the browser had
+  // already painted the document, so switching tabs flashed unstyled HTML —
+  // full-width black Times New Roman for a frame — which Elena reported as "a little
+  // glitch in the design" on 2026-09-08. Self-injecting on load, with this file moved
+  // into <head>, means the CSS is in place before the body is parsed and there is no
+  // unstyled frame to see. The per-page calls are now harmless no-ops.
+  let injected = false;
   function injectCSS() {
+    if (injected) return;
+    injected = true;
     const s = document.createElement("style");
+    s.id = "qt-theme";
     s.textContent = css();
-    document.head.appendChild(s);
+    (document.head || document.documentElement).appendChild(s);
   }
+
+  injectCSS();
 
   return { tokens, palette, fmt, rank, alpha, injectCSS };
 })();

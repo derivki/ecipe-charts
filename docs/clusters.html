@@ -4,22 +4,31 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Quantum Technologies Tracker — Clusters</title>
+<!-- theme.js self-injects the stylesheet on load, so it belongs in <head>: from the
+     end of <body> the CSS arrived after first paint and every tab switch flashed
+     unstyled HTML. -->
+<script src="assets/theme.js"></script>
 <script src="assets/vendor/d3.min.js"></script>
 </head>
 <body>
 <div class="wrap">
   <div id="nav"></div>
-  <h1>Innovation hubs</h1>
-  <p class="sub">The leading quantum clusters by tracked funding, ranked on Market Orientation, Collaboration Intensity and Ecosystem Maturity. <span id="badge-clusters"></span></p>
+  <h1>Global hubs</h1>
+  <p class="sub">Explore the world's leading quantum clusters, ranked across three dimensions:
+  Market Orientation, Collaboration Intensity and Ecosystem Maturity. <span id="badge-clusters"></span></p>
   <div class="vintage" id="vintage"></div>
-
-  <div class="chiprow" id="region-chips"></div>
 
   <div class="panels g2">
 
     <div class="panel span2">
-      <div class="ttl">Cluster map: funding and overall rank</div>
-      <p class="why">Position: real coordinates. Bubble size: funding (real). Colour: overall rank (illustrative) — 1 = best of 15. Pick a region above to zoom in; scroll/drag to explore.</p>
+      <div class="ttl">Figure 1: Global cluster map: funding and overall rank</div>
+      <p class="why">Bubble size indicates total company funding by cluster, while colour shows
+      overall cluster ranking, from dark blue for the highest-ranked clusters to orange for the
+      lowest-ranked. Use the geographical area buttons to zoom in, or scroll and drag to explore
+      the map.</p>
+      <!-- Below the title and subtitle, not above them: these buttons belong to this
+           figure, and sitting at the top of the page they read as a page-wide filter. -->
+      <div class="chiprow" id="region-chips"></div>
       <div id="map-wrap" style="position:relative;">
         <div class="mapzoom" id="map-zoom">
           <button id="map-zin" title="Zoom in">+</button><button id="map-zout" title="Zoom out">−</button><button id="map-zreset" title="Reset view">↻</button>
@@ -29,60 +38,64 @@
     </div>
 
     <div class="panel span2">
-      <div class="ttl">Ranking table: all 15 clusters, three pillars</div>
-      <p class="why">Click a row for detail. Companies and funding are real; Market/Collab./Maturity show each cluster's rank (1 = best of 15) on that pillar, not the underlying illustrative score. <b>#</b> is the overall rank — the average of the three pillar ranks.</p>
+      <div class="ttl">Table 1: 2026 cluster ranking</div>
+      <p class="why">The overall rank is the average of each cluster's ranking across three
+      dimensions: Market Orientation (commercialisation), Collaboration Intensity (partnerships
+      and connectivity) and Ecosystem Maturity (institutional strength and productivity). Arrows
+      indicate movement compared with the 2025 ranking; <b>NEW</b> identifies clusters entering
+      the ranking in 2026. <b>1</b> indicates the highest-ranked cluster.</p>
       <div class="tblwrap" style="overflow-x:auto;">
         <table class="rtable" id="rtable">
           <thead><tr>
-            <th data-k="overall_rank" class="num sorted">#</th>
+            <th data-k="overall_rank" class="num sorted">2026 Rank</th>
+            <th data-k="rank_2025" class="num">2025 Rank</th>
             <th data-k="cluster">Cluster</th>
-            <th data-k="region">Region</th>
-            <th data-k="companies" class="num">Companies</th>
-            <th data-k="total_funding" class="num">Funding</th>
-            <th data-k="market_rank" class="num">Market</th>
-            <th data-k="collab_rank" class="num">Collab.</th>
-            <th data-k="maturity_rank" class="num">Maturity</th>
+            <th data-k="country">Country</th>
+            <th data-k="usual_region">Region</th>
+            <th data-k="market_rank" class="num">Market Orientation</th>
+            <th data-k="collab_rank" class="num">Collaboration Intensity</th>
+            <th data-k="maturity_rank" class="num">Ecosystem Maturity</th>
           </tr></thead>
           <tbody></tbody>
         </table>
       </div>
+      <p class="mocknote" id="mocknote-ranking"></p>
     </div>
 
     <div class="panel span2">
-      <div class="ttl" id="ttl-clusterdetail">Cluster detail</div>
-      <p class="why">Market orientation, collaboration intensity and ecosystem maturity for the selected cluster.</p>
-      <svg id="chart-dimbars" role="img" aria-label="Cluster dimension detail"></svg>
-    </div>
-
-    <div class="panel span2">
-      <div class="ttl">Cluster share of funding, 2016–2026 <span id="badge-time"></span></div>
-      <p class="why">Share of total funding inside named clusters. Only the 2026 value is real.</p>
+      <div class="ttl">Figure 2: Concentration of company funding in clusters</div>
+      <p class="why">Share of total funding raised by quantum companies within the clusters
+      covered by the ranking, compared with quantum companies elsewhere. Use the slider to adjust
+      the years shown. <span id="badge-time"></span></p>
       <svg id="chart-sharetime" role="img" aria-label="Cluster share of funding over time"></svg>
       <div class="ctl tslider-ctl"><label>Years shown</label><div id="slider-sharetime"></div></div>
-      <div class="legend" id="legend-sharetime"></div>
+      <div class="legend legend-center" id="legend-sharetime"></div>
     </div>
 
     <div class="panel span2">
-      <div class="ttl">New entrants: quasi-clusters that graduated <span id="badge-graduates"></span></div>
-      <p class="why">Clusters that crossed from the quasi-cluster pipeline into the established ranking. They also carry a badge in the ranking table above.</p>
+      <div class="ttl">Figure 3: New entrants: quasi-clusters upgrading to full cluster status</div>
+      <p class="why">Quasi-clusters that have upgraded to full cluster status and entered the
+      ranking. They are also marked with a <b>NEW</b> badge in the ranking table above.
+      <span id="badge-graduates"></span></p>
       <div id="graduates-body"></div>
     </div>
 
     <div class="panel span2">
-      <div class="ttl">The next wave: established clusters vs. the quasi-cluster pipeline <span id="badge-pipeline"></span></div>
-      <p class="why">A quasi-cluster has real quantum activity but hasn't yet cleared the funding/institutional-density bar for a full cluster. Where established clusters are few relative to the quasi-cluster pipeline, most future growth in the ranking above is still to come.</p>
+      <div class="ttl">Figure 4: Clusters vs. quasi-clusters <span id="badge-pipeline"></span></div>
+      <p class="why">A quasi-cluster has real quantum activity but has not yet cleared the
+      funding and institutional-density bar for a full cluster. Where established clusters are few
+      relative to the quasi-cluster pipeline, most future growth in the ranking above is still to
+      come.</p>
       <svg id="chart-pipeline" role="img" aria-label="Established clusters vs. quasi-clusters by region"></svg>
-      <div class="legend" id="legend-pipeline"></div>
+      <div class="legend legend-center" id="legend-pipeline"></div>
       <p class="citenote" id="citenote-pipeline"></p>
     </div>
 
   </div>
 
   <p class="mocknote" id="mocknote-clusters"></p>
-  <p class="note">Showing the top 15 clusters by tracked funding, of 44 in the database (<code style="font-family:var(--mono,monospace)">docs/data/funding_by_cluster.json</code> has the full list of company counts and funding by cluster). Pillar and overall ranks are shown instead of raw scores because the underlying 0-100 dimension scores are illustrative placeholders pending the Clusters paper's (Occasional Paper 15/2025) next update — relative ranking is the more defensible read of placeholder data than an arbitrarily-weighted composite score.</p>
 </div>
 
-<script src="assets/theme.js"></script>
 <script src="assets/chart-template.js"></script>
 <script src="assets/vendor/topojson-client.js"></script>
 <script src="assets/charts/clusters.js"></script>

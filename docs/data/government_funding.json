@@ -1,0 +1,227 @@
+{
+ "meta": {
+  "data_vintage": "2026-Q3",
+  "built_at_utc": "2026-09-08T14:36:50+00:00",
+  "source_xlsx": "raw/Quantum Policies List.xlsx",
+  "mock": false,
+  "provisional": true,
+  "fx": {
+   "USD": 1.0,
+   "EUR": 1.08,
+   "GBP": 1.27,
+   "CAD": 0.73,
+   "AUD": 0.66,
+   "NZD": 0.61,
+   "CHF": 1.13,
+   "DKK": 0.145,
+   "SEK": 0.095,
+   "NOK": 0.093,
+   "KRW": 0.00073,
+   "JPY": 0.0064,
+   "INR": 0.012,
+   "ILS": 0.27,
+   "SGD": 0.74,
+   "PKR": 0.0036,
+   "CNY": 0.14
+  },
+  "source_note": "Government funding parsed from the policy register's free-text 'Announced Funding Amount' column and converted at the fixed rates in meta.fx. PROVISIONAL: rows carrying soft qualifiers (proposed, recommended, up to, authorised, target), superseded or draft statuses, blended public-private figures, or more than one amount in a single cell are EXCLUDED pending review in data/curated/government_funding.csv. The FX convention itself is undecided (BACKLOG.md AP-1). China is absent from the register. Do not cite these totals."
+ },
+ "data": [
+  {
+   "country": "Germany",
+   "region": "EU",
+   "government_funding": 6134400000.0,
+   "n_policies_counted": 3,
+   "n_policies_total": 3
+  },
+  {
+   "country": "UK",
+   "region": "UK+AUS+CAN",
+   "government_funding": 3770630000.0,
+   "n_policies_counted": 4,
+   "n_policies_total": 7
+  },
+  {
+   "country": "France",
+   "region": "EU",
+   "government_funding": 1674000000.0,
+   "n_policies_counted": 2,
+   "n_policies_total": 3
+  },
+  {
+   "country": "US",
+   "region": "US",
+   "government_funding": 1275000000.0,
+   "n_policies_counted": 1,
+   "n_policies_total": 11
+  },
+  {
+   "country": "EU",
+   "region": "EU",
+   "government_funding": 1208520000.0,
+   "n_policies_counted": 2,
+   "n_policies_total": 7
+  },
+  {
+   "country": "Spain",
+   "region": "EU",
+   "government_funding": 896400000.0,
+   "n_policies_counted": 2,
+   "n_policies_total": 2
+  },
+  {
+   "country": "India",
+   "region": "RoW",
+   "government_funding": 720438000.0,
+   "n_policies_counted": 1,
+   "n_policies_total": 2
+  },
+  {
+   "country": "Netherlands",
+   "region": "EU",
+   "government_funding": 664092000.0,
+   "n_policies_counted": 1,
+   "n_policies_total": 2
+  },
+  {
+   "country": "Australia",
+   "region": "UK+AUS+CAN",
+   "government_funding": 632544000.0,
+   "n_policies_counted": 2,
+   "n_policies_total": 3
+  },
+  {
+   "country": "Canada",
+   "region": "UK+AUS+CAN",
+   "government_funding": 262800000.0,
+   "n_policies_counted": 1,
+   "n_policies_total": 6
+  },
+  {
+   "country": "Singapore",
+   "region": "RoW",
+   "government_funding": 222000000.0,
+   "n_policies_counted": 1,
+   "n_policies_total": 2
+  },
+  {
+   "country": "Denmark",
+   "region": "EU",
+   "government_funding": 174000000.0,
+   "n_policies_counted": 2,
+   "n_policies_total": 2
+  },
+  {
+   "country": "Austria",
+   "region": "EU",
+   "government_funding": 115560000.0,
+   "n_policies_counted": 1,
+   "n_policies_total": 1
+  },
+  {
+   "country": "Switzerland",
+   "region": "RoW",
+   "government_funding": 92773000.0,
+   "n_policies_counted": 1,
+   "n_policies_total": 1
+  },
+  {
+   "country": "Israel",
+   "region": "RoW",
+   "government_funding": 81000000.0,
+   "n_policies_counted": 2,
+   "n_policies_total": 2
+  },
+  {
+   "country": "Pakistan",
+   "region": "RoW",
+   "government_funding": 11550146.4,
+   "n_policies_counted": 1,
+   "n_policies_total": 1
+  },
+  {
+   "country": "New Zealand",
+   "region": "RoW",
+   "government_funding": 8143500.0,
+   "n_policies_counted": 2,
+   "n_policies_total": 2
+  },
+  {
+   "country": "Latvia",
+   "region": "EU",
+   "government_funding": 6696000.0,
+   "n_policies_counted": 1,
+   "n_policies_total": 1
+  },
+  {
+   "country": "Italy",
+   "region": "EU",
+   "government_funding": 0.0,
+   "n_policies_counted": 0,
+   "n_policies_total": 1
+  },
+  {
+   "country": "Belgium",
+   "region": "EU",
+   "government_funding": 0.0,
+   "n_policies_counted": 0,
+   "n_policies_total": 1
+  },
+  {
+   "country": "Finland",
+   "region": "EU",
+   "government_funding": 0.0,
+   "n_policies_counted": 0,
+   "n_policies_total": 2
+  },
+  {
+   "country": "Sweden",
+   "region": "EU",
+   "government_funding": 0.0,
+   "n_policies_counted": 0,
+   "n_policies_total": 1
+  },
+  {
+   "country": "Ireland",
+   "region": "EU",
+   "government_funding": 0.0,
+   "n_policies_counted": 0,
+   "n_policies_total": 1
+  },
+  {
+   "country": "Poland",
+   "region": "EU",
+   "government_funding": 0.0,
+   "n_policies_counted": 0,
+   "n_policies_total": 1
+  },
+  {
+   "country": "Czech Republic",
+   "region": "EU",
+   "government_funding": 0.0,
+   "n_policies_counted": 0,
+   "n_policies_total": 1
+  },
+  {
+   "country": "Japan",
+   "region": "RoW",
+   "government_funding": 0.0,
+   "n_policies_counted": 0,
+   "n_policies_total": 4
+  },
+  {
+   "country": "South Korea",
+   "region": "RoW",
+   "government_funding": 0.0,
+   "n_policies_counted": 0,
+   "n_policies_total": 3
+  },
+  {
+   "country": "Philippines",
+   "region": "RoW",
+   "government_funding": 0.0,
+   "n_policies_counted": 0,
+   "n_policies_total": 1
+  }
+ ]
+}

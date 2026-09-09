@@ -10,22 +10,19 @@
    placeholder score than an arbitrarily-weighted composite would be. The overall
    rank is simply the average of the three pillar ranks (no weighting). */
 QT.boot(async function () {
-  QT.injectCSS();
   QT.nav("#nav", "clusters");
 
-  // Vendored PNG flags (assets/vendor/flags/<code>.png) — used instead of flag
-  // emoji because Windows browser/font combinations often render flag emoji as
-  // plain two-letter codes rather than a pictorial flag.
-  function flagIcon(code, country) {
-    return `<img class="flag" src="assets/vendor/flags/${code.toLowerCase()}.png" width="16" height="12" alt="${country}" title="${country}">`;
-  }
-
-  const [rankings, shareTime, pipeline, worldTopo] = await Promise.all([
+  const [rankings, shareTime, pipeline, codes, worldTopo] = await Promise.all([
     QT.loadData("mock_cluster_rankings"),
     QT.loadData("mock_cluster_share_time"),
     QT.loadData("quasi_cluster_pipeline"),
+    QT.loadData("country_codes"),
     fetch("assets/vendor/world-atlas-110m.json").then(r => r.json()),
+    QT.loadFlags(),
   ]);
+  // Flags now come from the shared QT.flag() (chart-template.js) rather than a private
+  // copy in this file — three more panels needed them after Elena's 2026-09-08 list.
+  const flagIcon = (code, country) => QT.flag(country, { code });
   const land = topojson.feature(worldTopo, worldTopo.objects.countries).features.filter(f => f.properties.name !== "Antarctica");
   QT.vintage("#vintage", { data_vintage: rankings.meta.data_vintage });
   document.getElementById("badge-clusters").innerHTML = QT.mockBadge();
@@ -33,6 +30,14 @@ QT.boot(async function () {
   document.getElementById("badge-graduates").innerHTML = QT.mockBadge();
   document.getElementById("badge-pipeline").innerHTML = QT.citeBadge();
   document.getElementById("mocknote-clusters").innerHTML = rankings.meta.source_note;
+  // The 2025 column and the movement arrows are built but have nothing to compare
+  // against yet, and a reader needs to be told that rather than left to infer it from
+  // a column of dashes. See BACKLOG.md AP-37.
+  QT.mockNote("#mocknote-ranking",
+    "<b>2025 ranks and movement arrows are not yet populated.</b> The 2026 ranking is still "
+    + "being computed and the 2025 ranking is not yet held in the tracker, so the comparison "
+    + "column shows no value and no cluster carries an arrow. The three dimension scores "
+    + "behind the pillar ranks are illustrative placeholders and should not be cited.");
   QT.citeNote("#citenote-pipeline", pipeline.meta.source_note);
 
   const tt = QT.tooltip();
@@ -42,10 +47,55 @@ QT.boot(async function () {
     { key: "ecosystem_maturity", rankKey: "maturity_rank", label: "Ecosystem maturity" },
   ];
   const N = rankings.data.length;
-  const REGIONS = ["All", ...Array.from(new Set(rankings.data.map(d => d.region)))];
+
+  /* GEOGRAPHICAL AREAS (the map's zoom buttons) are NOT the tracker's regions.
+     Elena drew this distinction deliberately — "I called them geographical areas and
+     not regions on purpose in the map subtitle" — so the two live apart here:
+
+       • These five drive the map only, and are defined by LON/LAT BOUNDS rather than by
+         the dataset's `region` field. Bounds are what let her requirements hold: Europe
+         is drawn wide enough to include Israel, and Oceania wide enough to include
+         Singapore, so every cluster is reachable from some button. Classifying by the
+         data's own region strings could not express that — Israel and Singapore both
+         sit in a catch-all "Other" there.
+       • The RANKING TABLE uses the usual US / China / EU / UK+AUS+CAN / RoW, looked up
+         per country from country_codes.json. See `usualRegion` below. */
+  const AREAS = [
+    { key: "World",         bounds: null },
+    { key: "Europe",        bounds: [[-11, 28], [42, 71]] },   // west of Ireland to Israel
+    { key: "North America", bounds: [[-140, 14], [-52, 60]] },
+    { key: "East Asia",     bounds: [[100, 20], [146, 46]] },
+    { key: "Oceania",       bounds: [[100, -47], [180, 2]] },  // includes Singapore
+  ];
+  const REGIONS = AREAS.map(a => a.key);
+  const inArea = (d, key) => {
+    const area = AREAS.find(a => a.key === key);
+    if (!area || !area.bounds) return true;
+    const [[w, s2], [e, n]] = area.bounds;
+    return d.lon >= w && d.lon <= e && d.lat >= s2 && d.lat <= n;
+  };
+
+  /* Country names normalised to the tracker's canonical short labels. The cluster
+     dataset spells them out ("United States"), while every other dataset, the region
+     lookup and the flag table use "US" / "UK". Elena's list asks for the short forms on
+     display ("let's use US and EU, not United States and European Union"), and without
+     normalising, the Region lookup silently missed the three biggest countries and fell
+     through to "RoW". */
+  const CANON = {
+    "United States": "US", "United States of America": "US",
+    "United Kingdom": "UK", "European Union": "EU",
+    "Republic of Korea": "South Korea", "Korea": "South Korea",
+  };
+  const REGION_OF = codes.regions || {};
+  rankings.data.forEach(d => {
+    d.country = CANON[d.country] || d.country;
+    d.usual_region = REGION_OF[d.country] || "RoW";
+  });
+
   const TH_LABELS = {
-    overall_rank: "#", cluster: "Cluster", region: "Region", companies: "Companies", total_funding: "Funding",
-    market_rank: "Market", collab_rank: "Collab.", maturity_rank: "Maturity",
+    overall_rank: "2026 Rank", rank_2025: "2025 Rank", cluster: "Cluster", country: "Country",
+    usual_region: "Region", market_rank: "Market Orientation",
+    collab_rank: "Collaboration Intensity", maturity_rank: "Ecosystem Maturity",
   };
 
   // ---------- rank each cluster on every pillar, once, from the full 15-cluster
@@ -67,13 +117,13 @@ QT.boot(async function () {
   })(rankings.data);
 
   let state = {
-    region: "All",
+    region: "World",
     sortKey: "overall_rank", sortDir: "asc",
     selected: rankings.data[0].cluster,
   };
 
   function rows() {
-    const filtered = rankings.data.filter(d => state.region === "All" || d.region === state.region);
+    const filtered = rankings.data.filter(d => inArea(d, state.region));
     // Ties always fall back to cluster name, so clicking a column with many equal
     // values (e.g. a pillar rank) gives a stable, alphabetical order either way.
     return [...filtered].sort(QT.rank(state.sortKey, "cluster", state.sortDir));
@@ -91,7 +141,7 @@ QT.boot(async function () {
   // — padded — into the plot, so picking a chip zooms straight to that region
   // instead of leaving a few dots stranded on a world map.
   function regionTransform(pts, iw, ih) {
-    if (state.region === "All" || pts.length === 0) return d3.zoomIdentity;
+    if (state.region === "World" || pts.length === 0) return d3.zoomIdentity;
     let x0 = d3.min(pts, p => p[0]), x1 = d3.max(pts, p => p[0]);
     let y0 = d3.min(pts, p => p[1]), y1 = d3.max(pts, p => p[1]);
     const padX = (x1 - x0) * 0.4 + 48, padY = (y1 - y0) * 0.4 + 48;
@@ -102,7 +152,13 @@ QT.boot(async function () {
 
   function renderMap() {
     const rs = rows();
-    const W = 880, H = 380;
+    // Matched to the Overview world map (world_map.js), which renders the same
+    // geoNaturalEarth1 projection at this size. Elena read the Overview map as
+    // "more zoomed in at the world level" and preferred it — same projection,
+    // it was simply 1180x560 against this panel's old 880x380. The extra room
+    // also buys roughly 1.8x the plot area for the bubbles, which is most of
+    // what keeps them near their true positions at world zoom (see relax()).
+    const W = 1180, H = 560;
     d3.select("#chart-map").selectAll("*").remove();
     const c = QT.chart("#chart-map", { W, H, margin: { t: 6, r: 6, b: 6, l: 6 } });
     c.svg.style("overflow", "hidden");
@@ -121,36 +177,73 @@ QT.boot(async function () {
     gZoom.append("path").datum(graticule()).attr("d", path).attr("fill", "none").attr("stroke", QT.tokens.line).attr("stroke-width", 0.6);
 
     const rFund = d3.scaleSqrt().domain([0, d3.max(rankings.data, d => d.total_funding)]).range([4, 26]);
-    // Reversed domain: rank 1 (best) gets the darkest end of the sequential ramp.
-    const colorScale = d3.scaleSequential(d3.interpolateRgbBasis(QT.palette.sequential)).domain([N, 1]);
+    // Dark blue (best) -> orange (worst), matching the Clusters paper's own figures so
+    // a reader moving between the paper and the tracker sees one encoding. Reversed
+    // domain because rank 1 is the BEST and takes the dark-blue end.
+    const colorScale = d3.scaleSequential(d3.interpolateRgbBasis(QT.palette.clusterRank)).domain([N, 1]);
 
     // Several real clusters (e.g. Washington/New York/Boston/Toronto, or
     // Shenzhen/Hefei/Beijing) sit close enough together that at world-map
-    // scale their bubbles would fully overlap and look like a single blob.
-    // A one-shot force layout nudges overlapping bubbles apart while a weak
-    // pull keeps each one anchored near its true geographic position.
+    // scale their bubbles would fully overlap and look like a single blob, so
+    // a force layout nudges them apart while a pull keeps each one anchored
+    // near its true geographic position.
+    //
+    // THE RELAXATION RUNS IN SCREEN SPACE, AT THE LIVE ZOOM LEVEL, and this is
+    // the whole point. Bubble radii are counter-scaled by 1/k below so they
+    // keep a constant on-screen size as you zoom; separating them once in data
+    // space at k=1 therefore baked the world-view displacement — the largest
+    // it ever needs to be — into every zoom level, and it never relaxed. The
+    // visible symptom was clusters sitting in open ocean (Boston pushed east
+    // into the Atlantic, Paris west into it) and *staying* there however far
+    // you zoomed into a region with room to spare. Separating in screen space
+    // and dividing the resulting offset by k means the displacement shrinks as
+    // you zoom in, so each bubble converges on its real coordinates.
     const nodes = rs.map(d => {
       const [px, py] = projection([d.lon, d.lat]);
       return { ...d, x: px, y: py, x0: px, y0: py };
     });
+    // Warm-started across zoom events: each relaxation begins from the previous
+    // solution, so ~60 ticks converge and the bubbles slide rather than jump.
     const sim = d3.forceSimulation(nodes)
-      .force("x", d3.forceX(d => d.x0).strength(0.25))
-      .force("y", d3.forceY(d => d.y0).strength(0.25))
+      .force("x", d3.forceX(d => d.sx0).strength(0.7))
+      .force("y", d3.forceY(d => d.sy0).strength(0.7))
       .force("collide", d3.forceCollide(d => rFund(d.total_funding) + 1.5))
       .stop();
-    for (let i = 0; i < 300; i++) sim.tick();
+
+    // Relax at transform `t`, then convert the screen-space offset back into
+    // data space so the SVG zoom transform on gZoom renders it correctly.
+    function relax(t, ticks) {
+      nodes.forEach(d => {
+        d.sx0 = t.applyX(d.x0);
+        d.sy0 = t.applyY(d.y0);
+        if (d.sx === undefined) { d.sx = d.sx0; d.sy = d.sy0; }
+        d.x = d.sx; d.y = d.sy;
+      });
+      sim.nodes(nodes).alpha(0.9);
+      for (let i = 0; i < ticks; i++) sim.tick();
+      nodes.forEach(d => {
+        d.sx = d.x; d.sy = d.y;
+        d.px = d.x0 + (d.x - d.sx0) / t.k;
+        d.py = d.y0 + (d.y - d.sy0) / t.k;
+      });
+    }
+
+    // Cold start at the world view: no previous solution to warm from, so give
+    // it enough ticks to settle properly. Applying the region transform below
+    // re-relaxes through the zoom handler.
+    relax(d3.zoomIdentity, 300);
 
     gZoom.selectAll("circle").data(nodes, d => d.cluster).join("circle")
-      .attr("cx", d => d.x).attr("cy", d => d.y)
+      .attr("cx", d => d.px).attr("cy", d => d.py)
       .attr("r", d => rFund(d.total_funding))
       .attr("fill", d => colorScale(d.overall_rank)).attr("fill-opacity", 0.85)
       .attr("stroke", d => d.cluster === state.selected ? QT.tokens.ink : "#fff")
       .attr("stroke-width", d => d.cluster === state.selected ? 2.5 : 1)
       .on("mousemove", (e, d) => tt.show(
-        `<div class="hd">${d.cluster}</div>` +
-        `<div class="row"><span class="k">Funding</span><span class="v">${QT.fmt.money(d.total_funding)}</span></div>` +
-        `<div class="row"><span class="k">Companies</span><span class="v">${d.companies}</span></div>` +
-        `<div class="row"><span class="k">Overall rank</span><span class="v">#${d.overall_rank} of ${N}</span></div>`, e))
+        `<div class="hd">${flagIcon(d.country_code, d.country)}${d.cluster}</div>` +
+        `<div class="row"><span class="k">Total funding</span><span class="v">${QT.fmt.money(d.total_funding)}</span></div>` +
+        `<div class="row"><span class="k">Quantum companies</span><span class="v">${QT.fmt.int(d.companies)}</span></div>` +
+        `<div class="row"><span class="k">Overall rank</span><span class="v">${d.overall_rank} of ${N}</span></div>`, e))
       .on("mouseleave", tt.hide)
       .on("click", (e, d) => { state.selected = d.cluster; renderAll(); });
 
@@ -159,7 +252,12 @@ QT.boot(async function () {
     // you zoom into a dense region.
     const zoom = d3.zoom().scaleExtent([1, 8]).on("zoom", ev => {
       gZoom.attr("transform", ev.transform);
+      // Re-separate at the new scale before repainting, so the offset that
+      // keeps bubbles from overlapping is the one this zoom level needs and no
+      // more. 44 nodes × 60 warm-started ticks is well under a frame.
+      relax(ev.transform, 60);
       gZoom.selectAll("circle")
+        .attr("cx", d => d.px).attr("cy", d => d.py)
         .attr("r", d => rFund(d.total_funding) / ev.transform.k)
         .attr("stroke-width", d => (d.cluster === state.selected ? 2.5 : 1) / ev.transform.k);
       gZoom.selectAll("path.land").attr("stroke-width", 0.5 / ev.transform.k);
@@ -177,6 +275,23 @@ QT.boot(async function () {
     d3.select("#map-zreset").on("click", () => c.svg.call(zoom.transform, target));
   }
 
+  /* Movement against the 2025 ranking: up, down, or an en dash for no change.
+     `rank_2025` DOES NOT EXIST IN THE DATA YET (BACKLOG.md AP-37) — Elena is still
+     computing the 2026 ranking and the 2025 table was never stored. Per her
+     instruction to build the interface now and feed the real data later, the column,
+     the arrows and the NEW badge are all wired up and render "—" until the field
+     appears. Deliberately NOT faked: an invented 2025 rank would produce arrows that
+     look authoritative and mean nothing. */
+  function movement(d) {
+    if (d.graduated) return ' <span class="grad-pill">NEW</span>';
+    if (d.rank_2025 == null) return "";
+    const delta = d.rank_2025 - d.overall_rank;   // positive = moved up the ranking
+    if (delta === 0) return ' <span class="mv mv-flat" title="No change since 2025">&ndash;</span>';
+    return delta > 0
+      ? ` <span class="mv mv-up" title="Up ${delta} since 2025">&#9650;${delta}</span>`
+      : ` <span class="mv mv-down" title="Down ${-delta} since 2025">&#9660;${-delta}</span>`;
+  }
+
   // ---------- table ----------
   function renderTable() {
     const rs = rows();
@@ -187,12 +302,15 @@ QT.boot(async function () {
       .on("click", (e, d) => { state.selected = d.cluster; renderAll(); });
 
     tr.selectAll("td").data(d => [
-      d.overall_rank,
-      `${flagIcon(d.country_code, d.country)} ${d.cluster}${d.graduated ? ' <span class="grad-pill">&#8593; Graduated</span>' : ''}`,
-      d.region, QT.fmt.int(d.companies), QT.fmt.money(d.total_funding),
+      // 2026 rank, carrying the movement arrow against 2025.
+      `${d.overall_rank}${movement(d)}`,
+      d.rank_2025 == null ? '<span class="dim">—</span>' : d.rank_2025,
+      `${d.cluster}${d.graduated ? ' <span class="grad-pill">NEW</span>' : ''}`,
+      `${flagIcon(d.country_code, d.country)} ${d.country || ""}`,
+      d.usual_region,
       d.market_rank, d.collab_rank, d.maturity_rank,
     ]).join("td")
-      .attr("class", (d, i) => [0, 3, 4, 5, 6, 7].includes(i) ? "num" : null)
+      .attr("class", (d, i) => [0, 1, 5, 6, 7].includes(i) ? "num" : null)
       .html(d => d);
 
     d3.select("#rtable thead").selectAll("th").each(function () {
@@ -203,29 +321,10 @@ QT.boot(async function () {
     });
   }
 
-  // ---------- cluster detail bars ----------
-  function renderDetail() {
-    const d = rankings.data.find(x => x.cluster === state.selected);
-    d3.select("#ttl-clusterdetail").html(`Cluster detail — ${d.cluster} ${QT.mockBadge()}`);
-    const rs = DIMS.map(dim => ({ ...dim, v: d[dim.key], rank: d[dim.rankKey] }));
-
-    const W = 880, H = 150;
-    d3.select("#chart-dimbars").selectAll("*").remove();
-    const c = QT.chart("#chart-dimbars", { W, H, margin: { t: 4, r: 40, b: 20, l: 170 } });
-    const x = d3.scaleLinear().domain([0, 100]).range([0, c.iw]);
-    const y = d3.scaleBand().domain(rs.map(r => r.label)).range([0, c.ih]).padding(0.3);
-
-    c.gPlot.selectAll("rect").data(rs, r => r.key).join("rect")
-      .attr("x", 0).attr("y", r => y(r.label)).attr("height", y.bandwidth()).attr("rx", 2)
-      .attr("fill", r => QT.palette.dimension[r.key]).attr("width", r => x(r.v))
-      .on("mousemove", (e, r) => tt.show(`<div class="hd">${r.label}</div><div class="row"><span class="v">${r.v} / 100 · rank ${r.rank} of ${N}</span></div>`, e))
-      .on("mouseleave", tt.hide);
-    c.gPlot.selectAll("text.bar-val").data(rs, r => r.key).join("text")
-      .attr("class", "bar-val").attr("dy", "0.32em")
-      .attr("y", r => y(r.label) + y.bandwidth() / 2).attr("x", r => x(r.v) + 6).text(r => r.v);
-    c.gx.call(d3.axisBottom(x).ticks(4).tickSizeOuter(0));
-    c.gy.call(d3.axisLeft(y).tickSizeOuter(0)).call(g => g.select(".domain").remove());
-  }
+  /* The "Cluster detail" dimension-bar panel was REMOVED 2026-09-08. It restated, for
+     one cluster at a time, the three pillar values the ranking table already shows for
+     every cluster at once, so it added a click and no information. Elena: "I think we
+     mentioned it wasn't very informative and we were thinking of removing it." */
 
   // ---------- share over time ----------
   const SHARE_YEARS = shareTime.data.map(r => r.year);
@@ -310,7 +409,10 @@ QT.boot(async function () {
   // "who just made it in" story stays front-and-centre. Cards are clickable and
   // select the cluster in the table/map/detail below.
   function renderGraduates() {
-    const grads = rankings.data.filter(d => d.graduated);
+    // Ordered by 2026 rank rather than left in dataset order, so the strip has a
+    // defensible reading direction (Elena: "let's put the boxes in order of something").
+    const grads = rankings.data.filter(d => d.graduated)
+      .sort(QT.rank("overall_rank", "cluster", "asc"));
     const body = d3.select("#graduates-body");
     body.selectAll("*").remove();
     if (!grads.length) {
@@ -323,13 +425,15 @@ QT.boot(async function () {
       .on("click", (e, d) => { state.selected = d.cluster; renderAll(); });
     card.append("span").attr("class", "grad-pill").html("&#8593; Graduated");
     card.append("div").attr("class", "grad-name").html(d => `${flagIcon(d.country_code, d.country)} ${d.cluster}`);
+    // The usual region (EU / US / ...), not the map's geographical area.
     card.append("div").attr("class", "grad-meta")
-      .text(d => `${d.region} · ${QT.fmt.money(d.total_funding)}` + (d.from_tier ? ` · from ${d.from_tier}` : ""));
+      .text(d => `${d.usual_region} · ${QT.fmt.money(d.total_funding)}`
+                 + (d.from_tier ? ` · from ${d.from_tier}` : ""));
   }
 
   function renderAll() {
     d3.select("#region-chips").selectAll(".chip").classed("on", d => d === state.region);
-    renderMap(); renderTable(); renderDetail(); renderShareTime();
+    renderMap(); renderTable(); renderShareTime();
   }
 
   d3.select("#rtable thead").selectAll("th").on("click", function () {

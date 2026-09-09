@@ -4,19 +4,30 @@
    (docs/data/mock_country_profile.json — see meta.source_note).
    The world map (country choropleth + cluster bubbles) leads the Overview tab. */
 QT.boot(async function () {
-  QT.injectCSS();
   QT.nav("#nav", "countries");
 
-  const [country, profile, policies] = await Promise.all([
+  const [country, profile, policies, gov, collabCountry] = await Promise.all([
     QT.loadData("funding_by_country"),
     QT.loadData("mock_country_profile"),
     QT.loadData("mock_country_policies"),
+    QT.loadData("government_funding"),
+    QT.loadData("collab_by_country"),
+    QT.loadFlags(),
   ]);
+  // Real per-country collaboration figures, so tiles 5 and 6 mirror the Overview's
+  // definitions with actual data instead of the mock profile's `institutions` count:
+  // `entities` is every institution in the collaboration graph for that country and
+  // `collaborations` its academic + industry partnerships, exactly as the Overview
+  // totals are built. mock_country_profile.json has no collaborations field at all.
+  const collabByCountry = new Map(collabCountry.data.map(d => [d.country, d]));
+  const govByCountry = new Map(gov.data.map(d => [d.country, d]));
+  const govProvisional = !!gov.meta.provisional;
   QT.vintage("#vintage", country.meta);
   document.getElementById("mocknote-country").innerHTML = profile.meta.source_note;
   document.getElementById("mocknote-policy").innerHTML = policies.meta.source_note;
-  ["badge-domain", "badge-archetype2", "badge-rca", "badge-network"].forEach(id => {
-    document.getElementById(id).innerHTML = QT.mockBadge();
+  ["badge-archetype2", "badge-rca", "badge-network"].forEach(id => {
+    const el = document.getElementById(id);
+    if (el) el.innerHTML = QT.mockBadge();
   });
   const policyByCountry = new Map(Object.entries(policies.data));
   const POLICY_COLORS = {
@@ -34,29 +45,55 @@ QT.boot(async function () {
   const profileByName = new Map(profile.data.map(d => [d.country, d]));
   const ranked = [...country.data].filter(d => d.total_funding != null).sort(QT.rank("total_funding", "country"));
 
-  // The ranked bars show PRIVATE capital (VC / private equity + debt), not total:
-  // the panel is about where commercial money goes, and total funding is dominated
-  // by government programmes in several countries, which flattens that signal.
-  // Both metrics are the private figure, so the toggle changes only the
-  // denominator — absolute dollars versus dollars per unit of GDP.
-  // `title` is carried separately rather than lower-casing `label` in the heading:
-  // that turned "Private funding ÷ GDP" into "... ÷ gdp".
-  const METRICS = {
-    private_funding:        { label: "Private funding", title: "private funding",
-                              fmt: QT.fmt.axisMoney, ttfmt: QT.fmt.money },
-    private_funding_to_gdp: { label: "Private funding ÷ GDP", title: "private funding ÷ GDP",
-                              fmt: QT.fmt.pct1, ttfmt: QT.fmt.pct1 },
+  /* COMPANY or GOVERNMENT, each as an amount or as a share of GDP.
+     The panel used to show PRIVATE capital (total minus grants and public equity),
+     and Elena's 2026-09-08 correction retires that notion outright: "we decided not to
+     use private funding as a notion". Two independent toggles replace it — the source
+     (company or government, matching the Overview map and ranking) and the measure
+     (dollars, or dollars as a share of GDP, which is what lets a small ecosystem be
+     compared with a large one at all). */
+  const SOURCES = {
+    company_funding:    { label: "Company funding",    title: "company funding" },
+    government_funding: { label: "Government funding", title: "government funding" },
+  };
+  const MEASURES = {
+    abs: { suffix: "",                fmt: QT.fmt.axisMoney, ttfmt: QT.fmt.money },
+    gdp: { suffix: " ÷ GDP",       fmt: QT.fmt.pct1,      ttfmt: QT.fmt.pct1 },
   };
 
-  const sel = d3.select("#country-select");
-  sel.selectAll("option").data(ranked).join("option")
-    .attr("value", d => d.country).text((d, i) => `${d.country}`);
+  /* One row per country carrying both sources and both measures. GDP comes from the
+     funding dataset, so a country without a GDP figure yields null for the share
+     view rather than Infinity — which would have sorted it to the top of the ranking. */
+  const CHART_DATA = country.data.map(d => {
+    const g = (govByCountry.get(d.country) || {}).government_funding || 0;
+    return {
+      country: d.country,
+      companies: d.companies,
+      clusters: d.clusters,
+      gdp: d.gdp,
+      company_funding: d.total_funding,
+      government_funding: g,
+      company_funding_gdp: d.gdp ? d.total_funding / d.gdp : null,
+      government_funding_gdp: d.gdp ? g / d.gdp : null,
+    };
+  });
+  // Metric key actually plotted, from the two toggles.
+  const metricKey = () => state.source + (state.measure === "gdp" ? "_gdp" : "");
 
-  let state = { country: byName.has("France") ? "France" : ranked[0].country, metric: "private_funding" };
+  /* ALPHABETICAL, forced. The dropdown was previously bound to `ranked`, i.e. ordered
+     by total funding, so a reader hunting for a country had to already know roughly
+     what it had raised. QT.alpha is locale-aware and case-insensitive. */
+  const sel = d3.select("#country-select");
+  const alphabetical = [...country.data].sort((a, b) => QT.alpha(a.country, b.country));
+  sel.selectAll("option").data(alphabetical, d => d.country).join("option")
+    .attr("value", d => d.country).text(d => d.country);
+
+  let state = {
+    country: byName.has("France") ? "France" : ranked[0].country,
+    source: "company_funding",
+    measure: "abs",
+  };
   sel.property("value", state.country);
-  // Filled from the data rather than hardcoded — the copy previously said "38
-  // tracked countries" while the dataset had grown to 43.
-  d3.select("#ranked-n").text(country.data.length);
 
   /* The illustrative profile covers 38 of the 43 countries in the dropdown
      (Cyprus, Malta, Pakistan, Saudi Arabia, Slovenia and Tunisia have none), so
@@ -76,34 +113,68 @@ QT.boot(async function () {
   const noProfileNote = () =>
     `No illustrative profile for ${state.country} yet — covers ${profile.data.length} of ${country.data.length} tracked countries.`;
 
+  /* THE SAME SIX TILES AS THE OVERVIEW, in the same order, so moving between the two
+     tabs compares like with like (Elena: "we could have the boxes here mimic the same
+     six we have in the overview for consistency and clarity").
+
+     Two consequences worth stating:
+       • Tile WIDTH IS FIXED (`.kpis-fixed`), so it does not change as you pick
+         different countries. It used to be an auto-fit grid, so switching from "US" to
+         "Netherlands" visibly resized every tile — Elena: "the size of the boxes
+         should always stay the same regardless of the country selected".
+       • The collaboration archetype has LEFT the strip for its own line below it. It
+         is a category, not a measure, and as a tile its longest value
+         ("Domestic Commercialiser") set the width of all six.  */
   function kpis() {
     const c = byName.get(state.country);
     const p = profileByName.get(state.country);
+    const g = govByCountry.get(state.country);
+    const cb = collabByCountry.get(state.country);
     const rank = ranked.findIndex(d => d.country === state.country) + 1;
-    const mock = (v, fmt) => (p ? fmt(v) : "—");
     QT.kpis("#kpis", [
-      { v: QT.fmt.axisMoney(c.total_funding), k: `Total funding · rank ${rank} of ${ranked.length}` },
-      { v: QT.fmt.int(c.companies), k: "Companies" },
+      { v: QT.fmt.axisMoney(c.total_funding),
+        k: `Company funding · rank ${rank} of ${ranked.length}` },
+      { v: QT.fmt.int(c.companies), k: "Quantum companies" },
+      { v: g && g.government_funding ? QT.fmt.axisMoney(g.government_funding) : "—",
+        k: "Government funding" + (govProvisional ? " " + QT.mockBadge("Provisional") : "") },
       // Distinct named clusters this country's companies sit in. Real, but the
       // cluster field is still being filled in, so this rises as curation
       // continues — it is a count of hubs recorded, not of hubs that exist.
       { v: QT.fmt.int(c.clusters), k: "Quantum clusters" },
-      { v: mock(p && p.institutions, QT.fmt.int), k: `Institutions ${QT.mockBadge("Mock")}` },
-      { v: p ? `<span style="font-size:14px;color:${QT.tokens.purple}">${p.archetype}</span>` : "—",
-        k: `Collaboration archetype ${QT.mockBadge("Mock")}` },
+      { v: cb ? QT.fmt.int(cb.entities) : "—", k: "Institutions active in quantum" },
+      { v: cb ? QT.fmt.int(cb.collaborations) : "—", k: "Quantum collaborations" },
     ]);
+
+    d3.select("#archetype-line").html(p
+      ? `Collaboration archetype: <b style="color:${QT.palette.archetype[p.archetype] || QT.tokens.purple}">`
+        + `${p.archetype}</b> ${QT.mockBadge("Mock")}`
+      : "");
   }
 
   // ---------- Panel 1: ranked bars, selected country highlighted (REAL) ----------
   function rankedBars() {
-    const M = METRICS[state.metric];
-    d3.select("#ttl-ranked").text(`Country ranking: ${M.title} — ${state.country} highlighted`);
+    const key = metricKey();
+    const S = SOURCES[state.source], MEAS = MEASURES[state.measure];
+    const M = { label: S.label + MEAS.suffix, fmt: MEAS.fmt, ttfmt: MEAS.ttfmt };
+    d3.select("#ttl-ranked").text(
+      `Figure 1: Countries ranked by ${S.title}${MEAS.suffix} — ${state.country} highlighted`);
+    d3.select("#why-ranked").html(
+      `Where ${state.country} sits among all tracked countries, by `
+      + `${S.title}${MEAS.suffix}. The leaders are shown for scale, then the selected `
+      + `country among its own neighbours in the ranking. Use <b>Source</b> to switch `
+      + `between company and government funding, and <b>Measure</b> to switch between `
+      + `absolute amounts and share of GDP.`);
+    d3.select("#mocknote-ranked").html(
+      state.source === "government_funding" && govProvisional
+        ? "<b>Government figures are provisional</b> — see the Overview for the full caveat."
+        : "").style("display",
+      state.source === "government_funding" && govProvisional ? null : "none");
     // Rank by the metric ON SCREEN. This used to slice the top 20 from `ranked`,
     // which is ordered by TOTAL funding, so the ÷ GDP view drew its bars in
     // total-funding order — descending by label, jumbled by length.
-    const byMetric = [...country.data]
-      .filter(d => d[state.metric] != null)
-      .sort(QT.rank(state.metric, "country"));
+    const byMetric = [...CHART_DATA]
+      .filter(d => d[key] != null && d[key] > 0)
+      .sort(QT.rank(key, "country"));
 
     /* Leaders + a window around the selection, with an explicit break between.
        A flat top-20 could not answer "where does my country sit?" for the ~half
@@ -147,7 +218,7 @@ QT.boot(async function () {
     d3.select("#chart-ranked").selectAll("*").remove();
     const c = QT.chart("#chart-ranked", { W, H, margin: { t: 8, r: 70, b: 30, l: 110 } });
     const bars = rows.filter(d => !d.isBreak);
-    const x = d3.scaleLinear().domain([0, d3.max(bars, d => d[state.metric]) * 1.02]).range([0, c.iw]);
+    const x = d3.scaleLinear().domain([0, d3.max(bars, d => d[key]) * 1.02 || 1]).range([0, c.iw]);
     const y = d3.scaleBand().domain(rows.map(d => d.country)).range([0, c.ih]).padding(0.18);
 
     c.gGrid.selectAll("line").data(x.ticks(5)).join("line").attr("class", "gridline")
@@ -169,16 +240,16 @@ QT.boot(async function () {
     c.gPlot.selectAll("rect").data(bars, d => d.country).join("rect")
       .attr("x", 0).attr("y", d => y(d.country)).attr("height", y.bandwidth()).attr("rx", 2)
       .attr("fill", d => d.country === state.country ? QT.tokens.accent : QT.tokens.line)
-      .attr("width", d => x(d[state.metric]))
+      .attr("width", d => x(d[key]))
       .on("mousemove", (e, d) => tt.show(
-        `<div class="hd">${d.country}</div>` +
+        `<div class="hd">${QT.flag(d.country)}${d.country}</div>` +
         `<div class="row"><span class="k">Rank</span><span class="v">${rankOf(d)} of ${byMetric.length}</span></div>` +
-        `<div class="row"><span class="k">${M.label}</span><span class="v">${M.ttfmt(d[state.metric])}</span></div>`, e))
+        `<div class="row"><span class="k">${M.label}</span><span class="v">${M.ttfmt(d[key])}</span></div>`, e))
       .on("mouseleave", tt.hide);
     c.gPlot.selectAll("text.bar-val").data(bars, d => d.country).join("text")
       .attr("class", "bar-val").attr("dy", "0.32em")
-      .attr("y", d => y(d.country) + y.bandwidth() / 2).attr("x", d => x(d[state.metric]) + 6)
-      .text(d => M.ttfmt(d[state.metric]));
+      .attr("y", d => y(d.country) + y.bandwidth() / 2).attr("x", d => x(d[key]) + 6)
+      .text(d => M.ttfmt(d[key]));
     c.gx.call(d3.axisBottom(x).ticks(5).tickFormat(M.fmt).tickSizeOuter(0));
     // Rank prefixes the label: with a break in the axis, position alone no longer
     // tells you where a row sits in the full list.
@@ -190,38 +261,16 @@ QT.boot(async function () {
       .text(d => d === BREAK ? "⋯" : `${rankByName.get(d)}. ${d}`);
   }
 
-  // ---------- Panel 2: institution domain split (MOCK, 100% stacked bar) ----------
-  function domainSplit() {
-    const p = profileByName.get(state.country);
-    if (!p) return emptyPanel("#chart-domain", noProfileNote());
-    const avgIndustry = d3.mean(profile.data, d => d.domain_split.industry);
-    const segs = ["research", "government", "industry"].map(k => ({ key: k, v: p.domain_split[k], label: k[0].toUpperCase() + k.slice(1), color: QT.palette.domain[k] }));
-
-    const W = 420, H = 90;
-    d3.select("#chart-domain").selectAll("*").remove();
-    const c = QT.chart("#chart-domain", { W, H, margin: { t: 6, r: 6, b: 6, l: 6 } });
-    const x = d3.scaleLinear().domain([0, 1]).range([0, c.iw]);
-    let x0 = 0;
-    const withX0 = segs.map(s => { const o = { ...s, x0 }; x0 += s.v; return o; });
-
-    c.g.selectAll("rect").data(withX0, d => d.key).join("rect")
-      .attr("x", d => x(d.x0)).attr("y", 20).attr("height", 30).attr("rx", 3)
-      .attr("width", d => x(d.v)).attr("fill", d => d.color)
-      .on("mousemove", (e, d) => tt.show(`<div class="hd">${d.label}</div><div class="row"><span class="v">${QT.fmt.pct1(d.v)}</span></div>`, e))
-      .on("mouseleave", tt.hide);
-
-    c.g.append("line").attr("x1", x(avgIndustry)).attr("x2", x(avgIndustry)).attr("y1", 14).attr("y2", 56)
-      .attr("stroke", QT.tokens.ink).attr("stroke-dasharray", "2 2");
-    c.g.append("text").attr("x", x(avgIndustry)).attr("y", 66).attr("text-anchor", "middle").attr("font-size", 9.5)
-      .attr("fill", QT.tokens.muted).text("cross-country avg. industry share");
-
-    QT.legend("#legend-domain", segs.map(s => ({ key: s.key, label: s.label, color: s.color })));
-  }
+  /* The institution research/government/industry split panel was REMOVED 2026-09-08.
+     It was mock, it was not informative ("i think we didn't really like" it), and
+     dropping it frees the row so the archetype scatter can take the full panel width
+     it needs to be legible at all — Elena: "perhaps we can remove the institution
+     split chart and make the archetype chart bigger?" */
 
   // ---------- Panel 3: archetype 2×2, selected country highlighted (MOCK) ----------
   function archetypePanel() {
     const THRESH = 55;
-    const W = 420, H = 320;
+    const W = 880, H = 380;
     d3.select("#chart-archetype2").selectAll("*").remove();
     const c = QT.chart("#chart-archetype2", { W, H, margin: { t: 10, r: 14, b: 30, l: 40 } });
     const x = d3.scaleLinear().domain([0, 100]).range([0, c.iw]);
@@ -248,7 +297,7 @@ QT.boot(async function () {
   // ---------- Panel 4: RCA horizontal bars (MOCK) ----------
   function rcaPanel() {
     const p = profileByName.get(state.country);
-    d3.select("#ttl-rca").html(`National specialisation (RCA) — ${state.country} <span id="badge-rca">${QT.mockBadge()}</span>`);
+    d3.select("#ttl-rca").html(`Figure 5: National specialisation — ${state.country} <span id="badge-rca">${QT.mockBadge()}</span>`);
     if (!p) return emptyPanel("#chart-rca", noProfileNote());
     const rows = [...p.rca].sort(QT.rank("rca", "domain"));
 
@@ -275,7 +324,7 @@ QT.boot(async function () {
   // ---------- Collaboration: connectedness + top partners (MOCK) ----------
   function networkPanel() {
     const p = profileByName.get(state.country);
-    d3.select("#ttl-network").html(`Collaboration: connectedness &amp; top partners — ${state.country} <span id="badge-network">${QT.mockBadge()}</span>`);
+    d3.select("#ttl-network").html(`Figure 2: Collaboration: global connectedness and top partners — ${state.country} <span id="badge-network">${QT.mockBadge()}</span>`);
     if (!p) return emptyPanel("#chart-network", noProfileNote());
     const partners = [...p.top_partners].sort(QT.rank("score", "country"));
 
@@ -318,7 +367,7 @@ QT.boot(async function () {
   // ---------- Policy & public programmes (MOCK, curated flagship list) ----------
   function policiesPanel() {
     const list = policyByCountry.get(state.country) || [];
-    d3.select("#ttl-policy").html(`Policy &amp; public programmes — ${state.country} <span id="badge-policy">${QT.mockBadge()}</span>`);
+    d3.select("#ttl-policy").html(`Figure 3: Policy and public programmes — ${state.country} <span id="badge-policy">${QT.mockBadge()}</span>`);
     const body = d3.select("#policy-body");
     body.selectAll("*").remove();
     if (!list.length) {
@@ -336,9 +385,11 @@ QT.boot(async function () {
     card.append("div").attr("class", "policy-desc").text(d => d.note);
   }
 
-  function render() { kpis(); rankedBars(); networkPanel(); policiesPanel(); domainSplit(); archetypePanel(); rcaPanel(); }
+  function render() { kpis(); rankedBars(); networkPanel(); policiesPanel(); archetypePanel(); rcaPanel(); }
 
   sel.on("change", function () { state.country = this.value; render(); });
-  QT.segControl("#seg-metric-country", "data-m", m => { state.metric = m; render(); });
+  // Only Figure 1 depends on these, so they redraw that panel rather than the page.
+  QT.segControl("#seg-source-country", "data-s", v => { state.source = v; rankedBars(); });
+  QT.segControl("#seg-measure-country", "data-v", v => { state.measure = v; rankedBars(); });
   render();
 });

@@ -4,6 +4,10 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Quantum Technologies Tracker — About</title>
+<!-- theme.js self-injects the stylesheet on load, so it belongs in <head>: from the
+     end of <body> the CSS arrived after first paint and every tab switch flashed
+     unstyled HTML. -->
+<script src="assets/theme.js"></script>
 <script src="assets/vendor/d3.min.js"></script>
 </head>
 <body>
@@ -14,26 +18,43 @@
 
   <div class="about-body">
 
+    <!-- The tracker description that used to sit here now appears directly under the
+         site title on every tab, which is where Elena wants a reader to meet it. It is
+         NOT repeated here. What this section should say instead is still open
+         (BACKLOG.md AP-45) — the placeholder below is deliberately short rather than a
+         second copy of the description. -->
     <section class="about-section">
       <h2>What this is</h2>
       <p>
-        Explore the companies building quantum technologies and the institutions researching
-        them. Trace private and public funding across every segment of the industry. Compare
-        national ecosystems and innovation clusters, and the collaborations that link them
-        within and across borders. Free, interactive, and updated quarterly by ECIPE.
+        A quarterly, freely available record of funding, company formation and
+        collaboration across the global quantum technology sector, published by ECIPE and
+        computed directly from the underlying data rather than maintained by hand.
       </p>
     </section>
 
     <section class="about-section">
       <h2>Data &amp; methodology</h2>
       <p>
-        Every published figure is computed directly from two underlying tables — a company
+        Every published figure is computed directly from the underlying tables — a company
         register and a funding-rounds ledger — rather than maintained by hand, so it can be
-        reproduced and re-checked each quarter. <b>Public funding</b> means grants and public
-        equity (government-sourced instruments); <b>private funding</b> means VC/private
-        equity and debt. Panels marked <span class="mockbadge" style="vertical-align:1px;">Illustrative · mock data</span>
-        use placeholder figures pending publication of the underlying analysis and should
-        not be cited.
+        reproduced and re-checked each quarter.
+      </p>
+      <p style="margin-top:10px;">
+        <b>Company funding</b> is all capital raised by the tracked companies, across every
+        instrument (VC and private equity, debt, grants, public equity). <b>Government
+        funding</b> is a separate measure, drawn from a register of national and supranational
+        quantum policies, and covers money announced or deployed by government entities. The
+        two are reported side by side but <b>must not be added together</b>: they overlap by an
+        unknown amount wherever a government funds a company directly, through a grant, an
+        equity stake or participation in a financing round.
+      </p>
+      <p style="margin-top:10px;">
+        Panels marked <span class="mockbadge" style="vertical-align:1px;">Illustrative · mock data</span>
+        use placeholder figures pending publication of the underlying analysis and should not
+        be cited. Government funding figures are currently marked
+        <span class="mockbadge" style="vertical-align:1px;">Provisional</span> for a different
+        reason: the numbers are real, but the treatment of overlapping multi-year programmes
+        is not yet settled, so national totals for the largest funders are upper bounds.
       </p>
     </section>
 
@@ -64,11 +85,10 @@
 .about-section p{font-size:13px;line-height:1.6;color:var(--ink);margin:0;}
 </style>
 
-<script src="assets/theme.js"></script>
 <script src="assets/chart-template.js"></script>
 <script>
 (async function () {
-  QT.injectCSS();
+
   QT.nav("#nav", "about");
   const manifest = await QT.loadData("manifest");
   QT.vintage("#vintage", manifest);
