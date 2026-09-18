@@ -1,54 +1,54 @@
 {
   "meta": {
     "data_vintage": "2026-Q3",
-    "coverage": "industry (curated) + academic (OpenAlex, primary_topic.id, 2018-2026, <=5 institutions/paper); company detail: 711 companies from the 2026-Q3 startup tracker projection",
+    "coverage": "industry (curated) + academic (OpenAlex, primary_topic.id, 2018-2026, <=5 institutions/paper); company detail: 787 companies from the 2026-Q3 startup tracker projection",
     "counting": "binary (v1): one dyad = one collaboration regardless of how many underlying records support it; no weight or time series yet (v2, Phase 8)"
   },
   "data": [
     {
       "country": "China",
       "entities": 1535,
-      "collaborations": 40035
+      "collaborations": 40038
     },
     {
       "country": "US",
-      "entities": 1716,
-      "collaborations": 31296
+      "entities": 1807,
+      "collaborations": 31709
     },
     {
       "country": "Germany",
-      "entities": 474,
-      "collaborations": 13097
+      "entities": 485,
+      "collaborations": 13157
     },
     {
       "country": "India",
-      "entities": 685,
-      "collaborations": 8346
+      "entities": 698,
+      "collaborations": 8377
     },
     {
       "country": "Japan",
-      "entities": 456,
-      "collaborations": 8037
+      "entities": 471,
+      "collaborations": 8090
     },
     {
       "country": "France",
-      "entities": 547,
-      "collaborations": 7900
+      "entities": 556,
+      "collaborations": 7947
     },
     {
       "country": "UK",
-      "entities": 361,
-      "collaborations": 7422
+      "entities": 381,
+      "collaborations": 7524
     },
     {
       "country": "Italy",
-      "entities": 261,
-      "collaborations": 7233
+      "entities": 265,
+      "collaborations": 7243
     },
     {
       "country": "Spain",
-      "entities": 219,
-      "collaborations": 4962
+      "entities": 222,
+      "collaborations": 4981
     },
     {
       "country": "Russia",
@@ -57,18 +57,18 @@
     },
     {
       "country": "Canada",
-      "entities": 205,
-      "collaborations": 3854
+      "entities": 228,
+      "collaborations": 3920
     },
     {
       "country": "South Korea",
-      "entities": 202,
-      "collaborations": 3261
+      "entities": 218,
+      "collaborations": 3296
     },
     {
       "country": "Australia",
-      "entities": 115,
-      "collaborations": 3048
+      "entities": 122,
+      "collaborations": 3094
     },
     {
       "country": "Brazil",
@@ -82,28 +82,33 @@
     },
     {
       "country": "Switzerland",
-      "entities": 98,
-      "collaborations": 2322
+      "entities": 103,
+      "collaborations": 2348
     },
     {
       "country": "Netherlands",
-      "entities": 88,
-      "collaborations": 2217
+      "entities": 93,
+      "collaborations": 2247
     },
     {
       "country": "Taiwan",
-      "entities": 116,
-      "collaborations": 1963
+      "entities": 121,
+      "collaborations": 1975
     },
     {
       "country": "Austria",
       "entities": 65,
-      "collaborations": 1957
+      "collaborations": 1963
     },
     {
       "country": "Sweden",
-      "entities": 57,
-      "collaborations": 1765
+      "entities": 59,
+      "collaborations": 1767
+    },
+    {
+      "country": "Singapore",
+      "entities": 52,
+      "collaborations": 1716
     },
     {
       "country": "Iran",
@@ -111,34 +116,29 @@
       "collaborations": 1692
     },
     {
-      "country": "Singapore",
-      "entities": 43,
-      "collaborations": 1692
-    },
-    {
       "country": "Israel",
-      "entities": 48,
-      "collaborations": 1485
+      "entities": 59,
+      "collaborations": 1517
     },
     {
       "country": "Denmark",
-      "entities": 45,
-      "collaborations": 1258
+      "entities": 46,
+      "collaborations": 1272
     },
     {
       "country": "Saudi Arabia",
-      "entities": 39,
-      "collaborations": 1121
+      "entities": 42,
+      "collaborations": 1126
     },
     {
       "country": "Finland",
-      "entities": 43,
-      "collaborations": 1103
+      "entities": 46,
+      "collaborations": 1119
     },
     {
       "country": "Czech Republic",
-      "entities": 60,
-      "collaborations": 1070
+      "entities": 61,
+      "collaborations": 1071
     },
     {
       "country": "Mexico",
@@ -153,12 +153,12 @@
     {
       "country": "Belgium",
       "entities": 40,
-      "collaborations": 838
+      "collaborations": 841
     },
     {
       "country": "Turkey",
-      "entities": 126,
-      "collaborations": 820
+      "entities": 128,
+      "collaborations": 823
     },
     {
       "country": "Argentina",
@@ -167,8 +167,8 @@
     },
     {
       "country": "Portugal",
-      "entities": 39,
-      "collaborations": 737
+      "entities": 40,
+      "collaborations": 738
     },
     {
       "country": "Egypt",
@@ -197,13 +197,13 @@
     },
     {
       "country": "UAE",
-      "entities": 32,
-      "collaborations": 501
+      "entities": 33,
+      "collaborations": 506
     },
     {
       "country": "Ireland",
-      "entities": 33,
-      "collaborations": 491
+      "entities": 36,
+      "collaborations": 500
     },
     {
       "country": "Greece",
@@ -251,14 +251,14 @@
       "collaborations": 259
     },
     {
-      "country": "Colombia",
-      "entities": 36,
+      "country": "Romania",
+      "entities": 44,
       "collaborations": 256
     },
     {
-      "country": "Romania",
-      "entities": 43,
-      "collaborations": 255
+      "country": "Colombia",
+      "entities": 36,
+      "collaborations": 256
     },
     {
       "country": "Bangladesh",
@@ -272,8 +272,8 @@
     },
     {
       "country": "Nigeria",
-      "entities": 59,
-      "collaborations": 224
+      "entities": 60,
+      "collaborations": 225
     },
     {
       "country": "Iraq",
@@ -312,8 +312,8 @@
     },
     {
       "country": "Luxembourg",
-      "entities": 3,
-      "collaborations": 164
+      "entities": 5,
+      "collaborations": 167
     },
     {
       "country": "Armenia",
@@ -337,8 +337,8 @@
     },
     {
       "country": "Qatar",
-      "entities": 9,
-      "collaborations": 124
+      "entities": 10,
+      "collaborations": 125
     },
     {
       "country": "Latvia",
@@ -372,8 +372,8 @@
     },
     {
       "country": "Cyprus",
-      "entities": 12,
-      "collaborations": 79
+      "entities": 13,
+      "collaborations": 80
     },
     {
       "country": "Ecuador",
@@ -482,8 +482,8 @@
     },
     {
       "country": "Panama",
-      "entities": 6,
-      "collaborations": 23
+      "entities": 7,
+      "collaborations": 24
     },
     {
       "country": "Benin",

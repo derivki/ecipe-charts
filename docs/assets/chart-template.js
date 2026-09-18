@@ -22,34 +22,25 @@
     return res.json();
   };
 
-  /** "Government funding" by country, combining TWO sources per Elena's 2026-09-09
-   *  instruction: Dyuti's government policy register (`government_funding.json`,
-   *  built by src/build_government_funding.py — national programmes announced or
-   *  deployed by governments directly) PLUS the funding database's own
-   *  `public_funding` (Grant + Public equity instruments inside company funding
-   *  rounds — money a government gave or invested straight into a company).
-   *
-   *  This deliberately reverses the 2026-09-08 "Company is ALL company funding,
-   *  Government is the register alone, never add them" split recorded in
-   *  BACKLOG.md AP-36 and in world_map.js's older comment. The two sources can
-   *  overlap (a grant that reached a company could also be counted inside a
-   *  national programme total in the register) and nothing here de-dupes that —
-   *  Elena confirmed a straight sum is fine and the resulting number is an upper
-   *  bound, same spirit as the existing "provisional" note.
+  /** "Government funding" by country: Dyuti's government policy register alone
+   *  (`government_funding.json`, built by src/build_government_funding.py —
+   *  national/supranational programmes announced or deployed by governments
+   *  directly). Company funding (`funding_by_country.json`) is a completely
+   *  separate measure — ALL company funding, every instrument, including any
+   *  Grant/Public-equity money that reached a company — and is never added in
+   *  here. Per BACKLOG.md AP-36 (Elena, 2026-09-08) and reaffirmed AP-57
+   *  (Elena, 2026-09-16, after AP-53's 2026-09-09 combined measure turned out
+   *  to be a mistake): a government grant into a round counts once, as company
+   *  funding, and never a second time as government funding. Elena's rule in
+   *  her own words: "only use the data from my colleague['s] sheet on public
+   *  funding, do not sum it with grants or anything else from the funding
+   *  rounds."
    *
    *  Used by every view that shows "government funding" (Overview + Countries
    *  KPI tiles, the world map's Government toggle, the country ranking) so they
    *  cannot drift apart the way govByCountry used to when each file built its own. */
-  QT.combinedGovByCountry = function (countryRows, govRows) {
-    const byCountry = new Map(govRows.map(d => [d.country, { ...d }]));
-    countryRows.forEach(d => {
-      const pub = d.public_funding || 0;
-      if (pub <= 0) return;
-      const existing = byCountry.get(d.country);
-      if (existing) existing.government_funding = (existing.government_funding || 0) + pub;
-      else byCountry.set(d.country, { country: d.country, government_funding: pub });
-    });
-    return byCountry;
+  QT.govByCountry = function (govRows) {
+    return new Map(govRows.map(d => [d.country, { ...d }]));
   };
 
   /** Standard responsive chart frame from a <svg> that already has a viewBox. */

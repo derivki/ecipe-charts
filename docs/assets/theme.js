@@ -30,8 +30,10 @@ window.QT = (function () {
     // world/cluster map only — extracted from the legacy port so both maps
     // (world_map.js, clusters.js) share one definition instead of repeating
     // the same literal hex in each file.
-    noData:            "#E4E9EE", // country/land fill when there's no tracked data
-    noDataBorder:      "#C7D0D8", // legend swatch border for the no-data key
+    noData:            "#D9D5CC", // country/land fill when there's no tracked data — warm neutral,
+                                   // kept clearly off the blue sequential ramp below so it doesn't
+                                   // read as "just a paler funding class" next to the lowest bin
+    noDataBorder:      "#B7B0A2", // legend swatch border for the no-data key
     clusterBubble:       "#F5C544", // world-map cluster bubble fill
     clusterBubbleStroke: "#5a3c00", // world-map cluster bubble stroke
   };

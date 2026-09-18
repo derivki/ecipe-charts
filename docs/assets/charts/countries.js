@@ -20,9 +20,10 @@ QT.boot(async function () {
   // `collaborations` its academic + industry partnerships, exactly as the Overview
   // totals are built. mock_country_profile.json has no collaborations field at all.
   const collabByCountry = new Map(collabCountry.data.map(d => [d.country, d]));
-  // See QT.combinedGovByCountry: government funding here is Dyuti's register PLUS
-  // the funding database's Grant/Public equity rounds, matching the Overview tab.
-  const govByCountry = QT.combinedGovByCountry(country.data, gov.data);
+  // Government funding here is Dyuti's register alone (see QT.govByCountry),
+  // matching the Overview tab. Company funding (below) is a fully separate
+  // measure and is never summed into this one (AP-36, reaffirmed AP-57).
+  const govByCountry = QT.govByCountry(gov.data);
   const govProvisional = !!gov.meta.provisional;
   QT.vintage("#vintage", country.meta);
   document.getElementById("mocknote-country").innerHTML = profile.meta.source_note;
@@ -187,7 +188,9 @@ QT.boot(async function () {
     const noDataNote = hasSelection ? "" :
       `<b>${state.country} has no ${S.title} recorded</b> — showing the leaders only.`;
     const govNote = state.source === "government_funding" && govProvisional
-      ? "<b>Government figures are provisional</b> — see the Overview for the full caveat." : "";
+      ? "<b>Government figures are provisional.</b> They are Dyuti's government policy "
+        + "register alone and do not include any company-side grant or public-equity "
+        + "funding, which is counted only under Company funding." : "";
     const note = [noDataNote, govNote].filter(Boolean).join(" ");
     d3.select("#mocknote-ranked").html(note).style("display", note ? null : "none");
 
