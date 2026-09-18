@@ -7,255 +7,297 @@
   "data": [
     {
       "cluster": "San Francisco Bay Area",
-      "companies": 23,
-      "total_funding": 7188738155.6,
-      "public_funding": 2091818827.57
+      "country": "US",
+      "companies": 25,
+      "total_funding": 7231820457.32,
+      "public_funding": 2134651129.28
     },
     {
       "cluster": "Denver–Boulder Region",
-      "companies": 16,
-      "total_funding": 5043084609.26,
-      "public_funding": 2398415945.26
+      "country": "US",
+      "companies": 17,
+      "total_funding": 5100559339.22,
+      "public_funding": 2455765675.22
     },
     {
       "cluster": "Greater Washington",
+      "country": "US",
       "companies": 13,
-      "total_funding": 4219090183.0,
-      "public_funding": 4085442336.0
+      "total_funding": 4222169348.0,
+      "public_funding": 4088521501.0
     },
     {
       "cluster": "Shenzhen–Hong Kong–Guangzhou Region",
+      "country": "China",
       "companies": 5,
       "total_funding": 2384414786.72,
       "public_funding": 1252635160.4
     },
     {
       "cluster": "Greater New York",
+      "country": "US",
       "companies": 12,
-      "total_funding": 2082058279.0,
-      "public_funding": 1923646262.0
+      "total_funding": 2178431929.74,
+      "public_funding": 2020019912.74
     },
     {
       "cluster": "Hefei",
+      "country": "China",
       "companies": 11,
       "total_funding": 1550805428.38,
       "public_funding": 509847196.38
     },
     {
       "cluster": "Greater Helsinki",
-      "companies": 12,
-      "total_funding": 1143747412.01,
-      "public_funding": 253439004.01
+      "country": "Finland",
+      "companies": 13,
+      "total_funding": 1283048949.72,
+      "public_funding": 365680111.67
     },
     {
       "cluster": "Greater Paris",
-      "companies": 21,
-      "total_funding": 1074839275.18,
-      "public_funding": 73682377.58
+      "country": "France",
+      "companies": 29,
+      "total_funding": 1108544970.27,
+      "public_funding": 96988362.67
     },
     {
       "cluster": "Shanghai",
+      "country": "China",
       "companies": 11,
       "total_funding": 1073383560.0,
       "public_funding": 273322060.0
     },
     {
       "cluster": "Toronto–Waterloo Corridor",
-      "companies": 27,
-      "total_funding": 975418823.66,
-      "public_funding": 440519141.16
+      "country": "Canada",
+      "companies": 35,
+      "total_funding": 984977469.77,
+      "public_funding": 439242793.18
     },
     {
       "cluster": "Tel Aviv Metropolitan Area",
+      "country": "Israel",
       "companies": 14,
-      "total_funding": 871701000.0,
-      "public_funding": 35729000.0
+      "total_funding": 872972692.1,
+      "public_funding": 37000692.1
     },
     {
       "cluster": "Greater Geneva Bern Area",
+      "country": "Switzerland",
       "companies": 10,
-      "total_funding": 746336633.53,
-      "public_funding": 713707945.83
-    },
-    {
-      "cluster": "Greater Boston",
-      "companies": 18,
-      "total_funding": 667698804.38,
-      "public_funding": 76614140.38
+      "total_funding": 749413716.38,
+      "public_funding": 716785028.68
     },
     {
       "cluster": "Beijing",
-      "companies": 13,
-      "total_funding": 650699500.0,
+      "country": "China",
+      "companies": 14,
+      "total_funding": 714607500.0,
       "public_funding": 0.0
     },
     {
+      "cluster": "Greater Boston",
+      "country": "US",
+      "companies": 19,
+      "total_funding": 694421221.88,
+      "public_funding": 103336557.88
+    },
+    {
       "cluster": "London Commuter Belt",
+      "country": "UK",
       "companies": 25,
-      "total_funding": 635323885.19,
-      "public_funding": 269363687.18
+      "total_funding": 641863418.09,
+      "public_funding": 275903220.09
+    },
+    {
+      "cluster": "Metro Vancouver",
+      "country": "Canada",
+      "companies": 12,
+      "total_funding": 514549105.12,
+      "public_funding": 100689194.27
     },
     {
       "cluster": "Greater Austin",
+      "country": "US",
       "companies": 7,
       "total_funding": 513356939.0,
       "public_funding": 219118615.0
     },
     {
-      "cluster": "Metro Vancouver",
-      "companies": 11,
-      "total_funding": 513284147.73,
-      "public_funding": 99424236.88
-    },
-    {
-      "cluster": "Greater Sydney",
-      "companies": 12,
-      "total_funding": 430415173.52,
-      "public_funding": 42502648.52
+      "cluster": "Randstad Region",
+      "country": "Netherlands",
+      "companies": 23,
+      "total_funding": 462898097.57,
+      "public_funding": 71675157.13
     },
     {
       "cluster": "Greater Los Angeles",
+      "country": "US",
       "companies": 11,
-      "total_funding": 423395977.0,
-      "public_funding": 32645977.0
+      "total_funding": 431912189.0,
+      "public_funding": 41162189.0
     },
     {
-      "cluster": "Randstad Region",
-      "companies": 21,
-      "total_funding": 361545688.24,
-      "public_funding": 42387706.89
+      "cluster": "Greater Sydney",
+      "country": "Australia",
+      "companies": 12,
+      "total_funding": 431384777.5,
+      "public_funding": 43472252.5
     },
     {
-      "cluster": "Munich Metropolitan Area",
-      "companies": 14,
-      "total_funding": 340587435.97,
-      "public_funding": 135706730.97
+      "cluster": "Dallas–Fort Worth Metroplex",
+      "country": "US",
+      "companies": 4,
+      "total_funding": 423717586.85,
+      "public_funding": 399613531.85
     },
     {
       "cluster": "Cambridge",
+      "country": "UK",
       "companies": 7,
-      "total_funding": 337342355.97,
-      "public_funding": 11959539.97
+      "total_funding": 357873781.22,
+      "public_funding": 32490965.22
+    },
+    {
+      "cluster": "Munich Metropolitan Area",
+      "country": "Germany",
+      "companies": 14,
+      "total_funding": 349995863.36,
+      "public_funding": 145115158.36
     },
     {
       "cluster": "Hangzhou",
-      "companies": 3,
+      "country": "China",
+      "companies": 4,
       "total_funding": 320827439.49,
       "public_funding": 102353439.49
     },
     {
-      "cluster": "Singapore",
-      "companies": 15,
-      "total_funding": 221161654.3,
-      "public_funding": 148062300.0
-    },
-    {
       "cluster": "Grenoble",
-      "companies": 3,
-      "total_funding": 200934220.65,
-      "public_funding": 29896680.65
-    },
-    {
-      "cluster": "Seoul Metropolitan Area",
-      "companies": 12,
-      "total_funding": 185467837.96,
-      "public_funding": 67143746.05
+      "country": "France",
+      "companies": 6,
+      "total_funding": 258587739.85,
+      "public_funding": 32211589.85
     },
     {
       "cluster": "Greater Copenhagen",
-      "companies": 10,
-      "total_funding": 174475547.47,
-      "public_funding": 12747327.47
+      "country": "Denmark",
+      "companies": 13,
+      "total_funding": 221978492.03,
+      "public_funding": 22651732.03
+    },
+    {
+      "cluster": "Singapore",
+      "country": "Singapore",
+      "companies": 15,
+      "total_funding": 221393107.79,
+      "public_funding": 148293753.49
+    },
+    {
+      "cluster": "Seoul Metropolitan Area",
+      "country": "South Korea",
+      "companies": 14,
+      "total_funding": 201467837.96,
+      "public_funding": 67143746.05
     },
     {
       "cluster": "Greater Tokyo",
+      "country": "Japan",
       "companies": 15,
-      "total_funding": 171873010.0,
-      "public_funding": 21640780.0
+      "total_funding": 172869652.16,
+      "public_funding": 22637422.16
     },
     {
       "cluster": "Oxford",
-      "companies": 5,
-      "total_funding": 136960589.67,
-      "public_funding": 8932931.67
+      "country": "UK",
+      "companies": 6,
+      "total_funding": 155992384.53,
+      "public_funding": 27964726.53
     },
     {
       "cluster": "Greater Glasgow",
+      "country": "UK",
       "companies": 7,
-      "total_funding": 101846789.59,
-      "public_funding": 25781181.89
-    },
-    {
-      "cluster": "Stuttgart Metropolitan Area",
-      "companies": 2,
-      "total_funding": 96944220.12,
-      "public_funding": 5116220.12
-    },
-    {
-      "cluster": "Canberra",
-      "companies": 3,
-      "total_funding": 89706689.59,
-      "public_funding": 3704689.59
-    },
-    {
-      "cluster": "Greater Montreal",
-      "companies": 7,
-      "total_funding": 71687086.44,
-      "public_funding": 48577895.45
+      "total_funding": 120857285.17,
+      "public_funding": 44791677.47
     },
     {
       "cluster": "Bangalore",
+      "country": "India",
       "companies": 6,
-      "total_funding": 63468755.0,
+      "total_funding": 100813755.0,
       "public_funding": 3518165.0
     },
     {
+      "cluster": "Stuttgart Metropolitan Area",
+      "country": "Germany",
+      "companies": 2,
+      "total_funding": 97154920.12,
+      "public_funding": 5326920.12
+    },
+    {
+      "cluster": "Canberra",
+      "country": "Australia",
+      "companies": 3,
+      "total_funding": 90577750.34,
+      "public_funding": 4575750.34
+    },
+    {
+      "cluster": "Greater Montreal",
+      "country": "Canada",
+      "companies": 8,
+      "total_funding": 77350631.07,
+      "public_funding": 54241440.08
+    },
+    {
       "cluster": "Chicagoland",
-      "companies": 10,
-      "total_funding": 63430644.0,
-      "public_funding": 14505644.0
+      "country": "US",
+      "companies": 11,
+      "total_funding": 70755264.0,
+      "public_funding": 21830264.0
     },
     {
       "cluster": "Barcelona Metropolitan Area",
+      "country": "Spain",
       "companies": 5,
-      "total_funding": 48012841.35,
-      "public_funding": 11251655.82
-    },
-    {
-      "cluster": "Berlin Metropolitan Area",
-      "companies": 7,
-      "total_funding": 37711822.26,
-      "public_funding": 9662305.36
+      "total_funding": 49740557.18,
+      "public_funding": 12979371.66
     },
     {
       "cluster": "Bristol–Bath Region",
+      "country": "UK",
       "companies": 6,
-      "total_funding": 36304231.51,
-      "public_funding": 18050650.51
+      "total_funding": 39971340.96,
+      "public_funding": 21717759.96
+    },
+    {
+      "cluster": "Berlin Metropolitan Area",
+      "country": "Germany",
+      "companies": 7,
+      "total_funding": 39012513.18,
+      "public_funding": 10962996.28
     },
     {
       "cluster": "Karlsruhe",
-      "companies": 1,
-      "total_funding": 19100580.0,
-      "public_funding": 2800250.0
+      "country": "Germany",
+      "companies": 2,
+      "total_funding": 20793426.73,
+      "public_funding": 4493096.73
     },
     {
       "cluster": "Greater Adelaide",
+      "country": "Australia",
       "companies": 1,
       "total_funding": 9395451.28,
       "public_funding": 4395451.28
     },
     {
-      "cluster": "Dallas–Fort Worth Metroplex",
-      "companies": 2,
-      "total_funding": 7956524.0,
-      "public_funding": 7781524.0
-    },
-    {
       "cluster": "Valencia Metropolitan Area",
+      "country": "Spain",
       "companies": 1,
-      "total_funding": 1553926.88,
-      "public_funding": 1553926.88
+      "total_funding": 3344464.88,
+      "public_funding": 3344464.88
     }
   ]
 }

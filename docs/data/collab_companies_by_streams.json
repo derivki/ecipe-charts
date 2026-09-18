@@ -1,273 +1,273 @@
 {
   "meta": {
     "data_vintage": "2026-Q3",
-    "coverage": "industry (curated) + academic (OpenAlex, primary_topic.id, 2018-2026, <=5 institutions/paper); company detail: 711 companies from the 2026-Q3 startup tracker projection",
+    "coverage": "industry (curated) + academic (OpenAlex, primary_topic.id, 2018-2026, <=5 institutions/paper); company detail: 787 companies from the 2026-Q3 startup tracker projection",
     "counting": "binary (v1): one dyad = one collaboration regardless of how many underlying records support it; no weight or time series yet (v2, Phase 8)"
   },
   "data": [
     {
       "streams": "Cloud Platforms",
-      "companies": 78,
-      "total_funding_usd": 13303230177.83,
-      "collaborations": 970
+      "companies": 79,
+      "total_funding_usd": 13383532745.57,
+      "collaborations": 1086
     },
     {
       "streams": "Software Development Kits",
       "companies": 71,
-      "total_funding_usd": 11606429572.09,
-      "collaborations": 878
+      "total_funding_usd": 11683687787.97,
+      "collaborations": 999
     },
     {
       "streams": "Foundries & Fabrication",
-      "companies": 34,
-      "total_funding_usd": 9215643469.44,
-      "collaborations": 197
+      "companies": 35,
+      "total_funding_usd": 9335576279.47,
+      "collaborations": 224
     },
     {
       "streams": "Quantum Chemistry",
-      "companies": 42,
-      "total_funding_usd": 9063469415.45,
-      "collaborations": 321
+      "companies": 43,
+      "total_funding_usd": 9094432089.53,
+      "collaborations": 359
     },
     {
       "streams": "Trapped Ion",
       "companies": 16,
-      "total_funding_usd": 8646237528.9,
-      "collaborations": 147
+      "total_funding_usd": 8673345907.62,
+      "collaborations": 198
     },
     {
       "streams": "Cryptography & Security",
-      "companies": 137,
-      "total_funding_usd": 8542189728.7,
-      "collaborations": 479
+      "companies": 139,
+      "total_funding_usd": 8602544032.74,
+      "collaborations": 550
     },
     {
       "streams": "QKD Systems",
       "companies": 54,
-      "total_funding_usd": 6981148162.4,
-      "collaborations": 358
+      "total_funding_usd": 7046204924.13,
+      "collaborations": 399
     },
     {
       "streams": "Photonic Quantum",
       "companies": 28,
-      "total_funding_usd": 5802630975.36,
-      "collaborations": 264
+      "total_funding_usd": 5816872019.7,
+      "collaborations": 305
     },
     {
       "streams": "Superconducting Qubits",
       "companies": 29,
-      "total_funding_usd": 5618192379.96,
-      "collaborations": 418
+      "total_funding_usd": 5675099034.06,
+      "collaborations": 470
     },
     {
       "streams": "Atomic Clocks & Timing",
       "companies": 23,
-      "total_funding_usd": 5349077933.55,
-      "collaborations": 160
+      "total_funding_usd": 5439098299.49,
+      "collaborations": 197
     },
     {
       "streams": "Optimisation & Logistics",
       "companies": 56,
-      "total_funding_usd": 4860030662.67,
-      "collaborations": 351
+      "total_funding_usd": 4869161716.49,
+      "collaborations": 394
     },
     {
       "streams": "Simulation & Emulation",
       "companies": 80,
-      "total_funding_usd": 4423966394.67,
-      "collaborations": 266
+      "total_funding_usd": 4441731568.78,
+      "collaborations": 315
     },
     {
       "streams": "Drug Discovery & Pharma",
-      "companies": 26,
-      "total_funding_usd": 3897353661.82,
-      "collaborations": 119
+      "companies": 27,
+      "total_funding_usd": 3902036717.21,
+      "collaborations": 130
     },
     {
       "streams": "Error Mitigation & Correction",
       "companies": 35,
-      "total_funding_usd": 3792923466.71,
-      "collaborations": 418
+      "total_funding_usd": 3845242734.03,
+      "collaborations": 499
     },
     {
       "streams": "Cryogenic Systems",
       "companies": 33,
-      "total_funding_usd": 3550510537.24,
-      "collaborations": 139
+      "total_funding_usd": 3603890377.08,
+      "collaborations": 166
     },
     {
       "streams": "Neutral Atom",
       "companies": 24,
-      "total_funding_usd": 3051421337.59,
-      "collaborations": 168
-    },
-    {
-      "streams": "AI & Machine Learning",
-      "companies": 63,
-      "total_funding_usd": 2991050440.02,
-      "collaborations": 160
+      "total_funding_usd": 3118667209.84,
+      "collaborations": 199
     },
     {
       "streams": "Control Electronics",
       "companies": 71,
-      "total_funding_usd": 2928358702.59,
-      "collaborations": 402
+      "total_funding_usd": 3048182136.99,
+      "collaborations": 454
+    },
+    {
+      "streams": "AI & Machine Learning",
+      "companies": 63,
+      "total_funding_usd": 2994346089.64,
+      "collaborations": 180
     },
     {
       "streams": "Algorithms & Compilation",
-      "companies": 117,
-      "total_funding_usd": 2918775843.31,
-      "collaborations": 504
+      "companies": 118,
+      "total_funding_usd": 2944815430.32,
+      "collaborations": 584
     },
     {
       "streams": "Semiconductors & Materials",
       "companies": 11,
-      "total_funding_usd": 2569995318.4,
-      "collaborations": 3
+      "total_funding_usd": 2571018034.74,
+      "collaborations": 6
     },
     {
       "streams": "Magnetometers",
       "companies": 40,
-      "total_funding_usd": 2336903435.71,
-      "collaborations": 194
+      "total_funding_usd": 2355863998.93,
+      "collaborations": 219
     },
     {
       "streams": "Lasers & Optics",
       "companies": 55,
-      "total_funding_usd": 1923818812.24,
-      "collaborations": 151
-    },
-    {
-      "streams": "Quantum Annealers",
-      "companies": 6,
-      "total_funding_usd": 1817423370.03,
-      "collaborations": 75
+      "total_funding_usd": 2061303242.55,
+      "collaborations": 174
     },
     {
       "streams": "Quantum-HPC Integration",
       "companies": 25,
-      "total_funding_usd": 1786769445.23,
-      "collaborations": 193
+      "total_funding_usd": 1820182327.49,
+      "collaborations": 223
+    },
+    {
+      "streams": "Quantum Annealers",
+      "companies": 6,
+      "total_funding_usd": 1818470540.62,
+      "collaborations": 83
     },
     {
       "streams": "Quantum Random Number Generators",
       "companies": 53,
-      "total_funding_usd": 1511812828.45,
-      "collaborations": 411
+      "total_funding_usd": 1562347933.21,
+      "collaborations": 437
     },
     {
       "streams": "Quantum Metrology",
       "companies": 28,
-      "total_funding_usd": 1452979577.71,
-      "collaborations": 130
+      "total_funding_usd": 1481700857.5,
+      "collaborations": 131
     },
     {
       "streams": "Gravimeters",
       "companies": 12,
-      "total_funding_usd": 1290444197.01,
-      "collaborations": 79
+      "total_funding_usd": 1361803032.57,
+      "collaborations": 106
     },
     {
       "streams": "Silicon Spin Qubits",
       "companies": 9,
-      "total_funding_usd": 1164794273.62,
-      "collaborations": 48
+      "total_funding_usd": 1169272132.65,
+      "collaborations": 66
     },
     {
       "streams": "Quantum Internet",
       "companies": 27,
-      "total_funding_usd": 1071220865.77,
-      "collaborations": 64
+      "total_funding_usd": 1085204319.6,
+      "collaborations": 75
     },
     {
       "streams": "Quantum Finance",
       "companies": 21,
-      "total_funding_usd": 932626071.7,
-      "collaborations": 89
+      "total_funding_usd": 934576703.03,
+      "collaborations": 93
     },
     {
       "streams": "Classical Co-processors",
       "companies": 13,
-      "total_funding_usd": 768373357.49,
-      "collaborations": 165
+      "total_funding_usd": 795116574.58,
+      "collaborations": 182
     },
     {
       "streams": "Hybrid Middleware & Orchestration",
       "companies": 55,
-      "total_funding_usd": 729233640.28,
-      "collaborations": 205
-    },
-    {
-      "streams": "Diamond NV Centers",
-      "companies": 21,
-      "total_funding_usd": 553145391.84,
-      "collaborations": 43
-    },
-    {
-      "streams": "Cryogenic Supply Chain",
-      "companies": 14,
-      "total_funding_usd": 525230515.92,
-      "collaborations": 17
-    },
-    {
-      "streams": "Quantum Memory",
-      "companies": 13,
-      "total_funding_usd": 513014495.53,
-      "collaborations": 31
-    },
-    {
-      "streams": "RF & Microwave",
-      "companies": 29,
-      "total_funding_usd": 511168442.57,
-      "collaborations": 100
+      "total_funding_usd": 753054673.1,
+      "collaborations": 253
     },
     {
       "streams": "Test & Measurement",
       "companies": 40,
-      "total_funding_usd": 446858651.04,
-      "collaborations": 239
+      "total_funding_usd": 588530984.22,
+      "collaborations": 243
+    },
+    {
+      "streams": "Diamond NV Centers",
+      "companies": 21,
+      "total_funding_usd": 557020635.34,
+      "collaborations": 52
+    },
+    {
+      "streams": "RF & Microwave",
+      "companies": 29,
+      "total_funding_usd": 555437648.22,
+      "collaborations": 112
+    },
+    {
+      "streams": "Cryogenic Supply Chain",
+      "companies": 14,
+      "total_funding_usd": 533833770.31,
+      "collaborations": 24
+    },
+    {
+      "streams": "Quantum Memory",
+      "companies": 13,
+      "total_funding_usd": 520524229.13,
+      "collaborations": 44
     },
     {
       "streams": "Quantum Imaging",
       "companies": 23,
-      "total_funding_usd": 396477015.29,
-      "collaborations": 29
+      "total_funding_usd": 411031020.23,
+      "collaborations": 31
     },
     {
       "streams": "Single-Photon & Entangled-Photon Sources",
       "companies": 36,
-      "total_funding_usd": 376802141.26,
-      "collaborations": 103
+      "total_funding_usd": 405491504.35,
+      "collaborations": 114
     },
     {
       "streams": "Emerging Qubit Modalities",
       "companies": 7,
-      "total_funding_usd": 367981078.91,
-      "collaborations": 6
-    },
-    {
-      "streams": "Variational Hybrid Algorithms",
-      "companies": 21,
-      "total_funding_usd": 276306745.84,
-      "collaborations": 76
+      "total_funding_usd": 369525315.97,
+      "collaborations": 7
     },
     {
       "streams": "Single-Photon Detectors",
       "companies": 29,
-      "total_funding_usd": 272412981.44,
-      "collaborations": 102
+      "total_funding_usd": 284031227.83,
+      "collaborations": 108
+    },
+    {
+      "streams": "Variational Hybrid Algorithms",
+      "companies": 21,
+      "total_funding_usd": 281713613.12,
+      "collaborations": 89
     },
     {
       "streams": "Vacuum Systems",
       "companies": 5,
-      "total_funding_usd": 228813913.73,
-      "collaborations": 54
+      "total_funding_usd": 236888062.72,
+      "collaborations": 58
     },
     {
       "streams": "Consulting / Education & Training",
-      "companies": 63,
-      "total_funding_usd": 167609702.94,
-      "collaborations": 153
+      "companies": 65,
+      "total_funding_usd": 169143794.7,
+      "collaborations": 168
     },
     {
       "streams": "Topological Qubits",
@@ -278,20 +278,20 @@
     {
       "streams": "Energy & Sustainability",
       "companies": 5,
-      "total_funding_usd": 5406980.74,
+      "total_funding_usd": 6010057.53,
       "collaborations": 1
     },
     {
       "streams": "Critical Materials",
       "companies": 3,
-      "total_funding_usd": 4718594.87,
+      "total_funding_usd": 5152072.71,
       "collaborations": 1
     },
     {
       "streams": "Automotive & Manufacturing",
       "companies": 2,
       "total_funding_usd": 2315915.59,
-      "collaborations": 0
+      "collaborations": 1
     }
   ]
 }

@@ -1,21 +1,21 @@
 {
   "data_vintage": "2026-Q3",
-  "built_at_utc": "2026-09-14T09:44:52+00:00",
+  "built_at_utc": "2026-09-18T10:44:51+00:00",
   "source_xlsx": "raw/Quantum companies tracker.xlsx",
-  "source_sha256": "395eefd3c48a682f85188184a3afb6da3ec56bf6005e13a15efc118a30f912fc",
+  "source_sha256": "4577ab85803de7cb165132916137c58e3f36e4dec6fe5b488938bf106893d5de",
   "row_counts": {
-    "startups": 711,
-    "rounds": 2841,
-    "institutions": 244
+    "startups": 787,
+    "rounds": 4423,
+    "institutions": 261
   },
-  "companies_master_sha256": "3b76d79f77a81d20a08981796b0d6b632f5c9d3415cf902d2cb165b50caac0f2",
+  "companies_master_sha256": "c54293e36e18987884f465260c11da7cf1ac72c7d7d2e98330a73f0a943c810e",
   "datasets": {
-    "funding_by_country": 43,
+    "funding_by_country": 44,
     "funding_by_cluster": 42,
     "funding_by_instrument_year": 15,
     "funding_by_stage_region": "object",
-    "companies": 711,
-    "institution_spinouts": 244,
-    "listed_by_exchange": 17
+    "companies": 787,
+    "institution_spinouts": 261,
+    "listed_by_exchange": 18
   }
 }

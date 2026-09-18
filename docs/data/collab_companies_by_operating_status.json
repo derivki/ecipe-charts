@@ -1,27 +1,27 @@
 {
   "meta": {
     "data_vintage": "2026-Q3",
-    "coverage": "industry (curated) + academic (OpenAlex, primary_topic.id, 2018-2026, <=5 institutions/paper); company detail: 711 companies from the 2026-Q3 startup tracker projection",
+    "coverage": "industry (curated) + academic (OpenAlex, primary_topic.id, 2018-2026, <=5 institutions/paper); company detail: 787 companies from the 2026-Q3 startup tracker projection",
     "counting": "binary (v1): one dyad = one collaboration regardless of how many underlying records support it; no weight or time series yet (v2, Phase 8)"
   },
   "data": [
     {
       "operating_status": "Active",
-      "companies": 628,
-      "total_funding_usd": 40128371983.28,
-      "collaborations": 2422
+      "companies": 690,
+      "total_funding_usd": 41534748252.5,
+      "collaborations": 2962
     },
     {
       "operating_status": "Acquired – operating",
-      "companies": 30,
-      "total_funding_usd": 855067574.69,
-      "collaborations": 219
+      "companies": 32,
+      "total_funding_usd": 914596345.45,
+      "collaborations": 119
     },
     {
       "operating_status": "Acquired – absorbed",
-      "companies": 21,
-      "total_funding_usd": 147600020.47,
-      "collaborations": 44
+      "companies": 24,
+      "total_funding_usd": 172588097.78,
+      "collaborations": 47
     },
     {
       "operating_status": "Merged",
@@ -31,15 +31,15 @@
     },
     {
       "operating_status": "Defunct",
-      "companies": 19,
-      "total_funding_usd": 8954987.88,
-      "collaborations": 20
+      "companies": 20,
+      "total_funding_usd": 15831228.59,
+      "collaborations": 5
     },
     {
       "operating_status": "Unclear",
-      "companies": 12,
-      "total_funding_usd": 3471159.19,
-      "collaborations": 2
+      "companies": 20,
+      "total_funding_usd": 3678547.07,
+      "collaborations": 7
     }
   ]
 }

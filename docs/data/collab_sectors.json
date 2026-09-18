@@ -1,29 +1,29 @@
 {
   "meta": {
     "data_vintage": "2026-Q3",
-    "coverage": "industry (curated) + academic (OpenAlex, primary_topic.id, 2018-2026, <=5 institutions/paper); company detail: 711 companies from the 2026-Q3 startup tracker projection",
+    "coverage": "industry (curated) + academic (OpenAlex, primary_topic.id, 2018-2026, <=5 institutions/paper); company detail: 787 companies from the 2026-Q3 startup tracker projection",
     "counting": "binary (v1): one dyad = one collaboration regardless of how many underlying records support it; no weight or time series yet (v2, Phase 8)"
   },
   "data": [
     {
       "icb4_sector": "Software",
-      "entities": 170
+      "entities": 172
     },
     {
       "icb4_sector": "Computer Services",
-      "entities": 104
+      "entities": 105
     },
     {
       "icb4_sector": "Electronic Equipment",
-      "entities": 97
+      "entities": 99
     },
     {
       "icb4_sector": "Semiconductors",
-      "entities": 68
+      "entities": 70
     },
     {
       "icb4_sector": "Computer Hardware",
-      "entities": 57
+      "entities": 58
     },
     {
       "icb4_sector": "Aerospace & Defence",
@@ -51,7 +51,7 @@
     },
     {
       "icb4_sector": "Electrical Components & Equipment",
-      "entities": 20
+      "entities": 21
     },
     {
       "icb4_sector": "Industrial Machinery",

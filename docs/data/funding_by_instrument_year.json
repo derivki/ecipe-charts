@@ -8,106 +8,106 @@
     {
       "year": 2012,
       "VC / private equity": 37118920.0,
-      "Debt": 0.0,
-      "Grant": 3915086.19,
-      "Public equity": 0.0
+      "Debt": 5144000.0,
+      "Grant": 12771599.32,
+      "Public equity": 177781.78
     },
     {
       "year": 2013,
-      "VC / private equity": 8438480.0,
+      "VC / private equity": 9501050.93,
       "Debt": 0.0,
-      "Grant": 3263075.18,
+      "Grant": 20876764.47,
       "Public equity": 0.0
     },
     {
       "year": 2014,
       "VC / private equity": 64701185.0,
       "Debt": 400000.0,
-      "Grant": 8250846.87,
+      "Grant": 25981302.69,
       "Public equity": 0.0
     },
     {
       "year": 2015,
-      "VC / private equity": 154049354.32,
+      "VC / private equity": 154843758.32,
       "Debt": 669623.47,
-      "Grant": 17026826.31,
-      "Public equity": 0.0
+      "Grant": 38701718.08,
+      "Public equity": 13326000.0
     },
     {
       "year": 2016,
       "VC / private equity": 102500392.99,
       "Debt": 450000.0,
-      "Grant": 11600190.24,
-      "Public equity": 60390600.0
+      "Grant": 26132629.56,
+      "Public equity": 69272365.6
     },
     {
       "year": 2017,
-      "VC / private equity": 323915650.32,
+      "VC / private equity": 325719830.32,
       "Debt": 392303.74,
-      "Grant": 18128897.46,
-      "Public equity": 0.0
+      "Grant": 40847678.89,
+      "Public equity": 7876797.0
     },
     {
       "year": 2018,
-      "VC / private equity": 220980673.0,
-      "Debt": 39392247.13,
-      "Grant": 35639935.66,
+      "VC / private equity": 223799573.0,
+      "Debt": 44428301.23,
+      "Grant": 63552007.8,
       "Public equity": 4949605.37
     },
     {
       "year": 2019,
       "VC / private equity": 331258073.6,
-      "Debt": 10886299.0,
-      "Grant": 43012671.2,
+      "Debt": 16951989.0,
+      "Grant": 58322297.87,
       "Public equity": 1108138.06
     },
     {
       "year": 2020,
-      "VC / private equity": 944080798.3,
-      "Debt": 108913909.5,
-      "Grant": 97467035.96,
+      "VC / private equity": 970695473.3,
+      "Debt": 118902709.5,
+      "Grant": 134364915.33,
       "Public equity": 131327467.14
     },
     {
       "year": 2021,
-      "VC / private equity": 2595076721.6,
-      "Debt": 80904547.2,
-      "Grant": 89377722.48,
+      "VC / private equity": 2602824510.48,
+      "Debt": 84105410.99,
+      "Grant": 120858496.25,
       "Public equity": 924473428.51
     },
     {
       "year": 2022,
-      "VC / private equity": 1434125661.46,
+      "VC / private equity": 1472372925.46,
       "Debt": 197139924.0,
-      "Grant": 121615355.55,
-      "Public equity": 378350430.76
+      "Grant": 177333699.58,
+      "Public equity": 383350430.76
     },
     {
       "year": 2023,
-      "VC / private equity": 2165002482.45,
-      "Debt": 129555705.89,
-      "Grant": 153940031.53,
+      "VC / private equity": 2198651087.45,
+      "Debt": 132189664.98,
+      "Grant": 215085657.88,
       "Public equity": 108631866.97
     },
     {
       "year": 2024,
-      "VC / private equity": 1866640156.7,
-      "Debt": 442568899.5,
-      "Grant": 199374311.4,
-      "Public equity": 1102224754.63
+      "VC / private equity": 1897754172.7,
+      "Debt": 445357020.83,
+      "Grant": 253651323.21,
+      "Public equity": 1161162417.63
     },
     {
       "year": 2025,
-      "VC / private equity": 5532555877.87,
-      "Debt": 219734030.0,
-      "Grant": 329481847.12,
-      "Public equity": 7448726794.55
+      "VC / private equity": 5572139456.61,
+      "Debt": 222675327.73,
+      "Grant": 384037556.31,
+      "Public equity": 7796554510.99
     },
     {
       "year": 2026,
-      "VC / private equity": 6865463670.55,
+      "VC / private equity": 7028464170.55,
       "Debt": 191046580.0,
-      "Grant": 1186139072.12,
+      "Grant": 1230666936.32,
       "Public equity": 4614127122.57
     }
   ]

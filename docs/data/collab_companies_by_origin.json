@@ -1,44 +1,44 @@
 {
   "meta": {
     "data_vintage": "2026-Q3",
-    "coverage": "industry (curated) + academic (OpenAlex, primary_topic.id, 2018-2026, <=5 institutions/paper); company detail: 711 companies from the 2026-Q3 startup tracker projection",
+    "coverage": "industry (curated) + academic (OpenAlex, primary_topic.id, 2018-2026, <=5 institutions/paper); company detail: 787 companies from the 2026-Q3 startup tracker projection",
     "counting": "binary (v1): one dyad = one collaboration regardless of how many underlying records support it; no weight or time series yet (v2, Phase 8)"
   },
   "data": [
     {
       "origin": "University spinout",
-      "companies": 255,
-      "total_funding_usd": 18408036890.25,
-      "collaborations": 1017
+      "companies": 276,
+      "total_funding_usd": 18734683206.05,
+      "collaborations": 1234
     },
     {
       "origin": "Corporate spinout",
-      "companies": 27,
-      "total_funding_usd": 5099356021.0,
-      "collaborations": 81
+      "companies": 29,
+      "total_funding_usd": 5163725239.67,
+      "collaborations": 101
     },
     {
       "origin": "Merger",
       "companies": 2,
-      "total_funding_usd": 3961218653.59,
-      "collaborations": 25
+      "total_funding_usd": 3960907257.36,
+      "collaborations": 43
     },
     {
       "origin": "Research spinout",
-      "companies": 77,
-      "total_funding_usd": 3642290902.99,
-      "collaborations": 394
+      "companies": 85,
+      "total_funding_usd": 3745500267.53,
+      "collaborations": 448
     },
     {
       "origin": "Subsidiary",
-      "companies": 1,
-      "total_funding_usd": 424200000.0,
+      "companies": 2,
+      "total_funding_usd": 461798540.0,
       "collaborations": 3
     },
     {
       "origin": "Hybrid spinout",
       "companies": 1,
-      "total_funding_usd": 172983575.0,
+      "total_funding_usd": 187788605.93,
       "collaborations": 0
     },
     {

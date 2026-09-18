@@ -1,45 +1,45 @@
 {
   "meta": {
     "data_vintage": "2026-Q3",
-    "coverage": "industry (curated) + academic (OpenAlex, primary_topic.id, 2018-2026, <=5 institutions/paper); company detail: 711 companies from the 2026-Q3 startup tracker projection",
+    "coverage": "industry (curated) + academic (OpenAlex, primary_topic.id, 2018-2026, <=5 institutions/paper); company detail: 787 companies from the 2026-Q3 startup tracker projection",
     "counting": "binary (v1): one dyad = one collaboration regardless of how many underlying records support it; no weight or time series yet (v2, Phase 8)"
   },
   "data": [
     {
       "stack_layer": "Full Stack",
       "companies": 29,
-      "total_funding_usd": 18091650278.51,
-      "collaborations": 753
+      "total_funding_usd": 18201510458.05,
+      "collaborations": 875
     },
     {
       "stack_layer": "Core Quantum Hardware",
       "companies": 230,
-      "total_funding_usd": 8975920465.39,
-      "collaborations": 660
+      "total_funding_usd": 9173888772.79,
+      "collaborations": 774
     },
     {
       "stack_layer": "Applications & Services",
-      "companies": 170,
-      "total_funding_usd": 4720058387.12,
-      "collaborations": 417
+      "companies": 171,
+      "total_funding_usd": 4739669942.39,
+      "collaborations": 462
     },
     {
       "stack_layer": "Software & Platforms",
-      "companies": 142,
-      "total_funding_usd": 4291858591.25,
-      "collaborations": 625
+      "companies": 143,
+      "total_funding_usd": 4340921382.87,
+      "collaborations": 724
     },
     {
       "stack_layer": "Materials & Fabrication",
-      "companies": 27,
-      "total_funding_usd": 3141814959.83,
-      "collaborations": 13
+      "companies": 28,
+      "total_funding_usd": 3229653289.37,
+      "collaborations": 16
     },
     {
       "stack_layer": "Components & Control",
       "companies": 113,
-      "total_funding_usd": 2045370586.71,
-      "collaborations": 293
+      "total_funding_usd": 2263453534.49,
+      "collaborations": 329
     }
   ]
 }

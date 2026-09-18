@@ -1,31 +1,31 @@
 {
   "data_vintage": "2026-Q3",
-  "built_at_utc": "2026-09-04T10:10:20+00:00",
-  "coverage": "industry (curated) + academic (OpenAlex, primary_topic.id, 2018-2026, <=5 institutions/paper); company detail: 711 companies from the 2026-Q3 startup tracker projection",
+  "built_at_utc": "2026-09-17T07:29:24+00:00",
+  "coverage": "industry (curated) + academic (OpenAlex, primary_topic.id, 2018-2026, <=5 institutions/paper); company detail: 787 companies from the 2026-Q3 startup tracker projection",
   "sources": {
-    "institutions_master.csv": "60f90b83ff0041aef8d46398a060e5886f769de1bec4e61f1b30ff162f61dcc4",
-    "name_aliases.csv": "de494406cea41504302e11a4cdf3a94789f2bbd35dbe00ba41427388c911e621",
-    "collaborations_industry.csv": "de6a23fcb737a435e48098381c090e0c95be92a624bf16ba0e70d5b099e7bd14",
+    "institutions_master.csv": "b948b97112c9d5108c95c7dc46ba35e7a0a52c23219b632cb7127b42699d7415",
+    "name_aliases.csv": "c332e3e23845bb7ff10cbe28350ab3ccf36999df3c8628125d2773c110f6884c",
+    "collaborations_industry.csv": "cb1d6223c6d0964db9e1482595fbb0eb4d000d7a7554d60a6ce2cc8669d9861c",
     "dyad_years.csv (private)": "d49fb3f2da81a7a70fa3da987cd5e75957be9ff3fbc56368b1955e15ccc7a2c8",
-    "companies_master.csv": "3b76d79f77a81d20a08981796b0d6b632f5c9d3415cf902d2cb165b50caac0f2"
+    "companies_master.csv": "c54293e36e18987884f465260c11da7cf1ac72c7d7d2e98330a73f0a943c810e"
   },
   "row_counts": {
-    "entities": 12734,
-    "entities_with_collaborations_published": 10211,
-    "industry_edges_input": 4603,
-    "industry_edges_resolved": 4603,
+    "entities": 13017,
+    "entities_with_collaborations_published": 10488,
+    "industry_edges_input": 5283,
+    "industry_edges_resolved": 5283,
     "academic_edges": 90221,
-    "merged_edges": 93288,
+    "merged_edges": 93832,
     "unresolved_partner_names": 0,
-    "companies": 711
+    "companies": 787
   },
   "datasets": {
-    "collab_rankings": 10211,
+    "collab_rankings": 10488,
     "collab_partnership_types": 7,
     "collab_categories": 3,
     "collab_sectors": 54,
     "collab_by_country": 140,
-    "collab_companies": 711,
+    "collab_companies": 787,
     "collab_companies_by_pillars": 5,
     "collab_companies_by_stack_layer": 6,
     "collab_companies_by_streams": 48,

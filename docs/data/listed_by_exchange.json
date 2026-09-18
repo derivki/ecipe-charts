@@ -7,10 +7,11 @@
   "data": [
     {
       "exchange": "Nasdaq Stock Market",
-      "n_listings": 14,
+      "n_listings": 15,
       "companies": [
         "AmpliTech",
         "Arqit Quantum Inc.",
+        "ASP Isotopes",
         "BTQ Technologies",
         "D-Wave",
         "Horizon Quantum",
@@ -72,6 +73,16 @@
       "country": "Australia"
     },
     {
+      "exchange": "NASDAQ Helsinki",
+      "n_listings": 2,
+      "companies": [
+        "IQM Quantum Computers",
+        "SSH Communications Security"
+      ],
+      "country_code": "fi",
+      "country": "Finland"
+    },
+    {
       "exchange": "TSX Venture Exchange",
       "n_listings": 2,
       "companies": [
@@ -89,6 +100,15 @@
       ],
       "country_code": "de",
       "country": "Germany"
+    },
+    {
+      "exchange": "Euronext Paris",
+      "n_listings": 1,
+      "companies": [
+        "Riber"
+      ],
+      "country_code": null,
+      "country": null
     },
     {
       "exchange": "Hamburg Stock Exchange",
@@ -125,15 +145,6 @@
       ],
       "country_code": "gb",
       "country": "United Kingdom"
-    },
-    {
-      "exchange": "NASDAQ Helsinki",
-      "n_listings": 1,
-      "companies": [
-        "IQM Quantum Computers"
-      ],
-      "country_code": "fi",
-      "country": "Finland"
     },
     {
       "exchange": "National Equities Exchange and Quotations",

@@ -12,10 +12,11 @@
 QT.boot(async function () {
   QT.nav("#nav", "clusters");
 
-  const [rankings, shareTime, pipeline, codes, worldTopo] = await Promise.all([
+  const [rankings, shareTime, pipeline, fundingByCluster, codes, worldTopo] = await Promise.all([
     QT.loadData("mock_cluster_rankings"),
     QT.loadData("mock_cluster_share_time"),
     QT.loadData("quasi_cluster_pipeline"),
+    QT.loadData("funding_by_cluster"),
     QT.loadData("country_codes"),
     fetch("assets/vendor/world-atlas-110m.json").then(r => r.json()),
     QT.loadFlags(),
@@ -417,6 +418,63 @@ QT.boot(async function () {
     QT.legend("#legend-pipeline", SERIES);
   }
 
+  // ---------- Figure 5: clusters by funding band, per region (AP-50) ----------
+  // Real data (funding_by_cluster.json, all 42 clusters), unlike the ranking table
+  // above -- this doesn't depend on the illustrative pillar scores at all, only on
+  // total_funding and the country->region lookup every other region-based chart on
+  // this site already uses. Band edges and the 5-region grouping are Elena's own
+  // spec (2026-09-08 list; backlog AP-50), verified non-empty against the real data
+  // before building this (the >$5bn band would be pointless if nothing cleared it --
+  // two US clusters do).
+  const BANDS = [
+    { key: "lt100m",     label: "<$100m" },
+    { key: "100to500m",  label: "$100-500m" },
+    { key: "500mto1bn",  label: "$500m-1bn" },
+    { key: "1to5bn",     label: "$1-5bn" },
+    { key: "gte5bn",     label: ">$5bn" },
+  ].map((b, i) => ({ ...b, color: QT.palette.sequential[i] }));
+  const bandOf = v => v >= 5e9 ? "gte5bn" : v >= 1e9 ? "1to5bn" : v >= 5e8 ? "500mto1bn"
+                     : v >= 1e8 ? "100to500m" : "lt100m";
+
+  function renderBands() {
+    // US / China / EU / UK+AUS+CAN / RoW, in the site's own canonical order
+    // (QT.palette.region's key order) -- not sorted by count, so the axis reads
+    // the same way every other region chart on the tracker does.
+    const REGION_ORDER = Object.keys(QT.palette.region);
+    const counts = new Map(REGION_ORDER.map(r => [r, Object.fromEntries(BANDS.map(b => [b.key, 0]))]));
+    fundingByCluster.data.forEach(d => {
+      const region = REGION_OF[d.country] || "RoW";
+      counts.get(region)[bandOf(d.total_funding)]++;
+    });
+    const rs = REGION_ORDER.map(region => ({ region, ...counts.get(region) }));
+
+    const W = 880, H = 40 + rs.length * 46;
+    d3.select("#chart-bands").selectAll("*").remove();
+    const c = QT.chart("#chart-bands", { W, H, margin: { t: 24, r: 44, b: 6, l: 130 } });
+    const maxTotal = d3.max(rs, r => BANDS.reduce((s, b) => s + r[b.key], 0));
+    const x = d3.scaleLinear().domain([0, maxTotal]).nice().range([0, c.iw]);
+    const y = d3.scaleBand().domain(rs.map(r => r.region)).range([0, c.ih]).padding(0.35);
+
+    c.g.append("g").attr("class", "axis").call(d3.axisTop(x).ticks(5).tickFormat(d3.format("d")).tickSizeOuter(0));
+    c.gGrid.selectAll("line").data(x.ticks(5)).join("line").attr("class", "gridline")
+      .attr("x1", d => x(d)).attr("x2", d => x(d)).attr("y1", 0).attr("y2", c.ih);
+
+    const st = d3.stack().keys(BANDS.map(b => b.key))(rs);
+    BANDS.forEach((b, i) => {
+      c.gPlot.selectAll(`.seg-${b.key}`).data(st[i], d => d.data.region).join("rect")
+        .attr("class", `seg-${b.key}`).attr("y", d => y(d.data.region)).attr("height", y.bandwidth())
+        .attr("x", d => x(d[0])).attr("width", d => Math.max(0, x(d[1]) - x(d[0]))).attr("fill", b.color)
+        .on("mousemove", (e, d) => tt.show(
+          `<div class="hd">${d.data.region}</div>` +
+          `<div class="row"><span class="k">${b.label}</span><span class="v">${d.data[b.key]} ` +
+          `cluster${d.data[b.key] === 1 ? "" : "s"}</span></div>`, e))
+        .on("mouseleave", tt.hide);
+    });
+
+    c.gy.call(d3.axisLeft(y).tickSizeOuter(0)).call(g => g.select(".domain").remove());
+    QT.legend("#legend-bands", BANDS);
+  }
+
   // ---------- new entrants: graduated quasi-clusters (featured strip) ----------
   // Static — always shows every graduate regardless of the region filter, so the
   // "who just made it in" story stays front-and-centre. Cards are clickable and
@@ -459,5 +517,6 @@ QT.boot(async function () {
   renderAll();
   renderGraduates(); // static — always shows every graduate regardless of region filter
   renderPipeline(); // static — doesn't depend on region filter or table sort/selection
+  renderBands(); // static — doesn't depend on region filter or table sort/selection
   QT.timeSlider("#slider-sharetime", { years: SHARE_YEARS, onChange: w => { shareWin = w; renderShareTime(); } });
 });

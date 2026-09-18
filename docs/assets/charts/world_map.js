@@ -73,14 +73,16 @@
 
   /* COMPANY vs GOVERNMENT, not public vs private.
      "Company" is ALL company funding (every instrument, from `funding_by_country.json`).
-     "Government" is Dyuti's government policy register (docs/data/government_funding.json,
-     built by src/build_government_funding.py) PLUS the same grants + public equity taken
-     from company funding ROUNDS that used to be called "public funding" — combined by
-     QT.combinedGovByCountry per Elena's 2026-09-09 instruction, reversing the 2026-09-08
-     "never add them" rule recorded in BACKLOG.md AP-36. The caller (Overview/Countries)
-     passes the already-combined map in as opts.government, so this file just renders
-     whatever number it is given. Company and Government therefore overlap by construction,
-     which is why the panel's note calls the totals upper bounds. */
+     "Government" is Dyuti's government policy register alone
+     (docs/data/government_funding.json, built by src/build_government_funding.py) — never
+     summed with any company-side figure. Per BACKLOG.md AP-36 (Elena, 2026-09-08) and
+     reaffirmed AP-57 (Elena, 2026-09-16): a government grant into a funding round counts
+     once, as company funding, never a second time as government funding. AP-53's
+     2026-09-09 combined measure (QT.combinedGovByCountry summing this register with
+     company-round Grant/Public-equity money) was a mistake and has been reverted. The
+     caller (Overview/Countries) passes the register-only map in as opts.government, so
+     this file just renders whatever number it is given — Company and Government are two
+     independent measures with no overlap. */
   const METRICS = {
     company_funding: {
       title: "Company funding by country", label: "Company funding",
@@ -201,7 +203,7 @@
           if (euAtlasNames.has(name) && euRow) {
             return showTip(hd +
               row("Government funding", "None recorded") +
-              `<div class="row tot"><span class="k">EU-wide (all Member States)</span>` +
+              `<div class="row tot"><span class="k">EU Flagship funding</span>` +
               `<span class="v">${QT.fmt.money(euRow.government_funding)}</span></div>`, e);
           }
           return showTip(hd + row("No government funding recorded", ""), e);

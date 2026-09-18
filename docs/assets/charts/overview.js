@@ -10,7 +10,7 @@
 QT.boot(async function () {
   QT.nav("#nav", "overview");
 
-  const [country, cluster, instrYear, stageRegion, manifest, companies, gov, collabManifest] =
+  const [country, cluster, instrYear, stageRegion, manifest, companies, gov, collabManifest, codes] =
     await Promise.all([
       QT.loadData("funding_by_country"),
       QT.loadData("funding_by_cluster"),
@@ -20,14 +20,17 @@ QT.boot(async function () {
       QT.loadData("companies"),
       QT.loadData("government_funding"),
       QT.loadData("collab_manifest"),
+      QT.loadData("country_codes"),
       QT.loadFlags(),
     ]);
   QT.vintage("#vintage", country.meta);
 
   // Government funding by country, keyed for lookup by the map and the ranking.
-  // See QT.combinedGovByCountry for why this is Dyuti's register PLUS the old
-  // company-rounds public_funding, not the register alone.
-  const govByCountry = QT.combinedGovByCountry(country.data, gov.data);
+  // Dyuti's policy register alone -- see QT.govByCountry. Company funding
+  // (below, from `country.data`) is a fully separate measure and is never
+  // summed into this one (AP-36, reaffirmed AP-57 after AP-53's combined
+  // measure was reverted 2026-09-16).
+  const govByCountry = QT.govByCountry(gov.data);
   const govTotal = d3.sum([...govByCountry.values()], d => d.government_funding);
   const govProvisional = !!gov.meta.provisional;
 
@@ -64,19 +67,6 @@ QT.boot(async function () {
     { v: QT.fmt.int(collabManifest.row_counts.entities), k: "Institutions active in quantum" },
     { v: QT.fmt.int(collabManifest.row_counts.merged_edges), k: "Quantum collaborations" },
   ]);
-
-  if (govProvisional) {
-    QT.mockNote("#mocknote-map",
-      "<b>Government funding is provisional.</b> It combines Dyuti's government policy register " +
-      "with grants and public equity that reached companies directly through funding rounds, and " +
-      "the two can overlap by an unknown amount, so this is an upper bound. The register itself " +
-      "parses amounts recorded as free text, and the treatment of programmes whose funding periods " +
-      "overlap is not yet settled, which adds a further upper-bound effect on top for the largest " +
-      "funders. China has no entry in the register yet, so its figure here is grants and public " +
-      "equity from company funding rounds only and understates its government funding. " +
-      "Do not cite these figures.");
-  }
-
 
   // ---------- Panel 1: funding over time by instrument (full interactive chart) ----------
   (function fundingOverTime() {
@@ -203,22 +193,24 @@ QT.boot(async function () {
   })();
 
   // ---------- Figure 3: countries ranked by company vs. government funding ----------
-  // The metric is Company or Government, with no "Total". "Government" already
-  // deliberately double-counts against "Company" (see QT.combinedGovByCountry) — a
-  // government grant into a funding round is counted once as company funding and again
-  // as government funding — so summing the two on top of that would compound an
-  // already-known overlap into a meaningless number. That is also why the note under
-  // Figure 1 flags these as upper bounds rather than citable totals.
+  // The metric is Company or Government, with no "Total". Company (all company
+  // funding, every instrument) and Government (Dyuti's register alone, see
+  // QT.govByCountry) are two independent measures of different things, not two
+  // halves of one number, so summing them would not be meaningful. That is also
+  // why the note under Figure 1 flags the register as provisional rather than
+  // saying anything about overlap -- there no longer is any (AP-57, 2026-09-16).
   (function countriesByFunding() {
     const BRACKET = 10;
     const state = { metric: "company_funding", page: 0 };
     const METRIC_LABEL = { company_funding: "Company funding", government_funding: "Government funding" };
 
-    // The EU appears as its own bar alongside Member States. It has no company-funding
-    // row (companies are counted under the country they are headquartered in, and an
-    // EU-level sum would double-count every one of them), so it is present only for
-    // the government metric — which is where the Flagship and EuroHPC money lives and
-    // where leaving the bloc out understates European public funding badly.
+    // The EU appears as its own bar alongside Member States, on both metrics: for
+    // government, the Flagship/EuroHPC money that only exists at bloc level; for
+    // company, the sum of company funding raised across all EU Member States, so
+    // the bloc can be sized up against the US/China rows the same way it already is
+    // on the government metric.
+    const euMembers = new Set(codes.eu_members || []);
+    const euCompanyFunding = d3.sum(country.data, d => euMembers.has(d.country) ? d.total_funding : 0);
     const rowsFor = metric => country.data.map(d => ({
       country: d.country,
       company_funding: d.total_funding,
@@ -227,6 +219,8 @@ QT.boot(async function () {
       metric === "government_funding" && govByCountry.has("EU")
         ? [{ country: "EU", company_funding: null,
              government_funding: govByCountry.get("EU").government_funding }]
+        : metric === "company_funding" && euCompanyFunding > 0
+        ? [{ country: "EU", company_funding: euCompanyFunding, government_funding: null }]
         : []
     );
 
@@ -286,7 +280,9 @@ QT.boot(async function () {
       c.gy.call(d3.axisLeft(y).tickSizeOuter(0)).call(g => g.select(".domain").remove());
 
       QT.mockNote("#mocknote-country", state.metric === "government_funding" && govProvisional
-        ? "<b>Government figures are provisional</b> — see the note under Figure 1."
+        ? "<b>Government figures are provisional.</b> They are Dyuti's government policy "
+          + "register alone and do not include any company-side grant or public-equity "
+          + "funding, which is counted only under Company funding."
         : "");
       d3.select("#mocknote-country").style("display",
         state.metric === "government_funding" && govProvisional ? null : "none");
