@@ -12,11 +12,12 @@
 QT.boot(async function () {
   QT.nav("#nav", "clusters");
 
-  const [rankings, shareTime, pipeline, fundingByCluster, codes, worldTopo] = await Promise.all([
+  const [rankings, shareTime, fundingByCluster, fundingByCountry, quasiFunding, codes, worldTopo] = await Promise.all([
     QT.loadData("mock_cluster_rankings"),
     QT.loadData("mock_cluster_share_time"),
-    QT.loadData("quasi_cluster_pipeline"),
     QT.loadData("funding_by_cluster"),
+    QT.loadData("funding_by_country"),
+    QT.loadData("mock_quasi_cluster_funding"),
     QT.loadData("country_codes"),
     fetch("assets/vendor/world-atlas-110m.json").then(r => r.json()),
     QT.loadFlags(),
@@ -29,17 +30,12 @@ QT.boot(async function () {
   document.getElementById("badge-clusters").innerHTML = QT.mockBadge();
   document.getElementById("badge-time").innerHTML = QT.mockBadge();
   document.getElementById("badge-graduates").innerHTML = QT.mockBadge();
-  document.getElementById("badge-pipeline").innerHTML = QT.citeBadge();
-  document.getElementById("mocknote-clusters").innerHTML = rankings.meta.source_note;
-  // The 2025 column and the movement arrows are built but have nothing to compare
-  // against yet, and a reader needs to be told that rather than left to infer it from
-  // a column of dashes. See BACKLOG.md AP-37.
-  QT.mockNote("#mocknote-ranking",
-    "<b>2025 ranks and movement arrows are not yet populated.</b> The 2026 ranking is still "
-    + "being computed and the 2025 ranking is not yet held in the tracker, so the comparison "
-    + "column shows no value and no cluster carries an arrow. The three dimension scores "
-    + "behind the pillar ranks are illustrative placeholders and should not be cited.");
-  QT.citeNote("#citenote-pipeline", pipeline.meta.source_note);
+  // Figure 4 mixes real cluster/region funding totals with an illustrative
+  // quasi-cluster split (mock_quasi_cluster_funding.json -- see its own
+  // source_note), so it now carries the small mock badge like the rest of the
+  // page's illustrative panels, not the "published source" cite badge it had
+  // when it showed only the paper's real established/quasi COUNTS.
+  document.getElementById("badge-pipeline").innerHTML = QT.mockBadge();
 
   const tt = QT.tooltip();
   const DIMS = [
@@ -123,28 +119,53 @@ QT.boot(async function () {
     selected: rankings.data[0].cluster,
   };
 
-  function rows() {
-    const filtered = rankings.data.filter(d => inArea(d, state.region));
+  // The map's region chips zoom the map ONLY. They used to also filter the ranking
+  // table (and were wired to re-render the share-over-time chart, which never even
+  // read `state.region`) — picking "Oceania" silently emptied Table 1 along with it,
+  // which is not what a map zoom control should do. `mapRows()` feeds the map;
+  // `tableRows()` always sees the full 15-cluster set, sorted only.
+  function mapRows() {
+    return rankings.data.filter(d => inArea(d, state.region));
+  }
+  function tableRows() {
     // Ties always fall back to cluster name, so clicking a column with many equal
     // values (e.g. a pillar rank) gives a stable, alphabetical order either way.
-    return [...filtered].sort(QT.rank(state.sortKey, "cluster", state.sortDir));
+    return [...rankings.data].sort(QT.rank(state.sortKey, "cluster", state.sortDir));
   }
 
-  // ---------- region chips ----------
+  // ---------- region chips (map only) ----------
   d3.select("#region-chips").selectAll(".chip").data(REGIONS).join("span")
     .attr("class", "chip").classed("on", d => d === state.region)
     .text(d => d)
-    .on("click", (e, d) => { state.region = d; renderAll(); });
+    .on("click", (e, d) => {
+      state.region = d;
+      d3.select("#region-chips").selectAll(".chip").classed("on", r => r === state.region);
+      renderMap();
+    });
 
   // ---------- map ----------
   // Compute the d3.zoom transform that frames a region's clusters. "All" (or an
   // empty set) resets to the full-world view; any region fits its cluster points
   // — padded — into the plot, so picking a chip zooms straight to that region
   // instead of leaving a few dots stranded on a world map.
-  function regionTransform(pts, iw, ih) {
-    if (state.region === "World" || pts.length === 0) return d3.zoomIdentity;
-    let x0 = d3.min(pts, p => p[0]), x1 = d3.max(pts, p => p[0]);
-    let y0 = d3.min(pts, p => p[1]), y1 = d3.max(pts, p => p[1]);
+  function regionTransform(pts, iw, ih, projection) {
+    if (state.region === "World") return d3.zoomIdentity;
+    let x0, x1, y0, y1;
+    if (pts.length) {
+      x0 = d3.min(pts, p => p[0]); x1 = d3.max(pts, p => p[0]);
+      y0 = d3.min(pts, p => p[1]); y1 = d3.max(pts, p => p[1]);
+    } else {
+      // No cluster currently falls inside this area (e.g. Oceania — the 15-cluster
+      // ranking has no member there yet) — frame the area's own geographic bounds
+      // instead of the (empty) cluster extent, so the button still zooms somewhere
+      // instead of silently doing nothing.
+      const area = AREAS.find(a => a.key === state.region);
+      if (!area || !area.bounds) return d3.zoomIdentity;
+      const [[w, s2], [e, n]] = area.bounds;
+      const corners = [[w, s2], [w, n], [e, s2], [e, n]].map(projection);
+      x0 = d3.min(corners, p => p[0]); x1 = d3.max(corners, p => p[0]);
+      y0 = d3.min(corners, p => p[1]); y1 = d3.max(corners, p => p[1]);
+    }
     const padX = (x1 - x0) * 0.4 + 48, padY = (y1 - y0) * 0.4 + 48;
     x0 -= padX; x1 += padX; y0 -= padY; y1 += padY;
     const k = Math.max(1, Math.min(8, 0.95 * Math.min(iw / (x1 - x0), ih / (y1 - y0))));
@@ -152,7 +173,7 @@ QT.boot(async function () {
   }
 
   function renderMap() {
-    const rs = rows();
+    const rs = mapRows();
     // Matched to the Overview world map (world_map.js), which renders the same
     // geoNaturalEarth1 projection at this size. Elena read the Overview map as
     // "more zoomed in at the world level" and preferred it — same projection,
@@ -181,7 +202,12 @@ QT.boot(async function () {
     // Dark blue (best) -> orange (worst), matching the Clusters paper's own figures so
     // a reader moving between the paper and the tracker sees one encoding. Reversed
     // domain because rank 1 is the BEST and takes the dark-blue end.
-    const colorScale = d3.scaleSequential(d3.interpolateRgbBasis(QT.palette.clusterRank)).domain([N, 1]);
+    // domain([1, N]): rank 1 (best) -> t=0 -> the first (dark blue) palette colour;
+    // rank N (worst) -> t=1 -> the last (orange) colour. This was previously
+    // domain([N, 1]), which is backwards for scaleSequential (t runs d0->d1 as
+    // 0->1, not the other way round) and had San Francisco and other rank-1
+    // clusters rendering orange -- the legend was correct, the bubbles were not.
+    const colorScale = d3.scaleSequential(d3.interpolateRgbBasis(QT.palette.clusterRank)).domain([1, N]);
 
     // The why-text above the map states the colour encoding in words, but with no
     // visual key a reader who lands straight on the map just sees bubbles in five
@@ -259,7 +285,7 @@ QT.boot(async function () {
         `<div class="row"><span class="k">Quantum companies</span><span class="v">${QT.fmt.int(d.companies)}</span></div>` +
         `<div class="row"><span class="k">Overall rank</span><span class="v">${d.overall_rank} of ${N}</span></div>`, e))
       .on("mouseleave", tt.hide)
-      .on("click", (e, d) => { state.selected = d.cluster; renderAll(); });
+      .on("click", (e, d) => { state.selected = d.cluster; renderSelection(); });
 
     // Pan/zoom on the gZoom layer, plus programmatic region framing. Bubble
     // radii/strokes are counter-scaled so they keep a constant screen size as
@@ -281,7 +307,7 @@ QT.boot(async function () {
     // Frame the selected region immediately (no transition) so the zoom is
     // applied even in environments that throttle requestAnimationFrame; the
     // manual zoom buttons animate for a smoother feel where rAF is available.
-    const target = regionTransform(nodes.map(d => [d.x0, d.y0]), c.iw, c.ih);
+    const target = regionTransform(nodes.map(d => [d.x0, d.y0]), c.iw, c.ih, projection);
     c.svg.call(zoom.transform, target);
 
     d3.select("#map-zin").on("click", () => c.svg.transition().duration(300).call(zoom.scaleBy, 1.6));
@@ -308,12 +334,12 @@ QT.boot(async function () {
 
   // ---------- table ----------
   function renderTable() {
-    const rs = rows();
+    const rs = tableRows();
     const tbody = d3.select("#rtable tbody");
     const tr = tbody.selectAll("tr").data(rs, d => d.cluster).join("tr")
       .classed("sel", d => d.cluster === state.selected)
       .style("cursor", "pointer")
-      .on("click", (e, d) => { state.selected = d.cluster; renderAll(); });
+      .on("click", (e, d) => { state.selected = d.cluster; renderSelection(); });
 
     tr.selectAll("td").data(d => [
       // 2026 rank, carrying the movement arrow against 2025.
@@ -324,7 +350,14 @@ QT.boot(async function () {
       d.usual_region,
       d.market_rank, d.collab_rank, d.maturity_rank,
     ]).join("td")
-      .attr("class", (d, i) => [0, 1, 5, 6, 7].includes(i) ? "num" : null)
+      // Region (index 4) is a short categorical code (US/EU/China/...), unlike the
+      // free-text Cluster/Country columns either side of it -- left-aligning it in
+      // a column wide enough for "UK+AUS+CAN" left it stranded against the left
+      // rule with a lot of dead space to its right, which read as misaligned even
+      // though it technically matched its header's alignment. Centring it (header
+      // too, via the "ctr" class on the <th> in clusters.html) gives it its own
+      // deliberate treatment instead.
+      .attr("class", (d, i) => [0, 1, 5, 6, 7].includes(i) ? "num" : i === 4 ? "ctr" : null)
       .html(d => d);
 
     d3.select("#rtable thead").selectAll("th").each(function () {
@@ -372,19 +405,47 @@ QT.boot(async function () {
     QT.legend("#legend-sharetime", SERIES);
   }
 
-  // ---------- established clusters vs. quasi-cluster pipeline ----------
+  // ---------- Figure 4: share of company funding by region: cluster / quasi-cluster / other ----------
+  // Rebuilt 2026-09-18 from a real established-vs-quasi-cluster COUNT chart into a
+  // funding-SHARE chart, per Elena's request. Cluster funding per region and each
+  // region's total company funding are both real (funding_by_cluster.json /
+  // funding_by_country.json); quasi-cluster funding per region is NOT -- the paper
+  // (Occasional Paper 15/2025) published quasi-cluster counts only, never a dollar
+  // figure -- so that one series is illustrative (mock_quasi_cluster_funding.json,
+  // modelled as a share of each region's non-cluster funding) until a real figure
+  // exists. "Other" is the real total minus both, clamped at 0 so an oversized mock
+  // quasi figure can never push it negative.
   function renderPipeline() {
+    const REGION_ORDER = Object.keys(QT.palette.region);
+    const clusterByRegion = new Map(REGION_ORDER.map(r => [r, 0]));
+    fundingByCluster.data.forEach(d => {
+      const region = REGION_OF[d.country] || "RoW";
+      clusterByRegion.set(region, (clusterByRegion.get(region) || 0) + d.total_funding);
+    });
+    const totalByRegion = new Map(REGION_ORDER.map(r => [r, 0]));
+    fundingByCountry.data.forEach(d => {
+      const region = REGION_OF[d.country] || "RoW";
+      totalByRegion.set(region, (totalByRegion.get(region) || 0) + d.total_funding);
+    });
+    const quasiByRegion = new Map(quasiFunding.data.map(d => [d.region, d.quasi_funding]));
+
     const SERIES = [
-      { key: "established", label: "Established clusters (of 45)", color: QT.tokens.accent },
-      { key: "quasi", label: "Quasi-clusters (of 86)", color: QT.tokens.line },
+      { key: "cluster", label: "In a named cluster", color: QT.tokens.accent },
+      { key: "quasi", label: "In a quasi-cluster", color: QT.tokens.gold },
+      { key: "other", label: "Other company funding", color: QT.tokens.line },
     ];
-    // Sorted so the regions with the largest untapped pipeline (relative to what
-    // they've already turned into full clusters) read top-to-bottom.
-    const rs = [...pipeline.data].sort(QT.rank(d => d.quasi / (d.quasi + d.established), "region"));
+
+    const rs = REGION_ORDER.map(region => {
+      const total = totalByRegion.get(region) || 0;
+      const cluster = clusterByRegion.get(region) || 0;
+      const quasi = Math.min(quasiByRegion.get(region) || 0, Math.max(0, total - cluster));
+      const other = Math.max(0, total - cluster - quasi);
+      return { region, total, cluster, quasi, other };
+    });
 
     const W = 880, H = 40 + rs.length * 46;
     d3.select("#chart-pipeline").selectAll("*").remove();
-    const c = QT.chart("#chart-pipeline", { W, H, margin: { t: 24, r: 90, b: 6, l: 190 } });
+    const c = QT.chart("#chart-pipeline", { W, H, margin: { t: 24, r: 90, b: 6, l: 130 } });
     const x = d3.scaleLinear().domain([0, 1]).range([0, c.iw]);
     const y = d3.scaleBand().domain(rs.map(r => r.region)).range([0, c.ih]).padding(0.35);
 
@@ -394,25 +455,29 @@ QT.boot(async function () {
     c.gGrid.selectAll("line").data(x.ticks(5)).join("line").attr("class", "gridline")
       .attr("x1", d => x(d)).attr("x2", d => x(d)).attr("y1", 0).attr("y2", c.ih);
 
-    const st = d3.stack().keys(SERIES.map(s => s.key))(rs.map(r => {
-      const tot = r.established + r.quasi;
-      return { region: r.region, established: r.established / tot, quasi: r.quasi / tot, raw: r };
-    }));
+    const st = d3.stack().keys(SERIES.map(s => s.key))(rs.map(r => ({
+      region: r.region,
+      cluster: r.total ? r.cluster / r.total : 0,
+      quasi: r.total ? r.quasi / r.total : 0,
+      other: r.total ? r.other / r.total : 0,
+      raw: r,
+    })));
 
     SERIES.forEach((s, i) => {
       c.gPlot.selectAll(`.seg-${s.key}`).data(st[i], d => d.data.region).join("rect")
         .attr("class", `seg-${s.key}`).attr("y", d => y(d.data.region)).attr("height", y.bandwidth())
-        .attr("x", d => x(d[0])).attr("width", d => x(d[1]) - x(d[0])).attr("fill", s.color)
+        .attr("x", d => x(d[0])).attr("width", d => Math.max(0, x(d[1]) - x(d[0]))).attr("fill", s.color)
         .on("mousemove", (e, d) => tt.show(
           `<div class="hd">${d.data.region}</div>` +
-          `<div class="row"><span class="k">${s.label}</span><span class="v">${d.data.raw[s.key]}</span></div>`, e))
+          `<div class="row"><span class="k">${s.label}</span><span class="v">${QT.fmt.money(d.data.raw[s.key])} ` +
+          `(${QT.fmt.pct1(d.data.raw.total ? d.data.raw[s.key] / d.data.raw.total : 0)})</span></div>`, e))
         .on("mouseleave", tt.hide);
     });
 
     c.gPlot.selectAll("text.pipeline-ratio").data(rs, r => r.region).join("text")
       .attr("class", "pipeline-ratio").attr("x", c.iw + 8).attr("y", r => y(r.region) + y.bandwidth() / 2)
       .attr("dy", "0.32em").style("font-size", "11.5px").style("font-weight", 700).style("fill", QT.tokens.ink)
-      .text(r => QT.fmt.pct0(r.quasi / (r.quasi + r.established)) + " pipeline");
+      .text(r => QT.fmt.axisMoney(r.total) + " total");
 
     c.gy.call(d3.axisLeft(y).tickSizeOuter(0)).call(g => g.select(".domain").remove());
     QT.legend("#legend-pipeline", SERIES);
@@ -436,6 +501,13 @@ QT.boot(async function () {
   const bandOf = v => v >= 5e9 ? "gte5bn" : v >= 1e9 ? "1to5bn" : v >= 5e8 ? "500mto1bn"
                      : v >= 1e8 ? "100to500m" : "lt100m";
 
+  // Redesigned 2026-09-18 as a heatmap grid (region x band, one cell per pair)
+  // rather than a stacked bar. With only 42 clusters split 5 ways by region and 5
+  // ways by band, most stacked segments were 0-4 clusters wide -- a sliver too
+  // thin to hold a label, next to a handful of longer ones, so the chart read as
+  // mostly blank bar with a few odd bumps. A grid gives every region x band pair
+  // the same fixed-size cell regardless of its count, with the count printed
+  // directly in it, so a "0" is exactly as legible as a "5".
   function renderBands() {
     // US / China / EU / UK+AUS+CAN / RoW, in the site's own canonical order
     // (QT.palette.region's key order) -- not sorted by count, so the axis reads
@@ -447,32 +519,44 @@ QT.boot(async function () {
       counts.get(region)[bandOf(d.total_funding)]++;
     });
     const rs = REGION_ORDER.map(region => ({ region, ...counts.get(region) }));
+    const maxCount = d3.max(rs, r => d3.max(BANDS, b => r[b.key])) || 1;
+    // Single-hue intensity, not the five band colours the old stacked bar used --
+    // colour here encodes only "how many", and the band identity already comes
+    // from the column position, so a categorical palette would just be noise.
+    const cellColor = d3.scaleLinear().domain([0, maxCount]).range([QT.tokens.heatmapLow, QT.tokens.accent]);
+    const cellText = n => n === 0 ? QT.tokens.line : (n / maxCount > 0.55 ? "#fff" : QT.tokens.ink);
 
-    const W = 880, H = 40 + rs.length * 46;
+    const W = 880, H = 46 + rs.length * 44;
     d3.select("#chart-bands").selectAll("*").remove();
-    const c = QT.chart("#chart-bands", { W, H, margin: { t: 24, r: 44, b: 6, l: 130 } });
-    const maxTotal = d3.max(rs, r => BANDS.reduce((s, b) => s + r[b.key], 0));
-    const x = d3.scaleLinear().domain([0, maxTotal]).nice().range([0, c.iw]);
-    const y = d3.scaleBand().domain(rs.map(r => r.region)).range([0, c.ih]).padding(0.35);
+    const c = QT.chart("#chart-bands", { W, H, margin: { t: 30, r: 4, b: 6, l: 130 } });
+    const x = d3.scaleBand().domain(BANDS.map(b => b.key)).range([0, c.iw]).paddingInner(0.12).paddingOuter(0.02);
+    const y = d3.scaleBand().domain(rs.map(r => r.region)).range([0, c.ih]).padding(0.16);
 
-    c.g.append("g").attr("class", "axis").call(d3.axisTop(x).ticks(5).tickFormat(d3.format("d")).tickSizeOuter(0));
-    c.gGrid.selectAll("line").data(x.ticks(5)).join("line").attr("class", "gridline")
-      .attr("x1", d => x(d)).attr("x2", d => x(d)).attr("y1", 0).attr("y2", c.ih);
+    c.g.selectAll("text.band-label").data(BANDS).join("text").attr("class", "band-label")
+      .attr("x", b => x(b.key) + x.bandwidth() / 2).attr("y", -12).attr("text-anchor", "middle")
+      .attr("font-size", 10.5).attr("fill", QT.tokens.muted).text(b => b.label);
 
-    const st = d3.stack().keys(BANDS.map(b => b.key))(rs);
-    BANDS.forEach((b, i) => {
-      c.gPlot.selectAll(`.seg-${b.key}`).data(st[i], d => d.data.region).join("rect")
-        .attr("class", `seg-${b.key}`).attr("y", d => y(d.data.region)).attr("height", y.bandwidth())
-        .attr("x", d => x(d[0])).attr("width", d => Math.max(0, x(d[1]) - x(d[0]))).attr("fill", b.color)
-        .on("mousemove", (e, d) => tt.show(
-          `<div class="hd">${d.data.region}</div>` +
-          `<div class="row"><span class="k">${b.label}</span><span class="v">${d.data[b.key]} ` +
-          `cluster${d.data[b.key] === 1 ? "" : "s"}</span></div>`, e))
-        .on("mouseleave", tt.hide);
-    });
+    const cells = [];
+    rs.forEach(r => BANDS.forEach(b => cells.push({ region: r.region, band: b, count: r[b.key] })));
+
+    c.gPlot.selectAll("rect.cell").data(cells, d => d.region + d.band.key).join("rect")
+      .attr("class", "cell").attr("rx", 5)
+      .attr("x", d => x(d.band.key)).attr("y", d => y(d.region))
+      .attr("width", x.bandwidth()).attr("height", y.bandwidth())
+      .attr("fill", d => d.count === 0 ? QT.tokens.panel : cellColor(d.count))
+      .on("mousemove", (e, d) => tt.show(
+        `<div class="hd">${d.region}</div>` +
+        `<div class="row"><span class="k">${d.band.label}</span><span class="v">${d.count} ` +
+        `cluster${d.count === 1 ? "" : "s"}</span></div>`, e))
+      .on("mouseleave", tt.hide);
+    c.gPlot.selectAll("text.cell-val").data(cells, d => d.region + d.band.key).join("text")
+      .attr("class", "cell-val").attr("text-anchor", "middle").attr("dy", "0.32em")
+      .attr("x", d => x(d.band.key) + x.bandwidth() / 2).attr("y", d => y(d.region) + y.bandwidth() / 2)
+      .attr("font-size", 13).attr("font-weight", 700).attr("fill", d => cellText(d.count))
+      .style("pointer-events", "none")
+      .text(d => d.count === 0 ? "0" : d.count);
 
     c.gy.call(d3.axisLeft(y).tickSizeOuter(0)).call(g => g.select(".domain").remove());
-    QT.legend("#legend-bands", BANDS);
   }
 
   // ---------- new entrants: graduated quasi-clusters (featured strip) ----------
@@ -493,8 +577,10 @@ QT.boot(async function () {
     const grid = body.append("div").attr("class", "grad-grid");
     const card = grid.selectAll(".grad-card").data(grads, d => d.cluster).join("div")
       .attr("class", "grad-card")
-      .on("click", (e, d) => { state.selected = d.cluster; renderAll(); });
-    card.append("span").attr("class", "grad-pill").html("&#8593; Graduated");
+      .on("click", (e, d) => { state.selected = d.cluster; renderSelection(); });
+    // "NEW" rather than "Graduated", to match the badge the same cluster carries in
+    // the ranking table above -- one word for one event, not two.
+    card.append("span").attr("class", "grad-pill").html("&#8593; NEW");
     card.append("div").attr("class", "grad-name").html(d => `${flagIcon(d.country_code, d.country)} ${d.cluster}`);
     // The usual region (EU / US / ...), not the map's geographical area.
     card.append("div").attr("class", "grad-meta")
@@ -502,20 +588,56 @@ QT.boot(async function () {
                  + (d.from_tier ? ` · from ${d.from_tier}` : ""));
   }
 
-  function renderAll() {
-    d3.select("#region-chips").selectAll(".chip").classed("on", d => d === state.region);
-    renderMap(); renderTable(); renderShareTime();
+  // ---------- ranking movements: clusters that dropped OUT of the ranking ----------
+  // The mirror image of renderGraduates(), reading from a `downgraded`/`to_tier` pair
+  // in the same shape as `graduated`/`from_tier`. Neither the tracker nor the mock
+  // rankings file carries this field yet -- detecting a downgrade needs a 2025
+  // baseline to compare against, and (BACKLOG.md AP-37) the tracker doesn't hold one:
+  // rank_2025 is null on every row, which is also why the table's movement arrows are
+  // blank. Rather than invent which named clusters supposedly dropped out -- there is
+  // no data anywhere in this pipeline that could support that claim -- this renders
+  // the same honest "not yet available" state as the rest of the page, and will start
+  // showing real cards the moment a `downgraded: true` row exists.
+  function renderDowngrades() {
+    const downs = rankings.data.filter(d => d.downgraded)
+      .sort(QT.rank("overall_rank", "cluster", "asc"));
+    const body = d3.select("#downgrades-body");
+    body.selectAll("*").remove();
+    if (!downs.length) {
+      body.append("div").attr("class", "policy-empty")
+        .text("No downgrades to show yet -- the tracker has no 2025 baseline ranking to compare "
+              + "against (BACKLOG.md AP-37), so a cluster dropping out of the top 45 can't be "
+              + "detected until that baseline exists.");
+      return;
+    }
+    const grid = body.append("div").attr("class", "grad-grid");
+    const card = grid.selectAll(".grad-card").data(downs, d => d.cluster).join("div")
+      .attr("class", "grad-card")
+      .on("click", (e, d) => { state.selected = d.cluster; renderSelection(); });
+    card.append("span").attr("class", "grad-pill grad-pill-down").html("&#8595; Downgraded");
+    card.append("div").attr("class", "grad-name").html(d => `${flagIcon(d.country_code, d.country)} ${d.cluster}`);
+    card.append("div").attr("class", "grad-meta")
+      .text(d => `${d.usual_region} · ${QT.fmt.money(d.total_funding)}`
+                 + (d.to_tier ? ` · to ${d.to_tier}` : ""));
   }
+
+  // Selection (map bubble / table row / graduate|downgrade card click) touches only
+  // the map's highlight stroke and the table's `.sel` row -- never the region chips
+  // or the share-over-time chart, neither of which depends on `state.selected`.
+  function renderSelection() { renderMap(); renderTable(); }
 
   d3.select("#rtable thead").selectAll("th").on("click", function () {
     const key = d3.select(this).attr("data-k");
     if (state.sortKey === key) state.sortDir = state.sortDir === "asc" ? "desc" : "asc";
     else { state.sortKey = key; state.sortDir = "desc"; }
-    renderAll();
+    renderTable(); // sorting is a table-only concern -- it never touches the map
   });
 
-  renderAll();
+  renderMap();
+  renderTable();
+  renderShareTime();
   renderGraduates(); // static — always shows every graduate regardless of region filter
+  renderDowngrades(); // static, same reasoning — see the function comment
   renderPipeline(); // static — doesn't depend on region filter or table sort/selection
   renderBands(); // static — doesn't depend on region filter or table sort/selection
   QT.timeSlider("#slider-sharetime", { years: SHARE_YEARS, onChange: w => { shareWin = w; renderShareTime(); } });

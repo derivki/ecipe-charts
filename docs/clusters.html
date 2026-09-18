@@ -47,16 +47,16 @@
       <div class="tblwrap" style="overflow-x:auto;">
         <table class="rtable" id="rtable">
           <colgroup>
-            <col style="width:9%"><col style="width:9%"><col style="width:19%">
-            <col style="width:16%"><col style="width:10%">
-            <col style="width:12%"><col style="width:12%"><col style="width:13%">
+            <col style="width:9%"><col style="width:9%"><col style="width:20%">
+            <col style="width:15%"><col style="width:8%">
+            <col style="width:13%"><col style="width:13%"><col style="width:13%">
           </colgroup>
           <thead><tr>
             <th data-k="overall_rank" class="num sorted">2026 Rank</th>
             <th data-k="rank_2025" class="num">2025 Rank</th>
             <th data-k="cluster">Cluster</th>
             <th data-k="country">Country</th>
-            <th data-k="usual_region">Region</th>
+            <th data-k="usual_region" class="ctr">Region</th>
             <th data-k="market_rank" class="num">Market Orientation</th>
             <th data-k="collab_rank" class="num">Collaboration Intensity</th>
             <th data-k="maturity_rank" class="num">Ecosystem Maturity</th>
@@ -64,7 +64,6 @@
           <tbody></tbody>
         </table>
       </div>
-      <p class="mocknote" id="mocknote-ranking"></p>
     </div>
 
     <div class="panel span2">
@@ -78,22 +77,25 @@
     </div>
 
     <div class="panel span2">
-      <div class="ttl">Figure 3: New entrants: quasi-clusters upgrading to full cluster status</div>
+      <div class="ttl">Figure 3: Ranking movements: new entrants and downgrades</div>
       <p class="why">Quasi-clusters that have upgraded to full cluster status and entered the
-      ranking. They are also marked with a <b>NEW</b> badge in the ranking table above.
+      ranking, and clusters that have dropped back out of it. Both are ordered by 2026 rank.
+      New entrants are also marked with a <b>NEW</b> badge in the ranking table above.
       <span id="badge-graduates"></span></p>
+      <div class="subttl">New entrants</div>
       <div id="graduates-body"></div>
+      <div class="subttl">Downgraded</div>
+      <div id="downgrades-body"></div>
     </div>
 
     <div class="panel span2">
-      <div class="ttl">Figure 4: Clusters vs. quasi-clusters <span id="badge-pipeline"></span></div>
-      <p class="why">A quasi-cluster has real quantum activity but has not yet cleared the
-      funding and institutional-density bar for a full cluster. Where established clusters are few
-      relative to the quasi-cluster pipeline, most future growth in the ranking above is still to
-      come.</p>
-      <svg id="chart-pipeline" role="img" aria-label="Established clusters vs. quasi-clusters by region"></svg>
+      <div class="ttl">Figure 4: Share of company funding by region: clusters, quasi-clusters and other <span id="badge-pipeline"></span></div>
+      <p class="why">How each region's total company funding splits between money raised by
+      companies in a named cluster, in a quasi-cluster, or elsewhere. A quasi-cluster has real
+      quantum activity but has not yet cleared the funding and institutional-density bar for a
+      full cluster.</p>
+      <svg id="chart-pipeline" role="img" aria-label="Share of company funding by region: clusters, quasi-clusters and other"></svg>
       <div class="legend legend-center" id="legend-pipeline"></div>
-      <p class="citenote" id="citenote-pipeline"></p>
     </div>
 
     <div class="panel span2">
@@ -103,12 +105,9 @@
       best-known hub; one with many clusters under $100m has a long tail of early-stage
       activity still to mature.</p>
       <svg id="chart-bands" role="img" aria-label="Clusters by funding band, per region"></svg>
-      <div class="legend legend-center" id="legend-bands"></div>
     </div>
 
   </div>
-
-  <p class="mocknote" id="mocknote-clusters"></p>
 </div>
 
 <script src="assets/chart-template.js"></script>
