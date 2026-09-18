@@ -1,0 +1,275 @@
+{
+  "meta": {
+    "data_vintage": "2026-Q3",
+    "start_year": 2012,
+    "partial_year": 2026
+  },
+  "data": [
+    {
+      "country": "Australia",
+      "VC / private equity": 491489579.5,
+      "Debt": 0.0,
+      "Grant": 21836768.84,
+      "Public equity": 39691839.53
+    },
+    {
+      "country": "Austria",
+      "VC / private equity": 22362100.0,
+      "Debt": 0.0,
+      "Grant": 13542021.24,
+      "Public equity": 0.0
+    },
+    {
+      "country": "Belgium",
+      "VC / private equity": 4534228.0,
+      "Debt": 0.0,
+      "Grant": 326223.32,
+      "Public equity": 0.0
+    },
+    {
+      "country": "Brazil",
+      "VC / private equity": 0.0,
+      "Debt": 0.0,
+      "Grant": 143018.27,
+      "Public equity": 0.0
+    },
+    {
+      "country": "Bulgaria",
+      "VC / private equity": 550000.0,
+      "Debt": 0.0,
+      "Grant": 0.0,
+      "Public equity": 0.0
+    },
+    {
+      "country": "Canada",
+      "VC / private equity": 880454707.81,
+      "Debt": 207656987.08,
+      "Grant": 151544252.3,
+      "Public equity": 479494772.24
+    },
+    {
+      "country": "Chile",
+      "VC / private equity": 2000000.0,
+      "Debt": 0.0,
+      "Grant": 614560.81,
+      "Public equity": 0.0
+    },
+    {
+      "country": "China",
+      "VC / private equity": 3987838858.32,
+      "Debt": 23202000.0,
+      "Grant": 39744477.61,
+      "Public equity": 2104163628.43
+    },
+    {
+      "country": "Czech Republic",
+      "VC / private equity": 12249320.0,
+      "Debt": 0.0,
+      "Grant": 0.0,
+      "Public equity": 0.0
+    },
+    {
+      "country": "Denmark",
+      "VC / private equity": 199326760.0,
+      "Debt": 0.0,
+      "Grant": 22651732.03,
+      "Public equity": 0.0
+    },
+    {
+      "country": "Finland",
+      "VC / private equity": 886625501.4,
+      "Debt": 64092282.78,
+      "Grant": 62397699.88,
+      "Public equity": 313704723.67
+    },
+    {
+      "country": "France",
+      "VC / private equity": 1267071004.53,
+      "Debt": 9768956.0,
+      "Grant": 138255340.21,
+      "Public equity": 0.0
+    },
+    {
+      "country": "Germany",
+      "VC / private equity": 531633856.9,
+      "Debt": 17000000.0,
+      "Grant": 229085736.51,
+      "Public equity": 0.0
+    },
+    {
+      "country": "Greece",
+      "VC / private equity": 0.0,
+      "Debt": 0.0,
+      "Grant": 1826897.46,
+      "Public equity": 0.0
+    },
+    {
+      "country": "India",
+      "VC / private equity": 112793110.0,
+      "Debt": 788235.24,
+      "Grant": 9535865.0,
+      "Public equity": 0.0
+    },
+    {
+      "country": "Ireland",
+      "VC / private equity": 80699000.0,
+      "Debt": 0.0,
+      "Grant": 3182384.68,
+      "Public equity": 0.0
+    },
+    {
+      "country": "Israel",
+      "VC / private equity": 838404000.0,
+      "Debt": 78000.0,
+      "Grant": 13182692.1,
+      "Public equity": 25318000.0
+    },
+    {
+      "country": "Italy",
+      "VC / private equity": 58136543.0,
+      "Debt": 0.0,
+      "Grant": 60233062.79,
+      "Public equity": 0.0
+    },
+    {
+      "country": "Japan",
+      "VC / private equity": 158590550.0,
+      "Debt": 3305000.0,
+      "Grant": 22637422.16,
+      "Public equity": 0.0
+    },
+    {
+      "country": "Malta",
+      "VC / private equity": 0.0,
+      "Debt": 0.0,
+      "Grant": 438519.38,
+      "Public equity": 0.0
+    },
+    {
+      "country": "Netherlands",
+      "VC / private equity": 456574051.36,
+      "Debt": 147681534.09,
+      "Grant": 127552137.97,
+      "Public equity": 0.0
+    },
+    {
+      "country": "Norway",
+      "VC / private equity": 40486945.0,
+      "Debt": 0.0,
+      "Grant": 4842585.24,
+      "Public equity": 0.0
+    },
+    {
+      "country": "Poland",
+      "VC / private equity": 6565899.0,
+      "Debt": 0.0,
+      "Grant": 24000035.09,
+      "Public equity": 22403080.0
+    },
+    {
+      "country": "Portugal",
+      "VC / private equity": 2164200.0,
+      "Debt": 0.0,
+      "Grant": 2320486.21,
+      "Public equity": 0.0
+    },
+    {
+      "country": "Romania",
+      "VC / private equity": 130893.0,
+      "Debt": 0.0,
+      "Grant": 239276.12,
+      "Public equity": 0.0
+    },
+    {
+      "country": "Russia",
+      "VC / private equity": 81420.0,
+      "Debt": 0.0,
+      "Grant": 427973.06,
+      "Public equity": 0.0
+    },
+    {
+      "country": "Singapore",
+      "VC / private equity": 73099354.3,
+      "Debt": 0.0,
+      "Grant": 593753.49,
+      "Public equity": 147700000.0
+    },
+    {
+      "country": "Slovenia",
+      "VC / private equity": 0.0,
+      "Debt": 0.0,
+      "Grant": 303016.0,
+      "Public equity": 0.0
+    },
+    {
+      "country": "South Korea",
+      "VC / private equity": 170341831.91,
+      "Debt": 0.0,
+      "Grant": 16033903.0,
+      "Public equity": 51109843.05
+    },
+    {
+      "country": "Spain",
+      "VC / private equity": 918706074.72,
+      "Debt": 1840935.2,
+      "Grant": 66903903.74,
+      "Public equity": 0.0
+    },
+    {
+      "country": "Sweden",
+      "VC / private equity": 5648786.02,
+      "Debt": 66430.0,
+      "Grant": 9373395.29,
+      "Public equity": 0.0
+    },
+    {
+      "country": "Switzerland",
+      "VC / private equity": 170616125.7,
+      "Debt": 2312010.0,
+      "Grant": 31275507.36,
+      "Public equity": 691905439.0
+    },
+    {
+      "country": "Taiwan",
+      "VC / private equity": 2000000.0,
+      "Debt": 0.0,
+      "Grant": 40000.0,
+      "Public equity": 0.0
+    },
+    {
+      "country": "Thailand",
+      "VC / private equity": 858000.0,
+      "Debt": 0.0,
+      "Grant": 0.0,
+      "Public equity": 0.0
+    },
+    {
+      "country": "Turkey",
+      "VC / private equity": 4275360.0,
+      "Debt": 0.0,
+      "Grant": 0.0,
+      "Public equity": 0.0
+    },
+    {
+      "country": "UK",
+      "VC / private equity": 1549099531.83,
+      "Debt": 33816219.13,
+      "Grant": 240883215.47,
+      "Public equity": 246309246.31
+    },
+    {
+      "country": "US",
+      "VC / private equity": 10175354791.03,
+      "Debt": 954452646.0,
+      "Grant": 1610890220.99,
+      "Public equity": 11121867740.0
+    },
+    {
+      "country": "Uruguay",
+      "VC / private equity": 0.0,
+      "Debt": 0.0,
+      "Grant": 200000.0,
+      "Public equity": 0.0
+    }
+  ]
+}

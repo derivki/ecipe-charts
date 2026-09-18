@@ -219,18 +219,20 @@ svg{display:block;width:100%;height:auto;overflow:visible;}
 .trustedby-chip{font-size:11.5px;color:var(--muted);background:var(--panel);border-radius:6px;padding:5px 11px;font-style:italic;}
 
 /* ---------- KPI tile strip ---------- */
-.kpis{display:grid;grid-template-columns:repeat(auto-fit,minmax(130px,1fr));gap:12px;margin:18px 0 24px;}
-/* Fixed six-across grid for the Countries tab. auto-fit sizes columns from their
-   content, so every change of country visibly resized all six tiles; Elena asked
-   that they stay put whatever is selected. Collapses to 3 then 2 on narrow
-   viewports rather than shrinking below a readable width. */
+/* Fixed six-across grid on every tab that uses it (Overview, Countries). auto-fit
+   sizes columns from their content, so every change of country/page visibly
+   resized all six tiles; Elena asked that they stay put whatever is selected.
+   Tiles are sized small enough that six across still fits the ~797px usable
+   width of the WordPress embed, so this only collapses to 3 then 2 on genuinely
+   narrow (tablet/phone) viewports rather than mid-size desktop windows. */
+.kpis{display:grid;grid-template-columns:repeat(6,1fr);gap:8px;margin:18px 0 24px;}
 .kpis-fixed{grid-template-columns:repeat(6,1fr);}
-@media (max-width:1100px){.kpis-fixed{grid-template-columns:repeat(3,1fr);}}
-@media (max-width:640px){.kpis-fixed{grid-template-columns:repeat(2,1fr);}}
+@media (max-width:640px){.kpis, .kpis-fixed{grid-template-columns:repeat(3,1fr);}}
+@media (max-width:420px){.kpis, .kpis-fixed{grid-template-columns:repeat(2,1fr);}}
 .archetype-line{font-size:12px;color:var(--muted);margin:-14px 0 22px;}
-.kpi{border:none;border-radius:12px;padding:14px 16px;background:color-mix(in srgb, ${tokens.accent} 5%, ${tokens.panel});}
-.kpi .v{font-size:21px;font-weight:700;letter-spacing:-.02em;font-variant-numeric:tabular-nums;color:var(--ink);}
-.kpi .k{font-size:11px;color:var(--muted);margin-top:3px;line-height:1.3;}
+.kpi{border:none;border-radius:10px;padding:9px 10px;background:color-mix(in srgb, ${tokens.accent} 5%, ${tokens.panel});}
+.kpi .v{font-size:15px;font-weight:700;letter-spacing:-.02em;font-variant-numeric:tabular-nums;color:var(--ink);}
+.kpi .k{font-size:9.5px;color:var(--muted);margin-top:2px;line-height:1.25;}
 
 /* ---------- dashboard panel grid ----------
    Panels are UNBOXED: no card fill, no border, no radius. Each chart sits
