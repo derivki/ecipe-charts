@@ -65,7 +65,20 @@
     </div>
 
     <div class="panel span2">
-      <div class="ttl" id="ttl-policy">Figure 4: Policy and public programmes <span id="badge-policy"></span></div>
+      <div class="ttl" id="ttl-institutions">Figure 4: Top institutions by number of collaborations</div>
+      <p class="why">The three most-connected institutions headquartered in this country, by
+      recorded collaboration count. Use <b>Category</b> to switch between industry, government
+      and research institutions.</p>
+      <div class="controls">
+        <div class="ctl"><label>Category</label>
+          <div class="seg" id="seg-category-institutions"><button data-c="Industry" class="on">Industry</button><button data-c="Government">Government</button><button data-c="Research">Research</button></div>
+        </div>
+      </div>
+      <svg id="chart-institutions" role="img" aria-label="Top institutions by number of collaborations"></svg>
+    </div>
+
+    <div class="panel span2">
+      <div class="ttl" id="ttl-policy">Figure 5: Policy and public programmes <span id="badge-policy"></span></div>
       <p class="why">The flagship national strategies, funding programmes and institutes shaping
       this ecosystem.</p>
       <div id="policy-body"></div>
@@ -76,7 +89,7 @@
          mock, we did not like it, and dropping it lets the archetype scatter take the
          full width it needs to be legible. -->
     <div class="panel span2">
-      <div class="ttl">Figure 5: Archetype position: connectedness vs. commercial intensity <span id="badge-archetype2"></span></div>
+      <div class="ttl">Figure 6: Archetype position: connectedness vs. commercial intensity <span id="badge-archetype2"></span></div>
       <p class="why">Every tracked country placed on the same two axes, with the selected country
       highlighted. Connectedness measures how far a country's collaborations reach beyond its own
       borders; commercial intensity, how much of its quantum activity is company-led rather than
@@ -85,7 +98,7 @@
     </div>
 
     <div class="panel span2">
-      <div class="ttl" id="ttl-rca">Figure 6: National specialisation <span id="badge-rca"></span></div>
+      <div class="ttl" id="ttl-rca">Figure 7: National specialisation <span id="badge-rca"></span></div>
       <p class="why"><b>Revealed comparative advantage (RCA)</b> compares a country's share of
       quantum activity in one technology domain with that domain's share of quantum activity
       worldwide. An RCA above 1.0 means the country is more specialised in that domain than the
@@ -95,8 +108,6 @@
     </div>
 
   </div>
-
-  <p class="mocknote" id="mocknote-country"></p>
 </div>
 
 <script src="assets/chart-template.js"></script>

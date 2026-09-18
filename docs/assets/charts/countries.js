@@ -6,17 +6,22 @@
 QT.boot(async function () {
   QT.nav("#nav", "countries");
 
-  const [country, profile, policies, gov, collabCountry, countryInstrument] = await Promise.all([
+  const [country, profile, policies, gov, collabCountry, countryInstrument, collabRankings] = await Promise.all([
     QT.loadData("funding_by_country"),
     QT.loadData("mock_country_profile"),
     QT.loadData("mock_country_policies"),
     QT.loadData("government_funding"),
     QT.loadData("collab_by_country"),
     QT.loadData("funding_by_country_instrument"),
+    QT.loadData("collab_rankings"),
     QT.loadFlags(),
   ]);
   const INSTRUMENT_KEYS = ["VC / private equity", "Debt", "Grant", "Public equity"];
   const instrumentByCountry = new Map(countryInstrument.data.map(d => [d.country, d]));
+  // Real entity-level collaboration counts (industry/government/research), keyed by
+  // country for Figure 4 -- unlike the mock "top partners" bars in Figure 3, this is
+  // the actual collaboration graph (collab_rankings.json), not a placeholder.
+  const rankingsByCountry = d3.group(collabRankings.data, d => d.country);
   // Real per-country collaboration figures, so tiles 5 and 6 mirror the Overview's
   // definitions with actual data instead of the mock profile's `institutions` count:
   // `entities` is every institution in the collaboration graph for that country and
@@ -29,7 +34,6 @@ QT.boot(async function () {
   const govByCountry = QT.govByCountry(gov.data);
   const govProvisional = !!gov.meta.provisional;
   QT.vintage("#vintage", country.meta);
-  document.getElementById("mocknote-country").innerHTML = profile.meta.source_note;
   document.getElementById("mocknote-policy").innerHTML = policies.meta.source_note;
   ["badge-archetype2", "badge-rca", "badge-network"].forEach(id => {
     const el = document.getElementById(id);
@@ -98,6 +102,7 @@ QT.boot(async function () {
     country: byName.has("France") ? "France" : ranked[0].country,
     source: "company_funding",
     measure: "abs",
+    instCategory: "Industry",
   };
   sel.property("value", state.country);
 
@@ -341,6 +346,45 @@ QT.boot(async function () {
     d3.select("#mocknote-instrument").style("display", "none");
   }
 
+  // ---------- Figure 4: top institutions by collaboration count (REAL) ----------
+  // Distinct from the research/government/industry SPLIT panel removed 2026-09-08
+  // (mock, uninformative proportions): this ranks actual named institutions within
+  // one category by their real collaboration count, from collab_rankings.json.
+  function institutionsPanel() {
+    const rows = (rankingsByCountry.get(state.country) || [])
+      .filter(d => d.category === state.instCategory && d.collaborations > 0)
+      .sort(QT.rank("collaborations", "entity"))
+      .slice(0, 3);
+
+    if (!rows.length) return emptyPanel("#chart-institutions",
+      `No ${state.instCategory.toLowerCase()} institutions with recorded collaborations for ${state.country}.`);
+
+    const color = QT.palette.domain[state.instCategory.toLowerCase()] || QT.tokens.accent;
+    const W = 880, H = 46 + rows.length * 34;
+    d3.select("#chart-institutions").selectAll("*").remove();
+    const c = QT.chart("#chart-institutions", { W, H, margin: { t: 6, r: 70, b: 26, l: 260 } });
+    const x = d3.scaleLinear().domain([0, d3.max(rows, d => d.collaborations) * 1.05 || 1]).range([0, c.iw]);
+    const y = d3.scaleBand().domain(rows.map(d => d.entity)).range([0, c.ih]).padding(0.3);
+
+    c.gGrid.selectAll("line").data(x.ticks(4)).join("line").attr("class", "gridline")
+      .attr("y1", 0).attr("y2", c.ih).attr("x1", d => x(d)).attr("x2", d => x(d));
+    c.gPlot.selectAll("rect").data(rows, d => d.entity).join("rect")
+      .attr("x", 0).attr("y", d => y(d.entity)).attr("height", y.bandwidth()).attr("rx", 2)
+      .attr("fill", color).attr("fill-opacity", 0.9).attr("width", d => x(d.collaborations))
+      .on("mousemove", (e, d) => tt.show(
+        `<div class="hd">${d.entity}</div>` +
+        `<div class="row"><span class="k">Type</span><span class="v">${d.type || d.category}</span></div>` +
+        `<div class="row"><span class="k">City</span><span class="v">${d.city || "—"}</span></div>` +
+        `<div class="row"><span class="k">Collaborations</span><span class="v">${QT.fmt.int(d.collaborations)}</span></div>`, e))
+      .on("mouseleave", tt.hide);
+    c.gPlot.selectAll("text.bar-val").data(rows, d => d.entity).join("text")
+      .attr("class", "bar-val").attr("dy", "0.32em")
+      .attr("y", d => y(d.entity) + y.bandwidth() / 2).attr("x", d => x(d.collaborations) + 6)
+      .text(d => QT.fmt.int(d.collaborations));
+    c.gx.call(d3.axisBottom(x).ticks(4).tickSizeOuter(0));
+    c.gy.call(d3.axisLeft(y).tickSizeOuter(0)).call(g => g.select(".domain").remove());
+  }
+
   /* The institution research/government/industry split panel was REMOVED 2026-09-08.
      It was mock, it was not informative ("i think we didn't really like" it), and
      dropping it frees the row so the archetype scatter can take the full panel width
@@ -355,6 +399,27 @@ QT.boot(async function () {
     const c = QT.chart("#chart-archetype2", { W, H, margin: { t: 10, r: 14, b: 30, l: 40 } });
     const x = d3.scaleLinear().domain([0, 100]).range([0, c.iw]);
     const y = d3.scaleLinear().domain([0, 100]).range([c.ih, 0]);
+
+    // Quadrant tints + corner labels, added 2026-09-18 so the four archetypes read
+    // at a glance instead of only on hover — a faint fill in each archetype's own
+    // colour (palette.archetype), at just enough opacity to separate the quadrants
+    // without competing with the dots. Kept out of gPlot (which the hover targets
+    // use) so the tints never intercept a mousemove meant for a dot.
+    const QUADRANTS = [
+      { key: "Domestic Commercialiser", x0: 0, x1: x(THRESH), y0: 0, y1: y(THRESH), lx: 8, ly: 16, anchor: "start" },
+      { key: "Global Hub", x0: x(THRESH), x1: c.iw, y0: 0, y1: y(THRESH), lx: c.iw - 8, ly: 16, anchor: "end" },
+      { key: "Emerging Ecosystem", x0: 0, x1: x(THRESH), y0: y(THRESH), y1: c.ih, lx: 8, ly: c.ih - 10, anchor: "start" },
+      { key: "Research Networker", x0: x(THRESH), x1: c.iw, y0: y(THRESH), y1: c.ih, lx: c.iw - 8, ly: c.ih - 10, anchor: "end" },
+    ];
+    c.g.selectAll("rect.quadrant").data(QUADRANTS, d => d.key).join("rect").attr("class", "quadrant")
+      .attr("x", d => d.x0).attr("y", d => d.y0)
+      .attr("width", d => d.x1 - d.x0).attr("height", d => d.y1 - d.y0)
+      .attr("fill", d => QT.palette.archetype[d.key]).attr("fill-opacity", 0.06);
+    c.g.selectAll("text.quadrant-label").data(QUADRANTS, d => d.key).join("text").attr("class", "quadrant-label")
+      .attr("x", d => d.lx).attr("y", d => d.ly).attr("text-anchor", d => d.anchor)
+      .attr("font-size", 9.5).attr("font-weight", 650).attr("letter-spacing", "0.02em")
+      .attr("fill", d => QT.palette.archetype[d.key]).attr("fill-opacity", 0.75)
+      .text(d => d.key.toUpperCase());
 
     c.g.append("line").attr("x1", x(THRESH)).attr("x2", x(THRESH)).attr("y1", 0).attr("y2", c.ih).attr("class", "gridline");
     c.g.append("line").attr("x1", 0).attr("x2", c.iw).attr("y1", y(THRESH)).attr("y2", y(THRESH)).attr("class", "gridline");
@@ -377,7 +442,7 @@ QT.boot(async function () {
   // ---------- Panel 4: RCA horizontal bars (MOCK) ----------
   function rcaPanel() {
     const p = profileByName.get(state.country);
-    d3.select("#ttl-rca").html(`Figure 6: National specialisation — ${state.country} <span id="badge-rca">${QT.mockBadge()}</span>`);
+    d3.select("#ttl-rca").html(`Figure 7: National specialisation — ${state.country} <span id="badge-rca">${QT.mockBadge()}</span>`);
     if (!p) return emptyPanel("#chart-rca", noProfileNote());
     const rows = [...p.rca].sort(QT.rank("rca", "domain"));
 
@@ -447,7 +512,7 @@ QT.boot(async function () {
   // ---------- Policy & public programmes (MOCK, curated flagship list) ----------
   function policiesPanel() {
     const list = policyByCountry.get(state.country) || [];
-    d3.select("#ttl-policy").html(`Figure 4: Policy and public programmes — ${state.country} <span id="badge-policy">${QT.mockBadge()}</span>`);
+    d3.select("#ttl-policy").html(`Figure 5: Policy and public programmes — ${state.country} <span id="badge-policy">${QT.mockBadge()}</span>`);
     const body = d3.select("#policy-body");
     body.selectAll("*").remove();
     if (!list.length) {
@@ -465,11 +530,12 @@ QT.boot(async function () {
     card.append("div").attr("class", "policy-desc").text(d => d.note);
   }
 
-  function render() { kpis(); rankedBars(); instrumentPie(); networkPanel(); policiesPanel(); archetypePanel(); rcaPanel(); }
+  function render() { kpis(); rankedBars(); instrumentPie(); networkPanel(); institutionsPanel(); policiesPanel(); archetypePanel(); rcaPanel(); }
 
   sel.on("change", function () { state.country = this.value; render(); });
   // Only Figure 1 depends on these, so they redraw that panel rather than the page.
   QT.segControl("#seg-source-country", "data-s", v => { state.source = v; rankedBars(); });
   QT.segControl("#seg-measure-country", "data-v", v => { state.measure = v; rankedBars(); });
+  QT.segControl("#seg-category-institutions", "data-c", v => { state.instCategory = v; institutionsPanel(); });
   render();
 });
