@@ -1,0 +1,14 @@
+{
+  "meta": {
+    "data_vintage": "2026-Q3",
+    "mock": true,
+    "source_note": "Illustrative placeholder — quasi-cluster funding by region is not yet in the tracker's pipeline. Occasional Paper 15/2025 published quasi-cluster COUNTS by region only (see quasi_cluster_pipeline.json), not dollar figures, so there is no real quasi-cluster funding total to read yet. Modelled loosely as a share of each region's company funding that sits outside its named clusters; do not cite. Cluster funding and each region's total company funding are real (funding_by_cluster.json / funding_by_country.json) -- only the quasi-cluster split is a placeholder, pending a future data update."
+  },
+  "data": [
+    { "region": "US", "quasi_funding": 1198168449 },
+    { "region": "China", "quasi_funding": 44364100 },
+    { "region": "EU", "quasi_funding": 758827213 },
+    { "region": "UK+AUS+CAN", "quasi_funding": 366993490 },
+    { "region": "RoW", "quasi_funding": 110663897 }
+  ]
+}

@@ -34,6 +34,7 @@ window.QT = (function () {
                                    // kept clearly off the blue sequential ramp below so it doesn't
                                    // read as "just a paler funding class" next to the lowest bin
     noDataBorder:      "#B7B0A2", // legend swatch border for the no-data key
+    heatmapLow:          "#eef2f6", // single-hue heatmap low end (Clusters Figure 5) — pairs with accent as the high end
     clusterBubble:       "#F5C544", // world-map cluster bubble fill
     clusterBubbleStroke: "#5a3c00", // world-map cluster bubble stroke
   };
@@ -246,6 +247,12 @@ svg{display:block;width:100%;height:auto;overflow:visible;}
 .panel{border:none;border-radius:0;background:none;padding:22px 0 0;border-top:1px solid var(--line);}
 .panel .ttl{font-size:14px;font-weight:650;letter-spacing:-.005em;margin:0 0 2px;display:flex;align-items:center;gap:8px;flex-wrap:wrap;}
 .panel .why{font-size:12px;color:var(--muted);line-height:1.45;margin:0 0 10px;max-width:760px;}
+/* Sub-heading for a second block within one panel (e.g. Figure 3's "New entrants" /
+   "Downgraded" split) -- smaller and quieter than .ttl, which stays reserved for the
+   figure title itself. */
+.subttl{font-size:11px;font-weight:650;letter-spacing:.04em;text-transform:uppercase;
+  color:var(--muted);margin:14px 0 6px;}
+.subttl:first-of-type{margin-top:2px;}
 @media (max-width:760px){ .panels.g2{grid-template-columns:1fr;} }
 
 /* ---------- mock/illustrative data badge ---------- */
@@ -291,6 +298,7 @@ svg{display:block;width:100%;height:auto;overflow:visible;}
 .rtable th.sorted{color:var(--ink);}
 .rtable th .arrow{opacity:.55;}
 .rtable td.num,.rtable th.num{text-align:right;font-variant-numeric:tabular-nums;}
+.rtable td.ctr,.rtable th.ctr{text-align:center;}
 .rtable tbody tr:hover{background:var(--panel);}
 .rtable tbody tr.sel{background:color-mix(in srgb, ${tokens.accent} 10%, transparent);}
 .rtable .flag{margin-right:5px;vertical-align:-1px;border-radius:1px;box-shadow:0 0 0 0.5px color-mix(in srgb, ${tokens.ink} 15%, transparent);}
@@ -331,6 +339,10 @@ svg{display:block;width:100%;height:auto;overflow:visible;}
   border:1px solid color-mix(in srgb, ${tokens.teal} 45%, transparent);
   background:color-mix(in srgb, ${tokens.teal} 10%, transparent);border-radius:20px;padding:2px 8px;}
 .rtable .grad-pill{margin-left:6px;padding:1px 7px;font-size:9px;}
+/* Downgrade cards mirror the "NEW" graduate cards but in rust, not teal, so the two
+   groups of Figure 3 read as opposites at a glance rather than needing the label text. */
+.grad-pill-down{color:${tokens.rust};border-color:color-mix(in srgb, ${tokens.rust} 45%, transparent);
+  background:color-mix(in srgb, ${tokens.rust} 10%, transparent);}
 
 /* ---------- in-map zoom controls (clusters map) ---------- */
 .mapzoom{position:absolute;top:10px;right:10px;display:flex;flex-direction:column;gap:5px;z-index:4;}
