@@ -6,14 +6,17 @@
 QT.boot(async function () {
   QT.nav("#nav", "countries");
 
-  const [country, profile, policies, gov, collabCountry] = await Promise.all([
+  const [country, profile, policies, gov, collabCountry, countryInstrument] = await Promise.all([
     QT.loadData("funding_by_country"),
     QT.loadData("mock_country_profile"),
     QT.loadData("mock_country_policies"),
     QT.loadData("government_funding"),
     QT.loadData("collab_by_country"),
+    QT.loadData("funding_by_country_instrument"),
     QT.loadFlags(),
   ]);
+  const INSTRUMENT_KEYS = ["VC / private equity", "Debt", "Grant", "Public equity"];
+  const instrumentByCountry = new Map(countryInstrument.data.map(d => [d.country, d]));
   // Real per-country collaboration figures, so tiles 5 and 6 mirror the Overview's
   // definitions with actual data instead of the mock profile's `institutions` count:
   // `entities` is every institution in the collaboration graph for that country and
@@ -279,6 +282,65 @@ QT.boot(async function () {
       .text(d => d === BREAK ? "⋯" : `${rankByName.get(d)}. ${d}`);
   }
 
+  // ---------- Panel 2: company funding by financing instrument, pie (REAL) ----------
+  function instrumentPie() {
+    const row = instrumentByCountry.get(state.country);
+    const total = row ? d3.sum(INSTRUMENT_KEYS, k => row[k]) : 0;
+    const SERIES = INSTRUMENT_KEYS
+      .map(k => ({ key: k, label: k, color: QT.palette.instrument[k], value: row ? row[k] : 0 }))
+      .filter(d => d.value > 0);
+
+    QT.legend("#legend-instrument-country", INSTRUMENT_KEYS.map(k =>
+      ({ key: k, label: k, color: QT.palette.instrument[k] })));
+
+    if (!total) return emptyPanel("#chart-instrument-country",
+      `${state.country} has no recorded company funding by instrument.`);
+
+    const W = 880, H = 300, R = 118;
+    d3.select("#chart-instrument-country").selectAll("*").remove();
+    const c = QT.chart("#chart-instrument-country", { W, H, margin: { t: 10, r: 10, b: 10, l: 10 } });
+    // Centred in the left half of the panel width, same proportions as the other
+    // full-width charts — leaves the right two-thirds free rather than stretching
+    // the pie itself, which just makes the slices harder to compare by eye.
+    const cx = W * 0.28, cy = H / 2;
+    const g = c.svg.append("g").attr("transform", `translate(${cx},${cy})`);
+
+    const pie = d3.pie().sort(null).value(d => d.value);
+    const arc = d3.arc().innerRadius(0).outerRadius(R);
+    const hoverArc = d3.arc().innerRadius(0).outerRadius(R + 6);
+
+    g.selectAll("path").data(pie(SERIES), d => d.data.key).join("path")
+      .attr("fill", d => d.data.color)
+      .attr("stroke", QT.tokens.bg).attr("stroke-width", 1.5)
+      .attr("d", arc)
+      .on("mousemove", (e, d) => {
+        d3.select(e.currentTarget).attr("d", hoverArc);
+        tt.show(
+          `<div class="hd">${d.data.label}</div>` +
+          `<div class="row"><span class="k">Amount</span><span class="v">${QT.fmt.money(d.data.value)}</span></div>` +
+          `<div class="row"><span class="k">Share</span><span class="v">${QT.fmt.pct1(d.data.value / total)}</span></div>`, e);
+      })
+      .on("mouseleave", (e) => { d3.select(e.currentTarget).attr("d", arc); tt.hide(); });
+
+    g.append("text").attr("text-anchor", "middle").attr("dy", "-0.2em")
+      .attr("font-size", 18).attr("font-weight", 700).attr("fill", QT.tokens.ink)
+      .text(QT.fmt.axisMoney(total));
+    g.append("text").attr("text-anchor", "middle").attr("dy", "1.3em")
+      .attr("font-size", 10.5).attr("fill", QT.tokens.muted).text("Total company funding");
+
+    // Labels for slices wide enough to hold one — the same "only if it fits"
+    // rule Figure 4's founding-split bar uses, rather than crowding a thin
+    // wedge (e.g. Debt) with a share label that overlaps its neighbours.
+    g.selectAll("text.slice-val").data(pie(SERIES).filter(d => (d.endAngle - d.startAngle) > 0.35), d => d.data.key)
+      .join("text").attr("class", "slice-val")
+      .attr("transform", d => `translate(${arc.centroid(d)})`)
+      .attr("text-anchor", "middle").attr("dy", "0.32em")
+      .attr("font-size", 11).attr("font-weight", 600).attr("fill", "#fff")
+      .text(d => QT.fmt.pct0(d.data.value / total));
+
+    d3.select("#mocknote-instrument").style("display", "none");
+  }
+
   /* The institution research/government/industry split panel was REMOVED 2026-09-08.
      It was mock, it was not informative ("i think we didn't really like" it), and
      dropping it frees the row so the archetype scatter can take the full panel width
@@ -315,7 +377,7 @@ QT.boot(async function () {
   // ---------- Panel 4: RCA horizontal bars (MOCK) ----------
   function rcaPanel() {
     const p = profileByName.get(state.country);
-    d3.select("#ttl-rca").html(`Figure 5: National specialisation — ${state.country} <span id="badge-rca">${QT.mockBadge()}</span>`);
+    d3.select("#ttl-rca").html(`Figure 6: National specialisation — ${state.country} <span id="badge-rca">${QT.mockBadge()}</span>`);
     if (!p) return emptyPanel("#chart-rca", noProfileNote());
     const rows = [...p.rca].sort(QT.rank("rca", "domain"));
 
@@ -342,7 +404,7 @@ QT.boot(async function () {
   // ---------- Collaboration: connectedness + top partners (MOCK) ----------
   function networkPanel() {
     const p = profileByName.get(state.country);
-    d3.select("#ttl-network").html(`Figure 2: Collaboration: global connectedness and top partners — ${state.country} <span id="badge-network">${QT.mockBadge()}</span>`);
+    d3.select("#ttl-network").html(`Figure 3: Collaboration: global connectedness and top partners — ${state.country} <span id="badge-network">${QT.mockBadge()}</span>`);
     if (!p) return emptyPanel("#chart-network", noProfileNote());
     const partners = [...p.top_partners].sort(QT.rank("score", "country"));
 
@@ -385,7 +447,7 @@ QT.boot(async function () {
   // ---------- Policy & public programmes (MOCK, curated flagship list) ----------
   function policiesPanel() {
     const list = policyByCountry.get(state.country) || [];
-    d3.select("#ttl-policy").html(`Figure 3: Policy and public programmes — ${state.country} <span id="badge-policy">${QT.mockBadge()}</span>`);
+    d3.select("#ttl-policy").html(`Figure 4: Policy and public programmes — ${state.country} <span id="badge-policy">${QT.mockBadge()}</span>`);
     const body = d3.select("#policy-body");
     body.selectAll("*").remove();
     if (!list.length) {
@@ -403,7 +465,7 @@ QT.boot(async function () {
     card.append("div").attr("class", "policy-desc").text(d => d.note);
   }
 
-  function render() { kpis(); rankedBars(); networkPanel(); policiesPanel(); archetypePanel(); rcaPanel(); }
+  function render() { kpis(); rankedBars(); instrumentPie(); networkPanel(); policiesPanel(); archetypePanel(); rcaPanel(); }
 
   sel.on("change", function () { state.country = this.value; render(); });
   // Only Figure 1 depends on these, so they redraw that panel rather than the page.
