@@ -3,7 +3,7 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Quantum Technologies Tracker — Companies</title>
+<title>Quantum Technologies Tracker – Companies</title>
 <!-- theme.js self-injects the stylesheet on load, so it belongs in <head>: from the
      end of <body> the CSS arrived after first paint and every tab switch flashed
      unstyled HTML. -->
@@ -17,8 +17,8 @@
   <!-- Deliberately says nothing about coverage or completeness. The previous subtitle
        ("Every tracked quantum company: what it raised, where it came from...") advertised
        the shape of the private database, which Elena does not want to reveal. -->
-  <p class="sub">Who is building quantum technologies, what they have raised, and where they
-  came from.</p>
+  <p class="sub">Explore the companies raising capital in quantum technologies: how they were
+  founded, where they sit in the technology stack, and which are publicly listed.</p>
   <div class="vintage" id="vintage"></div>
 
   <div class="kpis" id="kpis"></div>
@@ -35,7 +35,7 @@
       funding. Use the pillar selector to view the top companies across the five quantum
       technology pillars, and the range buttons to browse the ranking 10 companies at a time.</p>
       <div class="controls">
-        <div class="ctl"><label>Technology pillar</label><div class="chiprow" id="pillar-top"></div></div>
+        <div class="ctl"><label>Technology pillar</label><select id="pillar-top"></select></div>
         <div class="ctl"><label>Ranking</label><div class="chiprow" id="bracket-top"></div></div>
       </div>
       <svg id="chart-top" role="img" aria-label="Top quantum companies by funding"></svg>
@@ -51,8 +51,9 @@
       <svg id="chart-founded" role="img" aria-label="Quantum companies by founded year"></svg>
       <p class="note" style="margin-top:8px;padding-top:8px;">Chart starts at
       <span id="founded-from"></span>; a handful of older companies predate it. The most recent
-      year is partial, and recent years may be underestimated as companies take time to raise
-      funding, emerge from stealth and be captured in the database.</p>
+      year is partial, updated as of the latest quarter, and recent years may be underestimated
+      as companies take time to raise funding, emerge from stealth and be captured in the
+      database.</p>
     </div>
 
     <div class="panel span2">
@@ -80,10 +81,6 @@
       institutional.</p>
       <svg id="chart-origin" role="img" aria-label="Companies by founding origin"></svg>
       <div class="legend legend-center" id="legend-origin"></div>
-      <p class="note" style="margin-top:8px;padding-top:8px;">A blank origin in the source data
-      means <b>not a spinout</b> — the controlled vocabulary lists only non-organic origins, so an
-      independently founded company is recorded by the absence of one. This is a complete split,
-      not a coverage gap.</p>
     </div>
 
     <div class="panel span2">
@@ -110,9 +107,9 @@
       and grouped by the region of its headquarters. Market capitalisation is as of
       <span id="mcap-asof"></span>. Hover for more information.</p>
       <div id="chart-mcap"></div>
-      <p class="note" style="margin-top:8px;padding-top:8px;">Only listed companies appear here —
+      <p class="note" style="margin-top:8px;padding-top:8px;">Only listed companies appear here –
       <span id="mcap-count"></span> of the tracked total. The other companies are private, so no
-      market capitalisation exists to plot. <span id="mcap-override-note"></span></p>
+      market capitalisation exists to plot.</p>
     </div>
 
     <div class="panel span2">
