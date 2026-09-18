@@ -310,9 +310,16 @@ QT.boot(async function () {
     const cx = W * 0.28, cy = H / 2;
     const g = c.svg.append("g").attr("transform", `translate(${cx},${cy})`);
 
+    // Donut, not a full pie: the centre total-funding label used to sit directly on
+    // top of whichever slice happened to reach the middle (usually the dominant
+    // instrument's colour), which made it unreadable regardless of what text colour
+    // was picked. An empty centre gives the label a plain background instead of a
+    // moving target, and d3.arc().centroid() for a slice still lands inside the ring
+    // rather than at the pie's centre, so it can never collide with the label.
+    const INNER = R * 0.58;
     const pie = d3.pie().sort(null).value(d => d.value);
-    const arc = d3.arc().innerRadius(0).outerRadius(R);
-    const hoverArc = d3.arc().innerRadius(0).outerRadius(R + 6);
+    const arc = d3.arc().innerRadius(INNER).outerRadius(R);
+    const hoverArc = d3.arc().innerRadius(INNER).outerRadius(R + 6);
 
     g.selectAll("path").data(pie(SERIES), d => d.data.key).join("path")
       .attr("fill", d => d.data.color)
