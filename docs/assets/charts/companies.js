@@ -62,16 +62,16 @@ QT.boot(async function () {
   const REGION_OF = (await QT.loadData("country_codes")).regions || {};
 
   // ---------- KPI strip ----------
-  /* Four tiles, and deliberately not the same six as the Overview and Countries tabs.
+  /* Three tiles, and deliberately not the same six as the Overview and Countries tabs.
      Elena weighed removing them here entirely -- "then the clusters would be the only
      one without, needs a little thinking over" -- and the resolution is that this tab's
      tiles answer questions about COMPANIES, which the shared six do not. What has gone
-     is "Funding rounds recorded" and "Institutions of origin": both quantify how
-     densely the private database is populated rather than telling the reader anything
-     about the sector, which is the same reason the tab subtitle no longer claims to
-     cover "every tracked quantum company". */
+     is "Funding rounds recorded" and "Institutions of origin" (2026-09-08), and now also
+     "Quantum companies" (2026-09-18): all three quantify how densely the private database
+     is populated rather than telling the reader anything about the sector, which is the
+     same reason the tab subtitle no longer claims to cover "every tracked quantum
+     company" and never states a total company count anywhere on this tab. */
   QT.kpis("#kpis", [
-    { v: QT.fmt.int(rows.length), k: "Quantum companies" },
     { v: QT.fmt.axisMoney(d3.sum(rows, d => d.total_funding)), k: "Total company funding" },
     { v: QT.fmt.int(rows.filter(d => d.ownership_status === "Public").length), k: "Publicly listed" },
     { v: QT.fmt.int(new Set(rows.map(d => d.country).filter(Boolean)).size), k: "Countries represented" },
@@ -225,16 +225,14 @@ QT.boot(async function () {
     });
 
     d3.select("#mcap-count").text(`${QT.fmt.int(listed.length)} of ${QT.fmt.int(rows.length)}`);
-    // Market cap moves with the market, not with the data vintage, so the subtitle
-    // dates it explicitly rather than letting the reader assume the quarter label
-    // applies to it.
-    d3.select("#mcap-asof").text(QT.fmt.vintage(manifest.data_vintage));
-    const overridden = listed.filter(d => d.market_cap_is_override);
-    d3.select("#mcap-override-note").html(overridden.length
-      ? `<b>${overridden.length} figure${overridden.length > 1 ? "s" : ""} (${overridden.map(d => d.company).join(", ")}) ` +
-        `are recorded manually</b> because the workbook's live market-data cells did not resolve. ` +
-        `Market capitalisation also moves daily and is not fixed to the data vintage above.`
-      : `Market capitalisation moves daily and is not fixed to the data vintage above.`);
+    // Market cap moves with the market, not with the data vintage, so this states the
+    // actual calendar date this quarter's figures were captured (`manifest.built_at_utc`,
+    // set automatically the moment Stage 1 runs against the refreshed workbook -- see
+    // the runbook's market-cap-refresh step) rather than the quarter label, which would
+    // otherwise imply a precision ("as of Q3 2026") the daily-moving figure doesn't have.
+    // No separate reader-facing note is needed for this any more: one real date, stated
+    // once, replaces the old vintage placeholder and the manual-override disclosure below.
+    d3.select("#mcap-asof").text(QT.fmt.date(manifest.built_at_utc));
   })();
 
   /* ---------- Panel 2: parent institutions ---------- */
@@ -366,10 +364,9 @@ QT.boot(async function () {
       state.page = Math.max(0, Math.min(state.page, pages - 1));
       const rs = list.slice(state.page * BRACKET, state.page * BRACKET + BRACKET);
 
-      d3.select("#pillar-top").selectAll(".chip").data(["All", ...PILLARS], d => d).join("span")
-        .attr("class", "chip").classed("on", d => d === state.pillar)
-        .text(d => d)
-        .on("click", (e, d) => { state.pillar = d; state.page = 0; render(); });
+      d3.select("#pillar-top").selectAll("option").data(["All", ...PILLARS], d => d).join("option")
+        .attr("value", d => d).text(d => d);
+      d3.select("#pillar-top").property("value", state.pillar);
 
       // Buttons read 1–10 / 11–20 / 21–30, and shrink with the list: a pillar with 14
       // companies gets two brackets, not three with an empty one.
@@ -412,6 +409,9 @@ QT.boot(async function () {
       QT.flagAxis(c.gy, name => countryOf.get(name) || "");
     }
 
+    d3.select("#pillar-top").on("change", function () {
+      state.pillar = this.value; state.page = 0; render();
+    });
     render();
   })();
 
@@ -530,10 +530,13 @@ QT.boot(async function () {
     let acc = 0;
     const laid = segs.map(sg => { const o = { ...sg, x0: acc }; acc += sg.n; return o; });
 
+    // Shares, not raw counts -- consistent with the rest of this tab, which never
+    // states how many companies the tracker holds in total (see the KPI strip and
+    // the tab subtitle).
     c.g.append("text").attr("x", 0).attr("y", -12).attr("font-size", 11)
       .attr("fill", QT.tokens.muted)
-      .text(`${QT.fmt.int(inst.length)} came out of an institution · `
-            + `${QT.fmt.int(indep)} were founded independently`);
+      .text(`${QT.fmt.pct0(inst.length / rows.length)} came out of an institution · `
+            + `${QT.fmt.pct0(indep / rows.length)} were founded independently`);
 
     c.g.selectAll("rect.seg").data(laid, d => d.key).join("rect").attr("class", "seg")
       .attr("x", d => x(d.x0)).attr("y", 0).attr("height", 34).attr("rx", 2)

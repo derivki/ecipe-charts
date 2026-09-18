@@ -115,6 +115,13 @@ window.QT = (function () {
       const m = /^(\d{4})-Q(\d)$/.exec(v || "");
       return m ? `Q${m[2]} ${m[1]}` : v;
     },
+    // An ISO datetime (e.g. manifest.built_at_utc) -> "18 September 2026". Used
+    // where a panel needs the actual calendar date data was captured, not just
+    // the quarter label -- market cap, which moves daily, is the current case.
+    date: v => {
+      const d = new Date(v);
+      return isNaN(d) ? v : d.toLocaleDateString("en-GB", { day: "numeric", month: "long", year: "numeric" });
+    },
   };
 
   // ── Ordering ──────────────────────────────────────────────────────────────
@@ -220,16 +227,19 @@ svg{display:block;width:100%;height:auto;overflow:visible;}
 .trustedby-chip{font-size:11.5px;color:var(--muted);background:var(--panel);border-radius:6px;padding:5px 11px;font-style:italic;}
 
 /* ---------- KPI tile strip ---------- */
-/* Fixed six-across grid on every tab that uses it (Overview, Countries). auto-fit
-   sizes columns from their content, so every change of country/page visibly
-   resized all six tiles; Elena asked that they stay put whatever is selected.
-   Tiles are sized small enough that six across still fits the ~797px usable
-   width of the WordPress embed, so this only collapses to 3 then 2 on genuinely
-   narrow (tablet/phone) viewports rather than mid-size desktop windows. */
-.kpis{display:grid;grid-template-columns:repeat(6,1fr);gap:8px;margin:18px 0 24px;}
+/* Base .kpis auto-fits its column count to however many tiles a page actually has
+   (Companies: 3; Clusters doesn't use this strip at all) -- collapsing to fewer,
+   wider tracks with auto-fit rather than leaving empty ones the way a fixed
+   repeat(6,1fr) would for a page with fewer than six tiles. Tiles are sized small
+   enough that six still fit across the ~797px usable width of the WordPress embed. */
+.kpis{display:grid;grid-template-columns:repeat(auto-fit,minmax(110px,1fr));gap:8px;margin:18px 0 24px;}
+/* .kpis-fixed (Overview, Countries): six-across, ALWAYS, whatever the page has to
+   show. auto-fit sizes columns from their own content, so on the Countries tab every
+   change of country visibly resized all six tiles; Elena asked that they stay put
+   whatever is selected. */
 .kpis-fixed{grid-template-columns:repeat(6,1fr);}
-@media (max-width:640px){.kpis, .kpis-fixed{grid-template-columns:repeat(3,1fr);}}
-@media (max-width:420px){.kpis, .kpis-fixed{grid-template-columns:repeat(2,1fr);}}
+@media (max-width:640px){.kpis-fixed{grid-template-columns:repeat(3,1fr);}}
+@media (max-width:420px){.kpis-fixed{grid-template-columns:repeat(2,1fr);}}
 .archetype-line{font-size:12px;color:var(--muted);margin:-14px 0 22px;}
 .kpi{border:none;border-radius:10px;padding:9px 10px;background:color-mix(in srgb, ${tokens.accent} 5%, ${tokens.panel});}
 .kpi .v{font-size:15px;font-weight:700;letter-spacing:-.02em;font-variant-numeric:tabular-nums;color:var(--ink);}
