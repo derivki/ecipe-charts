@@ -7,69 +7,69 @@
   "data": [
     {
       "country": "US",
-      "companies": 176,
+      "companies": 185,
       "clusters": 9,
-      "total_funding": 23862565398.02,
-      "public_funding": 12732757960.99,
-      "private_funding": 11129807437.03,
+      "total_funding": 24967086437.07,
+      "public_funding": 12520008229.04,
+      "private_funding": 12447078208.03,
       "gdp": 30769700000000.0,
-      "funding_to_gdp": 0.0007755215487321046,
-      "private_funding_to_gdp": 0.00036171322557684626
+      "funding_to_gdp": 0.0008114179350813053,
+      "private_funding_to_gdp": 0.00040452387277197655
     },
     {
       "country": "China",
-      "companies": 51,
+      "companies": 62,
       "clusters": 5,
-      "total_funding": 6154948964.36,
+      "total_funding": 6385986364.36,
       "public_funding": 2143908106.04,
-      "private_funding": 4011040858.32,
+      "private_funding": 4242078258.32,
       "gdp": 19498039388042.61,
-      "funding_to_gdp": 0.00031567014723228755,
-      "private_funding_to_gdp": 0.00020571508645016978
+      "funding_to_gdp": 0.0003275194104018802,
+      "private_funding_to_gdp": 0.0002175643496197624
     },
     {
       "country": "UK",
-      "companies": 79,
+      "companies": 83,
       "clusters": 5,
-      "total_funding": 2070108212.74,
-      "public_funding": 487192461.78,
-      "private_funding": 1582915750.96,
+      "total_funding": 2073731856.38,
+      "public_funding": 489045641.33,
+      "private_funding": 1584686215.04,
       "gdp": 4002587541846.0146,
-      "funding_to_gdp": 0.0005171924888822189,
-      "private_funding_to_gdp": 0.00039547311193263837
+      "funding_to_gdp": 0.0005180978141509089,
+      "private_funding_to_gdp": 0.0003959154418177166
     },
     {
       "country": "Canada",
-      "companies": 72,
+      "companies": 75,
       "clusters": 3,
-      "total_funding": 1719150719.43,
-      "public_funding": 631039024.54,
+      "total_funding": 1719798668.24,
+      "public_funding": 631686973.35,
       "private_funding": 1088111694.89,
       "gdp": 2319899772425.92,
-      "funding_to_gdp": 0.0007410452554298796,
+      "funding_to_gdp": 0.000741324555776171,
       "private_funding_to_gdp": 0.0004690339245791044
     },
     {
       "country": "France",
-      "companies": 46,
+      "companies": 50,
       "clusters": 2,
-      "total_funding": 1415095300.74,
-      "public_funding": 138255340.21,
-      "private_funding": 1276839960.53,
+      "total_funding": 1448030473.39,
+      "public_funding": 151000668.33,
+      "private_funding": 1297029805.06,
       "gdp": 3366315927447.3286,
-      "funding_to_gdp": 0.00042036913089485233,
-      "private_funding_to_gdp": 0.0003792989095639119
+      "funding_to_gdp": 0.000430152874714679,
+      "private_funding_to_gdp": 0.0003852965179182801
     },
     {
       "country": "Finland",
-      "companies": 16,
+      "companies": 18,
       "clusters": 1,
-      "total_funding": 1326820207.72,
-      "public_funding": 376102423.54,
-      "private_funding": 950717784.18,
+      "total_funding": 1367436486.31,
+      "public_funding": 395482445.12,
+      "private_funding": 971954041.19,
       "gdp": 317039368819.6074,
-      "funding_to_gdp": 0.004185032958706112,
-      "private_funding_to_gdp": 0.002998737310495817
+      "funding_to_gdp": 0.004313144110161911,
+      "private_funding_to_gdp": 0.003065720338802573
     },
     {
       "country": "Spain",
@@ -84,14 +84,14 @@
     },
     {
       "country": "Switzerland",
-      "companies": 22,
+      "companies": 23,
       "clusters": 1,
-      "total_funding": 896109082.06,
-      "public_funding": 723180946.36,
-      "private_funding": 172928135.7,
+      "total_funding": 899694952.06,
+      "public_funding": 724250416.36,
+      "private_funding": 175444535.7,
       "gdp": 1043529899250.9229,
-      "funding_to_gdp": 0.0008587287079210284,
-      "private_funding_to_gdp": 0.0001657145960303897
+      "funding_to_gdp": 0.0008621649966201583,
+      "private_funding_to_gdp": 0.0001681260266964457
     },
     {
       "country": "Israel",
@@ -106,25 +106,25 @@
     },
     {
       "country": "Germany",
-      "companies": 51,
+      "companies": 56,
       "clusters": 4,
-      "total_funding": 777719593.41,
-      "public_funding": 229085736.51,
-      "private_funding": 548633856.9,
+      "total_funding": 796115507.51,
+      "public_funding": 235381650.61,
+      "private_funding": 560733856.9,
       "gdp": 5050922925047.052,
-      "funding_to_gdp": 0.000153975739671284,
-      "private_funding_to_gdp": 0.0001086205164959807
+      "funding_to_gdp": 0.00015761782932069649,
+      "private_funding_to_gdp": 0.00011101611828590254
     },
     {
       "country": "Netherlands",
       "companies": 30,
       "clusters": 1,
-      "total_funding": 731807723.42,
-      "public_funding": 127552137.97,
+      "total_funding": 731831379.42,
+      "public_funding": 127575793.97,
       "private_funding": 604255585.45,
       "gdp": 1332767651100.3904,
-      "funding_to_gdp": 0.0005490887498740992,
-      "private_funding_to_gdp": 0.00045338404255753094
+      "funding_to_gdp": 0.0005491064994045448,
+      "private_funding_to_gdp": 0.00045338404255753105
     },
     {
       "country": "Australia",
@@ -139,51 +139,51 @@
     },
     {
       "country": "South Korea",
-      "companies": 17,
+      "companies": 35,
       "clusters": 1,
-      "total_funding": 237485577.96,
-      "public_funding": 67143746.05,
-      "private_funding": 170341831.91,
+      "total_funding": 347090961.37,
+      "public_funding": 139213505.62,
+      "private_funding": 207877455.75,
       "gdp": 1872374961553.146,
-      "funding_to_gdp": 0.00012683654868108913,
-      "private_funding_to_gdp": 9.097634576607478e-05
-    },
-    {
-      "country": "Denmark",
-      "companies": 14,
-      "clusters": 1,
-      "total_funding": 221978492.03,
-      "public_funding": 22651732.03,
-      "private_funding": 199326760.0,
-      "gdp": 462526660468.3925,
-      "funding_to_gdp": 0.0004799258313165501,
-      "private_funding_to_gdp": 0.00043095193647463547
-    },
-    {
-      "country": "Singapore",
-      "companies": 15,
-      "clusters": 1,
-      "total_funding": 221393107.79,
-      "public_funding": 148293753.49,
-      "private_funding": 73099354.3,
-      "gdp": 603869516998.738,
-      "funding_to_gdp": 0.00036662408278469643,
-      "private_funding_to_gdp": 0.00012105157197022874
+      "funding_to_gdp": 0.00018537470779102233,
+      "private_funding_to_gdp": 0.00011102341145278108
     },
     {
       "country": "Japan",
+      "companies": 29,
+      "clusters": 1,
+      "total_funding": 247465971.12,
+      "public_funding": 70299412.82,
+      "private_funding": 177166558.3,
+      "gdp": 4435162999976.941,
+      "funding_to_gdp": 5.5796364445577895e-05,
+      "private_funding_to_gdp": 3.994589563019919e-05
+    },
+    {
+      "country": "Denmark",
+      "companies": 16,
+      "clusters": 1,
+      "total_funding": 222628988.03,
+      "public_funding": 22651732.03,
+      "private_funding": 199977256.0,
+      "gdp": 462526660468.3925,
+      "funding_to_gdp": 0.00048133222808369267,
+      "private_funding_to_gdp": 0.000432358333241778
+    },
+    {
+      "country": "Singapore",
       "companies": 17,
       "clusters": 1,
-      "total_funding": 184532972.16,
-      "public_funding": 22637422.16,
-      "private_funding": 161895550.0,
-      "gdp": 4435162999976.941,
-      "funding_to_gdp": 4.160680727160634e-05,
-      "private_funding_to_gdp": 3.6502728310287964e-05
+      "total_funding": 221967307.79,
+      "public_funding": 148867953.49,
+      "private_funding": 73099354.3,
+      "gdp": 603869516998.738,
+      "funding_to_gdp": 0.000367574950453682,
+      "private_funding_to_gdp": 0.00012105157197022874
     },
     {
       "country": "India",
-      "companies": 32,
+      "companies": 34,
       "clusters": 1,
       "total_funding": 123117210.24,
       "public_funding": 9535865.0,
@@ -207,22 +207,22 @@
       "country": "Ireland",
       "companies": 1,
       "clusters": 0,
-      "total_funding": 83881384.67,
-      "public_funding": 3182384.68,
+      "total_funding": 84555665.84,
+      "public_funding": 3856665.84,
       "private_funding": 80699000.0,
       "gdp": 721701359046.3127,
-      "funding_to_gdp": 0.00011622727825515595,
+      "funding_to_gdp": 0.00011716157214334541,
       "private_funding_to_gdp": 0.00011181771932179694
     },
     {
       "country": "Poland",
-      "companies": 11,
+      "companies": 12,
       "clusters": 0,
-      "total_funding": 52969014.09,
-      "public_funding": 46403115.09,
+      "total_funding": 53431915.65,
+      "public_funding": 46866016.65,
       "private_funding": 6565899.0,
       "gdp": 1035491784197.4406,
-      "funding_to_gdp": 5.115348561830232e-05,
+      "funding_to_gdp": 5.160052108981866e-05,
       "private_funding_to_gdp": 6.3408508886324984e-06
     },
     {
@@ -249,13 +249,13 @@
     },
     {
       "country": "Sweden",
-      "companies": 17,
+      "companies": 18,
       "clusters": 0,
-      "total_funding": 15088611.31,
-      "public_funding": 9373395.29,
+      "total_funding": 15090211.81,
+      "public_funding": 9374995.79,
       "private_funding": 5715216.02,
       "gdp": 668998664082.0807,
-      "funding_to_gdp": 2.2554023076773546e-05,
+      "funding_to_gdp": 2.255641545823248e-05,
       "private_funding_to_gdp": 8.542940858319423e-06
     },
     {
@@ -268,6 +268,17 @@
       "gdp": 391026962800.4753,
       "funding_to_gdp": 3.132602394543907e-05,
       "private_funding_to_gdp": 3.132602394543907e-05
+    },
+    {
+      "country": "Taiwan",
+      "companies": 4,
+      "clusters": 0,
+      "total_funding": 11097735.6,
+      "public_funding": 1682735.6,
+      "private_funding": 9415000.0,
+      "gdp": 920050000000.0,
+      "funding_to_gdp": 1.2062100538014238e-05,
+      "private_funding_to_gdp": 1.0233139503287865e-05
     },
     {
       "country": "Belgium",
@@ -304,7 +315,7 @@
     },
     {
       "country": "Chile",
-      "companies": 2,
+      "companies": 3,
       "clusters": 0,
       "total_funding": 2614560.81,
       "public_funding": 614560.81,
@@ -312,17 +323,6 @@
       "gdp": 357371159574.86163,
       "funding_to_gdp": 7.316093474667492e-06,
       "private_funding_to_gdp": 5.596422504768583e-06
-    },
-    {
-      "country": "Taiwan",
-      "companies": 3,
-      "clusters": 0,
-      "total_funding": 2040000.0,
-      "public_funding": 40000.0,
-      "private_funding": 2000000.0,
-      "gdp": 920050000000.0,
-      "funding_to_gdp": 2.217270800499973e-06,
-      "private_funding_to_gdp": 2.1737949024509538e-06
     },
     {
       "country": "Greece",
@@ -359,7 +359,7 @@
     },
     {
       "country": "Russia",
-      "companies": 3,
+      "companies": 4,
       "clusters": 0,
       "total_funding": 509393.06,
       "public_funding": 427973.06,
@@ -424,17 +424,6 @@
       "private_funding_to_gdp": 0.0
     },
     {
-      "country": "Argentina",
-      "companies": 1,
-      "clusters": 0,
-      "total_funding": 0.0,
-      "public_funding": 0.0,
-      "private_funding": 0.0,
-      "gdp": null,
-      "funding_to_gdp": null,
-      "private_funding_to_gdp": null
-    },
-    {
       "country": "Saudi Arabia",
       "companies": 1,
       "clusters": 0,
@@ -447,6 +436,17 @@
     },
     {
       "country": "Pakistan",
+      "companies": 1,
+      "clusters": 0,
+      "total_funding": 0.0,
+      "public_funding": 0.0,
+      "private_funding": 0.0,
+      "gdp": null,
+      "funding_to_gdp": null,
+      "private_funding_to_gdp": null
+    },
+    {
+      "country": "Argentina",
       "companies": 1,
       "clusters": 0,
       "total_funding": 0.0,

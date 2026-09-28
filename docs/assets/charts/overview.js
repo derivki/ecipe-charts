@@ -134,7 +134,7 @@ QT.boot(async function () {
       }
 
       const vYears = visRows().map(d => d.year);
-      c.gx.call(d3.axisBottom(x).tickValues(vYears.filter(yr => yr % 5 === 0 || yr === vYears[0] || yr === vYears[vYears.length - 1] || yr === PARTIAL)).tickSizeOuter(0));
+      c.gx.call(d3.axisBottom(x).tickValues(vYears).tickSizeOuter(0));
       c.gy.call(d3.axisLeft(y).ticks(5).tickFormat(state.scale === "share" ? QT.fmt.pct0 : QT.fmt.axisMoney).tickSizeOuter(0));
 
       QT.legend("#legend-instrument", SERIES, {
