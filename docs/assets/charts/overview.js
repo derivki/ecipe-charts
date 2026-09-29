@@ -408,4 +408,16 @@ QT.boot(async function () {
     regionChips();
     render();
   })();
+
+  // ---------- Figure 6: country collaboration network ----------
+  // Structure is real; betweenness and RCA are mock until the network analysis exists
+  // (see collab_network.js), hence the badge on the title.
+  d3.select("#badge-network").html(QT.mockBadge("Partly illustrative · mock data"));
+  const rc = collabManifest.row_counts;
+  d3.select("#network-acad").text(QT.fmt.pct0(rc.academic_edges / rc.merged_edges));
+  renderCollabNetwork("#network", { mockNoteSelector: "#mocknote-network" }).catch(err => {
+    console.error(err);
+    document.getElementById("network").innerHTML =
+      `<div class="load-error"><p><b>The network couldn't load.</b> <code>${err && err.message || ""}</code></p></div>`;
+  });
 });

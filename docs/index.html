@@ -107,12 +107,29 @@
       combined; debt and grants are excluded from the funding-stage comparison.</p>
     </div>
 
+    <div class="panel span2">
+      <div class="ttl">Figure 6: Country collaboration network <span id="badge-network"></span></div>
+      <p class="why">Countries linked by cross-border collaborations between the institutions and
+      companies in the tracker. Use <b>Collaborations</b> to switch between all collaborations and
+      those involving at least one company, and <b>Minimum collaborations</b> to set how many a
+      country pair needs to be shown. Hover a country to highlight its links.</p>
+      <div id="network"></div>
+      <p class="mocknote" id="mocknote-network"></p>
+      <p class="note" style="margin-top:8px;padding-top:8px;">Each collaboration is one pair of
+      institutions working together, counted once however many publications or announcements
+      support it, and attributed to the two institutions' countries. Domestic collaborations are
+      not shown. About <span id="network-acad"></span> of all collaborations are academic co-authorships, so the
+      <b>All collaborations</b> view mostly maps scientific cooperation; the
+      <b>Involving industry</b> view is the commercial picture.</p>
+    </div>
+
   </div>
 </div>
 
 <script src="assets/chart-template.js"></script>
 <script src="assets/vendor/topojson-client.js"></script>
 <script src="assets/charts/world_map.js"></script>
+<script src="assets/charts/collab_network.js"></script>
 <script src="assets/charts/overview.js"></script>
 </body>
 </html>
