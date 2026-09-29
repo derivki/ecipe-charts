@@ -186,15 +186,14 @@ QT.boot(async function () {
     d3.select("#why-ranked").html(hasSelection
       ? `Where ${state.country} sits among all tracked countries, by `
         + `${S.title}${MEAS.suffix}. The leaders are shown for scale, then the selected `
-        + `country among its own neighbours in the ranking. Use <b>Source</b> to switch `
+        + `country among its own neighbours in the ranking. Use <b>Metric</b> to switch `
         + `between company and government funding, and <b>Measure</b> to switch between `
         + `absolute amounts and share of GDP.`
       : `${state.country} has no recorded ${S.title}${MEAS.suffix}, so it cannot be placed in `
-        + `this ranking. The leaders are shown below for reference. Use <b>Source</b> to switch `
+        + `this ranking. The leaders are shown below for reference. Use <b>Metric</b> to switch `
         + `between company and government funding, and <b>Measure</b> to switch between `
         + `absolute amounts and share of GDP.`);
-    const noDataNote = hasSelection ? "" :
-      `<b>${state.country} has no ${S.title} recorded</b> — showing the leaders only.`;
+    const noDataNote = hasSelection ? "" : `<b>No ${S.title} available.</b>`;
     const govNote = state.source === "government_funding" && govProvisional
       ? "<b>Government figures are provisional.</b> They are Dyuti's government policy "
         + "register alone and do not include any company-side grant or public-equity "
@@ -229,11 +228,14 @@ QT.boot(async function () {
       }
     }
     // A sentinel row carries the break; `country` doubles as the band-scale key,
-    // so it must not collide with a real country name.
-    const BREAK = "─break─";
+    // so it must not collide with a real country name. A second, blank sentinel
+    // ahead of it reserves a full row of white space above the break line and
+    // its label, which otherwise sat pressed right up against the last leader
+    // bar above it.
+    const BREAK = "─break─", BREAK_GAP = "─break-gap─";
     const rows = [];
     blocks.forEach((b, i) => {
-      if (i) rows.push({ country: BREAK, isBreak: true });
+      if (i) rows.push({ country: BREAK_GAP, isBreak: true }, { country: BREAK, isBreak: true });
       rows.push(...b);
     });
     const rankOf = d => byMetric.indexOf(d) + 1;
@@ -251,7 +253,7 @@ QT.boot(async function () {
       .attr("y1", 0).attr("y2", c.ih).attr("x1", d => x(d)).attr("x2", d => x(d));
 
     // The break: a dashed rule across the plot, labelled with what it hides.
-    const brk = rows.find(d => d.isBreak);
+    const brk = rows.find(d => d.country === BREAK);
     if (brk) {
       const my = y(BREAK) + y.bandwidth() / 2;
       c.gPlot.append("line")
@@ -268,7 +270,7 @@ QT.boot(async function () {
       .attr("fill", d => d.country === state.country ? QT.tokens.accent : QT.tokens.line)
       .attr("width", d => x(d[key]))
       .on("mousemove", (e, d) => tt.show(
-        `<div class="hd">${QT.flag(d.country)}${d.country}</div>` +
+        `<div class="hd">${QT.flag(d.country)} ${d.country}</div>` +
         `<div class="row"><span class="k">Rank</span><span class="v">${rankOf(d)} of ${byMetric.length}</span></div>` +
         `<div class="row"><span class="k">${M.label}</span><span class="v">${M.ttfmt(d[key])}</span></div>`, e))
       .on("mouseleave", tt.hide);
@@ -284,11 +286,15 @@ QT.boot(async function () {
       .selectAll("text")
       .attr("font-weight", d => d === state.country ? 700 : 400)
       .attr("fill", d => d === BREAK ? QT.tokens.muted : null)
-      .text(d => d === BREAK ? "⋯" : `${rankByName.get(d)}. ${d}`);
+      .text(d => d === BREAK ? "⋯" : d === BREAK_GAP ? "" : `${rankByName.get(d)}. ${d}`);
   }
 
   // ---------- Panel 2: company funding by financing instrument, pie (REAL) ----------
   function instrumentPie() {
+    d3.select("#why-instrument").html(
+      `How ${state.country}'s company funding splits across VC / private equity, debt, ` +
+      `grant and public equity – the same instrument breakdown as the Overview's Figure 2, for the ` +
+      `selected country alone.`);
     const row = instrumentByCountry.get(state.country);
     const total = row ? d3.sum(INSTRUMENT_KEYS, k => row[k]) : 0;
     const SERIES = INSTRUMENT_KEYS
@@ -304,10 +310,7 @@ QT.boot(async function () {
     const W = 880, H = 300, R = 118;
     d3.select("#chart-instrument-country").selectAll("*").remove();
     const c = QT.chart("#chart-instrument-country", { W, H, margin: { t: 10, r: 10, b: 10, l: 10 } });
-    // Centred in the left half of the panel width, same proportions as the other
-    // full-width charts — leaves the right two-thirds free rather than stretching
-    // the pie itself, which just makes the slices harder to compare by eye.
-    const cx = W * 0.28, cy = H / 2;
+    const cx = W / 2, cy = H / 2;
     const g = c.svg.append("g").attr("transform", `translate(${cx},${cy})`);
 
     // Donut, not a full pie: the centre total-funding label used to sit directly on
@@ -358,6 +361,10 @@ QT.boot(async function () {
   // (mock, uninformative proportions): this ranks actual named institutions within
   // one category by their real collaboration count, from collab_rankings.json.
   function institutionsPanel() {
+    d3.select("#why-institutions").html(
+      `The three most-connected institutions headquartered in ${state.country}, by ` +
+      `recorded collaboration count. Use <b>Category</b> to switch between industry, government ` +
+      `and research institutions.`);
     const rows = (rankingsByCountry.get(state.country) || [])
       .filter(d => d.category === state.instCategory && d.collaborations > 0)
       .sort(QT.rank("collaborations", "entity"))
@@ -477,6 +484,9 @@ QT.boot(async function () {
   function networkPanel() {
     const p = profileByName.get(state.country);
     d3.select("#ttl-network").html(`Figure 3: Collaboration: global connectedness and top partners — ${state.country} <span id="badge-network">${QT.mockBadge()}</span>`);
+    d3.select("#why-network").html(
+      `How globally connected ${state.country}'s quantum ecosystem is (0–100), and the ` +
+      `strength of its three leading collaboration partners.`);
     if (!p) return emptyPanel("#chart-network", noProfileNote());
     const partners = [...p.top_partners].sort(QT.rank("score", "country"));
 
@@ -499,16 +509,27 @@ QT.boot(async function () {
     const x = d3.scaleLinear().domain([0, 1]).range([0, c.iw]);
     const y = d3.scaleBand().domain(partners.map(d => d.country)).range([0, c.ih]).padding(0.4);
 
+    // Flag reserved in front of the label, same [flag][gap][name] slot QT.flagAxis
+    // uses for a real d3 axis -- these ticks are hand-drawn text, not an axis, so the
+    // reserved space is built by hand here instead.
+    const PLABEL_FLAG = 14, PLABEL_GAP = 6;
     c.g.selectAll("text.plabel").data(partners, d => d.country).join("text")
-      .attr("class", "plabel").attr("x", -12).attr("y", d => y(d.country) + y.bandwidth() / 2).attr("dy", "0.32em")
+      .attr("class", "plabel").attr("x", -(12 + PLABEL_FLAG + PLABEL_GAP)).attr("y", d => y(d.country) + y.bandwidth() / 2).attr("dy", "0.32em")
       .attr("text-anchor", "end").style("font-size", "12.5px").attr("fill", QT.tokens.ink).text(d => d.country);
+    c.g.selectAll("image.plabel-flag").data(partners, d => d.country).join("image")
+      .attr("class", "plabel-flag")
+      .attr("href", d => `assets/vendor/flags/${QT.flagCode(d.country)}.png`)
+      .style("display", d => QT.flagCode(d.country) ? null : "none")
+      .attr("width", PLABEL_FLAG).attr("height", Math.round(PLABEL_FLAG * 0.75))
+      .attr("x", -(12 + PLABEL_FLAG)).attr("y", d => y(d.country) + y.bandwidth() / 2 - Math.round(PLABEL_FLAG * 0.75) / 2)
+      .on("error", function () { d3.select(this).style("display", "none"); });
     c.gPlot.selectAll("rect.track").data(partners, d => d.country).join("rect")
       .attr("class", "track").attr("x", 0).attr("y", d => y(d.country)).attr("width", c.iw).attr("height", y.bandwidth())
       .attr("rx", 3).attr("fill", QT.tokens.line).attr("fill-opacity", 0.6);
     c.gPlot.selectAll("rect.fill").data(partners, d => d.country).join("rect")
       .attr("class", "fill").attr("x", 0).attr("y", d => y(d.country)).attr("height", y.bandwidth()).attr("rx", 3)
       .attr("fill", QT.tokens.teal).attr("width", d => x(d.score))
-      .on("mousemove", (e, d) => tt.show(`<div class="hd">${state.country} · ${d.country}</div><div class="row"><span class="k">Partnership strength</span><span class="v">${d.score.toFixed(2)}</span></div>`, e))
+      .on("mousemove", (e, d) => tt.show(`<div class="hd">${state.country} · ${QT.flag(d.country)} ${d.country}</div><div class="row"><span class="k">Partnership strength</span><span class="v">${d.score.toFixed(2)}</span></div>`, e))
       .on("mouseleave", tt.hide);
     c.gPlot.selectAll("text.bar-val").data(partners, d => d.country).join("text")
       .attr("class", "bar-val").attr("dy", "0.32em").attr("y", d => y(d.country) + y.bandwidth() / 2)

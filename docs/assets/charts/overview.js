@@ -268,7 +268,7 @@ QT.boot(async function () {
         .attr("x", 0).attr("y", d => y(d.country)).attr("height", y.bandwidth()).attr("rx", 2)
         .attr("fill", QT.tokens.accent).attr("fill-opacity", 0.9).attr("width", d => x(d[state.metric]))
         .on("mousemove", (e, d) => tt.show(
-          `<div class="hd">${QT.flag(d.country)}${d.country}</div>` +
+          `<div class="hd">${QT.flag(d.country)} ${d.country}</div>` +
           `<div class="row"><span class="k">Rank</span><span class="v">${all.indexOf(d) + 1} of ${all.length}</span></div>` +
           `<div class="row"><span class="k">${METRIC_LABEL[state.metric]}</span><span class="v">${QT.fmt.money(d[state.metric])}</span></div>`, e))
         .on("mouseleave", tt.hide);

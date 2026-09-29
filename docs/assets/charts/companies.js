@@ -58,22 +58,18 @@ QT.boot(async function () {
   };
   const canonCountry = n => CANON[n] || n || "";
 
-  // Country -> the tracker's usual region (US / China / EU / UK+AUS+CAN / RoW).
+  // Country -> the tracker's usual region (US / China / EU / UK+AUS+CAN / RoW, shown to
+  // the reader via QT.regionLabel as "UK, Canada, and Australia" / "Rest of the World").
   const REGION_OF = (await QT.loadData("country_codes")).regions || {};
 
   // ---------- KPI strip ----------
-  /* Three tiles, and deliberately not the same six as the Overview and Countries tabs.
-     Elena weighed removing them here entirely -- "then the clusters would be the only
-     one without, needs a little thinking over" -- and the resolution is that this tab's
-     tiles answer questions about COMPANIES, which the shared six do not. What has gone
-     is "Funding rounds recorded" and "Institutions of origin" (2026-09-08), and now also
-     "Quantum companies" (2026-09-18): all three quantify how densely the private database
-     is populated rather than telling the reader anything about the sector, which is the
-     same reason the tab subtitle no longer claims to cover "every tracked quantum
-     company" and never states a total company count anywhere on this tab. */
+  /* Six tiles (Elena, 2026-09-29), replacing the earlier three. */
   QT.kpis("#kpis", [
     { v: QT.fmt.axisMoney(d3.sum(rows, d => d.total_funding)), k: "Total company funding" },
-    { v: QT.fmt.int(rows.filter(d => d.ownership_status === "Public").length), k: "Publicly listed" },
+    { v: QT.fmt.int(rows.length), k: "Quantum companies" },
+    { v: QT.fmt.int(d3.sum(rows, d => d.n_rounds || 0)), k: "Funding rounds" },
+    { v: QT.fmt.int(rows.filter(d => d.ownership_status === "Public").length), k: "Publicly listed companies" },
+    { v: QT.fmt.axisMoney(d3.sum(listed, d => d.market_cap_usd)), k: "Total market capitalisation" },
     { v: QT.fmt.int(new Set(rows.map(d => d.country).filter(Boolean)).size), k: "Countries represented" },
   ]);
 
@@ -116,7 +112,7 @@ QT.boot(async function () {
       d3.packSiblings(nodes);                       // sets x/y in place from r
       const x0 = d3.min(nodes, n => n.x - n.r), x1 = d3.max(nodes, n => n.x + n.r);
       const y0 = d3.min(nodes, n => n.y - n.r), y1 = d3.max(nodes, n => n.y + n.r);
-      const caption = `${reg.region} · ${QT.fmt.axisMoney(reg.total)}`;
+      const caption = `${QT.regionLabel(reg.region)} · ${QT.fmt.axisMoney(reg.total)}`;
       // 6.1px per character approximates 12px Inter/system-ui at weight 650.
       const labelW = caption.length * 6.1;
       return { reg, nodes, caption, packW: x1 - x0, packH: y1 - y0,
@@ -199,20 +195,25 @@ QT.boot(async function () {
           `<div class="row"><span class="k">Funding raised</span><span class="v">${d.total_funding ? QT.fmt.money(d.total_funding) : "—"}</span></div>` +
           (d.market_cap_is_override ? `<div class="row"><span class="k">Note</span><span class="v">manual figure</span></div>` : ""), e))
         .on("mouseleave", tt.hide);
-      // Label only bubbles that can actually hold the text. Truncation is measured
-      // against the chord available at the label's own font size rather than a flat
-      // character cap, which is what let "Quantum Computing Inc." spill out of its
-      // circle. Anything that still will not fit is left to the tooltip.
+      // Label a bubble only if some form of the name fits inside it. Candidates run from
+      // the full name to progressively shorter forms (legal suffixes, then generic words
+      // such as "Quantum" or "Technologies", dropped); the first that fits the chord at
+      // the bubble's font size wins. If none fits, the bubble is left to its tooltip
+      // rather than showing a clipped name.
+      const LEGAL = /[,\s]+(Inc\.?|Corp\.?|Corporation|Ltd\.?|Limited|plc|PLC|AG|SE|N\.V\.|S\.A\.|Co\.|Holdings?|Group)$/;
+      const GENERIC = /\s+(Quantum|Technologies|Technology|Computing|Computers|Systems|Labs|Solutions)\b/gi;
       const fontFor = d => Math.max(7.5, Math.min(13, d.r * 0.44));
       const fitted = nodes
-        .filter(d => d.r >= 15)
+        .filter(d => d.r >= 12)
         .map(d => {
           const fs = fontFor(d);
-          const maxChars = Math.floor((d.r * 1.7) / (fs * 0.56));
-          if (maxChars < 3) return null;
-          const name = d.company.replace(/\s*\(.*?\)\s*$/, "");   // drop native-script suffix
-          return { ...d, fs,
-                   text: name.length > maxChars ? name.slice(0, maxChars - 1) + "…" : name };
+          const fits = t => t.length * fs * 0.56 <= d.r * 1.7;
+          const full = d.company.replace(/\s*\(.*?\)\s*$/, "");   // drop native-script suffix
+          const noLegal = full.replace(LEGAL, "").replace(LEGAL, "");
+          const core = noLegal.replace(GENERIC, "").trim();
+          const first = core.split(/\s+/)[0];
+          const text = [full, noLegal, core, first].find(t => t && fits(t));
+          return text ? { ...d, fs, text } : null;
         })
         .filter(Boolean);
       gg.selectAll("text.blabel").data(fitted, d => d.company).join("text")
@@ -390,7 +391,7 @@ QT.boot(async function () {
         .attr("x", 0).attr("y", d => y(d.company)).attr("height", y.bandwidth()).attr("rx", 2)
         .attr("fill", QT.tokens.accent).attr("width", d => x(d.total_funding))
         .on("mousemove", (e, d) => tt.show(
-          `<div class="hd">${flagIcon(QT.flagCode(d.country), d.country)}${d.company}</div>` +
+          `<div class="hd">${flagIcon(QT.flagCode(d.country), d.country)} ${d.company}</div>` +
           `<div class="row"><span class="k">Rank</span><span class="v">${list.indexOf(d) + 1} of ${list.length}</span></div>` +
           `<div class="row"><span class="k">Total funding</span><span class="v">${QT.fmt.money(d.total_funding)}</span></div>` +
           `<div class="row"><span class="k">Country</span><span class="v">${d.country || "—"}</span></div>` +

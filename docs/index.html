@@ -25,19 +25,16 @@
       switch between total funding raised by companies and total funding announced or deployed
       by government entities. Scroll or drag to zoom.</p>
       <div class="controls">
-        <div class="ctl"><label>Source</label>
+        <div class="ctl"><label>Metric</label>
           <div class="seg" id="seg-source-map"><button data-s="company" class="on">Company</button><button data-s="government">Government</button></div>
         </div>
       </div>
       <div id="worldmap" style="margin-top:6px;"></div>
-      <p class="mocknote" id="mocknote-map"></p>
       <p class="note" style="margin-top:8px;padding-top:8px;">Company and government funding
-      are two independent measures, not two halves of one total: Company is all funding raised
-      by companies, across every instrument; Government is national and supranational
-      programmes announced or deployed by governments directly. Grants and equity stakes that
-      reach a company are counted once, under Company, and are never included under Government.
-      The underlying world map is a 110m-resolution atlas, so a few very small states
-      (e.g. Singapore) have no polygon to shade.</p>
+      should not be added together, as the two categories may overlap (for example, when
+      governments provide grants, acquire equity stakes directly, or participate in broader
+      financing rounds). The underlying world map is a 110m-resolution atlas, so a few very
+      small states (e.g. Singapore) have no polygon to shade.</p>
     </div>
 
     <div class="panel span2">
@@ -81,8 +78,6 @@
 
     <div class="panel span2">
       <div class="ttl">Figure 4: Top companies by total funding</div>
-      <p class="why">Total funding refers to funding from all instruments: VC / private equity,
-      debt, grant, public equity.</p>
       <svg id="chart-companies" role="img" aria-label="Top companies by total funding"></svg>
       <p class="note" style="margin-top:8px;padding-top:8px;">The ranking reflects cumulative
       funding and may include companies that are now defunct, have been acquired, or have merged

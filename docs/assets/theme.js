@@ -63,6 +63,18 @@ window.QT = (function () {
       "UK+AUS+CAN": "#1f4e79",
       "RoW":        "#7b5ea7",
     },
+    // Display labels for the region keys above. The keys themselves stay the
+    // tracker's internal short codes -- they're the vocabulary the private
+    // source workbook's own "Region" column is validated against
+    // (config.yaml vocab.region), and Overview Figure 5 / funding_by_stage.js
+    // key straight off that raw data, so renaming the keys would silently
+    // break their colour lookup. Charts that need a friendlier label for a
+    // human reader (Clusters Table 1 / Figures 4-5, Companies Figure 6) go
+    // through QT.regionLabel() instead of printing the key directly.
+    regionLabel: {
+      "UK+AUS+CAN": "UK, Canada, and Australia",
+      "RoW":        "Rest of the World",
+    },
     sequential: ["#e8eef4", "#b9cbde", "#7ba0c4", "#3f6fa3", "#1f4e79"],
     // Cluster overall rank — dark blue (best) through to orange (worst), the encoding
     // the Clusters paper (Occasional Paper 15/2025) uses in its own figures. Distinct
@@ -354,6 +366,12 @@ svg{display:block;width:100%;height:auto;overflow:visible;}
 .grad-pill-down{color:${tokens.rust};border-color:color-mix(in srgb, ${tokens.rust} 45%, transparent);
   background:color-mix(in srgb, ${tokens.rust} 10%, transparent);}
 
+/* ---------- clusters map frame ---------- */
+/* Same radial-gradient "ocean" backdrop as the Overview world map's .wm-frame
+   (world_map.js), so the two maps share one look -- this map's SVG sphere/land/
+   graticule are drawn transparent over it rather than filled flat grey. */
+#map-wrap{background:radial-gradient(120% 130% at 32% 0%,#F1F5F9,#FFFFFF 72%);
+  border-radius:8px;overflow:hidden;}
 /* ---------- in-map zoom controls (clusters map) ---------- */
 .mapzoom{position:absolute;top:10px;right:10px;display:flex;flex-direction:column;gap:5px;z-index:4;}
 .mapzoom button{width:28px;height:28px;border-radius:3px;border:1px solid var(--line);background:#fff;
