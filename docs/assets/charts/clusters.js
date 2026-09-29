@@ -198,7 +198,6 @@ QT.boot(async function () {
     const projection = d3.geoNaturalEarth1();
     const path = d3.geoPath(projection);
     projection.fitExtent([[10, 10], [c.iw - 10, c.ih - 14]], { type: "FeatureCollection", features: land });
-    const graticule = d3.geoGraticule().step([30, 30]);
 
     // Same sphere/land/graticule treatment as the Overview world map (world_map.js's
     // .wm-sphere / .wm-country / .wm-graticule) -- transparent ocean over the panel's
@@ -207,9 +206,11 @@ QT.boot(async function () {
     // as the same base map.
     const gZoom = c.g.append("g");
     gZoom.append("path").datum({ type: "Sphere" }).attr("d", path).attr("fill", "none").attr("stroke", "rgba(20,45,80,0.14)").attr("stroke-width", 0.8);
+    // Graticule is drawn BEFORE the land, as in the Overview map, so the grid lines sit
+    // underneath the country borders instead of cutting across them.
+    gZoom.append("path").datum(d3.geoGraticule10()).attr("d", path).attr("fill", "none").attr("stroke", "rgba(20,45,80,0.06)").attr("stroke-width", 0.5);
     gZoom.selectAll("path.land").data(land).join("path").attr("class", "land")
       .attr("d", path).attr("fill", QT.tokens.noData).attr("stroke", "#fff").attr("stroke-width", 0.6);
-    gZoom.append("path").datum(graticule()).attr("d", path).attr("fill", "none").attr("stroke", "rgba(20,45,80,0.06)").attr("stroke-width", 0.5);
 
     const rFund = d3.scaleSqrt().domain([0, d3.max(rankings.data, d => d.total_funding)]).range([4, 26]);
     // Dark blue (best) -> orange (worst), matching the Clusters paper's own figures so
