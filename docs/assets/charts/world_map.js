@@ -122,6 +122,7 @@
       QT.loadData("cluster_coords"),
       QT.loadData("country_codes"),
       fetch("assets/vendor/world-atlas-110m.json").then(r => r.json()),
+      QT.loadFlags(),
     ]);
 
     // Government figures come from the caller (the Overview passes the register-derived
@@ -154,15 +155,26 @@
     // is roughly 4x China and 12x the UK on company funding — so a linear or even a
     // power ramp left every country except the US in the palest two shades and the map
     // read as "the US, and nowhere else". Elena asked for categorical colours "so as
-    // not to have the US dark only". Quantile class intervals spread the classes across
-    // the data rather than across the range, so the middle of the distribution becomes
-    // legible, and the breaks are labelled in the legend so the classes are honest.
-    let scale, rScale;
+    // not to have the US dark only". Quantile (quintile) class intervals did spread the
+    // classes across the data, but the break values themselves were arbitrary raw
+    // figures (e.g. a boundary at "$888") and shifted between the Company and
+    // Government views, which read as noise rather than a real category boundary. These
+    // are instead the same fixed, human-readable funding bands as Clusters' Figure 5
+    // (Elena's spec, backlog AP-50: <$100m / $100-500m / $500m-1bn / $1-5bn / >$5bn),
+    // so a shade means the same thing on every map on the tracker.
+    const BANDS = [
+      { max: 1e8, label: "<$100m" },
+      { max: 5e8, label: "$100-500m" },
+      { max: 1e9, label: "$500m-1bn" },
+      { max: 5e9, label: "$1-5bn" },
+      { max: Infinity, label: ">$5bn" },
+    ].map((b, i) => ({ ...b, color: QT.palette.sequential[i] }));
+    const bandOf = v => BANDS.find(b => v < b.max) || BANDS[BANDS.length - 1];
+    let rScale;
     function rebuildScales() {
-      scale = QT.binnedScale(shaped.map(d => d[metric] || 0), { bins: 5 });
       rScale = d3.scaleSqrt().domain([0, d3.max(clusters, d => d.company_funding || 0) || 1]).range([3, 26]);
     }
-    const fundColour = f => scale.color(f);
+    const fundColour = f => (f > 0 ? bandOf(f).color : QT.tokens.noData);
 
     const W = 1180, H = 560;
     const svg = frame.append("svg").attr("viewBox", `0 0 ${W} ${H}`).attr("preserveAspectRatio", "xMidYMid meet")
@@ -189,7 +201,11 @@
       .on("mousemove", (e, d) => {
         const name = d.properties.name;
         const rec = countryByAtlasName.get(name);
-        const hd = `<div class="hd">${name}</div>`;
+        // The tooltip should read the way the tracker itself refers to a country
+        // (the data's own short forms -- "US", "UK" -- not the topojson atlas's
+        // full name), so it matches every other tooltip and label on the site.
+        const trackerLabel = trackerName.get(name) || name;
+        const hd = `<div class="hd">${QT.flag(trackerLabel)} ${trackerLabel}</div>`;
         const row = (k, v) => `<div class="row"><span class="k">${k}</span><span class="v">${v}</span></div>`;
 
         if (metric === "government_funding") {
@@ -240,14 +256,9 @@
       if (bubbleSel) bubbleSel.attr("r", d => rScale(d.company_funding || 0));
       // Discrete swatches with their class bounds, so the reader can tell which band a
       // country is in. A continuous gradient bar cannot label a binned scale honestly.
-      const bounds = [0, ...scale.breaks];
-      const swatches = scale.colors.map((col, i) => {
-        const lo = bounds[i], hi = scale.breaks[i];
-        const label = hi == null ? `${QT.fmt.axisMoney(lo)}+`
-                    : i === 0 ? `< ${QT.fmt.axisMoney(hi)}`
-                    : `${QT.fmt.axisMoney(lo)}–${QT.fmt.axisMoney(hi)}`;
-        return `<div class="wm-lg-row"><span class="wm-lg-sw" style="background:${col}"></span>${label}</div>`;
-      }).join("");
+      const swatches = BANDS.map(b =>
+        `<div class="wm-lg-row"><span class="wm-lg-sw" style="background:${b.color}"></span>${b.label}</div>`
+      ).join("");
       legend.html(
         `<div class="lg-title">${M.title}</div>` +
         swatches +

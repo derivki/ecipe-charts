@@ -259,6 +259,11 @@
   /** Lowercase ISO-2 for a tracker country name, or "" if unknown. */
   QT.flagCode = function (country) { return (FLAG_CODES[country] || "").toLowerCase(); };
 
+  /** Human-readable label for a region key ("UK+AUS+CAN" -> "UK, Canada, and
+      Australia"), via QT.palette.regionLabel. Falls through to the key itself
+      for "US" / "China" / "EU", which are already display-ready. */
+  QT.regionLabel = function (region) { return (QT.palette.regionLabel || {})[region] || region; };
+
   /** Put a flag in front of each label on a categorical SVG axis.
    *
    *  The HTML <img> from QT.flag() cannot go inside an <svg> axis tick, so this appends

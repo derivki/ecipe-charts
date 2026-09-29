@@ -35,7 +35,7 @@
       <div class="ttl" id="ttl-ranked">Figure 1: Country comparison</div>
       <p class="why" id="why-ranked"></p>
       <div class="controls">
-        <div class="ctl"><label>Source</label>
+        <div class="ctl"><label>Metric</label>
           <div class="seg" id="seg-source-country"><button data-s="company_funding" class="on">Company</button><button data-s="government_funding">Government</button></div>
         </div>
         <div class="ctl"><label>Measure</label>
@@ -48,27 +48,21 @@
 
     <div class="panel span2">
       <div class="ttl" id="ttl-instrument">Figure 2: Company funding by financing instrument</div>
-      <p class="why">How this country's company funding splits across VC / private equity, debt,
-      grant and public equity – the same instrument breakdown as the Overview's Figure 2, for the
-      selected country alone.</p>
-      <div class="legend" id="legend-instrument-country"></div>
+      <p class="why" id="why-instrument"></p>
+      <div class="legend legend-center" id="legend-instrument-country"></div>
       <svg id="chart-instrument-country" role="img" aria-label="Company funding by financing instrument"></svg>
       <p class="mocknote" id="mocknote-instrument"></p>
     </div>
 
     <div class="panel span2">
       <div class="ttl" id="ttl-network">Figure 3: Collaboration: global connectedness and top partners <span id="badge-network"></span></div>
-      <p class="why">How globally connected this country's quantum ecosystem is (0–100), and the
-      strength of its three leading collaboration partners.</p>
+      <p class="why" id="why-network"></p>
       <svg id="chart-network" role="img" aria-label="Connectedness and top collaboration partners"></svg>
-      <p class="mocknote" id="mocknote-network"></p>
     </div>
 
     <div class="panel span2">
-      <div class="ttl" id="ttl-institutions">Figure 4: Top institutions by number of collaborations</div>
-      <p class="why">The three most-connected institutions headquartered in this country, by
-      recorded collaboration count. Use <b>Category</b> to switch between industry, government
-      and research institutions.</p>
+      <div class="ttl" id="ttl-institutions">Figure 4: Top 3 institutions by number of collaborations</div>
+      <p class="why" id="why-institutions"></p>
       <div class="controls">
         <div class="ctl"><label>Category</label>
           <div class="seg" id="seg-category-institutions"><button data-c="Industry" class="on">Industry</button><button data-c="Government">Government</button><button data-c="Research">Research</button></div>

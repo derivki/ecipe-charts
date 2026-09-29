@@ -56,13 +56,20 @@ QT.boot(async function () {
          data's own region strings could not express that — Israel and Singapore both
          sit in a catch-all "Other" there.
        • The RANKING TABLE uses the usual US / China / EU / UK+AUS+CAN / RoW, looked up
-         per country from country_codes.json. See `usualRegion` below. */
+         per country from country_codes.json (see `usualRegion` below) and shown to the
+         reader via QT.regionLabel as "UK, Canada, and Australia" / "Rest of the World". */
+  // padFactor scales the padding added around each region's framed extent (as a
+  // fraction of that extent's width/height) -- smaller means a tighter zoom. Europe
+  // and Oceania's bounds are unusually wide relative to where their clusters actually
+  // sit (stretched to reach Israel and Singapore respectively -- see below), so the
+  // default 0.4 left both regions looking barely zoomed in at all; Elena asked for a
+  // closer view on exactly these two.
   const AREAS = [
     { key: "World",         bounds: null },
-    { key: "Europe",        bounds: [[-11, 28], [42, 71]] },   // west of Ireland to Israel
+    { key: "Europe",        bounds: [[-11, 28], [42, 71]], padFactor: 0.22 },   // west of Ireland to Israel
     { key: "North America", bounds: [[-140, 14], [-52, 60]] },
     { key: "East Asia",     bounds: [[100, 20], [146, 46]] },
-    { key: "Oceania",       bounds: [[100, -47], [180, 2]] },  // includes Singapore
+    { key: "Oceania",       bounds: [[100, -47], [180, 2]], padFactor: 0.15 },  // includes Singapore
   ];
   const REGIONS = AREAS.map(a => a.key);
   const inArea = (d, key) => {
@@ -166,7 +173,8 @@ QT.boot(async function () {
       x0 = d3.min(corners, p => p[0]); x1 = d3.max(corners, p => p[0]);
       y0 = d3.min(corners, p => p[1]); y1 = d3.max(corners, p => p[1]);
     }
-    const padX = (x1 - x0) * 0.4 + 48, padY = (y1 - y0) * 0.4 + 48;
+    const padFactor = (AREAS.find(a => a.key === state.region) || {}).padFactor ?? 0.4;
+    const padX = (x1 - x0) * padFactor + 48, padY = (y1 - y0) * padFactor + 48;
     x0 -= padX; x1 += padX; y0 -= padY; y1 += padY;
     const k = Math.max(1, Math.min(8, 0.95 * Math.min(iw / (x1 - x0), ih / (y1 - y0))));
     return d3.zoomIdentity.translate(iw / 2 - k * (x0 + x1) / 2, ih / 2 - k * (y0 + y1) / 2).scale(k);
@@ -192,11 +200,16 @@ QT.boot(async function () {
     projection.fitExtent([[10, 10], [c.iw - 10, c.ih - 14]], { type: "FeatureCollection", features: land });
     const graticule = d3.geoGraticule().step([30, 30]);
 
+    // Same sphere/land/graticule treatment as the Overview world map (world_map.js's
+    // .wm-sphere / .wm-country / .wm-graticule) -- transparent ocean over the panel's
+    // own radial-gradient background (#map-wrap in theme.js) with a faint navy sphere
+    // outline, rather than this map's old flat grey ocean fill, so the two maps read
+    // as the same base map.
     const gZoom = c.g.append("g");
-    gZoom.append("path").datum({ type: "Sphere" }).attr("d", path).attr("fill", QT.tokens.panel).attr("stroke", "none");
+    gZoom.append("path").datum({ type: "Sphere" }).attr("d", path).attr("fill", "none").attr("stroke", "rgba(20,45,80,0.14)").attr("stroke-width", 0.8);
     gZoom.selectAll("path.land").data(land).join("path").attr("class", "land")
-      .attr("d", path).attr("fill", QT.tokens.noData).attr("stroke", "#fff").attr("stroke-width", 0.5);
-    gZoom.append("path").datum(graticule()).attr("d", path).attr("fill", "none").attr("stroke", QT.tokens.line).attr("stroke-width", 0.6);
+      .attr("d", path).attr("fill", QT.tokens.noData).attr("stroke", "#fff").attr("stroke-width", 0.6);
+    gZoom.append("path").datum(graticule()).attr("d", path).attr("fill", "none").attr("stroke", "rgba(20,45,80,0.06)").attr("stroke-width", 0.5);
 
     const rFund = d3.scaleSqrt().domain([0, d3.max(rankings.data, d => d.total_funding)]).range([4, 26]);
     // Dark blue (best) -> orange (worst), matching the Clusters paper's own figures so
@@ -220,7 +233,7 @@ QT.boot(async function () {
     legend.html(
       `<div class="lg-title">Overall rank</div>` +
       `<div class="lg-bar" style="background:linear-gradient(to right, ${QT.palette.clusterRank.join(",")})"></div>` +
-      `<div class="lg-scale"><span>1 (best)</span><span>${N} (lowest)</span></div>`);
+      `<div class="lg-scale"><span>Highest</span><span>Lowest</span></div>`);
 
     // Several real clusters (e.g. Washington/New York/Boston/Toronto, or
     // Shenzhen/Hefei/Beijing) sit close enough together that at world-map
@@ -277,10 +290,10 @@ QT.boot(async function () {
       .attr("cx", d => d.px).attr("cy", d => d.py)
       .attr("r", d => rFund(d.total_funding))
       .attr("fill", d => colorScale(d.overall_rank)).attr("fill-opacity", 0.85)
-      .attr("stroke", d => d.cluster === state.selected ? QT.tokens.ink : "#fff")
+      .attr("stroke", QT.tokens.ink)
       .attr("stroke-width", d => d.cluster === state.selected ? 2.5 : 1)
       .on("mousemove", (e, d) => tt.show(
-        `<div class="hd">${flagIcon(d.country_code, d.country)}${d.cluster}</div>` +
+        `<div class="hd">${flagIcon(d.country_code, d.country)} ${d.cluster}</div>` +
         `<div class="row"><span class="k">Total funding</span><span class="v">${QT.fmt.money(d.total_funding)}</span></div>` +
         `<div class="row"><span class="k">Quantum companies</span><span class="v">${QT.fmt.int(d.companies)}</span></div>` +
         `<div class="row"><span class="k">Overall rank</span><span class="v">${d.overall_rank} of ${N}</span></div>`, e))
@@ -347,12 +360,13 @@ QT.boot(async function () {
       d.rank_2025 == null ? '<span class="dim">—</span>' : d.rank_2025,
       `${d.cluster}${d.graduated ? ' <span class="grad-pill">NEW</span>' : ''}`,
       `${flagIcon(d.country_code, d.country)} ${d.country || ""}`,
-      d.usual_region,
+      QT.regionLabel(d.usual_region),
       d.market_rank, d.collab_rank, d.maturity_rank,
     ]).join("td")
       // Region (index 4) is a short categorical code (US/EU/China/...), unlike the
       // free-text Cluster/Country columns either side of it -- left-aligning it in
-      // a column wide enough for "UK+AUS+CAN" left it stranded against the left
+      // a column wide enough for its displayed label ("UK, Canada, and Australia", via
+      // QT.regionLabel) left it stranded against the left
       // rule with a lot of dead space to its right, which read as misaligned even
       // though it technically matched its header's alignment. Centring it (header
       // too, via the "ctr" class on the <th> in clusters.html) gives it its own
@@ -379,7 +393,7 @@ QT.boot(async function () {
   function renderShareTime() {
     const rowsT = shareTime.data.filter(r => r.year >= shareWin[0] && r.year <= shareWin[1]);
     const SERIES = [
-      { key: "cluster", label: "In a named cluster", color: QT.tokens.accent },
+      { key: "cluster", label: "In a ranked cluster", color: QT.tokens.accent },
       { key: "other", label: "Elsewhere", color: QT.tokens.line },
     ];
     const st = d3.stack().keys(["cluster", "other"])(rowsT.map(r => ({ year: r.year, cluster: r.cluster_share, other: 1 - r.cluster_share })));
@@ -430,9 +444,9 @@ QT.boot(async function () {
     const quasiByRegion = new Map(quasiFunding.data.map(d => [d.region, d.quasi_funding]));
 
     const SERIES = [
-      { key: "cluster", label: "In a named cluster", color: QT.tokens.accent },
+      { key: "cluster", label: "In a ranked cluster", color: QT.tokens.accent },
       { key: "quasi", label: "In a quasi-cluster", color: QT.tokens.gold },
-      { key: "other", label: "Other company funding", color: QT.tokens.line },
+      { key: "other", label: "Elsewhere", color: QT.tokens.line },
     ];
 
     const rs = REGION_ORDER.map(region => {
@@ -445,7 +459,7 @@ QT.boot(async function () {
 
     const W = 880, H = 40 + rs.length * 46;
     d3.select("#chart-pipeline").selectAll("*").remove();
-    const c = QT.chart("#chart-pipeline", { W, H, margin: { t: 24, r: 90, b: 6, l: 130 } });
+    const c = QT.chart("#chart-pipeline", { W, H, margin: { t: 24, r: 90, b: 6, l: 190 } });
     const x = d3.scaleLinear().domain([0, 1]).range([0, c.iw]);
     const y = d3.scaleBand().domain(rs.map(r => r.region)).range([0, c.ih]).padding(0.35);
 
@@ -468,7 +482,7 @@ QT.boot(async function () {
         .attr("class", `seg-${s.key}`).attr("y", d => y(d.data.region)).attr("height", y.bandwidth())
         .attr("x", d => x(d[0])).attr("width", d => Math.max(0, x(d[1]) - x(d[0]))).attr("fill", s.color)
         .on("mousemove", (e, d) => tt.show(
-          `<div class="hd">${d.data.region}</div>` +
+          `<div class="hd">${QT.regionLabel(d.data.region)}</div>` +
           `<div class="row"><span class="k">${s.label}</span><span class="v">${QT.fmt.money(d.data.raw[s.key])} ` +
           `(${QT.fmt.pct1(d.data.raw.total ? d.data.raw[s.key] / d.data.raw.total : 0)})</span></div>`, e))
         .on("mouseleave", tt.hide);
@@ -479,7 +493,7 @@ QT.boot(async function () {
       .attr("dy", "0.32em").style("font-size", "11.5px").style("font-weight", 700).style("fill", QT.tokens.ink)
       .text(r => QT.fmt.axisMoney(r.total) + " total");
 
-    c.gy.call(d3.axisLeft(y).tickSizeOuter(0)).call(g => g.select(".domain").remove());
+    c.gy.call(d3.axisLeft(y).tickSizeOuter(0).tickFormat(QT.regionLabel)).call(g => g.select(".domain").remove());
     QT.legend("#legend-pipeline", SERIES);
   }
 
@@ -511,7 +525,8 @@ QT.boot(async function () {
   function renderBands() {
     // US / China / EU / UK+AUS+CAN / RoW, in the site's own canonical order
     // (QT.palette.region's key order) -- not sorted by count, so the axis reads
-    // the same way every other region chart on the tracker does.
+    // the same way every other region chart on the tracker does. Displayed via
+    // QT.regionLabel below.
     const REGION_ORDER = Object.keys(QT.palette.region);
     const counts = new Map(REGION_ORDER.map(r => [r, Object.fromEntries(BANDS.map(b => [b.key, 0]))]));
     fundingByCluster.data.forEach(d => {
@@ -528,7 +543,7 @@ QT.boot(async function () {
 
     const W = 880, H = 46 + rs.length * 44;
     d3.select("#chart-bands").selectAll("*").remove();
-    const c = QT.chart("#chart-bands", { W, H, margin: { t: 30, r: 4, b: 6, l: 130 } });
+    const c = QT.chart("#chart-bands", { W, H, margin: { t: 30, r: 4, b: 6, l: 190 } });
     const x = d3.scaleBand().domain(BANDS.map(b => b.key)).range([0, c.iw]).paddingInner(0.12).paddingOuter(0.02);
     const y = d3.scaleBand().domain(rs.map(r => r.region)).range([0, c.ih]).padding(0.16);
 
@@ -545,7 +560,7 @@ QT.boot(async function () {
       .attr("width", x.bandwidth()).attr("height", y.bandwidth())
       .attr("fill", d => d.count === 0 ? QT.tokens.panel : cellColor(d.count))
       .on("mousemove", (e, d) => tt.show(
-        `<div class="hd">${d.region}</div>` +
+        `<div class="hd">${QT.regionLabel(d.region)}</div>` +
         `<div class="row"><span class="k">${d.band.label}</span><span class="v">${d.count} ` +
         `cluster${d.count === 1 ? "" : "s"}</span></div>`, e))
       .on("mouseleave", tt.hide);
@@ -556,7 +571,7 @@ QT.boot(async function () {
       .style("pointer-events", "none")
       .text(d => d.count === 0 ? "0" : d.count);
 
-    c.gy.call(d3.axisLeft(y).tickSizeOuter(0)).call(g => g.select(".domain").remove());
+    c.gy.call(d3.axisLeft(y).tickSizeOuter(0).tickFormat(QT.regionLabel)).call(g => g.select(".domain").remove());
   }
 
   // ---------- new entrants: graduated quasi-clusters (featured strip) ----------
@@ -584,7 +599,7 @@ QT.boot(async function () {
     card.append("div").attr("class", "grad-name").html(d => `${flagIcon(d.country_code, d.country)} ${d.cluster}`);
     // The usual region (EU / US / ...), not the map's geographical area.
     card.append("div").attr("class", "grad-meta")
-      .text(d => `${d.usual_region} · ${QT.fmt.money(d.total_funding)}`
+      .text(d => `${QT.regionLabel(d.usual_region)} · ${QT.fmt.money(d.total_funding)}`
                  + (d.from_tier ? ` · from ${d.from_tier}` : ""));
   }
 
@@ -614,10 +629,10 @@ QT.boot(async function () {
     const card = grid.selectAll(".grad-card").data(downs, d => d.cluster).join("div")
       .attr("class", "grad-card")
       .on("click", (e, d) => { state.selected = d.cluster; renderSelection(); });
-    card.append("span").attr("class", "grad-pill grad-pill-down").html("&#8595; Downgraded");
+    card.append("span").attr("class", "grad-pill grad-pill-down").html("&#8595; Downgrade");
     card.append("div").attr("class", "grad-name").html(d => `${flagIcon(d.country_code, d.country)} ${d.cluster}`);
     card.append("div").attr("class", "grad-meta")
-      .text(d => `${d.usual_region} · ${QT.fmt.money(d.total_funding)}`
+      .text(d => `${QT.regionLabel(d.usual_region)} · ${QT.fmt.money(d.total_funding)}`
                  + (d.to_tier ? ` · to ${d.to_tier}` : ""));
   }
 
