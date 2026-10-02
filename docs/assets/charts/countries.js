@@ -34,7 +34,6 @@ QT.boot(async function () {
   const govByCountry = QT.govByCountry(gov.data);
   const govProvisional = !!gov.meta.provisional;
   QT.vintage("#vintage", country.meta);
-  document.getElementById("mocknote-policy").innerHTML = policies.meta.source_note;
   ["badge-archetype2", "badge-rca", "badge-network"].forEach(id => {
     const el = document.getElementById(id);
     if (el) el.innerHTML = QT.mockBadge();
@@ -537,10 +536,10 @@ QT.boot(async function () {
     c.gx.call(d3.axisBottom(x).ticks(5).tickFormat(d3.format(".1f")).tickSizeOuter(0));
   }
 
-  // ---------- Policy & public programmes (MOCK, curated flagship list) ----------
+  // ---------- Policy & public programmes (curated flagship list; no mock badge on the page) ----------
   function policiesPanel() {
     const list = policyByCountry.get(state.country) || [];
-    d3.select("#ttl-policy").html(`Figure 5: Policy and public programmes – ${state.country} <span id="badge-policy">${QT.mockBadge()}</span>`);
+    d3.select("#ttl-policy").html(`Figure 5: Policy and public programmes – ${state.country}`);
     const body = d3.select("#policy-body");
     body.selectAll("*").remove();
     if (!list.length) {
