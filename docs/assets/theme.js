@@ -319,14 +319,11 @@ svg{display:block;width:100%;height:auto;overflow:visible;}
   cursor:pointer;user-select:none;white-space:normal;line-height:1.35;vertical-align:bottom;}
 .rtable th.sorted{color:var(--ink);}
 .rtable th .arrow{opacity:.55;}
-/* Hairline black outline on every flag so white-dominated flags (Japan, etc.) do not dissolve into the page. */
-img.flag{outline:0.5px solid #000;outline-offset:-0.5px;}
-rect.flag-border{fill:none;stroke:#000;stroke-width:0.5;pointer-events:none;}
 .rtable td.num,.rtable th.num{text-align:right;font-variant-numeric:tabular-nums;}
 .rtable td.ctr,.rtable th.ctr{text-align:center;}
 .rtable tbody tr:hover{background:var(--panel);}
 .rtable tbody tr.sel{background:color-mix(in srgb, ${tokens.accent} 10%, transparent);}
-.rtable .flag{margin-right:5px;vertical-align:-1px;border-radius:1px;}
+.rtable .flag{margin-right:5px;vertical-align:-1px;border-radius:1px;box-shadow:0 0 0 0.5px color-mix(in srgb, ${tokens.ink} 15%, transparent);}
 /* ---------- year-range time slider ---------- */
 /* track, range, handles and labels all use left:<pct>% of the same content box,
    so the 9px side margins keep the end handles from clipping the panel edge. */
@@ -357,7 +354,7 @@ rect.flag-border{fill:none;stroke:#000;stroke-width:0.5;pointer-events:none;}
   display:flex;flex-direction:column;gap:5px;cursor:pointer;transition:box-shadow .12s,background .12s;}
 .grad-card:hover{box-shadow:inset 0 0 0 1.5px ${tokens.teal};background:var(--panel);}
 .grad-card .grad-name{font-size:13px;font-weight:650;color:var(--ink);line-height:1.25;}
-.grad-card .grad-name .flag{margin-right:5px;vertical-align:-1px;border-radius:1px;}
+.grad-card .grad-name .flag{margin-right:5px;vertical-align:-1px;border-radius:1px;box-shadow:0 0 0 0.5px color-mix(in srgb, ${tokens.ink} 15%, transparent);}
 .grad-card .grad-meta{font-size:11.5px;color:var(--muted);font-variant-numeric:tabular-nums;}
 .grad-pill{display:inline-flex;align-items:center;gap:3px;align-self:flex-start;font-size:9.5px;font-weight:700;
   letter-spacing:.05em;text-transform:uppercase;color:${tokens.teal};white-space:nowrap;
