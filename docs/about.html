@@ -208,8 +208,8 @@
   d3.select("#cite-year").text(String(manifest.data_vintage).slice(0, 4));
   d3.select("#cite-version").text(manifest.data_vintage);
   d3.select("#cite-date").text(new Date().toLocaleDateString("en-US", { year: "numeric", month: "long", day: "numeric" }));
-  const url = "https://derivki.github.io/ecipe-charts/";
-  d3.select("#cite-url").html(`<a href="${url}" target="_blank" rel="noopener">${url}</a>`);
+  // Placeholder until the tracker's page on ecipe.org is live (then swap in the real URL).
+  d3.select("#cite-url").text("[URL of the tracker page on ecipe.org]");
 })();
 </script>
 </body>
