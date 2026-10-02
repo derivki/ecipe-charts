@@ -164,10 +164,21 @@
     </section>
 
     <section class="about-section">
-      <h2>Contact &amp; citation</h2>
+      <h2>Authors, contact &amp; citation</h2>
       <p>
-        Questions about the data or methodology can be directed to ECIPE. Please cite this
-        tracker as: <i>ECIPE, Quantum Technologies Tracker</i>, accessed <span id="cite-date"></span>.
+        The tracker is produced by ECIPE's
+        <b><a href="https://ecipe.org/person/andrea-dugo/" target="_blank" rel="noopener">Andrea Dugo</a></b> (Economist),
+        <b><a href="https://ecipe.org/person/elena-sisto/" target="_blank" rel="noopener">Elena Sisto</a></b> (Economist) and
+        <b><a href="https://ecipe.org/person/dyuti-pandya/" target="_blank" rel="noopener">Dyuti Pandya</a></b> (Analyst).
+        Questions about the data or methodology can be directed to ECIPE.
+      </p>
+      <p style="margin-top:10px;">
+        <b>How to cite.</b> Please cite this tracker as:
+      </p>
+      <p class="cite" style="margin-top:6px;padding-left:2em;text-indent:-2em;">
+        Dugo, A., Sisto, E., &amp; Pandya, D. (<span id="cite-year"></span>). <i>Quantum Technologies Tracker</i>
+        (Version <span id="cite-version"></span>) [Data set]. ECIPE.
+        Retrieved <span id="cite-date"></span>, from <span id="cite-url"></span>
       </p>
     </section>
 
@@ -193,7 +204,12 @@
   d3.select("#trustedby-about").html(
     `<span class="trustedby-chip">ECIPE</span><span class="trustedby-chip">Partner logo</span><span class="trustedby-chip">Partner logo</span>`
   );
-  d3.select("#cite-date").text(QT.fmt.vintage(manifest.data_vintage));
+  // APA 7: the tracker is updated quarterly, so the citation carries a version and a retrieval date.
+  d3.select("#cite-year").text(String(manifest.data_vintage).slice(0, 4));
+  d3.select("#cite-version").text(manifest.data_vintage);
+  d3.select("#cite-date").text(new Date().toLocaleDateString("en-US", { year: "numeric", month: "long", day: "numeric" }));
+  const url = "https://derivki.github.io/ecipe-charts/";
+  d3.select("#cite-url").html(`<a href="${url}" target="_blank" rel="noopener">${url}</a>`);
 })();
 </script>
 </body>
