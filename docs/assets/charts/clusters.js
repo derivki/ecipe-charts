@@ -1,12 +1,12 @@
-/* Cluster dashboard (Layer 2) — map + sortable ranking table + detail bars +
+/* Cluster dashboard (Layer 2) – map + sortable ranking table + detail bars +
    clusters-vs-non-clusters share over time.
    Real: cluster names, company counts, funding, real-world coordinates
-   (docs/data/mock_cluster_rankings.json — only the 3 dimension scores are mock).
+   (docs/data/mock_cluster_rankings.json – only the 3 dimension scores are mock).
    Mock: market/collaboration/maturity dimension scores, and the historical path
-   of the share-over-time chart (its final-year value is real — see
+   of the share-over-time chart (its final-year value is real – see
    docs/data/mock_cluster_share_time.json meta.source_note).
    The table and map show each cluster's RANK (1 = best of 15) on every pillar,
-   not the raw 0-100 score — ranking is a more defensible read of an illustrative
+   not the raw 0-100 score – ranking is a more defensible read of an illustrative
    placeholder score than an arbitrarily-weighted composite would be. The overall
    rank is simply the average of the three pillar ranks (no weighting). */
 QT.boot(async function () {
@@ -23,7 +23,7 @@ QT.boot(async function () {
     QT.loadFlags(),
   ]);
   // Flags now come from the shared QT.flag() (chart-template.js) rather than a private
-  // copy in this file — three more panels needed them after Elena's 2026-09-08 list.
+  // copy in this file – three more panels needed them after Elena's 2026-09-08 list.
   const flagIcon = (code, country) => QT.flag(country, { code });
   const land = topojson.feature(worldTopo, worldTopo.objects.countries).features.filter(f => f.properties.name !== "Antarctica");
   QT.vintage("#vintage", { data_vintage: rankings.meta.data_vintage });
@@ -46,14 +46,14 @@ QT.boot(async function () {
   const N = rankings.data.length;
 
   /* GEOGRAPHICAL AREAS (the map's zoom buttons) are NOT the tracker's regions.
-     Elena drew this distinction deliberately — "I called them geographical areas and
-     not regions on purpose in the map subtitle" — so the two live apart here:
+     Elena drew this distinction deliberately – "I called them geographical areas and
+     not regions on purpose in the map subtitle" – so the two live apart here:
 
        • These five drive the map only, and are defined by LON/LAT BOUNDS rather than by
          the dataset's `region` field. Bounds are what let her requirements hold: Europe
          is drawn wide enough to include Israel, and Oceania wide enough to include
          Singapore, so every cluster is reachable from some button. Classifying by the
-         data's own region strings could not express that — Israel and Singapore both
+         data's own region strings could not express that – Israel and Singapore both
          sit in a catch-all "Other" there.
        • The RANKING TABLE uses the usual US / China / EU / UK+AUS+CAN / RoW, looked up
          per country from country_codes.json (see `usualRegion` below) and shown to the
@@ -105,7 +105,7 @@ QT.boot(async function () {
   // ---------- rank each cluster on every pillar, once, from the full 15-cluster
   // set (not the region-filtered view) so a pillar rank always reads "n of 15"
   // regardless of which region chip is active. Overall rank = average of the
-  // three pillar ranks — no weights.
+  // three pillar ranks – no weights.
   (function assignRanks(data) {
     DIMS.forEach(dim => {
       [...data].sort(QT.rank(dim.key, "cluster"))
@@ -128,7 +128,7 @@ QT.boot(async function () {
 
   // The map's region chips zoom the map ONLY. They used to also filter the ranking
   // table (and were wired to re-render the share-over-time chart, which never even
-  // read `state.region`) — picking "Oceania" silently emptied Table 1 along with it,
+  // read `state.region`) – picking "Oceania" silently emptied Table 1 along with it,
   // which is not what a map zoom control should do. `mapRows()` feeds the map;
   // `tableRows()` always sees the full 15-cluster set, sorted only.
   function mapRows() {
@@ -153,7 +153,7 @@ QT.boot(async function () {
   // ---------- map ----------
   // Compute the d3.zoom transform that frames a region's clusters. "All" (or an
   // empty set) resets to the full-world view; any region fits its cluster points
-  // — padded — into the plot, so picking a chip zooms straight to that region
+  // – padded – into the plot, so picking a chip zooms straight to that region
   // instead of leaving a few dots stranded on a world map.
   function regionTransform(pts, iw, ih, projection) {
     if (state.region === "World") return d3.zoomIdentity;
@@ -162,8 +162,8 @@ QT.boot(async function () {
       x0 = d3.min(pts, p => p[0]); x1 = d3.max(pts, p => p[0]);
       y0 = d3.min(pts, p => p[1]); y1 = d3.max(pts, p => p[1]);
     } else {
-      // No cluster currently falls inside this area (e.g. Oceania — the 15-cluster
-      // ranking has no member there yet) — frame the area's own geographic bounds
+      // No cluster currently falls inside this area (e.g. Oceania – the 15-cluster
+      // ranking has no member there yet) – frame the area's own geographic bounds
       // instead of the (empty) cluster extent, so the button still zooms somewhere
       // instead of silently doing nothing.
       const area = AREAS.find(a => a.key === state.region);
@@ -184,7 +184,7 @@ QT.boot(async function () {
     const rs = mapRows();
     // Matched to the Overview world map (world_map.js), which renders the same
     // geoNaturalEarth1 projection at this size. Elena read the Overview map as
-    // "more zoomed in at the world level" and preferred it — same projection,
+    // "more zoomed in at the world level" and preferred it – same projection,
     // it was simply 1180x560 against this panel's old 880x380. The extra room
     // also buys roughly 1.8x the plot area for the bubbles, which is most of
     // what keeps them near their true positions at world zoom (see relax()).
@@ -193,7 +193,7 @@ QT.boot(async function () {
     const c = QT.chart("#chart-map", { W, H, margin: { t: 6, r: 6, b: 6, l: 6 } });
     c.svg.style("overflow", "hidden");
     // Base projection always fits the full world land mass (not the filtered
-    // points, which distorts) — region focus is applied afterwards as a zoom
+    // points, which distorts) – region focus is applied afterwards as a zoom
     // transform on the gZoom layer, so geography never warps.
     const projection = d3.geoNaturalEarth1();
     const path = d3.geoPath(projection);
@@ -245,8 +245,8 @@ QT.boot(async function () {
     // THE RELAXATION RUNS IN SCREEN SPACE, AT THE LIVE ZOOM LEVEL, and this is
     // the whole point. Bubble radii are counter-scaled by 1/k below so they
     // keep a constant on-screen size as you zoom; separating them once in data
-    // space at k=1 therefore baked the world-view displacement — the largest
-    // it ever needs to be — into every zoom level, and it never relaxed. The
+    // space at k=1 therefore baked the world-view displacement – the largest
+    // it ever needs to be – into every zoom level, and it never relaxed. The
     // visible symptom was clusters sitting in open ocean (Boston pushed east
     // into the Atlantic, Paris west into it) and *staying* there however far
     // you zoomed into a region with room to spare. Separating in screen space
@@ -330,10 +330,10 @@ QT.boot(async function () {
   }
 
   /* Movement against the 2025 ranking: up, down, or an en dash for no change.
-     `rank_2025` DOES NOT EXIST IN THE DATA YET (BACKLOG.md AP-37) — Elena is still
+     `rank_2025` DOES NOT EXIST IN THE DATA YET (BACKLOG.md AP-37) – Elena is still
      computing the 2026 ranking and the 2025 table was never stored. Per her
      instruction to build the interface now and feed the real data later, the column,
-     the arrows and the NEW badge are all wired up and render "—" until the field
+     the arrows and the NEW badge are all wired up and render "–" until the field
      appears. Deliberately NOT faked: an invented 2025 rank would produce arrows that
      look authoritative and mean nothing. */
   function movement(d) {
@@ -358,7 +358,7 @@ QT.boot(async function () {
     tr.selectAll("td").data(d => [
       // 2026 rank, carrying the movement arrow against 2025.
       `${d.overall_rank}${movement(d)}`,
-      d.rank_2025 == null ? '<span class="dim">—</span>' : d.rank_2025,
+      d.rank_2025 == null ? '<span class="dim">–</span>' : d.rank_2025,
       `${d.cluster}${d.graduated ? ' <span class="grad-pill">NEW</span>' : ''}`,
       `${flagIcon(d.country_code, d.country)} ${d.country || ""}`,
       QT.regionLabel(d.usual_region),
@@ -576,7 +576,7 @@ QT.boot(async function () {
   }
 
   // ---------- new entrants: graduated quasi-clusters (featured strip) ----------
-  // Static — always shows every graduate regardless of the region filter, so the
+  // Static – always shows every graduate regardless of the region filter, so the
   // "who just made it in" story stays front-and-centre. Cards are clickable and
   // select the cluster in the table/map/detail below.
   function renderGraduates() {
@@ -652,9 +652,9 @@ QT.boot(async function () {
   renderMap();
   renderTable();
   renderShareTime();
-  renderGraduates(); // static — always shows every graduate regardless of region filter
-  renderDowngrades(); // static, same reasoning — see the function comment
-  renderPipeline(); // static — doesn't depend on region filter or table sort/selection
-  renderBands(); // static — doesn't depend on region filter or table sort/selection
+  renderGraduates(); // static – always shows every graduate regardless of region filter
+  renderDowngrades(); // static, same reasoning – see the function comment
+  renderPipeline(); // static – doesn't depend on region filter or table sort/selection
+  renderBands(); // static – doesn't depend on region filter or table sort/selection
   QT.timeSlider("#slider-sharetime", { years: SHARE_YEARS, onChange: w => { shareWin = w; renderShareTime(); } });
 });

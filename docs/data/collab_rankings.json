@@ -71489,7 +71489,7 @@
     },
     {
       "entity_id": "ecipe:xtalpi-technology-quantumpharm-inc",
-      "entity": "XtalPi Technology (QuantumPharm Inc. — 晶泰科技)",
+      "entity": "XtalPi Technology (QuantumPharm Inc. – 晶泰科技)",
       "type": "Quantum company",
       "category": "Industry",
       "city": "Shenzhen",
@@ -216035,7 +216035,7 @@
     },
     {
       "entity_id": "openalex:I4405258775",
-      "entity": "University of Technology and Applied Sciences — Ibri",
+      "entity": "University of Technology and Applied Sciences – Ibri",
       "type": "University",
       "category": "Research",
       "city": "Ibri",

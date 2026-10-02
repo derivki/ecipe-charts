@@ -1,4 +1,4 @@
-/* Funding by financing instrument over time — stacked bars/area, abs/share.
+/* Funding by financing instrument over time – stacked bars/area, abs/share.
    Reads docs/data/funding_by_instrument_year.json. Refactor of the original
    prototype onto the shared theme/template; data now comes from the pipeline. */
 QT.boot(async function () {

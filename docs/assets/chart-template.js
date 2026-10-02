@@ -1,5 +1,5 @@
 /* ============================================================================
-   ECIPE Quantum Tracker — reusable D3 chart scaffold
+   ECIPE Quantum Tracker – reusable D3 chart scaffold
    ----------------------------------------------------------------------------
    Written once, used by every chart. Handles the repetitive parts:
      • loading a published dataset (QT.loadData)
@@ -23,11 +23,11 @@
   };
 
   /** "Government funding" by country: Dyuti's government policy register alone
-   *  (`government_funding.json`, built by src/build_government_funding.py —
+   *  (`government_funding.json`, built by src/build_government_funding.py –
    *  national/supranational programmes announced or deployed by governments
    *  directly). Company funding (`funding_by_country.json`) is a completely
-   *  separate measure — ALL company funding, every instrument, including any
-   *  Grant/Public-equity money that reached a company — and is never added in
+   *  separate measure – ALL company funding, every instrument, including any
+   *  Grant/Public-equity money that reached a company – and is never added in
    *  here. Per BACKLOG.md AP-36 (Elena, 2026-09-08) and reaffirmed AP-57
    *  (Elena, 2026-09-16, after AP-53's 2026-09-09 combined measure turned out
    *  to be a mistake): a government grant into a round counts once, as company
@@ -67,7 +67,7 @@
    *  is wrong twice over: 200 is a guess (`.tt` sets only `min-width:180px` and a
    *  country tooltip is routinely wider), and clamping pins the box against the
    *  viewport edge under the cursor rather than moving it out of the way. Hovering
-   *  anything near the right edge — Japan and New Zealand on the world map — showed
+   *  anything near the right edge – Japan and New Zealand on the world map – showed
    *  half a tooltip. Measuring the real box and flipping fixes both.
    */
   QT.tooltip = function () {
@@ -246,7 +246,7 @@
 
   /** <img> for a country's flag, by tracker country name or by ISO-2 code.
       Returns "" when the country is unknown, and removes itself if the .png is
-      missing — so a country with a code but no asset degrades to no flag rather
+      missing – so a country with a code but no asset degrades to no flag rather
       than to a broken-image glyph. */
   QT.flag = function (country, { code } = {}) {
     const iso = (code || FLAG_CODES[country] || "").toLowerCase();
@@ -298,7 +298,7 @@
   /** Binned (class-interval) colour scale over QT.palette.sequential.
    *
    *  For choropleths, replacing a continuous d3.scaleSequential. Quantum funding
-   *  is extremely skewed — the US alone is ~4x China and ~12x the UK — so a
+   *  is extremely skewed – the US alone is ~4x China and ~12x the UK – so a
    *  linear ramp puts every country except the US in the palest two shades and
    *  the map reads as "the US, and nowhere else". Elena asked for categorical
    *  colours "so as not to have the US dark only". Quantile breaks over the
@@ -351,7 +351,7 @@
      Posts {type:'qt-embed-size', height} to the parent whenever our content
      height changes. Harmless if the host doesn't listen. See the runbook for the
      matching WordPress snippet.
-     +6px buffer: an exact-pixel match is fragile — a font swap or subpixel
+     +6px buffer: an exact-pixel match is fragile – a font swap or subpixel
      rounding difference between the measurement moment and final paint can push
      real content 1px past an exactly-sized host iframe, which then falls back to
      showing its own internal scrollbar (since the embed doesn't set
@@ -366,7 +366,7 @@
     if (window.ResizeObserver) new ResizeObserver(send).observe(document.body);
     setTimeout(send, 800); // after the chart's async render
 
-    // Belt-and-suspenders: when embedded, never show OUR OWN scroll UI — the
+    // Belt-and-suspenders: when embedded, never show OUR OWN scroll UI – the
     // host iframe (sized from the message above) owns all scrolling. Guards
     // against the buffer above still being insufficient in some edge case.
     // Skipped when viewed standalone (window.self === window.top), so direct

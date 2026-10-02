@@ -1,6 +1,6 @@
-/* Overview dashboard (Layer 0) — KPI strip + panels, all real data (funding
+/* Overview dashboard (Layer 0) – KPI strip + panels, all real data (funding
    database + the Stage-1 companies index). The world map (country choropleth,
-   company/government toggle, no cluster bubbles) leads this tab — see
+   company/government toggle, no cluster bubbles) leads this tab – see
    assets/charts/world_map.js.
 
    The "trusted by" strip was removed 2026-09-08: Elena's rule is that it appears only
@@ -34,7 +34,7 @@ QT.boot(async function () {
   const govTotal = d3.sum([...govByCountry.values()], d => d.government_funding);
   const govProvisional = !!gov.meta.provisional;
 
-  // Not awaited — the map has its own data fetches and should render in
+  // Not awaited – the map has its own data fetches and should render in
   // parallel with the Promise.all above, not block it. Still needs its own
   // catch: an un-awaited rejection here would otherwise be silent.
   renderWorldMap("#worldmap", { showClusters: false, government: govByCountry }).catch(err => {
@@ -56,7 +56,7 @@ QT.boot(async function () {
   //   • "Quantum collaborations" is academic + industry partnerships summed
   //     (`merged_edges`). Note that this is ~97% OpenAlex co-authorship, so if the
   //     panel is ever narrowed to industry only, the TILE NAME has to carry the
-  //     distinction — a footnote will not do the work.
+  //     distinction – a footnote will not do the work.
   const totalCompanyFunding = d3.sum(country.data, d => d.total_funding);
   QT.kpis("#kpis", [
     { v: QT.fmt.axisMoney(totalCompanyFunding), k: "Total company funding" },
@@ -107,7 +107,7 @@ QT.boot(async function () {
       c.gGrid.selectAll("line").data(y.ticks(5)).join("line").attr("class", "gridline")
         .attr("x1", 0).attr("x2", c.iw).attr("y1", d => y(d)).attr("y2", d => y(d));
 
-      // The most recent year is NOT shaded and carries no "YTD" label — Elena's
+      // The most recent year is NOT shaded and carries no "YTD" label – Elena's
       // instruction is to "treat it like any other", with the partial-coverage caveat
       // moved to the note under the chart where it does not distort the series.
       //
@@ -153,7 +153,7 @@ QT.boot(async function () {
       // Bars use the band scale `x`; the area chart uses the point scale `xLin`, and
       // the hover columns used to be band-positioned in both modes. In area mode every
       // column was therefore offset by half a band and narrower than the span it was
-      // meant to cover, which is why the tooltip felt unreliable there — and why
+      // meant to cover, which is why the tooltip felt unreliable there – and why
       // Public equity, the thinnest top layer, seemed worst affected: a small vertical
       // target plus a horizontally displaced hit area misses more often than not.
       const band = state.type === "bar";
@@ -174,7 +174,7 @@ QT.boot(async function () {
 
       // Keep the targets above the marks. The columns are created once and then
       // re-used, while switching chart type or moving the year slider APPENDS fresh
-      // <g class="bar"> / <path class="area"> elements after them in document order —
+      // <g class="bar"> / <path class="area"> elements after them in document order –
       // which put the marks on top and killed hovering entirely until the next full
       // redraw. That is the "tooltip doesn't work well when we change the years range"
       // report. One raise() per render is cheaper than reasoning about join order.
@@ -182,7 +182,7 @@ QT.boot(async function () {
     }
 
     // Both spans in the note carry the first year in the series, from the data's own
-    // meta rather than a hardcoded 2012 — Elena's closing note asks that numbers in
+    // meta rather than a hardcoded 2012 – Elena's closing note asks that numbers in
     // copy be dynamic so they do not have to be chased every quarter.
     d3.selectAll("#instrument-from, #instrument-from2").text(instrYear.meta.start_year || ALL_YEARS[0]);
 
@@ -227,7 +227,7 @@ QT.boot(async function () {
     // Only countries that have a value for THIS metric are ranked. 43 countries have
     // company funding but only 18 have countable government funding, so the range
     // buttons have to be rebuilt from the filtered list on every metric change rather
-    // than assumed constant — Elena flagged that they were not.
+    // than assumed constant – Elena flagged that they were not.
     function rankedRows() {
       return rowsFor(state.metric)
         .filter(d => d[state.metric] != null && d[state.metric] > 0)
@@ -247,13 +247,13 @@ QT.boot(async function () {
 
       // Rebuilt from scratch each render. The old code kept one chart instance and
       // re-joined into it, so a page with fewer rows than the last left the previous
-      // page's labels behind on the y axis — the "labels overlap when you click the
+      // page's labels behind on the y axis – the "labels overlap when you click the
       // range buttons" bug. A fresh <svg> body per render cannot carry stale marks.
       d3.select("#chart-country").selectAll("*").remove();
       const W = 880, H = 46 + rows.length * 30;
       const c = QT.chart("#chart-country", { W, H, margin: { t: 6, r: 70, b: 26, l: 130 } });
       // Domain from the VISIBLE page, not the whole ranking, so the axis actually
-      // uses the available width for whatever page you're looking at — a page of
+      // uses the available width for whatever page you're looking at – a page of
       // countries far down the ranking used to keep the #1 country's scale, so its
       // own bars were all bunched into a sliver on the left. Rescaling per page
       // means bar length is no longer comparable page-to-page, but it is still
@@ -293,7 +293,7 @@ QT.boot(async function () {
   })();
 
   // ---------- Figure 4: top companies by total funding ----------
-  // Ten, not eight. Elena's note was that eight "seems an odd number" — it was, and it
+  // Ten, not eight. Elena's note was that eight "seems an odd number" – it was, and it
   // came from nothing but the panel height. Ten is the same round bracket the Companies
   // tab pages by, so the teaser and the full ranking agree on what a page looks like.
   // Deliberately kept a plain flagged bar chart rather than a copy of the Companies
@@ -314,7 +314,7 @@ QT.boot(async function () {
     c.gPlot.selectAll("rect").data(rows, d => d.company).join("rect")
       .attr("x", 0).attr("y", d => y(d.company)).attr("height", y.bandwidth()).attr("rx", 2)
       .attr("fill", QT.tokens.teal).attr("fill-opacity", 0.9).attr("width", d => x(d.total_funding))
-      .on("mousemove", (e, d) => tt.show(`<div class="hd">${d.company}</div><div class="row"><span class="k">Country</span><span class="v">${d.country || "—"}</span></div><div class="row"><span class="k">Total funding</span><span class="v">${QT.fmt.money(d.total_funding)}</span></div>`, e))
+      .on("mousemove", (e, d) => tt.show(`<div class="hd">${d.company}</div><div class="row"><span class="k">Country</span><span class="v">${d.country || "–"}</span></div><div class="row"><span class="k">Total funding</span><span class="v">${QT.fmt.money(d.total_funding)}</span></div>`, e))
       .on("mouseleave", tt.hide);
     c.gPlot.selectAll("text.bar-val").data(rows, d => d.company).join("text")
       .attr("class", "bar-val").attr("dy", "0.32em")
@@ -395,7 +395,7 @@ QT.boot(async function () {
             .on("mousemove", (e, d) => tt.show(
               `<div class="hd">${bloc.label} · ${d.stage}</div>` +
               `<div class="row"><span class="k">Amount</span><span class="v">${QT.fmt.money(d.v)}</span></div>` +
-              `<div class="row"><span class="k">Share of bloc</span><span class="v">${bloc.total ? QT.fmt.pct1(d.v / bloc.total) : "—"}</span></div>`, e))
+              `<div class="row"><span class="k">Share of bloc</span><span class="v">${bloc.total ? QT.fmt.pct1(d.v / bloc.total) : "–"}</span></div>`, e))
             .on("mouseleave", tt.hide);
           g.selectAll("text").data(rs, d => d.stage).join("text").attr("class", "bar-val")
             .attr("x", d => x(d.val) + 5).attr("y", d => yb(d.stage) + off + bh / 2).attr("dy", "0.32em")

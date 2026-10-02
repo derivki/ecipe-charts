@@ -3,7 +3,7 @@
     "data_vintage": "2026-Q3",
     "mock": true,
     "partial_year": 2026,
-    "source_note": "Illustrative placeholder — not derived from the funding database. Pending the next update of the underlying analysis; do not cite as a finding. The 2026 figure (86.2%) is the real value computed from funding_by_cluster.json / funding_by_country.json; the historical path before it is illustrative pending a time-series cluster methodology."
+    "source_note": "Illustrative placeholder – not derived from the funding database. Pending the next update of the underlying analysis; do not cite as a finding. The 2026 figure (86.2%) is the real value computed from funding_by_cluster.json / funding_by_country.json; the historical path before it is illustrative pending a time-series cluster methodology."
   },
   "data": [
     {

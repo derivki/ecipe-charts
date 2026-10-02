@@ -1,9 +1,9 @@
 /* ============================================================================
-   ECIPE Quantum Tracker — shared design tokens & helpers  (the "theme file")
+   ECIPE Quantum Tracker – shared design tokens & helpers  (the "theme file")
    ----------------------------------------------------------------------------
    THIS is the single place to change how every chart looks. Edit the tokens
    below (colours, fonts, palettes) and all charts update. No chart file should
-   hardcode a colour or font — they read from QT.* here.
+   hardcode a colour or font – they read from QT.* here.
 
    When the designer delivers her Figma spec, translate it into `tokens` and
    `palette` below and nothing else needs to change.
@@ -18,7 +18,7 @@ window.QT = (function () {
     bg:    "#ffffff",
     panel: "#f7f8fa",   // control backgrounds
     font:  '"Inter","Helvetica Neue",Arial,sans-serif',
-    // named accent hues — same five colours already used across the
+    // named accent hues – same five colours already used across the
     // instrument/stage/region palettes below, reused (not reinvented) for
     // tab underlines, panel accents and dashboard KPI tiles.
     accent: "#1f4e79",
@@ -27,14 +27,14 @@ window.QT = (function () {
     purple: "#7b5ea7",
     rust:   "#b5482f",
     mock:   "#b5482f",  // colour used for the "illustrative / mock data" badge
-    // world/cluster map only — extracted from the legacy port so both maps
+    // world/cluster map only – extracted from the legacy port so both maps
     // (world_map.js, clusters.js) share one definition instead of repeating
     // the same literal hex in each file.
-    noData:            "#D9D5CC", // country/land fill when there's no tracked data — warm neutral,
+    noData:            "#D9D5CC", // country/land fill when there's no tracked data – warm neutral,
                                    // kept clearly off the blue sequential ramp below so it doesn't
                                    // read as "just a paler funding class" next to the lowest bin
     noDataBorder:      "#B7B0A2", // legend swatch border for the no-data key
-    heatmapLow:          "#eef2f6", // single-hue heatmap low end (Clusters Figure 5) — pairs with accent as the high end
+    heatmapLow:          "#eef2f6", // single-hue heatmap low end (Clusters Figure 5) – pairs with accent as the high end
     clusterBubble:       "#F5C544", // world-map cluster bubble fill
     clusterBubbleStroke: "#5a3c00", // world-map cluster bubble stroke
   };
@@ -76,29 +76,29 @@ window.QT = (function () {
       "RoW":        "Rest of the World",
     },
     sequential: ["#e8eef4", "#b9cbde", "#7ba0c4", "#3f6fa3", "#1f4e79"],
-    // Cluster overall rank — dark blue (best) through to orange (worst), the encoding
+    // Cluster overall rank – dark blue (best) through to orange (worst), the encoding
     // the Clusters paper (Occasional Paper 15/2025) uses in its own figures. Distinct
     // from `sequential` on purpose: this axis is a RANKING with two meaningful ends,
     // so it reads as a diverging ramp rather than "more of a good thing".
     clusterRank: ["#1f4e79", "#4a7fa8", "#9fb8c9", "#e8b06a", "#d97b29"],
-    // collaboration archetype (country 2×2: connectedness × commercial intensity) — MOCK
+    // collaboration archetype (country 2×2: connectedness × commercial intensity) – MOCK
     archetype: {
       "Global Hub":              "#1f4e79",
       "Research Networker":      "#3d8b8b",
       "Domestic Commercialiser": "#d9a520",
       "Emerging Ecosystem":      "#7b5ea7",
     },
-    // institution domain (research / government / industry) — MOCK
+    // institution domain (research / government / industry) – MOCK
     domain: { research: "#3d8b8b", government: "#d9a520", industry: "#1f4e79" },
-    // cluster ranking dimension (market orientation / collaboration intensity / ecosystem maturity) — MOCK
+    // cluster ranking dimension (market orientation / collaboration intensity / ecosystem maturity) – MOCK
     dimension: {
       market_orientation:      "#1f4e79",
       collaboration_intensity: "#3d8b8b",
       ecosystem_maturity:      "#d9a520",
     },
-    // cluster macro-region (bubble map / region filter) — MOCK grouping of real clusters
+    // cluster macro-region (bubble map / region filter) – MOCK grouping of real clusters
     clusterRegion: { "North America": "#1f4e79", "Europe": "#d9a520", "East Asia": "#b5482f", "Other": "#7b5ea7" },
-    // company founding origin (Companies tab) — the only populated company-classification field
+    // company founding origin (Companies tab) – the only populated company-classification field
     origin: {
       "University spinout": "#1f4e79", "Research spinout": "#3d8b8b", "Corporate spinout": "#d9a520",
       "Joint venture": "#7b5ea7", "Merger": "#b5482f", "Subsidiary": "#8a8f66", "Hybrid spinout": "#5d6875",
@@ -140,7 +140,7 @@ window.QT = (function () {
   // Ranked output must be REPRODUCIBLE. A bare `(a,b) => b.v - a.v` leaves tied
   // rows in whatever order the source array happened to have, so a quarterly
   // refresh can silently reshuffle them. Ties therefore break alphabetically on
-  // a label — which matters most exactly where the data is thin and ties are the
+  // a label – which matters most exactly where the data is thin and ties are the
   // norm (institutions with one spinout, exchanges with one listing, the 36
   // acquirers that have made exactly one acquisition).
   //
@@ -261,7 +261,7 @@ svg{display:block;width:100%;height:auto;overflow:visible;}
    Panels are UNBOXED: no card fill, no border, no radius. Each chart sits
    directly on the page, separated from the one above by a hairline rule and
    generous whitespace. The tinted-card look lives on only in the KPI tiles
-   (.kpi above) — everything else is white. Keep it that way: a filled
+   (.kpi above) – everything else is white. Keep it that way: a filled
    background here is what made the page read as a stack of widgets. */
 .panels{display:grid;gap:34px 30px;margin-top:10px;}
 .panels.g2{grid-template-columns:1fr 1fr;}
@@ -311,8 +311,8 @@ svg{display:block;width:100%;height:auto;overflow:visible;}
    cell INCLUDING the header. Headers like "Collaboration Intensity" used to force
    their column (and the whole table) wide even though every cell under it holds a
    single-digit rank, which is what made the panel need horizontal scrolling. Fixed
-   layout needs the header text to be allowed to wrap onto two lines instead — see
-   the th rule below — since it can no longer grow the column to fit one line. */
+   layout needs the header text to be allowed to wrap onto two lines instead – see
+   the th rule below – since it can no longer grow the column to fit one line. */
 .rtable{width:100%;border-collapse:collapse;font-size:12.5px;table-layout:fixed;}
 .rtable th,.rtable td{text-align:left;padding:8px 10px;border-bottom:1px solid var(--line);}
 .rtable th{font-size:10px;letter-spacing:.06em;text-transform:uppercase;color:var(--muted);
@@ -409,8 +409,8 @@ svg{display:block;width:100%;height:auto;overflow:visible;}
   //
   // WHY: every page used to call QT.injectCSS() inside its own `async` IIFE, i.e.
   // after the first `await`. The stylesheet therefore arrived AFTER the browser had
-  // already painted the document, so switching tabs flashed unstyled HTML —
-  // full-width black Times New Roman for a frame — which Elena reported as "a little
+  // already painted the document, so switching tabs flashed unstyled HTML –
+  // full-width black Times New Roman for a frame – which Elena reported as "a little
   // glitch in the design" on 2026-09-08. Self-injecting on load, with this file moved
   // into <head>, means the CSS is in place before the body is parsed and there is no
   // unstyled frame to see. The per-page calls are now harmless no-ops.

@@ -1,7 +1,7 @@
-/* Country dashboard (Layer 1) — KPIs + panels for a selected country.
+/* Country dashboard (Layer 1) – KPIs + panels for a selected country.
    Real data: ranked bars (funding_by_country.json / funding_by_cluster.json).
    Mock data: institutions, domain split, archetype, RCA, network partners
-   (docs/data/mock_country_profile.json — see meta.source_note).
+   (docs/data/mock_country_profile.json – see meta.source_note).
    The world map (country choropleth + cluster bubbles) leads the Overview tab. */
 QT.boot(async function () {
   QT.nav("#nav", "countries");
@@ -42,7 +42,7 @@ QT.boot(async function () {
   const policyByCountry = new Map(Object.entries(policies.data));
   const POLICY_COLORS = {
     // Gold and teal at full strength fail WCAG AA for white badge text (2.2:1
-    // and 4.0:1 respectively) — darkened here, locally, so the shared
+    // and 4.0:1 respectively) – darkened here, locally, so the shared
     // tokens.gold/tokens.teal used elsewhere (instrument/stage/region
     // palettes) are untouched.
     "Strategy": QT.tokens.accent, "Funding programme": `color-mix(in srgb, ${QT.tokens.gold} 60%, black)`,
@@ -58,7 +58,7 @@ QT.boot(async function () {
   /* COMPANY or GOVERNMENT, each as an amount or as a share of GDP.
      The panel used to show PRIVATE capital (total minus grants and public equity),
      and Elena's 2026-09-08 correction retires that notion outright: "we decided not to
-     use private funding as a notion". Two independent toggles replace it — the source
+     use private funding as a notion". Two independent toggles replace it – the source
      (company or government, matching the Overview map and ranking) and the measure
      (dollars, or dollars as a share of GDP, which is what lets a small ecosystem be
      compared with a large one at all). */
@@ -73,7 +73,7 @@ QT.boot(async function () {
 
   /* One row per country carrying both sources and both measures. GDP comes from the
      funding dataset, so a country without a GDP figure yields null for the share
-     view rather than Infinity — which would have sorted it to the top of the ranking. */
+     view rather than Infinity – which would have sorted it to the top of the ranking. */
   const CHART_DATA = country.data.map(d => {
     const g = (govByCountry.get(d.country) || {}).government_funding || 0;
     return {
@@ -110,7 +110,7 @@ QT.boot(async function () {
      (Cyprus, Malta, Pakistan, Saudi Arabia, Slovenia and Tunisia have none), so
      every mock-backed panel has to survive a missing one. They previously did not:
      `kpis()` dereferenced the profile directly and threw, and because `render()`
-     calls `kpis()` FIRST, that exception aborted the whole re-render — picking one
+     calls `kpis()` FIRST, that exception aborted the whole re-render – picking one
      of those six left the entire page, real panels included, still showing the
      previous country. Failing softly per panel keeps the real data working
      regardless of mock coverage. */
@@ -122,7 +122,7 @@ QT.boot(async function () {
       .text(message);
   }
   const noProfileNote = () =>
-    `No illustrative profile for ${state.country} yet — covers ${profile.data.length} of ${country.data.length} tracked countries.`;
+    `No illustrative profile for ${state.country} yet – covers ${profile.data.length} of ${country.data.length} tracked countries.`;
 
   /* THE SAME SIX TILES AS THE OVERVIEW, in the same order, so moving between the two
      tabs compares like with like (Elena: "we could have the boxes here mimic the same
@@ -131,7 +131,7 @@ QT.boot(async function () {
      Two consequences worth stating:
        • Tile WIDTH IS FIXED (`.kpis-fixed`), so it does not change as you pick
          different countries. It used to be an auto-fit grid, so switching from "US" to
-         "Netherlands" visibly resized every tile — Elena: "the size of the boxes
+         "Netherlands" visibly resized every tile – Elena: "the size of the boxes
          should always stay the same regardless of the country selected".
        • The collaboration archetype has LEFT the strip for its own line below it. It
          is a category, not a measure, and as a tile its longest value
@@ -146,14 +146,14 @@ QT.boot(async function () {
       { v: QT.fmt.axisMoney(c.total_funding),
         k: `Company funding · rank ${rank} of ${ranked.length}` },
       { v: QT.fmt.int(c.companies), k: "Quantum companies" },
-      { v: g && g.government_funding ? QT.fmt.axisMoney(g.government_funding) : "—",
+      { v: g && g.government_funding ? QT.fmt.axisMoney(g.government_funding) : "–",
         k: "Government funding" + (govProvisional ? " " + QT.mockBadge("Provisional") : "") },
       // Distinct named clusters this country's companies sit in. Real, but the
       // cluster field is still being filled in, so this rises as curation
-      // continues — it is a count of hubs recorded, not of hubs that exist.
+      // continues – it is a count of hubs recorded, not of hubs that exist.
       { v: QT.fmt.int(c.clusters), k: "Quantum clusters" },
-      { v: cb ? QT.fmt.int(cb.entities) : "—", k: "Institutions active in quantum" },
-      { v: cb ? QT.fmt.int(cb.collaborations) : "—", k: "Quantum collaborations" },
+      { v: cb ? QT.fmt.int(cb.entities) : "–", k: "Institutions active in quantum" },
+      { v: cb ? QT.fmt.int(cb.collaborations) : "–", k: "Quantum collaborations" },
     ]);
 
     d3.select("#archetype-line").html(p
@@ -169,20 +169,20 @@ QT.boot(async function () {
     const M = { label: S.label + MEAS.suffix, fmt: MEAS.fmt, ttfmt: MEAS.ttfmt };
     // Rank by the metric ON SCREEN. This used to slice the top 20 from `ranked`,
     // which is ordered by TOTAL funding, so the ÷ GDP view drew its bars in
-    // total-funding order — descending by label, jumbled by length.
+    // total-funding order – descending by label, jumbled by length.
     const byMetric = [...CHART_DATA]
       .filter(d => d[key] != null && d[key] > 0)
       .sort(QT.rank(key, "country"));
-    // Whether the selected country actually has a value for THIS metric — a country
+    // Whether the selected country actually has a value for THIS metric – a country
     // with zero (e.g. Cyprus has no company funding at all) is filtered out of
     // byMetric above and so cannot be "highlighted" or shown "among its neighbours".
     // The title/why text and the leaders-alone fallback below both need to know this,
-    // otherwise the copy claims a highlight that never happens on screen — which is
+    // otherwise the copy claims a highlight that never happens on screen – which is
     // what made the fallback look like an unexplained, unchanging top-16 chart.
     const hasSelection = byMetric.some(d => d.country === state.country);
     d3.select("#ttl-ranked").text(hasSelection
-      ? `Figure 1: Countries ranked by ${S.title}${MEAS.suffix} — ${state.country} highlighted`
-      : `Figure 1: Countries ranked by ${S.title}${MEAS.suffix} — no data for ${state.country}`);
+      ? `Figure 1: Countries ranked by ${S.title}${MEAS.suffix} – ${state.country} highlighted`
+      : `Figure 1: Countries ranked by ${S.title}${MEAS.suffix} – no data for ${state.country}`);
     d3.select("#why-ranked").html(hasSelection
       ? `Where ${state.country} sits among all tracked countries, by `
         + `${S.title}${MEAS.suffix}. The leaders are shown for scale, then the selected `
@@ -212,13 +212,13 @@ QT.boot(async function () {
     const idx = byMetric.findIndex(d => d.country === state.country);
     let blocks, skipped = 0;
     if (idx < 0) {
-      // Selected country has no value for this metric — show the leaders alone.
+      // Selected country has no value for this metric – show the leaders alone.
       blocks = [byMetric.slice(0, TOP + WINDOW * 2 + 1)];
     } else {
       const lo = Math.max(0, idx - WINDOW);
       const hi = Math.min(byMetric.length, idx + WINDOW + 1);
       if (lo <= TOP) {
-        // Window reaches (or overlaps) the leaders — one contiguous run, no break.
+        // Window reaches (or overlaps) the leaders – one contiguous run, no break.
         // Floored at TOP + WINDOW + 1 so picking a leader does not collapse the
         // chart to a stub: selecting #1 would otherwise show only six rows.
         blocks = [byMetric.slice(0, Math.max(hi, TOP + WINDOW + 1))];
@@ -343,7 +343,7 @@ QT.boot(async function () {
     g.append("text").attr("text-anchor", "middle").attr("dy", "1.3em")
       .attr("font-size", 10.5).attr("fill", QT.tokens.muted).text("Total company funding");
 
-    // Labels for slices wide enough to hold one — the same "only if it fits"
+    // Labels for slices wide enough to hold one – the same "only if it fits"
     // rule Figure 4's founding-split bar uses, rather than crowding a thin
     // wedge (e.g. Debt) with a share label that overlaps its neighbours.
     g.selectAll("text.slice-val").data(pie(SERIES).filter(d => (d.endAngle - d.startAngle) > 0.35), d => d.data.key)
@@ -388,7 +388,7 @@ QT.boot(async function () {
       .on("mousemove", (e, d) => tt.show(
         `<div class="hd">${d.entity}</div>` +
         `<div class="row"><span class="k">Type</span><span class="v">${d.type || d.category}</span></div>` +
-        `<div class="row"><span class="k">City</span><span class="v">${d.city || "—"}</span></div>` +
+        `<div class="row"><span class="k">City</span><span class="v">${d.city || "–"}</span></div>` +
         `<div class="row"><span class="k">Collaborations</span><span class="v">${QT.fmt.int(d.collaborations)}</span></div>`, e))
       .on("mouseleave", tt.hide);
     c.gPlot.selectAll("text.bar-val").data(rows, d => d.entity).join("text")
@@ -402,7 +402,7 @@ QT.boot(async function () {
   /* The institution research/government/industry split panel was REMOVED 2026-09-08.
      It was mock, it was not informative ("i think we didn't really like" it), and
      dropping it frees the row so the archetype scatter can take the full panel width
-     it needs to be legible at all — Elena: "perhaps we can remove the institution
+     it needs to be legible at all – Elena: "perhaps we can remove the institution
      split chart and make the archetype chart bigger?" */
 
   // ---------- Panel 3: archetype 2×2, selected country highlighted (MOCK) ----------
@@ -415,7 +415,7 @@ QT.boot(async function () {
     const y = d3.scaleLinear().domain([0, 100]).range([c.ih, 0]);
 
     // Quadrant tints + corner labels, added 2026-09-18 so the four archetypes read
-    // at a glance instead of only on hover — a faint fill in each archetype's own
+    // at a glance instead of only on hover – a faint fill in each archetype's own
     // colour (palette.archetype), at just enough opacity to separate the quadrants
     // without competing with the dots. Kept out of gPlot (which the hover targets
     // use) so the tints never intercept a mousemove meant for a dot.
@@ -456,7 +456,7 @@ QT.boot(async function () {
   // ---------- Panel 4: RCA horizontal bars (MOCK) ----------
   function rcaPanel() {
     const p = profileByName.get(state.country);
-    d3.select("#ttl-rca").html(`Figure 7: National specialisation — ${state.country} <span id="badge-rca">${QT.mockBadge()}</span>`);
+    d3.select("#ttl-rca").html(`Figure 7: National specialisation – ${state.country} <span id="badge-rca">${QT.mockBadge()}</span>`);
     if (!p) return emptyPanel("#chart-rca", noProfileNote());
     const rows = [...p.rca].sort(QT.rank("rca", "domain"));
 
@@ -483,7 +483,7 @@ QT.boot(async function () {
   // ---------- Collaboration: connectedness + top partners (MOCK) ----------
   function networkPanel() {
     const p = profileByName.get(state.country);
-    d3.select("#ttl-network").html(`Figure 3: Collaboration: global connectedness and top partners — ${state.country} <span id="badge-network">${QT.mockBadge()}</span>`);
+    d3.select("#ttl-network").html(`Figure 3: Collaboration: global connectedness and top partners – ${state.country} <span id="badge-network">${QT.mockBadge()}</span>`);
     d3.select("#why-network").html(
       `How globally connected ${state.country}'s quantum ecosystem is (0–100), and the ` +
       `strength of its three leading collaboration partners.`);
@@ -540,7 +540,7 @@ QT.boot(async function () {
   // ---------- Policy & public programmes (MOCK, curated flagship list) ----------
   function policiesPanel() {
     const list = policyByCountry.get(state.country) || [];
-    d3.select("#ttl-policy").html(`Figure 5: Policy and public programmes — ${state.country} <span id="badge-policy">${QT.mockBadge()}</span>`);
+    d3.select("#ttl-policy").html(`Figure 5: Policy and public programmes – ${state.country} <span id="badge-policy">${QT.mockBadge()}</span>`);
     const body = d3.select("#policy-body");
     body.selectAll("*").remove();
     if (!list.length) {
