@@ -522,6 +522,10 @@ QT.boot(async function () {
       .attr("width", PLABEL_FLAG).attr("height", Math.round(PLABEL_FLAG * 0.75))
       .attr("x", -(12 + PLABEL_FLAG)).attr("y", d => y(d.country) + y.bandwidth() / 2 - Math.round(PLABEL_FLAG * 0.75) / 2)
       .on("error", function () { d3.select(this).style("display", "none"); });
+    c.g.selectAll("rect.flag-border").data(partners.filter(d => QT.flagCode(d.country)), d => d.country).join("rect")
+      .attr("class", "flag-border")
+      .attr("width", PLABEL_FLAG).attr("height", Math.round(PLABEL_FLAG * 0.75))
+      .attr("x", -(12 + PLABEL_FLAG)).attr("y", d => y(d.country) + y.bandwidth() / 2 - Math.round(PLABEL_FLAG * 0.75) / 2);
     c.gPlot.selectAll("rect.track").data(partners, d => d.country).join("rect")
       .attr("class", "track").attr("x", 0).attr("y", d => y(d.country)).attr("width", c.iw).attr("height", y.bandwidth())
       .attr("rx", 3).attr("fill", QT.tokens.line).attr("fill-opacity", 0.6);
