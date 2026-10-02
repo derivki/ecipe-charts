@@ -1,9 +1,9 @@
 /* Companies dashboard.
 
    All real data, from three Stage 1 datasets:
-     companies.json            — one row per company (build_company_funding)
-     institution_spinouts.json — parent institution -> spinouts + their funding
-     listed_by_exchange.json   — listing venue -> number of listed companies
+     companies.json            – one row per company (build_company_funding)
+     institution_spinouts.json – parent institution -> spinouts + their funding
+     listed_by_exchange.json   – listing venue -> number of listed companies
 
    PANEL ORDER (Elena, 2026-09-08): panels that speak for all tracked companies come
    first -- the funding ranking, then founding year, the technology landscape and how
@@ -28,7 +28,7 @@ QT.boot(async function () {
   const funded = rows.filter(d => d.total_funding > 0);
   const listed = rows.filter(d => d.market_cap_usd > 0);
 
-  // Flags moved to the shared QT.flag() in chart-template.js — the same six lines had
+  // Flags moved to the shared QT.flag() in chart-template.js – the same six lines had
   // been copied here and into clusters.js, and Elena's 2026-09-08 list adds flags to
   // three further panels.
   const flagIcon = (code, label) => QT.flag(label, { code });
@@ -77,7 +77,7 @@ QT.boot(async function () {
      A circle pack rather than a scatter: market cap spans three orders of
      magnitude ($18.6bn to $15m), so position would carry no information while
      area carries all of it. Grouping by region is the comparison the panel is
-     for — one pack per region, laid out by total regional value. */
+     for – one pack per region, laid out by total regional value. */
   (function marketCap() {
     // Regional grouping is defined here rather than in the pipeline because it is
     // a presentation choice for this panel, not a property of a company. EU is the
@@ -104,7 +104,7 @@ QT.boot(async function () {
     const LABEL_H = 26, GAP = 26;
 
     // Each region gets a column as wide as the WIDER of its pack and its label,
-    // so the caption can never overlap its neighbour's — the failure mode when
+    // so the caption can never overlap its neighbour's – the failure mode when
     // columns are sized by pack width alone and a one-bubble region carries a long
     // name like "UK, Australia & Canada".
     const cols = byRegion.map(reg => {
@@ -192,7 +192,7 @@ QT.boot(async function () {
           `<div class="hd">${d.company}</div>` +
           `<div class="row"><span class="k">Market cap</span><span class="v">${QT.fmt.money(d.market_cap_usd)}</span></div>` +
           `<div class="row"><span class="k">Country</span><span class="v">${d.country}</span></div>` +
-          `<div class="row"><span class="k">Funding raised</span><span class="v">${d.total_funding ? QT.fmt.money(d.total_funding) : "—"}</span></div>` +
+          `<div class="row"><span class="k">Funding raised</span><span class="v">${d.total_funding ? QT.fmt.money(d.total_funding) : "–"}</span></div>` +
           (d.market_cap_is_override ? `<div class="row"><span class="k">Note</span><span class="v">manual figure</span></div>` : ""), e))
         .on("mouseleave", tt.hide);
       // Label a bubble only if some form of the name fits inside it. Candidates run from
@@ -240,7 +240,7 @@ QT.boot(async function () {
   (function institutionRanking() {
     const BRACKET = 10;      // was 15; Elena asked for 10 at a time, as elsewhere
     const TOP = 50;          // "I would only show the top 50, not all of them so as
-                             //  not to reveal too much" — the tail of a 244-row list
+                             //  not to reveal too much" – the tail of a 244-row list
                              //  is itself a disclosure about the private database
     const state = { metric: "total_funding", page: 0 };
 
@@ -248,7 +248,7 @@ QT.boot(async function () {
        over EVERY recorded origin, so its n_spinouts and total_funding include joint
        ventures, mergers and subsidiaries. Rather than re-run the pipeline to add a
        filtered variant, the panel re-derives both figures client-side from each
-       institution's own company list intersected with the spinout universe — the
+       institution's own company list intersected with the spinout universe – the
        published dataset stays the superset and this panel states its own narrower
        question. An institution left with no spinouts drops out entirely. */
     const fundingOf = new Map(companies.data.map(c => [c.company, c.total_funding || 0]));
@@ -286,8 +286,8 @@ QT.boot(async function () {
       /* Domain from the VISIBLE PAGE, not the whole ranking. Elena: "the bars are much
          lower when going after 30 in the ranking so maybe it can adapt". A fixed domain
          set by the top institution left pages 4 and 5 as slivers a few pixels wide, so
-         the panel stopped answering its own question — which of these institutions
-         leads — for exactly the rows a reader paged to in order to compare them. The
+         the panel stopped answering its own question – which of these institutions
+         leads – for exactly the rows a reader paged to in order to compare them. The
          axis is redrawn per page and the bar labels always carry the absolute value, so
          the rescaling cannot be mistaken for a change in magnitude. */
       const x = d3.scaleLinear().domain([0, d3.max(rs, d => d[state.metric]) * 1.05 || 1]).range([0, c.iw]);
@@ -335,7 +335,7 @@ QT.boot(async function () {
     }
 
     // NB: segControl reads getAttribute(dataAttr), so this is the full attribute
-    // name, not the suffix — "m" silently yields null and blanks the chart.
+    // name, not the suffix – "m" silently yields null and blanks the chart.
     QT.segControl("#seg-inst-metric", "data-m", m => { state.metric = m; state.page = 0; render(); });
     render();
 
@@ -377,7 +377,7 @@ QT.boot(async function () {
         .on("click", (e, p) => { state.page = p; render(); });
 
       // Rebuilt per render so a short page cannot leave the previous page's axis
-      // labels behind — the same stale-mark bug the country ranking had.
+      // labels behind – the same stale-mark bug the country ranking had.
       d3.select("#chart-top").selectAll("*").remove();
       const W = 880, H = 34 + rs.length * 30;
       const c = QT.chart("#chart-top", { W, H, margin: { t: 6, r: 84, b: 26, l: 210 } });
@@ -394,14 +394,14 @@ QT.boot(async function () {
           `<div class="hd">${flagIcon(QT.flagCode(d.country), d.country)} ${d.company}</div>` +
           `<div class="row"><span class="k">Rank</span><span class="v">${list.indexOf(d) + 1} of ${list.length}</span></div>` +
           `<div class="row"><span class="k">Total funding</span><span class="v">${QT.fmt.money(d.total_funding)}</span></div>` +
-          `<div class="row"><span class="k">Country</span><span class="v">${d.country || "—"}</span></div>` +
-          `<div class="row"><span class="k">Primary pillar</span><span class="v">${d.primary_pillar || "—"}</span></div>` +
-          `<div class="row"><span class="k">Stack layer</span><span class="v">${d.stack_layer || "—"}</span></div>`, e))
+          `<div class="row"><span class="k">Country</span><span class="v">${d.country || "–"}</span></div>` +
+          `<div class="row"><span class="k">Primary pillar</span><span class="v">${d.primary_pillar || "–"}</span></div>` +
+          `<div class="row"><span class="k">Stack layer</span><span class="v">${d.stack_layer || "–"}</span></div>`, e))
         .on("mouseleave", tt.hide);
       c.gPlot.selectAll("text.bar-val").data(rs, d => d.company).join("text")
         .attr("class", "bar-val").attr("dy", "0.32em")
         .attr("y", d => y(d.company) + y.bandwidth() / 2).attr("x", d => x(d.total_funding) + 6)
-        // Two decimals, per Elena — QT.fmt.money, not the one-decimal axis format.
+        // Two decimals, per Elena – QT.fmt.money, not the one-decimal axis format.
         .text(d => QT.fmt.money(d.total_funding));
       c.gy.call(d3.axisLeft(y).tickSizeOuter(0)).call(g => g.select(".domain").remove());
       c.gx.call(d3.axisBottom(x).ticks(4).tickFormat(QT.fmt.axisMoney).tickSizeOuter(0));
@@ -487,7 +487,7 @@ QT.boot(async function () {
             .on("mouseleave", tt.hide);
           c.gPlot.append("text").attr("class", "bar-val").attr("dy", "0.32em")
             .attr("x", x(r.funding) + 6).attr("y", yTop + rowH / 2 - 2)
-            // "companies", not "cos" — Elena's note. The word fits.
+            // "companies", not "cos" – Elena's note. The word fits.
             .text(`${QT.fmt.money(r.funding)}  ·  ${QT.fmt.int(r.n)} companies`);
           c.gPlot.append("text").attr("dy", "0.32em")
             .attr("x", -10).attr("y", yTop + rowH / 2 - 2).attr("text-anchor", "end")
@@ -520,7 +520,7 @@ QT.boot(async function () {
     const byType = d3.groups(inst, d => d.origin)
       .map(([k, v]) => ({ key: k, label: k, n: v.length, color: QT.palette.origin[k] || QT.tokens.muted }))
       .sort(QT.rank("n", "label"));
-    // Institutional segments first, largest to smallest, then independents — so the
+    // Institutional segments first, largest to smallest, then independents – so the
     // bar reads as "these are the spinout routes, and this is everything else".
     const segs = [...byType, { key: INDEPENDENT, label: INDEPENDENT, n: indep, color: "#c7ced6" }];
 

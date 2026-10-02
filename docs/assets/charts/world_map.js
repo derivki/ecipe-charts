@@ -1,16 +1,16 @@
-/* World map — choropleth (funding by country) + cluster bubbles (funding by cluster).
+/* World map – choropleth (funding by country) + cluster bubbles (funding by cluster).
    Faithful port of legacy/ecipe-quantum-tracker.html's map (same topojson-client +
    world-atlas-110m vendor files, same colour ramp/bubble styling), rewired onto the
    pipeline's real, current data: funding_by_country.json, funding_by_cluster.json +
    cluster_coords.json (real-world coordinates transcribed from the legacy file).
    Countries the 110m atlas has no polygon for (e.g. Singapore) simply have nothing to
-   shade — a resolution limit of the atlas, not a bug; their cluster bubbles still plot.
+   shade – a resolution limit of the atlas, not a bug; their cluster bubbles still plot.
 
    A metric toggle ("Company" / "Government") switches the choropleth, legend and
    tooltips between all company funding and the government policy register's totals,
    which the caller supplies as opts.government (a Map of tracker country name ->
-   {government_funding}). Shading is BINNED, not a continuous ramp — see rebuildScales.
-   Cluster bubbles are opt-in via renderWorldMap(selector, {showClusters:true}) —
+   {government_funding}). Shading is BINNED, not a continuous ramp – see rebuildScales.
+   Cluster bubbles are opt-in via renderWorldMap(selector, {showClusters:true}) –
    the Overview map omits them (see docs/index.html). */
 (function () {
   const T = window.QT.tokens;
@@ -58,7 +58,7 @@
   }
 
   // ISO-ish name mapping: our funding_by_country.json codes -> world-atlas-110m properties.name.
-  // The 110m atlas has no polygon for a few small states (e.g. Singapore) — omitted here on purpose.
+  // The 110m atlas has no polygon for a few small states (e.g. Singapore) – omitted here on purpose.
   const ATLAS_NAME = {
     US: "United States of America", UK: "United Kingdom", UAE: "United Arab Emirates",
     "South Korea": "South Korea", "Czech Republic": "Czechia",
@@ -74,14 +74,14 @@
   /* COMPANY vs GOVERNMENT, not public vs private.
      "Company" is ALL company funding (every instrument, from `funding_by_country.json`).
      "Government" is Dyuti's government policy register alone
-     (docs/data/government_funding.json, built by src/build_government_funding.py) — never
+     (docs/data/government_funding.json, built by src/build_government_funding.py) – never
      summed with any company-side figure. Per BACKLOG.md AP-36 (Elena, 2026-09-08) and
      reaffirmed AP-57 (Elena, 2026-09-16): a government grant into a funding round counts
      once, as company funding, never a second time as government funding. AP-53's
      2026-09-09 combined measure (QT.combinedGovByCountry summing this register with
      company-round Grant/Public-equity money) was a mistake and has been reverted. The
      caller (Overview/Countries) passes the register-only map in as opts.government, so
-     this file just renders whatever number it is given — Company and Government are two
+     this file just renders whatever number it is given – Company and Government are two
      independent measures with no overlap. */
   const METRICS = {
     company_funding: {
@@ -151,8 +151,8 @@
     let metric = "company_funding";
     const cVal = d => d[metric] != null && d[metric] > 0 ? d[metric] : null;
 
-    // BINNED, not a continuous ramp. Quantum funding is extremely skewed — the US alone
-    // is roughly 4x China and 12x the UK on company funding — so a linear or even a
+    // BINNED, not a continuous ramp. Quantum funding is extremely skewed – the US alone
+    // is roughly 4x China and 12x the UK on company funding – so a linear or even a
     // power ramp left every country except the US in the palest two shades and the map
     // read as "the US, and nowhere else". Elena asked for categorical colours "so as
     // not to have the US dark only". Quantile (quintile) class intervals did spread the
@@ -193,7 +193,7 @@
     // Flips to the other side of the cursor near a viewport edge instead of being
     // drawn off-screen. This map had its own uncorrected showTip (a bare clientX/
     // clientY assignment), which is why Elena saw the tooltips for countries on the
-    // right-hand side — Japan, New Zealand — only half visible.
+    // right-hand side – Japan, New Zealand – only half visible.
     const { show: showTip, hide: hideTip } = QT.tooltip();
 
     const countrySel = g.selectAll("path.wm-country").data(land).join("path")
@@ -225,7 +225,7 @@
           return showTip(hd + row("No government funding recorded", ""), e);
         }
 
-        // Company view: country name, companies, company funding — nothing more.
+        // Company view: country name, companies, company funding – nothing more.
         return showTip(rec && rec.company_funding > 0
           ? hd + row("Companies", QT.fmt.int(rec.companies)) +
                  row("Company funding", QT.fmt.money(rec.company_funding))

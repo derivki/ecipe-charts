@@ -1,4 +1,4 @@
-/* Funding by stage — two regions overlaid, absolute or share-of-bloc.
+/* Funding by stage – two regions overlaid, absolute or share-of-bloc.
    Reads docs/data/funding_by_stage_region.json. Refactor of the funnel prototype. */
 QT.boot(async function () {
   const { data, meta } = await QT.loadData("funding_by_stage_region");
@@ -59,7 +59,7 @@ QT.boot(async function () {
           .on("mousemove", (e, d) => tt.show(
             `<div class="hd">${bloc.label} · ${d.stage}</div>` +
             `<div class="row"><span class="k">Amount</span><span class="v">${QT.fmt.money(d.v)}</span></div>` +
-            `<div class="row"><span class="k">Share of bloc</span><span class="v">${bloc.total ? QT.fmt.pct1(d.v / bloc.total) : "—"}</span></div>`, e))
+            `<div class="row"><span class="k">Share of bloc</span><span class="v">${bloc.total ? QT.fmt.pct1(d.v / bloc.total) : "–"}</span></div>`, e))
           .on("mouseleave", tt.hide);
         sel.selectAll("text").data(rs, d => d.stage).join("text").attr("class", "bar-val")
           .attr("x", d => x(d.val) + 5).attr("y", d => y(d.stage) + off + bh / 2).attr("dy", "0.32em")
