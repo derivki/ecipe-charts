@@ -283,7 +283,7 @@
     // label baselines aligned whether or not a given row has a flag.
     axisG.selectAll(".tick").each(function (d) {
       const tick = d3.select(this);
-      tick.selectAll("image.flagtick, rect.flag-border").remove();
+      tick.selectAll("image.flagtick").remove();
       tick.select("text").attr("x", -(9 + size + gap));
       const iso = QT.flagCode(countryOf(d));
       if (!iso) return;
@@ -292,9 +292,6 @@
         .attr("width", size).attr("height", h)
         .attr("x", -(9 + size)).attr("y", -h / 2)
         .on("error", function () { d3.select(this).remove(); });
-      // hairline outline so white flags stay visible against the page background
-      tick.append("rect").attr("class", "flag-border")
-        .attr("width", size).attr("height", h).attr("x", -(9 + size)).attr("y", -h / 2);
     });
   };
 
