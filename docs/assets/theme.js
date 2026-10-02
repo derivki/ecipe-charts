@@ -268,7 +268,7 @@ svg{display:block;width:100%;height:auto;overflow:visible;}
 .panels .span2{grid-column:1/-1;}
 .panel{border:none;border-radius:0;background:none;padding:22px 0 0;border-top:1px solid var(--line);}
 .panel .ttl{font-size:14px;font-weight:650;letter-spacing:-.005em;margin:0 0 2px;display:flex;align-items:center;gap:8px;flex-wrap:wrap;}
-.panel .why{font-size:12px;color:var(--muted);line-height:1.45;margin:0 0 10px;max-width:760px;}
+.panel .why{font-size:12px;color:var(--muted);line-height:1.45;margin:0 0 10px;max-width:1000px;}
 /* Sub-heading for a second block within one panel (e.g. Figure 3's "New entrants" /
    "Downgraded" split) -- smaller and quieter than .ttl, which stays reserved for the
    figure title itself. */
