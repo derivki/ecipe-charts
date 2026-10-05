@@ -205,10 +205,10 @@ QT.boot(async function () {
     // outline, rather than this map's old flat grey ocean fill, so the two maps read
     // as the same base map.
     const gZoom = c.g.append("g");
-    gZoom.append("path").datum({ type: "Sphere" }).attr("d", path).attr("fill", "none").attr("stroke", "rgba(20,45,80,0.14)").attr("stroke-width", 0.8);
+    gZoom.append("path").datum({ type: "Sphere" }).attr("d", path).attr("fill", "none").attr("stroke", "rgba(35,20,50,0.14)").attr("stroke-width", 0.8);
     // Graticule is drawn BEFORE the land, as in the Overview map, so the grid lines sit
     // underneath the country borders instead of cutting across them.
-    gZoom.append("path").datum(d3.geoGraticule10()).attr("d", path).attr("fill", "none").attr("stroke", "rgba(20,45,80,0.06)").attr("stroke-width", 0.5);
+    gZoom.append("path").datum(d3.geoGraticule10()).attr("d", path).attr("fill", "none").attr("stroke", "rgba(35,20,50,0.06)").attr("stroke-width", 0.5);
     gZoom.selectAll("path.land").data(land).join("path").attr("class", "land")
       .attr("d", path).attr("fill", QT.tokens.noData).attr("stroke", "#fff").attr("stroke-width", 0.6);
 

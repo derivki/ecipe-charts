@@ -41,6 +41,18 @@
       "country": "Canada"
     },
     {
+      "exchange": "Shanghai Stock Exchange",
+      "n_listings": 4,
+      "companies": [
+        "CIQTEK (国仪量子)",
+        "Precilasers (频准激光)",
+        "QuantumCTek (国盾量子)",
+        "Sansec Technology (三未信安)"
+      ],
+      "country_code": "cn",
+      "country": "China"
+    },
+    {
       "exchange": "Korea Exchange",
       "n_listings": 3,
       "companies": [
@@ -61,17 +73,6 @@
       ],
       "country_code": "us",
       "country": "United States"
-    },
-    {
-      "exchange": "Shanghai Stock Exchange",
-      "n_listings": 3,
-      "companies": [
-        "CIQTEK (国仪量子)",
-        "Precilasers (频准激光)",
-        "QuantumCTek (国盾量子)"
-      ],
-      "country_code": "cn",
-      "country": "China"
     },
     {
       "exchange": "Australian Securities Exchange",

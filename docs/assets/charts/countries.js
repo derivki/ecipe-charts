@@ -40,12 +40,10 @@ QT.boot(async function () {
   });
   const policyByCountry = new Map(Object.entries(policies.data));
   const POLICY_COLORS = {
-    // Gold and teal at full strength fail WCAG AA for white badge text (2.2:1
-    // and 4.0:1 respectively) – darkened here, locally, so the shared
-    // tokens.gold/tokens.teal used elsewhere (instrument/stage/region
-    // palettes) are untouched.
-    "Strategy": QT.tokens.accent, "Funding programme": `color-mix(in srgb, ${QT.tokens.gold} 60%, black)`,
-    "R&D institute": `color-mix(in srgb, ${QT.tokens.teal} 80%, black)`, "Procurement": QT.tokens.purple,
+    // Dark enough for white badge text: ECIPE teal, brown, navy,
+    // purple and red.
+    "Strategy": QT.tokens.accent, "Funding programme": QT.tokens.brown,
+    "R&D institute": QT.tokens.navy, "Procurement": QT.tokens.purple,
     "Export control": QT.tokens.rust,
   };
 
@@ -349,7 +347,7 @@ QT.boot(async function () {
       .join("text").attr("class", "slice-val")
       .attr("transform", d => `translate(${arc.centroid(d)})`)
       .attr("text-anchor", "middle").attr("dy", "0.32em")
-      .attr("font-size", 11).attr("font-weight", 600).attr("fill", "#fff")
+      .attr("font-size", 11).attr("font-weight", 600).attr("fill", d => QT.textOn(d.data.color))
       .text(d => QT.fmt.pct0(d.data.value / total));
 
     d3.select("#mocknote-instrument").style("display", "none");

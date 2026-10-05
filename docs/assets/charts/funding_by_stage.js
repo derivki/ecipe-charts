@@ -7,7 +7,7 @@ QT.boot(async function () {
   const STAGES = data.stages;
   const BLOCS = {};
   data.regions.forEach(r => {
-    BLOCS[r.region] = { label: r.region, hex: QT.palette.region[r.region] || "#5d6875",
+    BLOCS[r.region] = { label: r.region, hex: QT.palette.region[r.region] || QT.tokens.muted,
                         v: r.values, total: d3.sum(r.values) };
   });
   const KEYS = Object.keys(BLOCS);

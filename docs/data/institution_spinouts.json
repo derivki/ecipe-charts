@@ -89,10 +89,11 @@
     },
     {
       "institution": "University of British Columbia (UBC)",
-      "n_spinouts": 1,
-      "total_funding": 1546925040.62,
+      "n_spinouts": 2,
+      "total_funding": 1552541027.43,
       "companies": [
-        "D-Wave"
+        "D-Wave",
+        "Dream Photonics"
       ],
       "type": "University",
       "country": "Canada",
@@ -160,14 +161,15 @@
     },
     {
       "institution": "National Institute of Standards and Technology (NIST)",
-      "n_spinouts": 5,
-      "total_funding": 1024509446.55,
+      "n_spinouts": 6,
+      "total_funding": 1026670582.55,
       "companies": [
         "Infleqtion",
         "Mesa Quantum",
         "QuSpin",
         "Octave Photonics",
-        "Icarus Quantum"
+        "Icarus Quantum",
+        "Apex Atomics"
       ],
       "type": "Government agency",
       "country": "US",
@@ -926,7 +928,7 @@
     },
     {
       "institution": "University of Waterloo",
-      "n_spinouts": 15,
+      "n_spinouts": 16,
       "total_funding": 40958141.95,
       "companies": [
         "QuantumCore",
@@ -943,7 +945,8 @@
         "Aurora Quantum Technologies / AuroraQ",
         "Aquabits",
         "Open Quantum Design",
-        "Qubo Consulting"
+        "Qubo Consulting",
+        "Red Blue Quantum"
       ],
       "type": "University",
       "country": "Canada",
@@ -1030,6 +1033,18 @@
       "country_code": "dk"
     },
     {
+      "institution": "Stanford University",
+      "n_spinouts": 2,
+      "total_funding": 32069626.49,
+      "companies": [
+        "AOSense",
+        "Brightlight Photonics"
+      ],
+      "type": "University",
+      "country": "US",
+      "country_code": "us"
+    },
+    {
       "institution": "Institute of Photonic Sciences (ICFO), BIST",
       "n_spinouts": 3,
       "total_funding": 31761331.45,
@@ -1041,17 +1056,6 @@
       "type": "Research institute",
       "country": "Spain",
       "country_code": "es"
-    },
-    {
-      "institution": "Stanford University",
-      "n_spinouts": 1,
-      "total_funding": 30503471.49,
-      "companies": [
-        "AOSense"
-      ],
-      "type": "University",
-      "country": "US",
-      "country_code": "us"
     },
     {
       "institution": "Galois Inc.",
@@ -1521,11 +1525,12 @@
     },
     {
       "institution": "University of Manchester",
-      "n_spinouts": 2,
-      "total_funding": 11940174.11,
+      "n_spinouts": 3,
+      "total_funding": 12002833.2,
       "companies": [
         "Imperagen",
-        "Laser Quantum"
+        "Laser Quantum",
+        "SpinOr"
       ],
       "type": "University",
       "country": "UK",
@@ -1645,6 +1650,17 @@
       "country_code": "au"
     },
     {
+      "institution": "Arizona State University (ASU)",
+      "n_spinouts": 1,
+      "total_funding": 8612992.0,
+      "companies": [
+        "Advent Diamond"
+      ],
+      "type": "University",
+      "country": "US",
+      "country_code": "us"
+    },
+    {
       "institution": "Michigan State University (MSU)",
       "n_spinouts": 1,
       "total_funding": 8250000.0,
@@ -1665,6 +1681,19 @@
       "type": "University",
       "country": "US",
       "country_code": "us"
+    },
+    {
+      "institution": "Ludwig Maximilian University of Munich (LMU)",
+      "n_spinouts": 3,
+      "total_funding": 8074825.87,
+      "companies": [
+        "Aqarios",
+        "Qlibri",
+        "qutools"
+      ],
+      "type": "University",
+      "country": "Germany",
+      "country_code": "de"
     },
     {
       "institution": "Technical University of Denmark (DTU)",
@@ -1801,18 +1830,6 @@
       "total_funding": 5116220.12,
       "companies": [
         "Swabian Instruments"
-      ],
-      "type": "University",
-      "country": "Germany",
-      "country_code": "de"
-    },
-    {
-      "institution": "Ludwig Maximilian University of Munich (LMU)",
-      "n_spinouts": 2,
-      "total_funding": 4969609.37,
-      "companies": [
-        "Aqarios",
-        "qutools"
       ],
       "type": "University",
       "country": "Germany",

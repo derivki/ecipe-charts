@@ -12,56 +12,63 @@
 window.QT = (function () {
   // ── Design tokens ─────────────────────────────────────────────────────────
   const tokens = {
-    ink:   "#1a2027",   // primary text / dark UI
-    muted: "#5d6875",   // secondary text / axes
-    line:  "#dfe3e8",   // gridlines / borders
+    // ECIPE brand palette ("ECIPE fonts, colors and settings", No. 01/2023, "Colors in
+    // figures"). Text is 66/66/66, figure lines 190/190/190, and every colour below is
+    // one of the guide's main colours, a tint of one (the guide allows gradations "as
+    // long as they can be clearly distinguished"), or -- only where a chart needs more
+    // categories than the main hues give -- one of its additional colours.
+    ink:   "#424242",   // text (66/66/66); also dark UI fills (active buttons, chips)
+    muted: "#424242",   // secondary text / axes -- the guide has one text colour, so
+                        // hierarchy comes from size and weight, not a lighter grey
+    line:  "#BEBEBE",   // gridlines / borders (190/190/190)
     bg:    "#ffffff",
-    panel: "#f7f8fa",   // control backgrounds
+    panel: "#F4F4F4",   // control backgrounds (neutral, off the colour palette)
     font:  '"Inter","Helvetica Neue",Arial,sans-serif',
-    // named accent hues – same five colours already used across the
-    // instrument/stage/region palettes below, reused (not reinvented) for
-    // tab underlines, panel accents and dashboard KPI tiles.
-    accent: "#1f4e79",
-    teal:   "#3d8b8b",
-    gold:   "#d9a520",
-    purple: "#7b5ea7",
-    rust:   "#b5482f",
-    mock:   "#b5482f",  // colour used for the "illustrative / mock data" badge
-    // world/cluster map only – extracted from the legacy port so both maps
-    // (world_map.js, clusters.js) share one definition instead of repeating
-    // the same literal hex in each file.
-    noData:            "#D9D5CC", // country/land fill when there's no tracked data – warm neutral,
-                                   // kept clearly off the blue sequential ramp below so it doesn't
-                                   // read as "just a paler funding class" next to the lowest bin
-    noDataBorder:      "#B7B0A2", // legend swatch border for the no-data key
-    heatmapLow:          "#eef2f6", // single-hue heatmap low end (Clusters Figure 5) – pairs with accent as the high end
-    clusterBubble:       "#F5C544", // world-map cluster bubble fill
-    clusterBubbleStroke: "#5a3c00", // world-map cluster bubble stroke
+    // main colours: purple 35/20/50, teal 0/122/131, orange 255/130/0, navy 9/67/94.
+    // Token names are historical (they predate the brand palette) -- they now hold:
+    accent: "#007A83",  // teal -- primary colour; tab underlines, KPI tint, first series
+    teal:   "#007A83",
+    gold:   "#FF8200",  // ECIPE orange
+    purple: "#231432",  // ECIPE dark purple
+    navy:   "#09435E",
+    brown:  "#823C14",  // additional colour 130/60/20
+    rust:   "#CD1419",  // additional colour 205/20/25 -- errors, downgrades, export controls
+    mock:   "#823C14",  // colour used for the "illustrative / mock data" badge
+    // world/cluster map only -- shared by world_map.js and clusters.js
+    noData:            "#DCDCDC", // land fill when there's no tracked data -- a tint of the
+                                   // 190 grey, kept off the teal ramp below so it doesn't read
+                                   // as "just a paler funding class" next to the lowest bin
+    noDataBorder:      "#BEBEBE", // legend swatch border for the no-data key
+    heatmapLow:          "#E6F2F3", // single-hue heatmap low end (Clusters Figure 5) -- 10% teal; pairs with accent as the high end
+    clusterBubble:       "#FF8200", // world-map cluster bubble fill (orange: stands off the teal choropleth)
+    clusterBubbleStroke: "#823C14", // world-map cluster bubble stroke
   };
 
   // ── Categorical palettes ─────────────────────────────────────────────────
   const palette = {
+    // Ordering rule for categorical sets: teal, orange, purple first (the three most
+    // distinct main hues), then gradations -- the 60% teal and 50% purple tints.
     // financing instrument
     instrument: {
-      "VC / private equity": "#1f4e79",
-      "Debt":                "#3d8b8b",
-      "Grant":               "#d9a520",
-      "Public equity":       "#7b5ea7",
+      "VC / private equity": "#007A83",
+      "Debt":                "#FF8200",
+      "Grant":               "#231432",
+      "Public equity":       "#66AFB5",
     },
     // funding stage (equity ladder)
     stage: {
-      "Seed and Angel":                     "#1f4e79",
-      "Early-stage equity":                 "#3d8b8b",
-      "Late-stage equity & Growth equity":  "#d9a520",
-      "Public equity":                      "#7b5ea7",
+      "Seed and Angel":                     "#007A83",
+      "Early-stage equity":                 "#FF8200",
+      "Late-stage equity & Growth equity":  "#231432",
+      "Public equity":                      "#66AFB5",
     },
     // world region
     region: {
-      "US":         "#b5482f",
-      "China":      "#3d8b8b",
-      "EU":         "#d9a520",
-      "UK+AUS+CAN": "#1f4e79",
-      "RoW":        "#7b5ea7",
+      "US":         "#231432",
+      "China":      "#007A83",
+      "EU":         "#FF8200",
+      "UK+AUS+CAN": "#66AFB5",
+      "RoW":        "#918999",
     },
     // Display labels for the region keys above. The keys themselves stay the
     // tracker's internal short codes -- they're the vocabulary the private
@@ -75,37 +82,39 @@ window.QT = (function () {
       "UK+AUS+CAN": "UK, Canada, and Australia",
       "RoW":        "Rest of the World",
     },
-    sequential: ["#e8eef4", "#b9cbde", "#7ba0c4", "#3f6fa3", "#1f4e79"],
-    // Cluster overall rank – dark blue (best) through to orange (worst), the encoding
+    // Teal at 10 / 30 / 60 / 80 / 100% -- the guide's own teal gradations.
+    sequential: ["#E6F2F3", "#B3D6D9", "#66AFB5", "#33959C", "#007A83"],
+    // Cluster overall rank -- navy (best) through teal to orange (worst), the encoding
     // the Clusters paper (Occasional Paper 15/2025) uses in its own figures. Distinct
     // from `sequential` on purpose: this axis is a RANKING with two meaningful ends,
     // so it reads as a diverging ramp rather than "more of a good thing".
-    clusterRank: ["#1f4e79", "#4a7fa8", "#9fb8c9", "#e8b06a", "#d97b29"],
-    // collaboration archetype (country 2×2: connectedness × commercial intensity) – MOCK
+    clusterRank: ["#09435E", "#007A83", "#66AFB5", "#FFCD99", "#FF8200"],
+    // collaboration archetype (country 2x2: connectedness x commercial intensity) - MOCK
     archetype: {
-      "Global Hub":              "#1f4e79",
-      "Research Networker":      "#3d8b8b",
-      "Domestic Commercialiser": "#d9a520",
-      "Emerging Ecosystem":      "#7b5ea7",
+      "Global Hub":              "#007A83",
+      "Research Networker":      "#66AFB5",
+      "Domestic Commercialiser": "#FF8200",
+      "Emerging Ecosystem":      "#231432",
     },
-    // institution domain (research / government / industry) – MOCK
-    domain: { research: "#3d8b8b", government: "#d9a520", industry: "#1f4e79" },
-    // cluster ranking dimension (market orientation / collaboration intensity / ecosystem maturity) – MOCK
+    // institution domain (research / government / industry) - MOCK
+    domain: { research: "#007A83", government: "#FF8200", industry: "#231432" },
+    // cluster ranking dimension (market orientation / collaboration intensity / ecosystem maturity) - MOCK
     dimension: {
-      market_orientation:      "#1f4e79",
-      collaboration_intensity: "#3d8b8b",
-      ecosystem_maturity:      "#d9a520",
+      market_orientation:      "#007A83",
+      collaboration_intensity: "#FF8200",
+      ecosystem_maturity:      "#231432",
     },
-    // cluster macro-region (bubble map / region filter) – MOCK grouping of real clusters
-    clusterRegion: { "North America": "#1f4e79", "Europe": "#d9a520", "East Asia": "#b5482f", "Other": "#7b5ea7" },
-    // company founding origin (Companies tab) – the only populated company-classification field
+    // cluster macro-region (bubble map / region filter) - MOCK grouping of real clusters.
+    // Follows the `region` colours above (North America ~ US, Europe ~ EU, East Asia ~ China).
+    clusterRegion: { "North America": "#231432", "Europe": "#FF8200", "East Asia": "#007A83", "Other": "#918999" },
+    // company founding origin (Companies tab) - the only populated company-classification field
     origin: {
-      "University spinout": "#1f4e79", "Research spinout": "#3d8b8b", "Corporate spinout": "#d9a520",
-      "Joint venture": "#7b5ea7", "Merger": "#b5482f", "Subsidiary": "#8a8f66", "Hybrid spinout": "#5d6875",
-      "Not specified": "#c7ced6",
+      "University spinout": "#007A83", "Research spinout": "#66AFB5", "Corporate spinout": "#FF8200",
+      "Joint venture": "#231432", "Merger": "#918999", "Subsidiary": "#FFCD99", "Hybrid spinout": "#09435E",
+      "Not specified": "#BEBEBE",
     },
     // company ownership status (Companies tab)
-    ownership: { "Private": "#1f4e79", "Public": "#d9a520", "Corporate": "#7b5ea7" },
+    ownership: { "Private": "#007A83", "Public": "#FF8200", "Corporate": "#231432" },
   };
 
   // ── Number / currency formatters ──────────────────────────────────────────
@@ -135,6 +144,10 @@ window.QT = (function () {
       return isNaN(d) ? v : d.toLocaleDateString("en-GB", { day: "numeric", month: "long", year: "numeric" });
     },
   };
+
+  // Label colour for text drawn ON a fill: the guide's text grey on light fills (teal 60%,
+  // orange, tints), white on dark ones. Several palette colours are too light for white.
+  const textOn = fill => (d3.lab(fill).l > 62 ? tokens.ink : "#fff");
 
   // ── Ordering ──────────────────────────────────────────────────────────────
   // Ranked output must be REPRODUCIBLE. A bare `(a,b) => b.v - a.v` leaves tied
@@ -192,10 +205,10 @@ h1{font-size:21px;line-height:1.25;margin:6px 0 4px;font-weight:650;letter-spaci
 .seg button{appearance:none;border:0;background:transparent;padding:6px 11px;font:inherit;font-size:12px;color:var(--muted);cursor:pointer;transition:.12s;}
 .seg button+button{border-left:1px solid var(--line);}
 .seg button.on{background:var(--ink);color:#fff;}
-.seg button:not(.on):hover{background:#eef0f3;color:var(--ink);}
+.seg button:not(.on):hover{background:#E8E8E8;color:var(--ink);}
 select{appearance:none;font:inherit;font-size:13px;color:var(--ink);background:var(--panel);
   border:1px solid var(--line);border-radius:7px;padding:7px 28px 7px 10px;cursor:pointer;
-  background-image:url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='10' height='6'><path d='M0 0l5 6 5-6z' fill='%235d6875'/></svg>");
+  background-image:url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='10' height='6'><path d='M0 0l5 6 5-6z' fill='%23424242'/></svg>");
   background-repeat:no-repeat;background-position:right 10px center;}
 .legend{display:flex;flex-wrap:wrap;gap:14px;margin:10px 0 2px;}
 .lg{display:inline-flex;align-items:center;gap:7px;font-size:12px;color:var(--muted);cursor:default;user-select:none;}
@@ -206,14 +219,14 @@ select{appearance:none;font:inherit;font-size:13px;color:var(--ink);background:v
 svg{display:block;width:100%;height:auto;overflow:visible;}
 .axis path,.axis line{stroke:var(--line);}
 .axis text{fill:var(--muted);font-size:11px;}
-.gridline{stroke:var(--line);stroke-dasharray:2 3;opacity:.7;}
-.partial-band{fill:#f2f4f7;} .partial-label{fill:#9aa4b0;font-size:10px;font-style:italic;}
+.gridline{stroke:var(--line);stroke-width:1px;}
+.partial-band{fill:#F4F4F4;} .partial-label{fill:var(--muted);font-size:10px;font-style:italic;}
 .bar-val{font-size:10.5px;fill:var(--muted);font-variant-numeric:tabular-nums;}
-.tt{position:fixed;pointer-events:none;background:#111820;color:#fff;border-radius:8px;padding:10px 12px;
+.tt{position:fixed;pointer-events:none;background:#231432;color:#fff;border-radius:8px;padding:10px 12px;
   font-size:12px;line-height:1.5;box-shadow:0 6px 24px rgba(0,0,0,.22);opacity:0;transition:opacity .1s;z-index:20;min-width:180px;}
 .tt .hd{font-weight:700;font-size:13px;margin-bottom:6px;}
 .tt .row{display:flex;justify-content:space-between;gap:16px;}
-.tt .row .k{display:inline-flex;align-items:center;gap:6px;color:#c9d2dc;}
+.tt .row .k{display:inline-flex;align-items:center;gap:6px;color:#E6E6E6;}
 .tt .row .k i{width:9px;height:9px;border-radius:2px;display:inline-block;}
 .tt .row .v{font-variant-numeric:tabular-nums;font-weight:600;}
 .tt .tot{border-top:1px solid rgba(255,255,255,.18);margin-top:6px;padding-top:6px;}
@@ -221,7 +234,7 @@ svg{display:block;width:100%;height:auto;overflow:visible;}
    .tt .row is flex with the value right-aligned, which turns twenty company names
    into a right-ragged column that is hard to read. */
 .tt .tt-list{border-top:1px solid rgba(255,255,255,.18);margin-top:6px;padding-top:6px;max-width:320px;}
-.tt .tt-list .k{display:block;color:#c9d2dc;margin-bottom:2px;}
+.tt .tt-list .k{display:block;color:#E6E6E6;margin-bottom:2px;}
 .tt .tt-list div{text-align:left;font-weight:500;line-height:1.45;}
 .note{font-size:11.5px;color:var(--muted);margin-top:16px;line-height:1.5;}
 .note b{color:var(--ink);font-weight:600;}
@@ -331,7 +344,7 @@ svg{display:block;width:100%;height:auto;overflow:visible;}
 .ts-track{position:absolute;top:9px;left:0;right:0;height:5px;border-radius:3px;background:var(--line);}
 .ts-range{position:absolute;top:9px;height:5px;border-radius:3px;background:var(--ink);pointer-events:none;}
 .ts-handle{position:absolute;top:2px;width:18px;height:18px;border-radius:50%;background:#fff;
-  border:2px solid var(--ink);cursor:grab;box-shadow:0 1px 3px rgba(20,40,70,.2);touch-action:none;z-index:2;transform:translateX(-50%);}
+  border:2px solid var(--ink);cursor:grab;box-shadow:0 1px 3px rgba(35,20,50,.2);touch-action:none;z-index:2;transform:translateX(-50%);}
 .ts-handle:active{cursor:grabbing;}
 .ts-lab{position:absolute;top:23px;font-size:10.5px;color:var(--muted);font-variant-numeric:tabular-nums;transform:translateX(-50%);white-space:nowrap;}
 /* time slider placed directly under a chart (rather than in the controls row) */
@@ -370,24 +383,24 @@ svg{display:block;width:100%;height:auto;overflow:visible;}
 /* Same radial-gradient "ocean" backdrop as the Overview world map's .wm-frame
    (world_map.js), so the two maps share one look -- this map's SVG sphere/land/
    graticule are drawn transparent over it rather than filled flat grey. */
-#map-wrap{background:radial-gradient(120% 130% at 32% 0%,#F1F5F9,#FFFFFF 72%);
+#map-wrap{background:radial-gradient(120% 130% at 32% 0%,#F4F4F4,#FFFFFF 72%);
   border-radius:8px;overflow:hidden;}
 /* ---------- in-map zoom controls (clusters map) ---------- */
 .mapzoom{position:absolute;top:10px;right:10px;display:flex;flex-direction:column;gap:5px;z-index:4;}
 .mapzoom button{width:28px;height:28px;border-radius:3px;border:1px solid var(--line);background:#fff;
   color:var(--muted);font-size:15px;font-weight:600;line-height:1;cursor:pointer;
-  display:flex;align-items:center;justify-content:center;box-shadow:0 1px 3px rgba(20,40,70,.08);}
+  display:flex;align-items:center;justify-content:center;box-shadow:0 1px 3px rgba(35,20,50,.08);}
 .mapzoom button:hover{border-color:var(--ink);color:var(--ink);}
 /* ---------- colour-scale key (clusters map) ---------- */
 .cmap-legend{position:absolute;left:12px;bottom:12px;z-index:4;background:#fff;
   border:1px solid var(--line);border-radius:6px;padding:10px 12px;
-  color:var(--muted);max-width:180px;box-shadow:0 2px 8px rgba(20,40,70,.06);font-size:11px;}
+  color:var(--muted);max-width:180px;box-shadow:0 2px 8px rgba(35,20,50,.06);font-size:11px;}
 .cmap-legend .lg-title{font-size:9.5px;font-weight:600;letter-spacing:.1em;text-transform:uppercase;color:var(--muted);margin-bottom:7px;}
 .cmap-legend .lg-bar{height:8px;border-radius:2px;margin-bottom:4px;}
 .cmap-legend .lg-scale{display:flex;justify-content:space-between;font-size:9.5px;color:var(--muted);}
 /* Ranking-movement indicators (Clusters table): up / down / no change vs. last year. */
 .mv{font-size:10px;font-weight:700;margin-left:3px;vertical-align:1px;}
-.mv-up{color:#2f7d4f;} .mv-down{color:${tokens.rust};} .mv-flat{color:${tokens.muted};}
+.mv-up{color:#6EA62D;} .mv-down{color:${tokens.rust};} .mv-flat{color:${tokens.muted};}
 .rtable .dim{color:${tokens.line};}
 /* Legend centred under its chart, for panels with only two or three keys where a
    left-aligned legend reads as detached from the figure. */
@@ -426,5 +439,5 @@ svg{display:block;width:100%;height:auto;overflow:visible;}
 
   injectCSS();
 
-  return { tokens, palette, fmt, rank, alpha, injectCSS };
+  return { tokens, palette, fmt, rank, alpha, textOn, injectCSS };
 })();

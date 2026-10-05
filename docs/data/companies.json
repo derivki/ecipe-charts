@@ -31,7 +31,7 @@
       "merged_with_acquired_by": null,
       "ticker": "IONQ",
       "currency": null,
-      "market_cap_usd": 16355325519.27,
+      "market_cap_usd": 17769249015.28,
       "market_cap_is_override": false,
       "total_funding": 4169008656.0,
       "n_rounds": 18
@@ -61,7 +61,7 @@
       "merged_with_acquired_by": null,
       "ticker": "QNT",
       "currency": null,
-      "market_cap_usd": 13946748644.23,
+      "market_cap_usd": 12768469356.85,
       "market_cap_is_override": false,
       "total_funding": 3953956290.25,
       "n_rounds": 13
@@ -115,7 +115,7 @@
       "merged_with_acquired_by": null,
       "ticker": "2228",
       "currency": null,
-      "market_cap_usd": 4656233674.27,
+      "market_cap_usd": 4483068122.28,
       "market_cap_is_override": false,
       "total_funding": 2044265786.72,
       "n_rounds": 13
@@ -172,7 +172,7 @@
       "merged_with_acquired_by": null,
       "ticker": "QUBT",
       "currency": null,
-      "market_cap_usd": 2042780329.66,
+      "market_cap_usd": 1912630868.83,
       "market_cap_is_override": false,
       "total_funding": 1746264735.0,
       "n_rounds": 26
@@ -201,7 +201,7 @@
       "merged_with_acquired_by": null,
       "ticker": "QBTS",
       "currency": null,
-      "market_cap_usd": 6713696565.26,
+      "market_cap_usd": 6290412940.15,
       "market_cap_is_override": false,
       "total_funding": 1546925040.62,
       "n_rounds": 35
@@ -241,7 +241,7 @@
     },
     {
       "company": "Keyfactor",
-      "entity_id": null,
+      "entity_id": "ecipe:keyfactor",
       "former_company_name": "Certified Security Solutions",
       "website": "https://www.keyfactor.com/",
       "country": "US",
@@ -287,7 +287,7 @@
       "merged_with_acquired_by": null,
       "ticker": "RGTI",
       "currency": null,
-      "market_cap_usd": 5425277615.2,
+      "market_cap_usd": 5253519795.61,
       "market_cap_is_override": false,
       "total_funding": 1152307133.86,
       "n_rounds": 35
@@ -319,7 +319,7 @@
       "merged_with_acquired_by": null,
       "ticker": "INFQ",
       "currency": null,
-      "market_cap_usd": 3186819305.95,
+      "market_cap_usd": 3035559740.18,
       "market_cap_is_override": false,
       "total_funding": 983286228.61,
       "n_rounds": 76
@@ -375,7 +375,7 @@
       "merged_with_acquired_by": null,
       "ticker": "IQMX",
       "currency": null,
-      "market_cap_usd": 1953706191.52,
+      "market_cap_usd": 4917577161.73,
       "market_cap_is_override": false,
       "total_funding": 862230758.14,
       "n_rounds": 26
@@ -403,7 +403,7 @@
       "merged_with_acquired_by": null,
       "ticker": "XNDU",
       "currency": null,
-      "market_cap_usd": 2279905722.33,
+      "market_cap_usd": 1394121320.78,
       "market_cap_is_override": false,
       "total_funding": 822278200.0,
       "n_rounds": 17
@@ -427,7 +427,7 @@
       "merged_with_acquired_by": null,
       "ticker": "LAES",
       "currency": null,
-      "market_cap_usd": 528609321.1,
+      "market_cap_usd": 526337484.69,
       "market_cap_is_override": false,
       "total_funding": 693905439.0,
       "n_rounds": 14
@@ -455,7 +455,7 @@
       "merged_with_acquired_by": null,
       "ticker": "PSQL",
       "currency": null,
-      "market_cap_usd": 1529576047.8,
+      "market_cap_usd": 1350187932.34,
       "market_cap_is_override": false,
       "total_funding": 596730828.16,
       "n_rounds": 15
@@ -539,7 +539,7 @@
       "merged_with_acquired_by": null,
       "ticker": "688027",
       "currency": null,
-      "market_cap_usd": 5516226273.85,
+      "market_cap_usd": 5039694171.04,
       "market_cap_is_override": false,
       "total_funding": 462096484.74,
       "n_rounds": 13
@@ -596,7 +596,7 @@
       "merged_with_acquired_by": null,
       "ticker": "ASPI",
       "currency": null,
-      "market_cap_usd": 496722369.46,
+      "market_cap_usd": 406269870.62,
       "market_cap_is_override": false,
       "total_funding": 413082435.0,
       "n_rounds": 14
@@ -683,7 +683,7 @@
       "merged_with_acquired_by": null,
       "ticker": "688828",
       "currency": null,
-      "market_cap_usd": 5590256522.34,
+      "market_cap_usd": 4932903517.6,
       "market_cap_is_override": false,
       "total_funding": 329185683.64,
       "n_rounds": 14
@@ -814,7 +814,7 @@
       "merged_with_acquired_by": null,
       "ticker": "688826",
       "currency": null,
-      "market_cap_usd": 4904869285.29,
+      "market_cap_usd": 4289335231.63,
       "market_cap_is_override": false,
       "total_funding": 288357560.0,
       "n_rounds": 10
@@ -923,10 +923,36 @@
       "merged_with_acquired_by": null,
       "ticker": "ARQQ",
       "currency": null,
-      "market_cap_usd": 381112825.36,
+      "market_cap_usd": 418702006.71,
       "market_cap_is_override": false,
       "total_funding": 254443874.0,
       "n_rounds": 14
+    },
+    {
+      "company": "Sansec Technology (三未信安)",
+      "entity_id": "ecipe:sansec-technology",
+      "former_company_name": "Beijing Sansec Technology Development (北京三未信安科技发展有限公司)",
+      "website": "https://en.sansec.com.cn/",
+      "country": "China",
+      "cluster": "Beijing",
+      "founded_year": 2008,
+      "primary_pillar": "Quantum-Safe Security / PQC",
+      "additional_pillars": [],
+      "stack_layer": "Applications & Services",
+      "primary_stream": "Cryptography & Security",
+      "additional_streams": [
+        "Software Development Kits"
+      ],
+      "origin": null,
+      "ownership_status": "Public",
+      "operating_status": "Active",
+      "merged_with_acquired_by": null,
+      "ticker": "688489",
+      "currency": null,
+      "market_cap_usd": 693031187.04,
+      "market_cap_is_override": false,
+      "total_funding": 249820168.65,
+      "n_rounds": 6
     },
     {
       "company": "Quantum Motion",
@@ -1219,7 +1245,7 @@
       "merged_with_acquired_by": null,
       "ticker": "HQ",
       "currency": null,
-      "market_cap_usd": 808501735.29,
+      "market_cap_usd": 802025069.47,
       "market_cap_is_override": false,
       "total_funding": 177460164.3,
       "n_rounds": 12
@@ -1440,7 +1466,7 @@
       "merged_with_acquired_by": null,
       "ticker": "837638",
       "currency": null,
-      "market_cap_usd": 81337588.67,
+      "market_cap_usd": 78883530.61,
       "market_cap_is_override": false,
       "total_funding": 137377439.49,
       "n_rounds": 6
@@ -1612,7 +1638,7 @@
       "merged_with_acquired_by": null,
       "ticker": "ZPTA",
       "currency": null,
-      "market_cap_usd": 145161253.71,
+      "market_cap_usd": 150180166.34,
       "market_cap_is_override": false,
       "total_funding": 115989000.0,
       "n_rounds": 12
@@ -1636,7 +1662,7 @@
       "merged_with_acquired_by": null,
       "ticker": "SSH1V",
       "currency": null,
-      "market_cap_usd": 133025054.18,
+      "market_cap_usd": 127741490.05,
       "market_cap_is_override": false,
       "total_funding": 114807197.99,
       "n_rounds": 26
@@ -1741,7 +1767,7 @@
       "merged_with_acquired_by": null,
       "ticker": "JY0",
       "currency": null,
-      "market_cap_usd": 99273600,
+      "market_cap_usd": 95836200,
       "market_cap_is_override": false,
       "total_funding": 104057782.53,
       "n_rounds": 4
@@ -1789,7 +1815,7 @@
       "merged_with_acquired_by": null,
       "ticker": "AMPG",
       "currency": null,
-      "market_cap_usd": 104853168.29,
+      "market_cap_usd": 94337811.15,
       "market_cap_is_override": false,
       "total_funding": 101326524.0,
       "n_rounds": 24
@@ -2048,7 +2074,7 @@
     },
     {
       "company": "SQ Computing (矩量光启)",
-      "entity_id": null,
+      "entity_id": "ecipe:sq-computing",
       "former_company_name": null,
       "website": "https://www.sqcomputing.com/",
       "country": "China",
@@ -2156,7 +2182,7 @@
     },
     {
       "company": "Xianggan Technology / Xoherence (相干科技)",
-      "entity_id": null,
+      "entity_id": "ecipe:xianggan-technology-xoherence",
       "former_company_name": null,
       "website": null,
       "country": "China",
@@ -2306,7 +2332,7 @@
       "merged_with_acquired_by": null,
       "ticker": "456010",
       "currency": null,
-      "market_cap_usd": 239913389.56,
+      "market_cap_usd": 246627160.73,
       "market_cap_is_override": false,
       "total_funding": 65386754.45,
       "n_rounds": 5
@@ -2465,14 +2491,14 @@
       "merged_with_acquired_by": null,
       "ticker": "BTQ",
       "currency": null,
-      "market_cap_usd": 416973701.61,
+      "market_cap_usd": 426533966.03,
       "market_cap_is_override": false,
       "total_funding": 60239050.06,
       "n_rounds": 15
     },
     {
       "company": "Certes Networks",
-      "entity_id": null,
+      "entity_id": "ecipe:certes-networks",
       "former_company_name": "CipherOptics",
       "website": "https://certes.ai/",
       "country": "US",
@@ -2523,7 +2549,7 @@
     },
     {
       "company": "Wooriro",
-      "entity_id": null,
+      "entity_id": "ecipe:wooriro",
       "former_company_name": "Wooriro Gwangtongshin",
       "website": "https://www.wooriro.com/eng/",
       "country": "South Korea",
@@ -2544,7 +2570,7 @@
       "merged_with_acquired_by": null,
       "ticker": "046970",
       "currency": null,
-      "market_cap_usd": 255554110.57,
+      "market_cap_usd": 237583769.93,
       "market_cap_is_override": false,
       "total_funding": 59273352.27,
       "n_rounds": 9
@@ -2801,7 +2827,7 @@
     },
     {
       "company": "OXIDE Corporation",
-      "entity_id": null,
+      "entity_id": "ecipe:oxide-corporation",
       "former_company_name": null,
       "website": "https://www.opt-oxide.com/en/",
       "country": "Japan",
@@ -2825,7 +2851,7 @@
       "merged_with_acquired_by": null,
       "ticker": "6521",
       "currency": null,
-      "market_cap_usd": 245543506.59,
+      "market_cap_usd": 240057109.62,
       "market_cap_is_override": false,
       "total_funding": 48267065.53,
       "n_rounds": 14
@@ -3184,7 +3210,7 @@
     },
     {
       "company": "Picosun",
-      "entity_id": null,
+      "entity_id": "ecipe:picosun",
       "former_company_name": null,
       "website": null,
       "country": "Finland",
@@ -3590,7 +3616,7 @@
       "merged_with_acquired_by": null,
       "ticker": "AXE",
       "currency": null,
-      "market_cap_usd": 36459480.17,
+      "market_cap_usd": 32684818.01,
       "market_cap_is_override": false,
       "total_funding": 31611237.79,
       "n_rounds": 14
@@ -3705,7 +3731,7 @@
       "merged_with_acquired_by": null,
       "ticker": "QNC",
       "currency": null,
-      "market_cap_usd": 372897550.45,
+      "market_cap_usd": 326425708.88,
       "market_cap_is_override": false,
       "total_funding": 30419222.54,
       "n_rounds": 14
@@ -4411,7 +4437,7 @@
       "merged_with_acquired_by": null,
       "ticker": "CRQ",
       "currency": null,
-      "market_cap_usd": 279121005.96,
+      "market_cap_usd": 273190364.46,
       "market_cap_is_override": false,
       "total_funding": 22403080.0,
       "n_rounds": 1
@@ -4522,7 +4548,7 @@
       "merged_with_acquired_by": null,
       "ticker": "QTEX",
       "currency": null,
-      "market_cap_usd": 57087573.85,
+      "market_cap_usd": 37993378.96,
       "market_cap_is_override": false,
       "total_funding": 21000000.0,
       "n_rounds": 3
@@ -4745,7 +4771,7 @@
     },
     {
       "company": "TheWake Systems / Qingxing Heterogeneous Computing (清醒异构)",
-      "entity_id": null,
+      "entity_id": "ecipe:thewake-systems-qingxing-heterogeneous-computing",
       "former_company_name": null,
       "website": "https://platform.thewakesystems.com/",
       "country": "China",
@@ -4796,7 +4822,7 @@
     },
     {
       "company": "Naoris Quantum Protocol",
-      "entity_id": null,
+      "entity_id": "ecipe:naoris-quantum-protocol",
       "former_company_name": null,
       "website": "https://www.naorisquantumprotocol.com/",
       "country": "US",
@@ -4820,7 +4846,7 @@
     },
     {
       "company": "Tiempo Secure",
-      "entity_id": null,
+      "entity_id": "ecipe:tiempo-secure",
       "former_company_name": null,
       "website": null,
       "country": "France",
@@ -5535,7 +5561,7 @@
       "merged_with_acquired_by": null,
       "ticker": "QUBE",
       "currency": null,
-      "market_cap_usd": 22064722.89,
+      "market_cap_usd": 22026475.2,
       "market_cap_is_override": false,
       "total_funding": 15880303.17,
       "n_rounds": 9
@@ -5731,7 +5757,7 @@
     },
     {
       "company": "Veqton (维刻量光)",
-      "entity_id": null,
+      "entity_id": "ecipe:veqton",
       "former_company_name": null,
       "website": null,
       "country": "China",
@@ -5943,7 +5969,7 @@
       "merged_with_acquired_by": null,
       "ticker": "QSE",
       "currency": null,
-      "market_cap_usd": 29105041.87,
+      "market_cap_usd": 24037668.48,
       "market_cap_is_override": false,
       "total_funding": 13955674.35,
       "n_rounds": 12
@@ -6352,7 +6378,7 @@
     },
     {
       "company": "WithWave",
-      "entity_id": null,
+      "entity_id": "ecipe:withwave",
       "former_company_name": null,
       "website": "https://with-wave.com/",
       "country": "South Korea",
@@ -6510,7 +6536,7 @@
     },
     {
       "company": "Utimaco",
-      "entity_id": null,
+      "entity_id": "ecipe:utimaco",
       "former_company_name": "Utimaco Safeware",
       "website": "https://utimaco.com/",
       "country": "Germany",
@@ -6695,7 +6721,7 @@
     },
     {
       "company": "Cryo H&I",
-      "entity_id": null,
+      "entity_id": "ecipe:cryo-h-i",
       "former_company_name": null,
       "website": "https://cryohi.com/",
       "country": "South Korea",
@@ -6794,7 +6820,7 @@
       "merged_with_acquired_by": null,
       "ticker": "QNCR",
       "currency": null,
-      "market_cap_usd": 61259930.48,
+      "market_cap_usd": 59822843.49,
       "market_cap_is_override": false,
       "total_funding": 11620361.23,
       "n_rounds": 6
@@ -6881,7 +6907,7 @@
     },
     {
       "company": "ZL Cryogenic (知冷低温)",
-      "entity_id": null,
+      "entity_id": "ecipe:zl-cryogenic",
       "former_company_name": null,
       "website": "http://www.zlcryogenic.com/",
       "country": "China",
@@ -6980,14 +7006,14 @@
       "merged_with_acquired_by": null,
       "ticker": "ALRIB",
       "currency": null,
-      "market_cap_usd": 219027722.37,
+      "market_cap_usd": 224642940.83,
       "market_cap_is_override": false,
       "total_funding": 10985267.09,
       "n_rounds": 9
     },
     {
       "company": "Coweaver",
-      "entity_id": null,
+      "entity_id": "ecipe:coweaver",
       "former_company_name": null,
       "website": "http://coweaver.co.kr/",
       "country": "South Korea",
@@ -7008,7 +7034,7 @@
       "merged_with_acquired_by": null,
       "ticker": "056360",
       "currency": null,
-      "market_cap_usd": 41320207.51,
+      "market_cap_usd": 41156836.52,
       "market_cap_is_override": false,
       "total_funding": 10785247.3,
       "n_rounds": 2
@@ -7506,7 +7532,7 @@
     },
     {
       "company": "Jmem Tek",
-      "entity_id": null,
+      "entity_id": "ecipe:jmem-tek",
       "former_company_name": null,
       "website": "https://www.jmemtek.com/",
       "country": "Taiwan",
@@ -7553,6 +7579,59 @@
       "market_cap_is_override": false,
       "total_funding": 8942492.05,
       "n_rounds": 8
+    },
+    {
+      "company": "HiQuTe Diamond",
+      "entity_id": "ecipe:hiqute-diamond",
+      "former_company_name": null,
+      "website": "https://hiqute-diamond.com/",
+      "country": "France",
+      "cluster": "Greater Paris",
+      "founded_year": 2022,
+      "primary_pillar": "Enabling Technologies",
+      "additional_pillars": [
+        "Quantum Computing and Simulation",
+        "Quantum Sensing and Metrology"
+      ],
+      "stack_layer": "Materials & Fabrication",
+      "primary_stream": "Semiconductors & Materials",
+      "additional_streams": [],
+      "origin": null,
+      "ownership_status": "Private",
+      "operating_status": "Active",
+      "merged_with_acquired_by": null,
+      "ticker": null,
+      "currency": null,
+      "market_cap_usd": null,
+      "market_cap_is_override": false,
+      "total_funding": 8719526.57,
+      "n_rounds": 3
+    },
+    {
+      "company": "Advent Diamond",
+      "entity_id": "ecipe:advent-diamond",
+      "former_company_name": null,
+      "website": "https://adventdiamond.com/",
+      "country": "US",
+      "cluster": null,
+      "founded_year": 2018,
+      "primary_pillar": "Enabling Technologies",
+      "additional_pillars": [
+        "Quantum Sensing and Metrology"
+      ],
+      "stack_layer": "Materials & Fabrication",
+      "primary_stream": "Semiconductors & Materials",
+      "additional_streams": [],
+      "origin": "University spinout",
+      "ownership_status": "Private",
+      "operating_status": "Active",
+      "merged_with_acquired_by": null,
+      "ticker": null,
+      "currency": null,
+      "market_cap_usd": null,
+      "market_cap_is_override": false,
+      "total_funding": 8612992.0,
+      "n_rounds": 17
     },
     {
       "company": "BQP",
@@ -7655,7 +7734,7 @@
       "merged_with_acquired_by": null,
       "ticker": "SEN",
       "currency": null,
-      "market_cap_usd": 34431603.95,
+      "market_cap_usd": 30030940.15,
       "market_cap_is_override": false,
       "total_funding": 8369361.97,
       "n_rounds": 6
@@ -8173,7 +8252,7 @@
     },
     {
       "company": "Kokyo",
-      "entity_id": null,
+      "entity_id": "ecipe:kokyo",
       "former_company_name": null,
       "website": "https://en.symphotony.com/",
       "country": "Japan",
@@ -8195,7 +8274,7 @@
       "merged_with_acquired_by": null,
       "ticker": "5887",
       "currency": null,
-      "market_cap_usd": 3242888.77,
+      "market_cap_usd": 3248471.42,
       "market_cap_is_override": false,
       "total_funding": 6814221.43,
       "n_rounds": 15
@@ -8448,7 +8527,7 @@
     },
     {
       "company": "QUSENJOY / Shenzhou Quantum (神州量子)",
-      "entity_id": null,
+      "entity_id": "ecipe:qusenjoy-shenzhou-quantum",
       "former_company_name": null,
       "website": null,
       "country": "China",
@@ -8496,7 +8575,7 @@
     },
     {
       "company": "Syrlinks",
-      "entity_id": null,
+      "entity_id": "ecipe:syrlinks-now-part-of-safran",
       "former_company_name": null,
       "website": null,
       "country": "France",
@@ -8517,6 +8596,35 @@
       "market_cap_is_override": false,
       "total_funding": 6321017.58,
       "n_rounds": 8
+    },
+    {
+      "company": "Integrated Optics",
+      "entity_id": "ecipe:integrated-optics",
+      "former_company_name": null,
+      "website": "https://integratedoptics.com/",
+      "country": "Lithuania",
+      "cluster": null,
+      "founded_year": 2012,
+      "primary_pillar": "Enabling Technologies",
+      "additional_pillars": [
+        "Quantum Computing and Simulation",
+        "Quantum Communication and Networking"
+      ],
+      "stack_layer": "Components & Control",
+      "primary_stream": "Lasers & Optics",
+      "additional_streams": [
+        "Single-Photon & Entangled-Photon Sources"
+      ],
+      "origin": null,
+      "ownership_status": "Private",
+      "operating_status": "Active",
+      "merged_with_acquired_by": null,
+      "ticker": null,
+      "currency": null,
+      "market_cap_usd": null,
+      "market_cap_is_override": false,
+      "total_funding": 6226274.27,
+      "n_rounds": 11
     },
     {
       "company": "BlocQ",
@@ -8627,7 +8735,7 @@
     },
     {
       "company": "inCerebro",
-      "entity_id": null,
+      "entity_id": "ecipe:incerebro",
       "former_company_name": null,
       "website": "https://incerebro.com/incerebro/",
       "country": "South Korea",
@@ -8653,7 +8761,7 @@
     },
     {
       "company": "Security Platform",
-      "entity_id": null,
+      "entity_id": "ecipe:security-platform",
       "former_company_name": null,
       "website": "https://en.securityplatform.co.kr/",
       "country": "South Korea",
@@ -8727,7 +8835,7 @@
       "merged_with_acquired_by": null,
       "ticker": "QBTQ",
       "currency": null,
-      "market_cap_usd": 13207074.85,
+      "market_cap_usd": 10693254.61,
       "market_cap_is_override": false,
       "total_funding": 5903644.57,
       "n_rounds": 4
@@ -8753,14 +8861,14 @@
       "merged_with_acquired_by": null,
       "ticker": "QXL",
       "currency": null,
-      "market_cap_usd": 69882684.95,
+      "market_cap_usd": 62747722.98,
       "market_cap_is_override": false,
       "total_funding": 5869000.0,
       "n_rounds": 8
     },
     {
       "company": "Zhongke Liangshu (中科量枢)",
-      "entity_id": null,
+      "entity_id": "ecipe:zhongke-liangshu",
       "former_company_name": null,
       "website": null,
       "country": "China",
@@ -8813,7 +8921,7 @@
     },
     {
       "company": "Japan Superconductivity​ Application Development",
-      "entity_id": null,
+      "entity_id": "ecipe:japan-superconductivity-application-development",
       "former_company_name": null,
       "website": "https://www.cho-dendo.jp/",
       "country": "Japan",
@@ -8840,6 +8948,34 @@
       "n_rounds": 3
     },
     {
+      "company": "Dream Photonics",
+      "entity_id": "ecipe:dream-photonics",
+      "former_company_name": null,
+      "website": "https://dreamphotonics.com/",
+      "country": "Canada",
+      "cluster": "Metro Vancouver",
+      "founded_year": 2019,
+      "primary_pillar": "Enabling Technologies",
+      "additional_pillars": [
+        "Quantum Computing and Simulation"
+      ],
+      "stack_layer": "Components & Control",
+      "primary_stream": "Lasers & Optics",
+      "additional_streams": [
+        "Foundries & Fabrication"
+      ],
+      "origin": "University spinout",
+      "ownership_status": "Private",
+      "operating_status": "Active",
+      "merged_with_acquired_by": null,
+      "ticker": null,
+      "currency": null,
+      "market_cap_usd": null,
+      "market_cap_is_override": false,
+      "total_funding": 5615986.81,
+      "n_rounds": 8
+    },
+    {
       "company": "SBQuantum",
       "entity_id": "ecipe:sbquantum",
       "former_company_name": null,
@@ -8864,6 +9000,35 @@
       "market_cap_is_override": false,
       "total_funding": 5611396.75,
       "n_rounds": 9
+    },
+    {
+      "company": "Opto-Atomics",
+      "entity_id": "ecipe:opto-atomics",
+      "former_company_name": null,
+      "website": "https://opto-atomics.com/",
+      "country": "US",
+      "cluster": "Greater Los Angeles",
+      "founded_year": 2021,
+      "primary_pillar": "Enabling Technologies",
+      "additional_pillars": [
+        "Quantum Sensing and Metrology",
+        "Quantum Communication and Networking"
+      ],
+      "stack_layer": "Components & Control",
+      "primary_stream": "Lasers & Optics",
+      "additional_streams": [
+        "Single-Photon & Entangled-Photon Sources"
+      ],
+      "origin": null,
+      "ownership_status": "Private",
+      "operating_status": "Active",
+      "merged_with_acquired_by": null,
+      "ticker": null,
+      "currency": null,
+      "market_cap_usd": null,
+      "market_cap_is_override": false,
+      "total_funding": 5514856.0,
+      "n_rounds": 14
     },
     {
       "company": "QC Design",
@@ -8972,6 +9137,36 @@
       "market_cap_is_override": false,
       "total_funding": 5286550.0,
       "n_rounds": 2
+    },
+    {
+      "company": "RedWave Labs",
+      "entity_id": "ecipe:redwave-labs",
+      "former_company_name": null,
+      "website": "https://www.redwavelabs.com/",
+      "country": "UK",
+      "cluster": "Oxford",
+      "founded_year": 2004,
+      "primary_pillar": "Enabling Technologies",
+      "additional_pillars": [
+        "Quantum Communication and Networking",
+        "Quantum Sensing and Metrology"
+      ],
+      "stack_layer": "Components & Control",
+      "primary_stream": "Control Electronics",
+      "additional_streams": [
+        "Single-Photon Detectors",
+        "Test & Measurement"
+      ],
+      "origin": null,
+      "ownership_status": "Private",
+      "operating_status": "Active",
+      "merged_with_acquired_by": null,
+      "ticker": null,
+      "currency": null,
+      "market_cap_usd": null,
+      "market_cap_is_override": false,
+      "total_funding": 5210322.59,
+      "n_rounds": 23
     },
     {
       "company": "Swabian Instruments",
@@ -9132,10 +9327,41 @@
       "merged_with_acquired_by": null,
       "ticker": "ONE",
       "currency": null,
-      "market_cap_usd": 37577935.98,
+      "market_cap_usd": 52564198.51,
       "market_cap_is_override": false,
       "total_funding": 4936764.05,
       "n_rounds": 12
+    },
+    {
+      "company": "Bay Photonics",
+      "entity_id": "ecipe:bay-photonics",
+      "former_company_name": "Alpha Contract Engineering",
+      "website": "https://www.bayphotonics.com/",
+      "country": "UK",
+      "cluster": null,
+      "founded_year": 2007,
+      "primary_pillar": "Enabling Technologies",
+      "additional_pillars": [
+        "Quantum Communication and Networking",
+        "Quantum Sensing and Metrology",
+        "Quantum Computing and Simulation"
+      ],
+      "stack_layer": "Materials & Fabrication",
+      "primary_stream": "Foundries & Fabrication",
+      "additional_streams": [
+        "Lasers & Optics",
+        "Single-Photon Detectors"
+      ],
+      "origin": null,
+      "ownership_status": "Private",
+      "operating_status": "Acquired – operating",
+      "merged_with_acquired_by": "AMS Technologies",
+      "ticker": null,
+      "currency": null,
+      "market_cap_usd": null,
+      "market_cap_is_override": false,
+      "total_funding": 4903798.11,
+      "n_rounds": 25
     },
     {
       "company": "Kuano",
@@ -9764,7 +9990,7 @@
       "merged_with_acquired_by": null,
       "ticker": "VEIL",
       "currency": null,
-      "market_cap_usd": 34156190.33,
+      "market_cap_usd": 30352981.55,
       "market_cap_is_override": false,
       "total_funding": 4037738.25,
       "n_rounds": 3
@@ -9923,7 +10149,7 @@
       "merged_with_acquired_by": null,
       "ticker": "R0D",
       "currency": null,
-      "market_cap_usd": 47396250,
+      "market_cap_usd": 47690997.83,
       "market_cap_is_override": false,
       "total_funding": 3693660.02,
       "n_rounds": 4
@@ -10010,7 +10236,7 @@
     },
     {
       "company": "Qambria",
-      "entity_id": null,
+      "entity_id": "ecipe:qambria",
       "former_company_name": null,
       "website": "https://www.qambria.com/",
       "country": "Switzerland",
@@ -10120,7 +10346,7 @@
     },
     {
       "company": "VPIphotonics",
-      "entity_id": null,
+      "entity_id": "ecipe:vpiphotonics",
       "former_company_name": null,
       "website": "https://www.vpiphotonics.com/index.php",
       "country": "Germany",
@@ -10171,6 +10397,32 @@
       "market_cap_is_override": false,
       "total_funding": 3463810.39,
       "n_rounds": 3
+    },
+    {
+      "company": "ODMR Technologies",
+      "entity_id": "ecipe:odmr-technologies",
+      "former_company_name": null,
+      "website": null,
+      "country": "US",
+      "cluster": "San Francisco Bay Area",
+      "founded_year": 2015,
+      "primary_pillar": "Quantum Sensing and Metrology",
+      "additional_pillars": [],
+      "stack_layer": "Core Quantum Hardware",
+      "primary_stream": "Diamond NV Centers",
+      "additional_streams": [
+        "Magnetometers"
+      ],
+      "origin": null,
+      "ownership_status": "Private",
+      "operating_status": "Active",
+      "merged_with_acquired_by": null,
+      "ticker": null,
+      "currency": null,
+      "market_cap_usd": null,
+      "market_cap_is_override": false,
+      "total_funding": 3444021.0,
+      "n_rounds": 8
     },
     {
       "company": "Planckian",
@@ -10227,7 +10479,7 @@
     },
     {
       "company": "Azulene Labs",
-      "entity_id": null,
+      "entity_id": "ecipe:azulene-labs",
       "former_company_name": null,
       "website": "https://www.azulenelabs.com/",
       "country": "US",
@@ -10414,6 +10666,36 @@
       "market_cap_usd": null,
       "market_cap_is_override": false,
       "total_funding": 3172500.0,
+      "n_rounds": 3
+    },
+    {
+      "company": "Qlibri",
+      "entity_id": "ecipe:qlibri",
+      "former_company_name": null,
+      "website": "https://www.qlibri.eu/",
+      "country": "Germany",
+      "cluster": "Munich Metropolitan Area",
+      "founded_year": 2022,
+      "primary_pillar": "Enabling Technologies",
+      "additional_pillars": [
+        "Quantum Computing and Simulation",
+        "Quantum Communication and Networking",
+        "Quantum Sensing and Metrology"
+      ],
+      "stack_layer": "Components & Control",
+      "primary_stream": "Lasers & Optics",
+      "additional_streams": [
+        "Test & Measurement"
+      ],
+      "origin": "University spinout",
+      "ownership_status": "Private",
+      "operating_status": "Active",
+      "merged_with_acquired_by": null,
+      "ticker": null,
+      "currency": null,
+      "market_cap_usd": null,
+      "market_cap_is_override": false,
+      "total_funding": 3105216.49,
       "n_rounds": 3
     },
     {
@@ -10662,7 +10944,7 @@
     },
     {
       "company": "Entropec (熵函数)",
-      "entity_id": null,
+      "entity_id": "ecipe:entropec",
       "former_company_name": null,
       "website": "https://www.entropec.com/",
       "country": "China",
@@ -10689,7 +10971,7 @@
     },
     {
       "company": "Liangyu Xinchuang (量域芯创)",
-      "entity_id": null,
+      "entity_id": "ecipe:liangyu-xinchuang",
       "former_company_name": null,
       "website": null,
       "country": "China",
@@ -10704,6 +10986,33 @@
       "additional_streams": [
         "Control Electronics",
         "RF & Microwave"
+      ],
+      "origin": null,
+      "ownership_status": "Private",
+      "operating_status": "Active",
+      "merged_with_acquired_by": null,
+      "ticker": null,
+      "currency": null,
+      "market_cap_usd": null,
+      "market_cap_is_override": false,
+      "total_funding": 2930000.0,
+      "n_rounds": 1
+    },
+    {
+      "company": "QudeLeap (幻码跃迁)",
+      "entity_id": "ecipe:qudeleap",
+      "former_company_name": null,
+      "website": null,
+      "country": "China",
+      "cluster": "Shanghai",
+      "founded_year": 2026,
+      "primary_pillar": "Quantum Computing and Simulation",
+      "additional_pillars": [],
+      "stack_layer": "Software & Platforms",
+      "primary_stream": "Algorithms & Compilation",
+      "additional_streams": [
+        "Error Mitigation & Correction",
+        "Hybrid Middleware & Orchestration"
       ],
       "origin": null,
       "ownership_status": "Private",
@@ -11712,6 +12021,33 @@
       "n_rounds": 3
     },
     {
+      "company": "Magnetic Shields",
+      "entity_id": "ecipe:magnetic-shields",
+      "former_company_name": null,
+      "website": "https://www.magneticshields.co.uk/",
+      "country": "UK",
+      "cluster": null,
+      "founded_year": 1957,
+      "primary_pillar": "Enabling Technologies",
+      "additional_pillars": [
+        "Quantum Computing and Simulation",
+        "Quantum Sensing and Metrology"
+      ],
+      "stack_layer": "Components & Control",
+      "primary_stream": "Test & Measurement",
+      "additional_streams": [],
+      "origin": null,
+      "ownership_status": "Private",
+      "operating_status": "Active",
+      "merged_with_acquired_by": null,
+      "ticker": null,
+      "currency": null,
+      "market_cap_usd": null,
+      "market_cap_is_override": false,
+      "total_funding": 2201185.17,
+      "n_rounds": 6
+    },
+    {
       "company": "Low Noise Factory",
       "entity_id": "ecipe:low-noise-factory",
       "former_company_name": null,
@@ -11765,6 +12101,34 @@
       "n_rounds": 1
     },
     {
+      "company": "Apex Atomics",
+      "entity_id": "ecipe:apex-atomics",
+      "former_company_name": "Vapor Cell Technologies",
+      "website": "https://apexatomics.com/",
+      "country": "US",
+      "cluster": "Denver–Boulder Region",
+      "founded_year": 2020,
+      "primary_pillar": "Enabling Technologies",
+      "additional_pillars": [
+        "Quantum Sensing and Metrology"
+      ],
+      "stack_layer": "Materials & Fabrication",
+      "primary_stream": "Foundries & Fabrication",
+      "additional_streams": [
+        "Control Electronics"
+      ],
+      "origin": "Research spinout",
+      "ownership_status": "Private",
+      "operating_status": "Active",
+      "merged_with_acquired_by": null,
+      "ticker": null,
+      "currency": null,
+      "market_cap_usd": null,
+      "market_cap_is_override": false,
+      "total_funding": 2161136.0,
+      "n_rounds": 6
+    },
+    {
       "company": "Error Corp.",
       "entity_id": "ecipe:error-corp",
       "former_company_name": null,
@@ -11792,7 +12156,7 @@
     },
     {
       "company": "ATEM",
-      "entity_id": null,
+      "entity_id": "ecipe:atem",
       "former_company_name": null,
       "website": "https://www.atem.com/fr/",
       "country": "France",
@@ -11952,7 +12316,7 @@
     },
     {
       "company": "Genesis Quantum / GQT Korea",
-      "entity_id": null,
+      "entity_id": "ecipe:genesis-quantum-gqt-korea",
       "former_company_name": null,
       "website": "https://www.genesisqt.com/",
       "country": "South Korea",
@@ -12031,7 +12395,7 @@
     },
     {
       "company": "VISION IV",
-      "entity_id": null,
+      "entity_id": "ecipe:vision-iv",
       "former_company_name": null,
       "website": "https://visioniv.co.jp/",
       "country": "Japan",
@@ -12530,6 +12894,32 @@
       "n_rounds": 5
     },
     {
+      "company": "Brightlight Photonics",
+      "entity_id": "ecipe:brightlight-photonics",
+      "former_company_name": null,
+      "website": "https://www.brightlightphotonics.com/",
+      "country": "US",
+      "cluster": "Greater Boston",
+      "founded_year": 2024,
+      "primary_pillar": "Enabling Technologies",
+      "additional_pillars": [
+        "Quantum Sensing and Metrology"
+      ],
+      "stack_layer": "Components & Control",
+      "primary_stream": "Lasers & Optics",
+      "additional_streams": [],
+      "origin": "University spinout",
+      "ownership_status": "Private",
+      "operating_status": "Active",
+      "merged_with_acquired_by": null,
+      "ticker": null,
+      "currency": null,
+      "market_cap_usd": null,
+      "market_cap_is_override": false,
+      "total_funding": 1566155.0,
+      "n_rounds": 7
+    },
+    {
       "company": "Advanced Research Systems",
       "entity_id": "ecipe:advanced-research-systems",
       "former_company_name": null,
@@ -12885,7 +13275,7 @@
     },
     {
       "company": "QUAD",
-      "entity_id": null,
+      "entity_id": "ecipe:quad",
       "former_company_name": null,
       "website": null,
       "country": "South Korea",
@@ -13535,7 +13925,7 @@
     },
     {
       "company": "Nanomatch",
-      "entity_id": null,
+      "entity_id": "ecipe:nanomatch",
       "former_company_name": "Nanosim",
       "website": "https://www.nanomatch.de/",
       "country": "Germany",
@@ -13982,6 +14372,34 @@
       "n_rounds": 4
     },
     {
+      "company": "Liangxi Technology (量羲)",
+      "entity_id": "ecipe:liangxi-technology",
+      "former_company_name": null,
+      "website": null,
+      "country": "China",
+      "cluster": "Shanghai",
+      "founded_year": 2022,
+      "primary_pillar": "Enabling Technologies",
+      "additional_pillars": [
+        "Quantum Computing and Simulation"
+      ],
+      "stack_layer": "Components & Control",
+      "primary_stream": "Cryogenic Systems",
+      "additional_streams": [
+        "RF & Microwave"
+      ],
+      "origin": null,
+      "ownership_status": "Private",
+      "operating_status": "Active",
+      "merged_with_acquired_by": null,
+      "ticker": null,
+      "currency": null,
+      "market_cap_usd": null,
+      "market_cap_is_override": false,
+      "total_funding": 887223.85,
+      "n_rounds": 6
+    },
+    {
       "company": "Quantum Technology Foundation",
       "entity_id": "ecipe:quantum-technology-foundation",
       "former_company_name": null,
@@ -14092,7 +14510,7 @@
     },
     {
       "company": "Quantum B",
-      "entity_id": null,
+      "entity_id": "ecipe:quantum-blockchains",
       "former_company_name": "Quantum Blockchains",
       "website": "https://quantumb.io/",
       "country": "Poland",
@@ -14457,7 +14875,7 @@
     },
     {
       "company": "Lizard Photonics",
-      "entity_id": null,
+      "entity_id": "ecipe:lizard-photonics",
       "former_company_name": null,
       "website": "https://lizardphotonics.com/",
       "country": "Denmark",
@@ -14670,7 +15088,7 @@
     },
     {
       "company": "PQStation",
-      "entity_id": null,
+      "entity_id": "ecipe:pqstation",
       "former_company_name": null,
       "website": "https://www.pqstation.com/",
       "country": "Singapore",
@@ -14696,7 +15114,7 @@
     },
     {
       "company": "Afore",
-      "entity_id": null,
+      "entity_id": "ecipe:afore",
       "former_company_name": null,
       "website": null,
       "country": "Finland",
@@ -14993,7 +15411,7 @@
     },
     {
       "company": "RAITH",
-      "entity_id": null,
+      "entity_id": "openalex:I4210143647",
       "former_company_name": null,
       "website": "https://raith.com/",
       "country": "Germany",
@@ -15019,7 +15437,7 @@
     },
     {
       "company": "InfoSec Global",
-      "entity_id": null,
+      "entity_id": "ecipe:infosec-global",
       "former_company_name": null,
       "website": null,
       "country": "Canada",
@@ -15486,7 +15904,7 @@
       "market_cap_usd": null,
       "market_cap_is_override": false,
       "total_funding": 303016.0,
-      "n_rounds": 2
+      "n_rounds": 5
     },
     {
       "company": "Applied Quantum Computing",
@@ -15861,33 +16279,6 @@
       "n_rounds": 6
     },
     {
-      "company": "HiQuTe Diamond",
-      "entity_id": "ecipe:hiqute-diamond",
-      "former_company_name": null,
-      "website": "https://hiqute-diamond.com/",
-      "country": "France",
-      "cluster": "Greater Paris",
-      "founded_year": 2022,
-      "primary_pillar": "Enabling Technologies",
-      "additional_pillars": [
-        "Quantum Computing and Simulation",
-        "Quantum Sensing and Metrology"
-      ],
-      "stack_layer": "Materials & Fabrication",
-      "primary_stream": "Semiconductors & Materials",
-      "additional_streams": [],
-      "origin": null,
-      "ownership_status": "Private",
-      "operating_status": "Active",
-      "merged_with_acquired_by": null,
-      "ticker": null,
-      "currency": null,
-      "market_cap_usd": null,
-      "market_cap_is_override": false,
-      "total_funding": 240026.57,
-      "n_rounds": 2
-    },
-    {
       "company": "G2Q Computing",
       "entity_id": "ecipe:g2q-computing",
       "former_company_name": null,
@@ -16001,7 +16392,7 @@
     },
     {
       "company": "Laser Quantum",
-      "entity_id": null,
+      "entity_id": "ecipe:laser-quantum",
       "former_company_name": null,
       "website": null,
       "country": "UK",
@@ -16100,6 +16491,34 @@
       "market_cap_is_override": false,
       "total_funding": 195528.58,
       "n_rounds": 2
+    },
+    {
+      "company": "JPE",
+      "entity_id": "ecipe:jpe",
+      "former_company_name": "Janssen Precision Engineering",
+      "website": "https://www.jpe-innovations.com/",
+      "country": "Netherlands",
+      "cluster": null,
+      "founded_year": 1991,
+      "primary_pillar": "Enabling Technologies",
+      "additional_pillars": [
+        "Quantum Computing and Simulation"
+      ],
+      "stack_layer": "Components & Control",
+      "primary_stream": "Cryogenic Systems",
+      "additional_streams": [
+        "Test & Measurement"
+      ],
+      "origin": null,
+      "ownership_status": "Private",
+      "operating_status": "Active",
+      "merged_with_acquired_by": null,
+      "ticker": null,
+      "currency": null,
+      "market_cap_usd": null,
+      "market_cap_is_override": false,
+      "total_funding": 194944.62,
+      "n_rounds": 5
     },
     {
       "company": "ARQUE Systems",
@@ -16290,6 +16709,32 @@
       "n_rounds": 2
     },
     {
+      "company": "AmorphiQ",
+      "entity_id": "ecipe:amorphiq",
+      "former_company_name": null,
+      "website": "https://www.amorphiq.co.uk/",
+      "country": "UK",
+      "cluster": "Cambridge",
+      "founded_year": 2025,
+      "primary_pillar": "Quantum Computing and Simulation",
+      "additional_pillars": [],
+      "stack_layer": "Software & Platforms",
+      "primary_stream": "Algorithms & Compilation",
+      "additional_streams": [
+        "AI & Machine Learning"
+      ],
+      "origin": null,
+      "ownership_status": "Private",
+      "operating_status": "Active",
+      "merged_with_acquired_by": null,
+      "ticker": null,
+      "currency": null,
+      "market_cap_usd": null,
+      "market_cap_is_override": false,
+      "total_funding": 177932.38,
+      "n_rounds": 3
+    },
+    {
       "company": "QuantumAstra",
       "entity_id": "ecipe:quantumastra",
       "former_company_name": null,
@@ -16392,6 +16837,36 @@
       "market_cap_usd": null,
       "market_cap_is_override": false,
       "total_funding": 156573.06,
+      "n_rounds": 3
+    },
+    {
+      "company": "QUANTONOVA",
+      "entity_id": "ecipe:quantonova",
+      "former_company_name": null,
+      "website": "https://www.quantonova.com/",
+      "country": "UK",
+      "cluster": "Cambridge",
+      "founded_year": 2023,
+      "primary_pillar": "Quantum Computing and Simulation",
+      "additional_pillars": [
+        "Quantum Sensing and Metrology",
+        "Quantum-Safe Security / PQC"
+      ],
+      "stack_layer": "Software & Platforms",
+      "primary_stream": "Error Mitigation & Correction",
+      "additional_streams": [
+        "Quantum Imaging",
+        "Cryptography & Security"
+      ],
+      "origin": null,
+      "ownership_status": "Private",
+      "operating_status": "Active",
+      "merged_with_acquired_by": null,
+      "ticker": null,
+      "currency": null,
+      "market_cap_usd": null,
+      "market_cap_is_override": false,
+      "total_funding": 154342.15,
       "n_rounds": 3
     },
     {
@@ -16553,7 +17028,7 @@
     },
     {
       "company": "Cystel",
-      "entity_id": null,
+      "entity_id": "ecipe:cystel",
       "former_company_name": null,
       "website": "https://www.cystel.org/",
       "country": "UK",
@@ -16953,6 +17428,30 @@
       "n_rounds": 1
     },
     {
+      "company": "SpinOr",
+      "entity_id": "ecipe:spinor",
+      "former_company_name": null,
+      "website": "https://spinor.co.uk/",
+      "country": "UK",
+      "cluster": null,
+      "founded_year": 2025,
+      "primary_pillar": "Quantum Computing and Simulation",
+      "additional_pillars": [],
+      "stack_layer": "Core Quantum Hardware",
+      "primary_stream": "Superconducting Qubits",
+      "additional_streams": [],
+      "origin": "University spinout",
+      "ownership_status": "Private",
+      "operating_status": "Active",
+      "merged_with_acquired_by": null,
+      "ticker": null,
+      "currency": null,
+      "market_cap_usd": null,
+      "market_cap_is_override": false,
+      "total_funding": 62659.1,
+      "n_rounds": 1
+    },
+    {
       "company": "4colors Research",
       "entity_id": "ecipe:4colors-research",
       "former_company_name": null,
@@ -17170,7 +17669,7 @@
     },
     {
       "company": "OAQ",
-      "entity_id": null,
+      "entity_id": "ecipe:oaq",
       "former_company_name": null,
       "website": "https://www.oaqcorp.com/",
       "country": "South Korea",
@@ -17592,7 +18091,7 @@
     },
     {
       "company": "AngelQ Quantum Computing",
-      "entity_id": null,
+      "entity_id": "ecipe:angelq-quantum-computing",
       "former_company_name": null,
       "website": "https://angelquantum.com/",
       "country": "Singapore",
@@ -17755,7 +18254,7 @@
     },
     {
       "company": "AppliedQubit",
-      "entity_id": null,
+      "entity_id": "ecipe:appliedqubit",
       "former_company_name": null,
       "website": null,
       "country": "UK",
@@ -17936,7 +18435,7 @@
     },
     {
       "company": "Artiste-qb Net",
-      "entity_id": null,
+      "entity_id": "ecipe:artiste-qb-net",
       "former_company_name": null,
       "website": null,
       "country": "Canada",
@@ -18039,7 +18538,7 @@
     },
     {
       "company": "AvInyaSQ",
-      "entity_id": null,
+      "entity_id": "ecipe:avinyasq",
       "former_company_name": null,
       "website": "https://avinyasq.com/",
       "country": "India",
@@ -18250,7 +18749,7 @@
     },
     {
       "company": "Block-S",
-      "entity_id": null,
+      "entity_id": "ecipe:block-s",
       "former_company_name": null,
       "website": "https://block-s.io/",
       "country": "South Korea",
@@ -18381,7 +18880,7 @@
     },
     {
       "company": "Bright Quantum",
-      "entity_id": null,
+      "entity_id": "ecipe:bright-quantum",
       "former_company_name": null,
       "website": "https://bright-quantum.com/",
       "country": "South Korea",
@@ -18563,7 +19062,7 @@
     },
     {
       "company": "coreDevX",
-      "entity_id": null,
+      "entity_id": "ecipe:coredevx",
       "former_company_name": null,
       "website": "https://coredevx.com/site/",
       "country": "Chile",
@@ -18591,7 +19090,7 @@
     },
     {
       "company": "Cryptomathic",
-      "entity_id": null,
+      "entity_id": "ecipe:cryptomathic",
       "former_company_name": null,
       "website": "https://www.cryptomathic.com/",
       "country": "Denmark",
@@ -18779,7 +19278,7 @@
     },
     {
       "company": "Encryption Consulting",
-      "entity_id": null,
+      "entity_id": "ecipe:encryption-consulting",
       "former_company_name": null,
       "website": "https://www.encryptionconsulting.com/",
       "country": "US",
@@ -19012,7 +19511,7 @@
     },
     {
       "company": "FIYTTY",
-      "entity_id": null,
+      "entity_id": "ecipe:fiytty",
       "former_company_name": null,
       "website": "https://www.fiytty.com/index_en.html",
       "country": "Japan",
@@ -19040,7 +19539,7 @@
     },
     {
       "company": "Futurex",
-      "entity_id": null,
+      "entity_id": "ecipe:futurex",
       "former_company_name": "Jones Futurex",
       "website": "https://www.futurex.com/",
       "country": "US",
@@ -19068,7 +19567,7 @@
     },
     {
       "company": "Garantir",
-      "entity_id": null,
+      "entity_id": "ecipe:garantir",
       "former_company_name": null,
       "website": "https://garantir.io/",
       "country": "US",
@@ -19216,7 +19715,7 @@
     },
     {
       "company": "HorizonX",
-      "entity_id": null,
+      "entity_id": "ecipe:horizonx",
       "former_company_name": null,
       "website": "https://www.horizonxc.com/",
       "country": "UK",
@@ -19271,7 +19770,7 @@
     },
     {
       "company": "Infotecs",
-      "entity_id": null,
+      "entity_id": "ecipe:infotecs",
       "former_company_name": null,
       "website": "https://infotecs.ru/",
       "country": "Russia",
@@ -19355,7 +19854,7 @@
     },
     {
       "company": "ISOTEC",
-      "entity_id": null,
+      "entity_id": "ecipe:isotec",
       "former_company_name": null,
       "website": "https://www.isoconnector.com/",
       "country": "South Korea",
@@ -19437,7 +19936,7 @@
     },
     {
       "company": "KS Photonics",
-      "entity_id": null,
+      "entity_id": "ecipe:ks-photonics",
       "former_company_name": null,
       "website": "https://www.ksphotonics.com/",
       "country": "South Korea",
@@ -19463,7 +19962,7 @@
     },
     {
       "company": "Kunfeng Quantum Technology (昆锋量子)",
-      "entity_id": null,
+      "entity_id": "ecipe:kunfeng-quantum-technology",
       "former_company_name": null,
       "website": null,
       "country": "China",
@@ -19487,7 +19986,7 @@
     },
     {
       "company": "Labber",
-      "entity_id": null,
+      "entity_id": "ecipe:labber",
       "former_company_name": null,
       "website": null,
       "country": "Sweden",
@@ -19641,7 +20140,7 @@
     },
     {
       "company": "MECA MAGNETIC",
-      "entity_id": null,
+      "entity_id": "ecipe:meca-magnetic",
       "former_company_name": null,
       "website": "https://www.mecamagnetic.com/",
       "country": "France",
@@ -19965,7 +20464,7 @@
     },
     {
       "company": "OCTATCO",
-      "entity_id": null,
+      "entity_id": "ecipe:octatco",
       "former_company_name": null,
       "website": "https://octatco.com/",
       "country": "South Korea",
@@ -20041,7 +20540,7 @@
     },
     {
       "company": "Open Quantum Design",
-      "entity_id": null,
+      "entity_id": "ecipe:open-quantum-design",
       "former_company_name": null,
       "website": "https://openquantumdesign.org/",
       "country": "Canada",
@@ -20375,7 +20874,7 @@
     },
     {
       "company": "Q Technology",
-      "entity_id": null,
+      "entity_id": "ecipe:q-technology",
       "former_company_name": "Yamaguchi Onoda Biomass Power Generation",
       "website": "https://q-techo.com/",
       "country": "Japan",
@@ -20399,7 +20898,7 @@
     },
     {
       "company": "Q-SAFE SOLUTIONS",
-      "entity_id": null,
+      "entity_id": "ecipe:q-safe-solutions",
       "former_company_name": null,
       "website": "https://q-safe.solutions/",
       "country": "Germany",
@@ -20479,7 +20978,7 @@
     },
     {
       "company": "QAI",
-      "entity_id": null,
+      "entity_id": "ecipe:qai",
       "former_company_name": null,
       "website": "https://qai.ai.kr/",
       "country": "South Korea",
@@ -20737,6 +21236,30 @@
       "n_rounds": 0
     },
     {
+      "company": "Qinsight",
+      "entity_id": "ecipe:qinsight",
+      "former_company_name": null,
+      "website": "https://www.qinsight.com/",
+      "country": "US",
+      "cluster": null,
+      "founded_year": 2025,
+      "primary_pillar": "Quantum-Safe Security / PQC",
+      "additional_pillars": [],
+      "stack_layer": "Applications & Services",
+      "primary_stream": "Cryptography & Security",
+      "additional_streams": [],
+      "origin": null,
+      "ownership_status": "Private",
+      "operating_status": "Active",
+      "merged_with_acquired_by": null,
+      "ticker": null,
+      "currency": null,
+      "market_cap_usd": null,
+      "market_cap_is_override": false,
+      "total_funding": 0.0,
+      "n_rounds": 0
+    },
+    {
       "company": "Qinu",
       "entity_id": "ecipe:qinu",
       "former_company_name": null,
@@ -20933,7 +21456,7 @@
     },
     {
       "company": "QNS Services",
-      "entity_id": null,
+      "entity_id": "ecipe:qns-services",
       "former_company_name": "Quantum Network Solutions",
       "website": "https://www.qnsservices.com/",
       "country": "Japan",
@@ -21329,7 +21852,7 @@
     },
     {
       "company": "Quantsyn Tech (量巡科技)",
-      "entity_id": null,
+      "entity_id": "ecipe:quantsyn-tech",
       "former_company_name": null,
       "website": "https://quantsyn.com/",
       "country": "China",
@@ -21447,7 +21970,7 @@
     },
     {
       "company": "Quantum AI Technologies",
-      "entity_id": null,
+      "entity_id": "ecipe:quantum-ai-technologies",
       "former_company_name": null,
       "website": "https://qait.jp/en/",
       "country": "Japan",
@@ -21808,7 +22331,7 @@
     },
     {
       "company": "Quantumdata",
-      "entity_id": null,
+      "entity_id": "ecipe:quantumdata",
       "former_company_name": null,
       "website": "https://www.quantumdata.co.jp/",
       "country": "Japan",
@@ -21818,6 +22341,30 @@
       "additional_pillars": [
         "Quantum-Safe Security / PQC"
       ],
+      "stack_layer": "Applications & Services",
+      "primary_stream": "Cryptography & Security",
+      "additional_streams": [],
+      "origin": null,
+      "ownership_status": "Private",
+      "operating_status": "Active",
+      "merged_with_acquired_by": null,
+      "ticker": null,
+      "currency": null,
+      "market_cap_usd": null,
+      "market_cap_is_override": false,
+      "total_funding": 0.0,
+      "n_rounds": 0
+    },
+    {
+      "company": "QuantumGenie",
+      "entity_id": "ecipe:quantumgenie",
+      "former_company_name": null,
+      "website": "https://quantumgenie.ai/",
+      "country": "US",
+      "cluster": "Greater Los Angeles",
+      "founded_year": 2025,
+      "primary_pillar": "Quantum-Safe Security / PQC",
+      "additional_pillars": [],
       "stack_layer": "Applications & Services",
       "primary_stream": "Cryptography & Security",
       "additional_streams": [],
@@ -21887,7 +22434,7 @@
     },
     {
       "company": "QuantumSensing",
-      "entity_id": null,
+      "entity_id": "ecipe:quantumsensing",
       "former_company_name": null,
       "website": null,
       "country": "South Korea",
@@ -21937,7 +22484,7 @@
     },
     {
       "company": "Quapp",
-      "entity_id": null,
+      "entity_id": "ecipe:quapp",
       "former_company_name": null,
       "website": "https://quapp.cloud/",
       "country": "Japan",
@@ -22460,7 +23007,7 @@
     },
     {
       "company": "QUTE Electronics",
-      "entity_id": null,
+      "entity_id": "ecipe:qute-electronics",
       "former_company_name": null,
       "website": "https://quteelectronics.com/",
       "country": "India",
@@ -22489,7 +23036,7 @@
     },
     {
       "company": "Raditek",
-      "entity_id": null,
+      "entity_id": "ecipe:raditek",
       "former_company_name": null,
       "website": "https://raditek.com/",
       "country": "US",
@@ -22556,6 +23103,34 @@
       "primary_stream": "Cryptography & Security",
       "additional_streams": [],
       "origin": null,
+      "ownership_status": "Private",
+      "operating_status": "Active",
+      "merged_with_acquired_by": null,
+      "ticker": null,
+      "currency": null,
+      "market_cap_usd": null,
+      "market_cap_is_override": false,
+      "total_funding": 0.0,
+      "n_rounds": 0
+    },
+    {
+      "company": "Red Blue Quantum",
+      "entity_id": "ecipe:red-blue-quantum",
+      "former_company_name": null,
+      "website": "https://www.rbquantum.com/",
+      "country": "Canada",
+      "cluster": "Toronto–Waterloo Corridor",
+      "founded_year": 2024,
+      "primary_pillar": "Enabling Technologies",
+      "additional_pillars": [
+        "Quantum Computing and Simulation"
+      ],
+      "stack_layer": "Materials & Fabrication",
+      "primary_stream": "Foundries & Fabrication",
+      "additional_streams": [
+        "Test & Measurement"
+      ],
+      "origin": "University spinout",
       "ownership_status": "Private",
       "operating_status": "Active",
       "merged_with_acquired_by": null,
@@ -22646,7 +23221,7 @@
     },
     {
       "company": "Sectigo",
-      "entity_id": null,
+      "entity_id": "ecipe:sectigo",
       "former_company_name": "Comodo CA",
       "website": "https://www.sectigo.com/",
       "country": "US",
@@ -22670,7 +23245,7 @@
     },
     {
       "company": "SLEEX",
-      "entity_id": null,
+      "entity_id": "ecipe:sleex",
       "former_company_name": null,
       "website": "https://www.thesleex.com/",
       "country": "South Korea",
@@ -22727,7 +23302,7 @@
     },
     {
       "company": "SONOVERO R&D",
-      "entity_id": null,
+      "entity_id": "ecipe:sonovero-r-d",
       "former_company_name": "NEWLAB",
       "website": "https://sonovero-rd.pl/",
       "country": "Poland",
@@ -23002,7 +23577,7 @@
     },
     {
       "company": "TruPixel",
-      "entity_id": null,
+      "entity_id": "ecipe:trupixel",
       "former_company_name": null,
       "website": null,
       "country": "South Korea",
@@ -23055,7 +23630,7 @@
     },
     {
       "company": "Type-I Technologies",
-      "entity_id": null,
+      "entity_id": "ecipe:type-i-technologies",
       "former_company_name": null,
       "website": "https://type-i.co.jp/",
       "country": "Japan",
@@ -23210,7 +23785,7 @@
     },
     {
       "company": "ZebraQuantum",
-      "entity_id": null,
+      "entity_id": "ecipe:zebraquantum",
       "former_company_name": null,
       "website": "https://www.zebraquantum.com/",
       "country": "Japan",
