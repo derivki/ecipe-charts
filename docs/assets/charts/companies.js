@@ -219,7 +219,7 @@ QT.boot(async function () {
       gg.selectAll("text.blabel").data(fitted, d => d.company).join("text")
         .attr("class", "blabel")
         .attr("x", d => d.x).attr("y", d => d.y).attr("dy", "0.32em")
-        .attr("text-anchor", "middle").attr("fill", "#fff")
+        .attr("text-anchor", "middle").attr("fill", QT.textOn(COLOR[reg.region]))
         .attr("font-size", d => d.fs).attr("font-weight", 600)
         .attr("pointer-events", "none")
         .text(d => d.text);
@@ -522,7 +522,7 @@ QT.boot(async function () {
       .sort(QT.rank("n", "label"));
     // Institutional segments first, largest to smallest, then independents – so the
     // bar reads as "these are the spinout routes, and this is everything else".
-    const segs = [...byType, { key: INDEPENDENT, label: INDEPENDENT, n: indep, color: "#c7ced6" }];
+    const segs = [...byType, { key: INDEPENDENT, label: INDEPENDENT, n: indep, color: QT.palette.origin["Not specified"] }];
 
     const W = 880, H = 92;
     d3.select("#chart-origin").selectAll("*").remove();
@@ -554,7 +554,7 @@ QT.boot(async function () {
       .attr("class", "seg-n").attr("x", d => x(d.x0) + x(d.n) / 2).attr("y", 17)
       .attr("dy", "0.32em").attr("text-anchor", "middle")
       .style("font-size", "11px").style("font-weight", 600)
-      .style("fill", d => d.key === INDEPENDENT ? QT.tokens.ink : "#fff")
+      .style("fill", d => QT.textOn(d.color))
       .text(d => QT.fmt.int(d.n));
 
     QT.legend("#legend-origin", laid.map(sg => ({ key: sg.key, label: `${sg.label} (${sg.n})`, color: sg.color })));

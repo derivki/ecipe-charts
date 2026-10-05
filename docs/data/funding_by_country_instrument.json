@@ -42,9 +42,9 @@
     },
     {
       "country": "Canada",
-      "VC / private equity": 880454707.81,
-      "Debt": 207656987.08,
-      "Grant": 152192201.11,
+      "VC / private equity": 883703707.81,
+      "Debt": 208500938.66,
+      "Grant": 153715236.34,
       "Public equity": 479494772.24
     },
     {
@@ -56,10 +56,10 @@
     },
     {
       "country": "China",
-      "VC / private equity": 4218876258.32,
+      "VC / private equity": 4246945182.49,
       "Debt": 23202000.0,
-      "Grant": 39744477.61,
-      "Public equity": 2104163628.43
+      "Grant": 40631701.47,
+      "Public equity": 2328844872.91
     },
     {
       "country": "Czech Republic",
@@ -84,7 +84,7 @@
     },
     {
       "country": "France",
-      "VC / private equity": 1283239060.53,
+      "VC / private equity": 1291718560.53,
       "Debt": 13790744.53,
       "Grant": 151000668.33,
       "Public equity": 0.0
@@ -93,7 +93,7 @@
       "country": "Germany",
       "VC / private equity": 543733856.9,
       "Debt": 17000000.0,
-      "Grant": 235381650.61,
+      "Grant": 238486867.11,
       "Public equity": 0.0
     },
     {
@@ -139,6 +139,13 @@
       "Public equity": 39990309.42
     },
     {
+      "country": "Lithuania",
+      "VC / private equity": 1992570.0,
+      "Debt": 0.0,
+      "Grant": 4233704.27,
+      "Public equity": 0.0
+    },
+    {
       "country": "Malta",
       "VC / private equity": 0.0,
       "Debt": 0.0,
@@ -149,7 +156,7 @@
       "country": "Netherlands",
       "VC / private equity": 456574051.36,
       "Debt": 147681534.09,
-      "Grant": 127575793.97,
+      "Grant": 127770738.59,
       "Public equity": 0.0
     },
     {
@@ -252,16 +259,16 @@
     },
     {
       "country": "UK",
-      "VC / private equity": 1549099531.83,
+      "VC / private equity": 1549212591.83,
       "Debt": 35586683.22,
-      "Grant": 242736395.02,
+      "Grant": 255333574.51,
       "Public equity": 246309246.31
     },
     {
       "country": "US",
-      "VC / private equity": 11489784662.03,
+      "VC / private equity": 11489884662.03,
       "Debt": 957293546.0,
-      "Grant": 1613140489.04,
+      "Grant": 1634339649.04,
       "Public equity": 10906867740.0
     },
     {
