@@ -52,15 +52,15 @@ window.QT = (function () {
     instrument: {
       "VC / private equity": "#007A83",
       "Debt":                "#FF8200",
-      "Grant":               "#231432",
-      "Public equity":       "#66AFB5",
+      "Grant":               "#918999",
+      "Public equity":       "#231432",
     },
     // funding stage (equity ladder)
     stage: {
       "Seed and Angel":                     "#007A83",
       "Early-stage equity":                 "#FF8200",
-      "Late-stage equity & Growth equity":  "#231432",
-      "Public equity":                      "#66AFB5",
+      "Late-stage equity & Growth equity":  "#918999",
+      "Public equity":                      "#231432",
     },
     // world region
     region: {
