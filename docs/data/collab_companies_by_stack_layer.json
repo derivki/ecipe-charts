@@ -1,45 +1,45 @@
 {
   "meta": {
     "data_vintage": "2026-Q3",
-    "coverage": "industry (curated) + academic (OpenAlex, primary_topic.id, 2018-2026, <=5 institutions/paper); company detail: 787 companies from the 2026-Q3 startup tracker projection",
+    "coverage": "industry (curated) + academic (OpenAlex, primary_topic.id, 2018-2026, <=5 institutions/paper); company detail: 888 companies from the 2026-Q3 startup tracker projection",
     "counting": "binary (v1): one dyad = one collaboration regardless of how many underlying records support it; no weight or time series yet (v2, Phase 8)"
   },
   "data": [
     {
       "stack_layer": "Full Stack",
-      "companies": 29,
-      "total_funding_usd": 18201510458.05,
-      "collaborations": 875
+      "companies": 32,
+      "total_funding_usd": 18354367784.1,
+      "collaborations": 883
     },
     {
       "stack_layer": "Core Quantum Hardware",
-      "companies": 230,
-      "total_funding_usd": 9173888772.79,
-      "collaborations": 774
+      "companies": 260,
+      "total_funding_usd": 9107522316.73,
+      "collaborations": 770
     },
     {
       "stack_layer": "Applications & Services",
-      "companies": 171,
-      "total_funding_usd": 4739669942.39,
-      "collaborations": 462
+      "companies": 213,
+      "total_funding_usd": 6568684880.5,
+      "collaborations": 497
     },
     {
       "stack_layer": "Software & Platforms",
-      "companies": 143,
-      "total_funding_usd": 4340921382.87,
-      "collaborations": 724
+      "companies": 173,
+      "total_funding_usd": 4396438894.33,
+      "collaborations": 758
     },
     {
       "stack_layer": "Materials & Fabrication",
-      "companies": 28,
-      "total_funding_usd": 3229653289.37,
-      "collaborations": 16
+      "companies": 42,
+      "total_funding_usd": 3723235028.29,
+      "collaborations": 22
     },
     {
       "stack_layer": "Components & Control",
-      "companies": 113,
-      "total_funding_usd": 2263453534.49,
-      "collaborations": 329
+      "companies": 168,
+      "total_funding_usd": 2545016344.98,
+      "collaborations": 297
     }
   ]
 }

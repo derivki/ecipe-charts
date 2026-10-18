@@ -1,39 +1,39 @@
 {
   "meta": {
     "data_vintage": "2026-Q3",
-    "coverage": "industry (curated) + academic (OpenAlex, primary_topic.id, 2018-2026, <=5 institutions/paper); company detail: 787 companies from the 2026-Q3 startup tracker projection",
+    "coverage": "industry (curated) + academic (OpenAlex, primary_topic.id, 2018-2026, <=5 institutions/paper); company detail: 888 companies from the 2026-Q3 startup tracker projection",
     "counting": "binary (v1): one dyad = one collaboration regardless of how many underlying records support it; no weight or time series yet (v2, Phase 8)"
   },
   "data": [
     {
       "pillars": "Quantum Computing and Simulation",
-      "companies": 417,
-      "total_funding_usd": 33842403477.17,
-      "collaborations": 2356
+      "companies": 518,
+      "total_funding_usd": 34656602957.54,
+      "collaborations": 2418
     },
     {
       "pillars": "Enabling Technologies",
-      "companies": 202,
-      "total_funding_usd": 10270722320.56,
-      "collaborations": 758
+      "companies": 276,
+      "total_funding_usd": 10930692880.52,
+      "collaborations": 724
     },
     {
       "pillars": "Quantum Sensing and Metrology",
-      "companies": 134,
-      "total_funding_usd": 9714161592.49,
-      "collaborations": 600
-    },
-    {
-      "pillars": "Quantum Communication and Networking",
-      "companies": 167,
-      "total_funding_usd": 9507786635.77,
-      "collaborations": 654
+      "companies": 179,
+      "total_funding_usd": 9960763921.85,
+      "collaborations": 552
     },
     {
       "pillars": "Quantum-Safe Security / PQC",
-      "companies": 133,
-      "total_funding_usd": 8132850024.6,
-      "collaborations": 517
+      "companies": 177,
+      "total_funding_usd": 9770883586.95,
+      "collaborations": 557
+    },
+    {
+      "pillars": "Quantum Communication and Networking",
+      "companies": 209,
+      "total_funding_usd": 9564633712.99,
+      "collaborations": 658
     }
   ]
 }
