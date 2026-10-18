@@ -1,7 +1,7 @@
 {
   "meta": {
     "data_vintage": "2026-Q3",
-    "coverage": "industry (curated) + academic (OpenAlex, primary_topic.id, 2018-2026, <=5 institutions/paper); company detail: 787 companies from the 2026-Q3 startup tracker projection",
+    "coverage": "industry (curated) + academic (OpenAlex, primary_topic.id, 2018-2026, <=5 institutions/paper); company detail: 888 companies from the 2026-Q3 startup tracker projection",
     "counting": "binary (v1): one dyad = one collaboration regardless of how many underlying records support it; no weight or time series yet (v2, Phase 8)"
   },
   "data": {
@@ -34,7 +34,6 @@
       "Japan",
       "Malaysia",
       "Mexico",
-      "Morocco",
       "Netherlands",
       "New Zealand",
       "Norway",
@@ -63,284 +62,284 @@
       {
         "a": "China",
         "b": "US",
-        "collaborations": 3195,
-        "industry": 410
+        "collaborations": 3030,
+        "industry": 282
       },
       {
         "a": "Germany",
         "b": "US",
-        "collaborations": 1758,
-        "industry": 221
+        "collaborations": 1728,
+        "industry": 206
       },
       {
         "a": "UK",
         "b": "US",
-        "collaborations": 1150,
-        "industry": 337
+        "collaborations": 1103,
+        "industry": 321
       },
       {
         "a": "China",
         "b": "Germany",
-        "collaborations": 965,
-        "industry": 38
+        "collaborations": 964,
+        "industry": 33
       },
       {
         "a": "Canada",
         "b": "US",
-        "collaborations": 898,
-        "industry": 226
+        "collaborations": 870,
+        "industry": 203
       },
       {
         "a": "Japan",
         "b": "US",
-        "collaborations": 885,
-        "industry": 255
-      },
-      {
-        "a": "France",
-        "b": "US",
-        "collaborations": 706,
-        "industry": 105
-      },
-      {
-        "a": "China",
-        "b": "UK",
-        "collaborations": 680,
-        "industry": 88
+        "collaborations": 870,
+        "industry": 231
       },
       {
         "a": "China",
         "b": "Japan",
-        "collaborations": 663,
-        "industry": 30
+        "collaborations": 683,
+        "industry": 29
+      },
+      {
+        "a": "France",
+        "b": "US",
+        "collaborations": 661,
+        "industry": 77
+      },
+      {
+        "a": "China",
+        "b": "UK",
+        "collaborations": 657,
+        "industry": 75
+      },
+      {
+        "a": "Italy",
+        "b": "US",
+        "collaborations": 626,
+        "industry": 87
       },
       {
         "a": "India",
         "b": "US",
-        "collaborations": 653,
-        "industry": 80
-      },
-      {
-        "a": "Italy",
-        "b": "US",
-        "collaborations": 653,
-        "industry": 112
+        "collaborations": 603,
+        "industry": 59
       },
       {
         "a": "Germany",
         "b": "UK",
-        "collaborations": 597,
-        "industry": 57
-      },
-      {
-        "a": "Australia",
-        "b": "China",
-        "collaborations": 546,
-        "industry": 16
+        "collaborations": 591,
+        "industry": 63
       },
       {
         "a": "Germany",
         "b": "Italy",
-        "collaborations": 546,
-        "industry": 23
+        "collaborations": 559,
+        "industry": 15
       },
       {
-        "a": "Spain",
-        "b": "US",
-        "collaborations": 522,
-        "industry": 74
-      },
-      {
-        "a": "South Korea",
-        "b": "US",
-        "collaborations": 519,
-        "industry": 94
+        "a": "Australia",
+        "b": "China",
+        "collaborations": 552,
+        "industry": 16
       },
       {
         "a": "China",
         "b": "Singapore",
-        "collaborations": 514,
-        "industry": 14
+        "collaborations": 515,
+        "industry": 11
+      },
+      {
+        "a": "Spain",
+        "b": "US",
+        "collaborations": 506,
+        "industry": 60
+      },
+      {
+        "a": "South Korea",
+        "b": "US",
+        "collaborations": 498,
+        "industry": 89
       },
       {
         "a": "France",
         "b": "Germany",
-        "collaborations": 507,
-        "industry": 34
+        "collaborations": 491,
+        "industry": 33
       },
       {
         "a": "Australia",
         "b": "US",
-        "collaborations": 455,
-        "industry": 101
+        "collaborations": 450,
+        "industry": 103
       },
       {
         "a": "Germany",
         "b": "Spain",
-        "collaborations": 445,
-        "industry": 37
+        "collaborations": 446,
+        "industry": 34
       },
       {
         "a": "Canada",
         "b": "China",
-        "collaborations": 378,
+        "collaborations": 375,
         "industry": 24
-      },
-      {
-        "a": "Switzerland",
-        "b": "US",
-        "collaborations": 372,
-        "industry": 88
       },
       {
         "a": "Italy",
         "b": "UK",
-        "collaborations": 364,
-        "industry": 15
+        "collaborations": 371,
+        "industry": 10
       },
       {
-        "a": "Israel",
+        "a": "Switzerland",
         "b": "US",
-        "collaborations": 361,
-        "industry": 74
+        "collaborations": 359,
+        "industry": 77
       },
       {
         "a": "Austria",
         "b": "Germany",
-        "collaborations": 351,
-        "industry": 43
+        "collaborations": 355,
+        "industry": 44
+      },
+      {
+        "a": "Israel",
+        "b": "US",
+        "collaborations": 348,
+        "industry": 68
       },
       {
         "a": "France",
         "b": "Italy",
-        "collaborations": 334,
+        "collaborations": 331,
         "industry": 13
       },
       {
         "a": "Netherlands",
         "b": "US",
-        "collaborations": 332,
-        "industry": 76
+        "collaborations": 327,
+        "industry": 69
       },
       {
         "a": "Germany",
         "b": "Japan",
-        "collaborations": 325,
-        "industry": 22
-      },
-      {
-        "a": "Germany",
-        "b": "India",
         "collaborations": 321,
-        "industry": 12
-      },
-      {
-        "a": "Russia",
-        "b": "US",
-        "collaborations": 320,
-        "industry": 46
-      },
-      {
-        "a": "China",
-        "b": "France",
-        "collaborations": 315,
-        "industry": 21
-      },
-      {
-        "a": "China",
-        "b": "Spain",
-        "collaborations": 305,
-        "industry": 18
-      },
-      {
-        "a": "Italy",
-        "b": "Spain",
-        "collaborations": 302,
-        "industry": 8
+        "industry": 15
       },
       {
         "a": "France",
         "b": "UK",
-        "collaborations": 297,
-        "industry": 32
+        "collaborations": 319,
+        "industry": 41
+      },
+      {
+        "a": "Germany",
+        "b": "India",
+        "collaborations": 312,
+        "industry": 10
       },
       {
         "a": "China",
-        "b": "Russia",
-        "collaborations": 296,
-        "industry": 16
+        "b": "France",
+        "collaborations": 302,
+        "industry": 12
       },
       {
         "a": "China",
         "b": "Italy",
-        "collaborations": 286,
-        "industry": 5
+        "collaborations": 298,
+        "industry": 1
+      },
+      {
+        "a": "China",
+        "b": "Spain",
+        "collaborations": 295,
+        "industry": 15
       },
       {
         "a": "Germany",
         "b": "Netherlands",
-        "collaborations": 283,
-        "industry": 32
+        "collaborations": 295,
+        "industry": 36
+      },
+      {
+        "a": "China",
+        "b": "Russia",
+        "collaborations": 293,
+        "industry": 14
+      },
+      {
+        "a": "Russia",
+        "b": "US",
+        "collaborations": 291,
+        "industry": 27
+      },
+      {
+        "a": "Italy",
+        "b": "Spain",
+        "collaborations": 286,
+        "industry": 7
       },
       {
         "a": "Germany",
         "b": "Switzerland",
         "collaborations": 281,
-        "industry": 21
-      },
-      {
-        "a": "Germany",
-        "b": "Russia",
-        "collaborations": 273,
-        "industry": 13
+        "industry": 27
       },
       {
         "a": "China",
         "b": "India",
-        "collaborations": 267,
-        "industry": 8
+        "collaborations": 269,
+        "industry": 4
+      },
+      {
+        "a": "Germany",
+        "b": "Russia",
+        "collaborations": 268,
+        "industry": 7
       },
       {
         "a": "Brazil",
         "b": "US",
-        "collaborations": 258,
-        "industry": 32
-      },
-      {
-        "a": "Poland",
-        "b": "US",
         "collaborations": 249,
-        "industry": 30
-      },
-      {
-        "a": "Taiwan",
-        "b": "US",
-        "collaborations": 246,
-        "industry": 32
-      },
-      {
-        "a": "Austria",
-        "b": "US",
-        "collaborations": 243,
-        "industry": 40
+        "industry": 23
       },
       {
         "a": "Germany",
         "b": "Poland",
+        "collaborations": 244,
+        "industry": 7
+      },
+      {
+        "a": "Taiwan",
+        "b": "US",
         "collaborations": 234,
-        "industry": 4
+        "industry": 27
+      },
+      {
+        "a": "Austria",
+        "b": "US",
+        "collaborations": 230,
+        "industry": 33
+      },
+      {
+        "a": "Poland",
+        "b": "US",
+        "collaborations": 230,
+        "industry": 21
       },
       {
         "a": "Canada",
         "b": "Germany",
-        "collaborations": 227,
-        "industry": 33
+        "collaborations": 224,
+        "industry": 29
       },
       {
-        "a": "China",
-        "b": "Taiwan",
-        "collaborations": 215,
-        "industry": 17
+        "a": "Singapore",
+        "b": "US",
+        "collaborations": 216,
+        "industry": 38
       },
       {
         "a": "France",
@@ -352,145 +351,139 @@
         "a": "Spain",
         "b": "UK",
         "collaborations": 212,
-        "industry": 21
+        "industry": 20
+      },
+      {
+        "a": "China",
+        "b": "Taiwan",
+        "collaborations": 204,
+        "industry": 13
       },
       {
         "a": "Sweden",
         "b": "US",
-        "collaborations": 211,
-        "industry": 54
-      },
-      {
-        "a": "Singapore",
-        "b": "US",
-        "collaborations": 204,
-        "industry": 40
+        "collaborations": 202,
+        "industry": 45
       },
       {
         "a": "Australia",
         "b": "Germany",
-        "collaborations": 198,
-        "industry": 8
-      },
-      {
-        "a": "Denmark",
-        "b": "US",
-        "collaborations": 197,
-        "industry": 27
-      },
-      {
-        "a": "India",
-        "b": "UK",
         "collaborations": 195,
-        "industry": 14
-      },
-      {
-        "a": "China",
-        "b": "Sweden",
-        "collaborations": 192,
-        "industry": 70
-      },
-      {
-        "a": "China",
-        "b": "South Korea",
-        "collaborations": 191,
-        "industry": 14
-      },
-      {
-        "a": "Australia",
-        "b": "UK",
-        "collaborations": 185,
-        "industry": 32
-      },
-      {
-        "a": "India",
-        "b": "Japan",
-        "collaborations": 185,
-        "industry": 5
-      },
-      {
-        "a": "Germany",
-        "b": "Sweden",
-        "collaborations": 183,
-        "industry": 22
+        "industry": 6
       },
       {
         "a": "Japan",
         "b": "UK",
-        "collaborations": 183,
-        "industry": 47
+        "collaborations": 191,
+        "industry": 48
       },
       {
-        "a": "Canada",
-        "b": "UK",
-        "collaborations": 180,
-        "industry": 32
+        "a": "China",
+        "b": "Sweden",
+        "collaborations": 189,
+        "industry": 68
       },
       {
         "a": "India",
-        "b": "Italy",
-        "collaborations": 180,
+        "b": "UK",
+        "collaborations": 187,
+        "industry": 18
+      },
+      {
+        "a": "China",
+        "b": "South Korea",
+        "collaborations": 182,
         "industry": 5
       },
       {
         "a": "China",
+        "b": "Switzerland",
+        "collaborations": 181,
+        "industry": 3
+      },
+      {
+        "a": "Denmark",
+        "b": "US",
+        "collaborations": 181,
+        "industry": 18
+      },
+      {
+        "a": "Germany",
+        "b": "Sweden",
+        "collaborations": 180,
+        "industry": 20
+      },
+      {
+        "a": "India",
+        "b": "Japan",
+        "collaborations": 179,
+        "industry": 5
+      },
+      {
+        "a": "Canada",
+        "b": "UK",
+        "collaborations": 173,
+        "industry": 34
+      },
+      {
+        "a": "Australia",
+        "b": "UK",
+        "collaborations": 172,
+        "industry": 32
+      },
+      {
+        "a": "China",
         "b": "Pakistan",
-        "collaborations": 176,
-        "industry": 2
+        "collaborations": 171,
+        "industry": 1
+      },
+      {
+        "a": "India",
+        "b": "Italy",
+        "collaborations": 168,
+        "industry": 4
       },
       {
         "a": "China",
         "b": "Poland",
-        "collaborations": 175,
-        "industry": 12
-      },
-      {
-        "a": "China",
-        "b": "Switzerland",
-        "collaborations": 175,
-        "industry": 1
+        "collaborations": 165,
+        "industry": 4
       },
       {
         "a": "China",
         "b": "Israel",
-        "collaborations": 161,
-        "industry": 26
+        "collaborations": 164,
+        "industry": 28
+      },
+      {
+        "a": "Italy",
+        "b": "Switzerland",
+        "collaborations": 150,
+        "industry": 12
       },
       {
         "a": "France",
         "b": "Switzerland",
         "collaborations": 147,
-        "industry": 10
+        "industry": 13
       },
       {
         "a": "Germany",
         "b": "Israel",
-        "collaborations": 147,
-        "industry": 19
-      },
-      {
-        "a": "Italy",
-        "b": "Switzerland",
         "collaborations": 146,
-        "industry": 11
-      },
-      {
-        "a": "Finland",
-        "b": "US",
-        "collaborations": 138,
-        "industry": 44
-      },
-      {
-        "a": "Brazil",
-        "b": "Germany",
-        "collaborations": 136,
-        "industry": 3
+        "industry": 17
       },
       {
         "a": "Germany",
         "b": "South Korea",
-        "collaborations": 136,
-        "industry": 7
+        "collaborations": 144,
+        "industry": 6
+      },
+      {
+        "a": "France",
+        "b": "Japan",
+        "collaborations": 140,
+        "industry": 9
       },
       {
         "a": "Netherlands",
@@ -499,466 +492,442 @@
         "industry": 23
       },
       {
+        "a": "Brazil",
+        "b": "Germany",
+        "collaborations": 135,
+        "industry": 3
+      },
+      {
+        "a": "Finland",
+        "b": "US",
+        "collaborations": 135,
+        "industry": 40
+      },
+      {
         "a": "France",
         "b": "India",
         "collaborations": 133,
-        "industry": 8
-      },
-      {
-        "a": "Mexico",
-        "b": "US",
-        "collaborations": 132,
-        "industry": 11
-      },
-      {
-        "a": "Canada",
-        "b": "France",
-        "collaborations": 130,
-        "industry": 21
-      },
-      {
-        "a": "Switzerland",
-        "b": "UK",
-        "collaborations": 129,
-        "industry": 24
-      },
-      {
-        "a": "France",
-        "b": "Japan",
-        "collaborations": 128,
-        "industry": 10
+        "industry": 7
       },
       {
         "a": "France",
         "b": "Russia",
-        "collaborations": 127,
+        "collaborations": 132,
         "industry": 0
       },
       {
         "a": "Italy",
         "b": "Japan",
-        "collaborations": 127,
-        "industry": 10
+        "collaborations": 132,
+        "industry": 12
+      },
+      {
+        "a": "Switzerland",
+        "b": "UK",
+        "collaborations": 130,
+        "industry": 29
       },
       {
         "a": "Russia",
         "b": "UK",
-        "collaborations": 126,
+        "collaborations": 125,
         "industry": 4
       },
       {
-        "a": "China",
-        "b": "Czech Republic",
-        "collaborations": 125,
-        "industry": 9
-      },
-      {
-        "a": "India",
-        "b": "Israel",
-        "collaborations": 124,
-        "industry": 13
-      },
-      {
         "a": "Canada",
-        "b": "India",
-        "collaborations": 121,
-        "industry": 12
+        "b": "France",
+        "collaborations": 120,
+        "industry": 20
+      },
+      {
+        "a": "China",
+        "b": "Saudi Arabia",
+        "collaborations": 120,
+        "industry": 3
+      },
+      {
+        "a": "China",
+        "b": "Netherlands",
+        "collaborations": 119,
+        "industry": 3
+      },
+      {
+        "a": "Japan",
+        "b": "South Korea",
+        "collaborations": 119,
+        "industry": 3
       },
       {
         "a": "China",
         "b": "Finland",
-        "collaborations": 121,
+        "collaborations": 118,
         "industry": 14
-      },
-      {
-        "a": "France",
-        "b": "Netherlands",
-        "collaborations": 119,
-        "industry": 12
-      },
-      {
-        "a": "Australia",
-        "b": "Japan",
-        "collaborations": 118,
-        "industry": 11
-      },
-      {
-        "a": "Denmark",
-        "b": "Germany",
-        "collaborations": 118,
-        "industry": 9
-      },
-      {
-        "a": "China",
-        "b": "Saudi Arabia",
-        "collaborations": 117,
-        "industry": 3
       },
       {
         "a": "Egypt",
         "b": "Saudi Arabia",
-        "collaborations": 117,
+        "collaborations": 118,
         "industry": 0
-      },
-      {
-        "a": "China",
-        "b": "Netherlands",
-        "collaborations": 116,
-        "industry": 3
       },
       {
         "a": "Poland",
         "b": "UK",
+        "collaborations": 117,
+        "industry": 7
+      },
+      {
+        "a": "India",
+        "b": "Israel",
+        "collaborations": 116,
+        "industry": 9
+      },
+      {
+        "a": "Japan",
+        "b": "Russia",
+        "collaborations": 116,
+        "industry": 11
+      },
+      {
+        "a": "Canada",
+        "b": "India",
         "collaborations": 115,
+        "industry": 9
+      },
+      {
+        "a": "France",
+        "b": "Netherlands",
+        "collaborations": 114,
+        "industry": 12
+      },
+      {
+        "a": "Denmark",
+        "b": "Germany",
+        "collaborations": 113,
         "industry": 6
       },
       {
         "a": "Austria",
         "b": "Italy",
-        "collaborations": 114,
+        "collaborations": 112,
         "industry": 4
-      },
-      {
-        "a": "Japan",
-        "b": "South Korea",
-        "collaborations": 114,
-        "industry": 4
-      },
-      {
-        "a": "Japan",
-        "b": "Russia",
-        "collaborations": 111,
-        "industry": 7
       },
       {
         "a": "Australia",
-        "b": "India",
+        "b": "Japan",
         "collaborations": 110,
-        "industry": 8
-      },
-      {
-        "a": "Brazil",
-        "b": "Italy",
-        "collaborations": 107,
-        "industry": 0
-      },
-      {
-        "a": "Austria",
-        "b": "China",
-        "collaborations": 106,
-        "industry": 7
-      },
-      {
-        "a": "Czech Republic",
-        "b": "Germany",
-        "collaborations": 106,
-        "industry": 5
+        "industry": 11
       },
       {
         "a": "Canada",
         "b": "Japan",
-        "collaborations": 105,
-        "industry": 26
+        "collaborations": 109,
+        "industry": 23
       },
       {
         "a": "India",
         "b": "Poland",
+        "collaborations": 108,
+        "industry": 3
+      },
+      {
+        "a": "Brazil",
+        "b": "Italy",
+        "collaborations": 106,
+        "industry": 0
+      },
+      {
+        "a": "Japan",
+        "b": "Spain",
         "collaborations": 105,
-        "industry": 1
+        "industry": 14
       },
       {
         "a": "Sweden",
         "b": "UK",
-        "collaborations": 104,
+        "collaborations": 105,
         "industry": 25
       },
       {
         "a": "Austria",
         "b": "UK",
-        "collaborations": 102,
+        "collaborations": 104,
         "industry": 2
       },
       {
-        "a": "Brazil",
-        "b": "France",
-        "collaborations": 101,
-        "industry": 6
+        "a": "Australia",
+        "b": "India",
+        "collaborations": 103,
+        "industry": 7
       },
       {
-        "a": "Japan",
+        "a": "Austria",
+        "b": "China",
+        "collaborations": 102,
+        "industry": 7
+      },
+      {
+        "a": "Poland",
         "b": "Spain",
         "collaborations": 101,
-        "industry": 14
-      },
-      {
-        "a": "Belgium",
-        "b": "US",
-        "collaborations": 100,
-        "industry": 12
+        "industry": 1
       },
       {
         "a": "India",
         "b": "Taiwan",
+        "collaborations": 99,
+        "industry": 0
+      },
+      {
+        "a": "Mexico",
+        "b": "US",
+        "collaborations": 99,
+        "industry": 6
+      },
+      {
+        "a": "Brazil",
+        "b": "France",
+        "collaborations": 98,
+        "industry": 2
+      },
+      {
+        "a": "Japan",
+        "b": "Taiwan",
+        "collaborations": 98,
+        "industry": 4
+      },
+      {
+        "a": "India",
+        "b": "South Korea",
         "collaborations": 97,
+        "industry": 1
+      },
+      {
+        "a": "Italy",
+        "b": "Poland",
+        "collaborations": 95,
         "industry": 0
       },
       {
         "a": "Pakistan",
         "b": "Saudi Arabia",
-        "collaborations": 97,
+        "collaborations": 95,
         "industry": 0
       },
       {
-        "a": "Poland",
-        "b": "Spain",
-        "collaborations": 97,
-        "industry": 1
-      },
-      {
-        "a": "Canada",
-        "b": "Spain",
-        "collaborations": 95,
-        "industry": 14
-      },
-      {
-        "a": "India",
-        "b": "South Korea",
-        "collaborations": 95,
-        "industry": 2
-      },
-      {
-        "a": "Italy",
-        "b": "Poland",
+        "a": "Belgium",
+        "b": "US",
         "collaborations": 93,
-        "industry": 0
-      },
-      {
-        "a": "Austria",
-        "b": "Spain",
-        "collaborations": 91,
         "industry": 8
-      },
-      {
-        "a": "Finland",
-        "b": "Germany",
-        "collaborations": 91,
-        "industry": 19
-      },
-      {
-        "a": "Japan",
-        "b": "Taiwan",
-        "collaborations": 90,
-        "industry": 4
       },
       {
         "a": "Belgium",
         "b": "Germany",
-        "collaborations": 88,
+        "collaborations": 91,
         "industry": 2
       },
       {
-        "a": "France",
-        "b": "Singapore",
-        "collaborations": 88,
-        "industry": 7
-      },
-      {
-        "a": "China",
-        "b": "Portugal",
-        "collaborations": 87,
-        "industry": 3
-      },
-      {
-        "a": "Denmark",
-        "b": "UK",
-        "collaborations": 87,
-        "industry": 13
-      },
-      {
-        "a": "Netherlands",
+        "a": "Austria",
         "b": "Spain",
-        "collaborations": 87,
+        "collaborations": 90,
         "industry": 7
-      },
-      {
-        "a": "Russia",
-        "b": "Spain",
-        "collaborations": 86,
-        "industry": 0
-      },
-      {
-        "a": "China",
-        "b": "Iran",
-        "collaborations": 84,
-        "industry": 0
-      },
-      {
-        "a": "Denmark",
-        "b": "Italy",
-        "collaborations": 84,
-        "industry": 3
       },
       {
         "a": "Australia",
         "b": "France",
-        "collaborations": 83,
-        "industry": 24
+        "collaborations": 89,
+        "industry": 23
+      },
+      {
+        "a": "Czech Republic",
+        "b": "Germany",
+        "collaborations": 88,
+        "industry": 3
+      },
+      {
+        "a": "Finland",
+        "b": "Germany",
+        "collaborations": 87,
+        "industry": 17
       },
       {
         "a": "Brazil",
         "b": "Spain",
-        "collaborations": 83,
+        "collaborations": 86,
         "industry": 1
       },
       {
         "a": "Canada",
-        "b": "Italy",
-        "collaborations": 83,
-        "industry": 7
+        "b": "Spain",
+        "collaborations": 86,
+        "industry": 12
       },
       {
-        "a": "India",
-        "b": "Spain",
-        "collaborations": 83,
+        "a": "China",
+        "b": "Denmark",
+        "collaborations": 85,
+        "industry": 2
+      },
+      {
+        "a": "France",
+        "b": "Poland",
+        "collaborations": 85,
+        "industry": 2
+      },
+      {
+        "a": "China",
+        "b": "Portugal",
+        "collaborations": 84,
         "industry": 1
       },
       {
         "a": "Italy",
         "b": "Netherlands",
-        "collaborations": 83,
+        "collaborations": 84,
+        "industry": 2
+      },
+      {
+        "a": "Netherlands",
+        "b": "Spain",
+        "collaborations": 84,
         "industry": 4
       },
       {
-        "a": "Australia",
-        "b": "Canada",
-        "collaborations": 82,
-        "industry": 12
-      },
-      {
-        "a": "France",
-        "b": "Poland",
-        "collaborations": 82,
-        "industry": 5
-      },
-      {
-        "a": "Belgium",
-        "b": "France",
-        "collaborations": 81,
-        "industry": 6
-      },
-      {
         "a": "China",
-        "b": "Denmark",
-        "collaborations": 81,
-        "industry": 3
-      },
-      {
-        "a": "Iran",
-        "b": "US",
-        "collaborations": 81,
-        "industry": 7
-      },
-      {
-        "a": "Turkey",
-        "b": "US",
-        "collaborations": 81,
-        "industry": 11
-      },
-      {
-        "a": "Brazil",
-        "b": "China",
-        "collaborations": 80,
+        "b": "Iran",
+        "collaborations": 83,
         "industry": 0
-      },
-      {
-        "a": "Czech Republic",
-        "b": "US",
-        "collaborations": 79,
-        "industry": 9
       },
       {
         "a": "India",
         "b": "Saudi Arabia",
-        "collaborations": 79,
+        "collaborations": 83,
         "industry": 0
+      },
+      {
+        "a": "Russia",
+        "b": "Spain",
+        "collaborations": 83,
+        "industry": 0
+      },
+      {
+        "a": "Canada",
+        "b": "Italy",
+        "collaborations": 82,
+        "industry": 7
+      },
+      {
+        "a": "Denmark",
+        "b": "Italy",
+        "collaborations": 82,
+        "industry": 2
+      },
+      {
+        "a": "India",
+        "b": "Spain",
+        "collaborations": 81,
+        "industry": 2
+      },
+      {
+        "a": "France",
+        "b": "Singapore",
+        "collaborations": 80,
+        "industry": 7
+      },
+      {
+        "a": "Iran",
+        "b": "US",
+        "collaborations": 80,
+        "industry": 6
+      },
+      {
+        "a": "Australia",
+        "b": "Canada",
+        "collaborations": 79,
+        "industry": 10
+      },
+      {
+        "a": "Belgium",
+        "b": "France",
+        "collaborations": 79,
+        "industry": 2
+      },
+      {
+        "a": "Turkey",
+        "b": "US",
+        "collaborations": 79,
+        "industry": 8
+      },
+      {
+        "a": "Denmark",
+        "b": "UK",
+        "collaborations": 78,
+        "industry": 12
+      },
+      {
+        "a": "Germany",
+        "b": "Singapore",
+        "collaborations": 78,
+        "industry": 2
       },
       {
         "a": "Italy",
         "b": "Russia",
-        "collaborations": 79,
-        "industry": 1
-      },
-      {
-        "a": "Spain",
-        "b": "Switzerland",
         "collaborations": 78,
-        "industry": 5
-      },
-      {
-        "a": "South Korea",
-        "b": "UK",
-        "collaborations": 77,
-        "industry": 7
-      },
-      {
-        "a": "Germany",
-        "b": "Singapore",
-        "collaborations": 76,
-        "industry": 1
+        "industry": 0
       },
       {
         "a": "Germany",
         "b": "Taiwan",
-        "collaborations": 76,
+        "collaborations": 77,
         "industry": 3
       },
       {
-        "a": "Chile",
-        "b": "US",
-        "collaborations": 75,
-        "industry": 1
+        "a": "Spain",
+        "b": "Switzerland",
+        "collaborations": 77,
+        "industry": 5
       },
       {
-        "a": "Japan",
-        "b": "Switzerland",
-        "collaborations": 74,
-        "industry": 9
+        "a": "Brazil",
+        "b": "China",
+        "collaborations": 76,
+        "industry": 0
+      },
+      {
+        "a": "South Korea",
+        "b": "UK",
+        "collaborations": 76,
+        "industry": 5
       },
       {
         "a": "Germany",
         "b": "Hungary",
-        "collaborations": 73,
+        "collaborations": 75,
         "industry": 0
+      },
+      {
+        "a": "Japan",
+        "b": "Netherlands",
+        "collaborations": 75,
+        "industry": 9
       },
       {
         "a": "India",
         "b": "Singapore",
         "collaborations": 73,
-        "industry": 3
-      },
-      {
-        "a": "India",
-        "b": "Sweden",
-        "collaborations": 73,
-        "industry": 19
-      },
-      {
-        "a": "Finland",
-        "b": "Italy",
-        "collaborations": 71,
-        "industry": 6
-      },
-      {
-        "a": "China",
-        "b": "Mexico",
-        "collaborations": 70,
-        "industry": 4
-      },
-      {
-        "a": "Germany",
-        "b": "Ukraine",
-        "collaborations": 70,
         "industry": 1
+      },
+      {
+        "a": "Chile",
+        "b": "US",
+        "collaborations": 71,
+        "industry": 1
+      },
+      {
+        "a": "Italy",
+        "b": "Sweden",
+        "collaborations": 71,
+        "industry": 18
       },
       {
         "a": "Israel",
@@ -967,224 +936,224 @@
         "industry": 13
       },
       {
-        "a": "Italy",
+        "a": "Germany",
+        "b": "Ukraine",
+        "collaborations": 69,
+        "industry": 1
+      },
+      {
+        "a": "Russia",
         "b": "Sweden",
-        "collaborations": 70,
-        "industry": 17
+        "collaborations": 69,
+        "industry": 25
+      },
+      {
+        "a": "Chile",
+        "b": "China",
+        "collaborations": 68,
+        "industry": 1
       },
       {
         "a": "Argentina",
         "b": "US",
-        "collaborations": 68,
-        "industry": 1
-      },
-      {
-        "a": "Japan",
-        "b": "Netherlands",
-        "collaborations": 68,
-        "industry": 8
-      },
-      {
-        "a": "Portugal",
-        "b": "Spain",
         "collaborations": 67,
         "industry": 1
       },
       {
-        "a": "Argentina",
-        "b": "Spain",
+        "a": "Austria",
+        "b": "France",
+        "collaborations": 67,
+        "industry": 6
+      },
+      {
+        "a": "Japan",
+        "b": "Switzerland",
+        "collaborations": 67,
+        "industry": 4
+      },
+      {
+        "a": "Denmark",
+        "b": "France",
         "collaborations": 66,
-        "industry": 0
+        "industry": 6
+      },
+      {
+        "a": "India",
+        "b": "Sweden",
+        "collaborations": 66,
+        "industry": 16
       },
       {
         "a": "Saudi Arabia",
         "b": "US",
         "collaborations": 65,
-        "industry": 3
-      },
-      {
-        "a": "Singapore",
-        "b": "UK",
-        "collaborations": 65,
-        "industry": 7
-      },
-      {
-        "a": "Denmark",
-        "b": "France",
-        "collaborations": 64,
-        "industry": 7
-      },
-      {
-        "a": "Russia",
-        "b": "Sweden",
-        "collaborations": 64,
-        "industry": 26
-      },
-      {
-        "a": "UAE",
-        "b": "US",
-        "collaborations": 64,
-        "industry": 19
-      },
-      {
-        "a": "Australia",
-        "b": "Singapore",
-        "collaborations": 62,
-        "industry": 2
-      },
-      {
-        "a": "Austria",
-        "b": "France",
-        "collaborations": 62,
-        "industry": 6
-      },
-      {
-        "a": "Canada",
-        "b": "South Korea",
-        "collaborations": 60,
-        "industry": 12
-      },
-      {
-        "a": "Denmark",
-        "b": "Spain",
-        "collaborations": 60,
-        "industry": 6
-      },
-      {
-        "a": "France",
-        "b": "Sweden",
-        "collaborations": 60,
-        "industry": 5
+        "industry": 4
       },
       {
         "a": "Belgium",
         "b": "China",
-        "collaborations": 59,
+        "collaborations": 64,
         "industry": 1
       },
       {
-        "a": "China",
-        "b": "Norway",
-        "collaborations": 59,
-        "industry": 45
+        "a": "Czech Republic",
+        "b": "US",
+        "collaborations": 64,
+        "industry": 7
       },
       {
-        "a": "Spain",
+        "a": "Portugal",
+        "b": "Spain",
+        "collaborations": 64,
+        "industry": 1
+      },
+      {
+        "a": "Finland",
+        "b": "Italy",
+        "collaborations": 62,
+        "industry": 0
+      },
+      {
+        "a": "Singapore",
+        "b": "UK",
+        "collaborations": 62,
+        "industry": 7
+      },
+      {
+        "a": "Argentina",
+        "b": "Spain",
+        "collaborations": 60,
+        "industry": 0
+      },
+      {
+        "a": "France",
         "b": "Sweden",
         "collaborations": 59,
-        "industry": 9
+        "industry": 4
+      },
+      {
+        "a": "Australia",
+        "b": "Singapore",
+        "collaborations": 58,
+        "industry": 2
+      },
+      {
+        "a": "Brazil",
+        "b": "UK",
+        "collaborations": 58,
+        "industry": 3
       },
       {
         "a": "Czech Republic",
         "b": "India",
         "collaborations": 58,
-        "industry": 4
-      },
-      {
-        "a": "Hungary",
-        "b": "US",
-        "collaborations": 58,
-        "industry": 1
+        "industry": 5
       },
       {
         "a": "Iran",
         "b": "Italy",
-        "collaborations": 57,
+        "collaborations": 58,
         "industry": 0
       },
       {
         "a": "Japan",
         "b": "Singapore",
-        "collaborations": 57,
+        "collaborations": 58,
         "industry": 6
       },
       {
-        "a": "Ireland",
-        "b": "UK",
-        "collaborations": 55,
-        "industry": 3
+        "a": "Spain",
+        "b": "Sweden",
+        "collaborations": 58,
+        "industry": 8
       },
       {
-        "a": "Ireland",
+        "a": "UAE",
         "b": "US",
-        "collaborations": 55,
-        "industry": 14
-      },
-      {
-        "a": "Israel",
-        "b": "Russia",
-        "collaborations": 55,
-        "industry": 3
-      },
-      {
-        "a": "Japan",
-        "b": "Poland",
-        "collaborations": 55,
-        "industry": 1
-      },
-      {
-        "a": "Argentina",
-        "b": "Germany",
-        "collaborations": 54,
-        "industry": 0
+        "collaborations": 58,
+        "industry": 15
       },
       {
         "a": "Austria",
         "b": "Switzerland",
-        "collaborations": 54,
+        "collaborations": 57,
         "industry": 8
       },
       {
-        "a": "Belgium",
-        "b": "UK",
-        "collaborations": 54,
-        "industry": 7
+        "a": "China",
+        "b": "Norway",
+        "collaborations": 57,
+        "industry": 44
       },
       {
-        "a": "Brazil",
-        "b": "UK",
-        "collaborations": 54,
-        "industry": 4
-      },
-      {
-        "a": "Poland",
-        "b": "Russia",
-        "collaborations": 54,
+        "a": "Denmark",
+        "b": "Spain",
+        "collaborations": 57,
         "industry": 0
       },
       {
         "a": "Germany",
         "b": "Iran",
-        "collaborations": 53,
+        "collaborations": 57,
         "industry": 0
       },
       {
         "a": "Greece",
         "b": "US",
-        "collaborations": 53,
-        "industry": 7
-      },
-      {
-        "a": "Portugal",
-        "b": "US",
-        "collaborations": 53,
+        "collaborations": 57,
         "industry": 9
       },
       {
-        "a": "US",
-        "b": "Ukraine",
-        "collaborations": 53,
-        "industry": 2
+        "a": "Israel",
+        "b": "Russia",
+        "collaborations": 56,
+        "industry": 3
       },
       {
-        "a": "Australia",
-        "b": "Italy",
-        "collaborations": 52,
+        "a": "Poland",
+        "b": "Russia",
+        "collaborations": 56,
+        "industry": 0
+      },
+      {
+        "a": "Ireland",
+        "b": "US",
+        "collaborations": 55,
+        "industry": 13
+      },
+      {
+        "a": "Argentina",
+        "b": "Germany",
+        "collaborations": 54,
+        "industry": 0
+      },
+      {
+        "a": "Canada",
+        "b": "South Korea",
+        "collaborations": 54,
+        "industry": 12
+      },
+      {
+        "a": "Hungary",
+        "b": "US",
+        "collaborations": 54,
         "industry": 1
       },
       {
-        "a": "Czech Republic",
+        "a": "Ireland",
+        "b": "UK",
+        "collaborations": 52,
+        "industry": 3
+      },
+      {
+        "a": "Japan",
         "b": "Poland",
+        "collaborations": 52,
+        "industry": 2
+      },
+      {
+        "a": "Mexico",
+        "b": "Spain",
         "collaborations": 52,
         "industry": 0
       },
@@ -1192,49 +1161,43 @@
         "a": "Netherlands",
         "b": "Switzerland",
         "collaborations": 52,
-        "industry": 7
+        "industry": 6
       },
       {
-        "a": "Australia",
-        "b": "Spain",
+        "a": "US",
+        "b": "Ukraine",
         "collaborations": 51,
+        "industry": 3
+      },
+      {
+        "a": "Belgium",
+        "b": "UK",
+        "collaborations": 50,
         "industry": 5
+      },
+      {
+        "a": "Japan",
+        "b": "Vietnam",
+        "collaborations": 50,
+        "industry": 1
       },
       {
         "a": "China",
         "b": "Egypt",
-        "collaborations": 50,
-        "industry": 0
-      },
-      {
-        "a": "Israel",
-        "b": "Spain",
-        "collaborations": 50,
-        "industry": 3
-      },
-      {
-        "a": "Mexico",
-        "b": "Spain",
-        "collaborations": 50,
+        "collaborations": 49,
         "industry": 0
       },
       {
         "a": "Russia",
+        "b": "Switzerland",
+        "collaborations": 49,
+        "industry": 5
+      },
+      {
+        "a": "Russia",
         "b": "Ukraine",
-        "collaborations": 50,
-        "industry": 0
-      },
-      {
-        "a": "Brazil",
-        "b": "India",
         "collaborations": 49,
         "industry": 0
-      },
-      {
-        "a": "Norway",
-        "b": "US",
-        "collaborations": 49,
-        "industry": 18
       },
       {
         "a": "Canada",
@@ -1249,148 +1212,166 @@
         "industry": 3
       },
       {
+        "a": "Israel",
+        "b": "Spain",
+        "collaborations": 48,
+        "industry": 3
+      },
+      {
         "a": "Japan",
         "b": "Sweden",
         "collaborations": 48,
         "industry": 14
       },
       {
-        "a": "Netherlands",
-        "b": "Russia",
-        "collaborations": 48,
+        "a": "Brazil",
+        "b": "Chile",
+        "collaborations": 47,
         "industry": 0
       },
       {
-        "a": "Bangladesh",
-        "b": "China",
-        "collaborations": 47,
-        "industry": 1
+        "a": "Brazil",
+        "b": "India",
+        "collaborations": 46,
+        "industry": 0
       },
       {
-        "a": "Belgium",
-        "b": "Italy",
-        "collaborations": 47,
-        "industry": 3
+        "a": "China",
+        "b": "Czech Republic",
+        "collaborations": 46,
+        "industry": 2
+      },
+      {
+        "a": "Czech Republic",
+        "b": "Poland",
+        "collaborations": 46,
+        "industry": 0
       },
       {
         "a": "France",
         "b": "Israel",
-        "collaborations": 47,
+        "collaborations": 46,
         "industry": 2
       },
       {
         "a": "India",
         "b": "Russia",
-        "collaborations": 47,
+        "collaborations": 46,
         "industry": 2
       },
       {
-        "a": "India",
-        "b": "South Africa",
-        "collaborations": 47,
-        "industry": 0
+        "a": "Australia",
+        "b": "Italy",
+        "collaborations": 45,
+        "industry": 1
       },
       {
         "a": "Austria",
         "b": "Canada",
-        "collaborations": 46,
-        "industry": 1
-      },
-      {
-        "a": "Japan",
-        "b": "Vietnam",
-        "collaborations": 46,
-        "industry": 1
-      },
-      {
-        "a": "Russia",
-        "b": "Switzerland",
         "collaborations": 45,
-        "industry": 5
+        "industry": 1
       },
       {
-        "a": "Brazil",
-        "b": "Chile",
-        "collaborations": 44,
-        "industry": 0
-      },
-      {
-        "a": "Germany",
-        "b": "Mexico",
-        "collaborations": 44,
-        "industry": 2
-      },
-      {
-        "a": "Austria",
-        "b": "Russia",
-        "collaborations": 43,
-        "industry": 5
-      },
-      {
-        "a": "Brazil",
-        "b": "Portugal",
-        "collaborations": 43,
+        "a": "Bangladesh",
+        "b": "China",
+        "collaborations": 45,
         "industry": 0
       },
       {
         "a": "Canada",
         "b": "Switzerland",
-        "collaborations": 43,
-        "industry": 6
+        "collaborations": 45,
+        "industry": 8
       },
       {
         "a": "China",
         "b": "Ireland",
-        "collaborations": 43,
+        "collaborations": 45,
         "industry": 1
       },
       {
-        "a": "Poland",
-        "b": "South Korea",
-        "collaborations": 43,
+        "a": "India",
+        "b": "South Africa",
+        "collaborations": 45,
         "industry": 0
       },
       {
-        "a": "Russia",
-        "b": "South Korea",
-        "collaborations": 43,
-        "industry": 1
+        "a": "Netherlands",
+        "b": "Russia",
+        "collaborations": 45,
+        "industry": 0
+      },
+      {
+        "a": "Portugal",
+        "b": "US",
+        "collaborations": 45,
+        "industry": 8
       },
       {
         "a": "Austria",
-        "b": "India",
-        "collaborations": 42,
-        "industry": 0
+        "b": "Russia",
+        "collaborations": 44,
+        "industry": 5
+      },
+      {
+        "a": "China",
+        "b": "Mexico",
+        "collaborations": 44,
+        "industry": 4
+      },
+      {
+        "a": "Australia",
+        "b": "Spain",
+        "collaborations": 43,
+        "industry": 4
+      },
+      {
+        "a": "Austria",
+        "b": "Netherlands",
+        "collaborations": 43,
+        "industry": 1
       },
       {
         "a": "Brazil",
         "b": "Canada",
-        "collaborations": 42,
-        "industry": 2
+        "collaborations": 43,
+        "industry": 1
       },
       {
-        "a": "Brazil",
-        "b": "Poland",
+        "a": "Belgium",
+        "b": "Italy",
         "collaborations": 42,
-        "industry": 0
+        "industry": 2
       },
       {
         "a": "Colombia",
         "b": "US",
         "collaborations": 42,
-        "industry": 4
+        "industry": 2
+      },
+      {
+        "a": "Finland",
+        "b": "UK",
+        "collaborations": 42,
+        "industry": 9
+      },
+      {
+        "a": "Netherlands",
+        "b": "Poland",
+        "collaborations": 42,
+        "industry": 0
+      },
+      {
+        "a": "Poland",
+        "b": "South Korea",
+        "collaborations": 42,
+        "industry": 0
       },
       {
         "a": "Saudi Arabia",
         "b": "UK",
         "collaborations": 42,
-        "industry": 4
-      },
-      {
-        "a": "South Africa",
-        "b": "US",
-        "collaborations": 42,
-        "industry": 5
+        "industry": 6
       },
       {
         "a": "Argentina",
@@ -1402,43 +1383,31 @@
         "a": "Australia",
         "b": "Netherlands",
         "collaborations": 41,
-        "industry": 3
+        "industry": 4
       },
       {
-        "a": "Finland",
-        "b": "UK",
+        "a": "Chile",
+        "b": "Spain",
         "collaborations": 41,
-        "industry": 9
+        "industry": 0
       },
       {
-        "a": "Italy",
-        "b": "Singapore",
+        "a": "Russia",
+        "b": "South Korea",
         "collaborations": 41,
-        "industry": 3
+        "industry": 1
       },
       {
         "a": "Slovenia",
         "b": "US",
         "collaborations": 41,
-        "industry": 5
+        "industry": 3
       },
       {
-        "a": "Austria",
-        "b": "Netherlands",
+        "a": "Norway",
+        "b": "US",
         "collaborations": 40,
-        "industry": 1
-      },
-      {
-        "a": "China",
-        "b": "Ukraine",
-        "collaborations": 40,
-        "industry": 2
-      },
-      {
-        "a": "Czech Republic",
-        "b": "Italy",
-        "collaborations": 40,
-        "industry": 2
+        "industry": 13
       },
       {
         "a": "Poland",
@@ -1447,28 +1416,52 @@
         "industry": 3
       },
       {
-        "a": "Portugal",
-        "b": "UK",
+        "a": "Singapore",
+        "b": "South Korea",
+        "collaborations": 40,
+        "industry": 2
+      },
+      {
+        "a": "Singapore",
+        "b": "Spain",
         "collaborations": 40,
         "industry": 0
       },
       {
-        "a": "Australia",
-        "b": "South Korea",
+        "a": "South Africa",
+        "b": "US",
+        "collaborations": 40,
+        "industry": 5
+      },
+      {
+        "a": "Austria",
+        "b": "Japan",
+        "collaborations": 39,
+        "industry": 6
+      },
+      {
+        "a": "Brazil",
+        "b": "Poland",
         "collaborations": 39,
         "industry": 0
       },
       {
-        "a": "Chile",
-        "b": "China",
+        "a": "Brazil",
+        "b": "Portugal",
         "collaborations": 39,
-        "industry": 1
+        "industry": 0
       },
       {
-        "a": "Finland",
-        "b": "India",
+        "a": "China",
+        "b": "Malaysia",
         "collaborations": 39,
-        "industry": 8
+        "industry": 0
+      },
+      {
+        "a": "China",
+        "b": "New Zealand",
+        "collaborations": 39,
+        "industry": 0
       },
       {
         "a": "Germany",
@@ -1477,64 +1470,52 @@
         "industry": 1
       },
       {
-        "a": "Netherlands",
-        "b": "Poland",
-        "collaborations": 39,
-        "industry": 0
-      },
-      {
-        "a": "New Zealand",
-        "b": "US",
-        "collaborations": 39,
-        "industry": 8
-      },
-      {
-        "a": "Singapore",
-        "b": "South Korea",
-        "collaborations": 39,
-        "industry": 2
-      },
-      {
-        "a": "Singapore",
-        "b": "Spain",
-        "collaborations": 39,
-        "industry": 0
-      },
-      {
-        "a": "US",
-        "b": "Vietnam",
-        "collaborations": 39,
-        "industry": 5
-      },
-      {
-        "a": "Denmark",
-        "b": "Japan",
-        "collaborations": 38,
-        "industry": 7
-      },
-      {
         "a": "Germany",
         "b": "Slovenia",
-        "collaborations": 38,
+        "collaborations": 39,
         "industry": 2
       },
       {
         "a": "Poland",
         "b": "Sweden",
+        "collaborations": 39,
+        "industry": 5
+      },
+      {
+        "a": "Austria",
+        "b": "India",
+        "collaborations": 38,
+        "industry": 0
+      },
+      {
+        "a": "Denmark",
+        "b": "Japan",
         "collaborations": 38,
         "industry": 6
       },
       {
-        "a": "Austria",
-        "b": "Japan",
-        "collaborations": 37,
-        "industry": 5
+        "a": "Germany",
+        "b": "Norway",
+        "collaborations": 38,
+        "industry": 1
       },
       {
-        "a": "Czech Republic",
+        "a": "Taiwan",
         "b": "UK",
+        "collaborations": 38,
+        "industry": 9
+      },
+      {
+        "a": "Australia",
+        "b": "South Korea",
         "collaborations": 37,
-        "industry": 6
+        "industry": 0
+      },
+      {
+        "a": "Finland",
+        "b": "India",
+        "collaborations": 37,
+        "industry": 8
       },
       {
         "a": "Germany",
@@ -1543,44 +1524,50 @@
         "industry": 1
       },
       {
+        "a": "Italy",
+        "b": "Singapore",
+        "collaborations": 37,
+        "industry": 0
+      },
+      {
         "a": "Netherlands",
         "b": "Sweden",
         "collaborations": 37,
         "industry": 2
       },
       {
+        "a": "China",
+        "b": "Ukraine",
+        "collaborations": 36,
+        "industry": 1
+      },
+      {
+        "a": "Germany",
+        "b": "Mexico",
+        "collaborations": 36,
+        "industry": 0
+      },
+      {
+        "a": "New Zealand",
+        "b": "US",
+        "collaborations": 36,
+        "industry": 5
+      },
+      {
+        "a": "Brazil",
+        "b": "Sweden",
+        "collaborations": 35,
+        "industry": 2
+      },
+      {
         "a": "Canada",
         "b": "Netherlands",
-        "collaborations": 36,
+        "collaborations": 35,
         "industry": 3
       },
       {
         "a": "Canada",
         "b": "Poland",
-        "collaborations": 36,
-        "industry": 0
-      },
-      {
-        "a": "China",
-        "b": "New Zealand",
-        "collaborations": 36,
-        "industry": 0
-      },
-      {
-        "a": "France",
-        "b": "Portugal",
-        "collaborations": 36,
-        "industry": 3
-      },
-      {
-        "a": "Pakistan",
-        "b": "US",
-        "collaborations": 36,
-        "industry": 7
-      },
-      {
-        "a": "Chile",
-        "b": "Spain",
         "collaborations": 35,
         "industry": 0
       },
@@ -1591,40 +1578,22 @@
         "industry": 1
       },
       {
-        "a": "Finland",
-        "b": "Russia",
+        "a": "India",
+        "b": "Switzerland",
+        "collaborations": 35,
+        "industry": 3
+      },
+      {
+        "a": "US",
+        "b": "Vietnam",
         "collaborations": 35,
         "industry": 5
       },
       {
-        "a": "Germany",
-        "b": "Norway",
-        "collaborations": 35,
+        "a": "Austria",
+        "b": "Poland",
+        "collaborations": 34,
         "industry": 1
-      },
-      {
-        "a": "Germany",
-        "b": "Portugal",
-        "collaborations": 35,
-        "industry": 3
-      },
-      {
-        "a": "Taiwan",
-        "b": "UK",
-        "collaborations": 35,
-        "industry": 8
-      },
-      {
-        "a": "Belgium",
-        "b": "Netherlands",
-        "collaborations": 34,
-        "industry": 3
-      },
-      {
-        "a": "Canada",
-        "b": "Israel",
-        "collaborations": 34,
-        "industry": 3
       },
       {
         "a": "Canada",
@@ -1633,16 +1602,10 @@
         "industry": 10
       },
       {
-        "a": "China",
-        "b": "Malaysia",
+        "a": "Czech Republic",
+        "b": "Italy",
         "collaborations": 34,
-        "industry": 0
-      },
-      {
-        "a": "Denmark",
-        "b": "India",
-        "collaborations": 34,
-        "industry": 1
+        "industry": 2
       },
       {
         "a": "France",
@@ -1651,110 +1614,128 @@
         "industry": 8
       },
       {
-        "a": "Germany",
-        "b": "Ireland",
-        "collaborations": 34,
-        "industry": 3
-      },
-      {
         "a": "Italy",
         "b": "Taiwan",
         "collaborations": 34,
         "industry": 0
       },
       {
-        "a": "Australia",
-        "b": "Austria",
+        "a": "Singapore",
+        "b": "Taiwan",
+        "collaborations": 34,
+        "industry": 1
+      },
+      {
+        "a": "Canada",
+        "b": "Israel",
         "collaborations": 33,
         "industry": 3
       },
       {
-        "a": "Austria",
-        "b": "Czech Republic",
+        "a": "Finland",
+        "b": "France",
         "collaborations": 33,
-        "industry": 1
-      },
-      {
-        "a": "Belgium",
-        "b": "Spain",
-        "collaborations": 33,
-        "industry": 0
-      },
-      {
-        "a": "Brazil",
-        "b": "Sweden",
-        "collaborations": 33,
-        "industry": 2
+        "industry": 8
       },
       {
         "a": "Finland",
         "b": "Spain",
         "collaborations": 33,
+        "industry": 4
+      },
+      {
+        "a": "France",
+        "b": "Portugal",
+        "collaborations": 33,
         "industry": 3
+      },
+      {
+        "a": "Germany",
+        "b": "Ireland",
+        "collaborations": 33,
+        "industry": 2
+      },
+      {
+        "a": "Hungary",
+        "b": "Spain",
+        "collaborations": 33,
+        "industry": 0
+      },
+      {
+        "a": "Portugal",
+        "b": "UK",
+        "collaborations": 33,
+        "industry": 0
+      },
+      {
+        "a": "Australia",
+        "b": "Poland",
+        "collaborations": 32,
+        "industry": 1
+      },
+      {
+        "a": "Austria",
+        "b": "Czech Republic",
+        "collaborations": 32,
+        "industry": 0
+      },
+      {
+        "a": "Belgium",
+        "b": "Spain",
+        "collaborations": 32,
+        "industry": 0
+      },
+      {
+        "a": "Canada",
+        "b": "Russia",
+        "collaborations": 32,
+        "industry": 2
+      },
+      {
+        "a": "Finland",
+        "b": "Russia",
+        "collaborations": 32,
+        "industry": 5
+      },
+      {
+        "a": "Pakistan",
+        "b": "US",
+        "collaborations": 32,
+        "industry": 1
       },
       {
         "a": "Saudi Arabia",
         "b": "UAE",
-        "collaborations": 33,
+        "collaborations": 32,
         "industry": 0
       },
       {
         "a": "Sweden",
         "b": "Switzerland",
-        "collaborations": 33,
-        "industry": 4
+        "collaborations": 32,
+        "industry": 3
       },
       {
-        "a": "Canada",
-        "b": "Russia",
-        "collaborations": 32,
-        "industry": 2
+        "a": "Belgium",
+        "b": "Netherlands",
+        "collaborations": 31,
+        "industry": 3
       },
       {
         "a": "Canada",
         "b": "Taiwan",
-        "collaborations": 32,
-        "industry": 8
+        "collaborations": 31,
+        "industry": 7
       },
       {
         "a": "Chile",
         "b": "France",
-        "collaborations": 32,
-        "industry": 1
-      },
-      {
-        "a": "Hungary",
-        "b": "Spain",
-        "collaborations": 32,
-        "industry": 0
-      },
-      {
-        "a": "Austria",
-        "b": "Poland",
-        "collaborations": 31,
-        "industry": 1
-      },
-      {
-        "a": "Brazil",
-        "b": "Russia",
         "collaborations": 31,
         "industry": 1
       },
       {
         "a": "Denmark",
-        "b": "Sweden",
-        "collaborations": 31,
-        "industry": 4
-      },
-      {
-        "a": "Finland",
-        "b": "France",
-        "collaborations": 31,
-        "industry": 12
-      },
-      {
-        "a": "France",
-        "b": "Morocco",
+        "b": "India",
         "collaborations": 31,
         "industry": 0
       },
@@ -1762,12 +1743,6 @@
         "a": "Germany",
         "b": "Turkey",
         "collaborations": 31,
-        "industry": 0
-      },
-      {
-        "a": "India",
-        "b": "Switzerland",
-        "collaborations": 31,
         "industry": 1
       },
       {
@@ -1777,22 +1752,10 @@
         "industry": 3
       },
       {
-        "a": "Singapore",
-        "b": "Taiwan",
-        "collaborations": 31,
-        "industry": 1
-      },
-      {
-        "a": "Australia",
-        "b": "Sweden",
+        "a": "Brazil",
+        "b": "Russia",
         "collaborations": 30,
-        "industry": 2
-      },
-      {
-        "a": "Austria",
-        "b": "Sweden",
-        "collaborations": 30,
-        "industry": 3
+        "industry": 0
       },
       {
         "a": "Canada",
@@ -1801,16 +1764,22 @@
         "industry": 7
       },
       {
-        "a": "China",
-        "b": "Greece",
-        "collaborations": 30,
-        "industry": 5
-      },
-      {
         "a": "Finland",
         "b": "Japan",
         "collaborations": 30,
         "industry": 3
+      },
+      {
+        "a": "Germany",
+        "b": "Portugal",
+        "collaborations": 30,
+        "industry": 3
+      },
+      {
+        "a": "Russia",
+        "b": "Taiwan",
+        "collaborations": 30,
+        "industry": 1
       },
       {
         "a": "South Korea",
@@ -1821,7 +1790,7 @@
       {
         "a": "China",
         "b": "Slovakia",
-        "collaborations": 21,
+        "collaborations": 26,
         "industry": 10
       }
     ]
