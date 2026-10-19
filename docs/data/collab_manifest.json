@@ -1,11 +1,11 @@
 {
   "data_vintage": "2026-Q3",
-  "built_at_utc": "2026-10-17T15:12:21+00:00",
+  "built_at_utc": "2026-10-19T15:01:24+00:00",
   "coverage": "industry (curated) + academic (OpenAlex, primary_topic.id, 2018-2026, <=5 institutions/paper); company detail: 888 companies from the 2026-Q3 startup tracker projection",
   "sources": {
-    "institutions_master.csv": "30b1a46b90917a7519caf624df8d4356c76bd5e4e50e40806a045f0d26af6e52",
+    "institutions_master.csv": "a319489587b4273a73b526098b6da2bf83e2c2321e22b74e98c5389d4e987556",
     "name_aliases.csv": "66eb4af587048eaeec30d9cbaff78cb188d1fa51dd390f5b3082151febcb90bf",
-    "collaborations_industry.csv": "a976f851c54d6a1f2d9923f7f2772d3aeee0da816f8677807863522820043ec1",
+    "collaborations_industry.csv": "cb1d6223c6d0964db9e1482595fbb0eb4d000d7a7554d60a6ce2cc8669d9861c",
     "dyad_years.csv (private)": "9c1fddea41cd24b1032643787c59137cca124e7c2ea690f059708955646adacd",
     "companies_master.csv": "1937b510da2fbb04ec365528a60fa09b41b929b9857938931a5e7e81709a938d"
   },

@@ -194,8 +194,8 @@
       {
         "a": "Switzerland",
         "b": "US",
-        "collaborations": 359,
-        "industry": 77
+        "collaborations": 360,
+        "industry": 78
       },
       {
         "a": "Austria",
@@ -1722,12 +1722,6 @@
         "industry": 3
       },
       {
-        "a": "Canada",
-        "b": "Taiwan",
-        "collaborations": 31,
-        "industry": 7
-      },
-      {
         "a": "Chile",
         "b": "France",
         "collaborations": 31,
@@ -1762,6 +1756,12 @@
         "b": "Singapore",
         "collaborations": 30,
         "industry": 7
+      },
+      {
+        "a": "Canada",
+        "b": "Taiwan",
+        "collaborations": 30,
+        "industry": 6
       },
       {
         "a": "Finland",
