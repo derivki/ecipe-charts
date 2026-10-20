@@ -74,8 +74,8 @@
       {
         "a": "UK",
         "b": "US",
-        "collaborations": 1103,
-        "industry": 321
+        "collaborations": 1101,
+        "industry": 319
       },
       {
         "a": "China",
@@ -86,8 +86,8 @@
       {
         "a": "Canada",
         "b": "US",
-        "collaborations": 870,
-        "industry": 203
+        "collaborations": 871,
+        "industry": 204
       },
       {
         "a": "Japan",
@@ -230,7 +230,7 @@
       {
         "a": "France",
         "b": "UK",
-        "collaborations": 319,
+        "collaborations": 318,
         "industry": 41
       },
       {
@@ -1756,12 +1756,6 @@
         "b": "Singapore",
         "collaborations": 30,
         "industry": 7
-      },
-      {
-        "a": "Canada",
-        "b": "Taiwan",
-        "collaborations": 30,
-        "industry": 6
       },
       {
         "a": "Finland",
