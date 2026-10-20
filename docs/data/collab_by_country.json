@@ -12,12 +12,12 @@
     },
     {
       "country": "US",
-      "entities": 1465,
-      "collaborations": 30171
+      "entities": 1466,
+      "collaborations": 30168
     },
     {
       "country": "Germany",
-      "entities": 412,
+      "entities": 411,
       "collaborations": 12840
     },
     {
@@ -32,13 +32,13 @@
     },
     {
       "country": "France",
-      "entities": 500,
-      "collaborations": 7719
+      "entities": 499,
+      "collaborations": 7714
     },
     {
       "country": "UK",
-      "entities": 331,
-      "collaborations": 7283
+      "entities": 332,
+      "collaborations": 7302
     },
     {
       "country": "Italy",
@@ -57,8 +57,8 @@
     },
     {
       "country": "Canada",
-      "entities": 196,
-      "collaborations": 3813
+      "entities": 194,
+      "collaborations": 3811
     },
     {
       "country": "South Korea",
@@ -87,8 +87,8 @@
     },
     {
       "country": "Netherlands",
-      "entities": 82,
-      "collaborations": 2217
+      "entities": 84,
+      "collaborations": 2221
     },
     {
       "country": "Austria",
@@ -98,7 +98,7 @@
     {
       "country": "Taiwan",
       "entities": 106,
-      "collaborations": 1909
+      "collaborations": 1908
     },
     {
       "country": "Sweden",
@@ -202,7 +202,7 @@
     },
     {
       "country": "Ireland",
-      "entities": 32,
+      "entities": 31,
       "collaborations": 486
     },
     {

@@ -9,19 +9,19 @@
       "streams": "Cloud Platforms",
       "companies": 86,
       "total_funding_usd": 13497212745.57,
-      "collaborations": 1088
+      "collaborations": 1095
     },
     {
       "streams": "Software Development Kits",
       "companies": 76,
       "total_funding_usd": 11948157956.62,
-      "collaborations": 1015
+      "collaborations": 1020
     },
     {
       "streams": "Cryptography & Security",
       "companies": 183,
       "total_funding_usd": 10240577595.09,
-      "collaborations": 589
+      "collaborations": 591
     },
     {
       "streams": "Foundries & Fabrication",
@@ -39,7 +39,7 @@
       "streams": "Trapped Ion",
       "companies": 22,
       "total_funding_usd": 8695297119.05,
-      "collaborations": 207
+      "collaborations": 210
     },
     {
       "streams": "QKD Systems",
@@ -57,7 +57,7 @@
       "streams": "Photonic Quantum",
       "companies": 29,
       "total_funding_usd": 5816872019.7,
-      "collaborations": 308
+      "collaborations": 311
     },
     {
       "streams": "Atomic Clocks & Timing",
@@ -99,7 +99,7 @@
       "streams": "Control Electronics",
       "companies": 87,
       "total_funding_usd": 3237418820.72,
-      "collaborations": 464
+      "collaborations": 469
     },
     {
       "streams": "Semiconductors & Materials",
@@ -123,7 +123,7 @@
       "streams": "Algorithms & Compilation",
       "companies": 141,
       "total_funding_usd": 2972281165.53,
-      "collaborations": 611
+      "collaborations": 614
     },
     {
       "streams": "Magnetometers",
@@ -159,7 +159,7 @@
       "streams": "Quantum Random Number Generators",
       "companies": 57,
       "total_funding_usd": 1370310834.77,
-      "collaborations": 429
+      "collaborations": 430
     },
     {
       "streams": "Gravimeters",
@@ -171,7 +171,7 @@
       "streams": "Silicon Spin Qubits",
       "companies": 9,
       "total_funding_usd": 1169946413.82,
-      "collaborations": 67
+      "collaborations": 66
     },
     {
       "streams": "Quantum Internet",
@@ -225,7 +225,7 @@
       "streams": "Quantum Memory",
       "companies": 14,
       "total_funding_usd": 522649503.96,
-      "collaborations": 47
+      "collaborations": 46
     },
     {
       "streams": "Quantum Imaging",

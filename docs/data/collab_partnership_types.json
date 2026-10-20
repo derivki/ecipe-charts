@@ -7,15 +7,15 @@
   "data": [
     {
       "partnership_type": "Research to research",
-      "collaborations": 59791
+      "collaborations": 59788
     },
     {
       "partnership_type": "Government to research",
-      "collaborations": 19610
+      "collaborations": 19619
     },
     {
       "partnership_type": "Industry to research",
-      "collaborations": 5707
+      "collaborations": 5710
     },
     {
       "partnership_type": "Government to government",
@@ -23,7 +23,7 @@
     },
     {
       "partnership_type": "Industry to industry",
-      "collaborations": 1785
+      "collaborations": 1782
     },
     {
       "partnership_type": "Industry to government",

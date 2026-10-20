@@ -9,13 +9,13 @@
       "pillars": "Quantum Computing and Simulation",
       "companies": 518,
       "total_funding_usd": 34656602957.54,
-      "collaborations": 2418
+      "collaborations": 2423
     },
     {
       "pillars": "Enabling Technologies",
       "companies": 276,
       "total_funding_usd": 10930692880.52,
-      "collaborations": 724
+      "collaborations": 725
     },
     {
       "pillars": "Quantum Sensing and Metrology",
@@ -27,7 +27,7 @@
       "pillars": "Quantum-Safe Security / PQC",
       "companies": 177,
       "total_funding_usd": 9770883586.95,
-      "collaborations": 557
+      "collaborations": 559
     },
     {
       "pillars": "Quantum Communication and Networking",

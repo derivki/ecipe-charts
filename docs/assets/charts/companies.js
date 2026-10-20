@@ -453,7 +453,7 @@ QT.boot(async function () {
       const nRows = d3.sum(blocks, b => b.rows.length);
       const W = 880, H = 30 + nRows * 32 + blocks.length * 30;
       d3.select("#chart-landscape").selectAll("*").remove();
-      const c = QT.chart("#chart-landscape", { W, H, margin: { t: 6, r: 108, b: 26, l: 210 } });
+      const c = QT.chart("#chart-landscape", { W, H, margin: { t: 6, r: 64, b: 26, l: 210 } });
 
       const maxF = d3.max(blocks, b => d3.max(b.rows, r => r.funding)) || 1;
       const x = d3.scaleLinear().domain([0, maxF * 1.05]).range([0, c.iw]);
@@ -487,8 +487,8 @@ QT.boot(async function () {
             .on("mouseleave", tt.hide);
           c.gPlot.append("text").attr("class", "bar-val").attr("dy", "0.32em")
             .attr("x", x(r.funding) + 6).attr("y", yTop + rowH / 2 - 2)
-            // "companies", not "cos" – Elena's note. The word fits.
-            .text(`${QT.fmt.money(r.funding)}  ·  ${QT.fmt.int(r.n)} companies`);
+            // Funding only; the company count is in the tooltip (too much on the bar).
+            .text(QT.fmt.money(r.funding));
           c.gPlot.append("text").attr("dy", "0.32em")
             .attr("x", -10).attr("y", yTop + rowH / 2 - 2).attr("text-anchor", "end")
             .style("font-size", "11.5px").style("fill", QT.tokens.ink)

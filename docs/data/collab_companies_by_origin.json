@@ -9,13 +9,13 @@
       "origin": "University spinout",
       "companies": 294,
       "total_funding_usd": 18792478547.02,
-      "collaborations": 1242
+      "collaborations": 1244
     },
     {
       "origin": "Corporate spinout",
       "companies": 32,
       "total_funding_usd": 5169161493.12,
-      "collaborations": 107
+      "collaborations": 106
     },
     {
       "origin": "Merger",
@@ -27,7 +27,7 @@
       "origin": "Research spinout",
       "companies": 94,
       "total_funding_usd": 3843441113.37,
-      "collaborations": 459
+      "collaborations": 462
     },
     {
       "origin": "Subsidiary",
