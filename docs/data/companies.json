@@ -1,0 +1,1485 @@
+{
+  "meta": {
+    "data_vintage": "2026-Q3",
+    "start_year": 2012,
+    "partial_year": 2026
+  },
+  "data": [
+    {
+      "company": "IonQ",
+      "country": "US",
+      "primary_pillar": "Quantum Computing and Simulation",
+      "stack_layer": "Full Stack",
+      "total_funding": 4169008656.0,
+      "market_cap_usd": 17769249015.28,
+      "market_cap_is_override": false
+    },
+    {
+      "company": "Quantinuum",
+      "country": "US",
+      "primary_pillar": "Quantum Computing and Simulation",
+      "stack_layer": "Full Stack",
+      "total_funding": 3953956290.25,
+      "market_cap_usd": 12768469356.85,
+      "market_cap_is_override": false
+    },
+    {
+      "company": "PsiQuantum",
+      "country": "US",
+      "primary_pillar": "Quantum Computing and Simulation",
+      "stack_layer": "Full Stack",
+      "total_funding": 2395922142.02,
+      "market_cap_usd": null,
+      "market_cap_is_override": false
+    },
+    {
+      "company": "XtalPi Technology (晶泰科技)",
+      "country": "China",
+      "primary_pillar": "Quantum Computing and Simulation",
+      "stack_layer": "Applications & Services",
+      "total_funding": 2044265786.72,
+      "market_cap_usd": 4483068122.28,
+      "market_cap_is_override": false
+    },
+    {
+      "company": "Anderon",
+      "country": "US",
+      "primary_pillar": "Enabling Technologies",
+      "stack_layer": "Materials & Fabrication",
+      "total_funding": 2000000000.0,
+      "market_cap_usd": null,
+      "market_cap_is_override": false
+    },
+    {
+      "company": "Quantum Computing Inc.",
+      "country": "US",
+      "primary_pillar": "Quantum Computing and Simulation",
+      "stack_layer": "Core Quantum Hardware",
+      "total_funding": 1746264735.0,
+      "market_cap_usd": 1912630868.83,
+      "market_cap_is_override": false
+    },
+    {
+      "company": "D-Wave",
+      "country": "US",
+      "primary_pillar": "Quantum Computing and Simulation",
+      "stack_layer": "Full Stack",
+      "total_funding": 1546925040.62,
+      "market_cap_usd": 6290412940.15,
+      "market_cap_is_override": false
+    },
+    {
+      "company": "SandboxAQ",
+      "country": "US",
+      "primary_pillar": "Quantum Computing and Simulation",
+      "stack_layer": "Software & Platforms",
+      "total_funding": 1450100000.0,
+      "market_cap_usd": null,
+      "market_cap_is_override": false
+    },
+    {
+      "company": "Keyfactor",
+      "country": "US",
+      "primary_pillar": "Quantum-Safe Security / PQC",
+      "stack_layer": "Applications & Services",
+      "total_funding": 1211850000.0,
+      "market_cap_usd": null,
+      "market_cap_is_override": false
+    },
+    {
+      "company": "Rigetti Computing",
+      "country": "US",
+      "primary_pillar": "Quantum Computing and Simulation",
+      "stack_layer": "Full Stack",
+      "total_funding": 1152307133.86,
+      "market_cap_usd": 5253519795.61,
+      "market_cap_is_override": false
+    },
+    {
+      "company": "Infleqtion",
+      "country": "US",
+      "primary_pillar": "Quantum Computing and Simulation",
+      "stack_layer": "Full Stack",
+      "total_funding": 983286228.61,
+      "market_cap_usd": 3035559740.18,
+      "market_cap_is_override": false
+    },
+    {
+      "company": "Multiverse Computing",
+      "country": "Spain",
+      "primary_pillar": "Quantum Computing and Simulation",
+      "stack_layer": "Software & Platforms",
+      "total_funding": 885058856.33,
+      "market_cap_usd": null,
+      "market_cap_is_override": false
+    },
+    {
+      "company": "IQM Quantum Computers",
+      "country": "Finland",
+      "primary_pillar": "Quantum Computing and Simulation",
+      "stack_layer": "Full Stack",
+      "total_funding": 862230758.14,
+      "market_cap_usd": 4917577161.73,
+      "market_cap_is_override": false
+    },
+    {
+      "company": "Xanadu",
+      "country": "Canada",
+      "primary_pillar": "Quantum Computing and Simulation",
+      "stack_layer": "Full Stack",
+      "total_funding": 822278200.0,
+      "market_cap_usd": 1394121320.78,
+      "market_cap_is_override": false
+    },
+    {
+      "company": "SEALSQ",
+      "country": "Switzerland",
+      "primary_pillar": "Quantum-Safe Security / PQC",
+      "stack_layer": "Applications & Services",
+      "total_funding": 693905439.0,
+      "market_cap_usd": 526337484.69,
+      "market_cap_is_override": false
+    },
+    {
+      "company": "PASQAL",
+      "country": "France",
+      "primary_pillar": "Quantum Computing and Simulation",
+      "stack_layer": "Full Stack",
+      "total_funding": 596730828.16,
+      "market_cap_usd": 1350187932.34,
+      "market_cap_is_override": false
+    },
+    {
+      "company": "SkyWater Technology",
+      "country": "US",
+      "primary_pillar": "Enabling Technologies",
+      "stack_layer": "Materials & Fabrication",
+      "total_funding": 525986000.0,
+      "market_cap_usd": null,
+      "market_cap_is_override": false
+    },
+    {
+      "company": "Oxford Quantum Circuits",
+      "country": "UK",
+      "primary_pillar": "Quantum Computing and Simulation",
+      "stack_layer": "Core Quantum Hardware",
+      "total_funding": 506006555.92,
+      "market_cap_usd": null,
+      "market_cap_is_override": false
+    },
+    {
+      "company": "QuantumCTek (国盾量子)",
+      "country": "China",
+      "primary_pillar": "Quantum Communication and Networking",
+      "stack_layer": "Core Quantum Hardware",
+      "total_funding": 462096484.74,
+      "market_cap_usd": 5039694171.04,
+      "market_cap_is_override": false
+    },
+    {
+      "company": "China Telecom Quantum Group (中电信量子集团)",
+      "country": "China",
+      "primary_pillar": "Quantum Communication and Networking",
+      "stack_layer": "Applications & Services",
+      "total_funding": 424200000.0,
+      "market_cap_usd": null,
+      "market_cap_is_override": false
+    },
+    {
+      "company": "ASP Isotopes",
+      "country": "US",
+      "primary_pillar": "Enabling Technologies",
+      "stack_layer": "Materials & Fabrication",
+      "total_funding": 413082435.0,
+      "market_cap_usd": 406269870.62,
+      "market_cap_is_override": false
+    },
+    {
+      "company": "Photonic Inc.",
+      "country": "Canada",
+      "primary_pillar": "Quantum Computing and Simulation",
+      "stack_layer": "Core Quantum Hardware",
+      "total_funding": 357571994.7,
+      "market_cap_usd": null,
+      "market_cap_is_override": false
+    },
+    {
+      "company": "SpinQ (量旋科技)",
+      "country": "China",
+      "primary_pillar": "Quantum Computing and Simulation",
+      "stack_layer": "Full Stack",
+      "total_funding": 340049000.0,
+      "market_cap_usd": null,
+      "market_cap_is_override": false
+    },
+    {
+      "company": "CIQTEK (国仪量子)",
+      "country": "China",
+      "primary_pillar": "Quantum Sensing and Metrology",
+      "stack_layer": "Core Quantum Hardware",
+      "total_funding": 329185683.64,
+      "market_cap_usd": 4932903517.6,
+      "market_cap_is_override": false
+    },
+    {
+      "company": "QuEra Computing",
+      "country": "US",
+      "primary_pillar": "Quantum Computing and Simulation",
+      "stack_layer": "Full Stack",
+      "total_funding": 305976380.0,
+      "market_cap_usd": null,
+      "market_cap_is_override": false
+    },
+    {
+      "company": "CAS Quantum Network (国科量子)",
+      "country": "China",
+      "primary_pillar": "Quantum Communication and Networking",
+      "stack_layer": "Applications & Services",
+      "total_funding": 304950000.0,
+      "market_cap_usd": null,
+      "market_cap_is_override": false
+    },
+    {
+      "company": "Atom Computing",
+      "country": "US",
+      "primary_pillar": "Quantum Computing and Simulation",
+      "stack_layer": "Core Quantum Hardware",
+      "total_funding": 302131999.0,
+      "market_cap_usd": null,
+      "market_cap_is_override": false
+    },
+    {
+      "company": "Oratomic",
+      "country": "US",
+      "primary_pillar": "Quantum Computing and Simulation",
+      "stack_layer": "Core Quantum Hardware",
+      "total_funding": 300000000.0,
+      "market_cap_usd": null,
+      "market_cap_is_override": false
+    },
+    {
+      "company": "Precilasers (频准激光)",
+      "country": "China",
+      "primary_pillar": "Enabling Technologies",
+      "stack_layer": "Components & Control",
+      "total_funding": 288357560.0,
+      "market_cap_usd": 4289335231.63,
+      "market_cap_is_override": false
+    },
+    {
+      "company": "Quantum Machines",
+      "country": "Israel",
+      "primary_pillar": "Enabling Technologies",
+      "stack_layer": "Components & Control",
+      "total_funding": 264271692.1,
+      "market_cap_usd": null,
+      "market_cap_is_override": false
+    },
+    {
+      "company": "TuringQ (图灵量子)",
+      "country": "China",
+      "primary_pillar": "Quantum Computing and Simulation",
+      "stack_layer": "Core Quantum Hardware",
+      "total_funding": 264070000.0,
+      "market_cap_usd": null,
+      "market_cap_is_override": false
+    },
+    {
+      "company": "QBoson / Bose Quantum (玻色量子)",
+      "country": "China",
+      "primary_pillar": "Quantum Computing and Simulation",
+      "stack_layer": "Core Quantum Hardware",
+      "total_funding": 256018000.0,
+      "market_cap_usd": null,
+      "market_cap_is_override": false
+    },
+    {
+      "company": "Arqit Quantum Inc.",
+      "country": "UK",
+      "primary_pillar": "Quantum-Safe Security / PQC",
+      "stack_layer": "Applications & Services",
+      "total_funding": 254443874.0,
+      "market_cap_usd": 418702006.71,
+      "market_cap_is_override": false
+    },
+    {
+      "company": "Sansec Technology (三未信安)",
+      "country": "China",
+      "primary_pillar": "Quantum-Safe Security / PQC",
+      "stack_layer": "Applications & Services",
+      "total_funding": 249820168.65,
+      "market_cap_usd": 693031187.04,
+      "market_cap_is_override": false
+    },
+    {
+      "company": "Quantum Motion",
+      "country": "UK",
+      "primary_pillar": "Quantum Computing and Simulation",
+      "stack_layer": "Full Stack",
+      "total_funding": 233155818.64,
+      "market_cap_usd": null,
+      "market_cap_is_override": false
+    },
+    {
+      "company": "QuantWare",
+      "country": "Netherlands",
+      "primary_pillar": "Quantum Computing and Simulation",
+      "stack_layer": "Core Quantum Hardware",
+      "total_funding": 224748187.43,
+      "market_cap_usd": null,
+      "market_cap_is_override": false
+    },
+    {
+      "company": "Classiq",
+      "country": "Israel",
+      "primary_pillar": "Quantum Computing and Simulation",
+      "stack_layer": "Software & Platforms",
+      "total_funding": 218500000.0,
+      "market_cap_usd": null,
+      "market_cap_is_override": false
+    },
+    {
+      "company": "Bluefors",
+      "country": "Finland",
+      "primary_pillar": "Enabling Technologies",
+      "stack_layer": "Components & Control",
+      "total_funding": 214839921.59,
+      "market_cap_usd": null,
+      "market_cap_is_override": false
+    },
+    {
+      "company": "Multibeam",
+      "country": "US",
+      "primary_pillar": "Enabling Technologies",
+      "stack_layer": "Materials & Fabrication",
+      "total_funding": 206571724.0,
+      "market_cap_usd": null,
+      "market_cap_is_override": false
+    },
+    {
+      "company": "Origin Quantum (本源量子)",
+      "country": "China",
+      "primary_pillar": "Quantum Computing and Simulation",
+      "stack_layer": "Full Stack",
+      "total_funding": 194470000.0,
+      "market_cap_usd": null,
+      "market_cap_is_override": false
+    },
+    {
+      "company": "Cornami",
+      "country": "US",
+      "primary_pillar": "Quantum-Safe Security / PQC",
+      "stack_layer": "Components & Control",
+      "total_funding": 191275066.0,
+      "market_cap_usd": null,
+      "market_cap_is_override": false
+    },
+    {
+      "company": "Fullcryo (中科富海)",
+      "country": "China",
+      "primary_pillar": "Enabling Technologies",
+      "stack_layer": "Components & Control",
+      "total_funding": 188760000.0,
+      "market_cap_usd": null,
+      "market_cap_is_override": false
+    },
+    {
+      "company": "Quobly",
+      "country": "France",
+      "primary_pillar": "Quantum Computing and Simulation",
+      "stack_layer": "Core Quantum Hardware",
+      "total_funding": 188043875.21,
+      "market_cap_usd": null,
+      "market_cap_is_override": false
+    },
+    {
+      "company": "SMART Photonics",
+      "country": "Netherlands",
+      "primary_pillar": "Enabling Technologies",
+      "stack_layer": "Materials & Fabrication",
+      "total_funding": 187788605.93,
+      "market_cap_usd": null,
+      "market_cap_is_override": false
+    },
+    {
+      "company": "Horizon Quantum",
+      "country": "Singapore",
+      "primary_pillar": "Quantum Computing and Simulation",
+      "stack_layer": "Software & Platforms",
+      "total_funding": 177460164.3,
+      "market_cap_usd": 802025069.47,
+      "market_cap_is_override": false
+    },
+    {
+      "company": "Quantum Art",
+      "country": "Israel",
+      "primary_pillar": "Quantum Computing and Simulation",
+      "stack_layer": "Core Quantum Hardware",
+      "total_funding": 164000000.0,
+      "market_cap_usd": null,
+      "market_cap_is_override": false
+    },
+    {
+      "company": "Alice & Bob",
+      "country": "France",
+      "primary_pillar": "Quantum Computing and Simulation",
+      "stack_layer": "Core Quantum Hardware",
+      "total_funding": 163641214.78,
+      "market_cap_usd": null,
+      "market_cap_is_override": false
+    },
+    {
+      "company": "SEEQC",
+      "country": "US",
+      "primary_pillar": "Quantum Computing and Simulation",
+      "stack_layer": "Full Stack",
+      "total_funding": 146071788.97,
+      "market_cap_usd": null,
+      "market_cap_is_override": false
+    },
+    {
+      "company": "QTEC (九州量子)",
+      "country": "China",
+      "primary_pillar": "Quantum Communication and Networking",
+      "stack_layer": "Core Quantum Hardware",
+      "total_funding": 137377439.49,
+      "market_cap_usd": 78883530.61,
+      "market_cap_is_override": false
+    },
+    {
+      "company": "HyperLight",
+      "country": "US",
+      "primary_pillar": "Enabling Technologies",
+      "stack_layer": "Components & Control",
+      "total_funding": 135400000.0,
+      "market_cap_usd": null,
+      "market_cap_is_override": false
+    },
+    {
+      "company": "NVision Quantum",
+      "country": "Germany",
+      "primary_pillar": "Quantum Sensing and Metrology",
+      "stack_layer": "Core Quantum Hardware",
+      "total_funding": 119835424.86,
+      "market_cap_usd": null,
+      "market_cap_is_override": false
+    },
+    {
+      "company": "Zapata Quantum",
+      "country": "US",
+      "primary_pillar": "Quantum Computing and Simulation",
+      "stack_layer": "Software & Platforms",
+      "total_funding": 115989000.0,
+      "market_cap_usd": 150180166.34,
+      "market_cap_is_override": false
+    },
+    {
+      "company": "SSH Communications Security",
+      "country": "Finland",
+      "primary_pillar": "Quantum-Safe Security / PQC",
+      "stack_layer": "Applications & Services",
+      "total_funding": 114807197.99,
+      "market_cap_usd": 127741490.05,
+      "market_cap_is_override": false
+    },
+    {
+      "company": "QuantumDiamonds",
+      "country": "Germany",
+      "primary_pillar": "Quantum Sensing and Metrology",
+      "stack_layer": "Core Quantum Hardware",
+      "total_funding": 113644300.0,
+      "market_cap_usd": null,
+      "market_cap_is_override": false
+    },
+    {
+      "company": "ParTec",
+      "country": "Germany",
+      "primary_pillar": "Quantum Computing and Simulation",
+      "stack_layer": "Software & Platforms",
+      "total_funding": 104057782.53,
+      "market_cap_usd": 95836200,
+      "market_cap_is_override": false
+    },
+    {
+      "company": "HYPRES",
+      "country": "US",
+      "primary_pillar": "Enabling Technologies",
+      "stack_layer": "Components & Control",
+      "total_funding": 101996661.09,
+      "market_cap_usd": null,
+      "market_cap_is_override": false
+    },
+    {
+      "company": "AmpliTech",
+      "country": "US",
+      "primary_pillar": "Enabling Technologies",
+      "stack_layer": "Components & Control",
+      "total_funding": 101326524.0,
+      "market_cap_usd": 94337811.15,
+      "market_cap_is_override": false
+    },
+    {
+      "company": "M Squared Lasers",
+      "country": "UK",
+      "primary_pillar": "Enabling Technologies",
+      "stack_layer": "Components & Control",
+      "total_funding": 94684568.66,
+      "market_cap_usd": null,
+      "market_cap_is_override": false
+    },
+    {
+      "company": "Q.ANT",
+      "country": "Germany",
+      "primary_pillar": "Quantum Sensing and Metrology",
+      "stack_layer": "Core Quantum Hardware",
+      "total_funding": 92038700.0,
+      "market_cap_usd": null,
+      "market_cap_is_override": false
+    },
+    {
+      "company": "Nu Quantum",
+      "country": "UK",
+      "primary_pillar": "Quantum Communication and Networking",
+      "stack_layer": "Core Quantum Hardware",
+      "total_funding": 84876585.29,
+      "market_cap_usd": null,
+      "market_cap_is_override": false
+    },
+    {
+      "company": "Fortaegis Technologies",
+      "country": "Netherlands",
+      "primary_pillar": "Quantum-Safe Security / PQC",
+      "stack_layer": "Applications & Services",
+      "total_funding": 69431000.0,
+      "market_cap_usd": null,
+      "market_cap_is_override": false
+    },
+    {
+      "company": "PQShield",
+      "country": "UK",
+      "primary_pillar": "Quantum-Safe Security / PQC",
+      "stack_layer": "Applications & Services",
+      "total_funding": 67388245.42,
+      "market_cap_usd": null,
+      "market_cap_is_override": false
+    },
+    {
+      "company": "Maybell Quantum",
+      "country": "US",
+      "primary_pillar": "Enabling Technologies",
+      "stack_layer": "Components & Control",
+      "total_funding": 66649687.0,
+      "market_cap_usd": null,
+      "market_cap_is_override": false
+    },
+    {
+      "company": "ICTK",
+      "country": "South Korea",
+      "primary_pillar": "Quantum-Safe Security / PQC",
+      "stack_layer": "Applications & Services",
+      "total_funding": 65386754.45,
+      "market_cap_usd": 246627160.73,
+      "market_cap_is_override": false
+    },
+    {
+      "company": "Optalysys",
+      "country": "UK",
+      "primary_pillar": "Quantum-Safe Security / PQC",
+      "stack_layer": "Applications & Services",
+      "total_funding": 64769457.5,
+      "market_cap_usd": null,
+      "market_cap_is_override": false
+    },
+    {
+      "company": "X-Magtech (未磁科技)",
+      "country": "China",
+      "primary_pillar": "Quantum Sensing and Metrology",
+      "stack_layer": "Core Quantum Hardware",
+      "total_funding": 60980000.0,
+      "market_cap_usd": null,
+      "market_cap_is_override": false
+    },
+    {
+      "company": "BTQ Technologies",
+      "country": "Canada",
+      "primary_pillar": "Quantum-Safe Security / PQC",
+      "stack_layer": "Applications & Services",
+      "total_funding": 60239050.06,
+      "market_cap_usd": 426533966.03,
+      "market_cap_is_override": false
+    },
+    {
+      "company": "Certes Networks",
+      "country": "US",
+      "primary_pillar": "Quantum-Safe Security / PQC",
+      "stack_layer": "Applications & Services",
+      "total_funding": 59458373.0,
+      "market_cap_usd": null,
+      "market_cap_is_override": false
+    },
+    {
+      "company": "Wooriro",
+      "country": "South Korea",
+      "primary_pillar": "Enabling Technologies",
+      "stack_layer": "Components & Control",
+      "total_funding": 59273352.27,
+      "market_cap_usd": 237583769.93,
+      "market_cap_is_override": false
+    },
+    {
+      "company": "Ephos",
+      "country": "Italy",
+      "primary_pillar": "Enabling Technologies",
+      "stack_layer": "Materials & Fabrication",
+      "total_funding": 56777406.68,
+      "market_cap_usd": null,
+      "market_cap_is_override": false
+    },
+    {
+      "company": "QNu Labs",
+      "country": "India",
+      "primary_pillar": "Quantum Communication and Networking",
+      "stack_layer": "Core Quantum Hardware",
+      "total_funding": 56337720.0,
+      "market_cap_usd": null,
+      "market_cap_is_override": false
+    },
+    {
+      "company": "Monarch Quantum",
+      "country": "US",
+      "primary_pillar": "Enabling Technologies",
+      "stack_layer": "Components & Control",
+      "total_funding": 55000000.0,
+      "market_cap_usd": null,
+      "market_cap_is_override": false
+    },
+    {
+      "company": "OXIDE Corporation",
+      "country": "Japan",
+      "primary_pillar": "Enabling Technologies",
+      "stack_layer": "Components & Control",
+      "total_funding": 48267065.53,
+      "market_cap_usd": 240057109.62,
+      "market_cap_is_override": false
+    },
+    {
+      "company": "Quantix EdgeS",
+      "country": "Spain",
+      "primary_pillar": "Quantum-Safe Security / PQC",
+      "stack_layer": "Materials & Fabrication",
+      "total_funding": 45789300.0,
+      "market_cap_usd": null,
+      "market_cap_is_override": false
+    },
+    {
+      "company": "Lace Lithography",
+      "country": "Norway",
+      "primary_pillar": "Enabling Technologies",
+      "stack_layer": "Materials & Fabrication",
+      "total_funding": 45329530.24,
+      "market_cap_usd": null,
+      "market_cap_is_override": false
+    },
+    {
+      "company": "Teem Photonics",
+      "country": "France",
+      "primary_pillar": "Enabling Technologies",
+      "stack_layer": "Components & Control",
+      "total_funding": 43948552.72,
+      "market_cap_usd": null,
+      "market_cap_is_override": false
+    },
+    {
+      "company": "Sparrow Quantum",
+      "country": "Denmark",
+      "primary_pillar": "Enabling Technologies",
+      "stack_layer": "Core Quantum Hardware",
+      "total_funding": 43852521.2,
+      "market_cap_usd": null,
+      "market_cap_is_override": false
+    },
+    {
+      "company": "QuintessenceLabs",
+      "country": "Australia",
+      "primary_pillar": "Quantum Communication and Networking",
+      "stack_layer": "Core Quantum Hardware",
+      "total_funding": 41951974.0,
+      "market_cap_usd": null,
+      "market_cap_is_override": false
+    },
+    {
+      "company": "Aliro Quantum",
+      "country": "US",
+      "primary_pillar": "Quantum Communication and Networking",
+      "stack_layer": "Software & Platforms",
+      "total_funding": 37800000.0,
+      "market_cap_usd": null,
+      "market_cap_is_override": false
+    },
+    {
+      "company": "Quantum Foundry Copenhagen",
+      "country": "Denmark",
+      "primary_pillar": "Enabling Technologies",
+      "stack_layer": "Materials & Fabrication",
+      "total_funding": 37598540.0,
+      "market_cap_usd": null,
+      "market_cap_is_override": false
+    },
+    {
+      "company": "Picosun",
+      "country": "Finland",
+      "primary_pillar": "Enabling Technologies",
+      "stack_layer": "Materials & Fabrication",
+      "total_funding": 34945160.4,
+      "market_cap_usd": null,
+      "market_cap_is_override": false
+    },
+    {
+      "company": "Qblox",
+      "country": "Netherlands",
+      "primary_pillar": "Enabling Technologies",
+      "stack_layer": "Components & Control",
+      "total_funding": 34838585.9,
+      "market_cap_usd": null,
+      "market_cap_is_override": false
+    },
+    {
+      "company": "QuSecure",
+      "country": "US",
+      "primary_pillar": "Quantum-Safe Security / PQC",
+      "stack_layer": "Applications & Services",
+      "total_funding": 34197839.36,
+      "market_cap_usd": null,
+      "market_cap_is_override": false
+    },
+    {
+      "company": "kiutra",
+      "country": "Germany",
+      "primary_pillar": "Enabling Technologies",
+      "stack_layer": "Components & Control",
+      "total_funding": 33339125.59,
+      "market_cap_usd": null,
+      "market_cap_is_override": false
+    },
+    {
+      "company": "Ideon Technologies",
+      "country": "Canada",
+      "primary_pillar": "Quantum Sensing and Metrology",
+      "stack_layer": "Core Quantum Hardware",
+      "total_funding": 32995965.94,
+      "market_cap_usd": null,
+      "market_cap_is_override": false
+    },
+    {
+      "company": "QphoX",
+      "country": "Netherlands",
+      "primary_pillar": "Enabling Technologies",
+      "stack_layer": "Components & Control",
+      "total_funding": 32761665.39,
+      "market_cap_usd": null,
+      "market_cap_is_override": false
+    },
+    {
+      "company": "Vescent",
+      "country": "US",
+      "primary_pillar": "Enabling Technologies",
+      "stack_layer": "Components & Control",
+      "total_funding": 32387716.42,
+      "market_cap_usd": null,
+      "market_cap_is_override": false
+    },
+    {
+      "company": "EigenQ",
+      "country": "US",
+      "primary_pillar": "Enabling Technologies",
+      "stack_layer": "Core Quantum Hardware",
+      "total_funding": 32280847.0,
+      "market_cap_usd": null,
+      "market_cap_is_override": false
+    },
+    {
+      "company": "Zhongwei Daxin Technology (中微达信)",
+      "country": "China",
+      "primary_pillar": "Enabling Technologies",
+      "stack_layer": "Components & Control",
+      "total_funding": 32236000.0,
+      "market_cap_usd": null,
+      "market_cap_is_override": false
+    },
+    {
+      "company": "Archer Materials",
+      "country": "Australia",
+      "primary_pillar": "Quantum Computing and Simulation",
+      "stack_layer": "Core Quantum Hardware",
+      "total_funding": 31611237.79,
+      "market_cap_usd": 32684818.01,
+      "market_cap_is_override": false
+    },
+    {
+      "company": "Quantum Corridor",
+      "country": "US",
+      "primary_pillar": "Quantum Communication and Networking",
+      "stack_layer": "Applications & Services",
+      "total_funding": 30995000.0,
+      "market_cap_usd": null,
+      "market_cap_is_override": false
+    },
+    {
+      "company": "AOSense",
+      "country": "US",
+      "primary_pillar": "Quantum Sensing and Metrology",
+      "stack_layer": "Core Quantum Hardware",
+      "total_funding": 30503471.49,
+      "market_cap_usd": null,
+      "market_cap_is_override": false
+    },
+    {
+      "company": "Quantum eMotion",
+      "country": "Canada",
+      "primary_pillar": "Quantum Communication and Networking",
+      "stack_layer": "Core Quantum Hardware",
+      "total_funding": 30419222.54,
+      "market_cap_usd": 326425708.88,
+      "market_cap_is_override": false
+    },
+    {
+      "company": "Niobium Microsystems",
+      "country": "US",
+      "primary_pillar": "Quantum-Safe Security / PQC",
+      "stack_layer": "Components & Control",
+      "total_funding": 29549910.0,
+      "market_cap_usd": null,
+      "market_cap_is_override": false
+    },
+    {
+      "company": "ISARA",
+      "country": "Canada",
+      "primary_pillar": "Quantum-Safe Security / PQC",
+      "stack_layer": "Software & Platforms",
+      "total_funding": 28963113.43,
+      "market_cap_usd": null,
+      "market_cap_is_override": false
+    },
+    {
+      "company": "Zhongchuangwei Quantum (中创为量子)",
+      "country": "China",
+      "primary_pillar": "Quantum Communication and Networking",
+      "stack_layer": "Core Quantum Hardware",
+      "total_funding": 28940000.0,
+      "market_cap_usd": null,
+      "market_cap_is_override": false
+    },
+    {
+      "company": "QLM Technology",
+      "country": "UK",
+      "primary_pillar": "Quantum Sensing and Metrology",
+      "stack_layer": "Core Quantum Hardware",
+      "total_funding": 28536697.54,
+      "market_cap_usd": null,
+      "market_cap_is_override": false
+    },
+    {
+      "company": "Guoce Quantum (国测量子)",
+      "country": "China",
+      "primary_pillar": "Quantum Sensing and Metrology",
+      "stack_layer": "Core Quantum Hardware",
+      "total_funding": 28440000.0,
+      "market_cap_usd": null,
+      "market_cap_is_override": false
+    },
+    {
+      "company": "LioniX International",
+      "country": "Netherlands",
+      "primary_pillar": "Enabling Technologies",
+      "stack_layer": "Materials & Fabrication",
+      "total_funding": 28085897.41,
+      "market_cap_usd": null,
+      "market_cap_is_override": false
+    },
+    {
+      "company": "Chipiron",
+      "country": "France",
+      "primary_pillar": "Quantum Sensing and Metrology",
+      "stack_layer": "Core Quantum Hardware",
+      "total_funding": 27558647.6,
+      "market_cap_usd": null,
+      "market_cap_is_override": false
+    },
+    {
+      "company": "Qunnect",
+      "country": "US",
+      "primary_pillar": "Quantum Communication and Networking",
+      "stack_layer": "Core Quantum Hardware",
+      "total_funding": 26074630.73,
+      "market_cap_usd": null,
+      "market_cap_is_override": false
+    },
+    {
+      "company": "Project Eleven",
+      "country": "US",
+      "primary_pillar": "Quantum-Safe Security / PQC",
+      "stack_layer": "Applications & Services",
+      "total_funding": 26000000.0,
+      "market_cap_usd": null,
+      "market_cap_is_override": false
+    },
+    {
+      "company": "Vector Atomic",
+      "country": "US",
+      "primary_pillar": "Quantum Sensing and Metrology",
+      "stack_layer": "Core Quantum Hardware",
+      "total_funding": 25932974.96,
+      "market_cap_usd": null,
+      "market_cap_is_override": false
+    },
+    {
+      "company": "Secure-IC",
+      "country": "France",
+      "primary_pillar": "Quantum-Safe Security / PQC",
+      "stack_layer": "Applications & Services",
+      "total_funding": 24315217.76,
+      "market_cap_usd": null,
+      "market_cap_is_override": false
+    },
+    {
+      "company": "MagiQ Technologies",
+      "country": "US",
+      "primary_pillar": "Quantum Communication and Networking",
+      "stack_layer": "Core Quantum Hardware",
+      "total_funding": 23808445.63,
+      "market_cap_usd": null,
+      "market_cap_is_override": false
+    },
+    {
+      "company": "Quantum Xchange",
+      "country": "US",
+      "primary_pillar": "Quantum-Safe Security / PQC",
+      "stack_layer": "Applications & Services",
+      "total_funding": 23500000.0,
+      "market_cap_usd": null,
+      "market_cap_is_override": false
+    },
+    {
+      "company": "Creotech Quantum",
+      "country": "Poland",
+      "primary_pillar": "Quantum Communication and Networking",
+      "stack_layer": "Core Quantum Hardware",
+      "total_funding": 22403080.0,
+      "market_cap_usd": 273190364.46,
+      "market_cap_is_override": false
+    },
+    {
+      "company": "QTREX",
+      "country": "Israel",
+      "primary_pillar": "Enabling Technologies",
+      "stack_layer": "Components & Control",
+      "total_funding": 21000000.0,
+      "market_cap_usd": 37993378.96,
+      "market_cap_is_override": false
+    },
+    {
+      "company": "Lastwall",
+      "country": "Canada",
+      "primary_pillar": "Quantum-Safe Security / PQC",
+      "stack_layer": "Applications & Services",
+      "total_funding": 20817685.0,
+      "market_cap_usd": null,
+      "market_cap_is_override": false
+    },
+    {
+      "company": "Ggquanta (国光量子)",
+      "country": "China",
+      "primary_pillar": "Quantum Communication and Networking",
+      "stack_layer": "Core Quantum Hardware",
+      "total_funding": 20412000.0,
+      "market_cap_usd": null,
+      "market_cap_is_override": false
+    },
+    {
+      "company": "AMCG",
+      "country": "South Korea",
+      "primary_pillar": "Quantum Sensing and Metrology",
+      "stack_layer": "Core Quantum Hardware",
+      "total_funding": 20018641.61,
+      "market_cap_usd": null,
+      "market_cap_is_override": false
+    },
+    {
+      "company": "Crypto Quantique",
+      "country": "UK",
+      "primary_pillar": "Quantum-Safe Security / PQC",
+      "stack_layer": "Applications & Services",
+      "total_funding": 19900234.4,
+      "market_cap_usd": null,
+      "market_cap_is_override": false
+    },
+    {
+      "company": "Naoris Quantum Protocol",
+      "country": "US",
+      "primary_pillar": "Quantum-Safe Security / PQC",
+      "stack_layer": "Applications & Services",
+      "total_funding": 19515000.0,
+      "market_cap_usd": null,
+      "market_cap_is_override": false
+    },
+    {
+      "company": "Tiempo Secure",
+      "country": "France",
+      "primary_pillar": "Quantum-Safe Security / PQC",
+      "stack_layer": "Applications & Services",
+      "total_funding": 19511475.2,
+      "market_cap_usd": null,
+      "market_cap_is_override": false
+    },
+    {
+      "company": "Lightsynq",
+      "country": "US",
+      "primary_pillar": "Quantum Communication and Networking",
+      "stack_layer": "Core Quantum Hardware",
+      "total_funding": 19246216.0,
+      "market_cap_usd": null,
+      "market_cap_is_override": false
+    },
+    {
+      "company": "Quanta-Well (科微量子)",
+      "country": "China",
+      "primary_pillar": "Quantum Sensing and Metrology",
+      "stack_layer": "Core Quantum Hardware",
+      "total_funding": 19239500.0,
+      "market_cap_usd": null,
+      "market_cap_is_override": false
+    },
+    {
+      "company": "Mesa Quantum",
+      "country": "US",
+      "primary_pillar": "Quantum Sensing and Metrology",
+      "stack_layer": "Core Quantum Hardware",
+      "total_funding": 18436237.93,
+      "market_cap_usd": null,
+      "market_cap_is_override": false
+    },
+    {
+      "company": "LQUOM",
+      "country": "Japan",
+      "primary_pillar": "Quantum Communication and Networking",
+      "stack_layer": "Core Quantum Hardware",
+      "total_funding": 17972024.0,
+      "market_cap_usd": null,
+      "market_cap_is_override": false
+    },
+    {
+      "company": "Symmatrics",
+      "country": "US",
+      "primary_pillar": "Quantum-Safe Security / PQC",
+      "stack_layer": "Applications & Services",
+      "total_funding": 17547847.0,
+      "market_cap_usd": null,
+      "market_cap_is_override": false
+    },
+    {
+      "company": "Sitehop",
+      "country": "UK",
+      "primary_pillar": "Quantum-Safe Security / PQC",
+      "stack_layer": "Applications & Services",
+      "total_funding": 17519600.0,
+      "market_cap_usd": null,
+      "market_cap_is_override": false
+    },
+    {
+      "company": "ID Quantique",
+      "country": "Switzerland",
+      "primary_pillar": "Quantum Communication and Networking",
+      "stack_layer": "Core Quantum Hardware",
+      "total_funding": 17317004.86,
+      "market_cap_usd": null,
+      "market_cap_is_override": false
+    },
+    {
+      "company": "QANplatform",
+      "country": null,
+      "primary_pillar": "Quantum-Safe Security / PQC",
+      "stack_layer": "Applications & Services",
+      "total_funding": 17100000.0,
+      "market_cap_usd": null,
+      "market_cap_is_override": false
+    },
+    {
+      "company": "QuSpin",
+      "country": "US",
+      "primary_pillar": "Quantum Sensing and Metrology",
+      "stack_layer": "Core Quantum Hardware",
+      "total_funding": 17074698.0,
+      "market_cap_usd": null,
+      "market_cap_is_override": false
+    },
+    {
+      "company": "QIZ Security",
+      "country": "US",
+      "primary_pillar": "Quantum-Safe Security / PQC",
+      "stack_layer": "Applications & Services",
+      "total_funding": 17000000.0,
+      "market_cap_usd": null,
+      "market_cap_is_override": false
+    },
+    {
+      "company": "CryptoLab",
+      "country": "South Korea",
+      "primary_pillar": "Quantum-Safe Security / PQC",
+      "stack_layer": "Applications & Services",
+      "total_funding": 16000000.0,
+      "market_cap_usd": null,
+      "market_cap_is_override": false
+    },
+    {
+      "company": "KETS Quantum Security",
+      "country": "UK",
+      "primary_pillar": "Quantum Communication and Networking",
+      "stack_layer": "Core Quantum Hardware",
+      "total_funding": 15958558.84,
+      "market_cap_usd": null,
+      "market_cap_is_override": false
+    },
+    {
+      "company": "Quantum Base",
+      "country": "UK",
+      "primary_pillar": "Enabling Technologies",
+      "stack_layer": "Core Quantum Hardware",
+      "total_funding": 15880303.17,
+      "market_cap_usd": 22026475.2,
+      "market_cap_is_override": false
+    },
+    {
+      "company": "Atomionics",
+      "country": "Singapore",
+      "primary_pillar": "Quantum Sensing and Metrology",
+      "stack_layer": "Core Quantum Hardware",
+      "total_funding": 15139303.49,
+      "market_cap_usd": null,
+      "market_cap_is_override": false
+    },
+    {
+      "company": "QuBeats",
+      "country": "India",
+      "primary_pillar": "Quantum Sensing and Metrology",
+      "stack_layer": "Core Quantum Hardware",
+      "total_funding": 15000000.0,
+      "market_cap_usd": null,
+      "market_cap_is_override": false
+    },
+    {
+      "company": "LuxQuanta",
+      "country": "Spain",
+      "primary_pillar": "Quantum Communication and Networking",
+      "stack_layer": "Core Quantum Hardware",
+      "total_funding": 14692148.47,
+      "market_cap_usd": null,
+      "market_cap_is_override": false
+    },
+    {
+      "company": "STAR Cryoelectronics",
+      "country": "US",
+      "primary_pillar": "Quantum Sensing and Metrology",
+      "stack_layer": "Core Quantum Hardware",
+      "total_funding": 14266255.74,
+      "market_cap_usd": null,
+      "market_cap_is_override": false
+    },
+    {
+      "company": "Twinleaf",
+      "country": "US",
+      "primary_pillar": "Quantum Sensing and Metrology",
+      "stack_layer": "Core Quantum Hardware",
+      "total_funding": 14011670.0,
+      "market_cap_usd": null,
+      "market_cap_is_override": false
+    },
+    {
+      "company": "Quantum Secure Encryption",
+      "country": "Canada",
+      "primary_pillar": "Quantum-Safe Security / PQC",
+      "stack_layer": "Applications & Services",
+      "total_funding": 13955674.35,
+      "market_cap_usd": 24037668.48,
+      "market_cap_is_override": false
+    },
+    {
+      "company": "Quantropi",
+      "country": "Canada",
+      "primary_pillar": "Quantum-Safe Security / PQC",
+      "stack_layer": "Applications & Services",
+      "total_funding": 13732157.11,
+      "market_cap_usd": null,
+      "market_cap_is_override": false
+    },
+    {
+      "company": "Rydberg Technologies",
+      "country": "US",
+      "primary_pillar": "Quantum Sensing and Metrology",
+      "stack_layer": "Core Quantum Hardware",
+      "total_funding": 13456462.0,
+      "market_cap_usd": null,
+      "market_cap_is_override": false
+    },
+    {
+      "company": "Aquark Technologies",
+      "country": "UK",
+      "primary_pillar": "Quantum Sensing and Metrology",
+      "stack_layer": "Core Quantum Hardware",
+      "total_funding": 13362828.08,
+      "market_cap_usd": null,
+      "market_cap_is_override": false
+    },
+    {
+      "company": "Delta.g",
+      "country": "UK",
+      "primary_pillar": "Quantum Sensing and Metrology",
+      "stack_layer": "Core Quantum Hardware",
+      "total_funding": 13209667.95,
+      "market_cap_usd": null,
+      "market_cap_is_override": false
+    },
+    {
+      "company": "MAG4Health",
+      "country": "France",
+      "primary_pillar": "Quantum Sensing and Metrology",
+      "stack_layer": "Core Quantum Hardware",
+      "total_funding": 13205948.65,
+      "market_cap_usd": null,
+      "market_cap_is_override": false
+    },
+    {
+      "company": "CHINAPROSP QUANTUM (国盛量子)",
+      "country": "China",
+      "primary_pillar": "Quantum Sensing and Metrology",
+      "stack_layer": "Core Quantum Hardware",
+      "total_funding": 13175300.0,
+      "market_cap_usd": null,
+      "market_cap_is_override": false
+    },
+    {
+      "company": "Quantum Dice",
+      "country": "UK",
+      "primary_pillar": "Quantum Communication and Networking",
+      "stack_layer": "Core Quantum Hardware",
+      "total_funding": 13056832.63,
+      "market_cap_usd": null,
+      "market_cap_is_override": false
+    },
+    {
+      "company": "Zero Point Motion",
+      "country": "UK",
+      "primary_pillar": "Quantum Sensing and Metrology",
+      "stack_layer": "Core Quantum Hardware",
+      "total_funding": 13025490.4,
+      "market_cap_usd": null,
+      "market_cap_is_override": false
+    },
+    {
+      "company": "Qasky (问天量子)",
+      "country": "China",
+      "primary_pillar": "Quantum Communication and Networking",
+      "stack_layer": "Core Quantum Hardware",
+      "total_funding": 12967390.0,
+      "market_cap_usd": null,
+      "market_cap_is_override": false
+    },
+    {
+      "company": "memQ",
+      "country": "US",
+      "primary_pillar": "Quantum Communication and Networking",
+      "stack_layer": "Core Quantum Hardware",
+      "total_funding": 12658269.0,
+      "market_cap_usd": null,
+      "market_cap_is_override": false
+    },
+    {
+      "company": "Falqon Systems",
+      "country": "Netherlands",
+      "primary_pillar": "Quantum Communication and Networking",
+      "stack_layer": "Core Quantum Hardware",
+      "total_funding": 12288328.84,
+      "market_cap_usd": null,
+      "market_cap_is_override": false
+    },
+    {
+      "company": "EYL",
+      "country": "South Korea",
+      "primary_pillar": "Quantum Communication and Networking",
+      "stack_layer": "Core Quantum Hardware",
+      "total_funding": 11698450.0,
+      "market_cap_usd": null,
+      "market_cap_is_override": false
+    },
+    {
+      "company": "Qubitekk",
+      "country": "US",
+      "primary_pillar": "Quantum Communication and Networking",
+      "stack_layer": "Core Quantum Hardware",
+      "total_funding": 11662532.28,
+      "market_cap_usd": null,
+      "market_cap_is_override": false
+    },
+    {
+      "company": "QuantumCore",
+      "country": "Canada",
+      "primary_pillar": "Enabling Technologies",
+      "stack_layer": "Components & Control",
+      "total_funding": 11620361.23,
+      "market_cap_usd": 59822843.49,
+      "market_cap_is_override": false
+    },
+    {
+      "company": "Welinq",
+      "country": "France",
+      "primary_pillar": "Quantum Communication and Networking",
+      "stack_layer": "Core Quantum Hardware",
+      "total_funding": 11490935.64,
+      "market_cap_usd": null,
+      "market_cap_is_override": false
+    },
+    {
+      "company": "QT Sense",
+      "country": "Netherlands",
+      "primary_pillar": "Quantum Sensing and Metrology",
+      "stack_layer": "Core Quantum Hardware",
+      "total_funding": 11464400.0,
+      "market_cap_usd": null,
+      "market_cap_is_override": false
+    },
+    {
+      "company": "Cerca Magnetics",
+      "country": "UK",
+      "primary_pillar": "Quantum Sensing and Metrology",
+      "stack_layer": "Core Quantum Hardware",
+      "total_funding": 11384739.41,
+      "market_cap_usd": null,
+      "market_cap_is_override": false
+    },
+    {
+      "company": "Riber",
+      "country": "France",
+      "primary_pillar": "Enabling Technologies",
+      "stack_layer": "Materials & Fabrication",
+      "total_funding": 10985267.09,
+      "market_cap_usd": 224642940.83,
+      "market_cap_is_override": false
+    },
+    {
+      "company": "Coweaver",
+      "country": "South Korea",
+      "primary_pillar": "Quantum Communication and Networking",
+      "stack_layer": "Core Quantum Hardware",
+      "total_funding": 10785247.3,
+      "market_cap_usd": 41156836.52,
+      "market_cap_is_override": false
+    },
+    {
+      "company": "Quantum Optics Jena",
+      "country": "Germany",
+      "primary_pillar": "Quantum Communication and Networking",
+      "stack_layer": "Core Quantum Hardware",
+      "total_funding": 10469953.56,
+      "market_cap_usd": null,
+      "market_cap_is_override": false
+    },
+    {
+      "company": "Diffraqtion",
+      "country": "US",
+      "primary_pillar": "Quantum Sensing and Metrology",
+      "stack_layer": "Core Quantum Hardware",
+      "total_funding": 10330600.0,
+      "market_cap_usd": null,
+      "market_cap_is_override": false
+    },
+    {
+      "company": "SpeQtral",
+      "country": "Singapore",
+      "primary_pillar": "Quantum Communication and Networking",
+      "stack_layer": "Core Quantum Hardware",
+      "total_funding": 10200000.0,
+      "market_cap_usd": null,
+      "market_cap_is_override": false
+    },
+    {
+      "company": "Qnami",
+      "country": "Switzerland",
+      "primary_pillar": "Quantum Sensing and Metrology",
+      "stack_layer": "Core Quantum Hardware",
+      "total_funding": 10061879.38,
+      "market_cap_usd": null,
+      "market_cap_is_override": false
+    },
+    {
+      "company": "QuantX Labs",
+      "country": "Australia",
+      "primary_pillar": "Quantum Sensing and Metrology",
+      "stack_layer": "Core Quantum Hardware",
+      "total_funding": 9395451.28,
+      "market_cap_usd": null,
+      "market_cap_is_override": false
+    },
+    {
+      "company": "Senetas",
+      "country": "Australia",
+      "primary_pillar": "Quantum-Safe Security / PQC",
+      "stack_layer": "Applications & Services",
+      "total_funding": 8369361.97,
+      "market_cap_usd": 30030940.15,
+      "market_cap_is_override": false
+    },
+    {
+      "company": "Kokyo",
+      "country": "Japan",
+      "primary_pillar": "Enabling Technologies",
+      "stack_layer": "Components & Control",
+      "total_funding": 6814221.43,
+      "market_cap_usd": 3248471.42,
+      "market_cap_is_override": false
+    },
+    {
+      "company": "SuperQ Quantum Computing",
+      "country": "Canada",
+      "primary_pillar": "Quantum Computing and Simulation",
+      "stack_layer": "Software & Platforms",
+      "total_funding": 5903644.57,
+      "market_cap_usd": 10693254.61,
+      "market_cap_is_override": false
+    },
+    {
+      "company": "Quantum X Labs",
+      "country": "Israel",
+      "primary_pillar": "Quantum Computing and Simulation",
+      "stack_layer": "Software & Platforms",
+      "total_funding": 5869000.0,
+      "market_cap_usd": 62747722.98,
+      "market_cap_is_override": false
+    },
+    {
+      "company": "01 Quantum",
+      "country": "Canada",
+      "primary_pillar": "Quantum-Safe Security / PQC",
+      "stack_layer": "Applications & Services",
+      "total_funding": 4936764.05,
+      "market_cap_usd": 52564198.51,
+      "market_cap_is_override": false
+    },
+    {
+      "company": "Integrated Quantum Technologies",
+      "country": "Canada",
+      "primary_pillar": "Quantum-Safe Security / PQC",
+      "stack_layer": "Applications & Services",
+      "total_funding": 4037738.25,
+      "market_cap_usd": 30352981.55,
+      "market_cap_is_override": false
+    },
+    {
+      "company": "Aqarios",
+      "country": "Germany",
+      "primary_pillar": "Quantum Computing and Simulation",
+      "stack_layer": "Software & Platforms",
+      "total_funding": 3693660.02,
+      "market_cap_usd": 47690997.83,
+      "market_cap_is_override": false
+    }
+  ]
+}

@@ -20,7 +20,9 @@ QT.boot(async function () {
   const instrumentByCountry = new Map(countryInstrument.data.map(d => [d.country, d]));
   // Real entity-level collaboration counts (industry/government/research), keyed by
   // country for Figure 4 -- unlike the mock "top partners" bars in Figure 3, this is
-  // the actual collaboration graph (collab_rankings.json), not a placeholder.
+  // the actual collaboration graph (collab_rankings.json), not a placeholder. The file holds
+  // only what Figure 4 displays -- the top 3 institutions per country and category -- not
+  // every entity (the full ranking is private, see pipeline_io.PRIVATE_ONLY).
   const rankingsByCountry = d3.group(collabRankings.data, d => d.country);
   // Real per-country collaboration figures, so tiles 5 and 6 mirror the Overview's
   // definitions with actual data instead of the mock profile's `institutions` count:
@@ -119,7 +121,7 @@ QT.boot(async function () {
       .text(message);
   }
   const noProfileNote = () =>
-    `No illustrative profile for ${state.country} yet – covers ${profile.data.length} of ${country.data.length} tracked countries.`;
+    `No illustrative profile for ${state.country} yet. It covers ${profile.data.length} of ${country.data.length} tracked countries.`;
 
   /* THE SAME SIX TILES AS THE OVERVIEW, in the same order, so moving between the two
      tabs compares like with like (Elena: "we could have the boxes here mimic the same
@@ -143,19 +145,19 @@ QT.boot(async function () {
       { v: QT.fmt.axisMoney(c.total_funding),
         k: `Company funding · rank ${rank} of ${ranked.length}` },
       { v: QT.fmt.int(c.companies), k: "Quantum companies" },
-      { v: g && g.government_funding ? QT.fmt.axisMoney(g.government_funding) : "–",
+      { v: g && g.government_funding ? QT.fmt.axisMoney(g.government_funding) : "n/a",
         k: "Government funding" + (govProvisional ? " " + QT.mockBadge("Provisional") : "") },
       // Distinct named clusters this country's companies sit in. Real, but the
       // cluster field is still being filled in, so this rises as curation
       // continues – it is a count of hubs recorded, not of hubs that exist.
       { v: QT.fmt.int(c.clusters), k: "Quantum clusters" },
-      { v: cb ? QT.fmt.int(cb.entities) : "–", k: "Institutions active in quantum" },
-      { v: cb ? QT.fmt.int(cb.collaborations) : "–", k: "Quantum collaborations" },
+      { v: cb ? QT.fmt.int(cb.entities) : "n/a", k: "Institutions active in quantum" },
+      { v: cb ? QT.fmt.int(cb.collaborations) : "n/a", k: "Quantum collaborations" },
     ]);
 
     d3.select("#archetype-line").html(p
       ? `Collaboration archetype: <b style="color:${QT.palette.archetype[p.archetype] || QT.tokens.purple}">`
-        + `${p.archetype}</b> ${QT.mockBadge("Mock")}`
+        + `${p.archetype}</b> (see Figure 6) ${QT.mockBadge("Illustrative")}`
       : "");
   }
 
@@ -178,23 +180,19 @@ QT.boot(async function () {
     // what made the fallback look like an unexplained, unchanging top-16 chart.
     const hasSelection = byMetric.some(d => d.country === state.country);
     d3.select("#ttl-ranked").text(hasSelection
-      ? `Figure 1: Countries ranked by ${S.title}${MEAS.suffix} – ${state.country} highlighted`
-      : `Figure 1: Countries ranked by ${S.title}${MEAS.suffix} – no data for ${state.country}`);
+      ? `Figure 1: Countries ranked by ${S.title}${MEAS.suffix}, ${state.country} highlighted`
+      : `Figure 1: Countries ranked by ${S.title}${MEAS.suffix}, no data for ${state.country}`);
     d3.select("#why-ranked").html(hasSelection
-      ? `Where ${state.country} sits among all tracked countries, by `
-        + `${S.title}${MEAS.suffix}. The leaders are shown for scale, then the selected `
-        + `country among its own neighbours in the ranking. Use <b>Metric</b> to switch `
-        + `between company and government funding, and <b>Measure</b> to switch between `
-        + `absolute amounts and share of GDP.`
+      ? `Where ${state.country} sits among all tracked countries by `
+        + `${S.title}${MEAS.suffix}. The leaders are shown for scale, then ${state.country} `
+        + `among its neighbours in the ranking.`
       : `${state.country} has no recorded ${S.title}${MEAS.suffix}, so it cannot be placed in `
-        + `this ranking. The leaders are shown below for reference. Use <b>Metric</b> to switch `
-        + `between company and government funding, and <b>Measure</b> to switch between `
-        + `absolute amounts and share of GDP.`);
+        + `this ranking. The leaders are shown below for reference.`);
     const noDataNote = hasSelection ? "" : `<b>No ${S.title} available.</b>`;
     const govNote = state.source === "government_funding" && govProvisional
-      ? "<b>Government figures are provisional.</b> They are Dyuti's government policy "
-        + "register alone and do not include any company-side grant or public-equity "
-        + "funding, which is counted only under Company funding." : "";
+      ? "<b>Government figures are provisional.</b> They cover identified public funding "
+        + "only. Grants and public equity received by companies are counted under "
+        + "company funding." : "";
     const note = [noDataNote, govNote].filter(Boolean).join(" ");
     d3.select("#mocknote-ranked").html(note).style("display", note ? null : "none");
 
@@ -289,9 +287,9 @@ QT.boot(async function () {
   // ---------- Panel 2: company funding by financing instrument, pie (REAL) ----------
   function instrumentPie() {
     d3.select("#why-instrument").html(
-      `How ${state.country}'s company funding splits across VC / private equity, debt, ` +
-      `grant and public equity – the same instrument breakdown as the Overview's Figure 2, for the ` +
-      `selected country alone.`);
+      `How ${state.country}'s company funding splits across the four financing instruments: ` +
+      `VC / private equity, debt, grant and public equity. This is the breakdown shown in ` +
+      `Overview Figure 2, for one country.`);
     const row = instrumentByCountry.get(state.country);
     const total = row ? d3.sum(INSTRUMENT_KEYS, k => row[k]) : 0;
     const SERIES = INSTRUMENT_KEYS
@@ -359,9 +357,8 @@ QT.boot(async function () {
   // one category by their real collaboration count, from collab_rankings.json.
   function institutionsPanel() {
     d3.select("#why-institutions").html(
-      `The three most-connected institutions headquartered in ${state.country}, by ` +
-      `recorded collaboration count. Use <b>Category</b> to switch between industry, government ` +
-      `and research institutions.`);
+      `The three institutions headquartered in ${state.country} with the most recorded ` +
+      `collaborations, for each category: industry, government and research.`);
     const rows = (rankingsByCountry.get(state.country) || [])
       .filter(d => d.category === state.instCategory && d.collaborations > 0)
       .sort(QT.rank("collaborations", "entity"))
@@ -385,7 +382,7 @@ QT.boot(async function () {
       .on("mousemove", (e, d) => tt.show(
         `<div class="hd">${d.entity}</div>` +
         `<div class="row"><span class="k">Type</span><span class="v">${d.type || d.category}</span></div>` +
-        `<div class="row"><span class="k">City</span><span class="v">${d.city || "–"}</span></div>` +
+        `<div class="row"><span class="k">City</span><span class="v">${d.city || "n/a"}</span></div>` +
         `<div class="row"><span class="k">Collaborations</span><span class="v">${QT.fmt.int(d.collaborations)}</span></div>`, e))
       .on("mouseleave", tt.hide);
     c.gPlot.selectAll("text.bar-val").data(rows, d => d.entity).join("text")
@@ -453,7 +450,7 @@ QT.boot(async function () {
   // ---------- Panel 4: RCA horizontal bars (MOCK) ----------
   function rcaPanel() {
     const p = profileByName.get(state.country);
-    d3.select("#ttl-rca").html(`Figure 7: National specialisation – ${state.country} <span id="badge-rca">${QT.mockBadge()}</span>`);
+    d3.select("#ttl-rca").html(`Figure 7: National specialisation (${state.country}) <span id="badge-rca">${QT.mockBadge()}</span>`);
     if (!p) return emptyPanel("#chart-rca", noProfileNote());
     const rows = [...p.rca].sort(QT.rank("rca", "domain"));
 
@@ -480,10 +477,10 @@ QT.boot(async function () {
   // ---------- Collaboration: connectedness + top partners (MOCK) ----------
   function networkPanel() {
     const p = profileByName.get(state.country);
-    d3.select("#ttl-network").html(`Figure 3: Collaboration: global connectedness and top partners – ${state.country} <span id="badge-network">${QT.mockBadge()}</span>`);
+    d3.select("#ttl-network").html(`Figure 3: Global connectedness and top collaboration partners (${state.country}) <span id="badge-network">${QT.mockBadge()}</span>`);
     d3.select("#why-network").html(
-      `How globally connected ${state.country}'s quantum ecosystem is (0–100), and the ` +
-      `strength of its three leading collaboration partners.`);
+      `How globally connected ${state.country}'s quantum ecosystem is, on a scale from 0 to 100, ` +
+      `and the strength of its three leading collaboration partners.`);
     if (!p) return emptyPanel("#chart-network", noProfileNote());
     const partners = [...p.top_partners].sort(QT.rank("score", "country"));
 
@@ -537,7 +534,7 @@ QT.boot(async function () {
   // ---------- Policy & public programmes (curated flagship list; no mock badge on the page) ----------
   function policiesPanel() {
     const list = policyByCountry.get(state.country) || [];
-    d3.select("#ttl-policy").html(`Figure 5: Policy and public programmes – ${state.country}`);
+    d3.select("#ttl-policy").html(`Figure 5: Policy and public programmes (${state.country})`);
     const body = d3.select("#policy-body");
     body.selectAll("*").remove();
     if (!list.length) {

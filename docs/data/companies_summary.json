@@ -1,0 +1,301 @@
+{
+  "meta": {
+    "data_vintage": "2026-Q3",
+    "start_year": 2012,
+    "partial_year": 2026
+  },
+  "data": {
+    "totals": {
+      "companies": 888,
+      "total_funding": 44695265248.93,
+      "n_rounds": 4891,
+      "public_companies": 43,
+      "listed_companies": 43,
+      "market_cap_total": 79260185599.17,
+      "countries": 45
+    },
+    "pillars": [
+      {
+        "label": "Quantum Computing and Simulation",
+        "n": 380,
+        "funding": 31533478780.26
+      },
+      {
+        "label": "Enabling Technologies",
+        "n": 232,
+        "funding": 6184606135.45
+      },
+      {
+        "label": "Quantum-Safe Security / PQC",
+        "n": 110,
+        "funding": 3674750069.77
+      },
+      {
+        "label": "Quantum Communication and Networking",
+        "n": 88,
+        "funding": 2042713929.89
+      },
+      {
+        "label": "Quantum Sensing and Metrology",
+        "n": 78,
+        "funding": 1259716333.56
+      }
+    ],
+    "stack_layers": [
+      {
+        "label": "Full Stack",
+        "n": 32,
+        "funding": 18354367784.1
+      },
+      {
+        "label": "Core Quantum Hardware",
+        "n": 260,
+        "funding": 9107522316.73
+      },
+      {
+        "label": "Applications & Services",
+        "n": 213,
+        "funding": 6568684880.5
+      },
+      {
+        "label": "Software & Platforms",
+        "n": 173,
+        "funding": 4396438894.33
+      },
+      {
+        "label": "Materials & Fabrication",
+        "n": 42,
+        "funding": 3723235028.29
+      },
+      {
+        "label": "Components & Control",
+        "n": 168,
+        "funding": 2545016344.98
+      }
+    ],
+    "streams": [
+      {
+        "label": "Trapped Ion",
+        "n": 19,
+        "funding": 8688324917.49
+      },
+      {
+        "label": "Photonic Quantum",
+        "n": 21,
+        "funding": 5667438317.32
+      },
+      {
+        "label": "Superconducting Qubits",
+        "n": 30,
+        "funding": 4194883036.67
+      },
+      {
+        "label": "Cryptography & Security",
+        "n": 108,
+        "funding": 3802062292.19
+      },
+      {
+        "label": "Foundries & Fabrication",
+        "n": 27,
+        "funding": 3257898171.81
+      },
+      {
+        "label": "Neutral Atom",
+        "n": 22,
+        "funding": 3021019314.94
+      },
+      {
+        "label": "Drug Discovery & Pharma",
+        "n": 21,
+        "funding": 2316191353.96
+      },
+      {
+        "label": "Quantum Annealers",
+        "n": 5,
+        "funding": 1820297438.08
+      },
+      {
+        "label": "Algorithms & Compilation",
+        "n": 62,
+        "funding": 1803134493.31
+      },
+      {
+        "label": "Simulation & Emulation",
+        "n": 42,
+        "funding": 1646715420.42
+      },
+      {
+        "label": "Silicon Spin Qubits",
+        "n": 9,
+        "funding": 1169946413.82
+      },
+      {
+        "label": "Lasers & Optics",
+        "n": 57,
+        "funding": 974165532.58
+      },
+      {
+        "label": "QKD Systems",
+        "n": 46,
+        "funding": 970973579.64
+      },
+      {
+        "label": "Cryogenic Systems",
+        "n": 23,
+        "funding": 562312264.7
+      },
+      {
+        "label": "Semiconductors & Materials",
+        "n": 13,
+        "funding": 463576842.35
+      },
+      {
+        "label": "Other (33 streams)",
+        "n": 383,
+        "funding": 4336325859.65,
+        "isOther": true
+      }
+    ],
+    "origins": [
+      {
+        "origin": "University spinout",
+        "n": 294
+      },
+      {
+        "origin": "Research spinout",
+        "n": 94
+      },
+      {
+        "origin": "Corporate spinout",
+        "n": 32
+      },
+      {
+        "origin": "Joint venture",
+        "n": 7
+      },
+      {
+        "origin": "Merger",
+        "n": 2
+      },
+      {
+        "origin": "Subsidiary",
+        "n": 2
+      },
+      {
+        "origin": "Hybrid spinout",
+        "n": 1
+      }
+    ],
+    "founded": [
+      {
+        "year": 2000,
+        "n": 6
+      },
+      {
+        "year": 2001,
+        "n": 4
+      },
+      {
+        "year": 2002,
+        "n": 5
+      },
+      {
+        "year": 2003,
+        "n": 3
+      },
+      {
+        "year": 2004,
+        "n": 6
+      },
+      {
+        "year": 2005,
+        "n": 3
+      },
+      {
+        "year": 2006,
+        "n": 1
+      },
+      {
+        "year": 2007,
+        "n": 9
+      },
+      {
+        "year": 2008,
+        "n": 6
+      },
+      {
+        "year": 2009,
+        "n": 11
+      },
+      {
+        "year": 2010,
+        "n": 10
+      },
+      {
+        "year": 2011,
+        "n": 8
+      },
+      {
+        "year": 2012,
+        "n": 12
+      },
+      {
+        "year": 2013,
+        "n": 12
+      },
+      {
+        "year": 2014,
+        "n": 16
+      },
+      {
+        "year": 2015,
+        "n": 23
+      },
+      {
+        "year": 2016,
+        "n": 36
+      },
+      {
+        "year": 2017,
+        "n": 68
+      },
+      {
+        "year": 2018,
+        "n": 60
+      },
+      {
+        "year": 2019,
+        "n": 60
+      },
+      {
+        "year": 2020,
+        "n": 68
+      },
+      {
+        "year": 2021,
+        "n": 92
+      },
+      {
+        "year": 2022,
+        "n": 71
+      },
+      {
+        "year": 2023,
+        "n": 67
+      },
+      {
+        "year": 2024,
+        "n": 78
+      },
+      {
+        "year": 2025,
+        "n": 78
+      },
+      {
+        "year": 2026,
+        "n": 27
+      }
+    ],
+    "founded_max": 2026
+  }
+}
