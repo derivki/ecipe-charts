@@ -238,6 +238,9 @@ svg{display:block;width:100%;height:auto;overflow:visible;}
 .tt .tt-list div{text-align:left;font-weight:500;line-height:1.45;}
 .note{font-size:11.5px;color:var(--muted);margin-top:16px;line-height:1.5;}
 .note b{color:var(--ink);font-weight:600;}
+/* One-line gesture hint under a chart (zoom, hover, legend click). Only for gestures a
+   reader cannot discover alone; labelled controls are not explained. */
+.hint{font-size:11px;color:var(--muted);margin:6px 0 0;line-height:1.4;}
 
 /* ---------- dashboard nav (Overview / Countries / Clusters) ---------- */
 .tabbar{display:flex;flex-wrap:wrap;gap:4px 0;margin:14px 0 6px;border-bottom:1px solid var(--line);}

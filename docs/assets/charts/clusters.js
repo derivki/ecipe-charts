@@ -295,7 +295,7 @@ QT.boot(async function () {
       .attr("stroke-width", d => d.cluster === state.selected ? 2.5 : 1)
       .on("mousemove", (e, d) => tt.show(
         `<div class="hd">${flagIcon(d.country_code, d.country)} ${d.cluster}</div>` +
-        `<div class="row"><span class="k">Total funding</span><span class="v">${QT.fmt.money(d.total_funding)}</span></div>` +
+        `<div class="row"><span class="k">Company funding</span><span class="v">${QT.fmt.money(d.total_funding)}</span></div>` +
         `<div class="row"><span class="k">Quantum companies</span><span class="v">${QT.fmt.int(d.companies)}</span></div>` +
         `<div class="row"><span class="k">Overall rank</span><span class="v">${d.overall_rank} of ${N}</span></div>`, e))
       .on("mouseleave", tt.hide)
@@ -358,7 +358,7 @@ QT.boot(async function () {
     tr.selectAll("td").data(d => [
       // 2026 rank, carrying the movement arrow against 2025.
       `${d.overall_rank}${movement(d)}`,
-      d.rank_2025 == null ? '<span class="dim">–</span>' : d.rank_2025,
+      d.rank_2025 == null ? '<span class="dim">n/a</span>' : d.rank_2025,
       `${d.cluster}${d.graduated ? ' <span class="grad-pill">NEW</span>' : ''}`,
       `${flagIcon(d.country_code, d.country)} ${d.country || ""}`,
       QT.regionLabel(d.usual_region),
@@ -508,9 +508,9 @@ QT.boot(async function () {
   // two US clusters do).
   const BANDS = [
     { key: "lt100m",     label: "<$100m" },
-    { key: "100to500m",  label: "$100-500m" },
-    { key: "500mto1bn",  label: "$500m-1bn" },
-    { key: "1to5bn",     label: "$1-5bn" },
+    { key: "100to500m",  label: "$100–500m" },
+    { key: "500mto1bn",  label: "$500m–1bn" },
+    { key: "1to5bn",     label: "$1–5bn" },
     { key: "gte5bn",     label: ">$5bn" },
   ].map((b, i) => ({ ...b, color: QT.palette.sequential[i] }));
   const bandOf = v => v >= 5e9 ? "gte5bn" : v >= 1e9 ? "1to5bn" : v >= 5e8 ? "500mto1bn"
@@ -621,9 +621,8 @@ QT.boot(async function () {
     body.selectAll("*").remove();
     if (!downs.length) {
       body.append("div").attr("class", "policy-empty")
-        .text("No downgrades to show yet -- the tracker has no 2025 baseline ranking to compare "
-              + "against (BACKLOG.md AP-37), so a cluster dropping out of the top 45 can't be "
-              + "detected until that baseline exists.");
+        .text("No downgrades to show yet: detecting a cluster that has dropped out of the top 45 "
+              + "needs a 2025 ranking to compare against, and none is available.");
       return;
     }
     const grid = body.append("div").attr("class", "grad-grid");

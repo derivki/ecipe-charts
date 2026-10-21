@@ -108,7 +108,7 @@
     const externalToggle = !!document.querySelector("#seg-source-map");
     if (!externalToggle) {
       frame.append("div").attr("class", "wm-toggle").html(
-        `<button id="wm-mcompany" class="on" title="Total funding raised by companies">Company</button>` +
+        `<button id="wm-mcompany" class="on" title="Company funding: capital raised by companies">Company</button>` +
         `<button id="wm-mgov" title="Total funding announced or deployed by government entities">Government</button>`);
     }
     frame.append("div").attr("class", "wm-zoom").html(
@@ -164,9 +164,9 @@
     // so a shade means the same thing on every map on the tracker.
     const BANDS = [
       { max: 1e8, label: "<$100m" },
-      { max: 5e8, label: "$100-500m" },
-      { max: 1e9, label: "$500m-1bn" },
-      { max: 5e9, label: "$1-5bn" },
+      { max: 5e8, label: "$100–500m" },
+      { max: 1e9, label: "$500m–1bn" },
+      { max: 5e9, label: "$1–5bn" },
       { max: Infinity, label: ">$5bn" },
     ].map((b, i) => ({ ...b, color: QT.palette.sequential[i] }));
     const bandOf = v => BANDS.find(b => v < b.max) || BANDS[BANDS.length - 1];
@@ -241,7 +241,7 @@
       .on("mousemove", (e, d) => showTip(
         `<div class="hd">${d.cluster}</div>` +
         `<div class="row"><span class="k">Companies</span><span class="v">${QT.fmt.int(d.companies)}</span></div>` +
-        `<div class="row"><span class="k">Total funding</span><span class="v">${QT.fmt.money(d.total_funding)}</span></div>` +
+        `<div class="row"><span class="k">Company funding</span><span class="v">${QT.fmt.money(d.total_funding)}</span></div>` +
         (d.public_funding != null ? `<div class="row"><span class="k">Public funding</span><span class="v">${QT.fmt.money(d.public_funding)}</span></div>` : "") +
         (d.private_funding != null ? `<div class="row"><span class="k">Private funding</span><span class="v">${QT.fmt.money(d.private_funding)}</span></div>` : ""), e))
       .on("mouseleave", hideTip) : null;

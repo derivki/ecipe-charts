@@ -9,7 +9,7 @@ QT.boot(async function () {
   const accent = QT.palette.instrument["VC / private equity"];
 
   const METRICS = {
-    total_funding: { label: "Total funding",   fmt: QT.fmt.axisMoney, ttfmt: QT.fmt.money },
+    total_funding: { label: "Company funding",   fmt: QT.fmt.axisMoney, ttfmt: QT.fmt.money },
     companies:     { label: "Company count",   fmt: QT.fmt.int,       ttfmt: QT.fmt.int },
     funding_to_gdp:{ label: "Funding ÷ GDP",   fmt: v => QT.fmt.pct1(v), ttfmt: v => QT.fmt.pct1(v) },
   };
@@ -44,7 +44,7 @@ QT.boot(async function () {
       .attr("width", d => x(d[metric]))
       .on("mousemove", (e, d) => tt.show(
         `<div class="hd">${d.country}</div>` +
-        `<div class="row"><span class="k">Total funding</span><span class="v">${QT.fmt.money(d.total_funding)}</span></div>` +
+        `<div class="row"><span class="k">Company funding</span><span class="v">${QT.fmt.money(d.total_funding)}</span></div>` +
         `<div class="row"><span class="k">Companies</span><span class="v">${QT.fmt.int(d.companies)}</span></div>` +
         (d.funding_to_gdp != null
           ? `<div class="row"><span class="k">Funding ÷ GDP</span><span class="v">${QT.fmt.pct1(d.funding_to_gdp)}</span></div>` : ""),

@@ -3,7 +3,7 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Quantum Technologies Tracker – Clusters</title>
+<title>Quantum Technologies Tracker | Clusters</title>
 <!-- theme.js self-injects the stylesheet on load, so it belongs in <head>: from the
      end of <body> the CSS arrived after first paint and every tab switch flashed
      unstyled HTML. -->
@@ -21,11 +21,9 @@
   <div class="panels g2">
 
     <div class="panel span2">
-      <div class="ttl">Figure 1: Global cluster map: funding and overall rank</div>
-      <p class="why">Bubble size indicates total company funding by cluster, while colour shows
-      overall cluster ranking, from dark blue for the highest-ranked clusters to orange for the
-      lowest-ranked. Use the geographical area buttons to zoom in, or scroll and drag to explore
-      the map.</p>
+      <div class="ttl">Figure 1: Global cluster map by funding and overall rank</div>
+      <p class="why">Each bubble is a ranked cluster. Bubble size shows its total company funding and colour its
+      overall rank, from dark blue for the highest-ranked clusters to orange for the lowest-ranked.</p>
       <!-- Below the title and subtitle, not above them: these buttons belong to this
            figure, and sitting at the top of the page they read as a page-wide filter. -->
       <div class="chiprow" id="region-chips"></div>
@@ -35,6 +33,7 @@
         </div>
         <svg id="chart-map" role="img" aria-label="Map of quantum clusters"></svg>
       </div>
+      <p class="hint">Scroll or drag to zoom. The area buttons jump to a part of the world.</p>
     </div>
 
     <div class="panel span2">
@@ -68,16 +67,15 @@
 
     <div class="panel span2">
       <div class="ttl">Figure 2: Concentration of company funding in clusters</div>
-      <p class="why">Share of total funding raised by quantum companies within the clusters
-      covered by the ranking, compared with quantum companies elsewhere. Use the slider to adjust
-      the years shown. <span id="badge-time"></span></p>
+      <p class="why">Share of all company funding raised by quantum companies located in the ranked clusters,
+      compared with companies elsewhere, over time. <span id="badge-time"></span></p>
       <svg id="chart-sharetime" role="img" aria-label="Cluster share of funding over time"></svg>
       <div class="ctl tslider-ctl"><label>Years shown</label><div id="slider-sharetime"></div></div>
       <div class="legend legend-center" id="legend-sharetime"></div>
     </div>
 
     <div class="panel span2">
-      <div class="ttl">Figure 3: Ranking movements: new entrants and downgrades</div>
+      <div class="ttl">Figure 3: New entrants and downgrades in the cluster ranking</div>
       <p class="why">Quasi-clusters that have upgraded to full cluster status and entered the
       ranking, and clusters that have dropped back out of it. Both are ordered by 2026 rank.
       New entrants are also marked with a <b>NEW</b> badge in the ranking table above.
@@ -89,7 +87,7 @@
     </div>
 
     <div class="panel span2">
-      <div class="ttl">Figure 4: Share of company funding by region: clusters, quasi-clusters and other <span id="badge-pipeline"></span></div>
+      <div class="ttl">Figure 4: Company funding by region, in clusters, in quasi-clusters and elsewhere <span id="badge-pipeline"></span></div>
       <p class="why">How each region's total company funding splits between money raised by
       companies in a ranked cluster, in a quasi-cluster, or elsewhere. A quasi-cluster has real
       quantum activity but has not yet cleared the funding or institutional-density bar for

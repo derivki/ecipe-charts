@@ -189,7 +189,8 @@
   /** Write the "as of <vintage>" line into an element. */
   QT.vintage = function (selector, meta) {
     if (meta && meta.data_vintage)
-      d3.select(selector).html(`Data as of <b>${QT.fmt.vintage(meta.data_vintage)}</b>`);
+      d3.select(selector).html(`Data as of <b>${QT.fmt.vintage(meta.data_vintage)}</b>`
+        + " \u00b7 all amounts in nominal US dollars");
   };
 
   /** Dashboard tab bar: Overview / Countries / Clusters / Companies / About. `active`
@@ -332,7 +333,7 @@
 
   /** Small inline ribbon flagging a panel's data as illustrative/mock. Pass a
       shorter label (e.g. "Mock") where the badge sits somewhere tight, like a KPI tile. */
-  QT.mockBadge = function (label) { return `<span class="mockbadge">${label || "Illustrative · mock data"}</span>`; };
+  QT.mockBadge = function (label) { return `<span class="mockbadge">${label || "Illustrative data"}</span>`; };
 
   /** Small inline ribbon flagging a panel's data as taken directly from a published paper (real, but not from the funding database). */
   QT.citeBadge = function (label) { return `<span class="citebadge">${label || "Published · Occasional Paper 15/2025"}</span>`; };

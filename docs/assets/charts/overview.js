@@ -280,9 +280,9 @@ QT.boot(async function () {
       c.gy.call(d3.axisLeft(y).tickSizeOuter(0)).call(g => g.select(".domain").remove());
 
       QT.mockNote("#mocknote-country", state.metric === "government_funding" && govProvisional
-        ? "<b>Government figures are provisional.</b> They are Dyuti's government policy "
-          + "register alone and do not include any company-side grant or public-equity "
-          + "funding, which is counted only under Company funding."
+        ? "<b>Government figures are provisional.</b> They cover identified public funding "
+          + "only. Grants and public equity received by companies are counted under "
+          + "company funding."
         : "");
       d3.select("#mocknote-country").style("display",
         state.metric === "government_funding" && govProvisional ? null : "none");
@@ -314,7 +314,7 @@ QT.boot(async function () {
     c.gPlot.selectAll("rect").data(rows, d => d.company).join("rect")
       .attr("x", 0).attr("y", d => y(d.company)).attr("height", y.bandwidth()).attr("rx", 2)
       .attr("fill", QT.tokens.teal).attr("fill-opacity", 0.9).attr("width", d => x(d.total_funding))
-      .on("mousemove", (e, d) => tt.show(`<div class="hd">${d.company}</div><div class="row"><span class="k">Country</span><span class="v">${d.country || "–"}</span></div><div class="row"><span class="k">Total funding</span><span class="v">${QT.fmt.money(d.total_funding)}</span></div>`, e))
+      .on("mousemove", (e, d) => tt.show(`<div class="hd">${d.company}</div><div class="row"><span class="k">Country</span><span class="v">${d.country || "n/a"}</span></div><div class="row"><span class="k">Company funding</span><span class="v">${QT.fmt.money(d.total_funding)}</span></div>`, e))
       .on("mouseleave", tt.hide);
     c.gPlot.selectAll("text.bar-val").data(rows, d => d.company).join("text")
       .attr("class", "bar-val").attr("dy", "0.32em")
@@ -395,7 +395,7 @@ QT.boot(async function () {
             .on("mousemove", (e, d) => tt.show(
               `<div class="hd">${bloc.label} · ${d.stage}</div>` +
               `<div class="row"><span class="k">Amount</span><span class="v">${QT.fmt.money(d.v)}</span></div>` +
-              `<div class="row"><span class="k">Share of bloc</span><span class="v">${bloc.total ? QT.fmt.pct1(d.v / bloc.total) : "–"}</span></div>`, e))
+              `<div class="row"><span class="k">Share of bloc</span><span class="v">${bloc.total ? QT.fmt.pct1(d.v / bloc.total) : "n/a"}</span></div>`, e))
             .on("mouseleave", tt.hide);
           g.selectAll("text").data(rs, d => d.stage).join("text").attr("class", "bar-val")
             .attr("x", d => x(d.val) + 5).attr("y", d => yb(d.stage) + off + bh / 2).attr("dy", "0.32em")
@@ -412,7 +412,7 @@ QT.boot(async function () {
   // ---------- Figure 6: country collaboration network ----------
   // Structure is real; betweenness and RCA are mock until the network analysis exists
   // (see collab_network.js), hence the badge on the title.
-  d3.select("#badge-network").html(QT.mockBadge("Partly illustrative · mock data"));
+  d3.select("#badge-network").html(QT.mockBadge("Partly illustrative data"));
   const rc = collabManifest.row_counts;
   d3.select("#network-acad").text(QT.fmt.pct0(rc.academic_edges / rc.merged_edges));
   renderCollabNetwork("#network", { mockNoteSelector: "#mocknote-network" }).catch(err => {

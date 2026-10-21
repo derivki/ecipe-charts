@@ -153,7 +153,7 @@
       stage.selectAll(".cn-empty").remove();
       if (!g.nodes.length) {
         gEdges.selectAll("*").remove(); gHit.selectAll("*").remove(); gNodes.selectAll("*").remove(); gLabels.selectAll("*").remove();
-        stage.append("div").attr("class", "cn-empty").text("No country pairs reach this minimum – lower it to see more.");
+        stage.append("div").attr("class", "cn-empty").text("No country pairs reach this minimum. Lower it to see more.");
         return draw(g);
       }
       layout(g);
@@ -189,7 +189,7 @@
         labelSel.classed("cn-dim", n => !nb.has(n.id));
       }
       const unfocus = () => { edgeSel.classed("cn-dim", false); nodeSel.classed("cn-dim", false); labelSel.classed("cn-dim", false); };
-      const mockTag = QT.mockBadge("Mock");
+      const mockTag = QT.mockBadge("Illustrative");
 
       nodeSel.on("mousemove", (e, n) => {
         focus(n.id);
@@ -205,10 +205,10 @@
         .attr("stroke-width", l => Math.max(10, wScale(l.w) + 6))
         .on("mousemove", (e, l) => {
           const a = sid(l), b = tid(l), r = rca(a, b);
-          tt.show(`<div class="hd">${a} – ${b}</div>` +
+          tt.show(`<div class="hd">${a} and ${b}</div>` +
             `<div class="row"><span class="k">All collaborations</span><span class="v">${QT.fmt.int(l.all)}</span></div>` +
             `<div class="row"><span class="k">Involving industry</span><span class="v">${QT.fmt.int(l.industry)}</span></div>` +
-            `<div class="row"><span class="k">RCA ${mockTag}</span><span class="v">${r == null ? "–" : r.toFixed(2)}</span></div>`, e);
+            `<div class="row"><span class="k">RCA ${mockTag}</span><span class="v">${r == null ? "n/a" : r.toFixed(2)}</span></div>`, e);
         }).on("mouseleave", tt.hide);
 
       // ---- key -------------------------------------------------------------

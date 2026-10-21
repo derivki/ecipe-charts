@@ -2,7 +2,7 @@
   "meta": {
     "data_vintage": "2026-Q3",
     "mock": true,
-    "source_note": "Illustrative placeholder -- node colour (betweenness) and line colour (RCA) are random stand-ins, not computed from the data. Pending the network analysis; do not cite as a finding."
+    "source_note": "<b>Illustrative data.</b> Node and line colours are placeholders, not measured values, and should not be cited. They will be replaced when the network analysis is complete."
   },
   "data": {
     "betweenness": {
