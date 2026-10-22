@@ -73,14 +73,14 @@
 
   /* COMPANY vs GOVERNMENT, not public vs private.
      "Company" is ALL company funding (every instrument, from `funding_by_country.json`).
-     "Government" is Dyuti's government policy register alone
+     "Government" is the public-investment workbook alone
      (docs/data/government_funding.json, built by src/build_government_funding.py) – never
      summed with any company-side figure. Per BACKLOG.md AP-36 (Elena, 2026-09-08) and
      reaffirmed AP-57 (Elena, 2026-09-16): a government grant into a funding round counts
      once, as company funding, never a second time as government funding. AP-53's
      2026-09-09 combined measure (QT.combinedGovByCountry summing this register with
      company-round Grant/Public-equity money) was a mistake and has been reverted. The
-     caller (Overview/Countries) passes the register-only map in as opts.government, so
+     caller (Overview/Countries) passes the government-only map in as opts.government, so
      this file just renders whatever number it is given – Company and Government are two
      independent measures with no overlap. */
   const METRICS = {
@@ -136,6 +136,15 @@
       company_funding: d.total_funding,
       government_funding: (govByCountry.get(d.country) || {}).government_funding || 0,
     }));
+    // Jurisdictions with public funding but no company funding (Hungary, New Zealand,
+    // Slovakia ...) are not in the company dataset; add them so they shade and have a
+    // tooltip. The EU is a bloc, not a polygon, and is handled by the fallback below.
+    const haveCompany = new Set(shaped.map(d => d.country));
+    govByCountry.forEach((d, name) => {
+      if (name !== "EU" && !haveCompany.has(name)) {
+        shaped.push({ country: name, company_funding: 0, government_funding: d.government_funding || 0 });
+      }
+    });
     const countryByAtlasName = new Map(shaped.map(d => [ATLAS_NAME[d.country] || d.country, d]));
     // Atlas name -> tracker name, so an unfunded polygon can still be recognised as an
     // EU Member State for the tooltip fallback below.
@@ -219,7 +228,7 @@
           if (euAtlasNames.has(name) && euRow) {
             return showTip(hd +
               row("Government funding", "None recorded") +
-              `<div class="row tot"><span class="k">EU Flagship funding</span>` +
+              `<div class="row tot"><span class="k">EU-level funding</span>` +
               `<span class="v">${QT.fmt.money(euRow.government_funding)}</span></div>`, e);
           }
           return showTip(hd + row("No government funding recorded", ""), e);
