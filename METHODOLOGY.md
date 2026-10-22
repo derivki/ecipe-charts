@@ -432,9 +432,11 @@ The EU is treated as a separate supranational jurisdiction. This is necessary be
 
 The final calculations distinguish between the total including the EU row for reference and the total excluding the EU row. In the current workbook, the sum including the EU is US$41.94 billion. Excluding the EU row, the corresponding total is US$39.08 billion, while the separate EU total is US$2.86 billion.
 
+The figures published on the tracker apply a small number of reviewer decisions made after that workbook was finalised, recorded row by row in `data/curated/government_funding.csv`. Eight observations (US$0.36 billion) are excluded because their funding is not quantum-specific or cannot be separated from other technologies: the ARC mathematics centre in Australia, the Quantum Austria HPC update, the Quebec-IBM Discovery Accelerator, the Kvanttinova pilot envelope in Finland, the Amaravati office towers in India, the two Dodd-Walls Centre rows in New Zealand and NCCR Precision in Switzerland. Two US state rows are reduced by a single rule, that only appropriated or committed amounts count, and that contingent matches and tax credits without an official source do not: New Mexico is counted at US$25 million, without the up-to-US$60 million contingent match, and Colorado at US$30 million, without US$44 million of tax credits. The published total is US$41.48 billion including the EU row and US$38.62 billion excluding it.
+
 For cross-country aggregation, the figure excluding the EU is preferable because it reduces the risk of counting the same European public resources once at EU level and again in the Member State where the funding is implemented.
 
-Where a nationally implemented project includes an identifiable national co-financing contribution alongside EU funding, only that national share is attributed to the country.
+Where a nationally implemented project includes an identifiable national co-financing contribution alongside EU funding, only that national share is attributed to the country. EU recovery and structural funds (the Recovery and Resilience Facility and the European Regional Development Fund) that a national authority implements and records in its own programme are counted to that Member State, and are not also counted in the EU row, which holds only EU-level programmes.
 
 ## 9. Currency conversion
 

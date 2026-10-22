@@ -26,12 +26,16 @@ QT.boot(async function () {
   QT.vintage("#vintage", country.meta);
 
   // Government funding by country, keyed for lookup by the map and the ranking.
-  // Dyuti's policy register alone -- see QT.govByCountry. Company funding
+  // The public-investment workbook alone -- see QT.govByCountry. Company funding
   // (below, from `country.data`) is a fully separate measure and is never
   // summed into this one (AP-36, reaffirmed AP-57 after AP-53's combined
   // measure was reverted 2026-09-16).
   const govByCountry = QT.govByCountry(gov.data);
-  const govTotal = d3.sum([...govByCountry.values()], d => d.government_funding);
+  // The headline EXCLUDES the EU row: EU programmes fund activity inside Member States
+  // that have their own rows, so adding it would count that money twice (methodology
+  // section 8). The EU still has its own bar and tooltip figure.
+  const govTotal = d3.sum([...govByCountry.values()].filter(d => d.country !== "EU"),
+                          d => d.government_funding);
   const govProvisional = !!gov.meta.provisional;
 
   // Not awaited – the map has its own data fetches and should render in
@@ -211,11 +215,18 @@ QT.boot(async function () {
     // on the government metric.
     const euMembers = new Set(codes.eu_members || []);
     const euCompanyFunding = d3.sum(country.data, d => euMembers.has(d.country) ? d.total_funding : 0);
+    // Jurisdictions with public funding but no company funding at all (Hungary, New
+    // Zealand, Slovakia ...) are not in `country.data`; without this they counted in the
+    // KPI tile but could never appear in the ranking.
+    const companyCountries = new Set(country.data.map(d => d.country));
+    const govOnly = [...govByCountry.values()]
+      .filter(d => d.country !== "EU" && !companyCountries.has(d.country))
+      .map(d => ({ country: d.country, company_funding: null, government_funding: d.government_funding }));
     const rowsFor = metric => country.data.map(d => ({
       country: d.country,
       company_funding: d.total_funding,
       government_funding: (govByCountry.get(d.country) || {}).government_funding || 0,
-    })).concat(
+    })).concat(govOnly).concat(
       metric === "government_funding" && govByCountry.has("EU")
         ? [{ country: "EU", company_funding: null,
              government_funding: govByCountry.get("EU").government_funding }]
