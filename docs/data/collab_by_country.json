@@ -12,8 +12,8 @@
     },
     {
       "country": "US",
-      "entities": 1466,
-      "collaborations": 30168
+      "entities": 1464,
+      "collaborations": 30167
     },
     {
       "country": "Germany",
@@ -37,8 +37,8 @@
     },
     {
       "country": "UK",
-      "entities": 332,
-      "collaborations": 7302
+      "entities": 330,
+      "collaborations": 7294
     },
     {
       "country": "Italy",
@@ -62,7 +62,7 @@
     },
     {
       "country": "South Korea",
-      "entities": 199,
+      "entities": 198,
       "collaborations": 3224
     },
     {
@@ -83,7 +83,7 @@
     {
       "country": "Switzerland",
       "entities": 80,
-      "collaborations": 2247
+      "collaborations": 2246
     },
     {
       "country": "Netherlands",
