@@ -1,0 +1,912 @@
+{
+  "meta": {
+    "data_vintage": "2026-Q3",
+    "coverage": "industry (curated) + academic (OpenAlex, primary_topic.id, 2018-2026, <=5 institutions/paper); company detail: 888 companies from the 2026-Q3 startup tracker projection",
+    "counting": "binary (v1): one dyad = one collaboration regardless of how many underlying records support it; no weight or time series yet (v2, Phase 8)"
+  },
+  "data": {
+    "min_ratio": 1.0,
+    "network_countries": 137,
+    "thresholds": {
+      "industry_to_gdp": 51.03,
+      "connectedness": 0.2941
+    },
+    "countries": [
+      {
+        "country": "Algeria",
+        "collaborations": 236,
+        "industry_collaborations": 8,
+        "partners": 34,
+        "industry_to_gdp": 27.87,
+        "connectedness": 0.25,
+        "archetype": "Emerging Ecosystems"
+      },
+      {
+        "country": "Argentina",
+        "collaborations": 694,
+        "industry_collaborations": 1,
+        "partners": 33,
+        "industry_to_gdp": 1.46,
+        "connectedness": 0.2426,
+        "archetype": "Emerging Ecosystems"
+      },
+      {
+        "country": "Armenia",
+        "collaborations": 155,
+        "industry_collaborations": 1,
+        "partners": 25,
+        "industry_to_gdp": 34.2,
+        "connectedness": 0.1838,
+        "archetype": "Emerging Ecosystems"
+      },
+      {
+        "country": "Australia",
+        "collaborations": 2969,
+        "industry_collaborations": 299,
+        "partners": 63,
+        "industry_to_gdp": 166.25,
+        "connectedness": 0.4632,
+        "archetype": "Global Innovation Hubs"
+      },
+      {
+        "country": "Austria",
+        "collaborations": 1925,
+        "industry_collaborations": 182,
+        "partners": 60,
+        "industry_to_gdp": 314.08,
+        "connectedness": 0.4412,
+        "archetype": "Global Innovation Hubs"
+      },
+      {
+        "country": "Bangladesh",
+        "collaborations": 231,
+        "industry_collaborations": 2,
+        "partners": 28,
+        "industry_to_gdp": 4.38,
+        "connectedness": 0.2059,
+        "archetype": "Emerging Ecosystems"
+      },
+      {
+        "country": "Belarus",
+        "collaborations": 112,
+        "industry_collaborations": 2,
+        "partners": 28,
+        "industry_to_gdp": 21.41,
+        "connectedness": 0.2059,
+        "archetype": "Emerging Ecosystems"
+      },
+      {
+        "country": "Belgium",
+        "collaborations": 827,
+        "industry_collaborations": 50,
+        "partners": 49,
+        "industry_to_gdp": 68.92,
+        "connectedness": 0.3603,
+        "archetype": "Global Innovation Hubs"
+      },
+      {
+        "country": "Bosnia and Herzegovina",
+        "collaborations": 17,
+        "industry_collaborations": 4,
+        "partners": 14,
+        "industry_to_gdp": 122.7,
+        "connectedness": 0.1029,
+        "archetype": "Regional Commercial Leaders"
+      },
+      {
+        "country": "Brazil",
+        "collaborations": 2821,
+        "industry_collaborations": 41,
+        "partners": 75,
+        "industry_to_gdp": 17.98,
+        "connectedness": 0.5515,
+        "archetype": "Research Networkers"
+      },
+      {
+        "country": "Bulgaria",
+        "collaborations": 174,
+        "industry_collaborations": 11,
+        "partners": 29,
+        "industry_to_gdp": 84.11,
+        "connectedness": 0.2132,
+        "archetype": "Regional Commercial Leaders"
+      },
+      {
+        "country": "Cameroon",
+        "collaborations": 183,
+        "industry_collaborations": 1,
+        "partners": 24,
+        "industry_to_gdp": 16.97,
+        "connectedness": 0.1765,
+        "archetype": "Emerging Ecosystems"
+      },
+      {
+        "country": "Canada",
+        "collaborations": 3811,
+        "industry_collaborations": 655,
+        "partners": 73,
+        "industry_to_gdp": 282.34,
+        "connectedness": 0.5368,
+        "archetype": "Global Innovation Hubs"
+      },
+      {
+        "country": "Chile",
+        "collaborations": 675,
+        "industry_collaborations": 11,
+        "partners": 51,
+        "industry_to_gdp": 30.78,
+        "connectedness": 0.375,
+        "archetype": "Research Networkers"
+      },
+      {
+        "country": "China",
+        "collaborations": 38800,
+        "industry_collaborations": 2636,
+        "partners": 103,
+        "industry_to_gdp": 135.19,
+        "connectedness": 0.7574,
+        "archetype": "Global Innovation Hubs"
+      },
+      {
+        "country": "Colombia",
+        "collaborations": 245,
+        "industry_collaborations": 4,
+        "partners": 34,
+        "industry_to_gdp": 8.74,
+        "connectedness": 0.25,
+        "archetype": "Emerging Ecosystems"
+      },
+      {
+        "country": "Costa Rica",
+        "collaborations": 29,
+        "industry_collaborations": 1,
+        "partners": 12,
+        "industry_to_gdp": 9.72,
+        "connectedness": 0.0882,
+        "archetype": "Emerging Ecosystems"
+      },
+      {
+        "country": "Croatia",
+        "collaborations": 116,
+        "industry_collaborations": 1,
+        "partners": 28,
+        "industry_to_gdp": 9.52,
+        "connectedness": 0.2059,
+        "archetype": "Emerging Ecosystems"
+      },
+      {
+        "country": "Cyprus",
+        "collaborations": 73,
+        "industry_collaborations": 3,
+        "partners": 19,
+        "industry_to_gdp": 72.77,
+        "connectedness": 0.1397,
+        "archetype": "Regional Commercial Leaders"
+      },
+      {
+        "country": "Czech Republic",
+        "collaborations": 886,
+        "industry_collaborations": 37,
+        "partners": 60,
+        "industry_to_gdp": 94.62,
+        "connectedness": 0.4412,
+        "archetype": "Global Innovation Hubs"
+      },
+      {
+        "country": "Denmark",
+        "collaborations": 1183,
+        "industry_collaborations": 101,
+        "partners": 56,
+        "industry_to_gdp": 218.37,
+        "connectedness": 0.4118,
+        "archetype": "Global Innovation Hubs"
+      },
+      {
+        "country": "Egypt",
+        "collaborations": 688,
+        "industry_collaborations": 11,
+        "partners": 49,
+        "industry_to_gdp": 30.12,
+        "connectedness": 0.3603,
+        "archetype": "Research Networkers"
+      },
+      {
+        "country": "Estonia",
+        "collaborations": 46,
+        "industry_collaborations": 4,
+        "partners": 20,
+        "industry_to_gdp": 85.05,
+        "connectedness": 0.1471,
+        "archetype": "Regional Commercial Leaders"
+      },
+      {
+        "country": "Finland",
+        "collaborations": 1069,
+        "industry_collaborations": 183,
+        "partners": 59,
+        "industry_to_gdp": 577.22,
+        "connectedness": 0.4338,
+        "archetype": "Global Innovation Hubs"
+      },
+      {
+        "country": "France",
+        "collaborations": 7741,
+        "industry_collaborations": 662,
+        "partners": 82,
+        "industry_to_gdp": 196.65,
+        "connectedness": 0.6029,
+        "archetype": "Global Innovation Hubs"
+      },
+      {
+        "country": "Georgia",
+        "collaborations": 43,
+        "industry_collaborations": 3,
+        "partners": 17,
+        "industry_to_gdp": 78.65,
+        "connectedness": 0.125,
+        "archetype": "Regional Commercial Leaders"
+      },
+      {
+        "country": "Germany",
+        "collaborations": 12840,
+        "industry_collaborations": 1127,
+        "partners": 91,
+        "industry_to_gdp": 223.13,
+        "connectedness": 0.6691,
+        "archetype": "Global Innovation Hubs"
+      },
+      {
+        "country": "Ghana",
+        "collaborations": 55,
+        "industry_collaborations": 4,
+        "partners": 11,
+        "industry_to_gdp": 35.02,
+        "connectedness": 0.0809,
+        "archetype": "Emerging Ecosystems"
+      },
+      {
+        "country": "Greece",
+        "collaborations": 441,
+        "industry_collaborations": 38,
+        "partners": 51,
+        "industry_to_gdp": 135.41,
+        "connectedness": 0.375,
+        "archetype": "Global Innovation Hubs"
+      },
+      {
+        "country": "Hungary",
+        "collaborations": 579,
+        "industry_collaborations": 17,
+        "partners": 51,
+        "industry_to_gdp": 68.97,
+        "connectedness": 0.375,
+        "archetype": "Global Innovation Hubs"
+      },
+      {
+        "country": "Iceland",
+        "collaborations": 94,
+        "industry_collaborations": 1,
+        "partners": 29,
+        "industry_to_gdp": 25.92,
+        "connectedness": 0.2132,
+        "archetype": "Emerging Ecosystems"
+      },
+      {
+        "country": "India",
+        "collaborations": 7797,
+        "industry_collaborations": 319,
+        "partners": 90,
+        "industry_to_gdp": 80.64,
+        "connectedness": 0.6618,
+        "archetype": "Global Innovation Hubs"
+      },
+      {
+        "country": "Indonesia",
+        "collaborations": 212,
+        "industry_collaborations": 9,
+        "partners": 32,
+        "industry_to_gdp": 6.23,
+        "connectedness": 0.2353,
+        "archetype": "Emerging Ecosystems"
+      },
+      {
+        "country": "Iran",
+        "collaborations": 1685,
+        "industry_collaborations": 8,
+        "partners": 61,
+        "industry_to_gdp": 22.06,
+        "connectedness": 0.4485,
+        "archetype": "Research Networkers"
+      },
+      {
+        "country": "Iraq",
+        "collaborations": 222,
+        "industry_collaborations": 1,
+        "partners": 33,
+        "industry_to_gdp": 3.93,
+        "connectedness": 0.2426,
+        "archetype": "Emerging Ecosystems"
+      },
+      {
+        "country": "Ireland",
+        "collaborations": 486,
+        "industry_collaborations": 46,
+        "partners": 45,
+        "industry_to_gdp": 63.74,
+        "connectedness": 0.3309,
+        "archetype": "Global Innovation Hubs"
+      },
+      {
+        "country": "Israel",
+        "collaborations": 1471,
+        "industry_collaborations": 212,
+        "partners": 51,
+        "industry_to_gdp": 347.1,
+        "connectedness": 0.375,
+        "archetype": "Global Innovation Hubs"
+      },
+      {
+        "country": "Italy",
+        "collaborations": 7050,
+        "industry_collaborations": 337,
+        "partners": 81,
+        "industry_to_gdp": 132.08,
+        "connectedness": 0.5956,
+        "archetype": "Global Innovation Hubs"
+      },
+      {
+        "country": "Japan",
+        "collaborations": 7736,
+        "industry_collaborations": 1141,
+        "partners": 75,
+        "industry_to_gdp": 257.26,
+        "connectedness": 0.5515,
+        "archetype": "Global Innovation Hubs"
+      },
+      {
+        "country": "Jordan",
+        "collaborations": 122,
+        "industry_collaborations": 2,
+        "partners": 22,
+        "industry_to_gdp": 32.46,
+        "connectedness": 0.1618,
+        "archetype": "Emerging Ecosystems"
+      },
+      {
+        "country": "Kenya",
+        "collaborations": 19,
+        "industry_collaborations": 1,
+        "partners": 5,
+        "industry_to_gdp": 7.36,
+        "connectedness": 0.0368,
+        "archetype": "Emerging Ecosystems"
+      },
+      {
+        "country": "Kuwait",
+        "collaborations": 44,
+        "industry_collaborations": 5,
+        "partners": 19,
+        "industry_to_gdp": 31.8,
+        "connectedness": 0.1397,
+        "archetype": "Emerging Ecosystems"
+      },
+      {
+        "country": "Latvia",
+        "collaborations": 113,
+        "industry_collaborations": 8,
+        "partners": 33,
+        "industry_to_gdp": 164.55,
+        "connectedness": 0.2426,
+        "archetype": "Regional Commercial Leaders"
+      },
+      {
+        "country": "Lebanon",
+        "collaborations": 57,
+        "industry_collaborations": 1,
+        "partners": 20,
+        "industry_to_gdp": 38.5,
+        "connectedness": 0.1471,
+        "archetype": "Emerging Ecosystems"
+      },
+      {
+        "country": "Lithuania",
+        "collaborations": 88,
+        "industry_collaborations": 3,
+        "partners": 24,
+        "industry_to_gdp": 31.51,
+        "connectedness": 0.1765,
+        "archetype": "Emerging Ecosystems"
+      },
+      {
+        "country": "Luxembourg",
+        "collaborations": 165,
+        "industry_collaborations": 5,
+        "partners": 36,
+        "industry_to_gdp": 49.43,
+        "connectedness": 0.2647,
+        "archetype": "Emerging Ecosystems"
+      },
+      {
+        "country": "Malawi",
+        "collaborations": 6,
+        "industry_collaborations": 1,
+        "partners": 3,
+        "industry_to_gdp": 67.03,
+        "connectedness": 0.0221,
+        "archetype": "Regional Commercial Leaders"
+      },
+      {
+        "country": "Malaysia",
+        "collaborations": 284,
+        "industry_collaborations": 7,
+        "partners": 42,
+        "industry_to_gdp": 14.82,
+        "connectedness": 0.3088,
+        "archetype": "Research Networkers"
+      },
+      {
+        "country": "Mexico",
+        "collaborations": 889,
+        "industry_collaborations": 21,
+        "partners": 53,
+        "industry_to_gdp": 11.46,
+        "connectedness": 0.3897,
+        "archetype": "Research Networkers"
+      },
+      {
+        "country": "Morocco",
+        "collaborations": 356,
+        "industry_collaborations": 3,
+        "partners": 46,
+        "industry_to_gdp": 16.45,
+        "connectedness": 0.3382,
+        "archetype": "Research Networkers"
+      },
+      {
+        "country": "Netherlands",
+        "collaborations": 2221,
+        "industry_collaborations": 273,
+        "partners": 58,
+        "industry_to_gdp": 204.84,
+        "connectedness": 0.4265,
+        "archetype": "Global Innovation Hubs"
+      },
+      {
+        "country": "New Zealand",
+        "collaborations": 366,
+        "industry_collaborations": 9,
+        "partners": 33,
+        "industry_to_gdp": 34.08,
+        "connectedness": 0.2426,
+        "archetype": "Emerging Ecosystems"
+      },
+      {
+        "country": "Nigeria",
+        "collaborations": 191,
+        "industry_collaborations": 5,
+        "partners": 19,
+        "industry_to_gdp": 17.19,
+        "connectedness": 0.1397,
+        "archetype": "Emerging Ecosystems"
+      },
+      {
+        "country": "Norway",
+        "collaborations": 362,
+        "industry_collaborations": 73,
+        "partners": 41,
+        "industry_to_gdp": 137.54,
+        "connectedness": 0.3015,
+        "archetype": "Global Innovation Hubs"
+      },
+      {
+        "country": "Pakistan",
+        "collaborations": 979,
+        "industry_collaborations": 5,
+        "partners": 61,
+        "industry_to_gdp": 12.28,
+        "connectedness": 0.4485,
+        "archetype": "Research Networkers"
+      },
+      {
+        "country": "Panama",
+        "collaborations": 25,
+        "industry_collaborations": 2,
+        "partners": 11,
+        "industry_to_gdp": 22.11,
+        "connectedness": 0.0809,
+        "archetype": "Emerging Ecosystems"
+      },
+      {
+        "country": "Peru",
+        "collaborations": 31,
+        "industry_collaborations": 1,
+        "partners": 11,
+        "industry_to_gdp": 2.99,
+        "connectedness": 0.0809,
+        "archetype": "Emerging Ecosystems"
+      },
+      {
+        "country": "Philippines",
+        "collaborations": 38,
+        "industry_collaborations": 1,
+        "partners": 15,
+        "industry_to_gdp": 2.05,
+        "connectedness": 0.1103,
+        "archetype": "Emerging Ecosystems"
+      },
+      {
+        "country": "Poland",
+        "collaborations": 2492,
+        "industry_collaborations": 79,
+        "partners": 74,
+        "industry_to_gdp": 76.29,
+        "connectedness": 0.5441,
+        "archetype": "Global Innovation Hubs"
+      },
+      {
+        "country": "Portugal",
+        "collaborations": 647,
+        "industry_collaborations": 29,
+        "partners": 49,
+        "industry_to_gdp": 83.66,
+        "connectedness": 0.3603,
+        "archetype": "Global Innovation Hubs"
+      },
+      {
+        "country": "Qatar",
+        "collaborations": 124,
+        "industry_collaborations": 11,
+        "partners": 36,
+        "industry_to_gdp": 51.03,
+        "connectedness": 0.2647,
+        "archetype": "Regional Commercial Leaders"
+      },
+      {
+        "country": "Romania",
+        "collaborations": 241,
+        "industry_collaborations": 9,
+        "partners": 40,
+        "industry_to_gdp": 20.99,
+        "connectedness": 0.2941,
+        "archetype": "Research Networkers"
+      },
+      {
+        "country": "Russia",
+        "collaborations": 4680,
+        "industry_collaborations": 223,
+        "partners": 80,
+        "industry_to_gdp": 87.06,
+        "connectedness": 0.5882,
+        "archetype": "Global Innovation Hubs"
+      },
+      {
+        "country": "Saint Kitts and Nevis",
+        "collaborations": 6,
+        "industry_collaborations": 1,
+        "partners": 3,
+        "industry_to_gdp": 844.94,
+        "connectedness": 0.0221,
+        "archetype": "Regional Commercial Leaders"
+      },
+      {
+        "country": "Saudi Arabia",
+        "collaborations": 1122,
+        "industry_collaborations": 32,
+        "partners": 64,
+        "industry_to_gdp": 25.06,
+        "connectedness": 0.4706,
+        "archetype": "Research Networkers"
+      },
+      {
+        "country": "Serbia",
+        "collaborations": 196,
+        "industry_collaborations": 5,
+        "partners": 37,
+        "industry_to_gdp": 50.02,
+        "connectedness": 0.2721,
+        "archetype": "Emerging Ecosystems"
+      },
+      {
+        "country": "Singapore",
+        "collaborations": 1700,
+        "industry_collaborations": 134,
+        "partners": 56,
+        "industry_to_gdp": 221.9,
+        "connectedness": 0.4118,
+        "archetype": "Global Innovation Hubs"
+      },
+      {
+        "country": "Slovakia",
+        "collaborations": 327,
+        "industry_collaborations": 24,
+        "partners": 36,
+        "industry_to_gdp": 155.31,
+        "connectedness": 0.2647,
+        "archetype": "Regional Commercial Leaders"
+      },
+      {
+        "country": "Slovenia",
+        "collaborations": 319,
+        "industry_collaborations": 17,
+        "partners": 39,
+        "industry_to_gdp": 213.44,
+        "connectedness": 0.2868,
+        "archetype": "Regional Commercial Leaders"
+      },
+      {
+        "country": "South Africa",
+        "collaborations": 393,
+        "industry_collaborations": 10,
+        "partners": 46,
+        "industry_to_gdp": 23.41,
+        "connectedness": 0.3382,
+        "archetype": "Research Networkers"
+      },
+      {
+        "country": "South Korea",
+        "collaborations": 3223,
+        "industry_collaborations": 330,
+        "partners": 65,
+        "industry_to_gdp": 176.25,
+        "connectedness": 0.4779,
+        "archetype": "Global Innovation Hubs"
+      },
+      {
+        "country": "Spain",
+        "collaborations": 4782,
+        "industry_collaborations": 356,
+        "partners": 79,
+        "industry_to_gdp": 186.73,
+        "connectedness": 0.5809,
+        "archetype": "Global Innovation Hubs"
+      },
+      {
+        "country": "Sudan",
+        "collaborations": 28,
+        "industry_collaborations": 3,
+        "partners": 5,
+        "industry_to_gdp": 49.86,
+        "connectedness": 0.0368,
+        "archetype": "Emerging Ecosystems"
+      },
+      {
+        "country": "Sweden",
+        "collaborations": 1717,
+        "industry_collaborations": 350,
+        "partners": 66,
+        "industry_to_gdp": 523.17,
+        "connectedness": 0.4853,
+        "archetype": "Global Innovation Hubs"
+      },
+      {
+        "country": "Switzerland",
+        "collaborations": 2246,
+        "industry_collaborations": 305,
+        "partners": 57,
+        "industry_to_gdp": 292.28,
+        "connectedness": 0.4191,
+        "archetype": "Global Innovation Hubs"
+      },
+      {
+        "country": "Taiwan",
+        "collaborations": 1908,
+        "industry_collaborations": 141,
+        "partners": 60,
+        "industry_to_gdp": 153.25,
+        "connectedness": 0.4412,
+        "archetype": "Global Innovation Hubs"
+      },
+      {
+        "country": "Thailand",
+        "collaborations": 163,
+        "industry_collaborations": 11,
+        "partners": 31,
+        "industry_to_gdp": 19.06,
+        "connectedness": 0.2279,
+        "archetype": "Emerging Ecosystems"
+      },
+      {
+        "country": "Tunisia",
+        "collaborations": 162,
+        "industry_collaborations": 2,
+        "partners": 21,
+        "industry_to_gdp": 34.78,
+        "connectedness": 0.1544,
+        "archetype": "Emerging Ecosystems"
+      },
+      {
+        "country": "Turkey",
+        "collaborations": 798,
+        "industry_collaborations": 31,
+        "partners": 62,
+        "industry_to_gdp": 19.41,
+        "connectedness": 0.4559,
+        "archetype": "Research Networkers"
+      },
+      {
+        "country": "UAE",
+        "collaborations": 497,
+        "industry_collaborations": 43,
+        "partners": 58,
+        "industry_to_gdp": 77.85,
+        "connectedness": 0.4265,
+        "archetype": "Global Innovation Hubs"
+      },
+      {
+        "country": "UK",
+        "collaborations": 7293,
+        "industry_collaborations": 1239,
+        "partners": 82,
+        "industry_to_gdp": 309.55,
+        "connectedness": 0.6029,
+        "archetype": "Global Innovation Hubs"
+      },
+      {
+        "country": "US",
+        "collaborations": 30166,
+        "industry_collaborations": 5313,
+        "partners": 104,
+        "industry_to_gdp": 172.67,
+        "connectedness": 0.7647,
+        "archetype": "Global Innovation Hubs"
+      },
+      {
+        "country": "Ukraine",
+        "collaborations": 603,
+        "industry_collaborations": 5,
+        "partners": 39,
+        "industry_to_gdp": 23.34,
+        "connectedness": 0.2868,
+        "archetype": "Emerging Ecosystems"
+      },
+      {
+        "country": "Uruguay",
+        "collaborations": 33,
+        "industry_collaborations": 9,
+        "partners": 16,
+        "industry_to_gdp": 105.45,
+        "connectedness": 0.1176,
+        "archetype": "Regional Commercial Leaders"
+      },
+      {
+        "country": "Vietnam",
+        "collaborations": 618,
+        "industry_collaborations": 19,
+        "partners": 39,
+        "industry_to_gdp": 36.91,
+        "connectedness": 0.2868,
+        "archetype": "Emerging Ecosystems"
+      }
+    ],
+    "below_threshold": {
+      "Afghanistan": 0.0,
+      "Albania": 0.0,
+      "American Samoa": 0.0,
+      "Andorra": 0.0,
+      "Angola": 0.0,
+      "Antigua and Barbuda": 0.0,
+      "Aruba": 0.0,
+      "Azerbaijan": 0.0,
+      "Bahamas": 0.0,
+      "Bahrain": 0.0,
+      "Barbados": 0.0,
+      "Belize": 0.0,
+      "Benin": 0.0,
+      "Bermuda": 0.0,
+      "Bhutan": 0.0,
+      "Bolivia": 0.0,
+      "Botswana": 0.0,
+      "Brunei": 0.0,
+      "Burkina Faso": 0.0,
+      "Burundi": 0.0,
+      "Cabo Verde": 0.0,
+      "Cambodia": 0.0,
+      "Cayman Islands": 0.0,
+      "Central African Republic": 0.0,
+      "Chad": 0.0,
+      "Channel Islands": 0.0,
+      "Comoros": 0.0,
+      "Congo, Rep.": 0.0,
+      "Cote d'Ivoire": 0.0,
+      "Curacao": 0.0,
+      "DR Congo": 0.0,
+      "Djibouti": 0.0,
+      "Dominica": 0.0,
+      "Dominican Republic": 0.0,
+      "Ecuador": 0.0,
+      "El Salvador": 0.0,
+      "Equatorial Guinea": 0.0,
+      "Eswatini": 0.0,
+      "Ethiopia": 0.0,
+      "Faroe Islands": 0.0,
+      "Fiji": 0.0,
+      "French Polynesia": 0.0,
+      "Gabon": 0.0,
+      "Gambia": 0.0,
+      "Greenland": 0.0,
+      "Grenada": 0.0,
+      "Guam": 0.0,
+      "Guatemala": 0.0,
+      "Guinea": 0.0,
+      "Guinea-Bissau": 0.0,
+      "Guyana": 0.0,
+      "Haiti": 0.0,
+      "Honduras": 0.0,
+      "Hong Kong SAR, China": 0.0,
+      "Isle of Man": 0.0,
+      "Jamaica": 0.0,
+      "Kazakhstan": 0.0,
+      "Kiribati": 0.0,
+      "Kosovo": 0.0,
+      "Kyrgyz Republic": 0.0,
+      "Lao PDR": 0.0,
+      "Lesotho": 0.0,
+      "Liberia": 0.0,
+      "Libya": 0.0,
+      "Liechtenstein": 0.0,
+      "Macao SAR, China": 0.0,
+      "Macedonia": 0.0,
+      "Madagascar": 0.0,
+      "Maldives": 0.0,
+      "Mali": 0.0,
+      "Malta": 0.0,
+      "Marshall Islands": 0.0,
+      "Mauritania": 0.0,
+      "Mauritius": 0.0,
+      "Micronesia, Fed. Sts.": 0.0,
+      "Moldova": 0.0,
+      "Monaco": 0.0,
+      "Mongolia": 0.0,
+      "Montenegro": 0.0,
+      "Mozambique": 0.0,
+      "Myanmar": 0.0,
+      "Namibia": 0.0,
+      "Naoero": 0.0,
+      "Nepal": 0.0,
+      "New Caledonia": 0.0,
+      "Nicaragua": 0.0,
+      "Niger": 0.0,
+      "Northern Mariana Islands": 0.0,
+      "Oman": 0.0,
+      "Palau": 0.0,
+      "Palestine": 0.0,
+      "Papua New Guinea": 0.0,
+      "Paraguay": 0.0,
+      "Puerto Rico (US)": 0.0,
+      "Rwanda": 0.0,
+      "Samoa": 0.0,
+      "San Marino": 0.0,
+      "Sao Tome and Principe": 0.0,
+      "Senegal": 0.0,
+      "Seychelles": 0.0,
+      "Sierra Leone": 0.0,
+      "Sint Maarten (Dutch part)": 0.0,
+      "Solomon Islands": 0.0,
+      "Somalia, Fed. Rep.": 0.0,
+      "Sri Lanka": 0.0,
+      "St. Lucia": 0.0,
+      "St. Vincent and the Grenadines": 0.0,
+      "Suriname": 0.0,
+      "Syria": 0.0,
+      "Tajikistan": 0.0,
+      "Tanzania": 0.0,
+      "Timor-Leste": 0.0,
+      "Togo": 0.0,
+      "Tonga": 0.0,
+      "Trinidad and Tobago": 0.0,
+      "Turkmenistan": 0.0,
+      "Turks and Caicos Islands": 0.0,
+      "Tuvalu": 0.0,
+      "Uganda": 0.0,
+      "Uzbekistan": 0.0,
+      "Vanuatu": 0.0,
+      "Venezuela": 0.0,
+      "Virgin Islands (U.S.)": 0.0,
+      "Zambia": 0.0,
+      "Zimbabwe": 0.0
+    },
+    "no_gdp": {
+      "Yemen": 1
+    }
+  }
+}

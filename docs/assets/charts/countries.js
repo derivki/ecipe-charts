@@ -1,21 +1,23 @@
 /* Country dashboard (Layer 1) – KPIs + panels for a selected country.
-   Real data: ranked bars (funding_by_country.json / funding_by_cluster.json) and the
-   national specialisation (collab_country_specialisation.json, Figure 7).
-   Mock data: institutions, domain split, archetype, network partners
-   (docs/data/mock_country_profile.json – see meta.source_note).
+   Real data throughout: ranked bars (funding_by_country.json / funding_by_cluster.json),
+   connectedness and top partners (collab_country_partners.json, Figure 3), the archetype
+   position (collab_country_archetype.json, Figure 6) and the national specialisation
+   (collab_country_specialisation.json, Figure 7). The last mock dataset on this page,
+   mock_country_profile.json, was retired with Figure 3 (AP-75).
    The world map (country choropleth + cluster bubbles) leads the Overview tab. */
 QT.boot(async function () {
   QT.nav("#nav", "countries");
 
-  const [country, profile, policies, gov, collabCountry, countryInstrument, collabRankings, specialisation] = await Promise.all([
+  const [country, policies, gov, collabCountry, countryInstrument, collabRankings, specialisation, archetypes, partnersData] = await Promise.all([
     QT.loadData("funding_by_country"),
-    QT.loadData("mock_country_profile"),
     QT.loadData("mock_country_policies"),
     QT.loadData("government_funding"),
     QT.loadData("collab_by_country"),
     QT.loadData("funding_by_country_instrument"),
     QT.loadData("collab_rankings"),
     QT.loadData("collab_country_specialisation"),
+    QT.loadData("collab_country_archetype"),
+    QT.loadData("collab_country_partners"),
     QT.loadFlags(),
   ]);
   const INSTRUMENT_KEYS = ["VC / private equity", "Debt", "Grant", "Public equity"];
@@ -27,10 +29,10 @@ QT.boot(async function () {
   // every entity (the full ranking is private, see pipeline_io.PRIVATE_ONLY).
   const rankingsByCountry = d3.group(collabRankings.data, d => d.country);
   // Real per-country collaboration figures, so tiles 5 and 6 mirror the Overview's
-  // definitions with actual data instead of the mock profile's `institutions` count:
+  // definitions with actual data:
   // `entities` is every institution in the collaboration graph for that country and
   // `collaborations` its academic + industry partnerships, exactly as the Overview
-  // totals are built. mock_country_profile.json has no collaborations field at all.
+  // totals are built.
   const collabByCountry = new Map(collabCountry.data.map(d => [d.country, d]));
   // Government funding here is Dyuti's register alone (see QT.govByCountry),
   // matching the Overview tab. Company funding (below) is a fully separate
@@ -38,10 +40,6 @@ QT.boot(async function () {
   const govByCountry = QT.govByCountry(gov.data);
   const govProvisional = !!gov.meta.provisional;
   QT.vintage("#vintage", country.meta);
-  ["badge-archetype2", "badge-network"].forEach(id => {
-    const el = document.getElementById(id);
-    if (el) el.innerHTML = QT.mockBadge();
-  });
   const policyByCountry = new Map(Object.entries(policies.data));
   const POLICY_COLORS = {
     // Dark enough for white badge text: ECIPE teal, brown, navy,
@@ -53,7 +51,21 @@ QT.boot(async function () {
 
   const tt = QT.tooltip();
   const byName = new Map(country.data.map(d => [d.country, d]));
-  const profileByName = new Map(profile.data.map(d => [d.country, d]));
+  const partnersByName = new Map(partnersData.data.countries.map(d => [d.country, d]));
+  const ARCH = archetypes.data;
+  const archetypeByName = new Map(ARCH.countries.map(d => [d.country, d]));
+  // Why a country is not on Figure 6, in the paper's own terms (Occasional Paper 08/2025).
+  function archetypeWhyNot(name) {
+    if (name in ARCH.below_threshold && ARCH.below_threshold[name] > 0) {
+      return `${name} has ${d3.format(".2f")(ARCH.below_threshold[name])} industry-involving collaborations per ` +
+        `trillion USD of GDP; at least ${ARCH.min_ratio} is needed`;
+    }
+    if (name in ARCH.no_gdp) {
+      return `${name} has ${QT.fmt.int(ARCH.no_gdp[name])} industry-involving collaborations, but no GDP figure is ` +
+        `recorded to compare them with`;
+    }
+    return `${name} has no industry-involving collaborations recorded`;
+  }
   const ranked = [...country.data].filter(d => d.total_funding != null).sort(QT.rank("total_funding", "country"));
 
   /* COMPANY or GOVERNMENT, each as an amount or as a share of GDP.
@@ -108,14 +120,12 @@ QT.boot(async function () {
   };
   sel.property("value", state.country);
 
-  /* The illustrative profile covers 38 of the 43 countries in the dropdown
-     (Cyprus, Malta, Pakistan, Saudi Arabia, Slovenia and Tunisia have none), so
-     every mock-backed panel has to survive a missing one. They previously did not:
-     `kpis()` dereferenced the profile directly and threw, and because `render()`
-     calls `kpis()` FIRST, that exception aborted the whole re-render – picking one
-     of those six left the entire page, real panels included, still showing the
-     previous country. Failing softly per panel keeps the real data working
-     regardless of mock coverage. */
+  /* Every panel has to survive a country it has no data for: the dropdown lists every country
+     with company funding, and some of them have no collaborations, no GDP or too few
+     observations. A panel that dereferenced its data directly would throw, and because
+     `render()` runs every panel in turn, one exception left the whole page, real panels
+     included, still showing the previous country. Failing softly per panel keeps the
+     others working. */
   function emptyPanel(selector, message) {
     d3.select(selector).selectAll("*").remove();
     d3.select(selector).attr("viewBox", "0 0 880 56")
@@ -123,8 +133,6 @@ QT.boot(async function () {
       .attr("font-size", 12).attr("fill", QT.tokens.muted)
       .text(message);
   }
-  const noProfileNote = () =>
-    `No illustrative profile for ${state.country} yet. It covers ${profile.data.length} of ${country.data.length} tracked countries.`;
 
   /* THE SAME SIX TILES AS THE OVERVIEW, in the same order, so moving between the two
      tabs compares like with like (Elena: "we could have the boxes here mimic the same
@@ -137,12 +145,12 @@ QT.boot(async function () {
          should always stay the same regardless of the country selected".
        • The collaboration archetype has LEFT the strip for its own line below it. It
          is a category, not a measure, and as a tile its longest value
-         ("Domestic Commercialiser") set the width of all six.  */
+         ("Regional Commercial Leaders") set the width of all six.  */
   function kpis() {
     const c = byName.get(state.country);
-    const p = profileByName.get(state.country);
     const g = govByCountry.get(state.country);
     const cb = collabByCountry.get(state.country);
+    const a = archetypeByName.get(state.country);
     const rank = ranked.findIndex(d => d.country === state.country) + 1;
     QT.kpis("#kpis", [
       { v: QT.fmt.axisMoney(c.total_funding),
@@ -158,10 +166,10 @@ QT.boot(async function () {
       { v: cb ? QT.fmt.int(cb.collaborations) : "n/a", k: "Quantum collaborations" },
     ]);
 
-    d3.select("#archetype-line").html(p
-      ? `Collaboration archetype: <b style="color:${QT.palette.archetype[p.archetype] || QT.tokens.purple}">`
-        + `${p.archetype}</b> (see Figure 6) ${QT.mockBadge("Illustrative")}`
-      : "");
+    d3.select("#archetype-line").html(a
+      ? `Collaboration archetype: <b style="color:${QT.palette.archetype[a.archetype] || QT.tokens.purple}">`
+        + `${a.archetype}</b> (see Figure 6)`
+      : `Collaboration archetype: not scored. ${archetypeWhyNot(state.country)} (see Figure 6).`);
   }
 
   // ---------- Panel 1: ranked bars, selected country highlighted (REAL) ----------
@@ -402,25 +410,35 @@ QT.boot(async function () {
      it needs to be legible at all – Elena: "perhaps we can remove the institution
      split chart and make the archetype chart bigger?" */
 
-  // ---------- Panel 3: archetype 2×2, selected country highlighted (MOCK) ----------
+  // ---------- Figure 6: archetype 2×2, selected country highlighted (REAL) ----------
+  /* The method of Occasional Paper 08/2025 (its Figure 3), built in
+     collab_aggregate.build_country_archetypes and read here as it comes:
+       x  industry-involving collaborations per trillion USD of GDP (log scale), the
+          paper's proxy for commercial intensity;
+       y  global connectedness: degree centrality in the country network, i.e. the share
+          of the other countries a country collaborates with.
+     Bubble area is the country's total collaborations. The two lines are the MEDIANS of
+     the countries shown, and each point's archetype is already in the data. */
   function archetypePanel() {
-    const THRESH = 55;
-    const W = 880, H = 380;
+    const W = 880, H = 420;
+    const T = ARCH.thresholds, rows = ARCH.countries;
     d3.select("#chart-archetype2").selectAll("*").remove();
-    const c = QT.chart("#chart-archetype2", { W, H, margin: { t: 10, r: 14, b: 30, l: 40 } });
-    const x = d3.scaleLinear().domain([0, 100]).range([0, c.iw]);
-    const y = d3.scaleLinear().domain([0, 100]).range([c.ih, 0]);
+    const c = QT.chart("#chart-archetype2", { W, H, margin: { t: 10, r: 18, b: 38, l: 52 } });
+    const xMax = Math.pow(10, Math.ceil(Math.log10(d3.max(rows, d => d.industry_to_gdp))));
+    const x = d3.scaleLog().domain([1, xMax]).range([0, c.iw]);
+    const y = d3.scaleLinear().domain([0, Math.ceil(d3.max(rows, d => d.connectedness) * 10) / 10]).range([c.ih, 0]);
+    const r = d3.scaleSqrt().domain([0, d3.max(rows, d => d.collaborations)]).range([2.5, 17]);
+    const xt = x(T.industry_to_gdp), yt = y(T.connectedness);
 
-    // Quadrant tints + corner labels, added 2026-09-18 so the four archetypes read
-    // at a glance instead of only on hover – a faint fill in each archetype's own
-    // colour (palette.archetype), at just enough opacity to separate the quadrants
-    // without competing with the dots. Kept out of gPlot (which the hover targets
-    // use) so the tints never intercept a mousemove meant for a dot.
+    // Quadrant tints + corner labels, so the four archetypes read at a glance instead of
+    // only on hover. Kept out of gPlot (which the hover targets use) so the tints never
+    // intercept a mousemove meant for a bubble. Laid out as in the paper: connectedness
+    // up, industry involvement to the right.
     const QUADRANTS = [
-      { key: "Domestic Commercialiser", x0: 0, x1: x(THRESH), y0: 0, y1: y(THRESH), lx: 8, ly: 16, anchor: "start" },
-      { key: "Global Hub", x0: x(THRESH), x1: c.iw, y0: 0, y1: y(THRESH), lx: c.iw - 8, ly: 16, anchor: "end" },
-      { key: "Emerging Ecosystem", x0: 0, x1: x(THRESH), y0: y(THRESH), y1: c.ih, lx: 8, ly: c.ih - 10, anchor: "start" },
-      { key: "Research Networker", x0: x(THRESH), x1: c.iw, y0: y(THRESH), y1: c.ih, lx: c.iw - 8, ly: c.ih - 10, anchor: "end" },
+      { key: "Research Networkers", x0: 0, x1: xt, y0: 0, y1: yt, lx: 8, ly: 16, anchor: "start" },
+      { key: "Global Innovation Hubs", x0: xt, x1: c.iw, y0: 0, y1: yt, lx: c.iw - 8, ly: 16, anchor: "end" },
+      { key: "Emerging Ecosystems", x0: 0, x1: xt, y0: yt, y1: c.ih, lx: 8, ly: c.ih - 10, anchor: "start" },
+      { key: "Regional Commercial Leaders", x0: xt, x1: c.iw, y0: yt, y1: c.ih, lx: c.iw - 8, ly: c.ih - 10, anchor: "end" },
     ];
     c.g.selectAll("rect.quadrant").data(QUADRANTS, d => d.key).join("rect").attr("class", "quadrant")
       .attr("x", d => d.x0).attr("y", d => d.y0)
@@ -432,22 +450,51 @@ QT.boot(async function () {
       .attr("fill", d => QT.palette.archetype[d.key]).attr("fill-opacity", 0.75)
       .text(d => d.key.toUpperCase());
 
-    c.g.append("line").attr("x1", x(THRESH)).attr("x2", x(THRESH)).attr("y1", 0).attr("y2", c.ih).attr("class", "gridline");
-    c.g.append("line").attr("x1", 0).attr("x2", c.iw).attr("y1", y(THRESH)).attr("y2", y(THRESH)).attr("class", "gridline");
+    c.g.append("line").attr("x1", xt).attr("x2", xt).attr("y1", 0).attr("y2", c.ih).attr("class", "gridline");
+    c.g.append("line").attr("x1", 0).attr("x2", c.iw).attr("y1", yt).attr("y2", yt).attr("class", "gridline");
 
-    c.gPlot.selectAll("circle").data(profile.data, d => d.country).join("circle")
-      .attr("cx", d => x(d.connectedness)).attr("cy", d => y(d.commercial_intensity))
-      .attr("r", d => d.country === state.country ? 7.5 : 4)
+    const sel_ = d => d.country === state.country;
+    // Biggest first, so a small bubble is never hidden under a large one.
+    const drawn = [...rows].sort((p, q) => q.collaborations - p.collaborations);
+    c.gPlot.selectAll("circle").data(drawn, d => d.country).join("circle")
+      .attr("cx", d => x(d.industry_to_gdp)).attr("cy", d => y(d.connectedness))
+      .attr("r", d => r(d.collaborations))
       .attr("fill", d => QT.palette.archetype[d.archetype])
-      .attr("fill-opacity", d => d.country === state.country ? 1 : 0.28)
-      .attr("stroke", d => d.country === state.country ? QT.tokens.ink : "none").attr("stroke-width", 1.5)
-      .on("mousemove", (e, d) => tt.show(`<div class="hd">${d.country}</div><div class="row"><span class="k">Archetype</span><span class="v">${d.archetype}</span></div>`, e))
+      .attr("fill-opacity", d => sel_(d) ? 0.95 : 0.3)
+      .attr("stroke", d => sel_(d) ? QT.tokens.ink : QT.palette.archetype[d.archetype])
+      .attr("stroke-opacity", d => sel_(d) ? 1 : 0.5).attr("stroke-width", d => sel_(d) ? 2 : 0.75)
+      .on("mousemove", (e, d) => tt.show(
+        `<div class="hd">${d.country}</div>` +
+        `<div class="row"><span class="k">Archetype</span><span class="v">${d.archetype}</span></div>` +
+        `<div class="row"><span class="k">Industry-involving collaborations to GDP</span><span class="v">${d3.format(".1f")(d.industry_to_gdp)}</span></div>` +
+        `<div class="row"><span class="k">Industry-involving collaborations</span><span class="v">${QT.fmt.int(d.industry_collaborations)}</span></div>` +
+        `<div class="row"><span class="k">Global connectedness</span><span class="v">${d3.format(".2f")(d.connectedness)} (${QT.fmt.int(d.partners)} partner countries)</span></div>` +
+        `<div class="row"><span class="k">Total collaborations</span><span class="v">${QT.fmt.int(d.collaborations)}</span></div>`, e))
       .on("mouseleave", tt.hide);
 
-    c.gx.call(d3.axisBottom(x).ticks(4).tickSizeOuter(0));
-    c.gy.call(d3.axisLeft(y).ticks(4).tickSizeOuter(0));
-    c.g.append("text").attr("x", c.iw / 2).attr("y", c.ih + 26).attr("text-anchor", "middle").attr("font-size", 10.5).attr("fill", QT.tokens.muted).text("Global connectedness →");
-    c.g.append("text").attr("x", -c.ih / 2).attr("y", -28).attr("transform", "rotate(-90)").attr("text-anchor", "middle").attr("font-size", 10.5).attr("fill", QT.tokens.muted).text("Commercial intensity →");
+    // The selected country is named on the chart (the others only on hover), on the side
+    // of its bubble that has room.
+    const me = rows.find(sel_);
+    const left = me && x(me.industry_to_gdp) > c.iw - 110;
+    c.gPlot.selectAll("text.me").data(me ? [me] : []).join("text").attr("class", "me")
+      .attr("x", d => x(d.industry_to_gdp) + (left ? -1 : 1) * (r(d.collaborations) + 5))
+      .attr("y", d => y(d.connectedness)).attr("dy", "0.32em")
+      .attr("text-anchor", left ? "end" : "start")
+      .attr("font-size", 11.5).attr("font-weight", 700).attr("fill", QT.tokens.ink)
+      .text(d => d.country);
+
+    c.gx.call(d3.axisBottom(x).tickValues(d3.range(0, Math.log10(xMax) + 1).map(k => Math.pow(10, k))).tickFormat(d3.format(",")).tickSizeOuter(0));
+    c.gy.call(d3.axisLeft(y).ticks(4).tickFormat(d3.format(".1f")).tickSizeOuter(0));
+    c.g.append("text").attr("x", c.iw / 2).attr("y", c.ih + 32).attr("text-anchor", "middle").attr("font-size", 10.5).attr("fill", QT.tokens.muted)
+      .text(`Industry-involving collaborations to GDP, per trillion USD, log scale (median ${d3.format(".0f")(T.industry_to_gdp)}) →`);
+    c.g.append("text").attr("x", -c.ih / 2).attr("y", -38).attr("transform", "rotate(-90)").attr("text-anchor", "middle").attr("font-size", 10.5).attr("fill", QT.tokens.muted)
+      .text(`Global connectedness (median ${d3.format(".2f")(T.connectedness)}) →`);
+
+    d3.select("#note-archetype").text(me
+      ? `${state.country}: ${d3.format(".1f")(me.industry_to_gdp)} industry-involving collaborations per trillion USD of GDP ` +
+        `(${QT.fmt.int(me.industry_collaborations)} of ${QT.fmt.int(me.collaborations)}), and ${QT.fmt.int(me.partners)} partner countries ` +
+        `(connectedness ${d3.format(".2f")(me.connectedness)}).`
+      : `${archetypeWhyNot(state.country)}, so it is not on the chart.`);
   }
 
   // ---------- Figure 7: national specialisation (REAL) ----------
@@ -539,15 +586,21 @@ QT.boot(async function () {
       (all.length > rows.length ? `Top ${rows.length} of ${all.length} shown.` : `All ${all.length} shown.`));
   }
 
-  // ---------- Collaboration: connectedness + top partners (MOCK) ----------
+  // ---------- Figure 3: connectedness + top partners (REAL) ----------
+  /* Both come ready-made from collab_country_partners.json (collab_aggregate.build_country_partners).
+     Global connectedness is the same degree centrality Figure 6 plots, from Occasional Paper
+     08/2025: the share of the world's other countries this one collaborates with directly.
+     The partner bars are the countries it has the most cross-border collaborations with. */
   function networkPanel() {
-    const p = profileByName.get(state.country);
-    d3.select("#ttl-network").html(`Figure 3: Global connectedness and top collaboration partners (${state.country}) <span id="badge-network">${QT.mockBadge()}</span>`);
+    const p = partnersByName.get(state.country);
+    const net = partnersData.data.network_countries;
+    d3.select("#ttl-network").text(`Figure 3: Global connectedness and top collaboration partners (${state.country})`);
     d3.select("#why-network").html(
-      `How globally connected ${state.country}'s quantum ecosystem is, on a scale from 0 to 100, ` +
-      `and the strength of its three leading collaboration partners.`);
-    if (!p) return emptyPanel("#chart-network", noProfileNote());
-    const partners = [...p.top_partners].sort(QT.rank("score", "country"));
+      `<b>Global connectedness</b> is the share of the ${QT.fmt.int(net - 1)} other countries in the collaboration network ` +
+      `that ${state.country} collaborates with directly, from 0 to 1 (degree centrality, as in Occasional Paper 08/2025). ` +
+      `The bars show its three leading partners by number of collaborations between their institutions.`);
+    if (!p) return emptyPanel("#chart-network", `${state.country} has no recorded collaboration with an institution in another country.`);
+    const partners = p.top_partners;
 
     const rowH = 44, topPad = 66, botPad = 24, W = 880;
     const H = topPad + partners.length * rowH + botPad;
@@ -556,16 +609,17 @@ QT.boot(async function () {
 
     // ---- connectedness header (lives in the top margin, above the partner bars) ----
     const hdr = c.svg.append("g").attr("transform", `translate(130,16)`);
-    hdr.append("text").attr("y", 0).attr("font-size", 11).attr("fill", QT.tokens.muted).text("Global connectedness");
+    hdr.append("text").attr("y", 0).attr("font-size", 11).attr("fill", QT.tokens.muted)
+      .text(`Global connectedness: ${QT.fmt.int(p.partners)} of ${QT.fmt.int(net - 1)} other countries`);
     hdr.append("rect").attr("x", 0).attr("y", 8).attr("width", c.iw).attr("height", 12).attr("rx", 6).attr("fill", QT.tokens.line);
-    hdr.append("rect").attr("x", 0).attr("y", 8).attr("width", c.iw * p.connectedness / 100).attr("height", 12).attr("rx", 6).attr("fill", QT.tokens.accent);
+    hdr.append("rect").attr("x", 0).attr("y", 8).attr("width", c.iw * p.connectedness).attr("height", 12).attr("rx", 6).attr("fill", QT.tokens.accent);
     hdr.append("text").attr("x", c.iw).attr("y", 18).attr("text-anchor", "end").attr("font-size", 13).attr("font-weight", 700)
-      .attr("fill", QT.tokens.ink).text(`${p.connectedness} / 100`);
+      .attr("fill", QT.tokens.ink).text(d3.format(".2f")(p.connectedness));
     c.g.append("text").attr("x", -12).attr("y", -10).attr("text-anchor", "end").attr("font-size", 11)
       .attr("fill", QT.tokens.muted).text("Top partners");
 
-    // ---- top-partner bars (partnership strength 0–1) ----
-    const x = d3.scaleLinear().domain([0, 1]).range([0, c.iw]);
+    // ---- top-partner bars (collaborations) ----
+    const x = d3.scaleLinear().domain([0, d3.max(partners, d => d.collaborations) * 1.1]).range([0, c.iw]);
     const y = d3.scaleBand().domain(partners.map(d => d.country)).range([0, c.ih]).padding(0.4);
 
     // Flag reserved in front of the label, same [flag][gap][name] slot QT.flagAxis
@@ -577,7 +631,7 @@ QT.boot(async function () {
       .attr("text-anchor", "end").style("font-size", "12.5px").attr("fill", QT.tokens.ink).text(d => d.country);
     c.g.selectAll("image.plabel-flag").data(partners, d => d.country).join("image")
       .attr("class", "plabel-flag")
-      .attr("href", d => `assets/vendor/flags/${QT.flagCode(d.country)}.png`)
+      .attr("href", d => QT.flagCode(d.country) ? `assets/vendor/flags/${QT.flagCode(d.country)}.png` : null)
       .style("display", d => QT.flagCode(d.country) ? null : "none")
       .attr("width", PLABEL_FLAG).attr("height", Math.round(PLABEL_FLAG * 0.75))
       .attr("x", -(12 + PLABEL_FLAG)).attr("y", d => y(d.country) + y.bandwidth() / 2 - Math.round(PLABEL_FLAG * 0.75) / 2)
@@ -587,13 +641,13 @@ QT.boot(async function () {
       .attr("rx", 3).attr("fill", QT.tokens.line).attr("fill-opacity", 0.6);
     c.gPlot.selectAll("rect.fill").data(partners, d => d.country).join("rect")
       .attr("class", "fill").attr("x", 0).attr("y", d => y(d.country)).attr("height", y.bandwidth()).attr("rx", 3)
-      .attr("fill", QT.tokens.teal).attr("width", d => x(d.score))
-      .on("mousemove", (e, d) => tt.show(`<div class="hd">${state.country} · ${QT.flag(d.country)} ${d.country}</div><div class="row"><span class="k">Partnership strength</span><span class="v">${d.score.toFixed(2)}</span></div>`, e))
+      .attr("fill", QT.tokens.teal).attr("width", d => x(d.collaborations))
+      .on("mousemove", (e, d) => tt.show(`<div class="hd">${state.country} · ${QT.flag(d.country)} ${d.country}</div><div class="row"><span class="k">Collaborations</span><span class="v">${QT.fmt.int(d.collaborations)}</span></div>`, e))
       .on("mouseleave", tt.hide);
     c.gPlot.selectAll("text.bar-val").data(partners, d => d.country).join("text")
       .attr("class", "bar-val").attr("dy", "0.32em").attr("y", d => y(d.country) + y.bandwidth() / 2)
-      .attr("x", d => x(d.score) + 6).text(d => d.score.toFixed(2));
-    c.gx.call(d3.axisBottom(x).ticks(5).tickFormat(d3.format(".1f")).tickSizeOuter(0));
+      .attr("x", d => x(d.collaborations) + 6).text(d => QT.fmt.int(d.collaborations));
+    c.gx.call(d3.axisBottom(x).ticks(5).tickFormat(d3.format(",")).tickSizeOuter(0));
   }
 
   // ---------- Policy & public programmes (curated flagship list; no mock badge on the page) ----------

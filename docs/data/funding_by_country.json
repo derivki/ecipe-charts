@@ -23,9 +23,9 @@
       "total_funding": 6639623756.87,
       "public_funding": 2369476574.38,
       "private_funding": 4270147182.49,
-      "gdp": 19498039388042.61,
-      "funding_to_gdp": 0.0003405277640860483,
-      "private_funding_to_gdp": 0.00021900392636970542
+      "gdp": 19498039388042.6,
+      "funding_to_gdp": 0.0003405277640860485,
+      "private_funding_to_gdp": 0.0002190039263697055
     },
     {
       "country": "UK",
@@ -34,9 +34,9 @@
       "total_funding": 2086442095.86,
       "public_funding": 501642820.82,
       "private_funding": 1584799275.04,
-      "gdp": 4002587541846.0146,
-      "funding_to_gdp": 0.0005212733198339947,
-      "private_funding_to_gdp": 0.00039594368854531923
+      "gdp": 4002587541846.01,
+      "funding_to_gdp": 0.0005212733198339953,
+      "private_funding_to_gdp": 0.0003959436885453197
     },
     {
       "country": "Canada",
@@ -56,9 +56,9 @@
       "total_funding": 1456509973.39,
       "public_funding": 151000668.33,
       "private_funding": 1305509305.06,
-      "gdp": 3366315927447.3286,
-      "funding_to_gdp": 0.0004326718005026189,
-      "private_funding_to_gdp": 0.00038781544370622
+      "gdp": 3366315927447.33,
+      "funding_to_gdp": 0.0004326718005026187,
+      "private_funding_to_gdp": 0.00038781544370621984
     },
     {
       "country": "Finland",
@@ -67,9 +67,9 @@
       "total_funding": 1367436486.31,
       "public_funding": 395482445.12,
       "private_funding": 971954041.19,
-      "gdp": 317039368819.6074,
-      "funding_to_gdp": 0.004313144110161911,
-      "private_funding_to_gdp": 0.003065720338802573
+      "gdp": 317039368819.607,
+      "funding_to_gdp": 0.0043131441101619174,
+      "private_funding_to_gdp": 0.003065720338802577
     },
     {
       "country": "Spain",
@@ -78,9 +78,9 @@
       "total_funding": 987450913.66,
       "public_funding": 66903903.74,
       "private_funding": 920547009.92,
-      "gdp": 1906453309985.8796,
-      "funding_to_gdp": 0.0005179517948280333,
-      "private_funding_to_gdp": 0.0004828584078621461
+      "gdp": 1906453309985.88,
+      "funding_to_gdp": 0.0005179517948280331,
+      "private_funding_to_gdp": 0.000482858407862146
     },
     {
       "country": "Switzerland",
@@ -89,9 +89,9 @@
       "total_funding": 899694952.06,
       "public_funding": 724250416.36,
       "private_funding": 175444535.7,
-      "gdp": 1043529899250.9229,
-      "funding_to_gdp": 0.0008621649966201583,
-      "private_funding_to_gdp": 0.0001681260266964457
+      "gdp": 1043529899250.92,
+      "funding_to_gdp": 0.0008621649966201606,
+      "private_funding_to_gdp": 0.00016812602669644613
     },
     {
       "country": "Israel",
@@ -100,9 +100,9 @@
       "total_funding": 876982692.1,
       "public_funding": 38500692.1,
       "private_funding": 838482000.0,
-      "gdp": 610777842873.5946,
-      "funding_to_gdp": 0.0014358456226472817,
-      "private_funding_to_gdp": 0.0013728101138297687
+      "gdp": 610777842873.595,
+      "funding_to_gdp": 0.0014358456226472808,
+      "private_funding_to_gdp": 0.0013728101138297678
     },
     {
       "country": "Germany",
@@ -111,9 +111,9 @@
       "total_funding": 799220724.01,
       "public_funding": 238486867.11,
       "private_funding": 560733856.9,
-      "gdp": 5050922925047.052,
-      "funding_to_gdp": 0.0001582326113199132,
-      "private_funding_to_gdp": 0.00011101611828590254
+      "gdp": 5050922925047.05,
+      "funding_to_gdp": 0.00015823261131991327,
+      "private_funding_to_gdp": 0.00011101611828590258
     },
     {
       "country": "Netherlands",
@@ -122,9 +122,9 @@
       "total_funding": 732026324.04,
       "public_funding": 127770738.59,
       "private_funding": 604255585.45,
-      "gdp": 1332767651100.3904,
-      "funding_to_gdp": 0.000549252769930273,
-      "private_funding_to_gdp": 0.00045338404255753105
+      "gdp": 1332767651100.39,
+      "funding_to_gdp": 0.0005492527699302731,
+      "private_funding_to_gdp": 0.0004533840425575312
     },
     {
       "country": "Australia",
@@ -133,9 +133,9 @@
       "total_funding": 553018187.88,
       "public_funding": 61528608.38,
       "private_funding": 491489579.5,
-      "gdp": 1798518933689.2104,
-      "funding_to_gdp": 0.0003074853300214616,
-      "private_funding_to_gdp": 0.0002732746207413188
+      "gdp": 1798518933689.21,
+      "funding_to_gdp": 0.0003074853300214617,
+      "private_funding_to_gdp": 0.00027327462074131886
     },
     {
       "country": "South Korea",
@@ -144,9 +144,9 @@
       "total_funding": 347090961.37,
       "public_funding": 139213505.62,
       "private_funding": 207877455.75,
-      "gdp": 1872374961553.146,
-      "funding_to_gdp": 0.00018537470779102233,
-      "private_funding_to_gdp": 0.00011102341145278108
+      "gdp": 1872374961553.15,
+      "funding_to_gdp": 0.00018537470779102195,
+      "private_funding_to_gdp": 0.00011102341145278083
     },
     {
       "country": "Japan",
@@ -155,9 +155,9 @@
       "total_funding": 247465971.12,
       "public_funding": 70299412.82,
       "private_funding": 177166558.3,
-      "gdp": 4435162999976.941,
-      "funding_to_gdp": 5.5796364445577895e-05,
-      "private_funding_to_gdp": 3.994589563019919e-05
+      "gdp": 4435162999976.94,
+      "funding_to_gdp": 5.579636444557791e-05,
+      "private_funding_to_gdp": 3.9945895630199194e-05
     },
     {
       "country": "Denmark",
@@ -166,9 +166,9 @@
       "total_funding": 222628988.03,
       "public_funding": 22651732.03,
       "private_funding": 199977256.0,
-      "gdp": 462526660468.3925,
-      "funding_to_gdp": 0.00048133222808369267,
-      "private_funding_to_gdp": 0.000432358333241778
+      "gdp": 462526660468.393,
+      "funding_to_gdp": 0.0004813322280836922,
+      "private_funding_to_gdp": 0.0004323583332417776
     },
     {
       "country": "Singapore",
@@ -188,9 +188,9 @@
       "total_funding": 123117210.24,
       "public_funding": 9535865.0,
       "private_funding": 113581345.24,
-      "gdp": 3956067115771.6313,
-      "funding_to_gdp": 3.112111261915889e-05,
-      "private_funding_to_gdp": 2.871067196662713e-05
+      "gdp": 3956067115771.63,
+      "funding_to_gdp": 3.1121112619158894e-05,
+      "private_funding_to_gdp": 2.871067196662714e-05
     },
     {
       "country": "Italy",
@@ -199,9 +199,9 @@
       "total_funding": 118369605.79,
       "public_funding": 60233062.79,
       "private_funding": 58136543.0,
-      "gdp": 2551556954100.349,
-      "funding_to_gdp": 4.639112820954287e-05,
-      "private_funding_to_gdp": 2.2784732634156823e-05
+      "gdp": 2551556954100.35,
+      "funding_to_gdp": 4.639112820954286e-05,
+      "private_funding_to_gdp": 2.2784732634156813e-05
     },
     {
       "country": "Ireland",
@@ -210,9 +210,9 @@
       "total_funding": 84555665.84,
       "public_funding": 3856665.84,
       "private_funding": 80699000.0,
-      "gdp": 721701359046.3127,
-      "funding_to_gdp": 0.00011716157214334541,
-      "private_funding_to_gdp": 0.00011181771932179694
+      "gdp": 721701359046.313,
+      "funding_to_gdp": 0.00011716157214334537,
+      "private_funding_to_gdp": 0.00011181771932179691
     },
     {
       "country": "Poland",
@@ -221,9 +221,9 @@
       "total_funding": 53431915.65,
       "public_funding": 46866016.65,
       "private_funding": 6565899.0,
-      "gdp": 1035491784197.4406,
-      "funding_to_gdp": 5.160052108981866e-05,
-      "private_funding_to_gdp": 6.3408508886324984e-06
+      "gdp": 1035491784197.44,
+      "funding_to_gdp": 5.160052108981869e-05,
+      "private_funding_to_gdp": 6.340850888632503e-06
     },
     {
       "country": "Norway",
@@ -232,9 +232,9 @@
       "total_funding": 45329530.24,
       "public_funding": 4842585.24,
       "private_funding": 40486945.0,
-      "gdp": 530755719438.87946,
-      "funding_to_gdp": 8.540563687504462e-05,
-      "private_funding_to_gdp": 7.628169328594937e-05
+      "gdp": 530755719438.879,
+      "funding_to_gdp": 8.540563687504469e-05,
+      "private_funding_to_gdp": 7.628169328594944e-05
     },
     {
       "country": "Austria",
@@ -243,9 +243,9 @@
       "total_funding": 35904121.24,
       "public_funding": 13542021.24,
       "private_funding": 22362100.0,
-      "gdp": 579470021095.4176,
-      "funding_to_gdp": 6.196027391993572e-05,
-      "private_funding_to_gdp": 3.8590607254758713e-05
+      "gdp": 579470021095.418,
+      "funding_to_gdp": 6.196027391993568e-05,
+      "private_funding_to_gdp": 3.8590607254758686e-05
     },
     {
       "country": "Sweden",
@@ -254,9 +254,9 @@
       "total_funding": 15090211.81,
       "public_funding": 9374995.79,
       "private_funding": 5715216.02,
-      "gdp": 668998664082.0807,
-      "funding_to_gdp": 2.255641545823248e-05,
-      "private_funding_to_gdp": 8.542940858319423e-06
+      "gdp": 668998664082.081,
+      "funding_to_gdp": 2.2556415458232465e-05,
+      "private_funding_to_gdp": 8.542940858319418e-06
     },
     {
       "country": "Czech Republic",
@@ -265,9 +265,9 @@
       "total_funding": 12249320.0,
       "public_funding": 0.0,
       "private_funding": 12249320.0,
-      "gdp": 391026962800.4753,
-      "funding_to_gdp": 3.132602394543907e-05,
-      "private_funding_to_gdp": 3.132602394543907e-05
+      "gdp": 391026962800.475,
+      "funding_to_gdp": 3.1326023945439095e-05,
+      "private_funding_to_gdp": 3.1326023945439095e-05
     },
     {
       "country": "Taiwan",
@@ -287,9 +287,9 @@
       "total_funding": 6226274.27,
       "public_funding": 4233704.27,
       "private_funding": 1992570.0,
-      "gdp": null,
-      "funding_to_gdp": null,
-      "private_funding_to_gdp": null
+      "gdp": 95210150818.3512,
+      "funding_to_gdp": 6.539506787141779e-05,
+      "private_funding_to_gdp": 2.09281256554416e-05
     },
     {
       "country": "Belgium",
@@ -309,9 +309,9 @@
       "total_funding": 4484686.21,
       "public_funding": 2320486.21,
       "private_funding": 2164200.0,
-      "gdp": 346639825141.82104,
-      "funding_to_gdp": 1.2937596573097671e-05,
-      "private_funding_to_gdp": 6.243368023609402e-06
+      "gdp": 346639825141.821,
+      "funding_to_gdp": 1.2937596573097673e-05,
+      "private_funding_to_gdp": 6.243368023609403e-06
     },
     {
       "country": "Turkey",
@@ -320,9 +320,9 @@
       "total_funding": 4275360.0,
       "public_funding": 0.0,
       "private_funding": 4275360.0,
-      "gdp": 1597293229287.0005,
-      "funding_to_gdp": 2.676628136656182e-06,
-      "private_funding_to_gdp": 2.676628136656182e-06
+      "gdp": 1597293229287.0,
+      "funding_to_gdp": 2.6766281366561828e-06,
+      "private_funding_to_gdp": 2.6766281366561828e-06
     },
     {
       "country": "Chile",
@@ -331,9 +331,9 @@
       "total_funding": 2614560.81,
       "public_funding": 614560.81,
       "private_funding": 2000000.0,
-      "gdp": 357371159574.86163,
-      "funding_to_gdp": 7.316093474667492e-06,
-      "private_funding_to_gdp": 5.596422504768583e-06
+      "gdp": 357371159574.862,
+      "funding_to_gdp": 7.316093474667484e-06,
+      "private_funding_to_gdp": 5.596422504768577e-06
     },
     {
       "country": "Greece",
@@ -342,8 +342,8 @@
       "total_funding": 1826897.46,
       "public_funding": 1826897.46,
       "private_funding": 0.0,
-      "gdp": 280635521324.4408,
-      "funding_to_gdp": 6.509858251649962e-06,
+      "gdp": 280635521324.441,
+      "funding_to_gdp": 6.509858251649958e-06,
       "private_funding_to_gdp": 0.0
     },
     {
@@ -364,9 +364,9 @@
       "total_funding": 550000.0,
       "public_funding": 0.0,
       "private_funding": 550000.0,
-      "gdp": 130777235529.60565,
-      "funding_to_gdp": 4.205624914555483e-06,
-      "private_funding_to_gdp": 4.205624914555483e-06
+      "gdp": 130777235529.606,
+      "funding_to_gdp": 4.205624914555471e-06,
+      "private_funding_to_gdp": 4.205624914555471e-06
     },
     {
       "country": "Russia",
@@ -375,9 +375,9 @@
       "total_funding": 509393.06,
       "public_funding": 427973.06,
       "private_funding": 81420.0,
-      "gdp": 2561310169358.743,
-      "funding_to_gdp": 1.9887988184583403e-07,
-      "private_funding_to_gdp": 3.1788418667148204e-08
+      "gdp": 2561310169358.74,
+      "funding_to_gdp": 1.9887988184583427e-07,
+      "private_funding_to_gdp": 3.1788418667148243e-08
     },
     {
       "country": "Malta",
@@ -386,9 +386,9 @@
       "total_funding": 438519.38,
       "public_funding": 438519.38,
       "private_funding": 0.0,
-      "gdp": null,
-      "funding_to_gdp": null,
-      "private_funding_to_gdp": null
+      "gdp": 27771821560.9411,
+      "funding_to_gdp": 1.579008326975366e-05,
+      "private_funding_to_gdp": 0.0
     },
     {
       "country": "Romania",
@@ -397,9 +397,9 @@
       "total_funding": 370169.12,
       "public_funding": 239276.12,
       "private_funding": 130893.0,
-      "gdp": 428677977854.82605,
-      "funding_to_gdp": 8.635132554566628e-07,
-      "private_funding_to_gdp": 3.0534108762715027e-07
+      "gdp": 428677977854.826,
+      "funding_to_gdp": 8.63513255456663e-07,
+      "private_funding_to_gdp": 3.053410876271503e-07
     },
     {
       "country": "Slovenia",
@@ -408,9 +408,9 @@
       "total_funding": 303016.0,
       "public_funding": 303016.0,
       "private_funding": 0.0,
-      "gdp": null,
-      "funding_to_gdp": null,
-      "private_funding_to_gdp": null
+      "gdp": 79648204979.3618,
+      "funding_to_gdp": 3.8044297429994384e-06,
+      "private_funding_to_gdp": 0.0
     },
     {
       "country": "Uruguay",
@@ -419,8 +419,8 @@
       "total_funding": 200000.0,
       "public_funding": 200000.0,
       "private_funding": 0.0,
-      "gdp": 85347696277.68594,
-      "funding_to_gdp": 2.3433555763389687e-06,
+      "gdp": 85347696277.6859,
+      "funding_to_gdp": 2.34335557633897e-06,
       "private_funding_to_gdp": 0.0
     },
     {
@@ -430,8 +430,8 @@
       "total_funding": 143018.27,
       "public_funding": 143018.27,
       "private_funding": 0.0,
-      "gdp": 2279920092492.1333,
-      "funding_to_gdp": 6.272950796432066e-08,
+      "gdp": 2279920092492.13,
+      "funding_to_gdp": 6.272950796432076e-08,
       "private_funding_to_gdp": 0.0
     },
     {
@@ -441,9 +441,9 @@
       "total_funding": 0.0,
       "public_funding": 0.0,
       "private_funding": 0.0,
-      "gdp": null,
-      "funding_to_gdp": null,
-      "private_funding_to_gdp": null
+      "gdp": 1276942933333.33,
+      "funding_to_gdp": 0.0,
+      "private_funding_to_gdp": 0.0
     },
     {
       "country": "Pakistan",
@@ -452,9 +452,9 @@
       "total_funding": 0.0,
       "public_funding": 0.0,
       "private_funding": 0.0,
-      "gdp": null,
-      "funding_to_gdp": null,
-      "private_funding_to_gdp": null
+      "gdp": 407307214476.222,
+      "funding_to_gdp": 0.0,
+      "private_funding_to_gdp": 0.0
     },
     {
       "country": "Argentina",
@@ -463,9 +463,9 @@
       "total_funding": 0.0,
       "public_funding": 0.0,
       "private_funding": 0.0,
-      "gdp": null,
-      "funding_to_gdp": null,
-      "private_funding_to_gdp": null
+      "gdp": 683097891618.597,
+      "funding_to_gdp": 0.0,
+      "private_funding_to_gdp": 0.0
     },
     {
       "country": "Tunisia",
@@ -474,9 +474,9 @@
       "total_funding": 0.0,
       "public_funding": 0.0,
       "private_funding": 0.0,
-      "gdp": null,
-      "funding_to_gdp": null,
-      "private_funding_to_gdp": null
+      "gdp": 57502836548.0878,
+      "funding_to_gdp": 0.0,
+      "private_funding_to_gdp": 0.0
     },
     {
       "country": "Malaysia",
@@ -485,7 +485,7 @@
       "total_funding": 0.0,
       "public_funding": 0.0,
       "private_funding": 0.0,
-      "gdp": 472193128644.5973,
+      "gdp": 472193128644.597,
       "funding_to_gdp": 0.0,
       "private_funding_to_gdp": 0.0
     },
@@ -496,9 +496,9 @@
       "total_funding": 0.0,
       "public_funding": 0.0,
       "private_funding": 0.0,
-      "gdp": null,
-      "funding_to_gdp": null,
-      "private_funding_to_gdp": null
+      "gdp": 41225787247.3309,
+      "funding_to_gdp": 0.0,
+      "private_funding_to_gdp": 0.0
     }
   ]
 }

@@ -1,11 +1,12 @@
 {
   "data_vintage": "2026-Q3",
-  "built_at_utc": "2026-10-25T16:47:59+00:00",
+  "built_at_utc": "2026-10-25T20:57:44+00:00",
   "coverage": "industry (curated) + academic (OpenAlex, primary_topic.id, 2018-2026, <=5 institutions/paper); company detail: 888 companies from the 2026-Q3 startup tracker projection",
   "sources": {
     "institutions_master.csv": "e0b622b93fe31ff00ec1e4227f6215e49199deb2f3d9639ca72a3750d22c14af",
     "name_aliases.csv": "922eddf9b12afe870162e89f2239bc79084d0c5c224f4cec3aee2a2d7667bd44",
     "collaborations_industry.csv": "dc6159f5dc5b2bbe9f87a069f9281207913a5442d84cf9ff82546b4061d400c0",
+    "gdp_by_country.csv": "286a9925aef17cfbe273916822ee98807487578ad8de2561310658161a0ba27f",
     "dyad_years.csv (private)": "723a4d00fdbcc992f52b136f1835346e1622a75a69746e79ea3c5f4456161532",
     "companies_master.csv": "1ffc9f8a2ceb80d2d6aa86c9ad023400f3c611a7bb59abcf09608c030ab65c24"
   },
@@ -27,6 +28,8 @@
     "collab_by_country": 138,
     "collab_country_network": "object",
     "collab_country_specialisation": "object",
+    "collab_country_partners": "object",
+    "collab_country_archetype": "object",
     "collab_companies": 888,
     "collab_companies_by_pillars": 5,
     "collab_companies_by_stack_layer": 6,

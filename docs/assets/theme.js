@@ -89,12 +89,12 @@ window.QT = (function () {
     // from `sequential` on purpose: this axis is a RANKING with two meaningful ends,
     // so it reads as a diverging ramp rather than "more of a good thing".
     clusterRank: ["#09435E", "#007A83", "#66AFB5", "#FFCD99", "#FF8200"],
-    // collaboration archetype (country 2x2: connectedness x commercial intensity) - MOCK
+    // collaboration archetype (country 2x2, Occasional Paper 08/2025 Figure 3: connectedness x industry-involving collaborations to GDP)
     archetype: {
-      "Global Hub":              "#007A83",
-      "Research Networker":      "#66AFB5",
-      "Domestic Commercialiser": "#FF8200",
-      "Emerging Ecosystem":      "#231432",
+      "Global Innovation Hubs":      "#007A83",
+      "Research Networkers":         "#66AFB5",
+      "Regional Commercial Leaders": "#FF8200",
+      "Emerging Ecosystems":         "#231432",
     },
     // institution domain (research / government / industry) - MOCK
     domain: { research: "#007A83", government: "#FF8200", industry: "#231432" },
