@@ -91,13 +91,15 @@
     </div>
 
     <div class="panel span2">
-      <div class="ttl" id="ttl-rca">Figure 7: National specialisation <span id="badge-rca"></span></div>
-      <p class="why"><b>Revealed comparative advantage (RCA)</b> compares a country's share of
-      quantum activity in one technology domain with that domain's share of quantum activity
-      worldwide. An RCA above 1.0 means the country is more specialised in that domain than the
-      global average; below 1.0, less. It measures relative emphasis, not size: a small ecosystem
-      can score highly in a domain it concentrates on.</p>
-      <svg id="chart-rca" role="img" aria-label="National specialisation (RCA) by domain"></svg>
+      <div class="ttl" id="ttl-rca">Figure 7: National specialisation</div>
+      <p class="why" id="why-rca"></p>
+      <div class="controls">
+        <div class="ctl"><label>View</label>
+          <div class="seg" id="seg-view-specialisation"><button data-w="sector" class="on">Collaborations&nbsp;by&nbsp;industry&nbsp;sector</button><button data-w="layer">Companies&nbsp;by&nbsp;stack&nbsp;layer</button></div>
+        </div>
+      </div>
+      <svg id="chart-rca" role="img" aria-label="National specialisation by industry sector or stack layer"></svg>
+      <p class="hint" id="note-rca"></p>
     </div>
 
   </div>

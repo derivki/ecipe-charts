@@ -16,28 +16,6 @@
         "government": 0.185,
         "industry": 0.451
       },
-      "rca": [
-        {
-          "domain": "Computing & hardware",
-          "rca": 2.22
-        },
-        {
-          "domain": "Enabling components",
-          "rca": 2.1
-        },
-        {
-          "domain": "Communication & networking",
-          "rca": 1.64
-        },
-        {
-          "domain": "Sensing & metrology",
-          "rca": 1.55
-        },
-        {
-          "domain": "Software & algorithms",
-          "rca": 0.81
-        }
-      ],
       "top_partners": [
         {
           "country": "Canada",
@@ -64,28 +42,6 @@
         "government": 0.169,
         "industry": 0.402
       },
-      "rca": [
-        {
-          "domain": "Enabling components",
-          "rca": 2.31
-        },
-        {
-          "domain": "Software & algorithms",
-          "rca": 1.94
-        },
-        {
-          "domain": "Sensing & metrology",
-          "rca": 1.84
-        },
-        {
-          "domain": "Communication & networking",
-          "rca": 0.69
-        },
-        {
-          "domain": "Computing & hardware",
-          "rca": 0.56
-        }
-      ],
       "top_partners": [
         {
           "country": "US",
@@ -112,28 +68,6 @@
         "government": 0.155,
         "industry": 0.44
       },
-      "rca": [
-        {
-          "domain": "Software & algorithms",
-          "rca": 2.37
-        },
-        {
-          "domain": "Sensing & metrology",
-          "rca": 2.27
-        },
-        {
-          "domain": "Enabling components",
-          "rca": 1.8
-        },
-        {
-          "domain": "Communication & networking",
-          "rca": 1.62
-        },
-        {
-          "domain": "Computing & hardware",
-          "rca": 0.64
-        }
-      ],
       "top_partners": [
         {
           "country": "US",
@@ -160,28 +94,6 @@
         "government": 0.211,
         "industry": 0.418
       },
-      "rca": [
-        {
-          "domain": "Software & algorithms",
-          "rca": 2.33
-        },
-        {
-          "domain": "Communication & networking",
-          "rca": 1.34
-        },
-        {
-          "domain": "Sensing & metrology",
-          "rca": 1.32
-        },
-        {
-          "domain": "Computing & hardware",
-          "rca": 0.76
-        },
-        {
-          "domain": "Enabling components",
-          "rca": 0.48
-        }
-      ],
       "top_partners": [
         {
           "country": "US",
@@ -208,28 +120,6 @@
         "government": 0.081,
         "industry": 0.652
       },
-      "rca": [
-        {
-          "domain": "Computing & hardware",
-          "rca": 2.04
-        },
-        {
-          "domain": "Communication & networking",
-          "rca": 1.58
-        },
-        {
-          "domain": "Sensing & metrology",
-          "rca": 1.12
-        },
-        {
-          "domain": "Enabling components",
-          "rca": 1.08
-        },
-        {
-          "domain": "Software & algorithms",
-          "rca": 0.94
-        }
-      ],
       "top_partners": [
         {
           "country": "US",
@@ -256,28 +146,6 @@
         "government": 0.187,
         "industry": 0.406
       },
-      "rca": [
-        {
-          "domain": "Enabling components",
-          "rca": 1.96
-        },
-        {
-          "domain": "Communication & networking",
-          "rca": 1.46
-        },
-        {
-          "domain": "Software & algorithms",
-          "rca": 1.44
-        },
-        {
-          "domain": "Computing & hardware",
-          "rca": 1.26
-        },
-        {
-          "domain": "Sensing & metrology",
-          "rca": 0.6
-        }
-      ],
       "top_partners": [
         {
           "country": "US",
@@ -304,28 +172,6 @@
         "government": 0.145,
         "industry": 0.381
       },
-      "rca": [
-        {
-          "domain": "Sensing & metrology",
-          "rca": 2.06
-        },
-        {
-          "domain": "Enabling components",
-          "rca": 1.87
-        },
-        {
-          "domain": "Computing & hardware",
-          "rca": 0.74
-        },
-        {
-          "domain": "Software & algorithms",
-          "rca": 0.68
-        },
-        {
-          "domain": "Communication & networking",
-          "rca": 0.67
-        }
-      ],
       "top_partners": [
         {
           "country": "US",
@@ -352,28 +198,6 @@
         "government": 0.228,
         "industry": 0.476
       },
-      "rca": [
-        {
-          "domain": "Enabling components",
-          "rca": 1.12
-        },
-        {
-          "domain": "Communication & networking",
-          "rca": 0.82
-        },
-        {
-          "domain": "Software & algorithms",
-          "rca": 0.81
-        },
-        {
-          "domain": "Sensing & metrology",
-          "rca": 0.5
-        },
-        {
-          "domain": "Computing & hardware",
-          "rca": 0.43
-        }
-      ],
       "top_partners": [
         {
           "country": "US",
@@ -400,28 +224,6 @@
         "government": 0.235,
         "industry": 0.379
       },
-      "rca": [
-        {
-          "domain": "Enabling components",
-          "rca": 2.02
-        },
-        {
-          "domain": "Communication & networking",
-          "rca": 1.99
-        },
-        {
-          "domain": "Software & algorithms",
-          "rca": 1.44
-        },
-        {
-          "domain": "Sensing & metrology",
-          "rca": 1.39
-        },
-        {
-          "domain": "Computing & hardware",
-          "rca": 1.23
-        }
-      ],
       "top_partners": [
         {
           "country": "US",
@@ -448,28 +250,6 @@
         "government": 0.216,
         "industry": 0.387
       },
-      "rca": [
-        {
-          "domain": "Enabling components",
-          "rca": 2.37
-        },
-        {
-          "domain": "Communication & networking",
-          "rca": 2.18
-        },
-        {
-          "domain": "Sensing & metrology",
-          "rca": 1.38
-        },
-        {
-          "domain": "Software & algorithms",
-          "rca": 1.36
-        },
-        {
-          "domain": "Computing & hardware",
-          "rca": 0.75
-        }
-      ],
       "top_partners": [
         {
           "country": "US",
@@ -496,28 +276,6 @@
         "government": 0.159,
         "industry": 0.419
       },
-      "rca": [
-        {
-          "domain": "Computing & hardware",
-          "rca": 2.29
-        },
-        {
-          "domain": "Sensing & metrology",
-          "rca": 2.1
-        },
-        {
-          "domain": "Software & algorithms",
-          "rca": 2.05
-        },
-        {
-          "domain": "Enabling components",
-          "rca": 2.04
-        },
-        {
-          "domain": "Communication & networking",
-          "rca": 0.42
-        }
-      ],
       "top_partners": [
         {
           "country": "US",
@@ -544,28 +302,6 @@
         "government": 0.186,
         "industry": 0.332
       },
-      "rca": [
-        {
-          "domain": "Software & algorithms",
-          "rca": 1.83
-        },
-        {
-          "domain": "Communication & networking",
-          "rca": 1.51
-        },
-        {
-          "domain": "Computing & hardware",
-          "rca": 1.09
-        },
-        {
-          "domain": "Enabling components",
-          "rca": 0.59
-        },
-        {
-          "domain": "Sensing & metrology",
-          "rca": 0.42
-        }
-      ],
       "top_partners": [
         {
           "country": "US",
@@ -592,28 +328,6 @@
         "government": 0.132,
         "industry": 0.357
       },
-      "rca": [
-        {
-          "domain": "Computing & hardware",
-          "rca": 2.29
-        },
-        {
-          "domain": "Software & algorithms",
-          "rca": 2.28
-        },
-        {
-          "domain": "Communication & networking",
-          "rca": 2.02
-        },
-        {
-          "domain": "Enabling components",
-          "rca": 1.08
-        },
-        {
-          "domain": "Sensing & metrology",
-          "rca": 0.88
-        }
-      ],
       "top_partners": [
         {
           "country": "US",
@@ -640,28 +354,6 @@
         "government": 0.189,
         "industry": 0.352
       },
-      "rca": [
-        {
-          "domain": "Sensing & metrology",
-          "rca": 2.33
-        },
-        {
-          "domain": "Computing & hardware",
-          "rca": 2.13
-        },
-        {
-          "domain": "Software & algorithms",
-          "rca": 2.06
-        },
-        {
-          "domain": "Communication & networking",
-          "rca": 1.72
-        },
-        {
-          "domain": "Enabling components",
-          "rca": 1.32
-        }
-      ],
       "top_partners": [
         {
           "country": "US",
@@ -688,28 +380,6 @@
         "government": 0.261,
         "industry": 0.407
       },
-      "rca": [
-        {
-          "domain": "Communication & networking",
-          "rca": 2.07
-        },
-        {
-          "domain": "Sensing & metrology",
-          "rca": 1.7
-        },
-        {
-          "domain": "Software & algorithms",
-          "rca": 1.25
-        },
-        {
-          "domain": "Enabling components",
-          "rca": 1.18
-        },
-        {
-          "domain": "Computing & hardware",
-          "rca": 0.4
-        }
-      ],
       "top_partners": [
         {
           "country": "US",
@@ -736,28 +406,6 @@
         "government": 0.288,
         "industry": 0.34
       },
-      "rca": [
-        {
-          "domain": "Sensing & metrology",
-          "rca": 1.92
-        },
-        {
-          "domain": "Communication & networking",
-          "rca": 1.7
-        },
-        {
-          "domain": "Enabling components",
-          "rca": 1.64
-        },
-        {
-          "domain": "Computing & hardware",
-          "rca": 1.27
-        },
-        {
-          "domain": "Software & algorithms",
-          "rca": 0.98
-        }
-      ],
       "top_partners": [
         {
           "country": "US",
@@ -784,28 +432,6 @@
         "government": 0.283,
         "industry": 0.322
       },
-      "rca": [
-        {
-          "domain": "Computing & hardware",
-          "rca": 1.44
-        },
-        {
-          "domain": "Software & algorithms",
-          "rca": 1.26
-        },
-        {
-          "domain": "Sensing & metrology",
-          "rca": 1.24
-        },
-        {
-          "domain": "Communication & networking",
-          "rca": 1.21
-        },
-        {
-          "domain": "Enabling components",
-          "rca": 0.53
-        }
-      ],
       "top_partners": [
         {
           "country": "US",
@@ -832,28 +458,6 @@
         "government": 0.249,
         "industry": 0.355
       },
-      "rca": [
-        {
-          "domain": "Enabling components",
-          "rca": 2.38
-        },
-        {
-          "domain": "Software & algorithms",
-          "rca": 1.97
-        },
-        {
-          "domain": "Sensing & metrology",
-          "rca": 1.33
-        },
-        {
-          "domain": "Communication & networking",
-          "rca": 1.32
-        },
-        {
-          "domain": "Computing & hardware",
-          "rca": 1.22
-        }
-      ],
       "top_partners": [
         {
           "country": "US",
@@ -880,28 +484,6 @@
         "government": 0.185,
         "industry": 0.407
       },
-      "rca": [
-        {
-          "domain": "Sensing & metrology",
-          "rca": 2.26
-        },
-        {
-          "domain": "Software & algorithms",
-          "rca": 2.18
-        },
-        {
-          "domain": "Computing & hardware",
-          "rca": 2.02
-        },
-        {
-          "domain": "Communication & networking",
-          "rca": 1.97
-        },
-        {
-          "domain": "Enabling components",
-          "rca": 1.37
-        }
-      ],
       "top_partners": [
         {
           "country": "US",
@@ -928,28 +510,6 @@
         "government": 0.164,
         "industry": 0.324
       },
-      "rca": [
-        {
-          "domain": "Sensing & metrology",
-          "rca": 1.94
-        },
-        {
-          "domain": "Computing & hardware",
-          "rca": 1.74
-        },
-        {
-          "domain": "Enabling components",
-          "rca": 1.38
-        },
-        {
-          "domain": "Software & algorithms",
-          "rca": 1.2
-        },
-        {
-          "domain": "Communication & networking",
-          "rca": 0.84
-        }
-      ],
       "top_partners": [
         {
           "country": "US",
@@ -976,28 +536,6 @@
         "government": 0.199,
         "industry": 0.375
       },
-      "rca": [
-        {
-          "domain": "Sensing & metrology",
-          "rca": 2.08
-        },
-        {
-          "domain": "Enabling components",
-          "rca": 1.86
-        },
-        {
-          "domain": "Computing & hardware",
-          "rca": 1.78
-        },
-        {
-          "domain": "Communication & networking",
-          "rca": 1.55
-        },
-        {
-          "domain": "Software & algorithms",
-          "rca": 1.06
-        }
-      ],
       "top_partners": [
         {
           "country": "US",
@@ -1024,28 +562,6 @@
         "government": 0.207,
         "industry": 0.389
       },
-      "rca": [
-        {
-          "domain": "Enabling components",
-          "rca": 2.24
-        },
-        {
-          "domain": "Software & algorithms",
-          "rca": 2.17
-        },
-        {
-          "domain": "Sensing & metrology",
-          "rca": 1.84
-        },
-        {
-          "domain": "Communication & networking",
-          "rca": 1.72
-        },
-        {
-          "domain": "Computing & hardware",
-          "rca": 1.36
-        }
-      ],
       "top_partners": [
         {
           "country": "US",
@@ -1072,28 +588,6 @@
         "government": 0.277,
         "industry": 0.349
       },
-      "rca": [
-        {
-          "domain": "Sensing & metrology",
-          "rca": 2.17
-        },
-        {
-          "domain": "Computing & hardware",
-          "rca": 1.41
-        },
-        {
-          "domain": "Software & algorithms",
-          "rca": 1.4
-        },
-        {
-          "domain": "Communication & networking",
-          "rca": 1.26
-        },
-        {
-          "domain": "Enabling components",
-          "rca": 0.57
-        }
-      ],
       "top_partners": [
         {
           "country": "US",
@@ -1120,28 +614,6 @@
         "government": 0.173,
         "industry": 0.302
       },
-      "rca": [
-        {
-          "domain": "Enabling components",
-          "rca": 2.4
-        },
-        {
-          "domain": "Computing & hardware",
-          "rca": 2.39
-        },
-        {
-          "domain": "Software & algorithms",
-          "rca": 2.22
-        },
-        {
-          "domain": "Communication & networking",
-          "rca": 1.23
-        },
-        {
-          "domain": "Sensing & metrology",
-          "rca": 0.83
-        }
-      ],
       "top_partners": [
         {
           "country": "US",
@@ -1168,28 +640,6 @@
         "government": 0.27,
         "industry": 0.395
       },
-      "rca": [
-        {
-          "domain": "Enabling components",
-          "rca": 1.58
-        },
-        {
-          "domain": "Sensing & metrology",
-          "rca": 1.48
-        },
-        {
-          "domain": "Computing & hardware",
-          "rca": 1.38
-        },
-        {
-          "domain": "Software & algorithms",
-          "rca": 1.27
-        },
-        {
-          "domain": "Communication & networking",
-          "rca": 0.91
-        }
-      ],
       "top_partners": [
         {
           "country": "US",
@@ -1216,28 +666,6 @@
         "government": 0.18,
         "industry": 0.376
       },
-      "rca": [
-        {
-          "domain": "Software & algorithms",
-          "rca": 2.33
-        },
-        {
-          "domain": "Computing & hardware",
-          "rca": 2.09
-        },
-        {
-          "domain": "Communication & networking",
-          "rca": 1.99
-        },
-        {
-          "domain": "Sensing & metrology",
-          "rca": 1.51
-        },
-        {
-          "domain": "Enabling components",
-          "rca": 0.5
-        }
-      ],
       "top_partners": [
         {
           "country": "US",
@@ -1264,28 +692,6 @@
         "government": 0.258,
         "industry": 0.366
       },
-      "rca": [
-        {
-          "domain": "Software & algorithms",
-          "rca": 2.28
-        },
-        {
-          "domain": "Communication & networking",
-          "rca": 1.7
-        },
-        {
-          "domain": "Computing & hardware",
-          "rca": 1.59
-        },
-        {
-          "domain": "Sensing & metrology",
-          "rca": 1.1
-        },
-        {
-          "domain": "Enabling components",
-          "rca": 0.62
-        }
-      ],
       "top_partners": [
         {
           "country": "US",
@@ -1312,28 +718,6 @@
         "government": 0.139,
         "industry": 0.311
       },
-      "rca": [
-        {
-          "domain": "Enabling components",
-          "rca": 2.4
-        },
-        {
-          "domain": "Computing & hardware",
-          "rca": 1.19
-        },
-        {
-          "domain": "Sensing & metrology",
-          "rca": 0.94
-        },
-        {
-          "domain": "Software & algorithms",
-          "rca": 0.67
-        },
-        {
-          "domain": "Communication & networking",
-          "rca": 0.46
-        }
-      ],
       "top_partners": [
         {
           "country": "US",
@@ -1360,28 +744,6 @@
         "government": 0.207,
         "industry": 0.331
       },
-      "rca": [
-        {
-          "domain": "Enabling components",
-          "rca": 1.5
-        },
-        {
-          "domain": "Sensing & metrology",
-          "rca": 1.34
-        },
-        {
-          "domain": "Communication & networking",
-          "rca": 0.87
-        },
-        {
-          "domain": "Computing & hardware",
-          "rca": 0.67
-        },
-        {
-          "domain": "Software & algorithms",
-          "rca": 0.45
-        }
-      ],
       "top_partners": [
         {
           "country": "US",
@@ -1408,28 +770,6 @@
         "government": 0.227,
         "industry": 0.398
       },
-      "rca": [
-        {
-          "domain": "Enabling components",
-          "rca": 2.12
-        },
-        {
-          "domain": "Computing & hardware",
-          "rca": 1.07
-        },
-        {
-          "domain": "Software & algorithms",
-          "rca": 0.83
-        },
-        {
-          "domain": "Sensing & metrology",
-          "rca": 0.51
-        },
-        {
-          "domain": "Communication & networking",
-          "rca": 0.48
-        }
-      ],
       "top_partners": [
         {
           "country": "US",
@@ -1456,28 +796,6 @@
         "government": 0.218,
         "industry": 0.348
       },
-      "rca": [
-        {
-          "domain": "Communication & networking",
-          "rca": 2.25
-        },
-        {
-          "domain": "Sensing & metrology",
-          "rca": 1.5
-        },
-        {
-          "domain": "Software & algorithms",
-          "rca": 1.4
-        },
-        {
-          "domain": "Computing & hardware",
-          "rca": 1.05
-        },
-        {
-          "domain": "Enabling components",
-          "rca": 0.73
-        }
-      ],
       "top_partners": [
         {
           "country": "US",
@@ -1504,28 +822,6 @@
         "government": 0.156,
         "industry": 0.371
       },
-      "rca": [
-        {
-          "domain": "Software & algorithms",
-          "rca": 1.66
-        },
-        {
-          "domain": "Enabling components",
-          "rca": 1.31
-        },
-        {
-          "domain": "Communication & networking",
-          "rca": 1.18
-        },
-        {
-          "domain": "Computing & hardware",
-          "rca": 1.02
-        },
-        {
-          "domain": "Sensing & metrology",
-          "rca": 0.42
-        }
-      ],
       "top_partners": [
         {
           "country": "US",
@@ -1552,28 +848,6 @@
         "government": 0.129,
         "industry": 0.382
       },
-      "rca": [
-        {
-          "domain": "Software & algorithms",
-          "rca": 1.99
-        },
-        {
-          "domain": "Enabling components",
-          "rca": 1.98
-        },
-        {
-          "domain": "Sensing & metrology",
-          "rca": 1.86
-        },
-        {
-          "domain": "Communication & networking",
-          "rca": 1.32
-        },
-        {
-          "domain": "Computing & hardware",
-          "rca": 0.56
-        }
-      ],
       "top_partners": [
         {
           "country": "UK",
@@ -1600,28 +874,6 @@
         "government": 0.269,
         "industry": 0.331
       },
-      "rca": [
-        {
-          "domain": "Communication & networking",
-          "rca": 2.35
-        },
-        {
-          "domain": "Software & algorithms",
-          "rca": 2.31
-        },
-        {
-          "domain": "Computing & hardware",
-          "rca": 2.1
-        },
-        {
-          "domain": "Enabling components",
-          "rca": 1.36
-        },
-        {
-          "domain": "Sensing & metrology",
-          "rca": 0.68
-        }
-      ],
       "top_partners": [
         {
           "country": "US",
@@ -1648,28 +900,6 @@
         "government": 0.234,
         "industry": 0.308
       },
-      "rca": [
-        {
-          "domain": "Enabling components",
-          "rca": 2.2
-        },
-        {
-          "domain": "Software & algorithms",
-          "rca": 2.08
-        },
-        {
-          "domain": "Sensing & metrology",
-          "rca": 1.76
-        },
-        {
-          "domain": "Communication & networking",
-          "rca": 1.67
-        },
-        {
-          "domain": "Computing & hardware",
-          "rca": 0.73
-        }
-      ],
       "top_partners": [
         {
           "country": "US",
@@ -1696,28 +926,6 @@
         "government": 0.175,
         "industry": 0.352
       },
-      "rca": [
-        {
-          "domain": "Sensing & metrology",
-          "rca": 2.33
-        },
-        {
-          "domain": "Computing & hardware",
-          "rca": 1.52
-        },
-        {
-          "domain": "Communication & networking",
-          "rca": 1.25
-        },
-        {
-          "domain": "Software & algorithms",
-          "rca": 1.14
-        },
-        {
-          "domain": "Enabling components",
-          "rca": 0.9
-        }
-      ],
       "top_partners": [
         {
           "country": "US",
@@ -1744,28 +952,6 @@
         "government": 0.293,
         "industry": 0.331
       },
-      "rca": [
-        {
-          "domain": "Communication & networking",
-          "rca": 2.28
-        },
-        {
-          "domain": "Sensing & metrology",
-          "rca": 2.24
-        },
-        {
-          "domain": "Software & algorithms",
-          "rca": 2.22
-        },
-        {
-          "domain": "Computing & hardware",
-          "rca": 2.08
-        },
-        {
-          "domain": "Enabling components",
-          "rca": 1.76
-        }
-      ],
       "top_partners": [
         {
           "country": "US",
@@ -1792,28 +978,6 @@
         "government": 0.266,
         "industry": 0.379
       },
-      "rca": [
-        {
-          "domain": "Enabling components",
-          "rca": 2.05
-        },
-        {
-          "domain": "Sensing & metrology",
-          "rca": 1.89
-        },
-        {
-          "domain": "Communication & networking",
-          "rca": 0.89
-        },
-        {
-          "domain": "Computing & hardware",
-          "rca": 0.48
-        },
-        {
-          "domain": "Software & algorithms",
-          "rca": 0.48
-        }
-      ],
       "top_partners": [
         {
           "country": "UK",

@@ -104,7 +104,7 @@
       {
         "a": "France",
         "b": "US",
-        "collaborations": 661,
+        "collaborations": 665,
         "industry": 77
       },
       {
@@ -506,7 +506,7 @@
       {
         "a": "France",
         "b": "India",
-        "collaborations": 133,
+        "collaborations": 134,
         "industry": 7
       },
       {
@@ -894,12 +894,6 @@
         "industry": 0
       },
       {
-        "a": "South Korea",
-        "b": "UK",
-        "collaborations": 76,
-        "industry": 5
-      },
-      {
         "a": "Germany",
         "b": "Hungary",
         "collaborations": 75,
@@ -910,6 +904,12 @@
         "b": "Netherlands",
         "collaborations": 75,
         "industry": 9
+      },
+      {
+        "a": "South Korea",
+        "b": "UK",
+        "collaborations": 75,
+        "industry": 5
       },
       {
         "a": "India",
@@ -1513,6 +1513,12 @@
       },
       {
         "a": "Finland",
+        "b": "France",
+        "collaborations": 37,
+        "industry": 8
+      },
+      {
+        "a": "Finland",
         "b": "India",
         "collaborations": 37,
         "industry": 8
@@ -1630,12 +1636,6 @@
         "b": "Israel",
         "collaborations": 33,
         "industry": 3
-      },
-      {
-        "a": "Finland",
-        "b": "France",
-        "collaborations": 33,
-        "industry": 8
       },
       {
         "a": "Finland",

@@ -1,12 +1,13 @@
 /* Country dashboard (Layer 1) – KPIs + panels for a selected country.
-   Real data: ranked bars (funding_by_country.json / funding_by_cluster.json).
-   Mock data: institutions, domain split, archetype, RCA, network partners
+   Real data: ranked bars (funding_by_country.json / funding_by_cluster.json) and the
+   national specialisation (collab_country_specialisation.json, Figure 7).
+   Mock data: institutions, domain split, archetype, network partners
    (docs/data/mock_country_profile.json – see meta.source_note).
    The world map (country choropleth + cluster bubbles) leads the Overview tab. */
 QT.boot(async function () {
   QT.nav("#nav", "countries");
 
-  const [country, profile, policies, gov, collabCountry, countryInstrument, collabRankings] = await Promise.all([
+  const [country, profile, policies, gov, collabCountry, countryInstrument, collabRankings, specialisation] = await Promise.all([
     QT.loadData("funding_by_country"),
     QT.loadData("mock_country_profile"),
     QT.loadData("mock_country_policies"),
@@ -14,6 +15,7 @@ QT.boot(async function () {
     QT.loadData("collab_by_country"),
     QT.loadData("funding_by_country_instrument"),
     QT.loadData("collab_rankings"),
+    QT.loadData("collab_country_specialisation"),
     QT.loadFlags(),
   ]);
   const INSTRUMENT_KEYS = ["VC / private equity", "Debt", "Grant", "Public equity"];
@@ -36,7 +38,7 @@ QT.boot(async function () {
   const govByCountry = QT.govByCountry(gov.data);
   const govProvisional = !!gov.meta.provisional;
   QT.vintage("#vintage", country.meta);
-  ["badge-archetype2", "badge-rca", "badge-network"].forEach(id => {
+  ["badge-archetype2", "badge-network"].forEach(id => {
     const el = document.getElementById(id);
     if (el) el.innerHTML = QT.mockBadge();
   });
@@ -102,6 +104,7 @@ QT.boot(async function () {
     source: "company_funding",
     measure: "abs",
     instCategory: "Industry",
+    specView: "sector",
   };
   sel.property("value", state.country);
 
@@ -447,31 +450,93 @@ QT.boot(async function () {
     c.g.append("text").attr("x", -c.ih / 2).attr("y", -28).attr("transform", "rotate(-90)").attr("text-anchor", "middle").attr("font-size", 10.5).attr("fill", QT.tokens.muted).text("Commercial intensity →");
   }
 
-  // ---------- Panel 4: RCA horizontal bars (MOCK) ----------
-  function rcaPanel() {
-    const p = profileByName.get(state.country);
-    d3.select("#ttl-rca").html(`Figure 7: National specialisation (${state.country}) <span id="badge-rca">${QT.mockBadge()}</span>`);
-    if (!p) return emptyPanel("#chart-rca", noProfileNote());
-    const rows = [...p.rca].sort(QT.rank("rca", "domain"));
+  // ---------- Figure 7: national specialisation (REAL) ----------
+  /* Two views of the same question, "what is this country specialised in?" (AP-49):
+       sector – the paper's revealed comparative advantage (RCA), computed on
+                collaborations with an industry partner abroad and cut by that partner's
+                ICB3 sector (Occasional Paper 08/2025);
+       layer  – a specialisation index on the NUMBER OF COMPANIES per stack layer. Not an
+                RCA and not funding: a funding-based index would be set by a handful of
+                large rounds, and a company count is the closer analogue of a patent count.
+     Both come ready-made from collab_country_specialisation.json, already ordered, so
+     nothing here recomputes a statistic. */
+  const SPEC = specialisation.data;
+  const SPEC_TOP = 10;      // bars shown; the rest are summarised in the footnote
+  const SPEC_THIN = 3;      // a bar resting on fewer than this many items is drawn lighter
+  const SPEC_VIEWS = {
+    sector: {
+      view: SPEC.sector, floorKey: "min_observations", total: "observations",
+      name: d => d.sector, value: d => d.rca, n: d => d.collaborations,
+      measure: "RCA", unit: "collaborations", group: d => d.short,
+      what: "sector-tagged collaborations with an industry partner abroad",
+    },
+    layer: {
+      view: SPEC.company_layer, floorKey: "min_companies", total: "companies",
+      name: d => d.layer, value: d => d.index, n: d => d.companies,
+      measure: "Specialisation index", unit: "companies", group: null,
+      what: "tracked companies with a stack layer",
+    },
+  };
+  function specWhy(kind) {
+    if (kind === "sector") {
+      const o = SPEC.sector.observations;
+      return `<b>Revealed comparative advantage (RCA)</b> compares the share of a country's collaborations ` +
+        `with industry partners abroad that fall in one industry sector with that sector's share worldwide. ` +
+        `Each collaboration is assigned to the sector of its industry partner. An RCA above 1.0 means the ` +
+        `country is more active with that sector than the global average; below 1.0, less. It measures ` +
+        `relative emphasis, not size, and a small ecosystem can score highly on a handful of collaborations. ` +
+        `A sector is recorded for ${QT.fmt.pct0(o.with_sector / o.industry_side)} of the industry-side ` +
+        `collaborations, and the rest are left out. Countries with fewer than ` +
+        `${SPEC.sector.min_observations} sector-tagged collaborations are not scored.`;
+    }
+    return `The <b>specialisation index</b> compares the share of a country's companies that sit in one ` +
+      `layer of the quantum stack with that layer's share of all tracked companies. Above 1.0 means the ` +
+      `country has proportionally more companies in that layer than the world. It counts companies, not ` +
+      `funding, which a few large rounds would dominate. Countries with fewer than ` +
+      `${SPEC.company_layer.min_companies} companies are not scored.`;
+  }
+  function specialisationPanel() {
+    const V = SPEC_VIEWS[state.specView];
+    d3.select("#ttl-rca").text(`Figure 7: National specialisation (${state.country})`);
+    d3.select("#why-rca").html(specWhy(state.specView));
+    d3.select("#note-rca").text("");
+    const entry = V.view.countries.find(c => c.country === state.country);
+    if (!entry) {
+      const n = V.view.below_floor[state.country];
+      return emptyPanel("#chart-rca", n
+        ? `${state.country} has only ${n} ${V.what}; at least ${V.view[V.floorKey]} are needed to score it.`
+        : `${state.country} has no ${V.what}.`);
+    }
+    const all = entry.rows, rows = all.slice(0, SPEC_TOP);
+    const W = 880, rowH = 28, H = 14 + rows.length * rowH + 30;
+    d3.select("#chart-rca").attr("viewBox", `0 0 ${W} ${H}`).selectAll("*").remove();
+    const c = QT.chart("#chart-rca", { W, H, margin: { t: 6, r: 56, b: 30, l: 250 } });
+    const x = d3.scaleLinear().domain([0, Math.max(2.5, d3.max(rows, V.value) * 1.1)]).range([0, c.iw]);
+    const y = d3.scaleBand().domain(rows.map(V.name)).range([0, c.ih]).padding(0.28);
 
-    const W = 880, H = 190;
-    d3.select("#chart-rca").selectAll("*").remove();
-    const c = QT.chart("#chart-rca", { W, H, margin: { t: 6, r: 40, b: 26, l: 190 } });
-    const x = d3.scaleLinear().domain([0, Math.max(2.5, d3.max(rows, d => d.rca) * 1.1)]).range([0, c.iw]);
-    const y = d3.scaleBand().domain(rows.map(d => d.domain)).range([0, c.ih]).padding(0.28);
-
-    c.gPlot.selectAll("rect").data(rows, d => d.domain).join("rect")
-      .attr("x", 0).attr("y", d => y(d.domain)).attr("height", y.bandwidth()).attr("rx", 2)
-      .attr("fill", d => d.rca >= 1 ? QT.tokens.accent : QT.tokens.line)
-      .attr("width", d => x(d.rca))
-      .on("mousemove", (e, d) => tt.show(`<div class="hd">${d.domain}</div><div class="row"><span class="k">RCA</span><span class="v">${d.rca.toFixed(2)}</span></div>`, e))
+    c.gPlot.selectAll("rect").data(rows, V.name).join("rect")
+      .attr("x", 0).attr("y", d => y(V.name(d))).attr("height", y.bandwidth()).attr("rx", 2)
+      .attr("fill", d => V.value(d) >= 1 ? QT.tokens.accent : QT.tokens.line)
+      .attr("fill-opacity", d => V.n(d) < SPEC_THIN ? 0.45 : 1)
+      .attr("width", d => x(V.value(d)))
+      .on("mousemove", (e, d) => tt.show(
+        `<div class="hd">${V.name(d)}</div>` +
+        (V.group && V.group(d) !== V.name(d) ? `<div class="row"><span class="k">Group</span><span class="v">${V.group(d)}</span></div>` : "") +
+        `<div class="row"><span class="k">${V.measure}</span><span class="v">${V.value(d).toFixed(2)}</span></div>` +
+        `<div class="row"><span class="k">${QT.fmt.int(V.n(d))} ${V.unit}</span><span class="v">${QT.fmt.pct0(V.n(d) / entry[V.total])}</span></div>`, e))
       .on("mouseleave", tt.hide);
-    c.gPlot.selectAll("text.bar-val").data(rows, d => d.domain).join("text")
+    c.gPlot.selectAll("text.bar-val").data(rows, V.name).join("text")
       .attr("class", "bar-val").attr("dy", "0.32em")
-      .attr("y", d => y(d.domain) + y.bandwidth() / 2).attr("x", d => x(d.rca) + 6).text(d => d.rca.toFixed(2));
+      .attr("y", d => y(V.name(d)) + y.bandwidth() / 2).attr("x", d => x(V.value(d)) + 6)
+      .text(d => `${V.value(d).toFixed(2)} · ${QT.fmt.int(V.n(d))}`);
     c.g.append("line").attr("x1", x(1)).attr("x2", x(1)).attr("y1", 0).attr("y2", c.ih).attr("stroke", QT.tokens.muted).attr("stroke-dasharray", "2 2");
     c.gx.call(d3.axisBottom(x).ticks(5).tickSizeOuter(0));
     c.gy.call(d3.axisLeft(y).tickSizeOuter(0)).call(g => g.select(".domain").remove());
+
+    d3.select("#note-rca").text(
+      `${state.country}: ${QT.fmt.int(entry[V.total])} ${V.what}. ` +
+      `Bars show the index, then the number of ${V.unit}; lighter bars rest on fewer than ${SPEC_THIN}. ` +
+      (all.length > rows.length ? `Top ${rows.length} of ${all.length} shown.` : `All ${all.length} shown.`));
   }
 
   // ---------- Collaboration: connectedness + top partners (MOCK) ----------
@@ -552,12 +617,13 @@ QT.boot(async function () {
     card.append("div").attr("class", "policy-desc").text(d => d.note);
   }
 
-  function render() { kpis(); rankedBars(); instrumentPie(); networkPanel(); institutionsPanel(); policiesPanel(); archetypePanel(); rcaPanel(); }
+  function render() { kpis(); rankedBars(); instrumentPie(); networkPanel(); institutionsPanel(); policiesPanel(); archetypePanel(); specialisationPanel(); }
 
   sel.on("change", function () { state.country = this.value; render(); });
   // Only Figure 1 depends on these, so they redraw that panel rather than the page.
   QT.segControl("#seg-source-country", "data-s", v => { state.source = v; rankedBars(); });
   QT.segControl("#seg-measure-country", "data-v", v => { state.measure = v; rankedBars(); });
   QT.segControl("#seg-category-institutions", "data-c", v => { state.instCategory = v; institutionsPanel(); });
+  QT.segControl("#seg-view-specialisation", "data-w", v => { state.specView = v === "layer" ? "layer" : "sector"; specialisationPanel(); });
   render();
 });
