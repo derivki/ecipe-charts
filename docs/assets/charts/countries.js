@@ -623,26 +623,37 @@ QT.boot(async function () {
     const net = partnersData.data.network_countries;
     QT.figTitle("#ttl-network", "Figure 3", `Global connectedness and top collaboration partners (${state.country})`);
     d3.select("#why-network").html(
-      `<b>Global connectedness</b> is the share of other countries that ${state.country} collaborates with, from 0 to 1. ` +
+      `<b>Global connectedness</b> is the share of other countries that ${state.country} collaborates with, from 0 to 1` +
+      (p ? ` (${QT.fmt.int(p.partners)} of ${QT.fmt.int(net - 1)}). ` : `. `) +
       `The bars show its three leading partners by number of collaborations.`);
     if (!p) return emptyPanel("#chart-network", `${state.country} has no recorded collaboration with an institution in another country.`);
     const partners = p.top_partners;
 
-    const rowH = 44, topPad = 66, botPad = 24, W = 880;
+    const rowH = 44, topPad = 80, botPad = 24, W = 880;
     const H = topPad + partners.length * rowH + botPad;
     d3.select("#chart-network").selectAll("*").remove();
-    const c = QT.chart("#chart-network", { W, H, margin: { t: topPad, r: 64, b: botPad, l: 130 } });
+    const L = 150, R = 96;   // R leaves room for the connectedness value to the right of the track
+    const c = QT.chart("#chart-network", { W, H, margin: { t: topPad, r: R, b: botPad, l: L } });
 
     // ---- connectedness header (lives in the top margin, above the partner bars) ----
-    const hdr = c.svg.append("g").attr("transform", `translate(130,16)`);
-    hdr.append("text").attr("y", 0).attr("font-size", 11).attr("fill", QT.tokens.muted)
-      .text(`Global connectedness: ${QT.fmt.int(p.partners)} of ${QT.fmt.int(net - 1)} other countries`);
-    hdr.append("rect").attr("x", 0).attr("y", 8).attr("width", c.iw).attr("height", 12).attr("rx", 6).attr("fill", QT.tokens.line);
-    hdr.append("rect").attr("x", 0).attr("y", 8).attr("width", c.iw * p.connectedness).attr("height", 12).attr("rx", 6).attr("fill", QT.tokens.accent);
-    hdr.append("text").attr("x", c.iw).attr("y", 18).attr("text-anchor", "end").attr("font-size", 13).attr("font-weight", 700)
-      .attr("fill", QT.tokens.ink).text(d3.format(".2f")(p.connectedness));
+    // As in the Figma: bold label in the label column, a track as thick as the partner bars, and the
+    // score large and teal outside the track on the right, so nothing sits on the bar itself.
+    const BAR = 26;
+    const hdr = c.svg.append("g").attr("transform", `translate(${L},14)`);
+    hdr.append("text").attr("x", -12).attr("y", BAR / 2).attr("dy", "0.32em").attr("text-anchor", "end")
+      .attr("font-size", 11).attr("font-weight", 700).attr("fill", QT.tokens.ink).text("Global connectedness:");
+    hdr.append("rect").attr("x", 0).attr("y", 0).attr("width", c.iw).attr("height", BAR).attr("rx", 3)
+      .attr("fill", QT.tokens.line).attr("fill-opacity", 0.6);
+    hdr.append("rect").attr("x", 0).attr("y", 0).attr("width", c.iw * p.connectedness).attr("height", BAR).attr("rx", 3)
+      .attr("fill", QT.tokens.accent)
+      .on("mousemove", e => tt.show(`<div class="hd">${state.country}</div><div class="row"><span class="k">Global connectedness</span><span class="v">${d3.format(".2f")(p.connectedness)}</span></div><div class="row"><span class="k">Partner countries</span><span class="v">${QT.fmt.int(p.partners)} of ${QT.fmt.int(net - 1)}</span></div>`, e))
+      .on("mouseleave", tt.hide);
+    hdr.append("text").attr("x", c.iw + 14).attr("y", BAR / 2).attr("dy", "0.36em")
+      .attr("fill", QT.tokens.accent).attr("font-weight", 700)
+      .call(t => t.append("tspan").attr("font-size", 22).text(d3.format(".2f")(p.connectedness)))
+      .call(t => t.append("tspan").attr("font-size", 10).attr("fill", QT.tokens.ink).attr("dx", 5).text("/ 1"));
     c.g.append("text").attr("x", -12).attr("y", -10).attr("text-anchor", "end").attr("font-size", 11)
-      .attr("fill", QT.tokens.muted).text("Top partners");
+      .attr("font-weight", 700).attr("fill", QT.tokens.ink).text("Top partners:");
 
     // ---- top-partner bars (collaborations) ----
     const x = d3.scaleLinear().domain([0, d3.max(partners, d => d.collaborations) * 1.1]).range([0, c.iw]);
@@ -672,7 +683,8 @@ QT.boot(async function () {
       .on("mouseleave", tt.hide);
     c.gPlot.selectAll("text.bar-val").data(partners, d => d.country).join("text")
       .attr("class", "bar-val").attr("dy", "0.32em").attr("y", d => y(d.country) + y.bandwidth() / 2)
-      .attr("x", d => x(d.collaborations) + 6).text(d => QT.fmt.int(d.collaborations));
+      .attr("x", d => x(d.collaborations) + 6).style("font-weight", 700).attr("fill", QT.tokens.ink)
+      .text(d => QT.fmt.int(d.collaborations));
     c.gx.call(d3.axisBottom(x).ticks(5).tickFormat(d3.format(",")).tickSizeOuter(0));
   }
 
