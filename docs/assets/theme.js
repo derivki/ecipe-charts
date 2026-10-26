@@ -387,9 +387,10 @@ svg{display:block;width:100%;height:auto;overflow:visible;}
 /* ---------- policy & programmes cards (countries tab) ---------- */
 /* Borderless cards, as in the Figma: the coloured type pill, then title / meta / note. The pill's
    background is set per type in countries.js (POLICY_COLORS), its text colour with QT.textOn. */
-.policy-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(190px,1fr));gap:18px 20px;margin-top:6px;}
-.policy-card{border:none;border-radius:0;padding:0;background:none;
+.policy-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(190px,1fr));gap:22px 18px;margin-top:6px;}
+.policy-card{border:none;border-left:1px solid var(--line);border-radius:0;padding:0 0 0 18px;background:none;
   display:flex;flex-direction:column;gap:5px;}
+.policy-card.row-start{border-left:none;padding-left:0;}
 .policy-card .policy-type{align-self:flex-start;font-size:10px;font-weight:700;letter-spacing:.02em;
   text-transform:capitalize;color:#fff;border-radius:20px;padding:3px 10px;}
 .policy-card .policy-title{font-size:13px;font-weight:650;color:var(--ink);line-height:1.25;}

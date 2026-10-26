@@ -42,9 +42,8 @@ QT.boot(async function () {
   QT.vintage("#vintage", country.meta);
   const policyByCountry = new Map(Object.entries(policies.data));
   const POLICY_COLORS = {
-    // Brand-palette colours only: teal, orange, navy, purple (+ red for export controls). Label
-    // colour per pill comes from QT.textOn, so the orange one gets dark text rather than
-    // failing contrast with white.
+    // Brand-palette colours only: teal, orange, navy, purple (+ red for export controls). The
+    // label is white on every pill (Elena), orange included.
     "Strategy": QT.tokens.accent, "Funding programme": QT.tokens.gold,
     "R&D institute": QT.tokens.navy, "Procurement": QT.tokens.purple,
     "Export control": QT.tokens.rust,
@@ -191,9 +190,9 @@ QT.boot(async function () {
     // otherwise the copy claims a highlight that never happens on screen – which is
     // what made the fallback look like an unexplained, unchanging top-16 chart.
     const hasSelection = byMetric.some(d => d.country === state.country);
-    QT.figTitle("#ttl-ranked", "Figure 1", hasSelection
-      ? `Countries ranked by ${S.title}${MEAS.suffix}, ${state.country} highlighted`
-      : `Countries ranked by ${S.title}${MEAS.suffix}, no data for ${state.country}`);
+    // Every title on this page ends with the selected country in brackets, and nothing else.
+    // Whether the country can actually be placed is explained in the text under the title.
+    QT.figTitle("#ttl-ranked", "Figure 1", `Countries ranked by ${S.title}${MEAS.suffix} (${state.country})`);
     d3.select("#why-ranked").html(hasSelection
       ? `Where ${state.country} sits among all tracked countries by `
         + `${S.title}${MEAS.suffix}. The leaders are shown for scale, then ${state.country} `
@@ -298,6 +297,7 @@ QT.boot(async function () {
 
   // ---------- Panel 2: company funding by financing instrument, pie (REAL) ----------
   function instrumentPie() {
+    QT.figTitle("#ttl-instrument", "Figure 2", `Company funding by financing instrument (${state.country})`);
     d3.select("#why-instrument").html(
       `How ${state.country}'s company funding splits across the four financing instruments: ` +
       `VC / private equity, debt, grant and public equity. This is the breakdown shown in ` +
@@ -368,6 +368,7 @@ QT.boot(async function () {
   // (mock, uninformative proportions): this ranks actual named institutions within
   // one category by their real collaboration count, from collab_rankings.json.
   function institutionsPanel() {
+    QT.figTitle("#ttl-institutions", "Figure 4", `Top 3 institutions by number of collaborations (${state.country})`);
     d3.select("#why-institutions").html(
       `The three institutions headquartered in ${state.country} with the most recorded ` +
       `collaborations, for each category: industry, government and research.`);
@@ -423,9 +424,17 @@ QT.boot(async function () {
   function archetypePanel() {
     const W = 880, H = 420;
     const T = ARCH.thresholds, rows = ARCH.countries;
-    QT.figTitle("#ttl-archetype", "Figure 6", archetypeByName.has(state.country)
-      ? `Quantum collaboration archetypes, ${state.country} highlighted`
-      : `Quantum collaboration archetypes, ${state.country} not shown`);
+    QT.figTitle("#ttl-archetype", "Figure 6", `Quantum collaboration archetypes (${state.country})`);
+    const medX = d3.format(".0f")(T.industry_to_gdp), medY = d3.format(".2f")(T.connectedness);
+    d3.select("#howto-archetype").html(
+      `<b>How to read it.</b> A bubble above the horizontal line is better connected than the typical country shown, and one ` +
+      `to the right of the vertical line is more commercially engaged. The four quadrants are the collaboration archetypes: ` +
+      `Global Innovation Hubs (high on both), Research Networkers (more connected, less commercial), Regional Commercial ` +
+      `Leaders (more commercial, less connected) and Emerging Ecosystems (low on both). Hover a bubble for its figures.`);
+    d3.select("#note-archetype").html(
+      `The two lines are the medians of the countries shown: ${medX} industry-involving collaborations per trillion USD of GDP ` +
+      `and a global connectedness of ${medY}. The horizontal axis is logarithmic.` +
+      (archetypeByName.has(state.country) ? "" : ` <b>${state.country} is not shown.</b> ${archetypeWhyNot(state.country)}.`));
     d3.select("#chart-archetype2").selectAll("*").remove();
     const c = QT.chart("#chart-archetype2", { W, H, margin: { t: 10, r: 18, b: 38, l: 52 } });
     const xMax = Math.pow(10, Math.ceil(Math.log10(d3.max(rows, d => d.industry_to_gdp))));
@@ -495,9 +504,9 @@ QT.boot(async function () {
     c.gx.call(d3.axisBottom(x).tickValues(d3.range(0, Math.log10(xMax) + 1).map(k => Math.pow(10, k))).tickFormat(d3.format(",")).tickSizeOuter(0));
     c.gy.call(d3.axisLeft(y).ticks(4).tickFormat(d3.format(".1f")).tickSizeOuter(0));
     c.g.append("text").attr("x", c.iw / 2).attr("y", c.ih + 32).attr("text-anchor", "middle").attr("font-size", 10.5).attr("fill", QT.tokens.muted)
-      .text(`Industry-involving collaborations to GDP, per trillion USD, log scale (median ${d3.format(".0f")(T.industry_to_gdp)}) →`);
+      .text("Industry-involving collaborations to GDP");
     c.g.append("text").attr("x", -c.ih / 2).attr("y", -38).attr("transform", "rotate(-90)").attr("text-anchor", "middle").attr("font-size", 10.5).attr("fill", QT.tokens.muted)
-      .text(`Global connectedness (median ${d3.format(".2f")(T.connectedness)}) →`);
+      .text("Global connectedness");
   }
 
   // ---------- Figure 7: national specialisation (REAL) ----------
@@ -533,23 +542,23 @@ QT.boot(async function () {
     if (kind === "sector") {
       const o = SPEC.sector.observations;
       return {
-        why: `The industry sectors in which ${state.country}'s collaborations with industry partners abroad are most ` +
-          `concentrated, relative to the world, as a revealed comparative advantage (RCA). The ten highest are shown.`,
-        how: `<b>How to read it.</b> An RCA above 1.0 (the dashed line) means the country collaborates more with that ` +
-          `sector than the world average does; below 1.0, less. Each bar's label gives the RCA, then the number of ` +
-          `sector-tagged collaborations behind it, and lighter bars rest on fewer than ${SPEC_THIN}. A sector is recorded ` +
-          `for ${QT.fmt.pct0(o.with_sector / o.industry_side)} of these collaborations, and countries with fewer than ` +
+        why: `Which industry sectors ${state.country} collaborates with most, compared with the rest of the world. ` +
+          `The ten highest are shown.`,
+        how: `<b>How to read it.</b> The score is the revealed comparative advantage (RCA). Above 1.0 (the dashed line), ` +
+          `${state.country} collaborates with that sector more than the world average does; below 1.0, less. Lighter bars rest ` +
+          `on very few collaborations. Hover a bar for the number of collaborations behind it.`,
+        note: `Based on collaborations with an industry partner abroad. A sector is recorded for ` +
+          `${QT.fmt.pct0(o.with_sector / o.industry_side)} of these collaborations, and countries with fewer than ` +
           `${SPEC.sector.min_observations} sector-tagged collaborations are not scored.`,
         src: `Source: ECIPE Quantum Database; sector (ICB3) of the industry partner; method of ECIPE Occasional Paper 08/2025.`,
       };
     }
     return {
-      why: `The layers of the quantum stack in which ${state.country}'s companies are concentrated, relative to the world, ` +
-        `as a specialisation index.`,
-      how: `<b>How to read it.</b> An index above 1.0 (the dashed line) means proportionally more of the country's ` +
-        `companies are in that layer than worldwide; below 1.0, fewer. Each bar's label gives the index, then the number ` +
-        `of companies, and lighter bars rest on fewer than ${SPEC_THIN}. It counts companies, not funding, and countries ` +
-        `with fewer than ${SPEC.company_layer.min_companies} companies are not scored.`,
+      why: `Which layers of the quantum stack ${state.country}'s companies are concentrated in, compared with the rest of the world.`,
+      how: `<b>How to read it.</b> The score is a specialisation index. Above 1.0 (the dashed line), proportionally more of ` +
+        `${state.country}'s companies are in that layer than worldwide; below 1.0, fewer. Lighter bars rest on very few ` +
+        `companies. Hover a bar for the number of companies behind it.`,
+      note: `It counts companies, not funding. Countries with fewer than ${SPEC.company_layer.min_companies} companies are not scored.`,
       src: `Source: ECIPE Quantum Database, company tracker (stack layer of each company).`,
     };
   }
@@ -559,6 +568,7 @@ QT.boot(async function () {
     const T = specText(state.specView);
     d3.select("#why-rca").text(T.why);
     d3.select("#howto-rca").html(T.how);
+    d3.select("#note-rca").text(T.note);
     d3.select("#source-rca").text(T.src);
     const entry = V.view.countries.find(c => c.country === state.country);
     if (!entry) {
@@ -596,7 +606,7 @@ QT.boot(async function () {
       .attr("y", d => y(V.name(d)) + y.bandwidth() / 2).attr("x", d => x(V.value(d)) + 6)
       // a white halo keeps the label legible where it crosses the gridlines or the 1.0 line
       .style("paint-order", "stroke").style("stroke", QT.tokens.bg).style("stroke-width", "3px")
-      .text(d => `${V.value(d).toFixed(2)} · ${QT.fmt.int(V.n(d))}`);
+      .text(d => V.value(d).toFixed(2));
     c.gx.call(d3.axisBottom(x).ticks(5).tickSizeOuter(0));
     c.gy.call(d3.axisLeft(y).tickSizeOuter(0)).call(g => g.select(".domain").remove());
   }
@@ -611,9 +621,8 @@ QT.boot(async function () {
     const net = partnersData.data.network_countries;
     QT.figTitle("#ttl-network", "Figure 3", `Global connectedness and top collaboration partners (${state.country})`);
     d3.select("#why-network").html(
-      `<b>Global connectedness</b> is the share of the ${QT.fmt.int(net - 1)} other countries in the collaboration network ` +
-      `that ${state.country} collaborates with directly, from 0 to 1 (degree centrality, as in Occasional Paper 08/2025). ` +
-      `The bars show its three leading partners by number of collaborations between their institutions.`);
+      `<b>Global connectedness</b> is the share of other countries that ${state.country} collaborates with, from 0 to 1. ` +
+      `The bars show its three leading partners by number of collaborations.`);
     if (!p) return emptyPanel("#chart-network", `${state.country} has no recorded collaboration with an institution in another country.`);
     const partners = p.top_partners;
 
@@ -680,12 +689,24 @@ QT.boot(async function () {
     const card = grid.selectAll(".policy-card").data(list).join("div").attr("class", "policy-card");
     card.append("span").attr("class", "policy-type")
       .style("background", d => POLICY_COLORS[d.type] || QT.tokens.muted)
-      .style("color", d => QT.textOn(POLICY_COLORS[d.type] || QT.tokens.muted)).text(d => d.type);
+      .style("color", "#fff").text(d => d.type);
     card.append("div").attr("class", "policy-title").text(d => d.title);
     card.append("div").attr("class", "policy-meta")
       .text(d => `${d.status} · ${d.year}` + (d.public_funding != null ? ` · ${QT.fmt.money(d.public_funding)} public` : ""));
     card.append("div").attr("class", "policy-desc").text(d => d.note);
+
+    // A thin vertical rule between neighbouring cards, but not at the start of a row (the number
+    // of cards per row depends on the width), so the first card of each row is marked in JS.
+    const markRowStarts = () => {
+      const cards = card.nodes();
+      const left = Math.min(...cards.map(n => n.offsetLeft));
+      cards.forEach(n => n.classList.toggle("row-start", n.offsetLeft === left));
+    };
+    markRowStarts();
+    if (policyResize) policyResize.disconnect();
+    if (window.ResizeObserver) { policyResize = new ResizeObserver(markRowStarts); policyResize.observe(grid.node()); }
   }
+  let policyResize = null;
 
   function render() { kpis(); rankedBars(); instrumentPie(); networkPanel(); institutionsPanel(); policiesPanel(); archetypePanel(); specialisationPanel(); }
 

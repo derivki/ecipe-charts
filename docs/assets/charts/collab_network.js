@@ -1,17 +1,20 @@
 /* Country collaboration network -- Overview Figure 6.
 
    Reproduces, on the tracker's own data, the network figure from the ECIPE quantum
-   paper (nodes = countries, links = cross-border collaboration). What is REAL here:
-     - which country pairs collaborate and how much  (collab_country_network.json)
-     - node size = degree centrality, computed in the browser on the graph currently
-       shown (share of the other visible countries a country is linked to)
+   paper (nodes = countries, links = cross-border collaboration). Everything is read from
+   collab_country_network.json (collab_aggregate.build_country_network):
+     - which country pairs collaborate and how much  (edges)
      - line thickness = number of collaborations
-   What is MOCK until the separate network analysis delivers it (mock_country_network.json):
-     - node colour = betweenness ("connector role")
-     - line colour = RCA (bilateral specialisation)
-   Every place a mock value is drawn is badged as such. When the real measures land they
-   should arrive as fields on collab_country_network.json and the `mock` lookups below
-   become straight reads -- nothing else in this file needs to change.
+     - node size = degree centrality, computed in the browser on the graph currently
+       shown (share of the other visible countries a country is linked to), as in the
+       paper's figure
+     - node colour = betweenness ("connector role"), measured on the whole network
+     - line colour = bilateral RCA (how much more the two countries collaborate with each
+       other than their overall activity predicts)
+   The two views are different networks, so each has its own betweenness and RCA
+   (`betweenness` / `rca` for all collaborations, `*_industry` for those involving industry).
+   As in the paper, colour runs over the countries and pairs on screen: log betweenness
+   (log1p) and log RCA, from light to dark.
 
    The layout is a force simulation run to completion up front from a fixed starting
    position, so a given view always lays out identically (no jitter on reload). */
@@ -43,8 +46,10 @@
      unreadable. Defaults follow Elena's call (2026-09-29): 100 for all collaborations,
      which gives ~30 countries, the same density as the paper's figure. */
   const MODES = {
-    all:      { label: "All collaborations",        field: "collaborations", cuts: [30, 50, 100, 250, 500], def: 100 },
-    industry: { label: "Involving industry",        field: "industry",       cuts: [10, 20, 30, 50, 100],   def: 10 },
+    all:      { label: "All collaborations",        field: "collaborations", rca: "rca",          btw: "betweenness",
+                cuts: [30, 50, 100, 250, 500], def: 100 },
+    industry: { label: "Involving industry",        field: "industry",       rca: "rca_industry", btw: "betweenness_industry",
+                cuts: [10, 20, 30, 50, 100],   def: 10 },
   };
 
   function hash01(s) { // deterministic, only used to break ties in the starting layout
@@ -54,30 +59,23 @@
   }
   const pairKey = (a, b) => (a < b ? a + "|" + b : b + "|" + a);
 
-  window.renderCollabNetwork = async function (selector, { mockNoteSelector } = {}) {
+  window.renderCollabNetwork = async function (selector) {
     const QT = window.QT;
     if (!document.getElementById("cn-css")) {
       const st = document.createElement("style"); st.id = "cn-css"; st.textContent = CSS;
       document.head.appendChild(st);
     }
-    const [net, mock] = await Promise.all([QT.loadData("collab_country_network"), QT.loadData("mock_country_network")]);
+    const net = await QT.loadData("collab_country_network");
     const tt = QT.tooltip();
-    if (mockNoteSelector) QT.mockNote(mockNoteSelector, mock.meta.source_note);
     const root = d3.select(selector).classed("cn-wrap", true);
 
     const ramp = d3.interpolateRgbBasis(QT.palette.sequential);
     const rampCss = `linear-gradient(90deg, ${d3.range(0, 1.01, 0.25).map(t => ramp(t)).join(",")})`;
 
-    // Mock lookups. A country / pair the mock file has not been regenerated for falls
-    // back to the middle of the scale rather than breaking the chart (a test in
-    // tests/test_country_network.py fails first, so this is only a safety net).
-    const bMax = d3.max(Object.values(mock.data.betweenness)) || 1;
-    const btw = c => (mock.data.betweenness[c] ?? bMax / 2) / bMax;
-    const rcaVals = Object.values(mock.data.rca);
-    const rcaScale = d3.scaleLinear().domain([d3.min(rcaVals), d3.max(rcaVals)]).range([0, 1]).clamp(true);
-    const rca = (a, b) => mock.data.rca[pairKey(a, b)];
-    const rcaT = (a, b) => { const v = rca(a, b); return v == null ? 0.5 : rcaScale(v); };
+    // A pair or country without a measure (an RCA pair under 3 collaborations, say) is drawn in
+    // the neutral colour and says so in the tooltip; the build scores every pair the chart can show.
     const edgeColor = t => ramp(0.28 + 0.72 * t); // floor keeps the palest links visible on white
+    const NEUTRAL = T.line;
 
     const state = { mode: "all", cut: MODES.all.def };
 
@@ -100,7 +98,7 @@
       const m = MODES[state.mode];
       const links = net.data.edges
         .filter(e => e[m.field] >= state.cut)
-        .map(e => ({ source: e.a, target: e.b, w: e[m.field], all: e.collaborations, industry: e.industry }));
+        .map(e => ({ source: e.a, target: e.b, w: e[m.field], all: e.collaborations, industry: e.industry, rca: e[m.rca] }));
       const names = [...new Set(links.flatMap(l => [l.source, l.target]))].sort();
       const nodes = names.map(id => ({ id }));
       const deg = new Map(names.map(n => [n, 0]));
@@ -111,7 +109,7 @@
       });
       const rScale = d3.scaleSqrt().domain([0, 1]).range([5, 25]);
       nodes.forEach(n => {
-        n.deg = deg.get(n.id); n.vol = vol.get(n.id);
+        n.deg = deg.get(n.id); n.vol = vol.get(n.id); n.btw = net.data[m.btw][n.id];
         n.dc = names.length > 1 ? n.deg / (names.length - 1) : 0;
         n.r = rScale(n.dc);
         n.lw = n.id.length * 6.1;                     // label width estimate, for spacing only
@@ -163,6 +161,12 @@
     function draw({ nodes, links, m }) {
       const byId = new Map(nodes.map(n => [n.id, n]));
       const wScale = d3.scaleSqrt().domain([0, d3.max(links, l => l.w) || 1]).range([0.6, 9]);
+      // Colour runs light-to-dark over what is on screen, on a log scale (the paper's figure
+      // colours log1p of betweenness; RCA is a ratio, so its log is the natural scale).
+      const btwT = d3.scaleLinear().domain(d3.extent(nodes, n => Math.log1p(n.btw ?? 0))).range([0, 1]).clamp(true);
+      const rcaT = d3.scaleLinear().domain(d3.extent(links.filter(l => l.rca != null), l => Math.log(l.rca))).range([0, 1]).clamp(true);
+      const nodeColor = n => n.btw == null ? NEUTRAL : ramp(btwT(Math.log1p(n.btw)));
+      const linkColor = l => l.rca == null ? NEUTRAL : edgeColor(rcaT(Math.log(l.rca)));
 
       // Reset the scene: layouts differ wholesale between views, so keyed joins would just animate nonsense.
       [gEdges, gHit, gNodes, gLabels].forEach(gg => gg.selectAll("*").remove());
@@ -170,13 +174,13 @@
       const edgeSel = gEdges.selectAll("line").data(links).join("line").attr("class", "cn-edge")
         .attr("x1", l => byId.get(l.source.id ?? l.source).x).attr("y1", l => byId.get(l.source.id ?? l.source).y)
         .attr("x2", l => byId.get(l.target.id ?? l.target).x).attr("y2", l => byId.get(l.target.id ?? l.target).y)
-        .attr("stroke", l => edgeColor(rcaT(l.source.id ?? l.source, l.target.id ?? l.target)))
+        .attr("stroke", linkColor)
         .attr("stroke-opacity", 0.85).attr("stroke-width", l => wScale(l.w));
 
       const sid = l => l.source.id ?? l.source, tid = l => l.target.id ?? l.target;
       const nodeSel = gNodes.selectAll("circle").data(nodes.slice().sort((a, b) => b.r - a.r)).join("circle")
         .attr("class", "cn-node").attr("cx", n => n.x).attr("cy", n => n.y).attr("r", n => n.r)
-        .attr("fill", n => ramp(btw(n.id)));
+        .attr("fill", nodeColor);
 
       const labelSel = gLabels.selectAll("text").data(nodes).join("text").attr("class", "cn-label")
         .attr("x", n => n.x).attr("y", n => n.y - n.r - 5).attr("text-anchor", "middle").text(n => n.id);
@@ -189,14 +193,13 @@
         labelSel.classed("cn-dim", n => !nb.has(n.id));
       }
       const unfocus = () => { edgeSel.classed("cn-dim", false); nodeSel.classed("cn-dim", false); labelSel.classed("cn-dim", false); };
-      const mockTag = QT.mockBadge("Illustrative");
 
       nodeSel.on("mousemove", (e, n) => {
         focus(n.id);
         tt.show(`<div class="hd">${n.id}</div>` +
           `<div class="row"><span class="k">Partner countries</span><span class="v">${n.deg}</span></div>` +
           `<div class="row"><span class="k">Collaborations shown</span><span class="v">${QT.fmt.int(n.vol)}</span></div>` +
-          `<div class="row"><span class="k">Betweenness ${mockTag}</span><span class="v">${btw(n.id).toFixed(2)}</span></div>`, e);
+          `<div class="row"><span class="k">Betweenness</span><span class="v">${n.btw == null ? "n/a" : n.btw.toFixed(3)}</span></div>`, e);
       }).on("mouseleave", () => { unfocus(); tt.hide(); });
 
       gHit.selectAll("line").data(links).join("line").attr("class", "cn-hit")
@@ -204,11 +207,11 @@
         .attr("x2", l => byId.get(tid(l)).x).attr("y2", l => byId.get(tid(l)).y)
         .attr("stroke-width", l => Math.max(10, wScale(l.w) + 6))
         .on("mousemove", (e, l) => {
-          const a = sid(l), b = tid(l), r = rca(a, b);
+          const a = sid(l), b = tid(l), r = l.rca;
           tt.show(`<div class="hd">${a} and ${b}</div>` +
             `<div class="row"><span class="k">All collaborations</span><span class="v">${QT.fmt.int(l.all)}</span></div>` +
             `<div class="row"><span class="k">Involving industry</span><span class="v">${QT.fmt.int(l.industry)}</span></div>` +
-            `<div class="row"><span class="k">RCA ${mockTag}</span><span class="v">${r == null ? "n/a" : r.toFixed(2)}</span></div>`, e);
+            `<div class="row"><span class="k">RCA</span><span class="v">${r == null ? "n/a" : r.toFixed(2)}</span></div>`, e);
         }).on("mouseleave", tt.hide);
 
       // ---- key -------------------------------------------------------------
@@ -217,8 +220,8 @@
       root.select("#cn-key").html(
         `<div class="grp"><span>Node size: number of partner countries</span><span class="dots">${dots}</span></div>` +
         `<div class="grp"><span>Line thickness: collaborations</span><span class="bars">${bars}</span></div>` +
-        `<div class="grp"><span>Node colour: betweenness ${mockTag}</span><span>Low</span><span class="ramp" style="background:${rampCss}"></span><span>High</span></div>` +
-        `<div class="grp"><span>Line colour: RCA ${mockTag}</span><span>Low</span><span class="ramp" style="background:${rampCss}"></span><span>High</span></div>`);
+        `<div class="grp"><span>Node colour: betweenness (connector role)</span><span>Low</span><span class="ramp" style="background:${rampCss}"></span><span>High</span></div>` +
+        `<div class="grp"><span>Line colour: RCA (specialisation)</span><span>Low</span><span class="ramp" style="background:${rampCss}"></span><span>High</span></div>`);
     }
 
     function chips() {
