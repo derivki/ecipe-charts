@@ -491,7 +491,7 @@ QT.boot(async function () {
 
     c.gPlot.selectAll("text.pipeline-ratio").data(rs, r => r.region).join("text")
       .attr("class", "pipeline-ratio").attr("x", c.iw + 8).attr("y", r => y(r.region) + y.bandwidth() / 2)
-      .attr("dy", "0.32em").style("font-size", "11.5px").style("font-weight", 700).style("fill", QT.tokens.ink)
+      .attr("dy", "0.32em").style("font-size", "11.5px").style("font-weight", 700).style("fill", QT.tokens.purple)
       .text(r => QT.fmt.axisMoney(r.total) + " total");
 
     c.gy.call(d3.axisLeft(y).tickSizeOuter(0).tickFormat(QT.regionLabel)).call(g => g.select(".domain").remove());

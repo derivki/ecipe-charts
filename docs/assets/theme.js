@@ -236,7 +236,8 @@ svg{display:block;width:100%;height:auto;overflow:visible;}
 .axis text{fill:var(--muted);font-size:11px;}
 .gridline{stroke:var(--line);stroke-width:1px;}
 .partial-band{fill:#F4F4F4;} .partial-label{fill:var(--muted);font-size:10px;font-style:italic;}
-.bar-val{font-size:10.5px;fill:var(--muted);font-variant-numeric:tabular-nums;}
+/* the number at the end of a bar: bold dark purple, as in the Figma */
+.bar-val{font-size:10.5px;fill:${tokens.purple};font-weight:700;font-variant-numeric:tabular-nums;}
 .tt{position:fixed;pointer-events:none;background:#231432;color:#fff;border-radius:8px;padding:10px 12px;
   font-size:12px;line-height:1.5;box-shadow:0 6px 24px rgba(0,0,0,.22);opacity:0;transition:opacity .1s;z-index:20;min-width:180px;}
 .tt .hd{font-weight:700;font-size:13px;margin-bottom:6px;}

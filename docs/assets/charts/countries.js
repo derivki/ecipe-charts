@@ -683,7 +683,7 @@ QT.boot(async function () {
       .on("mouseleave", tt.hide);
     c.gPlot.selectAll("text.bar-val").data(partners, d => d.country).join("text")
       .attr("class", "bar-val").attr("dy", "0.32em").attr("y", d => y(d.country) + y.bandwidth() / 2)
-      .attr("x", d => x(d.collaborations) + 6).style("font-weight", 700).attr("fill", QT.tokens.ink)
+      .attr("x", d => x(d.collaborations) + 6)
       .text(d => QT.fmt.int(d.collaborations));
     c.gx.call(d3.axisBottom(x).ticks(5).tickFormat(d3.format(",")).tickSizeOuter(0));
   }
