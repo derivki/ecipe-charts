@@ -422,6 +422,9 @@ QT.boot(async function () {
   function archetypePanel() {
     const W = 880, H = 420;
     const T = ARCH.thresholds, rows = ARCH.countries;
+    d3.select("#ttl-archetype").text(archetypeByName.has(state.country)
+      ? `Figure 6: Quantum collaboration archetypes, ${state.country} highlighted`
+      : `Figure 6: Quantum collaboration archetypes, ${state.country} not shown`);
     d3.select("#chart-archetype2").selectAll("*").remove();
     const c = QT.chart("#chart-archetype2", { W, H, margin: { t: 10, r: 18, b: 38, l: 52 } });
     const xMax = Math.pow(10, Math.ceil(Math.log10(d3.max(rows, d => d.industry_to_gdp))));
@@ -454,15 +457,16 @@ QT.boot(async function () {
     c.g.append("line").attr("x1", 0).attr("x2", c.iw).attr("y1", yt).attr("y2", yt).attr("class", "gridline");
 
     const sel_ = d => d.country === state.country;
-    // Biggest first, so a small bubble is never hidden under a large one.
-    const drawn = [...rows].sort((p, q) => q.collaborations - p.collaborations);
+    // Biggest first, so a small bubble is never hidden under a large one, and the selection
+    // last so nothing covers it. Marks follow the other bubble charts: 0.85 fill, a white
+    // keyline (Companies Figure 6), and an ink ring on the selection (Clusters Figure 1).
+    const drawn = [...rows].sort((p, q) => sel_(p) - sel_(q) || q.collaborations - p.collaborations);
     c.gPlot.selectAll("circle").data(drawn, d => d.country).join("circle")
       .attr("cx", d => x(d.industry_to_gdp)).attr("cy", d => y(d.connectedness))
       .attr("r", d => r(d.collaborations))
-      .attr("fill", d => QT.palette.archetype[d.archetype])
-      .attr("fill-opacity", d => sel_(d) ? 0.95 : 0.3)
-      .attr("stroke", d => sel_(d) ? QT.tokens.ink : QT.palette.archetype[d.archetype])
-      .attr("stroke-opacity", d => sel_(d) ? 1 : 0.5).attr("stroke-width", d => sel_(d) ? 2 : 0.75)
+      .attr("fill", d => QT.palette.archetype[d.archetype]).attr("fill-opacity", 0.85)
+      .attr("stroke", d => sel_(d) ? QT.tokens.ink : "#fff")
+      .attr("stroke-width", d => sel_(d) ? 2.5 : 0.9)
       .on("mousemove", (e, d) => tt.show(
         `<div class="hd">${d.country}</div>` +
         `<div class="row"><span class="k">Archetype</span><span class="v">${d.archetype}</span></div>` +
@@ -481,6 +485,7 @@ QT.boot(async function () {
       .attr("y", d => y(d.connectedness)).attr("dy", "0.32em")
       .attr("text-anchor", left ? "end" : "start")
       .attr("font-size", 11.5).attr("font-weight", 700).attr("fill", QT.tokens.ink)
+      .style("paint-order", "stroke").style("stroke", QT.tokens.bg).style("stroke-width", "3px")
       .text(d => d.country);
 
     c.gx.call(d3.axisBottom(x).tickValues(d3.range(0, Math.log10(xMax) + 1).map(k => Math.pow(10, k))).tickFormat(d3.format(",")).tickSizeOuter(0));
@@ -527,19 +532,15 @@ QT.boot(async function () {
   function specWhy(kind) {
     if (kind === "sector") {
       const o = SPEC.sector.observations;
-      return `<b>Revealed comparative advantage (RCA)</b> compares the share of a country's collaborations ` +
-        `with industry partners abroad that fall in one industry sector with that sector's share worldwide. ` +
-        `Each collaboration is assigned to the sector of its industry partner. An RCA above 1.0 means the ` +
-        `country is more active with that sector than the global average; below 1.0, less. It measures ` +
-        `relative emphasis, not size, and a small ecosystem can score highly on a handful of collaborations. ` +
-        `A sector is recorded for ${QT.fmt.pct0(o.with_sector / o.industry_side)} of the industry-side ` +
-        `collaborations, and the rest are left out. Countries with fewer than ` +
+      return `Revealed comparative advantage (RCA) compares the share of a country's collaborations with industry ` +
+        `partners abroad that fall in each industry sector with that sector's share worldwide. Above 1.0, the country is ` +
+        `more active in the sector than the world average. A sector is recorded for ` +
+        `${QT.fmt.pct0(o.with_sector / o.industry_side)} of these collaborations, and countries with fewer than ` +
         `${SPEC.sector.min_observations} sector-tagged collaborations are not scored.`;
     }
-    return `The <b>specialisation index</b> compares the share of a country's companies that sit in one ` +
-      `layer of the quantum stack with that layer's share of all tracked companies. Above 1.0 means the ` +
-      `country has proportionally more companies in that layer than the world. It counts companies, not ` +
-      `funding, which a few large rounds would dominate. Countries with fewer than ` +
+    return `The specialisation index compares the share of a country's companies in each layer of the quantum stack ` +
+      `with that layer's share of all tracked companies. Above 1.0, the country has proportionally more companies in the ` +
+      `layer than the world. It counts companies, not funding, and countries with fewer than ` +
       `${SPEC.company_layer.min_companies} companies are not scored.`;
   }
   function specialisationPanel() {
@@ -561,6 +562,12 @@ QT.boot(async function () {
     const x = d3.scaleLinear().domain([0, Math.max(2.5, d3.max(rows, V.value) * 1.1)]).range([0, c.iw]);
     const y = d3.scaleBand().domain(rows.map(V.name)).range([0, c.ih]).padding(0.28);
 
+    c.gGrid.selectAll("line").data(x.ticks(5)).join("line").attr("class", "gridline")
+      .attr("y1", 0).attr("y2", c.ih).attr("x1", d => x(d)).attr("x2", d => x(d));
+    // RCA = 1, "the same as the world", behind the bars so it never cuts through one.
+    c.gGrid.append("line").attr("x1", x(1)).attr("x2", x(1)).attr("y1", 0).attr("y2", c.ih)
+      .attr("stroke", QT.tokens.ink).attr("stroke-width", 1).attr("stroke-dasharray", "4 4");
+
     c.gPlot.selectAll("rect").data(rows, V.name).join("rect")
       .attr("x", 0).attr("y", d => y(V.name(d))).attr("height", y.bandwidth()).attr("rx", 2)
       .attr("fill", d => V.value(d) >= 1 ? QT.tokens.accent : QT.tokens.line)
@@ -575,8 +582,9 @@ QT.boot(async function () {
     c.gPlot.selectAll("text.bar-val").data(rows, V.name).join("text")
       .attr("class", "bar-val").attr("dy", "0.32em")
       .attr("y", d => y(V.name(d)) + y.bandwidth() / 2).attr("x", d => x(V.value(d)) + 6)
+      // a white halo keeps the label legible where it crosses the gridlines or the 1.0 line
+      .style("paint-order", "stroke").style("stroke", QT.tokens.bg).style("stroke-width", "3px")
       .text(d => `${V.value(d).toFixed(2)} · ${QT.fmt.int(V.n(d))}`);
-    c.g.append("line").attr("x1", x(1)).attr("x2", x(1)).attr("y1", 0).attr("y2", c.ih).attr("stroke", QT.tokens.muted).attr("stroke-dasharray", "2 2");
     c.gx.call(d3.axisBottom(x).ticks(5).tickSizeOuter(0));
     c.gy.call(d3.axisLeft(y).tickSizeOuter(0)).call(g => g.select(".domain").remove());
 
