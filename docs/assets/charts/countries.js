@@ -391,7 +391,7 @@ QT.boot(async function () {
       .attr("y1", 0).attr("y2", c.ih).attr("x1", d => x(d)).attr("x2", d => x(d));
     c.gPlot.selectAll("rect").data(rows, d => d.entity).join("rect")
       .attr("x", 0).attr("y", d => y(d.entity)).attr("height", y.bandwidth())
-      .attr("fill", color).attr("fill-opacity", 0.9).attr("width", d => x(d.collaborations))
+      .attr("fill", color).attr("width", d => x(d.collaborations))
       .on("mousemove", (e, d) => tt.show(
         `<div class="hd">${d.entity}</div>` +
         `<div class="row"><span class="k">Type</span><span class="v">${d.type || d.category}</span></div>` +
@@ -622,19 +622,17 @@ QT.boot(async function () {
     const c = QT.chart("#chart-rca", { W, H, margin: { t: 6, r: 56, b: 30, l: 250 } });
     const x = d3.scaleLinear().domain([0, Math.max(2.5, d3.max(rows, V.value) * 1.1)]).range([0, c.iw]);
     const y = d3.scaleBand().domain(rows.map(V.name)).range([0, c.ih]).padding(0.28);
+    // Bars on few companies are a lighter SOLID tint (same look as the old 45% opacity on white),
+    // never transparent, so the gridlines cannot show through them.
+    const thinFill = d3.interpolateRgb(QT.tokens.accent, QT.tokens.bg)(0.55);
 
     c.gGrid.selectAll("line").data(x.ticks(5)).join("line").attr("class", "gridline")
       .attr("y1", 0).attr("y2", c.ih).attr("x1", d => x(d)).attr("x2", d => x(d));
-    // RCA = 1, "the same as the world", behind the bars so it never cuts through one.
-    c.gGrid.append("line").attr("x1", x(1)).attr("x2", x(1)).attr("y1", 0).attr("y2", c.ih)
-      .attr("stroke", QT.tokens.ink).attr("stroke-width", 1).attr("stroke-dasharray", "4 4");
-
     c.gPlot.selectAll("rect").data(rows, V.name).join("rect")
       .attr("x", 0).attr("y", d => y(V.name(d))).attr("height", y.bandwidth())
       // One colour: the dashed line already says above or below 1.0, so grey for "below" only
       // stacked a second cue on the lighter-bar one (and a thin grey bar all but vanished).
-      .attr("fill", QT.tokens.accent)
-      .attr("fill-opacity", d => V.n(d) < SPEC_THIN ? 0.45 : 1)
+      .attr("fill", d => V.n(d) < SPEC_THIN ? thinFill : QT.tokens.accent)
       .attr("width", d => x(V.value(d)))
       .on("mousemove", (e, d) => tt.show(
         `<div class="hd">${V.name(d)}</div>` +
@@ -642,6 +640,12 @@ QT.boot(async function () {
         `<div class="row"><span class="k">${V.measure}</span><span class="v">${V.value(d).toFixed(2)}</span></div>` +
         `<div class="row"><span class="k">${QT.fmt.int(V.n(d))} ${V.unit}</span><span class="v">${QT.fmt.pct0(V.n(d) / entry[V.total])}</span></div>`, e))
       .on("mouseleave", tt.hide);
+    // RCA = 1, "the same as the world": drawn AFTER the bars so it sits in front of every one of
+    // them (it used to hide behind the bars it should be read against), before the value labels
+    // so a label's halo still keeps the number legible where the two meet.
+    c.gPlot.append("line").attr("class", "ref-line").style("pointer-events", "none")
+      .attr("x1", x(1)).attr("x2", x(1)).attr("y1", 0).attr("y2", c.ih)
+      .attr("stroke", QT.tokens.ink).attr("stroke-width", 1).attr("stroke-dasharray", "4 4");
     c.gPlot.selectAll("text.bar-val").data(rows, V.name).join("text")
       .attr("class", "bar-val").attr("dy", "0.32em")
       .attr("y", d => y(V.name(d)) + y.bandwidth() / 2).attr("x", d => x(V.value(d)) + 6)

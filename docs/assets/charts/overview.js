@@ -277,7 +277,7 @@ QT.boot(async function () {
         .attr("y1", 0).attr("y2", c.ih).attr("x1", d => x(d)).attr("x2", d => x(d));
       c.gPlot.selectAll("rect").data(rows, d => d.country).join("rect")
         .attr("x", 0).attr("y", d => y(d.country)).attr("height", y.bandwidth())
-        .attr("fill", QT.tokens.accent).attr("fill-opacity", 0.9).attr("width", d => x(d[state.metric]))
+        .attr("fill", QT.tokens.accent).attr("width", d => x(d[state.metric]))
         .on("mousemove", (e, d) => tt.show(
           `<div class="hd">${QT.flag(d.country)} ${d.country}</div>` +
           `<div class="row"><span class="k">Rank</span><span class="v">${all.indexOf(d) + 1} of ${all.length}</span></div>` +
@@ -324,7 +324,7 @@ QT.boot(async function () {
       .attr("y1", 0).attr("y2", c.ih).attr("x1", d => x(d)).attr("x2", d => x(d));
     c.gPlot.selectAll("rect").data(rows, d => d.company).join("rect")
       .attr("x", 0).attr("y", d => y(d.company)).attr("height", y.bandwidth())
-      .attr("fill", QT.tokens.teal).attr("fill-opacity", 0.9).attr("width", d => x(d.total_funding))
+      .attr("fill", QT.tokens.teal).attr("width", d => x(d.total_funding))
       .on("mousemove", (e, d) => tt.show(`<div class="hd">${d.company}</div><div class="row"><span class="k">Country</span><span class="v">${d.country || "n/a"}</span></div><div class="row"><span class="k">Company funding</span><span class="v">${QT.fmt.money(d.total_funding)}</span></div>`, e))
       .on("mouseleave", tt.hide);
     c.gPlot.selectAll("text.bar-val").data(rows, d => d.company).join("text")
@@ -402,7 +402,7 @@ QT.boot(async function () {
           const g = d3.select(this);
           g.selectAll("rect").data(rs, d => d.stage).join("rect")
             .attr("x", 0).attr("y", d => yb(d.stage) + off).attr("height", bh)
-            .attr("fill", bloc.hex).attr("fill-opacity", 0.88).attr("width", d => x(d.val))
+            .attr("fill", bloc.hex).attr("width", d => x(d.val))
             .on("mousemove", (e, d) => tt.show(
               `<div class="hd">${bloc.label} · ${d.stage}</div>` +
               `<div class="row"><span class="k">Amount</span><span class="v">${QT.fmt.money(d.v)}</span></div>` +

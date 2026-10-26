@@ -55,7 +55,7 @@ QT.boot(async function () {
         const sel = d3.select(this);
         sel.selectAll("rect").data(rs, d => d.stage).join("rect")
           .attr("x", 0).attr("y", d => y(d.stage) + off).attr("height", bh)
-          .attr("fill", bloc.hex).attr("fill-opacity", 0.88).attr("width", d => x(d.val))
+          .attr("fill", bloc.hex).attr("width", d => x(d.val))
           .on("mousemove", (e, d) => tt.show(
             `<div class="hd">${bloc.label} · ${d.stage}</div>` +
             `<div class="row"><span class="k">Amount</span><span class="v">${QT.fmt.money(d.v)}</span></div>` +

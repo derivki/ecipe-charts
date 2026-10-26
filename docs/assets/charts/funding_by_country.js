@@ -39,7 +39,7 @@ QT.boot(async function () {
 
     c.gPlot.selectAll("rect").data(rs, d => d.country).join("rect")
       .attr("x", 0).attr("height", y.bandwidth())
-      .attr("fill", accent).attr("fill-opacity", 0.9)
+      .attr("fill", accent)
       .attr("y", d => y(d.country))
       .attr("width", d => x(d[metric]))
       .on("mousemove", (e, d) => tt.show(
