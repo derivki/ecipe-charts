@@ -192,7 +192,7 @@ QT.boot(async function () {
 
     QT.segControl("#seg-scale-instrument", "data-s", s => { state.scale = s; render(); });
     QT.segControl("#seg-type-instrument", "data-t", t => { state.type = t; render(); });
-    QT.timeSlider("#slider-instrument", { years: ALL_YEARS, onChange: w => { state.win = w; render(); } });
+    QT.timeSlider("#slider-instrument", { years: ALL_YEARS, align: { W, l: c.m.l, r: c.m.r }, onChange: w => { state.win = w; render(); } });
     render();
   })();
 

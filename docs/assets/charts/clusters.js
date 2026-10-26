@@ -655,5 +655,5 @@ QT.boot(async function () {
   renderDowngrades(); // static, same reasoning – see the function comment
   renderPipeline(); // static – doesn't depend on region filter or table sort/selection
   renderBands(); // static – doesn't depend on region filter or table sort/selection
-  QT.timeSlider("#slider-sharetime", { years: SHARE_YEARS, onChange: w => { shareWin = w; renderShareTime(); } });
+  QT.timeSlider("#slider-sharetime", { years: SHARE_YEARS, align: { W: 880, l: 46, r: 12 }, onChange: w => { shareWin = w; renderShareTime(); } });
 });

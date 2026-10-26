@@ -101,10 +101,14 @@
   /** Dual-handle year-range slider for time-series charts. Renders into an empty
       element and fires onChange([loYear, hiYear]) as the user drags. `years` is the
       ascending list of available years; the slider starts at the full range.
-      Snaps to whole years. Returns { value: () => [lo, hi] }. */
-  QT.timeSlider = function (selector, { years, onChange } = {}) {
+      Snaps to whole years. Returns { value: () => [lo, hi] }.
+      `align` = { W, l, r } is the chart's viewBox width and its left and right margins: the track
+      then runs exactly under the plot area (the axis, end to end) instead of its default width. */
+  QT.timeSlider = function (selector, { years, onChange, align } = {}) {
     const root = d3.select(selector).classed("tslider", true);
     root.selectAll("*").remove();
+    if (align) root.style("margin-left", (align.l / align.W * 100) + "%")
+                   .style("margin-right", (align.r / align.W * 100) + "%");
     const n = years.length;
     let lo = 0, hi = n - 1;
 

@@ -382,7 +382,8 @@ svg{display:block;width:100%;height:auto;overflow:visible;}
 .ts-handle:active{cursor:grabbing;}
 .ts-lab{position:absolute;top:23px;font-size:10.5px;color:var(--muted);font-variant-numeric:tabular-nums;transform:translateX(-50%);white-space:nowrap;}
 /* time slider placed directly under a chart (rather than in the controls row) */
-.tslider-ctl{margin-top:12px;}
+/* label above the track, which then takes the full width (set to the plot area by QT.timeSlider's align) */
+.tslider-ctl{margin-top:12px;flex-direction:column;align-items:stretch;gap:0;}
 
 /* ---------- policy & programmes cards (countries tab) ---------- */
 /* Borderless cards, as in the Figma: the coloured type pill, then title / meta / note. The pill's
