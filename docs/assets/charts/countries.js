@@ -592,7 +592,9 @@ QT.boot(async function () {
 
     c.gPlot.selectAll("rect").data(rows, V.name).join("rect")
       .attr("x", 0).attr("y", d => y(V.name(d))).attr("height", y.bandwidth()).attr("rx", 2)
-      .attr("fill", d => V.value(d) >= 1 ? QT.tokens.accent : QT.tokens.line)
+      // One colour: the dashed line already says above or below 1.0, so grey for "below" only
+      // stacked a second cue on the lighter-bar one (and a thin grey bar all but vanished).
+      .attr("fill", QT.tokens.accent)
       .attr("fill-opacity", d => V.n(d) < SPEC_THIN ? 0.45 : 1)
       .attr("width", d => x(V.value(d)))
       .on("mousemove", (e, d) => tt.show(
