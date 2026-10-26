@@ -2,28 +2,58 @@
  "meta": {
   "data_vintage": "2026-Q3",
   "edition": 2025,
-  "source_note": "Occasional Paper 15/2025, Figure 15: share of quantum company funding in clusters, by region, recorded up to 31 July 2025. Rest of the World = clusters in India, Israel, Japan, Singapore, South Korea, Switzerland, UAE."
+  "source_note": "Occasional Paper 15/2025, Figure 15: share of quantum company funding in clusters, by region, recorded up to 31 July 2025. Rest of the World = clusters in India, Israel, Japan, Singapore, South Korea, Switzerland, UAE. Dollar amounts are from the company file behind the paper (funding to 31 July 2025); the cluster shares reproduce Figure 15. The quasi-cluster / elsewhere split of the remainder is not printed in the paper: a company counts as quasi-cluster when its city is one of the paper's quasi-cluster places."
  },
  "data": [
   {
    "region": "China",
-   "cluster_share": 0.99
+   "cluster_share": 0.9865,
+   "quasi_share": 0.0127,
+   "other_share": 0.0008,
+   "total_funding": 3066499347,
+   "cluster_funding": 3025152241,
+   "quasi_funding": 39043682,
+   "other_funding": 2303424
   },
   {
    "region": "US",
-   "cluster_share": 0.98
+   "cluster_share": 0.984,
+   "quasi_share": 0.0026,
+   "other_share": 0.0134,
+   "total_funding": 12685082857,
+   "cluster_funding": 12482637486,
+   "quasi_funding": 33000000,
+   "other_funding": 169445371
   },
   {
    "region": "RoW",
-   "cluster_share": 0.9
+   "cluster_share": 0.8987,
+   "quasi_share": 0.0921,
+   "other_share": 0.0092,
+   "total_funding": 1419447560,
+   "cluster_funding": 1275623671,
+   "quasi_funding": 130738620,
+   "other_funding": 13085269
   },
   {
    "region": "UK+AUS+CAN",
-   "cluster_share": 0.85
+   "cluster_share": 0.8502,
+   "quasi_share": 0.0253,
+   "other_share": 0.1245,
+   "total_funding": 2567762880,
+   "cluster_funding": 2183108815,
+   "quasi_funding": 64846805,
+   "other_funding": 319807260
   },
   {
    "region": "EU",
-   "cluster_share": 0.77
+   "cluster_share": 0.7678,
+   "quasi_share": 0.1782,
+   "other_share": 0.054,
+   "total_funding": 2786202201,
+   "cluster_funding": 2139335619,
+   "quasi_funding": 496616940,
+   "other_funding": 150249642
   }
  ]
 }

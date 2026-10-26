@@ -44,7 +44,7 @@
     </div>
 
     <div class="panel span2">
-      <div class="ttl"><span class="fig">Table 1:</span> 2025 cluster ranking <span id="badge-index"></span></div>
+      <div class="ttl"><span class="fig">Table 1:</span> 2025 cluster ranking</div>
       <p class="why">The overall rank is the average of each cluster's ranking across three
       dimensions: Market Orientation (commercialisation), Collaboration Intensity (partnerships
       and connectivity) and Ecosystem Maturity (institutional strength and productivity). Clusters
@@ -72,12 +72,12 @@
     </div>
 
     <div class="panel span2">
-      <div class="ttl"><span class="fig">Figure 2:</span> Concentration of company funding in clusters <span id="badge-time"></span></div>
+      <div class="ttl"><span class="fig">Figure 2:</span> Concentration of company funding in clusters</div>
       <p class="why">Share of global quantum company funding raised by companies located in the ranked
       clusters, compared with companies elsewhere. The first bar covers all funding up to the end of 2023;
       2025 covers funding recorded up to 31 July 2025.</p>
+      <div class="legend legend-center" id="legend-sharetime"><span class="lg-title">Company location</span></div>
       <svg id="chart-sharetime" role="img" aria-label="Cluster share of funding over time"></svg>
-      <div class="legend legend-center" id="legend-sharetime"></div>
     </div>
 
     <!-- Figure "New entrants and downgrades" is parked with the 2026 index: it compares the 2026
@@ -86,22 +86,24 @@
          data until the 2026 edition replaces them. -->
 
     <div class="panel span2">
-      <div class="ttl"><span class="fig">Figure 3:</span> Company funding by region, in clusters and elsewhere <span id="badge-pipeline"></span></div>
+      <div class="ttl"><span class="fig">Figure 3:</span> Company funding by region, in clusters, in quasi-clusters and elsewhere</div>
       <p class="why">How each region's quantum company funding splits between money raised by
-      companies located in a ranked cluster and money raised elsewhere, on funding recorded up to
-      31 July 2025. Rest of the World covers the clusters in India, Israel, Japan, Singapore,
-      South Korea, Switzerland and the UAE.</p>
-      <svg id="chart-pipeline" role="img" aria-label="Share of company funding by region: in clusters and elsewhere"></svg>
-      <div class="legend legend-center" id="legend-pipeline"></div>
+      companies located in a ranked cluster, in a quasi-cluster, or elsewhere. A quasi-cluster has
+      real quantum activity but has not yet cleared the funding or institutional-density bar for
+      full-cluster status. Funding is recorded up to 31 July 2025, and the total at the end of each bar
+      is the region's total company funding. Rest of the World covers the clusters in India, Israel,
+      Japan, Singapore, South Korea, Switzerland and the UAE.</p>
+      <div class="legend legend-center" id="legend-pipeline"><span class="lg-title">Company location</span></div>
+      <svg id="chart-pipeline" role="img" aria-label="Share of company funding by region: in clusters, in quasi-clusters and elsewhere"></svg>
     </div>
 
     <div class="panel span2">
-      <div class="ttl"><span class="fig">Figure 4:</span> Clusters by funding band, per region</div>
-      <p class="why">How many of the 45 ranked clusters fall into each funding band, by
+      <div class="ttl"><span class="fig">Figure 4:</span> Clusters by amount of funding raised, per region</div>
+      <p class="why">How many of the 45 ranked clusters have raised each amount of company funding, by
       region, on funding up to 31 July 2025. A region with more than one cluster over $1B in funding has significant depth
       beyond its single best-known hub; one with many clusters under $100m has a long tail of
       early-stage activity still to mature.</p>
-      <svg id="chart-bands" role="img" aria-label="Clusters by funding band, per region"></svg>
+      <svg id="chart-bands" role="img" aria-label="Clusters by amount of funding raised, per region"></svg>
     </div>
 
   </div>

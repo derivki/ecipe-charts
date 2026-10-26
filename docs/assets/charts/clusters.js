@@ -8,9 +8,10 @@
    Every figure on the page is the paper's 2025 edition (Occasional Paper 15/2025), not the
    tracker's current data: map bubble size and the funding bands use each cluster's total
    company funding up to 31 July 2025 (cluster_index_2025.json), Figure 2 is the paper's
-   Figure 1 (cluster_share_period_2025.json) and Figure 3 its Figure 15
-   (cluster_share_region_2025.json). The paper publishes no quasi-cluster funding, so the
-   old illustrative quasi-cluster split is gone. Nothing on this page is mock data. */
+   Figure 1 (cluster_share_period_2025.json) and Figure 3 its Figure 15 with the regional
+   totals and the quasi-cluster slice added from the company data behind the paper
+   (cluster_share_region_2025.json, see its source_note and src/build_cluster_index_2025.py).
+   Nothing on this page is mock data. */
 QT.boot(async function () {
   QT.nav("#nav", "clusters");
 
@@ -29,7 +30,6 @@ QT.boot(async function () {
   // The page shows the paper's 2025 edition, so its "as of" is the paper's data cut-off, not
   // the tracker's current vintage (rankings.meta.data_vintage).
   d3.select("#vintage").html("Data as of <b>31 July 2025</b> · all amounts in nominal US dollars");
-  ["badge-index", "badge-time", "badge-pipeline"].forEach(id => { document.getElementById(id).innerHTML = QT.citeBadge(); });
 
   const tt = QT.tooltip();
   const N = rankings.data.length;
@@ -346,6 +346,14 @@ QT.boot(async function () {
      every cluster at once, so it added a click and no information. Elena: "I think we
      mentioned it wasn't very informative and we were thinking of removing it." */
 
+  // Tooltip for a stacked bar, in the Overview Figure 2 format: the category as the header,
+  // then one row per series with its colour swatch, so a hover shows the whole split.
+  // `amt` (optional) maps a series key to a dollar amount, shown with the share.
+  const stackTip = (head, series, row, amt) =>
+    `<div class="hd">${head}</div>` + series.slice().reverse().filter(s => row[s.key] > 0).map(s =>
+      `<div class="row"><span class="k"><i style="background:${s.color}"></i>${s.label}</span>` +
+      `<span class="v">${amt ? `${QT.fmt.money(amt[s.key])} (${QT.fmt.pct1(row[s.key])})` : QT.fmt.pct0(row[s.key])}</span></div>`).join("");
+
   // ---------- Figure 2: share of company funding in clusters, by period ----------
   // The paper's own Figure 1 (cluster_share_period_2025.json): three bars, "Up to 2023",
   // 2024 and 2025 (to 31 July). There is no year-by-year series behind it, so there is no
@@ -361,7 +369,7 @@ QT.boot(async function () {
     const W = 880, H = 240;
     d3.select("#chart-sharetime").selectAll("*").remove();
     const c = QT.chart("#chart-sharetime", { W, H, margin: { t: 8, r: 12, b: 26, l: 46 } });
-    const x = d3.scaleBand().domain(shareTime.data.map(r => r.period)).range([0, c.iw]).padding(0.55);
+    const x = d3.scaleBand().domain(shareTime.data.map(r => r.period)).range([0, c.iw]).padding(0.4);
     const y = d3.scaleLinear().domain([0, 1]).range([c.ih, 0]);
 
     c.gGrid.selectAll("line").data(y.ticks(4)).join("line").attr("class", "gridline")
@@ -371,7 +379,7 @@ QT.boot(async function () {
       c.gPlot.selectAll(`.seg-${s.key}`).data(st[i], d => d.data.period).join("rect")
         .attr("class", `seg-${s.key}`).attr("x", d => x(d.data.period)).attr("width", x.bandwidth())
         .attr("y", d => y(d[1])).attr("height", d => y(d[0]) - y(d[1])).attr("fill", s.color)
-        .on("mousemove", (e, d) => tt.show(`<div class="hd">${d.data.period}</div><div class="row"><span class="k">${s.label}</span><span class="v">${QT.fmt.pct0(d[1] - d[0])}</span></div>`, e))
+        .on("mousemove", (e, d) => tt.show(stackTip(d.data.period, SERIES, d.data), e))
         .on("mouseleave", tt.hide);
     });
     // Values printed on the bars, as in the paper. The "Elsewhere" slivers (4-8%) are too
@@ -379,7 +387,7 @@ QT.boot(async function () {
     c.gPlot.selectAll("text.seg-val").data(st[0], d => d.data.period).join("text")
       .attr("class", "seg-val").attr("text-anchor", "middle").attr("dy", "0.32em")
       .attr("x", d => x(d.data.period) + x.bandwidth() / 2).attr("y", d => (y(d[1]) + y(d[0])) / 2)
-      .attr("font-size", 13).attr("font-weight", 700).attr("fill", "#fff").style("pointer-events", "none")
+      .style("font-size", "11px").style("font-weight", 600).style("fill", QT.textOn(SERIES[0].color)).style("pointer-events", "none")
       .text(d => QT.fmt.pct0(d[1] - d[0]));
     c.gx.call(d3.axisBottom(x).tickSizeOuter(0));
     c.gy.call(d3.axisLeft(y).ticks(4).tickFormat(QT.fmt.pct0).tickSizeOuter(0));
@@ -387,25 +395,28 @@ QT.boot(async function () {
   }
 
   // ---------- Figure 3: share of company funding by region, in clusters vs elsewhere ----------
-  // The paper's Figure 15 (cluster_share_region_2025.json), in the paper's order (most to
-  // least clustered). It replaces the 2026 three-way split, whose quasi-cluster segment was
-  // an illustrative placeholder: the paper never published quasi-cluster funding.
+  // The paper's Figure 15 (cluster share by region, in the paper's order: most to least
+  // clustered) with the non-cluster remainder split into quasi-clusters and elsewhere, and each
+  // region's total company funding printed at the end of its bar. Dollars and the split come from
+  // the company data behind the paper (see cluster_share_region_2025.json source_note).
   function renderPipeline() {
     const SERIES = [
       { key: "cluster", label: "In a ranked cluster", color: QT.tokens.accent },
+      { key: "quasi", label: "In a quasi-cluster", color: QT.tokens.gold },
       { key: "other", label: "Elsewhere", color: QT.tokens.line },
     ];
-    const rs = shareRegion.data.map(d => ({ region: d.region, cluster: d.cluster_share, other: 1 - d.cluster_share }));
+    const rs = shareRegion.data.map(d => ({
+      region: d.region, total: d.total_funding,
+      cluster: d.cluster_share, quasi: d.quasi_share, other: d.other_share,
+      amt: { cluster: d.cluster_funding, quasi: d.quasi_funding, other: d.other_funding },
+    }));
 
-    const W = 880, H = 40 + rs.length * 46;
+    const W = 880, H = 56 + rs.length * 46;
     d3.select("#chart-pipeline").selectAll("*").remove();
-    const c = QT.chart("#chart-pipeline", { W, H, margin: { t: 24, r: 20, b: 6, l: 190 } });
+    const c = QT.chart("#chart-pipeline", { W, H, margin: { t: 16, r: 90, b: 30, l: 190 } });
     const x = d3.scaleLinear().domain([0, 1]).range([0, c.iw]);
-    const y = d3.scaleBand().domain(rs.map(r => r.region)).range([0, c.ih]).padding(0.35);
+    const y = d3.scaleBand().domain(rs.map(r => r.region)).range([0, c.ih]).padding(0.32);
 
-    // c.gx is pinned to the bottom of the plot by QT.chart; this axis belongs on
-    // top, so it gets its own group at the origin instead of reusing c.gx.
-    c.g.append("g").attr("class", "axis").call(d3.axisTop(x).ticks(5).tickFormat(QT.fmt.pct0).tickSizeOuter(0));
     c.gGrid.selectAll("line").data(x.ticks(5)).join("line").attr("class", "gridline")
       .attr("x1", d => x(d)).attr("x2", d => x(d)).attr("y1", 0).attr("y2", c.ih);
 
@@ -414,23 +425,28 @@ QT.boot(async function () {
       c.gPlot.selectAll(`.seg-${s.key}`).data(st[i], d => d.data.region).join("rect")
         .attr("class", `seg-${s.key}`).attr("y", d => y(d.data.region)).attr("height", y.bandwidth())
         .attr("x", d => x(d[0])).attr("width", d => Math.max(0, x(d[1]) - x(d[0]))).attr("fill", s.color)
-        .on("mousemove", (e, d) => tt.show(
-          `<div class="hd">${QT.regionLabel(d.data.region)}</div>` +
-          `<div class="row"><span class="k">${s.label}</span><span class="v">${QT.fmt.pct0(d[1] - d[0])}</span></div>`, e))
+        .on("mousemove", (e, d) => tt.show(stackTip(QT.regionLabel(d.data.region), SERIES, d.data, d.data.amt), e))
         .on("mouseleave", tt.hide);
       // Value on every segment wide enough to hold it (the 1-2% slivers keep to the tooltip).
       c.gPlot.selectAll(`text.val-${s.key}`).data(st[i].filter(d => x(d[1]) - x(d[0]) > 30), d => d.data.region).join("text")
         .attr("class", `val-${s.key}`).attr("text-anchor", "middle").attr("dy", "0.32em")
         .attr("x", d => (x(d[0]) + x(d[1])) / 2).attr("y", d => y(d.data.region) + y.bandwidth() / 2)
-        .attr("font-size", 12).attr("font-weight", 700).attr("fill", s.key === "cluster" ? "#fff" : QT.tokens.ink)
+        .style("font-size", "11px").style("font-weight", 600).style("fill", QT.textOn(s.color))
         .style("pointer-events", "none").text(d => QT.fmt.pct0(d[1] - d[0]));
     });
 
+    // Each region's total company funding, at the end of its bar.
+    c.gPlot.selectAll("text.pipeline-ratio").data(rs, r => r.region).join("text")
+      .attr("class", "pipeline-ratio").attr("x", c.iw + 8).attr("y", r => y(r.region) + y.bandwidth() / 2)
+      .attr("dy", "0.32em").style("font-size", "11.5px").style("font-weight", 700).style("fill", QT.tokens.purple)
+      .text(r => QT.fmt.axisMoney(r.total) + " total");
+
+    c.gx.call(d3.axisBottom(x).ticks(5).tickFormat(QT.fmt.pct0).tickSizeOuter(0));
     c.gy.call(d3.axisLeft(y).tickSizeOuter(0).tickFormat(QT.regionLabel)).call(g => g.select(".domain").remove());
     QT.legend("#legend-pipeline", SERIES);
   }
 
-  // ---------- Figure 4: clusters by funding band, per region (AP-50) ----------
+  // ---------- Figure 4: clusters by amount of funding raised, per region (AP-50) ----------
   // The paper's 45 clusters on their total company funding up to 31 July 2025
   // (cluster_index_2025.json) and the country->region lookup every other region-based
   // chart on this site already uses. Band edges and the 5-region grouping are Elena's own
