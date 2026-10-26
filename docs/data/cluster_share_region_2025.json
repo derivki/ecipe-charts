@@ -1,0 +1,29 @@
+{
+ "meta": {
+  "data_vintage": "2026-Q3",
+  "edition": 2025,
+  "source_note": "Occasional Paper 15/2025, Figure 15: share of quantum company funding in clusters, by region, recorded up to 31 July 2025. Rest of the World = clusters in India, Israel, Japan, Singapore, South Korea, Switzerland, UAE."
+ },
+ "data": [
+  {
+   "region": "China",
+   "cluster_share": 0.99
+  },
+  {
+   "region": "US",
+   "cluster_share": 0.98
+  },
+  {
+   "region": "RoW",
+   "cluster_share": 0.9
+  },
+  {
+   "region": "UK+AUS+CAN",
+   "cluster_share": 0.85
+  },
+  {
+   "region": "EU",
+   "cluster_share": 0.77
+  }
+ ]
+}

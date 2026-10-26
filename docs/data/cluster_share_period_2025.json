@@ -1,0 +1,21 @@
+{
+ "meta": {
+  "data_vintage": "2026-Q3",
+  "edition": 2025,
+  "source_note": "Occasional Paper 15/2025, Figure 1: share of global quantum company funding in clusters. \"2025\" is funding recorded up to 31 July 2025; \"Up to 2023\" is all funding through 31 December 2023."
+ },
+ "data": [
+  {
+   "period": "Up to 2023",
+   "cluster_share": 0.92
+  },
+  {
+   "period": "2024",
+   "cluster_share": 0.95
+  },
+  {
+   "period": "2025",
+   "cluster_share": 0.96
+  }
+ ]
+}
