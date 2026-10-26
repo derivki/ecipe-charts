@@ -16,15 +16,21 @@
   <div id="nav"></div>
   <h1>Global hubs</h1>
   <p class="sub">Explore the world's leading quantum clusters, ranked across three dimensions:
-  Market Orientation, Collaboration Intensity and Ecosystem Maturity. <span id="badge-clusters"></span></p>
+  Market Orientation, Collaboration Intensity and Ecosystem Maturity.</p>
   <div class="vintage" id="vintage"></div>
+  <!-- The 2026 edition of the index is parked (BACKLOG AP-28/AP-37/AP-59/AP-60); until it is
+       ready this page publishes the 2025 index. Delete this notice when 2026 replaces it. -->
+  <div class="edition-note" role="note"><b>2026 index coming soon.</b> This page shows the 2025
+  cluster index, as published in Occasional Paper 15/2025. The 2026 edition is in preparation and
+  will replace it here once it is ready.</div>
 
   <div class="panels g2">
 
     <div class="panel span2">
-      <div class="ttl"><span class="fig">Figure 1:</span> Global cluster map by funding and overall rank</div>
-      <p class="why">Each bubble is a ranked cluster. Bubble size shows its total company funding and colour its
-      overall rank, from dark blue for the highest-ranked clusters to orange for the lowest-ranked.</p>
+      <div class="ttl"><span class="fig">Figure 1:</span> Global cluster map by funding and 2025 overall rank</div>
+      <p class="why">Each bubble is a cluster in the 2025 index. Bubble size shows its total company funding
+      in the tracker today and colour its 2025 overall rank, from dark blue for the highest-ranked clusters
+      to orange for the lowest-ranked.</p>
       <!-- Below the title and subtitle, not above them: these buttons belong to this
            figure, and sitting at the top of the page they read as a page-wide filter. -->
       <div class="controls"><div class="ctl"><label>Area</label><div class="chiprow fused" id="region-chips"></div></div></div>
@@ -38,22 +44,21 @@
     </div>
 
     <div class="panel span2">
-      <div class="ttl"><span class="fig">Table 1:</span> 2026 cluster ranking</div>
+      <div class="ttl"><span class="fig">Table 1:</span> 2025 cluster ranking <span id="badge-index"></span></div>
       <p class="why">The overall rank is the average of each cluster's ranking across three
       dimensions: Market Orientation (commercialisation), Collaboration Intensity (partnerships
-      and connectivity) and Ecosystem Maturity (institutional strength and productivity). Arrows
-      indicate movement compared with the 2025 ranking; <b>NEW</b> identifies clusters entering
-      the ranking in 2026. <b>1</b> indicates the highest-ranked cluster.</p>
+      and connectivity) and Ecosystem Maturity (institutional strength and productivity). Clusters
+      with the same score share a rank, marked <b>=</b> as in the paper. <b>1</b> indicates the highest-ranked cluster. This is the
+      2025 index; the 2026 ranking will follow.</p>
       <div class="tblwrap" style="overflow-x:auto;">
         <table class="rtable" id="rtable">
           <colgroup>
-            <col style="width:8%"><col style="width:8%"><col style="width:14%">
-            <col style="width:12%"><col style="width:13%">
-            <col style="width:15%"><col style="width:16%"><col style="width:14%">
+            <col style="width:9%"><col style="width:23%">
+            <col style="width:14%"><col style="width:15%">
+            <col style="width:13%"><col style="width:13%"><col style="width:13%">
           </colgroup>
           <thead><tr>
-            <th data-k="overall_rank" class="num sorted">2026 Rank</th>
-            <th data-k="rank_2025" class="num">2025 Rank</th>
+            <th data-k="overall_rank" class="num sorted">2025 Rank</th>
             <th data-k="cluster">Cluster</th>
             <th data-k="country">Country</th>
             <th data-k="usual_region" class="ctr">Region</th>
@@ -75,20 +80,12 @@
       <div class="legend legend-center" id="legend-sharetime"></div>
     </div>
 
-    <div class="panel span2">
-      <div class="ttl"><span class="fig">Figure 3:</span> New entrants and downgrades in the cluster ranking</div>
-      <p class="why">Quasi-clusters that have upgraded to full cluster status and entered the
-      ranking, and clusters that have dropped back out of it. Both are ordered by 2026 rank.
-      New entrants are also marked with a <b>NEW</b> badge in the ranking table above.
-      <span id="badge-graduates"></span></p>
-      <div class="subttl">New entrants</div>
-      <div id="graduates-body"></div>
-      <div class="subttl">Downgrade</div>
-      <div id="downgrades-body"></div>
-    </div>
+    <!-- Figure "New entrants and downgrades" is parked with the 2026 index: it compares the 2026
+         ranking with 2025, so it has nothing to show until 2026 exists. Figures 3 and 4 below
+         were numbered 4 and 5 while it was on the page. -->
 
     <div class="panel span2">
-      <div class="ttl"><span class="fig">Figure 4:</span> Company funding by region, in clusters, in quasi-clusters and elsewhere <span id="badge-pipeline"></span></div>
+      <div class="ttl"><span class="fig">Figure 3:</span> Company funding by region, in clusters, in quasi-clusters and elsewhere <span id="badge-pipeline"></span></div>
       <p class="why">How each region's total company funding splits between money raised by
       companies in a ranked cluster, in a quasi-cluster, or elsewhere. A quasi-cluster has real
       quantum activity but has not yet cleared the funding or institutional-density bar for
@@ -98,7 +95,7 @@
     </div>
 
     <div class="panel span2">
-      <div class="ttl"><span class="fig">Figure 5:</span> Clusters by funding band, per region</div>
+      <div class="ttl"><span class="fig">Figure 4:</span> Clusters by funding band, per region</div>
       <p class="why">How many of the tracker's ranked clusters fall into each funding band, by
       region. A region with more than one cluster over $1B in funding has significant depth
       beyond its single best-known hub; one with many clusters under $100m has a long tail of

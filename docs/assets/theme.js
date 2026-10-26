@@ -343,6 +343,11 @@ hr.rule{border:0;border-top:1px solid var(--line);margin:18px 0;}
 .mocknote{font-size:11px;color:var(--muted);line-height:1.5;margin:2px 0 10px;padding:7px 10px;
   border-left:2px solid color-mix(in srgb, ${tokens.mock} 55%, transparent);background:var(--panel);border-radius:0 6px 6px 0;}
 
+/* ---------- "next edition coming" notice (Clusters: 2026 index parked) ---------- */
+.edition-note{font-size:13px;color:var(--ink);line-height:1.5;margin:0 0 18px;padding:10px 14px;max-width:1000px;
+  border-left:3px solid ${tokens.accent};background:color-mix(in srgb, ${tokens.accent} 8%, transparent);border-radius:0 6px 6px 0;}
+.edition-note b{font-weight:700;color:${tokens.accent};}
+
 /* ---------- data load failure (QT.boot) ---------- */
 .load-error{font-size:13px;color:var(--ink);line-height:1.55;margin:0 0 18px;padding:14px 16px;
   border:1px solid color-mix(in srgb, ${tokens.rust} 40%, transparent);

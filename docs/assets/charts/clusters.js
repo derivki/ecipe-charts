@@ -1,19 +1,18 @@
-/* Cluster dashboard (Layer 2) – map + sortable ranking table + detail bars +
-   clusters-vs-non-clusters share over time.
-   Real: cluster names, company counts, funding, real-world coordinates
-   (docs/data/mock_cluster_rankings.json – only the 3 dimension scores are mock).
-   Mock: market/collaboration/maturity dimension scores, and the historical path
-   of the share-over-time chart (its final-year value is real – see
-   docs/data/mock_cluster_share_time.json meta.source_note).
-   The table and map show each cluster's RANK (1 = best of 15) on every pillar,
-   not the raw 0-100 score – ranking is a more defensible read of an illustrative
-   placeholder score than an arbitrarily-weighted composite would be. The overall
-   rank is simply the average of the three pillar ranks (no weighting). */
+/* Cluster dashboard (Layer 2) – map + sortable ranking table + clusters-vs-non-clusters
+   share over time + regional funding splits.
+   The ranking is the PUBLISHED 2025 INDEX (docs/data/cluster_index_2025.json, built by
+   src/build_cluster_index_2025.py): overall rank and the three dimension ranks are the
+   paper's own and are shown as they are, never recomputed here. The 2026 edition is parked;
+   when it lands, swap the dataset, restore the 2025-vs-2026 movement arrows, the NEW badge and
+   the new-entrants/downgrades figure (see git history before the 2025 switch).
+   Map bubble size is the tracker's current company funding for the cluster.
+   Mock: the historical path of the share-over-time chart and the quasi-cluster split
+   (docs/data/mock_cluster_share_time.json, mock_quasi_cluster_funding.json). */
 QT.boot(async function () {
   QT.nav("#nav", "clusters");
 
   const [rankings, shareTime, fundingByCluster, fundingByCountry, quasiFunding, codes, worldTopo] = await Promise.all([
-    QT.loadData("mock_cluster_rankings"),
+    QT.loadData("cluster_index_2025"),
     QT.loadData("mock_cluster_share_time"),
     QT.loadData("funding_by_cluster"),
     QT.loadData("funding_by_country"),
@@ -27,9 +26,8 @@ QT.boot(async function () {
   const flagIcon = (code, country) => QT.flag(country, { code });
   const land = topojson.feature(worldTopo, worldTopo.objects.countries).features.filter(f => f.properties.name !== "Antarctica");
   QT.vintage("#vintage", { data_vintage: rankings.meta.data_vintage });
-  document.getElementById("badge-clusters").innerHTML = QT.mockBadge();
+  document.getElementById("badge-index").innerHTML = QT.citeBadge();
   document.getElementById("badge-time").innerHTML = QT.mockBadge();
-  document.getElementById("badge-graduates").innerHTML = QT.mockBadge();
   // Figure 4 mixes real cluster/region funding totals with an illustrative
   // quasi-cluster split (mock_quasi_cluster_funding.json -- see its own
   // source_note), so it now carries the small mock badge like the rest of the
@@ -97,28 +95,15 @@ QT.boot(async function () {
   });
 
   const TH_LABELS = {
-    overall_rank: "2026 Rank", rank_2025: "2025 Rank", cluster: "Cluster", country: "Country",
+    overall_rank: "2025 Rank", cluster: "Cluster", country: "Country",
     usual_region: "Region", market_rank: "Market Orientation",
     collab_rank: "Collaboration Intensity", maturity_rank: "Ecosystem Maturity",
   };
 
-  // ---------- rank each cluster on every pillar, once, from the full 15-cluster
-  // set (not the region-filtered view) so a pillar rank always reads "n of 15"
-  // regardless of which region chip is active. Overall rank = average of the
-  // three pillar ranks – no weights.
-  (function assignRanks(data) {
-    DIMS.forEach(dim => {
-      [...data].sort(QT.rank(dim.key, "cluster"))
-        .forEach((d, i) => { d[dim.rankKey] = i + 1; });
-    });
-    const pillarAvg = d => DIMS.reduce((s, dim) => s + d[dim.rankKey], 0) / DIMS.length;
-    [...data].sort((a, b) =>
-      // best (lowest) average pillar rank first, then larger funding, then alphabetical
-      pillarAvg(a) - pillarAvg(b) ||
-      (b.total_funding - a.total_funding) ||
-      QT.alpha(a.cluster, b.cluster)
-    ).forEach((d, i) => { d.overall_rank = i + 1; });
-  })(rankings.data);
+  // The index is published ranked: `rank_2025` is the overall rank (ties flagged
+  // by rank_tie, as the paper prints them) and
+  // market_rank / collab_rank / maturity_rank the three dimension ranks. Nothing to compute.
+  rankings.data.forEach(d => { d.overall_rank = d.rank_2025; });
 
   let state = {
     region: "World",
@@ -130,7 +115,7 @@ QT.boot(async function () {
   // table (and were wired to re-render the share-over-time chart, which never even
   // read `state.region`) – picking "Oceania" silently emptied Table 1 along with it,
   // which is not what a map zoom control should do. `mapRows()` feeds the map;
-  // `tableRows()` always sees the full 15-cluster set, sorted only.
+  // `tableRows()` always sees the full 45-cluster set, sorted only.
   function mapRows() {
     return rankings.data.filter(d => inArea(d, state.region));
   }
@@ -162,7 +147,7 @@ QT.boot(async function () {
       x0 = d3.min(pts, p => p[0]); x1 = d3.max(pts, p => p[0]);
       y0 = d3.min(pts, p => p[1]); y1 = d3.max(pts, p => p[1]);
     } else {
-      // No cluster currently falls inside this area (e.g. Oceania – the 15-cluster
+      // No cluster currently falls inside this area (e.g. Oceania – the earlier 15-cluster
       // ranking has no member there yet) – frame the area's own geographic bounds
       // instead of the (empty) cluster extent, so the button still zooms somewhere
       // instead of silently doing nothing.
@@ -232,7 +217,7 @@ QT.boot(async function () {
     let legend = d3.select("#map-wrap .cmap-legend");
     if (legend.empty()) legend = d3.select("#map-wrap").append("div").attr("class", "cmap-legend");
     legend.html(
-      `<div class="lg-title">Overall rank</div>` +
+      `<div class="lg-title">2025 overall rank</div>` +
       `<div class="lg-bar" style="background:linear-gradient(to right, ${QT.palette.clusterRank.join(",")})"></div>` +
       `<div class="lg-scale"><span>Highest</span><span>Lowest</span></div>`);
 
@@ -297,7 +282,7 @@ QT.boot(async function () {
         `<div class="hd">${flagIcon(d.country_code, d.country)} ${d.cluster}</div>` +
         `<div class="row"><span class="k">Company funding</span><span class="v">${QT.fmt.money(d.total_funding)}</span></div>` +
         `<div class="row"><span class="k">Quantum companies</span><span class="v">${QT.fmt.int(d.companies)}</span></div>` +
-        `<div class="row"><span class="k">Overall rank</span><span class="v">${d.overall_rank} of ${N}</span></div>`, e))
+        `<div class="row"><span class="k">2025 rank</span><span class="v">${rk(d.overall_rank, d.rank_tie)} of ${N}</span></div>`, e))
       .on("mouseleave", tt.hide)
       .on("click", (e, d) => { state.selected = d.cluster; renderSelection(); });
 
@@ -329,24 +314,9 @@ QT.boot(async function () {
     d3.select("#map-zreset").on("click", () => c.svg.call(zoom.transform, target));
   }
 
-  /* Movement against the 2025 ranking: up, down, or an en dash for no change.
-     `rank_2025` DOES NOT EXIST IN THE DATA YET (BACKLOG.md AP-37) – Elena is still
-     computing the 2026 ranking and the 2025 table was never stored. Per her
-     instruction to build the interface now and feed the real data later, the column,
-     the arrows and the NEW badge are all wired up and render "–" until the field
-     appears. Deliberately NOT faked: an invented 2025 rank would produce arrows that
-     look authoritative and mean nothing. */
-  function movement(d) {
-    if (d.graduated) return ' <span class="grad-pill">NEW</span>';
-    if (d.rank_2025 == null) return "";
-    const delta = d.rank_2025 - d.overall_rank;   // positive = moved up the ranking
-    if (delta === 0) return ' <span class="mv mv-flat" title="No change since 2025">&ndash;</span>';
-    return delta > 0
-      ? ` <span class="mv mv-up" title="Up ${delta} since 2025">&#9650;${delta}</span>`
-      : ` <span class="mv mv-down" title="Down ${-delta} since 2025">&#9660;${-delta}</span>`;
-  }
+  // The paper marks tied ranks with "=" (12=, 2=); shown as printed.
+  const rk = (n, tie) => `${n}${tie ? "=" : ""}`;
 
-  // ---------- table ----------
   function renderTable() {
     const rs = tableRows();
     const tbody = d3.select("#rtable tbody");
@@ -356,15 +326,13 @@ QT.boot(async function () {
       .on("click", (e, d) => { state.selected = d.cluster; renderSelection(); });
 
     tr.selectAll("td").data(d => [
-      // 2026 rank, carrying the movement arrow against 2025.
-      `${d.overall_rank}${movement(d)}`,
-      d.rank_2025 == null ? '<span class="dim">n/a</span>' : d.rank_2025,
-      `${d.cluster}${d.graduated ? ' <span class="grad-pill">NEW</span>' : ''}`,
+      rk(d.overall_rank, d.rank_tie),
+      d.cluster,
       `${flagIcon(d.country_code, d.country)} ${d.country || ""}`,
       QT.regionLabel(d.usual_region),
-      d.market_rank, d.collab_rank, d.maturity_rank,
+      rk(d.market_rank, d.market_tie), rk(d.collab_rank, d.collab_tie), rk(d.maturity_rank, d.maturity_tie),
     ]).join("td")
-      // Region (index 4) is a short categorical code (US/EU/China/...), unlike the
+      // Region (index 3) is a short categorical code (US/EU/China/...), unlike the
       // free-text Cluster/Country columns either side of it -- left-aligning it in
       // a column wide enough for its displayed label ("UK, Canada, and Australia", via
       // QT.regionLabel) left it stranded against the left
@@ -372,7 +340,7 @@ QT.boot(async function () {
       // though it technically matched its header's alignment. Centring it (header
       // too, via the "ctr" class on the <th> in clusters.html) gives it its own
       // deliberate treatment instead.
-      .attr("class", (d, i) => [0, 1, 5, 6, 7].includes(i) ? "num" : i === 4 ? "ctr" : null)
+      .attr("class", (d, i) => [0, 4, 5, 6].includes(i) ? "num" : i === 3 ? "ctr" : null)
       .html(d => d);
 
     d3.select("#rtable thead").selectAll("th").each(function () {
@@ -575,68 +543,7 @@ QT.boot(async function () {
     c.gy.call(d3.axisLeft(y).tickSizeOuter(0).tickFormat(QT.regionLabel)).call(g => g.select(".domain").remove());
   }
 
-  // ---------- new entrants: graduated quasi-clusters (featured strip) ----------
-  // Static – always shows every graduate regardless of the region filter, so the
-  // "who just made it in" story stays front-and-centre. Cards are clickable and
-  // select the cluster in the table/map/detail below.
-  function renderGraduates() {
-    // Ordered by 2026 rank rather than left in dataset order, so the strip has a
-    // defensible reading direction (Elena: "let's put the boxes in order of something").
-    const grads = rankings.data.filter(d => d.graduated)
-      .sort(QT.rank("overall_rank", "cluster", "asc"));
-    const body = d3.select("#graduates-body");
-    body.selectAll("*").remove();
-    if (!grads.length) {
-      body.append("div").attr("class", "policy-empty").text("No graduations recorded this update.");
-      return;
-    }
-    const grid = body.append("div").attr("class", "grad-grid");
-    const card = grid.selectAll(".grad-card").data(grads, d => d.cluster).join("div")
-      .attr("class", "grad-card")
-      .on("click", (e, d) => { state.selected = d.cluster; renderSelection(); });
-    // "NEW" rather than "Graduated", to match the badge the same cluster carries in
-    // the ranking table above -- one word for one event, not two.
-    card.append("span").attr("class", "grad-pill").html("&#8593; NEW");
-    card.append("div").attr("class", "grad-name").html(d => `${flagIcon(d.country_code, d.country)} ${d.cluster}`);
-    // The usual region (EU / US / ...), not the map's geographical area.
-    card.append("div").attr("class", "grad-meta")
-      .text(d => `${QT.regionLabel(d.usual_region)} · ${QT.fmt.money(d.total_funding)}`
-                 + (d.from_tier ? ` · from ${d.from_tier}` : ""));
-  }
-
-  // ---------- ranking movements: clusters that dropped OUT of the ranking ----------
-  // The mirror image of renderGraduates(), reading from a `downgraded`/`to_tier` pair
-  // in the same shape as `graduated`/`from_tier`. Neither the tracker nor the mock
-  // rankings file carries this field yet -- detecting a downgrade needs a 2025
-  // baseline to compare against, and (BACKLOG.md AP-37) the tracker doesn't hold one:
-  // rank_2025 is null on every row, which is also why the table's movement arrows are
-  // blank. Rather than invent which named clusters supposedly dropped out -- there is
-  // no data anywhere in this pipeline that could support that claim -- this renders
-  // the same honest "not yet available" state as the rest of the page, and will start
-  // showing real cards the moment a `downgraded: true` row exists.
-  function renderDowngrades() {
-    const downs = rankings.data.filter(d => d.downgraded)
-      .sort(QT.rank("overall_rank", "cluster", "asc"));
-    const body = d3.select("#downgrades-body");
-    body.selectAll("*").remove();
-    if (!downs.length) {
-      body.append("div").attr("class", "policy-empty")
-        .text("No downgrades to show yet: detecting a cluster that has dropped out of the top 45 "
-              + "needs a 2025 ranking to compare against, and none is available.");
-      return;
-    }
-    const grid = body.append("div").attr("class", "grad-grid");
-    const card = grid.selectAll(".grad-card").data(downs, d => d.cluster).join("div")
-      .attr("class", "grad-card")
-      .on("click", (e, d) => { state.selected = d.cluster; renderSelection(); });
-    card.append("span").attr("class", "grad-pill grad-pill-down").html("&#8595; Downgrade");
-    card.append("div").attr("class", "grad-name").html(d => `${flagIcon(d.country_code, d.country)} ${d.cluster}`);
-    card.append("div").attr("class", "grad-meta")
-      .text(d => `${QT.regionLabel(d.usual_region)} · ${QT.fmt.money(d.total_funding)}`
-                 + (d.to_tier ? ` · to ${d.to_tier}` : ""));
-  }
-
-  // Selection (map bubble / table row / graduate|downgrade card click) touches only
+  // Selection (map bubble / table row click) touches only
   // the map's highlight stroke and the table's `.sel` row -- never the region chips
   // or the share-over-time chart, neither of which depends on `state.selected`.
   function renderSelection() { renderMap(); renderTable(); }
@@ -651,8 +558,6 @@ QT.boot(async function () {
   renderMap();
   renderTable();
   renderShareTime();
-  renderGraduates(); // static – always shows every graduate regardless of region filter
-  renderDowngrades(); // static, same reasoning – see the function comment
   renderPipeline(); // static – doesn't depend on region filter or table sort/selection
   renderBands(); // static – doesn't depend on region filter or table sort/selection
   QT.timeSlider("#slider-sharetime", { years: SHARE_YEARS, align: { W: 880, l: 46, r: 12 }, onChange: w => { shareWin = w; renderShareTime(); } });
