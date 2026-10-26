@@ -38,18 +38,17 @@
   line-height:1;display:flex;align-items:center;justify-content:center;
   box-shadow:0 1px 3px rgba(35,20,50,0.08);}
 .wm-zoom button:hover{border-color:#007A83;color:#007A83;}
-.wm-legend{position:absolute;left:12px;bottom:12px;z-index:4;background:#fff;
-  border:1px solid var(--line);border-radius:6px;padding:10px 12px;
-  color:var(--muted);max-width:210px;box-shadow:0 2px 8px rgba(35,20,50,0.06);font-size:11px;}
-.wm-legend .lg-title{font-size:9.5px;font-weight:600;letter-spacing:.1em;text-transform:uppercase;color:var(--muted);margin-bottom:7px;}
+/* One row above the map, as in the Figma: bold title, then the bands from highest to lowest. */
+.wm-legend{display:flex;flex-wrap:wrap;align-items:center;gap:6px 16px;margin:12px 0 10px;color:var(--muted);font-size:12px;}
+.wm-legend .lg-title{font-size:10px;font-weight:700;letter-spacing:.08em;text-transform:uppercase;color:var(--ink);margin-right:-4px;}
+.wm-legend .lg-title::after{content:":";}
 .wm-lg-bar{height:8px;border-radius:2px;margin-bottom:4px;}
 .wm-lg-scale{display:flex;justify-content:space-between;font-size:9.5px;color:var(--muted);}
-.wm-lg-sep{height:1px;background:var(--line);margin:9px 0 8px;}
-.wm-lg-row{display:flex;align-items:center;gap:7px;font-size:10.5px;color:var(--muted);}
-.wm-lg-sw{width:11px;height:11px;border-radius:2px;flex:none;box-shadow:0 0 0 0.5px color-mix(in srgb, ${T.ink} 12%, transparent);}
+.wm-lg-row{display:flex;align-items:center;gap:6px;font-size:12px;color:var(--muted);}
+.wm-lg-sw{width:10px;height:10px;border-radius:2px;flex:none;box-shadow:0 0 0 0.5px color-mix(in srgb, ${T.ink} 12%, transparent);}
 .wm-lg-dot{width:11px;height:11px;border-radius:50%;background:${T.clusterBubble};opacity:.85;border:0.8px solid ${T.clusterBubbleStroke};flex:none;}
-.wm-lg-nd{display:flex;align-items:center;gap:7px;font-size:10.5px;color:var(--muted);margin-top:6px;}
-.wm-lg-ndsw{width:11px;height:11px;border-radius:2px;background:${T.noData};border:1px solid ${T.noDataBorder};flex:none;}
+.wm-lg-nd{display:flex;align-items:center;gap:6px;font-size:12px;color:var(--muted);}
+.wm-lg-ndsw{width:10px;height:10px;border-radius:2px;background:${T.noData};border:1px solid ${T.noDataBorder};flex:none;}
 `;
   function injectCSS() {
     if (document.getElementById("wm-css")) return;
@@ -113,7 +112,7 @@
     }
     frame.append("div").attr("class", "wm-zoom").html(
       `<button id="wm-zin" title="Zoom in">+</button><button id="wm-zout" title="Zoom out">−</button><button id="wm-zreset" title="Reset">↻</button>`);
-    const legend = frame.append("div").attr("class", "wm-legend");
+    const legend = root.insert("div", ".wm-frame").attr("class", "wm-legend");
     const tip = root.append("div").attr("class", "tt");
 
     const [countryData, clusterData, coordsData, codes, worldTopo] = await Promise.all([
@@ -263,16 +262,16 @@
         return rec && cVal(rec) != null ? fundColour(cVal(rec)) : QT.tokens.noData;
       });
       if (bubbleSel) bubbleSel.attr("r", d => rScale(d.company_funding || 0));
-      // Discrete swatches with their class bounds, so the reader can tell which band a
+      // Discrete swatches with their class bounds (highest first), so the reader can tell which band a
       // country is in. A continuous gradient bar cannot label a binned scale honestly.
-      const swatches = BANDS.map(b =>
+      const swatches = BANDS.slice().reverse().map(b =>
         `<div class="wm-lg-row"><span class="wm-lg-sw" style="background:${b.color}"></span>${b.label}</div>`
       ).join("");
       legend.html(
         `<div class="lg-title">${M.title}</div>` +
         swatches +
-        (showClusters ? `<div class="wm-lg-sep"></div><div class="wm-lg-row"><span class="wm-lg-dot"></span>${M.dot}</div>` : "") +
-        `<div class="wm-lg-nd"><span class="wm-lg-ndsw"></span>${M.noData}</div>`
+        `<div class="wm-lg-nd"><span class="wm-lg-ndsw"></span>${M.noData}</div>` +
+        (showClusters ? `<div class="wm-lg-row"><span class="wm-lg-dot"></span>${M.dot}</div>` : "")
       );
     }
     update();
