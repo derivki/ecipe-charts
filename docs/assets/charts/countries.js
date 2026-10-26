@@ -166,10 +166,10 @@ QT.boot(async function () {
       { v: cb ? QT.fmt.int(cb.collaborations) : "n/a", k: "Quantum collaborations" },
     ]);
 
+    // Only the label is bold; the archetype itself is plain text, as in the Figma.
     d3.select("#archetype-line").html(a
-      ? `Collaboration archetype: <b style="color:${QT.palette.archetype[a.archetype] || QT.tokens.purple}">`
-        + `${a.archetype}</b> (see Figure 6)`
-      : `Collaboration archetype: not scored. ${archetypeWhyNot(state.country)} (see Figure 6).`);
+      ? `<b>Collaboration archetype:</b> ${a.archetype} (see Figure 6)`
+      : `<b>Collaboration archetype:</b> not scored. ${archetypeWhyNot(state.country)} (see Figure 6).`);
   }
 
   // ---------- Panel 1: ranked bars, selected country highlighted (REAL) ----------
@@ -511,9 +511,9 @@ QT.boot(async function () {
 
   // ---------- Figure 7: national specialisation (REAL) ----------
   /* Two views of the same question, "what is this country specialised in?" (AP-49):
-       sector – the paper's revealed comparative advantage (RCA), computed on
-                collaborations with an industry partner abroad and cut by that partner's
-                ICB3 sector (Occasional Paper 08/2025);
+       sector – the paper's revealed comparative advantage (RCA), computed on the
+                cross-border collaborations the country's companies take part in and cut
+                by the company's own ICB3 sector (Occasional Paper 08/2025);
        layer  – a specialisation index on the NUMBER OF COMPANIES per stack layer. Not an
                 RCA and not funding: a funding-based index would be set by a handful of
                 large rounds, and a company count is the closer analogue of a patent count.
@@ -527,7 +527,7 @@ QT.boot(async function () {
       view: SPEC.sector, floorKey: "min_observations", total: "observations",
       name: d => d.sector, value: d => d.rca, n: d => d.collaborations,
       measure: "RCA", unit: "collaborations", group: d => d.short,
-      what: "sector-tagged collaborations with an industry partner abroad",
+      what: "sector-tagged international collaborations by its companies",
     },
     layer: {
       view: SPEC.company_layer, floorKey: "min_companies", total: "companies",
@@ -542,22 +542,28 @@ QT.boot(async function () {
     if (kind === "sector") {
       const o = SPEC.sector.observations;
       return {
-        why: `Which industry sectors ${state.country} collaborates with most, compared with the rest of the world. ` +
-          `The ten highest are shown.`,
-        how: `<b>How to read it.</b> The score is the revealed comparative advantage (RCA). Above 1.0 (the dashed line), ` +
-          `${state.country} collaborates with that sector more than the world average does; below 1.0, less. Lighter bars rest ` +
-          `on very few collaborations. Hover a bar for the number of collaborations behind it.`,
-        note: `Based on collaborations with an industry partner abroad. A sector is recorded for ` +
-          `${QT.fmt.pct0(o.with_sector / o.industry_side)} of these collaborations, and countries with fewer than ` +
-          `${SPEC.sector.min_observations} sector-tagged collaborations are not scored.`,
-        src: `Source: ECIPE Quantum Database; sector (ICB3) of the industry partner; method of ECIPE Occasional Paper 08/2025.`,
+        why: `Which industry sectors play the biggest part in ${state.country}'s international quantum collaborations, ` +
+          `compared with the rest of the world. The ten highest are shown.`,
+        how: `<b>How to read it.</b> Each bar scores one industry sector (the revealed comparative advantage, or RCA). ` +
+          `A score of 1.0, the dashed line, means the sector accounts for the same share of ${state.country}'s ` +
+          `international collaborations as it does worldwide. Above 1.0, ${state.country} is more active in that sector than ` +
+          `the world average (2.0 is twice the world's share); below 1.0, less. Lighter bars rest on fewer than ` +
+          `${SPEC_THIN} collaborations, so treat them with care. Hover a bar for the number of collaborations behind it.`,
+        note: `Counts collaborations between a company in ${state.country} and a partner in another country, by the ` +
+          `company's industry sector (ICB3). A collaboration between companies in two countries counts once for each. ` +
+          `A sector is recorded for ${QT.fmt.pct0(o.with_sector / o.industry_side)} of the companies in these ` +
+          `collaborations. Countries with fewer than ${SPEC.sector.min_observations} sector-tagged collaborations are ` +
+          `not scored, and the world average is taken over the countries that are.`,
+        src: `Source: ECIPE Quantum Database; sector (ICB3) of the company; method of ECIPE Occasional Paper 08/2025.`,
       };
     }
     return {
       why: `Which layers of the quantum stack ${state.country}'s companies are concentrated in, compared with the rest of the world.`,
-      how: `<b>How to read it.</b> The score is a specialisation index. Above 1.0 (the dashed line), proportionally more of ` +
-        `${state.country}'s companies are in that layer than worldwide; below 1.0, fewer. Lighter bars rest on very few ` +
-        `companies. Hover a bar for the number of companies behind it.`,
+      how: `<b>How to read it.</b> Each bar scores one layer of the quantum stack, the part of the technology chain a ` +
+        `company works in (the specialisation index). A score of 1.0, the dashed line, means the layer holds the same ` +
+        `share of ${state.country}'s companies as it does worldwide. Above 1.0, ${state.country} has proportionally more ` +
+        `companies in that layer than the world average (2.0 is twice the world's share); below 1.0, fewer. Lighter bars ` +
+        `rest on fewer than ${SPEC_THIN} companies, so treat them with care. Hover a bar for the number of companies behind it.`,
       note: `It counts companies, not funding. Countries with fewer than ${SPEC.company_layer.min_companies} companies are not scored.`,
       src: `Source: ECIPE Quantum Database, company tracker (stack layer of each company).`,
     };
@@ -706,7 +712,8 @@ QT.boot(async function () {
       .style("color", "#fff").text(d => d.type);
     card.append("div").attr("class", "policy-title").text(d => d.title);
     card.append("div").attr("class", "policy-meta")
-      .text(d => `${d.status} · ${d.year}` + (d.public_funding != null ? ` · ${QT.fmt.money(d.public_funding)} public` : ""));
+      .html(d => `${d.status} · ${d.year}` + (d.public_funding != null
+        ? ` · <span class="policy-money">${QT.fmt.money(d.public_funding)}</span> public` : ""));
     card.append("div").attr("class", "policy-desc").text(d => d.note);
 
     // A thin vertical rule between neighbouring cards, but not at the start of a row (the number

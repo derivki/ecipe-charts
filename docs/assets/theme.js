@@ -286,7 +286,17 @@ svg{display:block;width:100%;height:auto;overflow:visible;}
 .kpis-fixed{grid-template-columns:repeat(6,1fr);}
 @media (max-width:640px){.kpis-fixed{grid-template-columns:repeat(3,1fr);}}
 @media (max-width:420px){.kpis-fixed{grid-template-columns:repeat(2,1fr);}}
-.archetype-line{font-size:12px;color:var(--muted);margin:-14px 0 22px;}
+.archetype-line{font-size:12.5px;color:var(--muted);margin:0 0 14px;}
+.archetype-line b{font-size:10px;letter-spacing:.08em;text-transform:uppercase;color:var(--ink);font-weight:700;margin-right:4px;}
+/* Countries header (Figma): bold prompt on the left, a wide pill selector filling the rest, rules around the summary. */
+h1.page-title{margin-top:34px;}
+.country-pick{display:flex;flex-wrap:wrap;align-items:center;gap:10px 28px;margin:14px 0 18px;}
+.country-pick label{flex:0 1 330px;font-size:13px;font-weight:700;color:var(--ink);line-height:1.35;}
+.country-pick select{flex:1 1 300px;min-width:0;font-size:13px;font-weight:700;padding:12px 40px 12px 22px;}
+hr.rule{border:0;border-top:1px solid var(--line);margin:18px 0;}
+/* A legend can open with a bold label ("INSTRUMENT:"), as the map legend does. */
+.legend .lg-title{font-size:10px;font-weight:700;letter-spacing:.08em;text-transform:uppercase;color:var(--ink);}
+.legend .lg-title::after{content:":";}
 /* Flat strip (Figma): no tile fill, a thin rule between figures, big teal numbers. */
 .kpi{border:none;border-left:1px solid var(--line);border-radius:0;padding:2px 14px;background:none;}
 .kpi:first-child{border-left:none;padding-left:0;}
@@ -397,6 +407,7 @@ svg{display:block;width:100%;height:auto;overflow:visible;}
   text-transform:capitalize;color:#fff;border-radius:20px;padding:3px 10px;}
 .policy-card .policy-title{font-size:13px;font-weight:650;color:var(--ink);line-height:1.25;}
 .policy-card .policy-meta{font-size:11px;color:var(--muted);font-variant-numeric:tabular-nums;}
+.policy-card .policy-money{font-weight:700;color:${tokens.purple};}
 .policy-card .policy-desc{font-size:11.5px;color:var(--muted);line-height:1.4;}
 .policy-empty{font-size:12px;color:var(--muted);padding:10px 0;}
 

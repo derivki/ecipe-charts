@@ -31,6 +31,7 @@
 .cn-dim{opacity:.1;}
 .cn-key{display:flex;flex-wrap:wrap;gap:8px 28px;margin:12px 0 2px;font-size:11.5px;color:var(--muted);}
 .cn-key .grp{display:flex;align-items:center;gap:8px;}
+.cn-key b{font-weight:700;color:${T.ink};}
 .cn-key .ramp{display:inline-block;width:88px;height:9px;border-radius:5px;border:1px solid ${T.line};}
 .cn-key .dots{display:inline-flex;align-items:center;gap:5px;}
 .cn-key .dots i{display:inline-block;border-radius:50%;background:${T.bg};border:1px solid ${T.ink};}
@@ -218,10 +219,10 @@
       const dots = [0.05, 0.4, 1].map(t => { const d = 2 * d3.scaleSqrt().domain([0, 1]).range([5, 25])(t); return `<i style="width:${d}px;height:${d}px"></i>`; }).join("");
       const bars = [0.6, 2.5, 6].map(h => `<i style="height:${h}px"></i>`).join("");
       root.select("#cn-key").html(
-        `<div class="grp"><span>Node size: number of partner countries</span><span class="dots">${dots}</span></div>` +
-        `<div class="grp"><span>Line thickness: collaborations</span><span class="bars">${bars}</span></div>` +
-        `<div class="grp"><span>Node colour: betweenness (connector role)</span><span>Low</span><span class="ramp" style="background:${rampCss}"></span><span>High</span></div>` +
-        `<div class="grp"><span>Line colour: RCA (specialisation)</span><span>Low</span><span class="ramp" style="background:${rampCss}"></span><span>High</span></div>`);
+        `<div class="grp"><span><b>Node size:</b> number of partner countries</span><span class="dots">${dots}</span></div>` +
+        `<div class="grp"><span><b>Line thickness:</b> collaborations</span><span class="bars">${bars}</span></div>` +
+        `<div class="grp"><span><b>Node colour:</b> betweenness (connector role)</span><span>Low</span><span class="ramp" style="background:${rampCss}"></span><span>High</span></div>` +
+        `<div class="grp"><span><b>Line colour:</b> RCA (specialisation)</span><span>Low</span><span class="ramp" style="background:${rampCss}"></span><span>High</span></div>`);
     }
 
     function chips() {

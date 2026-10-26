@@ -14,21 +14,22 @@
 <body>
 <div class="wrap">
   <div id="nav"></div>
-  <h1>National ecosystems</h1>
-  <p class="sub">Select a country to explore its position in the global quantum economy.</p>
+  <h1 class="page-title">National ecosystems</h1>
   <div class="vintage" id="vintage"></div>
 
-  <!-- Only the country selector sits up here now. The ranked-bar metric moved down into
-       the figure it controls: at the top of the page, next to the country list, it read
-       as a page-wide setting when it only ever affected one panel. -->
-  <div class="controls">
-    <div class="ctl"><label>Country</label><select id="country-select"></select></div>
+  <!-- Only the country selector sits up here. The ranked-bar metric moved down into the
+       figure it controls: at the top of the page, next to the country list, it read as a
+       page-wide setting when it only ever affected one panel. -->
+  <div class="country-pick">
+    <label for="country-select">Select a country to explore its position in the global quantum economy:</label>
+    <select id="country-select"></select>
   </div>
+  <hr class="rule">
 
-  <div class="kpis kpis-fixed" id="kpis"></div>
-  <!-- Archetype is not a KPI: it is a category, not a measure, and as a tile it forced
-       the whole strip wider to fit a phrase. It sits on its own line below the tiles. -->
+  <!-- Archetype is not a KPI: it is a category, not a measure, and as a tile it forced the
+       whole strip wider to fit a phrase. It sits on its own line above the tiles. -->
   <p class="archetype-line" id="archetype-line"></p>
+  <div class="kpis kpis-fixed" id="kpis"></div>
 
   <div class="panels g2">
 
@@ -50,7 +51,7 @@
     <div class="panel span2">
       <div class="ttl" id="ttl-instrument"><span class="fig">Figure 2:</span> Company funding by financing instrument</div>
       <p class="why" id="why-instrument"></p>
-      <div class="legend legend-center" id="legend-instrument-country"></div>
+      <div class="legend legend-center" id="legend-instrument-country"><span class="lg-title">Instrument</span></div>
       <svg id="chart-instrument-country" role="img" aria-label="Company funding by financing instrument"></svg>
       <p class="mocknote" id="mocknote-instrument"></p>
     </div>
