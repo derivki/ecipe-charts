@@ -7,6 +7,7 @@
 <!-- theme.js self-injects the stylesheet on load, so it belongs in <head>: from the
      end of <body> the CSS arrived after first paint and every tab switch flashed
      unstyled HTML. -->
+<link rel="preload" href="assets/fonts/Raleway-VariableFont_wght.woff" as="font" type="font/woff" crossorigin>
 <script src="assets/theme.js"></script>
 <script src="assets/vendor/d3.min.js"></script>
 </head>
@@ -20,7 +21,7 @@
   <div class="panels g2">
 
     <div class="panel span2">
-      <div class="ttl">Figure 1: Global distribution of company vs. government funding</div>
+      <div class="ttl"><span class="fig">Figure 1:</span> Global distribution of company vs. government funding</div>
       <p class="why">Funding by country, shaded by amount. Company funding is capital raised by the tracked
       quantum companies; government funding is identified public funding and commitments for
       quantum technologies.</p>
@@ -40,7 +41,7 @@
     </div>
 
     <div class="panel span2">
-      <div class="ttl">Figure 2: Global company funding by year and financing instrument</div>
+      <div class="ttl"><span class="fig">Figure 2:</span> Global company funding by year and financing instrument</div>
       <p class="why">Company funding by year, split by financing instrument, meaning the kind of money raised: VC
       / private equity (equity in private companies), debt, grant (non-repayable public funding)
       and public equity (equity raised on public markets, such as IPOs).</p>
@@ -63,14 +64,14 @@
     </div>
 
     <div class="panel span2">
-      <div class="ttl">Figure 3: Countries ranked by company vs. government funding</div>
+      <div class="ttl"><span class="fig">Figure 3:</span> Countries ranked by company vs. government funding</div>
       <p class="why">Countries ranked by funding, shown either as company funding (capital raised by companies)
       or as government funding (identified public funding by governments).</p>
       <div class="controls">
         <div class="ctl"><label>Metric</label>
           <div class="seg" id="seg-metric-country"><button data-m="company_funding" class="on">Company</button><button data-m="government_funding">Government</button></div>
         </div>
-        <div class="ctl"><label>Ranking</label><div class="chiprow" id="bracket-country"></div></div>
+        <div class="ctl"><label>Ranking</label><div class="chiprow fused" id="bracket-country"></div></div>
       </div>
       <svg id="chart-country" role="img" aria-label="Countries ranked by funding"></svg>
       <p class="mocknote" id="mocknote-country"></p>
@@ -79,7 +80,7 @@
     </div>
 
     <div class="panel span2">
-      <div class="ttl">Figure 4: Top companies by funding</div>
+      <div class="ttl"><span class="fig">Figure 4:</span> Top companies by funding</div>
       <p class="why">The highest-funded quantum companies worldwide, ranked by cumulative company funding.</p>
       <svg id="chart-companies" role="img" aria-label="Top companies by funding"></svg>
       <p class="note" style="margin-top:8px;padding-top:8px;">The ranking reflects cumulative
@@ -88,7 +89,7 @@
     </div>
 
     <div class="panel span2">
-      <div class="ttl">Figure 5: Company funding across funding stages, by region</div>
+      <div class="ttl"><span class="fig">Figure 5:</span> Company funding across funding stages, by region</div>
       <p class="why">How each region's company funding is spread along the equity ladder, from seed and angel
       investment through early-stage, late-stage and growth equity to public equity. Choose two
       regions to compare.</p>
@@ -111,7 +112,7 @@
     </div>
 
     <div class="panel span2">
-      <div class="ttl">Figure 6: Country collaboration network <span id="badge-network"></span></div>
+      <div class="ttl"><span class="fig">Figure 6:</span> Country collaboration network <span id="badge-network"></span></div>
       <p class="why">Countries linked by cross-border collaborations between the institutions and companies in
       the tracker.</p>
       <div id="network"></div>

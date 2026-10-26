@@ -174,9 +174,9 @@
     const BANDS = [
       { max: 1e8, label: "<$100m" },
       { max: 5e8, label: "$100–500m" },
-      { max: 1e9, label: "$500m–1bn" },
-      { max: 5e9, label: "$1–5bn" },
-      { max: Infinity, label: ">$5bn" },
+      { max: 1e9, label: "$500m–1B" },
+      { max: 5e9, label: "$1–5B" },
+      { max: Infinity, label: ">$5B" },
     ].map((b, i) => ({ ...b, color: QT.palette.sequential[i] }));
     const bandOf = v => BANDS.find(b => v < b.max) || BANDS[BANDS.length - 1];
     let rScale;

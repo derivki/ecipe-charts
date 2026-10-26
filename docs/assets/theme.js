@@ -23,7 +23,9 @@ window.QT = (function () {
     line:  "#BEBEBE",   // gridlines / borders (190/190/190)
     bg:    "#ffffff",
     panel: "#F4F4F4",   // control backgrounds (neutral, off the colour palette)
-    font:  '"Inter","Helvetica Neue",Arial,sans-serif',
+    // Raleway (SIL OFL) is the font on ecipe.org and in the designer's Figma. The files
+    // live in assets/fonts/ and are declared in css() below.
+    font:  '"Raleway","Helvetica Neue",Arial,sans-serif',
     // main colours: purple 35/20/50, teal 0/122/131, orange 255/130/0, navy 9/67/94.
     // Token names are historical (they predate the brand palette) -- they now hold:
     accent: "#007A83",  // teal -- primary colour; tab underlines, KPI tint, first series
@@ -39,7 +41,7 @@ window.QT = (function () {
                                    // 190 grey, kept off the teal ramp below so it doesn't read
                                    // as "just a paler funding class" next to the lowest bin
     noDataBorder:      "#BEBEBE", // legend swatch border for the no-data key
-    heatmapLow:          "#E6F2F3", // single-hue heatmap low end (Clusters Figure 5) -- 10% teal; pairs with accent as the high end
+    heatmapLow:          "#E5F1F2", // single-hue heatmap low end (Clusters Figure 5) -- 10% teal; pairs with accent as the high end
     clusterBubble:       "#FF8200", // world-map cluster bubble fill (orange: stands off the teal choropleth)
     clusterBubbleStroke: "#823C14", // world-map cluster bubble stroke
   };
@@ -52,14 +54,14 @@ window.QT = (function () {
     instrument: {
       "VC / private equity": "#007A83",
       "Debt":                "#FF8200",
-      "Grant":               "#918999",
+      "Grant":               "#5B99D2",   // ECIPE design system "extra-sky" -- the Figma's light blue
       "Public equity":       "#231432",
     },
     // funding stage (equity ladder)
     stage: {
       "Seed and Angel":                     "#007A83",
       "Early-stage equity":                 "#FF8200",
-      "Late-stage equity & Growth equity":  "#918999",
+      "Late-stage equity & Growth equity":  "#918A98",
       "Public equity":                      "#231432",
     },
     // world region
@@ -68,7 +70,7 @@ window.QT = (function () {
       "China":      "#007A83",
       "EU":         "#FF8200",
       "UK+AUS+CAN": "#66AFB5",
-      "RoW":        "#918999",
+      "RoW":        "#918A98",
     },
     // Display labels for the region keys above. The keys themselves stay the
     // tracker's internal short codes -- they're the vocabulary the private
@@ -83,7 +85,7 @@ window.QT = (function () {
       "RoW":        "Rest of the World",
     },
     // Teal at 10 / 30 / 60 / 80 / 100% -- the guide's own teal gradations.
-    sequential: ["#E6F2F3", "#B3D6D9", "#66AFB5", "#33959C", "#007A83"],
+    sequential: ["#E5F1F2", "#B2D7DA", "#66AFB5", "#33959C", "#007A83"],
     // Cluster overall rank -- navy (best) through teal to orange (worst), the encoding
     // the Clusters paper (Occasional Paper 15/2025) uses in its own figures. Distinct
     // from `sequential` on purpose: this axis is a RANKING with two meaningful ends,
@@ -106,11 +108,11 @@ window.QT = (function () {
     },
     // cluster macro-region (bubble map / region filter) - MOCK grouping of real clusters.
     // Follows the `region` colours above (North America ~ US, Europe ~ EU, East Asia ~ China).
-    clusterRegion: { "North America": "#231432", "Europe": "#FF8200", "East Asia": "#007A83", "Other": "#918999" },
+    clusterRegion: { "North America": "#231432", "Europe": "#FF8200", "East Asia": "#007A83", "Other": "#918A98" },
     // company founding origin (Companies tab) - the only populated company-classification field
     origin: {
       "University spinout": "#007A83", "Research spinout": "#66AFB5", "Corporate spinout": "#FF8200",
-      "Joint venture": "#231432", "Merger": "#918999", "Subsidiary": "#FFCD99", "Hybrid spinout": "#09435E",
+      "Joint venture": "#231432", "Merger": "#918A98", "Subsidiary": "#FFCD99", "Hybrid spinout": "#09435E",
       "Not specified": "#BEBEBE",
     },
     // company ownership status (Companies tab)
@@ -119,12 +121,12 @@ window.QT = (function () {
 
   // ── Number / currency formatters ──────────────────────────────────────────
   const fmt = {
-    // compact axis label, e.g. $1.5bn / $250m
-    axisMoney: v => "$" + (v >= 1e9 ? (v / 1e9).toFixed(v >= 1e10 ? 0 : 1) + "bn"
+    // compact axis label, e.g. $1.5B / $250m (capital B for billions, as in the Figma)
+    axisMoney: v => "$" + (v >= 1e9 ? (v / 1e9).toFixed(v >= 1e10 ? 0 : 1) + "B"
                           : v >= 1e6 ? (v / 1e6).toFixed(0) + "m"
                           : d3.format(",")(v)),
-    // full value for tooltips, e.g. $1.52bn / $250.0m / $12k
-    money: v => v >= 1e9 ? "$" + (v / 1e9).toFixed(2) + "bn"
+    // full value for tooltips, e.g. $1.52B / $250.0m / $12k
+    money: v => v >= 1e9 ? "$" + (v / 1e9).toFixed(2) + "B"
               : v >= 1e6 ? "$" + (v / 1e6).toFixed(1) + "m"
               : v >= 1e3 ? "$" + (v / 1e3).toFixed(0) + "k"
               : "$" + d3.format(",")(Math.round(v)),
@@ -188,8 +190,14 @@ window.QT = (function () {
   // ── Shared stylesheet (mirrors the tokens) ────────────────────────────────
   function css() {
     return `
+/* Raleway, variable weight (one file covers 100-900). Latin subset; font-display:swap so text
+   shows in the fallback face instead of staying invisible while the file loads. */
+@font-face{font-family:"Raleway";font-style:normal;font-weight:100 900;font-display:swap;
+  src:url("assets/fonts/Raleway-VariableFont_wght.woff") format("woff");}
+@font-face{font-family:"Raleway";font-style:italic;font-weight:100 900;font-display:swap;
+  src:url("assets/fonts/Raleway-Italic-VariableFont_wght.woff") format("woff");}
 :root{--ink:${tokens.ink};--muted:${tokens.muted};--line:${tokens.line};
-  --bg:${tokens.bg};--panel:${tokens.panel};--font:${tokens.font};}
+  --bg:${tokens.bg};--panel:${tokens.panel};--font:${tokens.font};--pill:${tokens.purple};}
 *{box-sizing:border-box;}
 body{margin:0;background:var(--bg);color:var(--ink);font-family:var(--font);}
 .wrap{max-width:1320px;margin:0 auto;padding:24px 20px 40px;}
@@ -198,18 +206,25 @@ h1{font-size:21px;line-height:1.25;margin:6px 0 4px;font-weight:650;letter-spaci
 .sub{font-size:13px;color:var(--muted);margin:0 0 16px;max-width:660px;line-height:1.45;}
 .vintage{font-size:11px;color:var(--muted);margin-bottom:14px;}
 .vintage b{color:var(--ink);font-weight:600;}
-.controls{display:flex;flex-wrap:wrap;gap:16px;align-items:flex-end;margin-bottom:8px;}
-.ctl{display:flex;flex-direction:column;gap:5px;}
-.ctl label{font-size:10px;letter-spacing:.08em;text-transform:uppercase;color:var(--muted);font-weight:600;}
-.seg{display:inline-flex;border:1px solid var(--line);border-radius:7px;overflow:hidden;background:var(--panel);}
-.seg button{appearance:none;border:0;background:transparent;padding:6px 11px;font:inherit;font-size:12px;color:var(--muted);cursor:pointer;transition:.12s;}
-.seg button+button{border-left:1px solid var(--line);}
-.seg button.on{background:var(--ink);color:#fff;}
-.seg button:not(.on):hover{background:#E8E8E8;color:var(--ink);}
-select{appearance:none;font:inherit;font-size:13px;color:var(--ink);background:var(--panel);
-  border:1px solid var(--line);border-radius:7px;padding:7px 28px 7px 10px;cursor:pointer;
-  background-image:url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='10' height='6'><path d='M0 0l5 6 5-6z' fill='%23424242'/></svg>");
-  background-repeat:no-repeat;background-position:right 10px center;}
+/* Controls follow the Figma: the label sits to the left of its control ("METRIC: [ ... ]"),
+   and a toggle is a fully rounded pill that fills the room it is given, dark purple when on. */
+.controls{display:flex;flex-wrap:wrap;gap:10px 24px;align-items:center;margin-bottom:10px;}
+.ctl{display:flex;flex-direction:row;align-items:center;gap:10px;flex:1 1 300px;min-width:0;}
+.ctl label{flex:none;font-size:10px;letter-spacing:.08em;text-transform:uppercase;color:var(--ink);font-weight:700;}
+.ctl label::after{content:":";}
+.seg{display:flex;flex:1 1 auto;min-width:0;border:1px solid var(--pill);border-radius:999px;overflow:hidden;background:#fff;}
+.seg button{flex:1 1 auto;appearance:none;border:0;background:transparent;padding:6px 12px;font:inherit;font-size:12px;font-weight:500;color:var(--pill);cursor:pointer;transition:.12s;white-space:nowrap;}
+.seg button+button{border-left:1px solid var(--pill);}
+.seg button.on{background:var(--pill);color:#fff;}
+.seg button:not(.on):hover{background:#F4F4F4;}
+/* Dropdowns match the pill controls: white, purple outline, fully rounded, chevron on the right.
+   Native <select> cannot show a flag inside the box, so the country picker has none. */
+select{appearance:none;font:inherit;font-size:12px;font-weight:500;color:var(--pill);background:#fff;
+  border:1px solid var(--pill);border-radius:999px;padding:7px 38px 7px 16px;cursor:pointer;
+  background-image:url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='12' height='8' fill='none' stroke='%23231432' stroke-width='1.6' stroke-linecap='round' stroke-linejoin='round'><path d='M1 1.5l5 5 5-5'/></svg>");
+  background-repeat:no-repeat;background-position:right 16px center;}
+select:hover{background-color:#F4F4F4;}
+.ctl select{flex:1 1 auto;min-width:0;}
 .legend{display:flex;flex-wrap:wrap;gap:14px;margin:10px 0 2px;}
 .lg{display:inline-flex;align-items:center;gap:7px;font-size:12px;color:var(--muted);cursor:default;user-select:none;}
 .lg.clickable{cursor:pointer;}
@@ -243,11 +258,13 @@ svg{display:block;width:100%;height:auto;overflow:visible;}
 .hint{font-size:11px;color:var(--muted);margin:6px 0 0;line-height:1.4;}
 
 /* ---------- dashboard nav (Overview / Countries / Clusters) ---------- */
-.tabbar{display:flex;flex-wrap:wrap;gap:4px 0;margin:14px 0 6px;border-bottom:1px solid var(--line);}
-.tabbar a{font-size:13px;font-weight:600;color:var(--muted);text-decoration:none;
-  padding:8px 4px;margin-right:18px;border-bottom:2px solid transparent;}
-.tabbar a.on{color:var(--ink);border-bottom-color:${tokens.accent};}
-.tabbar a:hover{color:var(--ink);}
+/* One full-width rounded bar; the active tab is filled dark purple (Figma). */
+.tabbar{display:flex;margin:14px 0 8px;border:1px solid var(--pill);border-radius:999px;overflow:hidden;background:#fff;}
+.tabbar a{flex:1 1 0;min-width:0;text-align:center;font-size:13px;font-weight:600;color:var(--pill);text-decoration:none;padding:8px 6px;}
+.tabbar a+a{border-left:1px solid var(--pill);}
+.tabbar a.on{background:var(--pill);color:#fff;}
+.tabbar a:not(.on):hover{background:#F4F4F4;}
+@media (max-width:480px){.tabbar a{font-size:11.5px;padding:8px 2px;}}
 
 /* ---------- "trusted by" logo strip (placeholder pending real logos) ---------- */
 .trustedby{display:flex;flex-wrap:wrap;align-items:center;gap:10px;margin:2px 0 16px;}
@@ -260,7 +277,7 @@ svg{display:block;width:100%;height:auto;overflow:visible;}
    wider tracks with auto-fit rather than leaving empty ones the way a fixed
    repeat(6,1fr) would for a page with fewer than six tiles. Tiles are sized small
    enough that six still fit across the ~797px usable width of the WordPress embed. */
-.kpis{display:grid;grid-template-columns:repeat(auto-fit,minmax(110px,1fr));gap:8px;margin:18px 0 24px;}
+.kpis{display:grid;grid-template-columns:repeat(auto-fit,minmax(110px,1fr));gap:14px 0;margin:18px 0 24px;}
 /* .kpis-fixed (Overview, Countries): six-across, ALWAYS, whatever the page has to
    show. auto-fit sizes columns from their own content, so on the Countries tab every
    change of country visibly resized all six tiles; Elena asked that they stay put
@@ -269,21 +286,29 @@ svg{display:block;width:100%;height:auto;overflow:visible;}
 @media (max-width:640px){.kpis-fixed{grid-template-columns:repeat(3,1fr);}}
 @media (max-width:420px){.kpis-fixed{grid-template-columns:repeat(2,1fr);}}
 .archetype-line{font-size:12px;color:var(--muted);margin:-14px 0 22px;}
-.kpi{border:none;border-radius:10px;padding:9px 10px;background:color-mix(in srgb, ${tokens.accent} 5%, ${tokens.panel});}
-.kpi .v{font-size:15px;font-weight:700;letter-spacing:-.02em;font-variant-numeric:tabular-nums;color:var(--ink);}
-.kpi .k{font-size:9.5px;color:var(--muted);margin-top:2px;line-height:1.25;}
+/* Flat strip (Figma): no tile fill, a thin rule between figures, big teal numbers. */
+.kpi{border:none;border-left:1px solid var(--line);border-radius:0;padding:2px 14px;background:none;}
+.kpi:first-child{border-left:none;padding-left:0;}
+.kpi .v{font-size:20px;font-weight:700;letter-spacing:-.01em;font-variant-numeric:tabular-nums;color:${tokens.accent};}
+.kpi .k{font-size:11px;color:var(--muted);margin-top:3px;line-height:1.3;}
+@media (max-width:640px){.kpi,.kpi:first-child{border-left:none;padding:2px 8px 2px 0;}}
 
 /* ---------- dashboard panel grid ----------
    Panels are UNBOXED: no card fill, no border, no radius. Each chart sits
    directly on the page, separated from the one above by a hairline rule and
-   generous whitespace. The tinted-card look lives on only in the KPI tiles
-   (.kpi above) – everything else is white. Keep it that way: a filled
-   background here is what made the page read as a stack of widgets. */
+   generous whitespace. Everything is white, including the KPI strip (.kpi above).
+   Keep it that way: a filled background here is what made the page read as a
+   stack of widgets. */
 .panels{display:grid;gap:34px 30px;margin-top:10px;}
 .panels.g2{grid-template-columns:1fr 1fr;}
 .panels .span2{grid-column:1/-1;}
 .panel{border:none;border-radius:0;background:none;padding:22px 0 0;border-top:1px solid var(--line);}
-.panel .ttl{font-size:14px;font-weight:650;letter-spacing:-.005em;margin:0 0 2px;display:flex;align-items:center;gap:8px;flex-wrap:wrap;}
+/* Figure title: a small teal "FIGURE 3:" eyebrow (.fig) over a larger dark-purple title. The
+   eyebrow is a <span class="fig"> inside .ttl -- static pages write it in the HTML, the
+   Countries titles that change with the selected country build it with QT.figTitle(). */
+.panel .ttl{display:block;font-size:20px;font-weight:700;line-height:1.2;letter-spacing:-.01em;color:var(--pill);margin:0 0 6px;}
+.panel .ttl .fig{display:block;font-size:10px;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:${tokens.accent};margin:0 0 5px;}
+.panel .ttl .mockbadge,.panel .ttl .citebadge{margin-left:8px;vertical-align:middle;}
 .panel .why{font-size:12px;color:var(--muted);line-height:1.45;margin:0 0 10px;max-width:1000px;}
 /* What a figure shows (.why), how to read it (.howto, above the chart) and where the numbers
    come from (.source, below it) are three separate things. */
@@ -336,8 +361,9 @@ svg{display:block;width:100%;height:auto;overflow:visible;}
    the th rule below – since it can no longer grow the column to fit one line. */
 .rtable{width:100%;border-collapse:collapse;font-size:12.5px;table-layout:fixed;}
 .rtable th,.rtable td{text-align:left;padding:8px 10px;border-bottom:1px solid var(--line);}
-.rtable th{font-size:10px;letter-spacing:.06em;text-transform:uppercase;color:var(--muted);
-  cursor:pointer;user-select:none;white-space:normal;line-height:1.35;vertical-align:bottom;}
+.rtable th{font-size:9.5px;font-weight:700;letter-spacing:.04em;text-transform:uppercase;color:var(--muted);
+  cursor:pointer;user-select:none;white-space:normal;overflow-wrap:anywhere;line-height:1.35;vertical-align:bottom;}
+@media (max-width:700px){.rtable th,.rtable td{padding-left:6px;padding-right:6px;}}
 .rtable th.sorted{color:var(--ink);}
 .rtable th .arrow{opacity:.55;}
 .rtable td.num,.rtable th.num{text-align:right;font-variant-numeric:tabular-nums;}
@@ -359,11 +385,13 @@ svg{display:block;width:100%;height:auto;overflow:visible;}
 .tslider-ctl{margin-top:12px;}
 
 /* ---------- policy & programmes cards (countries tab) ---------- */
-.policy-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(250px,1fr));gap:10px;margin-top:4px;}
-.policy-card{border:1px solid var(--line);border-radius:9px;padding:11px 12px 12px;background:var(--bg);
+/* Borderless cards, as in the Figma: the coloured type pill, then title / meta / note. The pill's
+   background is set per type in countries.js (POLICY_COLORS), its text colour with QT.textOn. */
+.policy-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(190px,1fr));gap:18px 20px;margin-top:6px;}
+.policy-card{border:none;border-radius:0;padding:0;background:none;
   display:flex;flex-direction:column;gap:5px;}
-.policy-card .policy-type{align-self:flex-start;font-size:9px;font-weight:700;letter-spacing:.06em;
-  text-transform:uppercase;color:#fff;border-radius:20px;padding:2px 8px;}
+.policy-card .policy-type{align-self:flex-start;font-size:10px;font-weight:700;letter-spacing:.02em;
+  text-transform:capitalize;color:#fff;border-radius:20px;padding:3px 10px;}
 .policy-card .policy-title{font-size:13px;font-weight:650;color:var(--ink);line-height:1.25;}
 .policy-card .policy-meta{font-size:11px;color:var(--muted);font-variant-numeric:tabular-nums;}
 .policy-card .policy-desc{font-size:11.5px;color:var(--muted);line-height:1.4;}
@@ -416,9 +444,16 @@ svg{display:block;width:100%;height:auto;overflow:visible;}
 /* Block heading inside a multi-block bar panel (Companies "landscape" figure). */
 .block-title{font-size:9.5px;font-weight:700;letter-spacing:.1em;text-transform:uppercase;fill:${tokens.muted};}
 .chiprow{display:flex;flex-wrap:wrap;gap:6px;margin:10px 0 2px;}
-.chip{font-size:11.5px;color:var(--muted);border:1px solid var(--line);border-radius:20px;
+.ctl .chiprow{margin:0;}
+.chip{font-size:11.5px;color:var(--pill);border:1px solid var(--pill);border-radius:20px;
   padding:4px 11px;cursor:pointer;background:var(--bg);}
-.chip.on{background:var(--ink);color:#fff;border-color:var(--ink);}
+.chip.on{background:var(--pill);color:#fff;border-color:var(--pill);}
+/* .fused: a chip row that behaves like a segmented pill (ranking brackets, area and
+   minimum-collaboration pickers) instead of separate round chips. */
+.chiprow.fused{flex:1 1 auto;min-width:0;flex-wrap:nowrap;gap:0;border:1px solid var(--pill);border-radius:999px;overflow:hidden;background:#fff;}
+.chiprow.fused .chip{flex:1 1 auto;text-align:center;border:0;border-radius:0;padding:6px 12px;font-size:12px;font-weight:500;white-space:nowrap;}
+.chiprow.fused .chip+.chip{border-left:1px solid var(--pill);}
+.chiprow.fused .chip:not(.on):hover{background:#F4F4F4;}
 /* A chip that is unavailable because the other selector already holds it: still
    readable, visibly not clickable. */
 .chip.off{opacity:.4;cursor:not-allowed;}
@@ -447,5 +482,17 @@ svg{display:block;width:100%;height:auto;overflow:visible;}
 
   injectCSS();
 
-  return { tokens, palette, fmt, rank, alpha, textOn, injectCSS };
+  // A figure title built as the "FIGURE 3:" eyebrow plus the title text -- see .panel .ttl in css().
+  // For titles that change with the selection; static ones carry the <span class="fig"> in the HTML.
+  function figTitle(selector, label, text) {
+    const el = document.querySelector(selector);
+    if (!el) return;
+    el.textContent = "";
+    const fig = document.createElement("span");
+    fig.className = "fig";
+    fig.textContent = label + ":";
+    el.append(fig, " " + text);
+  }
+
+  return { tokens, palette, fmt, rank, alpha, textOn, injectCSS, figTitle };
 })();

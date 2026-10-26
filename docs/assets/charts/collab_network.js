@@ -86,7 +86,7 @@
         <div class="ctl"><label>Collaborations</label>
           <div class="seg" id="cn-seg">${Object.entries(MODES).map(([k, m]) =>
             `<button data-m="${k}"${k === state.mode ? ' class="on"' : ""}>${m.label}</button>`).join("")}</div></div>
-        <div class="ctl"><label>Minimum collaborations per country pair</label><div class="chiprow" id="cn-cuts"></div></div>
+        <div class="ctl"><label>Minimum collaborations per country pair</label><div class="chiprow fused" id="cn-cuts"></div></div>
       </div>
       <div id="cn-stage"></div>
       <div class="cn-key" id="cn-key"></div>`);

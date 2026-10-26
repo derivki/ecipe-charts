@@ -42,9 +42,10 @@ QT.boot(async function () {
   QT.vintage("#vintage", country.meta);
   const policyByCountry = new Map(Object.entries(policies.data));
   const POLICY_COLORS = {
-    // Dark enough for white badge text: ECIPE teal, brown, navy,
-    // purple and red.
-    "Strategy": QT.tokens.accent, "Funding programme": QT.tokens.brown,
+    // Brand-palette colours only: teal, orange, navy, purple (+ red for export controls). Label
+    // colour per pill comes from QT.textOn, so the orange one gets dark text rather than
+    // failing contrast with white.
+    "Strategy": QT.tokens.accent, "Funding programme": QT.tokens.gold,
     "R&D institute": QT.tokens.navy, "Procurement": QT.tokens.purple,
     "Export control": QT.tokens.rust,
   };
@@ -190,9 +191,9 @@ QT.boot(async function () {
     // otherwise the copy claims a highlight that never happens on screen – which is
     // what made the fallback look like an unexplained, unchanging top-16 chart.
     const hasSelection = byMetric.some(d => d.country === state.country);
-    d3.select("#ttl-ranked").text(hasSelection
-      ? `Figure 1: Countries ranked by ${S.title}${MEAS.suffix}, ${state.country} highlighted`
-      : `Figure 1: Countries ranked by ${S.title}${MEAS.suffix}, no data for ${state.country}`);
+    QT.figTitle("#ttl-ranked", "Figure 1", hasSelection
+      ? `Countries ranked by ${S.title}${MEAS.suffix}, ${state.country} highlighted`
+      : `Countries ranked by ${S.title}${MEAS.suffix}, no data for ${state.country}`);
     d3.select("#why-ranked").html(hasSelection
       ? `Where ${state.country} sits among all tracked countries by `
         + `${S.title}${MEAS.suffix}. The leaders are shown for scale, then ${state.country} `
@@ -422,9 +423,9 @@ QT.boot(async function () {
   function archetypePanel() {
     const W = 880, H = 420;
     const T = ARCH.thresholds, rows = ARCH.countries;
-    d3.select("#ttl-archetype").text(archetypeByName.has(state.country)
-      ? `Figure 6: Quantum collaboration archetypes, ${state.country} highlighted`
-      : `Figure 6: Quantum collaboration archetypes, ${state.country} not shown`);
+    QT.figTitle("#ttl-archetype", "Figure 6", archetypeByName.has(state.country)
+      ? `Quantum collaboration archetypes, ${state.country} highlighted`
+      : `Quantum collaboration archetypes, ${state.country} not shown`);
     d3.select("#chart-archetype2").selectAll("*").remove();
     const c = QT.chart("#chart-archetype2", { W, H, margin: { t: 10, r: 18, b: 38, l: 52 } });
     const xMax = Math.pow(10, Math.ceil(Math.log10(d3.max(rows, d => d.industry_to_gdp))));
@@ -453,7 +454,7 @@ QT.boot(async function () {
     c.gOverlay.selectAll("text.quadrant-label").data(QUADRANTS, d => d.key).join("text").attr("class", "quadrant-label")
       .attr("x", d => d.lx).attr("y", d => d.ly).attr("text-anchor", d => d.anchor)
       .attr("font-size", 9.5).attr("font-weight", 650).attr("letter-spacing", "0.02em")
-      .attr("fill", d => QT.palette.archetype[d.key]).attr("fill-opacity", 0.75)
+      .attr("fill", d => QT.palette.archetype[d.key])
       .text(d => d.key.toUpperCase());
 
     c.gGrid.append("line").attr("x1", xt).attr("x2", xt).attr("y1", 0).attr("y2", c.ih).attr("class", "gridline");
@@ -554,7 +555,7 @@ QT.boot(async function () {
   }
   function specialisationPanel() {
     const V = SPEC_VIEWS[state.specView];
-    d3.select("#ttl-rca").text(`Figure 7: National specialisation (${state.country})`);
+    QT.figTitle("#ttl-rca", "Figure 7", `National specialisation (${state.country})`);
     const T = specText(state.specView);
     d3.select("#why-rca").text(T.why);
     d3.select("#howto-rca").html(T.how);
@@ -608,7 +609,7 @@ QT.boot(async function () {
   function networkPanel() {
     const p = partnersByName.get(state.country);
     const net = partnersData.data.network_countries;
-    d3.select("#ttl-network").text(`Figure 3: Global connectedness and top collaboration partners (${state.country})`);
+    QT.figTitle("#ttl-network", "Figure 3", `Global connectedness and top collaboration partners (${state.country})`);
     d3.select("#why-network").html(
       `<b>Global connectedness</b> is the share of the ${QT.fmt.int(net - 1)} other countries in the collaboration network ` +
       `that ${state.country} collaborates with directly, from 0 to 1 (degree centrality, as in Occasional Paper 08/2025). ` +
@@ -667,7 +668,7 @@ QT.boot(async function () {
   // ---------- Policy & public programmes (curated flagship list; no mock badge on the page) ----------
   function policiesPanel() {
     const list = policyByCountry.get(state.country) || [];
-    d3.select("#ttl-policy").html(`Figure 5: Policy and public programmes (${state.country})`);
+    QT.figTitle("#ttl-policy", "Figure 5", `Policy and public programmes (${state.country})`);
     const body = d3.select("#policy-body");
     body.selectAll("*").remove();
     if (!list.length) {
@@ -678,7 +679,8 @@ QT.boot(async function () {
     const grid = body.append("div").attr("class", "policy-grid");
     const card = grid.selectAll(".policy-card").data(list).join("div").attr("class", "policy-card");
     card.append("span").attr("class", "policy-type")
-      .style("background", d => POLICY_COLORS[d.type] || QT.tokens.muted).text(d => d.type);
+      .style("background", d => POLICY_COLORS[d.type] || QT.tokens.muted)
+      .style("color", d => QT.textOn(POLICY_COLORS[d.type] || QT.tokens.muted)).text(d => d.type);
     card.append("div").attr("class", "policy-title").text(d => d.title);
     card.append("div").attr("class", "policy-meta")
       .text(d => `${d.status} · ${d.year}` + (d.public_funding != null ? ` · ${QT.fmt.money(d.public_funding)} public` : ""));

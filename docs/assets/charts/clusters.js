@@ -509,9 +509,9 @@ QT.boot(async function () {
   const BANDS = [
     { key: "lt100m",     label: "<$100m" },
     { key: "100to500m",  label: "$100–500m" },
-    { key: "500mto1bn",  label: "$500m–1bn" },
-    { key: "1to5bn",     label: "$1–5bn" },
-    { key: "gte5bn",     label: ">$5bn" },
+    { key: "500mto1bn",  label: "$500m–1B" },
+    { key: "1to5bn",     label: "$1–5B" },
+    { key: "gte5bn",     label: ">$5B" },
   ].map((b, i) => ({ ...b, color: QT.palette.sequential[i] }));
   const bandOf = v => v >= 5e9 ? "gte5bn" : v >= 1e9 ? "1to5bn" : v >= 5e8 ? "500mto1bn"
                      : v >= 1e8 ? "100to500m" : "lt100m";

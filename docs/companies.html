@@ -7,6 +7,7 @@
 <!-- theme.js self-injects the stylesheet on load, so it belongs in <head>: from the
      end of <body> the CSS arrived after first paint and every tab switch flashed
      unstyled HTML. -->
+<link rel="preload" href="assets/fonts/Raleway-VariableFont_wght.woff" as="font" type="font/woff" crossorigin>
 <script src="assets/theme.js"></script>
 <script src="assets/vendor/d3.min.js"></script>
 </head>
@@ -27,13 +28,13 @@
          capitalisation led the tab, which put its narrowest panel at the top. -->
 
     <div class="panel span2">
-      <div class="ttl">Figure 1: Top 30 quantum companies by funding</div>
+      <div class="ttl"><span class="fig">Figure 1:</span> Top 30 quantum companies by funding</div>
       <p class="why">The highest-funded quantum companies worldwide, ranked by company funding. A technology
       pillar is one of the five technology domains, such as quantum computing or quantum sensing;
       choose one to see its top companies.</p>
       <div class="controls">
         <div class="ctl"><label>Technology pillar</label><select id="pillar-top"></select></div>
-        <div class="ctl"><label>Ranking</label><div class="chiprow" id="bracket-top"></div></div>
+        <div class="ctl"><label>Ranking</label><div class="chiprow fused" id="bracket-top"></div></div>
       </div>
       <svg id="chart-top" role="img" aria-label="Top quantum companies by funding"></svg>
       <p class="note" style="margin-top:8px;padding-top:8px;">The ranking reflects cumulative
@@ -43,7 +44,7 @@
     </div>
 
     <div class="panel span2">
-      <div class="ttl">Figure 2: Quantum companies by founded year</div>
+      <div class="ttl"><span class="fig">Figure 2:</span> Quantum companies by founded year</div>
       <p class="why">How many of the tracked companies were founded in each year, showing how recent the sector's
       company base is.</p>
       <svg id="chart-founded" role="img" aria-label="Quantum companies by founded year"></svg>
@@ -55,7 +56,7 @@
     </div>
 
     <div class="panel span2">
-      <div class="ttl">Figure 3: Funding across the quantum technology landscape</div>
+      <div class="ttl"><span class="fig">Figure 3:</span> Funding across the quantum technology landscape</div>
       <p class="why">How funding is distributed across technology pillars (the five technology domains), stack
       layers (position in the value chain, from materials to applications) and streams (the
       specific product category within a layer). Bar length shows company funding.</p>
@@ -75,7 +76,7 @@
     </div>
 
     <div class="panel span2">
-      <div class="ttl">Figure 4: How companies are founded</div>
+      <div class="ttl"><span class="fig">Figure 4:</span> How companies are founded</div>
       <p class="why">How the tracked companies came into being: out of an institution (as a university, research
       or corporate spinout, a hybrid spinout, a joint venture, a merger or a subsidiary) or
       founded independently.</p>
@@ -84,7 +85,7 @@
     </div>
 
     <div class="panel span2">
-      <div class="ttl">Figure 5: Top 50 parent institutions by spinout activity</div>
+      <div class="ttl"><span class="fig">Figure 5:</span> Top 50 parent institutions by spinout activity</div>
       <p class="why">Parent institutions ranked by the number of spinouts they have produced or by the company
       funding those spinouts have raised. A spinout is a company that originated from a
       university, research organisation or corporation.</p>
@@ -92,7 +93,7 @@
         <div class="ctl"><label>Rank by</label>
           <div class="seg" id="seg-inst-metric"><button data-m="total_funding" class="on">Company funding</button><button data-m="n_spinouts">Number of spinouts</button></div>
         </div>
-        <div class="ctl"><label>Ranking</label><div class="chiprow" id="bracket-inst"></div></div>
+        <div class="ctl"><label>Ranking</label><div class="chiprow fused" id="bracket-inst"></div></div>
       </div>
       <svg id="chart-inst" role="img" aria-label="Parent institutions ranked by spinout activity"></svg>
       <p class="note" style="margin-top:8px;padding-top:8px;">Only companies originating as
@@ -102,7 +103,7 @@
     </div>
 
     <div class="panel span2">
-      <div class="ttl">Figure 6: Market capitalisation of listed quantum companies, by region</div>
+      <div class="ttl"><span class="fig">Figure 6:</span> Market capitalisation of listed quantum companies, by region</div>
       <p class="why">Every publicly listed company in the tracker, sized by market capitalisation and grouped by
       the region of its headquarters. Market capitalisation is as of <span id="mcap-asof"></span>.</p>
       <div id="chart-mcap"></div>
@@ -113,7 +114,7 @@
     </div>
 
     <div class="panel span2">
-      <div class="ttl">Figure 7: Listed quantum companies by stock exchange</div>
+      <div class="ttl"><span class="fig">Figure 7:</span> Listed quantum companies by stock exchange</div>
       <p class="why">Number of publicly listed quantum companies on each stock exchange.</p>
       <svg id="chart-exchange" role="img" aria-label="Listed quantum companies by stock exchange"></svg>
       <p class="note" style="margin-top:8px;padding-top:8px;">Dual-listed companies are counted on

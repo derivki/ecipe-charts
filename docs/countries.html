@@ -7,6 +7,7 @@
 <!-- theme.js self-injects the stylesheet on load, so it belongs in <head>: from the
      end of <body> the CSS arrived after first paint and every tab switch flashed
      unstyled HTML. -->
+<link rel="preload" href="assets/fonts/Raleway-VariableFont_wght.woff" as="font" type="font/woff" crossorigin>
 <script src="assets/theme.js"></script>
 <script src="assets/vendor/d3.min.js"></script>
 </head>
@@ -32,7 +33,7 @@
   <div class="panels g2">
 
     <div class="panel span2">
-      <div class="ttl" id="ttl-ranked">Figure 1: Country comparison</div>
+      <div class="ttl" id="ttl-ranked"><span class="fig">Figure 1:</span> Country comparison</div>
       <p class="why" id="why-ranked"></p>
       <div class="controls">
         <div class="ctl"><label>Metric</label>
@@ -47,7 +48,7 @@
     </div>
 
     <div class="panel span2">
-      <div class="ttl" id="ttl-instrument">Figure 2: Company funding by financing instrument</div>
+      <div class="ttl" id="ttl-instrument"><span class="fig">Figure 2:</span> Company funding by financing instrument</div>
       <p class="why" id="why-instrument"></p>
       <div class="legend legend-center" id="legend-instrument-country"></div>
       <svg id="chart-instrument-country" role="img" aria-label="Company funding by financing instrument"></svg>
@@ -55,13 +56,13 @@
     </div>
 
     <div class="panel span2">
-      <div class="ttl" id="ttl-network">Figure 3: Global connectedness and top collaboration partners</div>
+      <div class="ttl" id="ttl-network"><span class="fig">Figure 3:</span> Global connectedness and top collaboration partners</div>
       <p class="why" id="why-network"></p>
       <svg id="chart-network" role="img" aria-label="Connectedness and top collaboration partners"></svg>
     </div>
 
     <div class="panel span2">
-      <div class="ttl" id="ttl-institutions">Figure 4: Top 3 institutions by number of collaborations</div>
+      <div class="ttl" id="ttl-institutions"><span class="fig">Figure 4:</span> Top 3 institutions by number of collaborations</div>
       <p class="why" id="why-institutions"></p>
       <div class="controls">
         <div class="ctl"><label>Category</label>
@@ -72,7 +73,7 @@
     </div>
 
     <div class="panel span2">
-      <div class="ttl" id="ttl-policy">Figure 5: Policy and public programmes</div>
+      <div class="ttl" id="ttl-policy"><span class="fig">Figure 5:</span> Policy and public programmes</div>
       <p class="why">The flagship national strategies, funding programmes and institutes shaping
       this ecosystem.</p>
       <div id="policy-body"></div>
@@ -82,7 +83,7 @@
          mock, we did not like it, and dropping it lets the archetype scatter take the
          full width it needs to be legible. -->
     <div class="panel span2">
-      <div class="ttl" id="ttl-archetype">Figure 6: Quantum collaboration archetypes</div>
+      <div class="ttl" id="ttl-archetype"><span class="fig">Figure 6:</span> Quantum collaboration archetypes</div>
       <p class="why" id="why-archetype">Countries placed by global connectedness, the share of the world's other countries they
       collaborate with, and by industry involvement, the number of collaborations with a company per trillion USD of GDP.
       Bubble size is a country's total collaborations, and only countries with at least one industry-involving collaboration
@@ -98,7 +99,7 @@
     </div>
 
     <div class="panel span2">
-      <div class="ttl" id="ttl-rca">Figure 7: National specialisation</div>
+      <div class="ttl" id="ttl-rca"><span class="fig">Figure 7:</span> National specialisation</div>
       <p class="why" id="why-rca"></p>
       <p class="howto" id="howto-rca"></p>
       <div class="controls">

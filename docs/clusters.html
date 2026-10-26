@@ -7,6 +7,7 @@
 <!-- theme.js self-injects the stylesheet on load, so it belongs in <head>: from the
      end of <body> the CSS arrived after first paint and every tab switch flashed
      unstyled HTML. -->
+<link rel="preload" href="assets/fonts/Raleway-VariableFont_wght.woff" as="font" type="font/woff" crossorigin>
 <script src="assets/theme.js"></script>
 <script src="assets/vendor/d3.min.js"></script>
 </head>
@@ -21,12 +22,12 @@
   <div class="panels g2">
 
     <div class="panel span2">
-      <div class="ttl">Figure 1: Global cluster map by funding and overall rank</div>
+      <div class="ttl"><span class="fig">Figure 1:</span> Global cluster map by funding and overall rank</div>
       <p class="why">Each bubble is a ranked cluster. Bubble size shows its total company funding and colour its
       overall rank, from dark blue for the highest-ranked clusters to orange for the lowest-ranked.</p>
       <!-- Below the title and subtitle, not above them: these buttons belong to this
            figure, and sitting at the top of the page they read as a page-wide filter. -->
-      <div class="chiprow" id="region-chips"></div>
+      <div class="controls"><div class="ctl"><label>Area</label><div class="chiprow fused" id="region-chips"></div></div></div>
       <div id="map-wrap" style="position:relative;">
         <div class="mapzoom" id="map-zoom">
           <button id="map-zin" title="Zoom in">+</button><button id="map-zout" title="Zoom out">−</button><button id="map-zreset" title="Reset view">↻</button>
@@ -37,7 +38,7 @@
     </div>
 
     <div class="panel span2">
-      <div class="ttl">Table 1: 2026 cluster ranking</div>
+      <div class="ttl"><span class="fig">Table 1:</span> 2026 cluster ranking</div>
       <p class="why">The overall rank is the average of each cluster's ranking across three
       dimensions: Market Orientation (commercialisation), Collaboration Intensity (partnerships
       and connectivity) and Ecosystem Maturity (institutional strength and productivity). Arrows
@@ -46,9 +47,9 @@
       <div class="tblwrap" style="overflow-x:auto;">
         <table class="rtable" id="rtable">
           <colgroup>
-            <col style="width:8%"><col style="width:8%"><col style="width:15%">
-            <col style="width:13%"><col style="width:17%">
-            <col style="width:13%"><col style="width:13%"><col style="width:13%">
+            <col style="width:8%"><col style="width:8%"><col style="width:14%">
+            <col style="width:12%"><col style="width:13%">
+            <col style="width:15%"><col style="width:16%"><col style="width:14%">
           </colgroup>
           <thead><tr>
             <th data-k="overall_rank" class="num sorted">2026 Rank</th>
@@ -66,7 +67,7 @@
     </div>
 
     <div class="panel span2">
-      <div class="ttl">Figure 2: Concentration of company funding in clusters</div>
+      <div class="ttl"><span class="fig">Figure 2:</span> Concentration of company funding in clusters</div>
       <p class="why">Share of all company funding raised by quantum companies located in the ranked clusters,
       compared with companies elsewhere, over time. <span id="badge-time"></span></p>
       <svg id="chart-sharetime" role="img" aria-label="Cluster share of funding over time"></svg>
@@ -75,7 +76,7 @@
     </div>
 
     <div class="panel span2">
-      <div class="ttl">Figure 3: New entrants and downgrades in the cluster ranking</div>
+      <div class="ttl"><span class="fig">Figure 3:</span> New entrants and downgrades in the cluster ranking</div>
       <p class="why">Quasi-clusters that have upgraded to full cluster status and entered the
       ranking, and clusters that have dropped back out of it. Both are ordered by 2026 rank.
       New entrants are also marked with a <b>NEW</b> badge in the ranking table above.
@@ -87,7 +88,7 @@
     </div>
 
     <div class="panel span2">
-      <div class="ttl">Figure 4: Company funding by region, in clusters, in quasi-clusters and elsewhere <span id="badge-pipeline"></span></div>
+      <div class="ttl"><span class="fig">Figure 4:</span> Company funding by region, in clusters, in quasi-clusters and elsewhere <span id="badge-pipeline"></span></div>
       <p class="why">How each region's total company funding splits between money raised by
       companies in a ranked cluster, in a quasi-cluster, or elsewhere. A quasi-cluster has real
       quantum activity but has not yet cleared the funding or institutional-density bar for
@@ -97,9 +98,9 @@
     </div>
 
     <div class="panel span2">
-      <div class="ttl">Figure 5: Clusters by funding band, per region</div>
+      <div class="ttl"><span class="fig">Figure 5:</span> Clusters by funding band, per region</div>
       <p class="why">How many of the tracker's ranked clusters fall into each funding band, by
-      region. A region with more than one cluster over $1bn in funding has significant depth
+      region. A region with more than one cluster over $1B in funding has significant depth
       beyond its single best-known hub; one with many clusters under $100m has a long tail of
       early-stage activity still to mature.</p>
       <svg id="chart-bands" role="img" aria-label="Clusters by funding band, per region"></svg>

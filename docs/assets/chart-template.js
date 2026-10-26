@@ -212,9 +212,9 @@
       .text(d => d.label);
   };
 
-  /** KPI tile strip. items: [{v: "$38.8bn", k: "Total funding tracked"}]. */
+  /** KPI tile strip. items: [{v: "$38.8B", k: "Total funding tracked"}]. */
   QT.kpis = function (selector, items) {
-    const sel = d3.select(selector).attr("class", "kpis").selectAll(".kpi").data(items, (d, i) => i)
+    const sel = d3.select(selector).classed("kpis", true).selectAll(".kpi").data(items, (d, i) => i)
       .join(enter => {
         const el = enter.append("div").attr("class", "kpi");
         el.append("div").attr("class", "v");
