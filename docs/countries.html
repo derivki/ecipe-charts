@@ -84,24 +84,30 @@
     <div class="panel span2">
       <div class="ttl" id="ttl-archetype">Figure 6: Quantum collaboration archetypes</div>
       <p class="why" id="why-archetype">Countries placed by global connectedness, the share of the world's other countries they
-      collaborate with, and by industry involvement, the number of collaborations with a company per trillion USD of GDP. The
-      lines are the medians of the countries shown, and each quadrant is an archetype of Occasional Paper 08/2025.</p>
+      collaborate with, and by industry involvement, the number of collaborations with a company per trillion USD of GDP.
+      Bubble size is a country's total collaborations, and only countries with at least one industry-involving collaboration
+      per trillion USD of GDP are shown.</p>
+      <p class="howto" id="howto-archetype"><b>How to read it.</b> The two lines are the medians of the countries shown: a bubble
+      above the horizontal line is better connected than the median country, and one to the right of the vertical line is more
+      commercially engaged. The four quadrants are the archetypes of Occasional Paper 08/2025: Global Innovation Hubs (both),
+      Research Networkers (connected, less commercial), Regional Commercial Leaders (commercial, less connected) and Emerging
+      Ecosystems (neither). The horizontal axis is logarithmic. Hover a bubble for its figures.</p>
       <svg id="chart-archetype2" role="img" aria-label="Country archetype position"></svg>
-      <p class="hint" id="note-archetype"></p>
-      <p class="hint">Bubble size is a country's total collaborations; hover a bubble for its figures. Only countries with at
-      least one industry-involving collaboration per trillion USD of GDP are shown. GDP: World Bank, current US dollars, 2025.</p>
+      <p class="source" id="source-archetype">Source: ECIPE Quantum Database; archetypes after ECIPE Occasional Paper 08/2025
+      (Figure 3). GDP: World Bank, World Development Indicators, current US dollars, 2025.</p>
     </div>
 
     <div class="panel span2">
       <div class="ttl" id="ttl-rca">Figure 7: National specialisation</div>
       <p class="why" id="why-rca"></p>
+      <p class="howto" id="howto-rca"></p>
       <div class="controls">
         <div class="ctl"><label>View</label>
           <div class="seg" id="seg-view-specialisation"><button data-w="sector" class="on">Collaborations&nbsp;by&nbsp;industry&nbsp;sector</button><button data-w="layer">Companies&nbsp;by&nbsp;stack&nbsp;layer</button></div>
         </div>
       </div>
       <svg id="chart-rca" role="img" aria-label="National specialisation by industry sector or stack layer"></svg>
-      <p class="hint" id="note-rca"></p>
+      <p class="source" id="source-rca"></p>
     </div>
 
   </div>

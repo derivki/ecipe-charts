@@ -434,8 +434,10 @@ QT.boot(async function () {
     const xt = x(T.industry_to_gdp), yt = y(T.connectedness);
 
     // Quadrant tints + corner labels, so the four archetypes read at a glance instead of
-    // only on hover. Kept out of gPlot (which the hover targets use) so the tints never
-    // intercept a mousemove meant for a bubble. Laid out as in the paper: connectedness
+    // only on hover. The tints and median lines go in gGrid, BENEATH the bubbles in gPlot: they
+    // used to be appended to c.g after gPlot, which stacked them on top and swallowed every
+    // mousemove meant for a bubble. The labels sit above the bubbles so a bubble never hides
+    // one, with pointer-events off for the same reason. Laid out as in the paper: connectedness
     // up, industry involvement to the right.
     const QUADRANTS = [
       { key: "Research Networkers", x0: 0, x1: xt, y0: 0, y1: yt, lx: 8, ly: 16, anchor: "start" },
@@ -443,18 +445,19 @@ QT.boot(async function () {
       { key: "Emerging Ecosystems", x0: 0, x1: xt, y0: yt, y1: c.ih, lx: 8, ly: c.ih - 10, anchor: "start" },
       { key: "Regional Commercial Leaders", x0: xt, x1: c.iw, y0: yt, y1: c.ih, lx: c.iw - 8, ly: c.ih - 10, anchor: "end" },
     ];
-    c.g.selectAll("rect.quadrant").data(QUADRANTS, d => d.key).join("rect").attr("class", "quadrant")
+    c.gGrid.selectAll("rect.quadrant").data(QUADRANTS, d => d.key).join("rect").attr("class", "quadrant")
       .attr("x", d => d.x0).attr("y", d => d.y0)
       .attr("width", d => d.x1 - d.x0).attr("height", d => d.y1 - d.y0)
       .attr("fill", d => QT.palette.archetype[d.key]).attr("fill-opacity", 0.06);
-    c.g.selectAll("text.quadrant-label").data(QUADRANTS, d => d.key).join("text").attr("class", "quadrant-label")
+    c.gOverlay.style("pointer-events", "none");
+    c.gOverlay.selectAll("text.quadrant-label").data(QUADRANTS, d => d.key).join("text").attr("class", "quadrant-label")
       .attr("x", d => d.lx).attr("y", d => d.ly).attr("text-anchor", d => d.anchor)
       .attr("font-size", 9.5).attr("font-weight", 650).attr("letter-spacing", "0.02em")
       .attr("fill", d => QT.palette.archetype[d.key]).attr("fill-opacity", 0.75)
       .text(d => d.key.toUpperCase());
 
-    c.g.append("line").attr("x1", xt).attr("x2", xt).attr("y1", 0).attr("y2", c.ih).attr("class", "gridline");
-    c.g.append("line").attr("x1", 0).attr("x2", c.iw).attr("y1", yt).attr("y2", yt).attr("class", "gridline");
+    c.gGrid.append("line").attr("x1", xt).attr("x2", xt).attr("y1", 0).attr("y2", c.ih).attr("class", "gridline");
+    c.gGrid.append("line").attr("x1", 0).attr("x2", c.iw).attr("y1", yt).attr("y2", yt).attr("class", "gridline");
 
     const sel_ = d => d.country === state.country;
     // Biggest first, so a small bubble is never hidden under a large one, and the selection
@@ -480,7 +483,7 @@ QT.boot(async function () {
     // of its bubble that has room.
     const me = rows.find(sel_);
     const left = me && x(me.industry_to_gdp) > c.iw - 110;
-    c.gPlot.selectAll("text.me").data(me ? [me] : []).join("text").attr("class", "me")
+    c.gOverlay.selectAll("text.me").data(me ? [me] : []).join("text").attr("class", "me")
       .attr("x", d => x(d.industry_to_gdp) + (left ? -1 : 1) * (r(d.collaborations) + 5))
       .attr("y", d => y(d.connectedness)).attr("dy", "0.32em")
       .attr("text-anchor", left ? "end" : "start")
@@ -494,12 +497,6 @@ QT.boot(async function () {
       .text(`Industry-involving collaborations to GDP, per trillion USD, log scale (median ${d3.format(".0f")(T.industry_to_gdp)}) →`);
     c.g.append("text").attr("x", -c.ih / 2).attr("y", -38).attr("transform", "rotate(-90)").attr("text-anchor", "middle").attr("font-size", 10.5).attr("fill", QT.tokens.muted)
       .text(`Global connectedness (median ${d3.format(".2f")(T.connectedness)}) →`);
-
-    d3.select("#note-archetype").text(me
-      ? `${state.country}: ${d3.format(".1f")(me.industry_to_gdp)} industry-involving collaborations per trillion USD of GDP ` +
-        `(${QT.fmt.int(me.industry_collaborations)} of ${QT.fmt.int(me.collaborations)}), and ${QT.fmt.int(me.partners)} partner countries ` +
-        `(connectedness ${d3.format(".2f")(me.connectedness)}).`
-      : `${archetypeWhyNot(state.country)}, so it is not on the chart.`);
   }
 
   // ---------- Figure 7: national specialisation (REAL) ----------
@@ -529,25 +526,39 @@ QT.boot(async function () {
       what: "tracked companies with a stack layer",
     },
   };
-  function specWhy(kind) {
+  /* Three separate texts per view: what the figure shows (above), how to read it (above),
+     and where the numbers come from (below the chart). */
+  function specText(kind) {
     if (kind === "sector") {
       const o = SPEC.sector.observations;
-      return `Revealed comparative advantage (RCA) compares the share of a country's collaborations with industry ` +
-        `partners abroad that fall in each industry sector with that sector's share worldwide. Above 1.0, the country is ` +
-        `more active in the sector than the world average. A sector is recorded for ` +
-        `${QT.fmt.pct0(o.with_sector / o.industry_side)} of these collaborations, and countries with fewer than ` +
-        `${SPEC.sector.min_observations} sector-tagged collaborations are not scored.`;
+      return {
+        why: `The industry sectors in which ${state.country}'s collaborations with industry partners abroad are most ` +
+          `concentrated, relative to the world, as a revealed comparative advantage (RCA). The ten highest are shown.`,
+        how: `<b>How to read it.</b> An RCA above 1.0 (the dashed line) means the country collaborates more with that ` +
+          `sector than the world average does; below 1.0, less. Each bar's label gives the RCA, then the number of ` +
+          `sector-tagged collaborations behind it, and lighter bars rest on fewer than ${SPEC_THIN}. A sector is recorded ` +
+          `for ${QT.fmt.pct0(o.with_sector / o.industry_side)} of these collaborations, and countries with fewer than ` +
+          `${SPEC.sector.min_observations} sector-tagged collaborations are not scored.`,
+        src: `Source: ECIPE Quantum Database; sector (ICB3) of the industry partner; method of ECIPE Occasional Paper 08/2025.`,
+      };
     }
-    return `The specialisation index compares the share of a country's companies in each layer of the quantum stack ` +
-      `with that layer's share of all tracked companies. Above 1.0, the country has proportionally more companies in the ` +
-      `layer than the world. It counts companies, not funding, and countries with fewer than ` +
-      `${SPEC.company_layer.min_companies} companies are not scored.`;
+    return {
+      why: `The layers of the quantum stack in which ${state.country}'s companies are concentrated, relative to the world, ` +
+        `as a specialisation index.`,
+      how: `<b>How to read it.</b> An index above 1.0 (the dashed line) means proportionally more of the country's ` +
+        `companies are in that layer than worldwide; below 1.0, fewer. Each bar's label gives the index, then the number ` +
+        `of companies, and lighter bars rest on fewer than ${SPEC_THIN}. It counts companies, not funding, and countries ` +
+        `with fewer than ${SPEC.company_layer.min_companies} companies are not scored.`,
+      src: `Source: ECIPE Quantum Database, company tracker (stack layer of each company).`,
+    };
   }
   function specialisationPanel() {
     const V = SPEC_VIEWS[state.specView];
     d3.select("#ttl-rca").text(`Figure 7: National specialisation (${state.country})`);
-    d3.select("#why-rca").html(specWhy(state.specView));
-    d3.select("#note-rca").text("");
+    const T = specText(state.specView);
+    d3.select("#why-rca").text(T.why);
+    d3.select("#howto-rca").html(T.how);
+    d3.select("#source-rca").text(T.src);
     const entry = V.view.countries.find(c => c.country === state.country);
     if (!entry) {
       const n = V.view.below_floor[state.country];
@@ -587,11 +598,6 @@ QT.boot(async function () {
       .text(d => `${V.value(d).toFixed(2)} · ${QT.fmt.int(V.n(d))}`);
     c.gx.call(d3.axisBottom(x).ticks(5).tickSizeOuter(0));
     c.gy.call(d3.axisLeft(y).tickSizeOuter(0)).call(g => g.select(".domain").remove());
-
-    d3.select("#note-rca").text(
-      `${state.country}: ${QT.fmt.int(entry[V.total])} ${V.what}. ` +
-      `Bars show the index, then the number of ${V.unit}; lighter bars rest on fewer than ${SPEC_THIN}. ` +
-      (all.length > rows.length ? `Top ${rows.length} of ${all.length} shown.` : `All ${all.length} shown.`));
   }
 
   // ---------- Figure 3: connectedness + top partners (REAL) ----------

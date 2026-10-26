@@ -285,6 +285,11 @@ svg{display:block;width:100%;height:auto;overflow:visible;}
 .panel{border:none;border-radius:0;background:none;padding:22px 0 0;border-top:1px solid var(--line);}
 .panel .ttl{font-size:14px;font-weight:650;letter-spacing:-.005em;margin:0 0 2px;display:flex;align-items:center;gap:8px;flex-wrap:wrap;}
 .panel .why{font-size:12px;color:var(--muted);line-height:1.45;margin:0 0 10px;max-width:1000px;}
+/* What a figure shows (.why), how to read it (.howto, above the chart) and where the numbers
+   come from (.source, below it) are three separate things. */
+.panel .howto{font-size:12px;color:var(--muted);line-height:1.45;margin:0 0 10px;max-width:1000px;}
+.panel .howto b{color:var(--ink);font-weight:600;}
+.panel .source{font-size:11px;color:var(--muted);line-height:1.4;margin:6px 0 0;max-width:1000px;}
 /* Sub-heading for a second block within one panel (e.g. Figure 3's "New entrants" /
    "Downgraded" split) -- smaller and quieter than .ttl, which stays reserved for the
    figure title itself. */
