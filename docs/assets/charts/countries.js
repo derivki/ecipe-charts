@@ -272,7 +272,7 @@ QT.boot(async function () {
     }
 
     c.gPlot.selectAll("rect").data(bars, d => d.country).join("rect")
-      .attr("x", 0).attr("y", d => y(d.country)).attr("height", y.bandwidth()).attr("rx", 2)
+      .attr("x", 0).attr("y", d => y(d.country)).attr("height", y.bandwidth())
       .attr("fill", d => d.country === state.country ? QT.tokens.accent : QT.tokens.line)
       .attr("width", d => x(d[key]))
       .on("mousemove", (e, d) => tt.show(
@@ -390,7 +390,7 @@ QT.boot(async function () {
     c.gGrid.selectAll("line").data(x.ticks(4)).join("line").attr("class", "gridline")
       .attr("y1", 0).attr("y2", c.ih).attr("x1", d => x(d)).attr("x2", d => x(d));
     c.gPlot.selectAll("rect").data(rows, d => d.entity).join("rect")
-      .attr("x", 0).attr("y", d => y(d.entity)).attr("height", y.bandwidth()).attr("rx", 2)
+      .attr("x", 0).attr("y", d => y(d.entity)).attr("height", y.bandwidth())
       .attr("fill", color).attr("fill-opacity", 0.9).attr("width", d => x(d.collaborations))
       .on("mousemove", (e, d) => tt.show(
         `<div class="hd">${d.entity}</div>` +
@@ -630,7 +630,7 @@ QT.boot(async function () {
       .attr("stroke", QT.tokens.ink).attr("stroke-width", 1).attr("stroke-dasharray", "4 4");
 
     c.gPlot.selectAll("rect").data(rows, V.name).join("rect")
-      .attr("x", 0).attr("y", d => y(V.name(d))).attr("height", y.bandwidth()).attr("rx", 2)
+      .attr("x", 0).attr("y", d => y(V.name(d))).attr("height", y.bandwidth())
       // One colour: the dashed line already says above or below 1.0, so grey for "below" only
       // stacked a second cue on the lighter-bar one (and a thin grey bar all but vanished).
       .attr("fill", QT.tokens.accent)
@@ -681,9 +681,9 @@ QT.boot(async function () {
     const hdr = c.svg.append("g").attr("transform", `translate(${L},14)`);
     hdr.append("text").attr("x", -12).attr("y", BAR / 2).attr("dy", "0.32em").attr("text-anchor", "end")
       .attr("font-size", 11).attr("font-weight", 700).attr("fill", QT.tokens.ink).text("Global connectedness:");
-    hdr.append("rect").attr("x", 0).attr("y", 0).attr("width", c.iw).attr("height", BAR).attr("rx", 3)
+    hdr.append("rect").attr("x", 0).attr("y", 0).attr("width", c.iw).attr("height", BAR)
       .attr("fill", QT.tokens.line).attr("fill-opacity", 0.6);
-    hdr.append("rect").attr("x", 0).attr("y", 0).attr("width", c.iw * p.connectedness).attr("height", BAR).attr("rx", 3)
+    hdr.append("rect").attr("x", 0).attr("y", 0).attr("width", c.iw * p.connectedness).attr("height", BAR)
       .attr("fill", QT.tokens.accent)
       .on("mousemove", e => tt.show(`<div class="hd">${state.country}</div><div class="row"><span class="k">Global connectedness</span><span class="v">${d3.format(".2f")(p.connectedness)}</span></div><div class="row"><span class="k">Partner countries</span><span class="v">${QT.fmt.int(p.partners)} of ${QT.fmt.int(net - 1)}</span></div>`, e))
       .on("mouseleave", tt.hide);
@@ -714,9 +714,9 @@ QT.boot(async function () {
       .on("error", function () { d3.select(this).style("display", "none"); });
     c.gPlot.selectAll("rect.track").data(partners, d => d.country).join("rect")
       .attr("class", "track").attr("x", 0).attr("y", d => y(d.country)).attr("width", c.iw).attr("height", y.bandwidth())
-      .attr("rx", 3).attr("fill", QT.tokens.line).attr("fill-opacity", 0.6);
+      .attr("fill", QT.tokens.line).attr("fill-opacity", 0.6);
     c.gPlot.selectAll("rect.fill").data(partners, d => d.country).join("rect")
-      .attr("class", "fill").attr("x", 0).attr("y", d => y(d.country)).attr("height", y.bandwidth()).attr("rx", 3)
+      .attr("class", "fill").attr("x", 0).attr("y", d => y(d.country)).attr("height", y.bandwidth())
       .attr("fill", QT.tokens.teal).attr("width", d => x(d.collaborations))
       .on("mousemove", (e, d) => tt.show(`<div class="hd">${state.country} · ${QT.flag(d.country)} ${d.country}</div><div class="row"><span class="k">Collaborations</span><span class="v">${QT.fmt.int(d.collaborations)}</span></div>`, e))
       .on("mouseleave", tt.hide);

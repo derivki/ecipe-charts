@@ -32,11 +32,11 @@
 .cn-key{display:flex;flex-wrap:wrap;gap:8px 28px;margin:12px 0 2px;font-size:11.5px;color:var(--muted);}
 .cn-key .grp{display:flex;align-items:center;gap:8px;}
 .cn-key b{font-weight:700;color:${T.ink};}
-.cn-key .ramp{display:inline-block;width:88px;height:9px;border-radius:5px;border:1px solid ${T.line};}
+.cn-key .ramp{display:inline-block;width:88px;height:9px;border-radius:0;border:1px solid ${T.line};}
 .cn-key .dots{display:inline-flex;align-items:center;gap:5px;}
 .cn-key .dots i{display:inline-block;border-radius:50%;background:${T.bg};border:1px solid ${T.ink};}
 .cn-key .bars{display:inline-flex;align-items:center;gap:5px;}
-.cn-key .bars i{display:inline-block;width:26px;background:${T.muted};border-radius:2px;}
+.cn-key .bars i{display:inline-block;width:26px;background:${T.muted};border-radius:0;}
 .cn-empty{font-size:12.5px;color:var(--muted);padding:40px 0;text-align:center;}
 `;
 

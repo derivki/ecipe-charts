@@ -54,7 +54,7 @@ QT.boot(async function () {
         const rs = STAGES.map((s, i) => ({ stage: s, v: bloc.v[i], val: val(bloc, i) }));
         const sel = d3.select(this);
         sel.selectAll("rect").data(rs, d => d.stage).join("rect")
-          .attr("x", 0).attr("y", d => y(d.stage) + off).attr("height", bh).attr("rx", 2)
+          .attr("x", 0).attr("y", d => y(d.stage) + off).attr("height", bh)
           .attr("fill", bloc.hex).attr("fill-opacity", 0.88).attr("width", d => x(d.val))
           .on("mousemove", (e, d) => tt.show(
             `<div class="hd">${bloc.label} · ${d.stage}</div>` +

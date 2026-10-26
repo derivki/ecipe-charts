@@ -276,7 +276,7 @@ QT.boot(async function () {
       c.gGrid.selectAll("line").data(x.ticks(4)).join("line").attr("class", "gridline")
         .attr("y1", 0).attr("y2", c.ih).attr("x1", d => x(d)).attr("x2", d => x(d));
       c.gPlot.selectAll("rect").data(rows, d => d.country).join("rect")
-        .attr("x", 0).attr("y", d => y(d.country)).attr("height", y.bandwidth()).attr("rx", 2)
+        .attr("x", 0).attr("y", d => y(d.country)).attr("height", y.bandwidth())
         .attr("fill", QT.tokens.accent).attr("fill-opacity", 0.9).attr("width", d => x(d[state.metric]))
         .on("mousemove", (e, d) => tt.show(
           `<div class="hd">${QT.flag(d.country)} ${d.country}</div>` +
@@ -323,7 +323,7 @@ QT.boot(async function () {
     c.gGrid.selectAll("line").data(x.ticks(4)).join("line").attr("class", "gridline")
       .attr("y1", 0).attr("y2", c.ih).attr("x1", d => x(d)).attr("x2", d => x(d));
     c.gPlot.selectAll("rect").data(rows, d => d.company).join("rect")
-      .attr("x", 0).attr("y", d => y(d.company)).attr("height", y.bandwidth()).attr("rx", 2)
+      .attr("x", 0).attr("y", d => y(d.company)).attr("height", y.bandwidth())
       .attr("fill", QT.tokens.teal).attr("fill-opacity", 0.9).attr("width", d => x(d.total_funding))
       .on("mousemove", (e, d) => tt.show(`<div class="hd">${d.company}</div><div class="row"><span class="k">Country</span><span class="v">${d.country || "n/a"}</span></div><div class="row"><span class="k">Company funding</span><span class="v">${QT.fmt.money(d.total_funding)}</span></div>`, e))
       .on("mouseleave", tt.hide);
@@ -401,7 +401,7 @@ QT.boot(async function () {
           const rs = STAGES.map((s, i) => ({ stage: s, v: bloc.v[i], val: val(bloc, i) }));
           const g = d3.select(this);
           g.selectAll("rect").data(rs, d => d.stage).join("rect")
-            .attr("x", 0).attr("y", d => yb(d.stage) + off).attr("height", bh).attr("rx", 2)
+            .attr("x", 0).attr("y", d => yb(d.stage) + off).attr("height", bh)
             .attr("fill", bloc.hex).attr("fill-opacity", 0.88).attr("width", d => x(d.val))
             .on("mousemove", (e, d) => tt.show(
               `<div class="hd">${bloc.label} · ${d.stage}</div>` +

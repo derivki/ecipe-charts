@@ -283,7 +283,7 @@ QT.boot(async function () {
         .attr("y1", 0).attr("y2", c.ih).attr("x1", d => x(d)).attr("x2", d => x(d));
 
       c.gPlot.selectAll("rect").data(rs, d => d.institution).join("rect")
-        .attr("x", 0).attr("y", d => y(d.institution)).attr("height", y.bandwidth()).attr("rx", 2)
+        .attr("x", 0).attr("y", d => y(d.institution)).attr("height", y.bandwidth())
         .attr("fill", QT.tokens.accent).attr("width", d => x(d[state.metric]))
         .on("mousemove", (e, d) => tt.show(
           `<div class="hd">${d.institution}</div>` +
@@ -374,7 +374,7 @@ QT.boot(async function () {
       c.gGrid.selectAll("line").data(x.ticks(4)).join("line").attr("class", "gridline")
         .attr("y1", 0).attr("y2", c.ih).attr("x1", d => x(d)).attr("x2", d => x(d));
       c.gPlot.selectAll("rect").data(rs, d => d.company).join("rect")
-        .attr("x", 0).attr("y", d => y(d.company)).attr("height", y.bandwidth()).attr("rx", 2)
+        .attr("x", 0).attr("y", d => y(d.company)).attr("height", y.bandwidth())
         .attr("fill", QT.tokens.accent).attr("width", d => x(d.total_funding))
         .on("mousemove", (e, d) => tt.show(
           `<div class="hd">${flagIcon(QT.flagCode(d.country), d.country)} ${d.company}</div>` +
@@ -450,7 +450,7 @@ QT.boot(async function () {
         b.rows.forEach(r => {
           const yTop = cursor;
           c.gPlot.append("rect")
-            .attr("x", 0).attr("y", yTop + 4).attr("height", rowH - 12).attr("rx", 2)
+            .attr("x", 0).attr("y", yTop + 4).attr("height", rowH - 12)
             .attr("fill", r.isOther ? QT.tokens.line : QT.tokens.accent)
             .attr("width", x(r.funding))
             .on("mousemove", e => tt.show(
@@ -521,7 +521,7 @@ QT.boot(async function () {
       });
 
     c.g.selectAll("rect.seg").data(laid, d => d.key).join("rect").attr("class", "seg")
-      .attr("x", d => x(d.x0)).attr("y", 0).attr("height", 34).attr("rx", 2)
+      .attr("x", d => x(d.x0)).attr("y", 0).attr("height", 34)
       .attr("width", d => Math.max(1, x(d.n) - 1)).attr("fill", d => d.color)
       .on("mousemove", (e, d) => tt.show(
         `<div class="hd">${d.label}</div>` +
@@ -560,7 +560,7 @@ QT.boot(async function () {
       .attr("x1", 0).attr("x2", c.iw).attr("y1", d => y(d)).attr("y2", d => y(d));
     c.gPlot.selectAll("rect").data(rs, d => d.year).join("rect")
       .attr("x", d => x(d.year)).attr("width", x.bandwidth())
-      .attr("y", d => y(d.n)).attr("height", d => c.ih - y(d.n)).attr("rx", 1)
+      .attr("y", d => y(d.n)).attr("height", d => c.ih - y(d.n))
       // The most recent year is NOT shaded -- treated like any other, with the
       // partial-coverage caveat in the note below the chart. Same decision as the
       // Overview instrument chart.
@@ -586,7 +586,7 @@ QT.boot(async function () {
     c.gGrid.selectAll("line").data(x.ticks(4)).join("line").attr("class", "gridline")
       .attr("y1", 0).attr("y2", c.ih).attr("x1", d => x(d)).attr("x2", d => x(d));
     c.gPlot.selectAll("rect").data(rs, d => d.exchange).join("rect")
-      .attr("x", 0).attr("y", d => y(d.exchange)).attr("height", y.bandwidth()).attr("rx", 2)
+      .attr("x", 0).attr("y", d => y(d.exchange)).attr("height", y.bandwidth())
       .attr("fill", QT.tokens.accent).attr("width", d => x(d.n_listings))
       /* The company list is a LEFT-ALIGNED BLOCK, not a right-aligned value.
          `.row` is a flex row with the label left and the value right, which is right

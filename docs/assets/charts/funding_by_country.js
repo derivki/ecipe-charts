@@ -38,7 +38,7 @@ QT.boot(async function () {
       .attr("x1", d => x(d)).attr("x2", d => x(d));
 
     c.gPlot.selectAll("rect").data(rs, d => d.country).join("rect")
-      .attr("x", 0).attr("height", y.bandwidth()).attr("rx", 2)
+      .attr("x", 0).attr("height", y.bandwidth())
       .attr("fill", accent).attr("fill-opacity", 0.9)
       .attr("y", d => y(d.country))
       .attr("width", d => x(d[metric]))

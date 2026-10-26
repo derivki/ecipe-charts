@@ -451,7 +451,7 @@ hr.rule{border:0;border-top:1px solid var(--line);margin:18px 0;}
   border:1px solid var(--line);border-radius:6px;padding:10px 12px;
   color:var(--muted);max-width:180px;box-shadow:0 2px 8px rgba(35,20,50,.06);font-size:11px;}
 .cmap-legend .lg-title{font-size:9.5px;font-weight:600;letter-spacing:.1em;text-transform:uppercase;color:var(--muted);margin-bottom:7px;}
-.cmap-legend .lg-bar{height:8px;border-radius:2px;margin-bottom:4px;}
+.cmap-legend .lg-bar{height:8px;border-radius:0;margin-bottom:4px;}
 .cmap-legend .lg-scale{display:flex;justify-content:space-between;font-size:9.5px;color:var(--muted);}
 /* Ranking-movement indicators (Clusters table): up / down / no change vs. last year. */
 .mv{font-size:10px;font-weight:700;margin-left:3px;vertical-align:1px;}

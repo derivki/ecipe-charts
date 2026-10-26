@@ -499,7 +499,7 @@ QT.boot(async function () {
     rs.forEach(r => BANDS.forEach(b => cells.push({ region: r.region, band: b, count: r[b.key] })));
 
     c.gPlot.selectAll("rect.cell").data(cells, d => d.region + d.band.key).join("rect")
-      .attr("class", "cell").attr("rx", 5)
+      .attr("class", "cell")
       .attr("x", d => x(d.band.key)).attr("y", d => y(d.region))
       .attr("width", x.bandwidth()).attr("height", y.bandwidth())
       .attr("fill", d => d.count === 0 ? QT.tokens.panel : cellColor(d.count))

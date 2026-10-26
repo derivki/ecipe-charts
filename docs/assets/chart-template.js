@@ -11,6 +11,11 @@
 
    A chart file only needs its own data-binding + shapes; it should never
    re-implement any of the above and never hardcode colours (use QT.palette).
+
+   House design rules (square corners, axes bottom/left, legend above and centred,
+   tooltip and label formats, ...) are written down in
+   docs-internal/chart-design-rules.md; read it before building a figure. The
+   mechanical ones are checked by CI and tests/test_docs_conventions.py.
    ========================================================================== */
 (function () {
   const QT = window.QT;
