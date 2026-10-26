@@ -260,7 +260,8 @@ svg{display:block;width:100%;height:auto;overflow:visible;}
 
 /* ---------- dashboard nav (Overview / Countries / Clusters) ---------- */
 /* One full-width rounded bar; the active tab is filled dark purple (Figma). */
-.tabbar{display:flex;margin:14px 0 8px;border:1px solid var(--pill);border-radius:999px;overflow:hidden;background:#fff;}
+/* the 34px under the bar is the gap before every page's first heading or line */
+.tabbar{display:flex;margin:14px 0 34px;border:1px solid var(--pill);border-radius:999px;overflow:hidden;background:#fff;}
 .tabbar a{flex:1 1 0;min-width:0;text-align:center;font-size:13px;font-weight:600;color:var(--pill);text-decoration:none;padding:8px 6px;}
 .tabbar a+a{border-left:1px solid var(--pill);}
 .tabbar a.on{background:var(--pill);color:#fff;}
@@ -289,7 +290,6 @@ svg{display:block;width:100%;height:auto;overflow:visible;}
 .archetype-line{font-size:12.5px;color:var(--muted);margin:0 0 14px;}
 .archetype-line b{font-size:10px;letter-spacing:.08em;text-transform:uppercase;color:var(--ink);font-weight:700;margin-right:4px;}
 /* Countries header (Figma): bold prompt on the left, a wide pill selector filling the rest, rules around the summary. */
-h1.page-title{margin-top:34px;}
 .country-pick{display:flex;flex-wrap:wrap;align-items:center;gap:10px 28px;margin:14px 0 18px;}
 .country-pick label{flex:0 1 330px;font-size:13px;font-weight:700;color:var(--ink);line-height:1.35;}
 .country-pick select{flex:1 1 300px;min-width:0;font-size:13px;font-weight:700;padding:12px 40px 12px 22px;}

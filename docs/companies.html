@@ -17,6 +17,7 @@
   <h1>Quantum companies</h1>
   <p class="sub">Explore the companies raising capital in quantum technologies: their origins,
   position in the technology stack, funding, and, where applicable, market capitalisation.</p>
+  <hr class="rule">
   <div class="vintage" id="vintage"></div>
 
   <div class="kpis" id="kpis"></div>
@@ -59,12 +60,12 @@
       <div class="ttl"><span class="fig">Figure 3:</span> Funding across the quantum technology landscape</div>
       <p class="why">How funding is distributed across technology pillars (the five technology domains), stack
       layers (position in the value chain, from materials to applications) and streams (the
-      specific product category within a layer). Bar length shows company funding.</p>
+      specific product category within a layer).</p>
       <!-- Pillars and stack layers are shown together, one block each, because there are
            5 and 6 of them. Streams stay behind a toggle: there are 48 distinct streams,
            which cannot be a third block without swamping the panel. -->
       <div class="controls">
-        <div class="ctl"><label>Also show</label>
+        <div class="ctl"><label>Show</label>
           <div class="seg" id="seg-streams"><button data-v="off" class="on">Pillars &amp; stack layers</button><button data-v="on">Streams</button></div>
         </div>
       </div>
@@ -80,8 +81,8 @@
       <p class="why">How the tracked companies came into being: out of an institution (as a university, research
       or corporate spinout, a hybrid spinout, a joint venture, a merger or a subsidiary) or
       founded independently.</p>
-      <svg id="chart-origin" role="img" aria-label="Companies by founding origin"></svg>
       <div class="legend legend-center" id="legend-origin"></div>
+      <svg id="chart-origin" role="img" aria-label="Companies by founding origin"></svg>
     </div>
 
     <div class="panel span2">
@@ -107,7 +108,6 @@
       <p class="why">Every publicly listed company in the tracker, sized by market capitalisation and grouped by
       the region of its headquarters. Market capitalisation is as of <span id="mcap-asof"></span>.</p>
       <div id="chart-mcap"></div>
-      <p class="hint">Hover for details.</p>
       <p class="note" style="margin-top:8px;padding-top:8px;">Only listed companies appear here
       (<span id="mcap-count"></span> tracked companies). The other companies are private, so no
       market capitalisation exists to plot.</p>

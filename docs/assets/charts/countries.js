@@ -432,6 +432,10 @@ QT.boot(async function () {
       `Global Innovation Hubs (high on both), Research Networkers (more connected, less commercial), Regional Commercial ` +
       `Leaders (more commercial, less connected) and Emerging Ecosystems (low on both). Hover a bubble for its figures.`);
     d3.select("#note-archetype").html(
+      `<b>Note:</b> Industry-involving collaborations are measured per trillion USD of GDP. Only countries with an ` +
+      `industry-to-GDP collaboration ratio of at least 1 were included in the chart. ` +
+      `Named on the chart are the selected country, its three nearest neighbours and the largest country in each quadrant; ` +
+      `hover any bubble to see its name. ` +
       `The two lines are the medians of the countries shown: ${medX} industry-involving collaborations per trillion USD of GDP ` +
       `and a global connectedness of ${medY}. The horizontal axis is logarithmic.` +
       (archetypeByName.has(state.country) ? "" : ` <b>${state.country} is not shown.</b> ${archetypeWhyNot(state.country)}.`));
@@ -489,17 +493,46 @@ QT.boot(async function () {
         `<div class="row"><span class="k">Total collaborations</span><span class="v">${QT.fmt.int(d.collaborations)}</span></div>`, e))
       .on("mouseleave", tt.hide);
 
-    // The selected country is named on the chart (the others only on hover), on the side
-    // of its bubble that has room.
+    /* Labels. Always the selected country; then up to three of its nearest neighbours on the chart
+       (so a reader sees who it is being compared with), then the largest country in each of the four
+       quadrants (a stable reference for what each archetype looks like). Everything else is hover-only.
+       Labels are placed in that priority order, each on the first side of its bubble that is free
+       (right, left, above, below), and one that would overlap a label already placed, a quadrant
+       label or the plot edge is simply dropped, so the crowded bottom-left never turns into a smear.
+       The selection is the exception: it is always drawn, on the side that has room. */
     const me = rows.find(sel_);
-    const left = me && x(me.industry_to_gdp) > c.iw - 110;
-    c.gOverlay.selectAll("text.me").data(me ? [me] : []).join("text").attr("class", "me")
-      .attr("x", d => x(d.industry_to_gdp) + (left ? -1 : 1) * (r(d.collaborations) + 5))
-      .attr("y", d => y(d.connectedness)).attr("dy", "0.32em")
-      .attr("text-anchor", left ? "end" : "start")
-      .attr("font-size", 11.5).attr("font-weight", 700).attr("fill", QT.tokens.ink)
-      .style("paint-order", "stroke").style("stroke", QT.tokens.bg).style("stroke-width", "3px")
-      .text(d => d.country);
+    const px = d => x(d.industry_to_gdp), py = d => y(d.connectedness);
+    const peers = me
+      ? rows.filter(d => d !== me)
+          .map(d => ({ d, dist: Math.hypot((px(d) - px(me)) / c.iw, (py(d) - py(me)) / c.ih) }))
+          .sort((p, q) => p.dist - q.dist).slice(0, 3).map(o => o.d)
+      : [];
+    const anchors = Object.keys(QT.palette.archetype)
+      .map(k => d3.greatest(rows.filter(d => d.archetype === k), d => d.collaborations)).filter(Boolean);
+    const queue = [];
+    [...(me ? [me] : []), ...peers, ...anchors].forEach(d => { if (!queue.includes(d)) queue.push(d); });
+
+    const taken = c.gOverlay.selectAll("text.quadrant-label").nodes().map(n => n.getBBox());
+    const overlaps = (A, B) => A.x < B.x + B.width + 3 && A.x + A.width + 3 > B.x && A.y < B.y + B.height + 2 && A.y + A.height + 2 > B.y;
+    queue.forEach(d => {
+      const isMe = d === me, rr = r(d.collaborations), cx = px(d), cy = py(d);
+      const t = c.gOverlay.append("text").attr("class", isMe ? "me" : "peer")
+        .attr("font-size", isMe ? 11.5 : 10).attr("font-weight", isMe ? 700 : 500).attr("fill", QT.tokens.ink)
+        .style("paint-order", "stroke").style("stroke", QT.tokens.bg).style("stroke-width", "3px").text(d.country);
+      const w = t.node().getComputedTextLength(), h = isMe ? 13 : 12;
+      const sides = [
+        { ax: "start",  x: cx + rr + 5, y: cy + h * 0.32, bx: cx + rr + 5, by: cy - h / 2 },
+        { ax: "end",    x: cx - rr - 5, y: cy + h * 0.32, bx: cx - rr - 5 - w, by: cy - h / 2 },
+        { ax: "middle", x: cx, y: cy - rr - 5, bx: cx - w / 2, by: cy - rr - 5 - h + 2 },
+        { ax: "middle", x: cx, y: cy + rr + h, bx: cx - w / 2, by: cy + rr + 3 },
+      ];
+      const fits = o => o.bx >= 0 && o.bx + w <= c.iw && o.by >= 0 && o.by + h <= c.ih
+        && !taken.some(B => overlaps({ x: o.bx, y: o.by, width: w, height: h }, B));
+      const pick = sides.find(fits) || (isMe ? (cx > c.iw - 110 ? sides[1] : sides[0]) : null);
+      if (!pick) { t.remove(); return; }
+      t.attr("x", pick.x).attr("y", pick.y).attr("text-anchor", pick.ax);
+      taken.push({ x: pick.bx, y: pick.by, width: w, height: h });
+    });
 
     c.gx.call(d3.axisBottom(x).tickValues(d3.range(0, Math.log10(xMax) + 1).map(k => Math.pow(10, k))).tickFormat(d3.format(",")).tickSizeOuter(0));
     c.gy.call(d3.axisLeft(y).ticks(4).tickFormat(d3.format(".1f")).tickSizeOuter(0));
@@ -564,7 +597,7 @@ QT.boot(async function () {
         `share of ${state.country}'s companies as it does worldwide. Above 1.0, ${state.country} has proportionally more ` +
         `companies in that layer than the world average (2.0 is twice the world's share); below 1.0, fewer. Lighter bars ` +
         `rest on fewer than ${SPEC_THIN} companies, so treat them with care. Hover a bar for the number of companies behind it.`,
-      note: `It counts companies, not funding. Countries with fewer than ${SPEC.company_layer.min_companies} companies are not scored.`,
+      note: `Countries with fewer than ${SPEC.company_layer.min_companies} companies are not scored.`,
       src: `Source: ECIPE Quantum Database, company tracker (stack layer of each company).`,
     };
   }

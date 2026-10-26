@@ -500,9 +500,9 @@ QT.boot(async function () {
     // bar reads as "these are the spinout routes, and this is everything else".
     const segs = [...byType, { key: INDEPENDENT, label: INDEPENDENT, n: indep, color: QT.palette.origin["Not specified"] }];
 
-    const W = 880, H = 92;
+    const W = 880, H = 104;
     d3.select("#chart-origin").selectAll("*").remove();
-    const c = QT.chart("#chart-origin", { W, H, margin: { t: 30, r: 4, b: 10, l: 4 } });
+    const c = QT.chart("#chart-origin", { W, H, margin: { t: 42, r: 4, b: 10, l: 4 } });
     const x = d3.scaleLinear().domain([0, total]).range([0, c.iw]);
     let acc = 0;
     const laid = segs.map(sg => { const o = { ...sg, x0: acc }; acc += sg.n; return o; });
@@ -510,10 +510,15 @@ QT.boot(async function () {
     // Shares, not raw counts -- consistent with the rest of this tab, which never
     // states how many companies the tracker holds in total (see the KPI strip and
     // the tab subtitle).
-    c.g.append("text").attr("x", 0).attr("y", -12).attr("font-size", 11)
-      .attr("fill", QT.tokens.muted)
-      .text(`${QT.fmt.pct0(instN / total)} came out of an institution · `
-            + `${QT.fmt.pct0(indep / total)} were founded independently`);
+    // The headline of the figure: larger, with the two shares in bold.
+    c.g.append("text").attr("x", 0).attr("y", -16).attr("font-size", 16)
+      .attr("fill", QT.tokens.ink)
+      .call(t => {
+        t.append("tspan").attr("font-weight", 700).text(QT.fmt.pct0(instN / total));
+        t.append("tspan").text(" came out of an institution · ");
+        t.append("tspan").attr("font-weight", 700).text(QT.fmt.pct0(indep / total));
+        t.append("tspan").text(" were founded independently");
+      });
 
     c.g.selectAll("rect.seg").data(laid, d => d.key).join("rect").attr("class", "seg")
       .attr("x", d => x(d.x0)).attr("y", 0).attr("height", 34).attr("rx", 2)
