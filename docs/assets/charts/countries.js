@@ -665,7 +665,9 @@ QT.boot(async function () {
         note: `Counts collaborations between a company in ${state.country} and a partner in another country, by the ` +
           `company's industry sector (ICB3). A collaboration between companies in two countries counts once for each. ` +
           `A sector is recorded for ${QT.fmt.pct0(o.with_sector / o.industry_side)} of the companies in these ` +
-          `collaborations. Countries with fewer than ${SPEC.sector.min_observations} sector-tagged collaborations are ` +
+          `collaborations: taken from the tracker's company records or, for companies found through OpenAlex, coded ` +
+          `from the company's own description. Public research centres and activities that match no ICB3 sector are ` +
+          `left untagged. Countries with fewer than ${SPEC.sector.min_observations} sector-tagged collaborations are ` +
           `not scored, and the world average is taken over the countries that are.`,
         src: `Source: ECIPE Quantum Database; sector (ICB3) of the company; method of ECIPE Occasional Paper 08/2025.`,
       };
