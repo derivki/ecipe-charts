@@ -10,6 +10,7 @@
       {
         "country": "Afghanistan",
         "partners": 3,
+        "partners_industry": 0,
         "connectedness": 0.0221,
         "top_partners": [
           {
@@ -29,6 +30,7 @@
       {
         "country": "Algeria",
         "partners": 34,
+        "partners_industry": 2,
         "connectedness": 0.25,
         "top_partners": [
           {
@@ -48,6 +50,7 @@
       {
         "country": "Angola",
         "partners": 1,
+        "partners_industry": 0,
         "connectedness": 0.0074,
         "top_partners": [
           {
@@ -59,6 +62,7 @@
       {
         "country": "Argentina",
         "partners": 33,
+        "partners_industry": 1,
         "connectedness": 0.2426,
         "top_partners": [
           {
@@ -78,6 +82,7 @@
       {
         "country": "Armenia",
         "partners": 25,
+        "partners_industry": 1,
         "connectedness": 0.1838,
         "top_partners": [
           {
@@ -97,6 +102,7 @@
       {
         "country": "Australia",
         "partners": 63,
+        "partners_industry": 29,
         "connectedness": 0.4632,
         "top_partners": [
           {
@@ -116,6 +122,7 @@
       {
         "country": "Austria",
         "partners": 60,
+        "partners_industry": 27,
         "connectedness": 0.4412,
         "top_partners": [
           {
@@ -135,6 +142,7 @@
       {
         "country": "Azerbaijan",
         "partners": 22,
+        "partners_industry": 0,
         "connectedness": 0.1618,
         "top_partners": [
           {
@@ -154,6 +162,7 @@
       {
         "country": "Bahrain",
         "partners": 15,
+        "partners_industry": 0,
         "connectedness": 0.1103,
         "top_partners": [
           {
@@ -173,6 +182,7 @@
       {
         "country": "Bangladesh",
         "partners": 28,
+        "partners_industry": 2,
         "connectedness": 0.2059,
         "top_partners": [
           {
@@ -192,6 +202,7 @@
       {
         "country": "Belarus",
         "partners": 28,
+        "partners_industry": 2,
         "connectedness": 0.2059,
         "top_partners": [
           {
@@ -211,6 +222,7 @@
       {
         "country": "Belgium",
         "partners": 49,
+        "partners_industry": 18,
         "connectedness": 0.3603,
         "top_partners": [
           {
@@ -230,6 +242,7 @@
       {
         "country": "Benin",
         "partners": 8,
+        "partners_industry": 0,
         "connectedness": 0.0588,
         "top_partners": [
           {
@@ -249,6 +262,7 @@
       {
         "country": "Bhutan",
         "partners": 2,
+        "partners_industry": 0,
         "connectedness": 0.0147,
         "top_partners": [
           {
@@ -264,6 +278,7 @@
       {
         "country": "Bolivia",
         "partners": 6,
+        "partners_industry": 0,
         "connectedness": 0.0441,
         "top_partners": [
           {
@@ -283,6 +298,7 @@
       {
         "country": "Bosnia and Herzegovina",
         "partners": 14,
+        "partners_industry": 4,
         "connectedness": 0.1029,
         "top_partners": [
           {
@@ -302,6 +318,7 @@
       {
         "country": "Botswana",
         "partners": 8,
+        "partners_industry": 0,
         "connectedness": 0.0588,
         "top_partners": [
           {
@@ -321,6 +338,7 @@
       {
         "country": "Brazil",
         "partners": 75,
+        "partners_industry": 9,
         "connectedness": 0.5515,
         "top_partners": [
           {
@@ -340,6 +358,7 @@
       {
         "country": "Brunei",
         "partners": 3,
+        "partners_industry": 0,
         "connectedness": 0.0221,
         "top_partners": [
           {
@@ -359,6 +378,7 @@
       {
         "country": "Bulgaria",
         "partners": 29,
+        "partners_industry": 5,
         "connectedness": 0.2132,
         "top_partners": [
           {
@@ -378,6 +398,7 @@
       {
         "country": "Burundi",
         "partners": 2,
+        "partners_industry": 0,
         "connectedness": 0.0147,
         "top_partners": [
           {
@@ -393,6 +414,7 @@
       {
         "country": "Cambodia",
         "partners": 4,
+        "partners_industry": 0,
         "connectedness": 0.0294,
         "top_partners": [
           {
@@ -412,6 +434,7 @@
       {
         "country": "Cameroon",
         "partners": 24,
+        "partners_industry": 1,
         "connectedness": 0.1765,
         "top_partners": [
           {
@@ -431,6 +454,7 @@
       {
         "country": "Canada",
         "partners": 73,
+        "partners_industry": 34,
         "connectedness": 0.5368,
         "top_partners": [
           {
@@ -450,6 +474,7 @@
       {
         "country": "Chad",
         "partners": 1,
+        "partners_industry": 0,
         "connectedness": 0.0074,
         "top_partners": [
           {
@@ -461,6 +486,7 @@
       {
         "country": "Chile",
         "partners": 51,
+        "partners_industry": 5,
         "connectedness": 0.375,
         "top_partners": [
           {
@@ -480,6 +506,7 @@
       {
         "country": "China",
         "partners": 103,
+        "partners_industry": 41,
         "connectedness": 0.7574,
         "top_partners": [
           {
@@ -499,6 +526,7 @@
       {
         "country": "Colombia",
         "partners": 34,
+        "partners_industry": 3,
         "connectedness": 0.25,
         "top_partners": [
           {
@@ -518,6 +546,7 @@
       {
         "country": "Costa Rica",
         "partners": 12,
+        "partners_industry": 1,
         "connectedness": 0.0882,
         "top_partners": [
           {
@@ -537,6 +566,7 @@
       {
         "country": "Croatia",
         "partners": 28,
+        "partners_industry": 1,
         "connectedness": 0.2059,
         "top_partners": [
           {
@@ -556,6 +586,7 @@
       {
         "country": "Cuba",
         "partners": 15,
+        "partners_industry": 0,
         "connectedness": 0.1103,
         "top_partners": [
           {
@@ -575,6 +606,7 @@
       {
         "country": "Cyprus",
         "partners": 19,
+        "partners_industry": 3,
         "connectedness": 0.1397,
         "top_partners": [
           {
@@ -594,6 +626,7 @@
       {
         "country": "Czech Republic",
         "partners": 60,
+        "partners_industry": 12,
         "connectedness": 0.4412,
         "top_partners": [
           {
@@ -613,6 +646,7 @@
       {
         "country": "DR Congo",
         "partners": 1,
+        "partners_industry": 0,
         "connectedness": 0.0074,
         "top_partners": [
           {
@@ -624,6 +658,7 @@
       {
         "country": "Denmark",
         "partners": 56,
+        "partners_industry": 16,
         "connectedness": 0.4118,
         "top_partners": [
           {
@@ -643,6 +678,7 @@
       {
         "country": "Ecuador",
         "partners": 18,
+        "partners_industry": 0,
         "connectedness": 0.1324,
         "top_partners": [
           {
@@ -662,6 +698,7 @@
       {
         "country": "Egypt",
         "partners": 49,
+        "partners_industry": 7,
         "connectedness": 0.3603,
         "top_partners": [
           {
@@ -681,6 +718,7 @@
       {
         "country": "El Salvador",
         "partners": 3,
+        "partners_industry": 0,
         "connectedness": 0.0221,
         "top_partners": [
           {
@@ -700,6 +738,7 @@
       {
         "country": "Estonia",
         "partners": 20,
+        "partners_industry": 3,
         "connectedness": 0.1471,
         "top_partners": [
           {
@@ -719,6 +758,7 @@
       {
         "country": "Ethiopia",
         "partners": 15,
+        "partners_industry": 0,
         "connectedness": 0.1103,
         "top_partners": [
           {
@@ -738,6 +778,7 @@
       {
         "country": "Fiji",
         "partners": 1,
+        "partners_industry": 0,
         "connectedness": 0.0074,
         "top_partners": [
           {
@@ -749,6 +790,7 @@
       {
         "country": "Finland",
         "partners": 59,
+        "partners_industry": 28,
         "connectedness": 0.4338,
         "top_partners": [
           {
@@ -768,6 +810,7 @@
       {
         "country": "France",
         "partners": 82,
+        "partners_industry": 32,
         "connectedness": 0.6029,
         "top_partners": [
           {
@@ -787,6 +830,7 @@
       {
         "country": "Gabon",
         "partners": 4,
+        "partners_industry": 0,
         "connectedness": 0.0294,
         "top_partners": [
           {
@@ -806,6 +850,7 @@
       {
         "country": "Gambia",
         "partners": 1,
+        "partners_industry": 0,
         "connectedness": 0.0074,
         "top_partners": [
           {
@@ -817,6 +862,7 @@
       {
         "country": "Georgia",
         "partners": 17,
+        "partners_industry": 1,
         "connectedness": 0.125,
         "top_partners": [
           {
@@ -836,6 +882,7 @@
       {
         "country": "Germany",
         "partners": 91,
+        "partners_industry": 42,
         "connectedness": 0.6691,
         "top_partners": [
           {
@@ -855,6 +902,7 @@
       {
         "country": "Ghana",
         "partners": 11,
+        "partners_industry": 2,
         "connectedness": 0.0809,
         "top_partners": [
           {
@@ -874,6 +922,7 @@
       {
         "country": "Greece",
         "partners": 51,
+        "partners_industry": 13,
         "connectedness": 0.375,
         "top_partners": [
           {
@@ -893,6 +942,7 @@
       {
         "country": "Guatemala",
         "partners": 2,
+        "partners_industry": 0,
         "connectedness": 0.0147,
         "top_partners": [
           {
@@ -908,6 +958,7 @@
       {
         "country": "Honduras",
         "partners": 1,
+        "partners_industry": 0,
         "connectedness": 0.0074,
         "top_partners": [
           {
@@ -919,6 +970,7 @@
       {
         "country": "Hungary",
         "partners": 51,
+        "partners_industry": 9,
         "connectedness": 0.375,
         "top_partners": [
           {
@@ -938,6 +990,7 @@
       {
         "country": "Iceland",
         "partners": 29,
+        "partners_industry": 1,
         "connectedness": 0.2132,
         "top_partners": [
           {
@@ -957,6 +1010,7 @@
       {
         "country": "India",
         "partners": 90,
+        "partners_industry": 29,
         "connectedness": 0.6618,
         "top_partners": [
           {
@@ -976,6 +1030,7 @@
       {
         "country": "Indonesia",
         "partners": 32,
+        "partners_industry": 4,
         "connectedness": 0.2353,
         "top_partners": [
           {
@@ -995,6 +1050,7 @@
       {
         "country": "Iran",
         "partners": 61,
+        "partners_industry": 3,
         "connectedness": 0.4485,
         "top_partners": [
           {
@@ -1014,6 +1070,7 @@
       {
         "country": "Iraq",
         "partners": 33,
+        "partners_industry": 1,
         "connectedness": 0.2426,
         "top_partners": [
           {
@@ -1033,6 +1090,7 @@
       {
         "country": "Ireland",
         "partners": 45,
+        "partners_industry": 18,
         "connectedness": 0.3309,
         "top_partners": [
           {
@@ -1052,6 +1110,7 @@
       {
         "country": "Israel",
         "partners": 51,
+        "partners_industry": 24,
         "connectedness": 0.375,
         "top_partners": [
           {
@@ -1071,6 +1130,7 @@
       {
         "country": "Italy",
         "partners": 81,
+        "partners_industry": 19,
         "connectedness": 0.5956,
         "top_partners": [
           {
@@ -1090,6 +1150,7 @@
       {
         "country": "Jamaica",
         "partners": 2,
+        "partners_industry": 0,
         "connectedness": 0.0147,
         "top_partners": [
           {
@@ -1105,6 +1166,7 @@
       {
         "country": "Japan",
         "partners": 75,
+        "partners_industry": 35,
         "connectedness": 0.5515,
         "top_partners": [
           {
@@ -1124,6 +1186,7 @@
       {
         "country": "Jordan",
         "partners": 22,
+        "partners_industry": 1,
         "connectedness": 0.1618,
         "top_partners": [
           {
@@ -1143,6 +1206,7 @@
       {
         "country": "Kazakhstan",
         "partners": 24,
+        "partners_industry": 0,
         "connectedness": 0.1765,
         "top_partners": [
           {
@@ -1162,6 +1226,7 @@
       {
         "country": "Kenya",
         "partners": 5,
+        "partners_industry": 1,
         "connectedness": 0.0368,
         "top_partners": [
           {
@@ -1181,6 +1246,7 @@
       {
         "country": "Kosovo",
         "partners": 1,
+        "partners_industry": 0,
         "connectedness": 0.0074,
         "top_partners": [
           {
@@ -1192,6 +1258,7 @@
       {
         "country": "Kuwait",
         "partners": 19,
+        "partners_industry": 1,
         "connectedness": 0.1397,
         "top_partners": [
           {
@@ -1211,6 +1278,7 @@
       {
         "country": "Latvia",
         "partners": 33,
+        "partners_industry": 3,
         "connectedness": 0.2426,
         "top_partners": [
           {
@@ -1230,6 +1298,7 @@
       {
         "country": "Lebanon",
         "partners": 20,
+        "partners_industry": 1,
         "connectedness": 0.1471,
         "top_partners": [
           {
@@ -1249,6 +1318,7 @@
       {
         "country": "Lesotho",
         "partners": 1,
+        "partners_industry": 0,
         "connectedness": 0.0074,
         "top_partners": [
           {
@@ -1260,6 +1330,7 @@
       {
         "country": "Libya",
         "partners": 5,
+        "partners_industry": 0,
         "connectedness": 0.0368,
         "top_partners": [
           {
@@ -1279,6 +1350,7 @@
       {
         "country": "Lithuania",
         "partners": 24,
+        "partners_industry": 2,
         "connectedness": 0.1765,
         "top_partners": [
           {
@@ -1298,6 +1370,7 @@
       {
         "country": "Luxembourg",
         "partners": 36,
+        "partners_industry": 5,
         "connectedness": 0.2647,
         "top_partners": [
           {
@@ -1317,6 +1390,7 @@
       {
         "country": "Macedonia",
         "partners": 4,
+        "partners_industry": 0,
         "connectedness": 0.0294,
         "top_partners": [
           {
@@ -1336,6 +1410,7 @@
       {
         "country": "Madagascar",
         "partners": 2,
+        "partners_industry": 0,
         "connectedness": 0.0147,
         "top_partners": [
           {
@@ -1351,6 +1426,7 @@
       {
         "country": "Malawi",
         "partners": 3,
+        "partners_industry": 1,
         "connectedness": 0.0221,
         "top_partners": [
           {
@@ -1370,6 +1446,7 @@
       {
         "country": "Malaysia",
         "partners": 42,
+        "partners_industry": 5,
         "connectedness": 0.3088,
         "top_partners": [
           {
@@ -1389,6 +1466,7 @@
       {
         "country": "Maldives",
         "partners": 1,
+        "partners_industry": 0,
         "connectedness": 0.0074,
         "top_partners": [
           {
@@ -1400,6 +1478,7 @@
       {
         "country": "Malta",
         "partners": 19,
+        "partners_industry": 0,
         "connectedness": 0.1397,
         "top_partners": [
           {
@@ -1419,6 +1498,7 @@
       {
         "country": "Mauritania",
         "partners": 5,
+        "partners_industry": 0,
         "connectedness": 0.0368,
         "top_partners": [
           {
@@ -1438,6 +1518,7 @@
       {
         "country": "Mauritius",
         "partners": 1,
+        "partners_industry": 0,
         "connectedness": 0.0074,
         "top_partners": [
           {
@@ -1449,6 +1530,7 @@
       {
         "country": "Mexico",
         "partners": 53,
+        "partners_industry": 6,
         "connectedness": 0.3897,
         "top_partners": [
           {
@@ -1468,6 +1550,7 @@
       {
         "country": "Moldova",
         "partners": 10,
+        "partners_industry": 0,
         "connectedness": 0.0735,
         "top_partners": [
           {
@@ -1487,6 +1570,7 @@
       {
         "country": "Mongolia",
         "partners": 5,
+        "partners_industry": 0,
         "connectedness": 0.0368,
         "top_partners": [
           {
@@ -1506,6 +1590,7 @@
       {
         "country": "Montenegro",
         "partners": 5,
+        "partners_industry": 0,
         "connectedness": 0.0368,
         "top_partners": [
           {
@@ -1525,6 +1610,7 @@
       {
         "country": "Morocco",
         "partners": 46,
+        "partners_industry": 2,
         "connectedness": 0.3382,
         "top_partners": [
           {
@@ -1544,6 +1630,7 @@
       {
         "country": "Myanmar",
         "partners": 5,
+        "partners_industry": 0,
         "connectedness": 0.0368,
         "top_partners": [
           {
@@ -1563,6 +1650,7 @@
       {
         "country": "Nepal",
         "partners": 5,
+        "partners_industry": 0,
         "connectedness": 0.0368,
         "top_partners": [
           {
@@ -1582,6 +1670,7 @@
       {
         "country": "Netherlands",
         "partners": 58,
+        "partners_industry": 25,
         "connectedness": 0.4265,
         "top_partners": [
           {
@@ -1601,6 +1690,7 @@
       {
         "country": "New Zealand",
         "partners": 33,
+        "partners_industry": 5,
         "connectedness": 0.2426,
         "top_partners": [
           {
@@ -1620,6 +1710,7 @@
       {
         "country": "Nigeria",
         "partners": 19,
+        "partners_industry": 3,
         "connectedness": 0.1397,
         "top_partners": [
           {
@@ -1639,6 +1730,7 @@
       {
         "country": "North Korea",
         "partners": 1,
+        "partners_industry": 0,
         "connectedness": 0.0074,
         "top_partners": [
           {
@@ -1650,6 +1742,7 @@
       {
         "country": "Norway",
         "partners": 41,
+        "partners_industry": 13,
         "connectedness": 0.3015,
         "top_partners": [
           {
@@ -1669,6 +1762,7 @@
       {
         "country": "Oman",
         "partners": 14,
+        "partners_industry": 0,
         "connectedness": 0.1029,
         "top_partners": [
           {
@@ -1688,6 +1782,7 @@
       {
         "country": "Pakistan",
         "partners": 61,
+        "partners_industry": 4,
         "connectedness": 0.4485,
         "top_partners": [
           {
@@ -1707,6 +1802,7 @@
       {
         "country": "Palestine",
         "partners": 5,
+        "partners_industry": 0,
         "connectedness": 0.0368,
         "top_partners": [
           {
@@ -1726,6 +1822,7 @@
       {
         "country": "Panama",
         "partners": 11,
+        "partners_industry": 2,
         "connectedness": 0.0809,
         "top_partners": [
           {
@@ -1745,6 +1842,7 @@
       {
         "country": "Paraguay",
         "partners": 2,
+        "partners_industry": 0,
         "connectedness": 0.0147,
         "top_partners": [
           {
@@ -1760,6 +1858,7 @@
       {
         "country": "Peru",
         "partners": 11,
+        "partners_industry": 1,
         "connectedness": 0.0809,
         "top_partners": [
           {
@@ -1779,6 +1878,7 @@
       {
         "country": "Philippines",
         "partners": 15,
+        "partners_industry": 1,
         "connectedness": 0.1103,
         "top_partners": [
           {
@@ -1798,6 +1898,7 @@
       {
         "country": "Poland",
         "partners": 74,
+        "partners_industry": 16,
         "connectedness": 0.5441,
         "top_partners": [
           {
@@ -1817,6 +1918,7 @@
       {
         "country": "Portugal",
         "partners": 49,
+        "partners_industry": 12,
         "connectedness": 0.3603,
         "top_partners": [
           {
@@ -1836,6 +1938,7 @@
       {
         "country": "Qatar",
         "partners": 36,
+        "partners_industry": 7,
         "connectedness": 0.2647,
         "top_partners": [
           {
@@ -1855,6 +1958,7 @@
       {
         "country": "Romania",
         "partners": 40,
+        "partners_industry": 5,
         "connectedness": 0.2941,
         "top_partners": [
           {
@@ -1874,6 +1978,7 @@
       {
         "country": "Russia",
         "partners": 80,
+        "partners_industry": 21,
         "connectedness": 0.5882,
         "top_partners": [
           {
@@ -1893,6 +1998,7 @@
       {
         "country": "Rwanda",
         "partners": 10,
+        "partners_industry": 0,
         "connectedness": 0.0735,
         "top_partners": [
           {
@@ -1912,6 +2018,7 @@
       {
         "country": "Saint Kitts and Nevis",
         "partners": 3,
+        "partners_industry": 1,
         "connectedness": 0.0221,
         "top_partners": [
           {
@@ -1931,6 +2038,7 @@
       {
         "country": "Saudi Arabia",
         "partners": 64,
+        "partners_industry": 10,
         "connectedness": 0.4706,
         "top_partners": [
           {
@@ -1950,6 +2058,7 @@
       {
         "country": "Serbia",
         "partners": 37,
+        "partners_industry": 3,
         "connectedness": 0.2721,
         "top_partners": [
           {
@@ -1969,6 +2078,7 @@
       {
         "country": "Singapore",
         "partners": 56,
+        "partners_industry": 24,
         "connectedness": 0.4118,
         "top_partners": [
           {
@@ -1988,6 +2098,7 @@
       {
         "country": "Slovakia",
         "partners": 36,
+        "partners_industry": 10,
         "connectedness": 0.2647,
         "top_partners": [
           {
@@ -2007,6 +2118,7 @@
       {
         "country": "Slovenia",
         "partners": 39,
+        "partners_industry": 7,
         "connectedness": 0.2868,
         "top_partners": [
           {
@@ -2026,6 +2138,7 @@
       {
         "country": "South Africa",
         "partners": 46,
+        "partners_industry": 3,
         "connectedness": 0.3382,
         "top_partners": [
           {
@@ -2045,6 +2158,7 @@
       {
         "country": "South Korea",
         "partners": 65,
+        "partners_industry": 18,
         "connectedness": 0.4779,
         "top_partners": [
           {
@@ -2064,6 +2178,7 @@
       {
         "country": "Spain",
         "partners": 79,
+        "partners_industry": 32,
         "connectedness": 0.5809,
         "top_partners": [
           {
@@ -2083,6 +2198,7 @@
       {
         "country": "Sri Lanka",
         "partners": 8,
+        "partners_industry": 0,
         "connectedness": 0.0588,
         "top_partners": [
           {
@@ -2102,6 +2218,7 @@
       {
         "country": "Sudan",
         "partners": 5,
+        "partners_industry": 1,
         "connectedness": 0.0368,
         "top_partners": [
           {
@@ -2121,6 +2238,7 @@
       {
         "country": "Sweden",
         "partners": 66,
+        "partners_industry": 39,
         "connectedness": 0.4853,
         "top_partners": [
           {
@@ -2140,6 +2258,7 @@
       {
         "country": "Switzerland",
         "partners": 57,
+        "partners_industry": 30,
         "connectedness": 0.4191,
         "top_partners": [
           {
@@ -2159,6 +2278,7 @@
       {
         "country": "Syria",
         "partners": 3,
+        "partners_industry": 0,
         "connectedness": 0.0221,
         "top_partners": [
           {
@@ -2178,6 +2298,7 @@
       {
         "country": "Taiwan",
         "partners": 60,
+        "partners_industry": 17,
         "connectedness": 0.4412,
         "top_partners": [
           {
@@ -2197,6 +2318,7 @@
       {
         "country": "Tajikistan",
         "partners": 3,
+        "partners_industry": 0,
         "connectedness": 0.0221,
         "top_partners": [
           {
@@ -2216,6 +2338,7 @@
       {
         "country": "Thailand",
         "partners": 31,
+        "partners_industry": 5,
         "connectedness": 0.2279,
         "top_partners": [
           {
@@ -2235,6 +2358,7 @@
       {
         "country": "Togo",
         "partners": 5,
+        "partners_industry": 0,
         "connectedness": 0.0368,
         "top_partners": [
           {
@@ -2254,6 +2378,7 @@
       {
         "country": "Tunisia",
         "partners": 21,
+        "partners_industry": 2,
         "connectedness": 0.1544,
         "top_partners": [
           {
@@ -2273,6 +2398,7 @@
       {
         "country": "Turkey",
         "partners": 62,
+        "partners_industry": 8,
         "connectedness": 0.4559,
         "top_partners": [
           {
@@ -2292,6 +2418,7 @@
       {
         "country": "UAE",
         "partners": 58,
+        "partners_industry": 12,
         "connectedness": 0.4265,
         "top_partners": [
           {
@@ -2311,6 +2438,7 @@
       {
         "country": "UK",
         "partners": 82,
+        "partners_industry": 45,
         "connectedness": 0.6029,
         "top_partners": [
           {
@@ -2330,6 +2458,7 @@
       {
         "country": "US",
         "partners": 104,
+        "partners_industry": 72,
         "connectedness": 0.7647,
         "top_partners": [
           {
@@ -2349,6 +2478,7 @@
       {
         "country": "Ukraine",
         "partners": 39,
+        "partners_industry": 3,
         "connectedness": 0.2868,
         "top_partners": [
           {
@@ -2368,6 +2498,7 @@
       {
         "country": "Uruguay",
         "partners": 16,
+        "partners_industry": 3,
         "connectedness": 0.1176,
         "top_partners": [
           {
@@ -2387,6 +2518,7 @@
       {
         "country": "Uzbekistan",
         "partners": 35,
+        "partners_industry": 0,
         "connectedness": 0.2574,
         "top_partners": [
           {
@@ -2406,6 +2538,7 @@
       {
         "country": "Venezuela",
         "partners": 6,
+        "partners_industry": 0,
         "connectedness": 0.0441,
         "top_partners": [
           {
@@ -2425,6 +2558,7 @@
       {
         "country": "Vietnam",
         "partners": 39,
+        "partners_industry": 7,
         "connectedness": 0.2868,
         "top_partners": [
           {
@@ -2444,6 +2578,7 @@
       {
         "country": "Yemen",
         "partners": 8,
+        "partners_industry": 1,
         "connectedness": 0.0588,
         "top_partners": [
           {
@@ -2463,6 +2598,7 @@
       {
         "country": "Zambia",
         "partners": 6,
+        "partners_industry": 0,
         "connectedness": 0.0441,
         "top_partners": [
           {
@@ -2482,6 +2618,7 @@
       {
         "country": "Zimbabwe",
         "partners": 1,
+        "partners_industry": 0,
         "connectedness": 0.0074,
         "top_partners": [
           {

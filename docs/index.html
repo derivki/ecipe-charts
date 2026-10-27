@@ -3,7 +3,7 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Quantum Technologies Tracker | Overview</title>
+<title>Quantum Tracker | Overview</title>
 <!-- theme.js self-injects the stylesheet on load, so it belongs in <head>: from the
      end of <body> the CSS arrived after first paint and every tab switch flashed
      unstyled HTML. -->
@@ -21,11 +21,10 @@
   <div class="panels g2">
 
     <div class="panel span2">
-      <div class="ttl"><span class="fig">Figure 1:</span> Global distribution of company vs. government funding</div>
+      <div class="ttl"><span class="fig">Figure 1:</span> Global distribution of company and government funding</div>
       <p class="why">Shading indicates funding by country.<br>
       Use <b>Company</b> / <b>Government</b> to switch between total funding raised by companies and total funding
-      announced or deployed by government entities.<br>
-      Scroll or drag to zoom.</p>
+      announced or deployed by government entities.</p>
       <div class="controls">
         <div class="ctl"><label>Metric</label>
           <div class="seg" id="seg-source-map"><button data-s="company" class="on">Company</button><button data-s="government">Government</button></div>
@@ -33,11 +32,10 @@
       </div>
       <div id="worldmap" style="margin-top:6px;"></div>
       <p class="note" style="margin-top:8px;padding-top:8px;">Company and government funding
-      are separate measures. Government funding does not include grants or public equity that
-      reached companies through funding rounds: that money is counted only once, under company
-      funding. Because the two measure different things (capital raised by companies versus
-      identified public funding and commitments), they are shown side by side and not added
-      together. A few very small states (e.g. Singapore) are too small to appear on the map.</p>
+      should not be added together, as the two categories may overlap (for example, when
+      governments provide grants, acquire equity stakes directly, or participate in broader
+      financing rounds). A few very small states (e.g. Singapore) are too small to appear on
+      the map.</p>
     </div>
 
     <div class="panel span2">
@@ -74,7 +72,9 @@
       <svg id="chart-country" role="img" aria-label="Countries ranked by funding"></svg>
       <p class="mocknote" id="mocknote-country"></p>
       <p class="note" style="margin-top:8px;padding-top:8px;">The figure includes both the EU as a
-      whole and individual EU Member States.</p>
+      whole and individual EU Member States. The EU's government funding value is only money
+      coming from the EU itself; it is not the sum of EU Member States' funding plus EU
+      money.</p>
     </div>
 
     <div class="panel span2">
@@ -83,7 +83,7 @@
       <svg id="chart-companies" role="img" aria-label="Top companies by funding"></svg>
       <p class="note" style="margin-top:8px;padding-top:8px;">The ranking reflects cumulative
       funding and may include companies that are now defunct, have been acquired, or have merged
-      with other firms. See the <a href="companies.html">Companies tab</a> for the full ranking.</p>
+      with other firms. See the <a href="companies.html#top">Companies tab</a> for the full ranking.</p>
     </div>
 
     <div class="panel span2">

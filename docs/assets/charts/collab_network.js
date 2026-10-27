@@ -66,7 +66,10 @@
       const st = document.createElement("style"); st.id = "cn-css"; st.textContent = CSS;
       document.head.appendChild(st);
     }
-    const net = await QT.loadData("collab_country_network");
+    const [net, partnersData] = await Promise.all([QT.loadData("collab_country_network"), QT.loadData("collab_country_partners")]);
+    // Total partner countries per country, the same figure the Countries tab shows as global connectedness.
+    const allPartners = new Map(partnersData.data.countries.map(d => [d.country, d.partners]));
+    const industryPartners = new Map(partnersData.data.countries.map(d => [d.country, d.partners_industry]));
     const tt = QT.tooltip();
     const root = d3.select(selector).classed("cn-wrap", true);
 
@@ -198,7 +201,8 @@
       nodeSel.on("mousemove", (e, n) => {
         focus(n.id);
         tt.show(`<div class="hd">${n.id}</div>` +
-          `<div class="row"><span class="k">Partner countries</span><span class="v">${n.deg}</span></div>` +
+          `<div class="row"><span class="k">Partner countries${state.mode === "industry" ? " (involving industry)" : ""}</span><span class="v">${(state.mode === "industry" ? industryPartners : allPartners).has(n.id) ? QT.fmt.int((state.mode === "industry" ? industryPartners : allPartners).get(n.id)) : "n/a"}</span></div>` +
+          `<div class="row"><span class="k">Linked on screen</span><span class="v">${n.deg}</span></div>` +
           `<div class="row"><span class="k">Collaborations shown</span><span class="v">${QT.fmt.int(n.vol)}</span></div>` +
           `<div class="row"><span class="k">Betweenness</span><span class="v">${n.btw == null ? "n/a" : n.btw.toFixed(3)}</span></div>`, e);
       }).on("mouseleave", () => { unfocus(); tt.hide(); });
@@ -219,7 +223,7 @@
       const dots = [0.05, 0.4, 1].map(t => { const d = 2 * d3.scaleSqrt().domain([0, 1]).range([5, 25])(t); return `<i style="width:${d}px;height:${d}px"></i>`; }).join("");
       const bars = [0.6, 2.5, 6].map(h => `<i style="height:${h}px"></i>`).join("");
       root.select("#cn-key").html(
-        `<div class="grp"><span><b>Node size:</b> number of partner countries</span><span class="dots">${dots}</span></div>` +
+        `<div class="grp"><span><b>Node size:</b> share of the other countries on screen it is linked to</span><span class="dots">${dots}</span></div>` +
         `<div class="grp"><span><b>Line thickness:</b> collaborations</span><span class="bars">${bars}</span></div>` +
         `<div class="grp"><span><b>Node colour:</b> betweenness (connector role)</span><span>Low</span><span class="ramp" style="background:${rampCss}"></span><span>High</span></div>` +
         `<div class="grp"><span><b>Line colour:</b> RCA (specialisation)</span><span>Low</span><span class="ramp" style="background:${rampCss}"></span><span>High</span></div>`);

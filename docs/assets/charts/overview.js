@@ -13,7 +13,7 @@ QT.boot(async function () {
   const [country, cluster, instrYear, stageRegion, manifest, companies, gov, collabManifest, codes] =
     await Promise.all([
       QT.loadData("funding_by_country"),
-      QT.loadData("funding_by_cluster"),
+      QT.loadData("cluster_index_2025"),
       QT.loadData("funding_by_instrument_year"),
       QT.loadData("funding_by_stage_region"),
       QT.loadData("manifest"),
@@ -67,7 +67,7 @@ QT.boot(async function () {
     { v: QT.fmt.int(manifest.row_counts.startups), k: "Quantum companies" },
     { v: QT.fmt.axisMoney(govTotal),
       k: "Total government funding" + (govProvisional ? " " + QT.mockBadge("Provisional") : "") },
-    { v: QT.fmt.int(cluster.data.length), k: "Quantum clusters" },
+    { v: QT.fmt.int(cluster.data.length), k: "Quantum clusters (2025)" },
     { v: QT.fmt.int(collabManifest.row_counts.entities), k: "Institutions active in quantum" },
     { v: QT.fmt.int(collabManifest.row_counts.merged_edges), k: "Quantum collaborations" },
   ]);
@@ -292,8 +292,8 @@ QT.boot(async function () {
 
       QT.mockNote("#mocknote-country", state.metric === "government_funding" && govProvisional
         ? "<b>Government figures are provisional.</b> They cover identified public funding "
-          + "only. Grants and public equity received by companies are counted under "
-          + "company funding."
+          + "only. Company and government funding should not be added together, as "
+          + "the two categories may overlap."
         : "");
       d3.select("#mocknote-country").style("display",
         state.metric === "government_funding" && govProvisional ? null : "none");
@@ -343,7 +343,7 @@ QT.boot(async function () {
   (function fundingByStage() {
     const STAGES = stageRegion.data.stages;
     const BLOCS = {};
-    stageRegion.data.regions.forEach(r => { BLOCS[r.region] = { label: r.region, hex: QT.palette.region[r.region] || QT.tokens.muted, v: r.values, total: d3.sum(r.values) }; });
+    stageRegion.data.regions.forEach(r => { BLOCS[r.region] = { label: QT.regionLabel(r.region), hex: QT.palette.region[r.region] || QT.tokens.muted, v: r.values, total: d3.sum(r.values) }; });
     const KEYS = Object.keys(BLOCS);
 
     const state = { a: KEYS[0], b: KEYS[2] || KEYS[1], scale: "share" };
@@ -375,7 +375,7 @@ QT.boot(async function () {
     c.g.append("g").selectAll("text").data(STAGES).join("text")
       .attr("class", "bar-val").style("font-size", "11px")
       .attr("x", -12).attr("y", d => yb(d) + yb.bandwidth() / 2).attr("dy", "0.32em")
-      .attr("text-anchor", "end").attr("fill", QT.tokens.muted).text(d => d);
+      .attr("text-anchor", "end").attr("fill", QT.tokens.muted).style("font-weight", 400).text(d => d);
 
     function legend() {
       const items = [state.a, state.b].map(k => ({ key: k, label: BLOCS[k].label, color: BLOCS[k].hex }));

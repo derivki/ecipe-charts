@@ -1,0 +1,809 @@
+{
+  "meta": {
+    "data_vintage": "2026-Q3",
+    "built_at_utc": "2026-10-27T14:12:52+00:00",
+    "source_xlsx": "raw/Quantum Policies List.xlsx",
+    "mock": false,
+    "n_policies": 74,
+    "n_jurisdictions": 28,
+    "source_note": "ECIPE Quantum Policies List. Amounts are the announced figures exactly as the register words them, in their original currency; they are not converted and are not part of the Government funding totals."
+  },
+  "data": {
+    "Australia": [
+      {
+        "title": "PsiQuantum utility-scale fault-tolerant quantum computer investment",
+        "type": "Investment",
+        "policy_type": "Government Investment Program",
+        "status": "Active",
+        "year": 2024,
+        "funding": "A$940 million joint government financial package",
+        "note": "Joint Commonwealth and Queensland investment package supporting construction of a utility-scale fault-tolerant quantum computer and associated Brisbane ecosystem.",
+        "url": "https://www.industry.gov.au/news/leading-quantum-company-chooses-australia-site-its-groundbreaking-utility-scale-quantum-computer"
+      },
+      {
+        "title": "Quantum Australia (Australian Centre for Quantum Growth)",
+        "type": "Programme",
+        "policy_type": "Quantum Industry / Ecosystem Development Program",
+        "status": "Active",
+        "year": 2024,
+        "funding": "A$18,368,250 (ex GST; announced publicly as A$18.4 million)",
+        "note": "National centre established to grow Australia’s quantum industry and ecosystem by coordinating research, industry and government, accelerating commercialisation and adoption, supporting startups and workforce development, and strengthening international engagement.",
+        "url": "https://www.minister.industry.gov.au/ministers/husic/media-releases/albanese-government-delivers-184-million-national-centre-grow-quantum-industry"
+      },
+      {
+        "title": "National Quantum Strategy",
+        "type": "Strategy",
+        "policy_type": "National Quantum Strategy",
+        "status": "Active",
+        "year": 2023,
+        "funding": null,
+        "note": "National strategy setting five themes for a thriving quantum industry, infrastructure, workforce, standards, responsible development and international partnerships.",
+        "url": "https://www.industry.gov.au/publications/national-quantum-strategy"
+      }
+    ],
+    "Austria": [
+      {
+        "title": "Quantum Austria: Förderung der Quantenforschung und -technologien",
+        "type": "Investment",
+        "policy_type": "Government Investment Program",
+        "status": "Concluding",
+        "year": 2021,
+        "funding": "€107 million",
+        "note": "National NextGenerationEU/RRF-funded initiative supporting basic and applied quantum research, technology development, commercialisation and research infrastructure, including quantum computing and next-generation HPC, with implementation through FFG and FWF funding instruments.",
+        "url": "https://www.ffg.at/quantum-austria"
+      }
+    ],
+    "Belgium": [
+      {
+        "title": "Quantum4Belgium",
+        "type": "Programme",
+        "policy_type": "National Quantum Program",
+        "status": "Active",
+        "year": 2024,
+        "funding": null,
+        "note": "Federal initiative bringing together government bodies, research and industry to coordinate Belgian quantum technology policy and ecosystem development.",
+        "url": "https://bosa.belgium.be/fr/quantum4belgium"
+      }
+    ],
+    "Canada": [
+      {
+        "title": "National Quantum Strategy Roadmap: Quantum Communication and Post-Quantum Cryptography",
+        "type": "Roadmap",
+        "policy_type": "National Quantum Roadmap",
+        "status": "Active",
+        "year": 2025,
+        "funding": null,
+        "note": "Implementation roadmap for secure quantum communications and transition to post-quantum cryptography.",
+        "url": "https://ised-isde.canada.ca/site/national-quantum-strategy/en/national-quantum-strategy-roadmap-quantum-communication-and-post-quantum-cryptography"
+      },
+      {
+        "title": "National Quantum Strategy Roadmap: Quantum Computing",
+        "type": "Roadmap",
+        "policy_type": "National Quantum Roadmap",
+        "status": "Active",
+        "year": 2025,
+        "funding": null,
+        "note": "Implementation roadmap for the NQS quantum-computing mission, covering hardware, software, talent, access and commercialization.",
+        "url": "https://ised-isde.canada.ca/site/national-quantum-strategy/en/national-quantum-strategy-roadmap-quantum-computing"
+      },
+      {
+        "title": "National Quantum Strategy Roadmap: Quantum Sensing",
+        "type": "Roadmap",
+        "policy_type": "National Quantum Roadmap",
+        "status": "Active",
+        "year": 2025,
+        "funding": null,
+        "note": "Implementation roadmap for the NQS sensing mission, supporting R&D, deployment, talent and commercialization of quantum sensors.",
+        "url": "https://ised-isde.canada.ca/site/national-quantum-strategy/en/overview-canadas-national-quantum-strategy/national-quantum-strategy-roadmap-quantum-sensing"
+      },
+      {
+        "title": "National Quantum Strategy",
+        "type": "Strategy",
+        "policy_type": "National Quantum Strategy",
+        "status": "Active",
+        "year": 2023,
+        "funding": "C$360 million incremental federal funding",
+        "note": "Canada-wide strategy structured around research, talent and commercialization missions across quantum computing, communications/PQC and sensing.",
+        "url": "https://ised-isde.canada.ca/site/national-quantum-strategy/en/canadas-national-quantum-strategy"
+      },
+      {
+        "title": "Department of National Defence and Canadian Armed Forces Quantum S&T Strategy: Preparing for technological disruptions in the future operating environment",
+        "type": "Strategy",
+        "policy_type": "National Quantum Strategy",
+        "status": "Active",
+        "year": null,
+        "funding": null,
+        "note": "Department of National Defence and Canadian Armed Forces strategy for quantum S&T, focused on defence applications, sensing, communications and computing.",
+        "url": "https://www.canada.ca/en/department-national-defence/corporate/reports-publications/dnd-caf-quantum-science-and-technology-strategy.html"
+      },
+      {
+        "title": "Quantum 2030",
+        "type": "Roadmap",
+        "policy_type": "National Quantum Roadmap",
+        "status": "Active",
+        "year": null,
+        "funding": null,
+        "note": "DND/CAF implementation plan translating the defence quantum strategy into targeted capability development through 2030.",
+        "url": "https://publications.gc.ca/site/eng/9.919592/publication.html"
+      }
+    ],
+    "Czech Republic": [
+      {
+        "title": "Národní strategie ČR pro kvantové technologie 2026–2030",
+        "type": "Strategy",
+        "policy_type": "National Quantum Strategy",
+        "status": "Active",
+        "year": null,
+        "funding": null,
+        "note": "Czech national strategy for quantum technologies covering research, applications, workforce, infrastructure, industry and security for 2026–2030.",
+        "url": "https://vlada.gov.cz/assets/vlada/clenove-vlady/pri-uradu-vlady/marek_zenisek/aktualne/Narodni-strategie-CR-pro-kvantove-technologie-2026-2030.pdf"
+      }
+    ],
+    "Denmark": [
+      {
+        "title": "National Strategy for Quantum Technology - Part 1: World-Class Research and Innovation",
+        "type": "Strategy",
+        "policy_type": "National Quantum Strategy",
+        "status": "Active",
+        "year": 2023,
+        "funding": "DKK 1 billion",
+        "note": "First part of Denmark's national quantum strategy focused on research excellence, infrastructure, talent and innovation.",
+        "url": "https://ufm.dk/media/mcwh4uik/strategy-for-quantum-technology.pdf"
+      },
+      {
+        "title": "National Strategy for Quantum Technology - Part 2: Commercialisation, Security and International Cooperation",
+        "type": "Strategy",
+        "policy_type": "National Quantum Strategy",
+        "status": "Active",
+        "year": 2023,
+        "funding": "DKK 200 million additional allocation",
+        "note": "Second part of Denmark's quantum strategy focused on commercialization, security, international partnerships and public-sector preparedness.",
+        "url": "https://www.eng.em.dk/Media/638315714019915522/National%20Strategy%20for%20Quantum%20Technology.pdf"
+      }
+    ],
+    "EU": [
+      {
+        "title": "EuroHPC Joint Undertaking 2026 Quantum Technology Funding Calls",
+        "type": "Infrastructure",
+        "policy_type": "Other Infrastructure Program",
+        "status": "Active",
+        "year": 2026,
+        "funding": "€119 million",
+        "note": "EU funding initiative launched through EuroHPC JU to accelerate European quantum technology development through large-scale infrastructure, hardware development and industrial capability-building projects.",
+        "url": "https://www.eurohpc-ju.europa.eu/six-new-quantum-calls-launched-eurohpc-joint-undertaking-2026-08-14_en"
+      },
+      {
+        "title": "Commission Recommendation (EU) 2024/1101 on a Coordinated Implementation Roadmap for the transition to Post-Quantum Cryptography",
+        "type": "Security",
+        "policy_type": "Quantum Security / PQC Policy",
+        "status": "Active",
+        "year": 2024,
+        "funding": null,
+        "note": "Commission recommendation calling for a coordinated EU roadmap and Member State action to transition digital infrastructures to post-quantum cryptography.",
+        "url": "https://eur-lex.europa.eu/legal-content/EN/TXT/PDF/?uri=OJ:L_202401101"
+      },
+      {
+        "title": "European Quantum Communication Infrastructure (EuroQCI)",
+        "type": "Programme",
+        "policy_type": "Quantum Communications Initiative",
+        "status": "Active",
+        "year": 2019,
+        "funding": null,
+        "note": "EU-wide initiative to build a secure quantum communication infrastructure spanning terrestrial and space segments.",
+        "url": "https://digital-strategy.ec.europa.eu/en/policies/european-quantum-communication-infrastructure-euroqci"
+      },
+      {
+        "title": "Quantum Technologies Flagship",
+        "type": "Strategy",
+        "policy_type": "Supranational Quantum Policy",
+        "status": "Active",
+        "year": 2018,
+        "funding": "€1 billion (expected EU budget over 10 years)",
+        "note": "Ten-year EU research and innovation flagship coordinating large-scale quantum technology R&D across Europe.",
+        "url": "https://digital-strategy.ec.europa.eu/en/policies/quantum-technologies-flagship"
+      },
+      {
+        "title": "Quantum Europe Strategy",
+        "type": "Strategy",
+        "policy_type": "Supranational Quantum Policy",
+        "status": "Adopted",
+        "year": 2025,
+        "funding": null,
+        "note": "EU strategy to make Europe a global quantum leader by strengthening research, infrastructure, industrialisation, skills, security and international cooperation (R&I; quantum infrastructures; ecosystem/industrialisation; space & dual-use/security/defence; skills).",
+        "url": "https://ec.europa.eu/newsroom/dae/redirection/document/117890"
+      },
+      {
+        "title": "European Quantum Act",
+        "type": "Legislation",
+        "policy_type": "Legislation / Act",
+        "status": "In preparation",
+        "year": 2025,
+        "funding": null,
+        "note": "Planned EU legislative initiative intended to strengthen the European quantum ecosystem and support implementation of the Quantum Europe Strategy.",
+        "url": "https://www.european-quantum-act.com/"
+      },
+      {
+        "title": "Quantum Manifesto for Quantum Technologies",
+        "type": "Strategy",
+        "policy_type": "Supranational Quantum Policy",
+        "status": "Superseded",
+        "year": 2016,
+        "funding": "€1 billion proposed Flagship-scale initiative",
+        "note": "Stakeholder-driven European strategy calling for a coordinated Flagship-scale initiative to maintain Europe’s leadership in the second quantum revolution and develop a competitive quantum technology ecosystem",
+        "url": "https://ec.europa.eu/futurium/en/system/files/ged/quantum_manifesto_announcement_0.pdf"
+      }
+    ],
+    "Finland": [
+      {
+        "title": "Finland's Quantum Technology Strategy 2025–2035: A new engine of growth and builder for a sustainable future",
+        "type": "Strategy",
+        "policy_type": "National Quantum Strategy",
+        "status": "Active",
+        "year": 2025,
+        "funding": null,
+        "note": "Long-term national strategy with measures for R&D, commercialization, infrastructure, skills, security and international competitiveness.",
+        "url": "https://julkaisut.valtioneuvosto.fi/items/74f50aa5-8b60-4441-af1f-41ff5718e147"
+      },
+      {
+        "title": "Business Finland Quantum Program",
+        "type": "Investment",
+        "policy_type": "Government Investment Program",
+        "status": "Active",
+        "year": 2022,
+        "funding": null,
+        "note": "State-run innovation programme supporting RDI, commercialization, ecosystem development and international collaboration in quantum technologies.",
+        "url": "https://www.businessfinland.fi/en/services/Programs-and-ecosystems/Programs/quantum/"
+      }
+    ],
+    "France": [
+      {
+        "title": "Plan quantique défense",
+        "type": "Security",
+        "policy_type": "Defence Quantum Plan",
+        "status": "Active",
+        "year": 2025,
+        "funding": null,
+        "note": "Ministerial defence quantum plan designed to accelerate maturation and operational adoption of quantum technologies, while structuring a civil-military ecosystem through a Defence Quantum Campus and Defence Quantum Laboratory.",
+        "url": "https://www.defense.gouv.fr/actualites/plan-quantique-strategie-ambitieuse-souveraine"
+      },
+      {
+        "title": "PROQCIMA",
+        "type": "Investment",
+        "policy_type": "Government Investment / Public Procurement Program",
+        "status": "Active",
+        "year": 2024,
+        "funding": "Up to €500 million contract ceiling",
+        "note": "Long-term competitive innovation partnership and public-procurement programme to develop sovereign, industrializable universal fault-tolerant quantum computers, progressively selecting the most capable French technologies.",
+        "url": "https://www.defense.gouv.fr/dga/actualites/dga-notifie-accords-cadres-aupres-cinq-societes-developpement-dordinateurs-quantiques-universels"
+      },
+      {
+        "title": "Stratégie nationale sur les technologies quantiques",
+        "type": "Strategy",
+        "policy_type": "National Quantum Strategy",
+        "status": "Active",
+        "year": 2021,
+        "funding": "Original 2021 plan: €1.8bn public-private, including €1.05bn State funding; 2026 update: +€1bn public investment",
+        "note": "National strategy covering the full quantum ecosystem from fundamental research and skills through quantum computing, sensing, communications/PQC, enabling technologies, infrastructure, commercialization and sovereign industrial capabilities.",
+        "url": "https://www.enseignementsup-recherche.gouv.fr/fr/strategie-nationale-sur-les-technologies-quantiques-faire-de-la-france-un-acteur-majeur-de-ces-49233"
+      }
+    ],
+    "Germany": [
+      {
+        "title": "Handlungskonzept Quantentechnologien der Bundesregierung",
+        "type": "Strategy",
+        "policy_type": "National Quantum Strategy",
+        "status": "Active",
+        "year": 2023,
+        "funding": "Approx. €2.18 billion federal + €850 million research organisations (≈€3.03 billion total planned resources)",
+        "note": "Cross-government strategic action concept coordinating German quantum policy for 2023–2026, emphasizing applications, technology development, commercialization, technological sovereignty and a strong national quantum ecosystem.",
+        "url": "https://dserver.bundestag.de/btd/20/066/2006610.pdf"
+      },
+      {
+        "title": "Konjunktur- und Zukunftspaket 2020: Quantentechnologien (Item 44)",
+        "type": "Investment",
+        "policy_type": "Government Investment Program",
+        "status": "Completed",
+        "year": 2020,
+        "funding": "€2 billion additional federal investment",
+        "note": "Quantum-specific allocation under Germany's 2020 Stimulus and Future Package to accelerate development and production of quantum technologies and establish a competitive domestic quantum industry and computing ecosystem.",
+        "url": "https://www.bundeswirtschaftsministerium.de/Redaktion/DE/Downloads/E/eckpunktepapier-corona-folgen-bekaempfen.pdf"
+      },
+      {
+        "title": "Quantentechnologien: von den Grundlagen zum Markt",
+        "type": "Programme",
+        "policy_type": "National Quantum Program",
+        "status": "Completed",
+        "year": 2018,
+        "funding": "Approx. €650 million",
+        "note": "Federal Government framework programme for second-generation quantum technologies, covering research, technology development, demonstrators, transfer to applications and industrial markets.",
+        "url": "https://www.quantensysteme.info/publikationen/detailseite/q/quantentechnologien-von-den-grundlagen-zum-markt"
+      }
+    ],
+    "India": [
+      {
+        "title": "National Quantum Mission",
+        "type": "Programme",
+        "policy_type": "National Quantum Mission",
+        "status": "Active",
+        "year": 2023,
+        "funding": "₹6,003.65 crore",
+        "note": "Cabinet-approved national mission supporting quantum computing, secure communications, sensing/metrology, materials, thematic hubs, talent and industry through 2030–31.",
+        "url": "https://dst.gov.in/cabinet-approves-national-quantum-mission-scale-scientific-industrial-rd-quantum-technologies"
+      },
+      {
+        "title": "National Mission on Quantum Technologies & Applications (NM-QTA)",
+        "type": "Programme",
+        "policy_type": "National Quantum Mission",
+        "status": "Superseded",
+        "year": 2020,
+        "funding": "₹8,000 crore announced",
+        "note": "Budget-announced five-year national mission intended to support quantum computing, communications, sensing, materials and related research.",
+        "url": "https://www.pib.gov.in/PressReleaseIframePage.aspx?PRID=1601563"
+      }
+    ],
+    "Ireland": [
+      {
+        "title": "Quantum 2030: A National Quantum Technologies Strategy for Ireland",
+        "type": "Strategy",
+        "policy_type": "National Quantum Strategy",
+        "status": "Active",
+        "year": 2023,
+        "funding": null,
+        "note": "Ireland's national strategy to develop research, talent, infrastructure, enterprise adoption and international links in quantum technologies through 2030.",
+        "url": "https://assets.gov.ie/static/documents/quantum-2030-a-national-quantum-technologies-strategy-for-ireland.pdf"
+      }
+    ],
+    "Israel": [
+      {
+        "title": "National Quantum Project: Israeli Quantum Computing Center",
+        "type": "Infrastructure",
+        "policy_type": "Quantum Infrastructure Program",
+        "status": "Active",
+        "year": 2022,
+        "funding": "NIS 200 million national quantum project; NIS 100 million center budget",
+        "note": "National project to develop quantum technologies and establish an applied national quantum computing center for Israeli industry and academia.",
+        "url": "https://innovationisrael.org.il/en/press_release/the-news-authority-today-chose-quantum-machines-to-establish-the-israeli-quantum-computing-center-with-a-total-budget-of-100-million-nis-for-three-years/"
+      },
+      {
+        "title": "National Quantum Research Fund",
+        "type": "Investment",
+        "policy_type": "Government Investment Program",
+        "status": "Active",
+        "year": 2018,
+        "funding": "NIS 100 million",
+        "note": "Five-year national quantum research fund established as the first step in developing Israel's national quantum science and technology programme.",
+        "url": "https://mod.gov.il/%D7%9B%D7%AA%D7%91%D7%95%D7%AA-%D7%95%D7%9E%D7%91%D7%96%D7%A7%D7%99%D7%9D/%D7%97%D7%93%D7%A9%D7%95%D7%AA-%D7%9E%D7%A9%D7%A8%D7%93-%D7%94%D7%91%D7%99%D7%98%D7%97%D7%95%D7%9F/%D7%A7%D7%A8%D7%9F-%D7%97%D7%93%D7%A9%D7%94-%D7%9C%D7%9E%D7%97%D7%A7%D7%A8-%D7%A7%D7%95%D7%95%D7%A0%D7%98%D7%99-%D7%91%D7%94%D7%99%D7%A7%D7%A3-%D7%A9%D7%9C-100-%D7%9E%D7%99%D7%9C%D7%99%D7%95%D7%9F-%D7%A9%D7%97"
+      }
+    ],
+    "Italy": [
+      {
+        "title": "Strategia Italiana per le Tecnologie Quantistiche",
+        "type": "Strategy",
+        "policy_type": "National Quantum Strategy",
+        "status": "Active",
+        "year": 2025,
+        "funding": "~€1 billion recommended additional public funding over five years - NOT yet a committed/appropriated strategy budget",
+        "note": "Italy's national strategy for quantum technologies, setting priorities for research, industry, skills, infrastructure, security and European positioning.",
+        "url": "https://www.mur.gov.it/it/strategia-italiana-le-tecnologie-quantistiche"
+      }
+    ],
+    "Japan": [
+      {
+        "title": "Promotion Measures for Development of a Quantum Ecosystem",
+        "type": "Roadmap",
+        "policy_type": "National Quantum Roadmap",
+        "status": "Active",
+        "year": 2025,
+        "funding": null,
+        "note": "2025 implementation measures to deepen Japan's quantum ecosystem, connecting technology, users, talent, investment and international partners.",
+        "url": "https://www8.cao.go.jp/cstp/ryoshigijutsu/240409_q_measures.pdf"
+      },
+      {
+        "title": "Strategy of Quantum Future Industry Development",
+        "type": "Strategy",
+        "policy_type": "National Quantum Strategy",
+        "status": "Active",
+        "year": 2023,
+        "funding": null,
+        "note": "Industrial strategy focused on business creation, supply chains, quantum use cases, startup growth and industrial ecosystem development.",
+        "url": "https://www8.cao.go.jp/cstp/english/quantum/index.html"
+      },
+      {
+        "title": "Moonshot Research and Development Program - Goal 6",
+        "type": "Programme",
+        "policy_type": "National Quantum Mission",
+        "status": "Active",
+        "year": 2020,
+        "funding": null,
+        "note": "National moonshot mission targeting realization of a fault-tolerant universal quantum computer by 2050.",
+        "url": "https://www8.cao.go.jp/cstp/english/moonshot/sub6_en.html"
+      },
+      {
+        "title": "Quantum Technology and Innovation Strategy Roadmap",
+        "type": "Strategy",
+        "policy_type": "National Quantum Strategy",
+        "status": "Active",
+        "year": 2020,
+        "funding": null,
+        "note": "Cabinet-level strategy establishing Japan's national direction for quantum technology R&D, hubs, industry, security, talent and international cooperation.",
+        "url": "https://www8.cao.go.jp/cstp/ryoshigijutsu/roadmap_220422.pdf"
+      }
+    ],
+    "Latvia": [
+      {
+        "title": "Latvian Quantum Initiative",
+        "type": "Programme",
+        "policy_type": "National Quantum Program",
+        "status": "Active",
+        "year": 2023,
+        "funding": "approx 6.2 million and was running till 2026",
+        "note": "National cooperative initiative bringing together Latvian quantum research capabilities and developing a quantum excellence and competence centre.",
+        "url": "https://www.quantumlatvia.lu.lv/en/"
+      }
+    ],
+    "Netherlands": [
+      {
+        "title": "Quantum Delta NL",
+        "type": "Programme",
+        "policy_type": "National Quantum Program",
+        "status": "Active",
+        "year": 2021,
+        "funding": "€614.9 million awarded public funding",
+        "note": "National Growth Fund programme implementing the Dutch quantum agenda through research, talent, testbeds, startups and ecosystem development.",
+        "url": "https://www.nationaalgroeifonds.nl/overzicht-lopende-projecten/thema-sleuteltechnologieen-en-valorisatie/quantum-delta-nl"
+      },
+      {
+        "title": "Nationale Agenda Quantum Technologie",
+        "type": "Strategy",
+        "policy_type": "National Quantum Strategy",
+        "status": "Active",
+        "year": 2019,
+        "funding": null,
+        "note": "National agenda setting priorities for a Dutch quantum ecosystem spanning science, technology, market creation, talent and international positioning.",
+        "url": "https://repository.tno.nl/SingleDoc?docId=50379"
+      }
+    ],
+    "New Zealand": [
+      {
+        "title": "Quantum Technologies Aotearoa Research Platform",
+        "type": "Programme",
+        "policy_type": "National Quantum Program",
+        "status": "Active",
+        "year": 2024,
+        "funding": "Up to NZ$12 million",
+        "note": "Catalyst Strategic research platform supporting coordinated New Zealand quantum technologies research and international collaboration.",
+        "url": "https://www.mbie.govt.nz/science-and-technology/science-and-innovation/funding-information-and-opportunities/investment-funds/catalyst-fund/funded-projects/catalyst-strategic-quantum-technologies-research-platform"
+      },
+      {
+        "title": "Quantum Tech Discovery",
+        "type": "Policy",
+        "policy_type": "Other Government Quantum Policy",
+        "status": "Completed",
+        "year": 2025,
+        "funding": "NZ$1.35 million",
+        "note": "Government discovery phase to map New Zealand capabilities and test the case for a larger national quantum technology platform.",
+        "url": "https://www.beehive.govt.nz/release/government-launches-quantum-tech-discovery"
+      }
+    ],
+    "Pakistan": [
+      {
+        "title": "National Center of Quantum Computing",
+        "type": "Infrastructure",
+        "policy_type": "Quantum Infrastructure Program",
+        "status": "Announced",
+        "year": 2023,
+        "funding": "PKR 3,208.374 million project cost",
+        "note": "Federal development project for a national quantum-computing centre intended to build research, infrastructure and human capacity.",
+        "url": "https://ncqc.pk/"
+      }
+    ],
+    "Philippines": [
+      {
+        "title": "Quantum Technology R&D Roadmap",
+        "type": "Roadmap",
+        "policy_type": "National Quantum Roadmap",
+        "status": "Active",
+        "year": null,
+        "funding": null,
+        "note": "DOST sectoral roadmap setting national quantum R&D priorities and a path toward a quantum-enabled economy by 2030.",
+        "url": "https://pcieerd.dost.gov.ph/library/roadmaps/"
+      }
+    ],
+    "Poland": [
+      {
+        "title": "Polityka rozwoju technologii kwantowych w Polsce",
+        "type": "Strategy",
+        "policy_type": "National Quantum Strategy",
+        "status": "Draft",
+        "year": 2026,
+        "funding": null,
+        "note": "Ministry policy document setting a 2027–2036 vision and recommendations for coordinating Poland's quantum ecosystem, market, infrastructure and PQC transition.",
+        "url": "https://www.gov.pl/attachment/b8297716-9ff0-489f-8a7b-e995a69b41e5"
+      }
+    ],
+    "Singapore": [
+      {
+        "title": "National Quantum Strategy",
+        "type": "Strategy",
+        "policy_type": "National Quantum Strategy",
+        "status": "Active",
+        "year": 2024,
+        "funding": "Nearly S$300 million",
+        "note": "National strategy expanding Singapore's quantum capabilities in scientific excellence, engineering, talent, translation and industry.",
+        "url": "https://nqo.sg/nqs/"
+      },
+      {
+        "title": "National Quantum Computing Hub (NQCH)",
+        "type": "Infrastructure",
+        "policy_type": "Quantum Infrastructure Program",
+        "status": "Active",
+        "year": 2022,
+        "funding": null,
+        "note": "National hub combining research institutions to build quantum-computing capabilities, talent, applications and industry partnerships.",
+        "url": "https://nqo.sg/programmes/"
+      }
+    ],
+    "South Korea": [
+      {
+        "title": "First Comprehensive Plan for Fostering Quantum Science and Technology and the Quantum Industry",
+        "type": "Roadmap",
+        "policy_type": "National Quantum Roadmap",
+        "status": "Active",
+        "year": 2026,
+        "funding": null,
+        "note": "First statutory five-year quantum master plan under the Quantum Technology and Industry Act, with phased industrialization goals through 2035.",
+        "url": "https://www.msit.go.kr/eng/bbs/view.do?bbsSeqNo=42&mId=4&mPid=2&nttSeqNo=1222&sCode=eng"
+      },
+      {
+        "title": "Korea’s National Quantum Strategy",
+        "type": "Strategy",
+        "policy_type": "National Quantum Strategy",
+        "status": "Active",
+        "year": 2023,
+        "funding": "More than KRW 3 trillion public and private support target through 2035",
+        "note": "First comprehensive Korean national quantum strategy, targeting a leading quantum economy by 2035 through technology, talent, industry, infrastructure and international cooperation.",
+        "url": "https://www.msit.go.kr/eng/bbs/view.do?bbsSeqNo=42&mId=4&mPid=2&nttSeqNo=840&sCode=eng"
+      },
+      {
+        "title": "Act on Promotion of Quantum Science, Technology, and Industry",
+        "type": "Legislation",
+        "policy_type": "Legislation / Act",
+        "status": "Enacted",
+        "year": 2023,
+        "funding": null,
+        "note": "Dedicated national quantum law creating statutory planning, a Prime Minister-chaired strategy committee, research/industry hubs and support for commercialization, talent and international cooperation.",
+        "url": "https://law.go.kr/LSW/lsInfoP.do?lsiSeq=255777"
+      }
+    ],
+    "Spain": [
+      {
+        "title": "Estrategia de Tecnologías Cuánticas de España 2025–2030",
+        "type": "Strategy",
+        "policy_type": "National Quantum Strategy",
+        "status": "Active",
+        "year": 2025,
+        "funding": "€808 million public investment; intended to mobilize up to €1.5 billion with private investment",
+        "note": "Spain's national quantum strategy for 2025–2030, coordinating research, industrial capability, talent, infrastructure, public-sector use and security.",
+        "url": "https://espanadigital.gob.es/estrategia-de-tecnologias-cuanticas-de-espana"
+      },
+      {
+        "title": "Quantum Spain (Quantum ENIA - creación de un ecosistema de computación cuántica para la Inteligencia Artificial)",
+        "type": "Infrastructure",
+        "policy_type": "Quantum Infrastructure Program",
+        "status": "Completed",
+        "year": 2022,
+        "funding": "€22 million",
+        "note": "National programme building an open quantum-computing infrastructure and ecosystem centered on the Barcelona Supercomputing Center and a distributed research network.",
+        "url": "https://quantumspain-project.es/en/quantum-spain/"
+      }
+    ],
+    "Sweden": [
+      {
+        "title": "Sveriges strategi för kvantteknikområdet",
+        "type": "Strategy",
+        "policy_type": "National Quantum Strategy",
+        "status": "Active",
+        "year": 2026,
+        "funding": null,
+        "note": "National strategy establishing a coordinated and long-term Swedish approach to quantum technology, spanning research and innovation, industrial leadership, skills, coordination, security and international cooperation.",
+        "url": "https://www.regeringen.se/contentassets/3b82dc6d3f2d4e299cb288237dc4a988/sveriges-strategi-for-kvantteknikomradet.pdf"
+      }
+    ],
+    "Switzerland": [
+      {
+        "title": "Swiss Quantum Initiative",
+        "type": "Programme",
+        "policy_type": "National Quantum Program",
+        "status": "Active",
+        "year": 2022,
+        "funding": "Up to CHF82.1 million federal contribution for 2025–2028",
+        "note": "Federal initiative coordinating Swiss quantum research, innovation and international competitiveness across the value chain.",
+        "url": "https://www.sbfi.admin.ch/en/swiss-quantum-initiative-en"
+      }
+    ],
+    "UK": [
+      {
+        "title": "Timelines for migration to post-quantum cryptography",
+        "type": "Security",
+        "policy_type": "Quantum Security / PQC Policy",
+        "status": "Active",
+        "year": 2025,
+        "funding": null,
+        "note": "NCSC migration roadmap setting national milestones for moving systems from quantum-vulnerable public-key cryptography to PQC.",
+        "url": "https://www.ncsc.gov.uk/guidance/pqc-migration-timelines"
+      },
+      {
+        "title": "Five Quantum Technology Hubs (2024–2029)",
+        "type": "Programme",
+        "policy_type": "National Quantum Research Hubs Programme",
+        "status": "Active",
+        "year": 2024,
+        "funding": "£106 million public investment",
+        "note": "Five-hub research network translating quantum science into applications in healthcare, sensing, networking, computing and resilient PNT.",
+        "url": "https://www.ukri.org/news/five-hubs-launched-to-ensure-the-uk-benefits-from-quantum-future/"
+      },
+      {
+        "title": "National Quantum Strategy",
+        "type": "Strategy",
+        "policy_type": "National Quantum Strategy",
+        "status": "Active",
+        "year": 2023,
+        "funding": "£2.5 billion government investment",
+        "note": "Ten-year government strategy to establish the UK as a leading quantum-enabled economy.",
+        "url": "https://www.gov.uk/government/publications/national-quantum-strategy/national-quantum-strategy-accessible-webpage"
+      },
+      {
+        "title": "National Quantum Strategy Missions",
+        "type": "Programme",
+        "policy_type": "National Quantum Missions",
+        "status": "Active",
+        "year": 2023,
+        "funding": null,
+        "note": "Five measurable long-term national missions covering computing, networking, healthcare sensing, navigation/timing and networked sensing.",
+        "url": "https://www.gov.uk/government/publications/national-quantum-strategy/national-quantum-strategy-missions"
+      },
+      {
+        "title": "National Quantum Computing Centre (NQCC)",
+        "type": "Infrastructure",
+        "policy_type": "Quantum Infrastructure Programme",
+        "status": "Active",
+        "year": 2020,
+        "funding": "£93 million government commitment by 2020 launch",
+        "note": "UK national laboratory for quantum computing, intended to accelerate scalable machines, applications, access and commercial readiness.",
+        "url": "https://www.gov.uk/government/publications/budget-2018-documents/budget-2018"
+      },
+      {
+        "title": "UK National Quantum Technologies Programme (NQTP)",
+        "type": "Programme",
+        "policy_type": "National Quantum Program",
+        "status": "Active",
+        "year": 2014,
+        "funding": "£270 million initial government commitment",
+        "note": "Long-running national programme connecting quantum research, technology hubs, industry, skills, infrastructure and commercialisation.",
+        "url": "https://www.gov.uk/government/publications/autumn-statement-2013-documents"
+      },
+      {
+        "title": "National strategy for quantum technologies",
+        "type": "Strategy",
+        "policy_type": "National Quantum Strategy",
+        "status": "Superseded",
+        "year": 2015,
+        "funding": null,
+        "note": "Strategy developed by the Quantum Technologies Strategic Advisory Board to guide UK investment and coordination in emerging quantum technologies.",
+        "url": "https://www.ukri.org/publications/national-strategy-for-quantum-technologies/"
+      }
+    ],
+    "US": [
+      {
+        "title": "Executive Order 14413: Ushering in the Next Frontier of Quantum Innovation",
+        "type": "Policy",
+        "policy_type": "Other Government Quantum Policy",
+        "status": "Active",
+        "year": 2026,
+        "funding": null,
+        "note": "Executive order refreshing U.S. quantum policy by directing an updated National Quantum Strategy and launching measures to accelerate quantum computing, sensing, networking, commercialization, manufacturing, supply chains, workforce development, technology protection, and international cooperation.",
+        "url": "https://www.whitehouse.gov/presidential-actions/2026/06/ushering-in-the-next-frontier-of-quantum-innovation/"
+      },
+      {
+        "title": "National Security Memorandum on Promoting United States Leadership in Quantum Computing While Mitigating Risks to Vulnerable Cryptographic Systems",
+        "type": "Security",
+        "policy_type": "Quantum Security / PQC Policy",
+        "status": "Active",
+        "year": 2022,
+        "funding": null,
+        "note": "Presidential national-security directive linking quantum-computing leadership with migration of federal cryptography to quantum-resistant standards and protection of sensitive quantum technologies.",
+        "url": "https://www.govinfo.gov/app/details/DCPD-202200355"
+      },
+      {
+        "title": "Quantum Computing Cybersecurity Preparedness Act",
+        "type": "Legislation",
+        "policy_type": "Legislation / Act",
+        "status": "Enacted",
+        "year": 2022,
+        "funding": null,
+        "note": "Federal statute requiring the Federal Government to identify information technology vulnerable to quantum-enabled decryption, maintain prioritized cryptographic inventories, plan migration to post-quantum cryptography, coordinate interoperability, assess migration costs, and report progress to Congress.",
+        "url": "https://www.congress.gov/bill/117th-congress/house-bill/7535"
+      },
+      {
+        "title": "A Strategic Vision for America’s Quantum Networks",
+        "type": "Roadmap",
+        "policy_type": "National Quantum Roadmap",
+        "status": "Adopted",
+        "year": 2020,
+        "funding": null,
+        "note": "Federal strategic vision for quantum networking research, development, testbeds and a future quantum internet.",
+        "url": "https://www.quantum.gov/wp-content/uploads/2021/01/A-Strategic-Vision-for-Americas-Quantum-Networks-Feb-2020.pdf"
+      },
+      {
+        "title": "Quantum Frontiers: Report on Community Input to the Nation’s Strategy for Quantum Information Science",
+        "type": "Strategy",
+        "policy_type": "National Quantum Strategy",
+        "status": "Adopted",
+        "year": 2020,
+        "funding": null,
+        "note": "Strategy update identifying frontier research questions and priorities for U.S. QIS following community input.",
+        "url": "https://www.quantum.gov/wp-content/uploads/2020/10/QuantumFrontiers.pdf"
+      },
+      {
+        "title": "National Quantum Initiative Act",
+        "type": "Legislation",
+        "policy_type": "Legislation / Act",
+        "status": "Enacted",
+        "year": 2018,
+        "funding": "Approx. $1.275 billion authorised across core NQI activities",
+        "note": "Federal law establishing the National Quantum Initiative, interagency coordination bodies and major QIS research and standards activities.",
+        "url": "https://www.congress.gov/bill/115th-congress/house-bill/6227"
+      },
+      {
+        "title": "National Strategic Overview for Quantum Information Science",
+        "type": "Strategy",
+        "policy_type": "National Quantum Strategy",
+        "status": "Adopted",
+        "year": 2018,
+        "funding": null,
+        "note": "First coordinated U.S. federal strategic overview for quantum information science, setting priorities for science, workforce, infrastructure, industry and international engagement.",
+        "url": "https://www.quantum.gov/wp-content/uploads/2020/10/2018_NSTC_National_Strategic_Overview_QIS.pdf"
+      },
+      {
+        "title": "National Quantum Initiative Reauthorization Act (H.R. 8462)",
+        "type": "Legislation",
+        "policy_type": "Legislation / Act",
+        "status": "Proposed",
+        "year": 2026,
+        "funding": null,
+        "note": "Proposed reauthorisation and modernisation of the 2018 National Quantum Initiative Act, expanding federal quantum R&D toward engineering, demonstration, commercialisation and real-world applications while strengthening workforce, standards, infrastructure, supply chains, cybersecurity, international cooperation and research security.",
+        "url": "https://science.house.gov/2026/4/h-r-8462-national-quantum-intiative-reauthorization-act"
+      },
+      {
+        "title": "National Quantum Initiative Reauthorization Act of 2026 (S. 3597)",
+        "type": "Legislation",
+        "policy_type": "Legislation / Act",
+        "status": "Proposed",
+        "year": 2026,
+        "funding": null,
+        "note": "Proposed reauthorisation and modernisation of the National Quantum Initiative Act to expand the federal quantum program from science toward engineering, applications, commercialisation, workforce development, supply-chain resilience, research security, international cooperation, testbeds, and agency-specific quantum programs.",
+        "url": "https://www.govinfo.gov/app/details/BILLS-119s3597is"
+      },
+      {
+        "title": "Quantum-Readiness: Migration to Post-Quantum Cryptography",
+        "type": "Security",
+        "policy_type": "Quantum Security / PQC Policy",
+        "status": "Completed",
+        "year": 2023,
+        "funding": null,
+        "note": "Joint CISA-NSA-NIST guidance encouraging organizations, especially critical-infrastructure owners and operators, to establish quantum-readiness roadmaps, inventory quantum-vulnerable cryptography, assess risk, engage vendors, and plan migration to post-quantum cryptography.",
+        "url": "https://www.cisa.gov/sites/default/files/2023-08/Quantum-Readiness%20-%20Migration%20to%20Post-Quantum%20Cryptography_508c.pdf"
+      },
+      {
+        "title": "OMB Memorandum M-23-02: Migrating to Post-Quantum Cryptography",
+        "type": "Security",
+        "policy_type": "Quantum Security / PQC Policy",
+        "status": "Superseded",
+        "year": 2022,
+        "funding": null,
+        "note": "Government-wide memorandum implementing NSM-10 by requiring federal agencies to inventory quantum-vulnerable cryptographic systems, assess migration costs, establish migration governance, support PQC testing, and prepare for transition to NIST-standardized post-quantum cryptography.",
+        "url": "https://www.whitehouse.gov/wp-content/uploads/2022/11/M-23-02-M-Memo-on-Migrating-to-Post-Quantum-Cryptography.pdf"
+      }
+    ]
+  }
+}

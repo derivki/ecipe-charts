@@ -1,4 +1,4 @@
-# ECIPE Quantum Technologies Tracker — published charts
+# ECIPE Quantum Tracker — published charts
 
 This repository is **generated automatically** — it holds only the built,
 publishable output (interactive charts + aggregated data) served by GitHub Pages.

@@ -132,6 +132,7 @@ window.QT = (function () {
               : "$" + d3.format(",")(Math.round(v)),
     pct0: v => d3.format(".0%")(v),
     pct1: v => (v * 100).toFixed(1) + "%",
+    pct2: v => (v * 100).toFixed(2) + "%",
     int:  v => d3.format(",")(v),
     // "2026-Q3" -> "Q3 2026" (quarter first, year after)
     vintage: v => {
@@ -243,7 +244,7 @@ svg{display:block;width:100%;height:auto;overflow:visible;}
 .tt .hd{font-weight:700;font-size:13px;margin-bottom:6px;}
 .tt .row{display:flex;justify-content:space-between;gap:16px;}
 .tt .row .k{display:inline-flex;align-items:center;gap:6px;color:#E6E6E6;}
-.tt .row .k i{width:9px;height:9px;border-radius:2px;display:inline-block;}
+.tt .row .k i{width:9px;height:9px;border-radius:2px;display:inline-block;box-sizing:border-box;border:1px solid rgba(255,255,255,.7);}
 .tt .row .v{font-variant-numeric:tabular-nums;font-weight:600;}
 .tt .tot{border-top:1px solid rgba(255,255,255,.18);margin-top:6px;padding-top:6px;}
 /* A long list inside a tooltip: label above, values as left-aligned wrapped prose.
@@ -293,6 +294,19 @@ svg{display:block;width:100%;height:auto;overflow:visible;}
 .country-pick{display:flex;flex-wrap:wrap;align-items:center;gap:10px 28px;margin:14px 0 18px;}
 .country-pick label{flex:0 1 330px;font-size:13px;font-weight:700;color:var(--ink);line-height:1.35;}
 .country-pick select{flex:1 1 300px;min-width:0;font-size:13px;font-weight:700;padding:12px 40px 12px 22px;}
+.cs{position:relative;flex:1 1 300px;min-width:0;}
+.cs-btn{width:100%;display:flex;align-items:center;gap:8px;text-align:left;font:inherit;font-size:13px;font-weight:700;color:var(--pill);background:#fff;
+  border:1px solid var(--pill);border-radius:999px;padding:12px 40px 12px 22px;cursor:pointer;
+  background-image:url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='12' height='8' fill='none' stroke='%23231432' stroke-width='1.6' stroke-linecap='round' stroke-linejoin='round'><path d='M1 1.5l5 5 5-5'/></svg>");
+  background-repeat:no-repeat;background-position:right 16px center;}
+.cs-btn:hover{background-color:#F4F4F4;}
+.cs-list{position:absolute;z-index:20;left:0;right:0;top:calc(100% + 4px);max-height:320px;overflow-y:auto;margin:0;padding:6px 0;list-style:none;
+  background:#fff;border:1px solid var(--pill);border-radius:12px;box-shadow:0 6px 20px rgba(35,20,50,.15);}
+.cs-list[hidden]{display:none;}
+.cs-opt{display:flex;align-items:center;gap:8px;padding:7px 18px;font-size:13px;font-weight:500;cursor:pointer;}
+.cs-opt .flag{flex:none;}
+.cs-opt.act{background:#F4F4F4;}
+.cs-opt[aria-selected="true"]{font-weight:700;}
 hr.rule{border:0;border-top:1px solid var(--line);margin:18px 0;}
 /* A legend can open with a bold label ("INSTRUMENT:"), as the map legend does. */
 .legend .lg-title{font-size:10px;font-weight:700;letter-spacing:.08em;text-transform:uppercase;color:var(--ink);}
@@ -384,6 +398,7 @@ hr.rule{border:0;border-top:1px solid var(--line);margin:18px 0;}
 .rtable th .arrow{opacity:.55;}
 .rtable td.num,.rtable th.num{text-align:right;font-variant-numeric:tabular-nums;}
 .rtable td.ctr,.rtable th.ctr{text-align:center;}
+.rtable tbody tr:last-child td{border-bottom:none;}
 .rtable tbody tr:hover{background:var(--panel);}
 .rtable tbody tr.sel{background:color-mix(in srgb, ${tokens.accent} 10%, transparent);}
 .rtable .flag{margin-right:5px;vertical-align:-1px;border-radius:1px;box-shadow:0 0 0 0.5px color-mix(in srgb, ${tokens.ink} 15%, transparent);}

@@ -8,9 +8,9 @@
 QT.boot(async function () {
   QT.nav("#nav", "countries");
 
-  const [country, policies, gov, collabCountry, countryInstrument, collabRankings, specialisation, archetypes, partnersData] = await Promise.all([
+  const [country, policies, gov, collabCountry, countryInstrument, collabRankings, specialisation, archetypes, partnersData, clusterIndex] = await Promise.all([
     QT.loadData("funding_by_country"),
-    QT.loadData("mock_country_policies"),
+    QT.loadData("country_policies"),
     QT.loadData("government_funding"),
     QT.loadData("collab_by_country"),
     QT.loadData("funding_by_country_instrument"),
@@ -18,8 +18,11 @@ QT.boot(async function () {
     QT.loadData("collab_country_specialisation"),
     QT.loadData("collab_country_archetype"),
     QT.loadData("collab_country_partners"),
+    QT.loadData("cluster_index_2025"),
     QT.loadFlags(),
   ]);
+  // Clusters per country in the 2025 index (Occasional Paper 15/2025), the same list the Clusters tab shows.
+  const clustersByCountry = d3.rollup(clusterIndex.data, v => v.length, d => d.country);
   const INSTRUMENT_KEYS = ["VC / private equity", "Debt", "Grant", "Public equity"];
   const instrumentByCountry = new Map(countryInstrument.data.map(d => [d.country, d]));
   // Real entity-level collaboration counts (industry/government/research), keyed by
@@ -44,13 +47,26 @@ QT.boot(async function () {
   const POLICY_COLORS = {
     // Brand-palette colours only: teal, orange, navy, purple (+ red for export controls). The
     // label is white on every pill (Elena), orange included.
-    "Strategy": QT.tokens.accent, "Funding programme": QT.tokens.gold,
-    "R&D institute": QT.tokens.navy, "Procurement": QT.tokens.purple,
-    "Export control": QT.tokens.rust,
+    // The seven groups of src/build_country_policies.py (TYPE_GROUP).
+    "Strategy": QT.tokens.accent, "Roadmap": QT.tokens.teal, "Programme": QT.tokens.gold,
+    "Legislation": QT.tokens.navy, "Security": QT.tokens.rust, "Infrastructure": QT.tokens.purple,
+    "Investment": QT.tokens.muted, "Policy": QT.tokens.muted,
   };
 
   const tt = QT.tooltip();
+  /* EVERY country the tracker holds anything on, not only those with company funding: a company
+     funding row, a collaboration record, government funding or a policy in the register. A country
+     with none of the company measures gets a row of zeros here, so the panels that read it show
+     "n/a" or an empty state instead of failing; the EU is a bloc, not a selectable country. */
   const byName = new Map(country.data.map(d => [d.country, d]));
+  const everyCountry = new Set([
+    ...country.data.map(d => d.country), ...collabCountry.data.map(d => d.country),
+    ...govByCountry.keys(), ...Object.keys(policies.data),
+  ]);
+  everyCountry.delete("EU");
+  everyCountry.forEach(name => {
+    if (!byName.has(name)) byName.set(name, { country: name, total_funding: null, companies: 0, clusters: 0, gdp: null });
+  });
   const partnersByName = new Map(partnersData.data.countries.map(d => [d.country, d]));
   const ARCH = archetypes.data;
   const archetypeByName = new Map(ARCH.countries.map(d => [d.country, d]));
@@ -81,13 +97,13 @@ QT.boot(async function () {
   };
   const MEASURES = {
     abs: { suffix: "",                fmt: QT.fmt.axisMoney, ttfmt: QT.fmt.money },
-    gdp: { suffix: " ÷ GDP",       fmt: QT.fmt.pct1,      ttfmt: QT.fmt.pct1 },
+    gdp: { suffix: " as a share of GDP", fmt: QT.fmt.pct2, ttfmt: QT.fmt.pct2 },
   };
 
   /* One row per country carrying both sources and both measures. GDP comes from the
      funding dataset, so a country without a GDP figure yields null for the share
      view rather than Infinity – which would have sorted it to the top of the ranking. */
-  const CHART_DATA = country.data.map(d => {
+  const CHART_DATA = [...byName.values()].map(d => {
     const g = (govByCountry.get(d.country) || {}).government_funding || 0;
     return {
       country: d.country,
@@ -106,10 +122,7 @@ QT.boot(async function () {
   /* ALPHABETICAL, forced. The dropdown was previously bound to `ranked`, i.e. ordered
      by total funding, so a reader hunting for a country had to already know roughly
      what it had raised. QT.alpha is locale-aware and case-insensitive. */
-  const sel = d3.select("#country-select");
-  const alphabetical = [...country.data].sort((a, b) => QT.alpha(a.country, b.country));
-  sel.selectAll("option").data(alphabetical, d => d.country).join("option")
-    .attr("value", d => d.country).text(d => d.country);
+  const alphabetical = [...byName.values()].sort((a, b) => QT.alpha(a.country, b.country));
 
   let state = {
     country: byName.has("France") ? "France" : ranked[0].country,
@@ -118,7 +131,63 @@ QT.boot(async function () {
     instCategory: "Industry",
     specView: "sector",
   };
-  sel.property("value", state.country);
+
+  /* Country picker with a flag beside each name. A native <select> cannot hold images, so this is a
+     small listbox: a button that shows the current country and a list of options, with arrow-key,
+     Enter, Escape and type-ahead support. */
+  const picker = (function () {
+    const root = d3.select("#country-select");
+    const btn = root.append("button").attr("type", "button").attr("class", "cs-btn")
+      .attr("aria-haspopup", "listbox").attr("aria-expanded", "false").attr("aria-labelledby", "country-label");
+    const list = root.append("ul").attr("class", "cs-list").attr("role", "listbox")
+      .attr("tabindex", "-1").attr("aria-labelledby", "country-label").attr("hidden", true);
+    const opts = list.selectAll("li").data(alphabetical, d => d.country).join("li")
+      .attr("class", "cs-opt").attr("role", "option").attr("data-c", d => d.country)
+      .html(d => `${QT.flag(d.country)}<span>${d.country}</span>`);
+    let active = -1, typed = "", typedAt = 0, onPick = () => {};
+    const names = alphabetical.map(d => d.country);
+
+    const setActive = i => {
+      active = Math.max(0, Math.min(names.length - 1, i));
+      opts.classed("act", (d, j) => j === active);
+      const n = opts.nodes()[active];
+      if (n) n.scrollIntoView({ block: "nearest" });
+    };
+    const open = () => {
+      list.attr("hidden", null); btn.attr("aria-expanded", "true");
+      setActive(names.indexOf(state.country)); list.node().focus();
+    };
+    const close = (focusBtn = true) => {
+      list.attr("hidden", true); btn.attr("aria-expanded", "false");
+      if (focusBtn) btn.node().focus();
+    };
+    const pick = name => { close(); if (name !== state.country) onPick(name); };
+    const show = () => {
+      btn.html(`${QT.flag(state.country)}<span>${state.country}</span>`);
+      opts.attr("aria-selected", d => d.country === state.country ? "true" : "false");
+    };
+
+    btn.on("click", () => list.attr("hidden") === null ? close() : open());
+    opts.on("click", (e, d) => pick(d.country));
+    list.on("keydown", e => {
+      if (e.key === "ArrowDown") { setActive(active + 1); e.preventDefault(); }
+      else if (e.key === "ArrowUp") { setActive(active - 1); e.preventDefault(); }
+      else if (e.key === "Home") { setActive(0); e.preventDefault(); }
+      else if (e.key === "End") { setActive(names.length - 1); e.preventDefault(); }
+      else if (e.key === "Enter" || e.key === " ") { pick(names[active]); e.preventDefault(); }
+      else if (e.key === "Escape" || e.key === "Tab") close(e.key === "Escape");
+      else if (e.key.length === 1 && !e.ctrlKey && !e.metaKey) {
+        const now = Date.now();
+        typed = now - typedAt > 700 ? e.key.toLowerCase() : typed + e.key.toLowerCase();
+        typedAt = now;
+        const hit = names.findIndex(n => n.toLowerCase().startsWith(typed));
+        if (hit >= 0) setActive(hit);
+      }
+    });
+    document.addEventListener("click", e => { if (!root.node().contains(e.target)) close(false); });
+    return { show, onChange: f => { onPick = f; } };
+  })();
+  picker.show();
 
   /* Every panel has to survive a country it has no data for: the dropdown lists every country
      with company funding, and some of them have no collaborations, no GDP or too few
@@ -153,15 +222,13 @@ QT.boot(async function () {
     const a = archetypeByName.get(state.country);
     const rank = ranked.findIndex(d => d.country === state.country) + 1;
     QT.kpis("#kpis", [
-      { v: QT.fmt.axisMoney(c.total_funding),
-        k: `Company funding · rank ${rank} of ${ranked.length}` },
+      { v: c.total_funding > 0 ? QT.fmt.axisMoney(c.total_funding) : "n/a",
+        k: rank ? `Company funding · rank ${rank} of ${ranked.length}` : "Company funding" },
       { v: QT.fmt.int(c.companies), k: "Quantum companies" },
       { v: g && g.government_funding ? QT.fmt.axisMoney(g.government_funding) : "n/a",
         k: "Government funding" + (govProvisional ? " " + QT.mockBadge("Provisional") : "") },
-      // Distinct named clusters this country's companies sit in. Real, but the
-      // cluster field is still being filled in, so this rises as curation
-      // continues – it is a count of hubs recorded, not of hubs that exist.
-      { v: QT.fmt.int(c.clusters), k: "Quantum clusters" },
+      // Clusters in the published 2025 index located in this country (the Clusters tab page).
+      { v: QT.fmt.int(clustersByCountry.get(state.country) || 0), k: "Quantum clusters (2025)" },
       { v: cb ? QT.fmt.int(cb.entities) : "n/a", k: "Institutions active in quantum" },
       { v: cb ? QT.fmt.int(cb.collaborations) : "n/a", k: "Quantum collaborations" },
     ]);
@@ -404,6 +471,21 @@ QT.boot(async function () {
       .text(d => QT.fmt.int(d.collaborations));
     c.gx.call(d3.axisBottom(x).ticks(4).tickSizeOuter(0));
     c.gy.call(d3.axisLeft(y).tickSizeOuter(0)).call(g => g.select(".domain").remove());
+    // Long names (a Max Planck institute, say) used to run off the left edge of the chart. Wrap any
+    // label longer than the label column onto a second line, and onto a third only if it must.
+    const MAX_CH = 40;
+    c.gy.selectAll(".tick text").each(function () {
+      const name = this.textContent;
+      if (name.length <= MAX_CH) return;
+      const words = name.split(" "), lines = [""];
+      words.forEach(w => {
+        const cur = lines[lines.length - 1];
+        if ((cur + " " + w).trim().length <= MAX_CH || !cur) lines[lines.length - 1] = (cur + " " + w).trim();
+        else lines.push(w);
+      });
+      const t = d3.select(this).text(null).attr("dy", null);
+      lines.forEach((ln, i) => t.append("tspan").attr("x", -9).attr("dy", i === 0 ? `${0.32 - (lines.length - 1) * 0.55}em` : "1.1em").text(ln));
+    });
   }
 
   /* The institution research/government/industry split panel was REMOVED 2026-09-08.
@@ -432,10 +514,6 @@ QT.boot(async function () {
       `Global Innovation Hubs (high on both), Research Networkers (more connected, less commercial), Regional Commercial ` +
       `Leaders (more commercial, less connected) and Emerging Ecosystems (low on both). Hover a bubble for its figures.`);
     d3.select("#note-archetype").html(
-      `<b>Note:</b> Industry-involving collaborations are measured per trillion USD of GDP. Only countries with an ` +
-      `industry-to-GDP collaboration ratio of at least 1 were included in the chart. ` +
-      `Named on the chart are the selected country, its three nearest neighbours and the largest country in each quadrant; ` +
-      `hover any bubble to see its name. ` +
       `The two lines are the medians of the countries shown: ${medX} industry-involving collaborations per trillion USD of GDP ` +
       `and a global connectedness of ${medY}. The horizontal axis is logarithmic.` +
       (archetypeByName.has(state.country) ? "" : ` <b>${state.country} is not shown.</b> ${archetypeWhyNot(state.country)}.`));
@@ -536,9 +614,9 @@ QT.boot(async function () {
 
     c.gx.call(d3.axisBottom(x).tickValues(d3.range(0, Math.log10(xMax) + 1).map(k => Math.pow(10, k))).tickFormat(d3.format(",")).tickSizeOuter(0));
     c.gy.call(d3.axisLeft(y).ticks(4).tickFormat(d3.format(".1f")).tickSizeOuter(0));
-    c.g.append("text").attr("x", c.iw / 2).attr("y", c.ih + 32).attr("text-anchor", "middle").attr("font-size", 10.5).attr("fill", QT.tokens.muted)
+    c.g.append("text").attr("x", c.iw / 2).attr("y", c.ih + 32).attr("text-anchor", "middle").attr("font-size", 10.5).attr("font-weight", 700).attr("fill", QT.tokens.muted)
       .text("Industry-involving collaborations to GDP");
-    c.g.append("text").attr("x", -c.ih / 2).attr("y", -38).attr("transform", "rotate(-90)").attr("text-anchor", "middle").attr("font-size", 10.5).attr("fill", QT.tokens.muted)
+    c.g.append("text").attr("x", -c.ih / 2).attr("y", -38).attr("transform", "rotate(-90)").attr("text-anchor", "middle").attr("font-size", 10.5).attr("font-weight", 700).attr("fill", QT.tokens.muted)
       .text("Global connectedness");
   }
 
@@ -580,8 +658,8 @@ QT.boot(async function () {
         how: `<b>How to read it.</b> Each bar scores one industry sector (the revealed comparative advantage, or RCA). ` +
           `A score of 1.0, the dashed line, means the sector accounts for the same share of ${state.country}'s ` +
           `international collaborations as it does worldwide. Above 1.0, ${state.country} is more active in that sector than ` +
-          `the world average (2.0 is twice the world's share); below 1.0, less. Lighter bars rest on fewer than ` +
-          `${SPEC_THIN} collaborations, so treat them with care. Hover a bar for the number of collaborations behind it.`,
+          `the world average (2.0 is twice the world's share); below 1.0, less. <b>Lighter bars rest on fewer than ` +
+          `${SPEC_THIN} collaborations, so treat them with care.</b>`,
         note: `Counts collaborations between a company in ${state.country} and a partner in another country, by the ` +
           `company's industry sector (ICB3). A collaboration between companies in two countries counts once for each. ` +
           `A sector is recorded for ${QT.fmt.pct0(o.with_sector / o.industry_side)} of the companies in these ` +
@@ -595,8 +673,8 @@ QT.boot(async function () {
       how: `<b>How to read it.</b> Each bar scores one layer of the quantum stack, the part of the technology chain a ` +
         `company works in (the specialisation index). A score of 1.0, the dashed line, means the layer holds the same ` +
         `share of ${state.country}'s companies as it does worldwide. Above 1.0, ${state.country} has proportionally more ` +
-        `companies in that layer than the world average (2.0 is twice the world's share); below 1.0, fewer. Lighter bars ` +
-        `rest on fewer than ${SPEC_THIN} companies, so treat them with care. Hover a bar for the number of companies behind it.`,
+        `companies in that layer than the world average (2.0 is twice the world's share); below 1.0, fewer. <b>Lighter bars ` +
+        `rest on fewer than ${SPEC_THIN} companies, so treat them with care.</b>`,
       note: `Countries with fewer than ${SPEC.company_layer.min_companies} companies are not scored.`,
       src: `Source: ECIPE Quantum Database, company tracker (stack layer of each company).`,
     };
@@ -608,8 +686,7 @@ QT.boot(async function () {
     d3.select("#why-rca").text(T.why);
     d3.select("#howto-rca").html(T.how);
     d3.select("#note-rca").text(T.note);
-    d3.select("#source-rca").text(T.src);
-    const entry = V.view.countries.find(c => c.country === state.country);
+        const entry = V.view.countries.find(c => c.country === state.country);
     if (!entry) {
       const n = V.view.below_floor[state.country];
       return emptyPanel("#chart-rca", n
@@ -747,10 +824,16 @@ QT.boot(async function () {
     card.append("span").attr("class", "policy-type")
       .style("background", d => POLICY_COLORS[d.type] || QT.tokens.muted)
       .style("color", "#fff").text(d => d.type);
-    card.append("div").attr("class", "policy-title").text(d => d.title);
+    // The title links to the official document. The announced amount is printed as the register
+    // words it, in its own currency: it is not converted and not part of the Government funding totals.
+    card.append("div").attr("class", "policy-title").each(function (d) {
+      const t = d3.select(this);
+      if (d.url) t.append("a").attr("href", d.url).attr("target", "_blank").attr("rel", "noopener").text(d.title);
+      else t.text(d.title);
+    });
     card.append("div").attr("class", "policy-meta")
-      .html(d => `${d.status} · ${d.year}` + (d.public_funding != null
-        ? ` · <span class="policy-money">${QT.fmt.money(d.public_funding)}</span> public` : ""));
+      .html(d => [d.status, d.year].filter(Boolean).join(" · ") + (d.funding
+        ? ` · <span class="policy-money">${d.funding.replace(/[&<]/g, c => c === "&" ? "&amp;" : "&lt;")}</span>` : ""));
     card.append("div").attr("class", "policy-desc").text(d => d.note);
 
     // A thin vertical rule between neighbouring cards, but not at the start of a row (the number
@@ -768,7 +851,7 @@ QT.boot(async function () {
 
   function render() { kpis(); rankedBars(); instrumentPie(); networkPanel(); institutionsPanel(); policiesPanel(); archetypePanel(); specialisationPanel(); }
 
-  sel.on("change", function () { state.country = this.value; render(); });
+  picker.onChange(name => { state.country = name; picker.show(); render(); });
   // Only Figure 1 depends on these, so they redraw that panel rather than the page.
   QT.segControl("#seg-source-country", "data-s", v => { state.source = v; rankedBars(); });
   QT.segControl("#seg-measure-country", "data-v", v => { state.measure = v; rankedBars(); });

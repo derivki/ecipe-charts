@@ -3,7 +3,7 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Quantum Technologies Tracker | Countries</title>
+<title>Quantum Tracker | Countries</title>
 <!-- theme.js self-injects the stylesheet on load, so it belongs in <head>: from the
      end of <body> the CSS arrived after first paint and every tab switch flashed
      unstyled HTML. -->
@@ -21,8 +21,8 @@
        figure it controls: at the top of the page, next to the country list, it read as a
        page-wide setting when it only ever affected one panel. -->
   <div class="country-pick">
-    <label for="country-select">Select a country to explore its position in the global quantum economy:</label>
-    <select id="country-select"></select>
+    <label id="country-label">Select a country to explore its position in the global quantum economy:</label>
+    <div class="cs" id="country-select"></div>
   </div>
   <hr class="rule">
 
@@ -75,9 +75,13 @@
 
     <div class="panel span2">
       <div class="ttl" id="ttl-policy"><span class="fig">Figure 5:</span> Policy and public programmes</div>
-      <p class="why">The flagship national strategies, funding programmes and institutes shaping
-      this ecosystem.</p>
+      <p class="why">The national strategies, laws, programmes and investments shaping this
+      ecosystem, from the ECIPE Quantum Policies List. Current policies come first.</p>
       <div id="policy-body"></div>
+      <p class="note" style="margin-top:8px;padding-top:8px;">Funding is the amount announced in the
+      policy, as the source words it and in its own currency. It is not converted and is not part of
+      the government funding figures elsewhere on the tracker, and some amounts are proposed or
+      target figures rather than money committed.</p>
     </div>
 
     <!-- The institution research/government/industry split panel was removed: it was
@@ -92,8 +96,6 @@
       <p class="howto" id="howto-archetype"></p>
       <svg id="chart-archetype2" role="img" aria-label="Country archetype position"></svg>
       <p class="note" id="note-archetype"></p>
-      <p class="source" id="source-archetype">Source: ECIPE Quantum Database; archetypes after ECIPE Occasional Paper 08/2025
-      (Figure 3). GDP: World Bank, World Development Indicators, current US dollars, 2025.</p>
     </div>
 
     <div class="panel span2">
@@ -107,7 +109,6 @@
       </div>
       <svg id="chart-rca" role="img" aria-label="National specialisation by industry sector or stack layer"></svg>
       <p class="note" id="note-rca"></p>
-      <p class="source" id="source-rca"></p>
     </div>
 
   </div>
