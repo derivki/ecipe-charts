@@ -31,9 +31,52 @@
         collaboration across the global quantum technology sector, published by ECIPE and
         computed directly from the underlying data rather than maintained by hand.
       </p>
+      <ul class="about-authors" aria-label="Produced by ECIPE">
+        <li>
+          <a href="https://ecipe.org/person/elena-sisto/" target="_blank" rel="noopener">
+            <span class="avatar" aria-hidden="true"><span class="ini">ES</span><img src="assets/authors/elena-sisto.jpg" alt="" width="64" height="64" onload="this.parentNode.classList.add('has-photo')" onerror="this.remove()"></span>
+            <span class="who"><b>Elena Sisto</b><span>Economist</span></span>
+          </a>
+        </li>
+        <li>
+          <a href="https://ecipe.org/person/dyuti-pandya/" target="_blank" rel="noopener">
+            <span class="avatar" aria-hidden="true"><span class="ini">DP</span><img src="assets/authors/dyuti-pandya.jpg" alt="" width="64" height="64" onload="this.parentNode.classList.add('has-photo')" onerror="this.remove()"></span>
+            <span class="who"><b>Dyuti Pandya</b><span>Analyst</span></span>
+          </a>
+        </li>
+        <li>
+          <a href="https://ecipe.org/person/andrea-dugo/" target="_blank" rel="noopener">
+            <span class="avatar" aria-hidden="true"><span class="ini">AD</span><img src="assets/authors/andrea-dugo.jpg" alt="" width="64" height="64" onload="this.parentNode.classList.add('has-photo')" onerror="this.remove()"></span>
+            <span class="who"><b>Andrea Dugo</b><span>Economist</span></span>
+          </a>
+        </li>
+      </ul>
+      <p class="about-credits">
+        The tracker is produced by ECIPE. Questions about the data or methodology can be sent to
+        <a href="mailto:info@ecipe.org">info@ecipe.org</a>. The
+        <a href="https://github.com/derivki/ecipe-charts/blob/main/METHODOLOGY.md" target="_blank" rel="noopener">full methodology</a>
+        is on GitHub: part one covers the company data, and part two covers public funding in more detail,
+        including the treatment of China, the Anhui quantum-industry fund and cross-country comparisons.
+      </p>
+      <details class="about-more">
+        <summary>How to cite this tracker</summary>
+        <div class="about-more-body">
+      <p class="cite">
+        Sisto, E., Pandya, D., &amp; Dugo, A. (<span id="cite-year"></span>). <i>Quantum Technologies Tracker</i>
+        (Version <span id="cite-version"></span>) [Data set]. ECIPE.
+        Retrieved <span id="cite-date"></span>, from <span id="cite-url"></span>
+      </p>
+        </div>
+      </details>
+      <nav class="about-jump" aria-label="On this page">
+        <a href="#companies">Companies</a>
+        <a href="#public-funding">Public funding</a>
+        <a href="#faq">FAQ</a>
+        <a href="#glossary">Glossary</a>
+      </nav>
     </section>
 
-    <section class="about-section">
+    <section class="about-section" id="companies">
       <h2>Companies</h2>
       <p>
         The tracker records companies whose core activity is quantum technology, classifies each on two independent axes, and records their disclosed funding history round by round. The aim is coverage as wide as possible, while also ensuring that non-quantum companies are not included. It is a work in progress and is improved continuously.
@@ -105,7 +148,7 @@
       </details>
     </section>
 
-    <section class="about-section">
+    <section class="about-section" id="public-funding">
       <h2>Public funding for quantum technologies</h2>
       <p>
         <b>Government funding</b> is a separate measure from company funding: identified public funding and funding commitments for quantum technologies, covering national and supranational programmes and sourced from ECIPE's public funding dataset. It does not include grants or public equity that reached companies through funding rounds; that money is <b>counted only once</b>, under company funding.
@@ -345,9 +388,11 @@
       </details>
     </section>
 
-    <section class="about-section">
-      <details class="about-more about-more-section">
-        <summary><h2>Glossary</h2></summary>
+    <section class="about-section" id="glossary">
+      <h2>Glossary</h2>
+      <p>Definitions of the terms used across the tracker.</p>
+      <details class="about-more">
+        <summary>Show all 17 terms</summary>
         <div class="about-more-body">
       <dl>
         <dt>Aggregated funding stage</dt>
@@ -389,66 +434,57 @@
       </details>
     </section>
 
-    <section class="about-section">
-      <h2>Full methodology</h2>
-      <p>
-        The full methodology is on
-        <a href="https://github.com/derivki/ecipe-charts/blob/main/METHODOLOGY.md" target="_blank" rel="noopener">GitHub</a>:
-        part one covers the company data, and part two covers public funding in more detail,
-        including the treatment of China, the Anhui quantum-industry fund and cross-country
-        comparisons.
-      </p>
-    </section>
-
-    <section class="about-section">
-      <h2>Authors, contact &amp; citation</h2>
-      <p>
-        The tracker is produced by ECIPE's
-        <b><a href="https://ecipe.org/person/andrea-dugo/" target="_blank" rel="noopener">Andrea Dugo</a></b> (Economist),
-        <b><a href="https://ecipe.org/person/elena-sisto/" target="_blank" rel="noopener">Elena Sisto</a></b> (Economist) and
-        <b><a href="https://ecipe.org/person/dyuti-pandya/" target="_blank" rel="noopener">Dyuti Pandya</a></b> (Analyst).
-        Questions about the data or methodology can be sent to
-        <a href="mailto:info@ecipe.org">info@ecipe.org</a>.
-      </p>
-      <p style="margin-top:10px;">
-        <b>How to cite.</b> Please cite this tracker as:
-      </p>
-      <p class="cite" style="margin-top:6px;padding-left:2em;text-indent:-2em;">
-        Dugo, A., Sisto, E., &amp; Pandya, D. (<span id="cite-year"></span>). <i>Quantum Technologies Tracker</i>
-        (Version <span id="cite-version"></span>) [Data set]. ECIPE.
-        Retrieved <span id="cite-date"></span>, from <span id="cite-url"></span>
-      </p>
-    </section>
-
   </div>
 </div>
 
 <style>
+/* Reading page: 15px text, whitespace between sections instead of rules, and each
+   dropdown is a tinted row (no lines at all) that gains an outline when open. */
 .about-body{max-width:720px;}
-.about-section{padding:22px 0;border-bottom:1px solid var(--line);}
-.about-section:first-child{padding-top:4px;}
-.about-section:last-child{border-bottom:none;}
-.about-section h2{font-size:16px;font-weight:650;letter-spacing:-.01em;margin:0 0 10px;color:var(--ink);}
-.about-section p{font-size:13px;line-height:1.6;color:var(--ink);margin:0;}
-.about-section ul,.about-section ol{font-size:13px;line-height:1.6;color:var(--ink);margin:6px 0 0;padding-left:20px;}
-.about-more-body p + p,.about-more-body ul + p,.about-more-body ol + p{margin-top:10px;}
-.about-section li+li{margin-top:2px;}
+.about-section{margin-top:44px;}
+.about-section:first-child{margin-top:0;}
+h1{font-size:26px;}
+.about-section h2{font-size:20px;font-weight:700;letter-spacing:-.01em;line-height:1.3;margin:0 0 12px;color:var(--ink);scroll-margin-top:16px;}
+.about-section p{font-size:15px;line-height:1.65;color:var(--ink);margin:0;}
+.about-section p + p{margin-top:12px;}
+.about-section ul,.about-section ol{font-size:15px;line-height:1.65;color:var(--ink);margin:8px 0 0;padding-left:22px;}
+.about-section li+li{margin-top:4px;}
+.about-more-body p + p,.about-more-body ul + p,.about-more-body ol + p{margin-top:12px;}
 .about-section ul.about-callout{background:var(--panel);border:1px solid var(--line);
   border-radius:8px;margin:0;padding:12px 16px 12px 34px;}
-.about-more{border-top:1px solid var(--line);margin-top:10px;}
-.about-more summary{cursor:pointer;list-style:none;display:flex;align-items:center;gap:10px;padding:10px 0;font-size:13px;font-weight:650;color:var(--ink);}
+.about-body a{color:var(--pill);text-decoration:underline;text-underline-offset:2px;}
+.about-body a:hover{text-decoration-thickness:2px;}
+.about-body a:focus-visible,.about-more summary:focus-visible{outline:2px solid var(--pill);outline-offset:2px;border-radius:4px;}
+.about-credits{margin-top:12px !important;}
+.about-section .about-authors{list-style:none;margin:20px 0 0;padding:0;display:flex;flex-wrap:wrap;gap:12px 32px;}
+.about-section .about-authors li+li{margin-top:0;}
+.about-authors a{display:flex;align-items:center;gap:14px;min-height:44px;color:var(--ink);text-decoration:none;}
+.about-authors .avatar{position:relative;flex:none;display:grid;place-items:center;width:64px;height:64px;border-radius:50%;overflow:hidden;background:var(--panel);color:var(--pill);font-size:20px;font-weight:700;letter-spacing:.02em;}
+.about-authors .avatar img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;mix-blend-mode:multiply;}
+.about-authors .has-photo .ini{visibility:hidden;}
+.about-authors .who{display:flex;flex-direction:column;line-height:1.35;}
+.about-authors .who b{font-size:15px;font-weight:700;text-decoration:underline;text-underline-offset:3px;}
+.about-authors .who span{font-size:15px;}
+.about-authors a:hover .who b{color:var(--pill);text-decoration-thickness:2px;}
+.about-section > .about-more:first-of-type{margin-top:16px;}
+.about-more{background:var(--panel);border-radius:8px;margin-top:8px;}
+.about-more[open]{background:#fff;box-shadow:inset 0 0 0 1px var(--line);}
+.about-more summary{cursor:pointer;list-style:none;display:flex;align-items:center;gap:10px;min-height:44px;padding:10px 16px;font-size:15px;font-weight:650;line-height:1.4;color:var(--ink);}
 .about-more summary::-webkit-details-marker{display:none;}
-.about-more summary::before{content:"";flex:none;width:7px;height:7px;margin:0 3px 0 2px;border-right:1.8px solid var(--pill);border-bottom:1.8px solid var(--pill);transform:rotate(-45deg);transition:transform .15s;}
+.about-more summary::before{content:"";flex:none;width:7px;height:7px;margin:0 3px 0 2px;border-right:2px solid var(--pill);border-bottom:2px solid var(--pill);transform:rotate(-45deg);transition:transform .15s;}
 .about-more[open] > summary::before{transform:rotate(45deg);}
 .about-more summary:hover{color:var(--pill);}
-.about-more summary h2{margin:0;}
-.about-more-body{padding:0 0 12px 19px;}
+.about-more-body{padding:0 16px 16px 38px;}
 .about-more-body > :first-child{margin-top:0 !important;}
-.about-more-section{border-top:none;margin-top:0;}
 .about-section dl{margin:0;}
-.about-section dt{font-size:13px;font-weight:650;margin-top:12px;color:var(--ink);}
+.about-section dt{font-size:15px;font-weight:650;margin-top:16px;color:var(--ink);}
 .about-section dt:first-child{margin-top:0;}
-.about-section dd{font-size:13px;line-height:1.6;margin:2px 0 0;color:var(--ink);}
+.about-section dd{font-size:15px;line-height:1.65;margin:2px 0 0;color:var(--ink);}
+.about-jump{display:flex;flex-wrap:wrap;gap:8px;margin-top:20px;}
+.about-jump a{display:inline-flex;align-items:center;min-height:40px;padding:0 18px;border:1px solid var(--pill);border-radius:999px;font-size:15px;font-weight:600;text-decoration:none;}
+.about-jump a:hover{background:var(--pill);color:#fff;}
+@media (max-width:600px){.about-more-body{padding-left:16px;}}
+@media (prefers-reduced-motion:reduce){.about-more summary::before{transition:none;}}
 </style>
 
 <script src="assets/chart-template.js"></script>
