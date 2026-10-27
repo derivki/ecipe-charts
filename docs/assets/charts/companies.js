@@ -221,14 +221,10 @@ QT.boot(async function () {
     });
 
     d3.select("#mcap-count").text(`${QT.fmt.int(listed.length)} of ${QT.fmt.int(T.companies)}`);
-    // Market cap moves with the market, not with the data vintage, so this states the
-    // actual calendar date this quarter's figures were captured (`manifest.built_at_utc`,
-    // set automatically the moment Stage 1 runs against the refreshed workbook -- see
-    // the runbook's market-cap-refresh step) rather than the quarter label, which would
-    // otherwise imply a precision ("as of Q3 2026") the daily-moving figure doesn't have.
-    // No separate reader-facing note is needed for this any more: one real date, stated
-    // once, replaces the old vintage placeholder and the manual-override disclosure below.
-    d3.select("#mcap-asof").text(QT.fmt.date(manifest.built_at_utc));
+    // Stated the way the page's own "Data as of" line states it: "the end of Q3 2026". (Until
+    // 2026-10-27 this was the build date, on the grounds that market cap moves daily; Elena asked
+    // for the quarter-end wording so the figure reads the same as the rest of the page.)
+    d3.select("#mcap-asof").text("the end of " + QT.fmt.vintage(manifest.data_vintage));
   })();
 
   /* ---------- Panel 2: parent institutions ---------- */

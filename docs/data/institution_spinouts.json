@@ -1,0 +1,894 @@
+{
+  "meta": {
+    "data_vintage": "2026-Q3",
+    "start_year": 2012,
+    "partial_year": 2026
+  },
+  "data": [
+    {
+      "institution": "University of Maryland",
+      "type": "University",
+      "country": "US",
+      "country_code": "us",
+      "n_spinouts": 3,
+      "total_funding": 4181456875.86,
+      "companies": [
+        "IonQ",
+        "Diffraqtion",
+        "Quantum Network Technologies / Qunett"
+      ]
+    },
+    {
+      "institution": "University of Bristol",
+      "type": "University",
+      "country": "UK",
+      "country_code": "gb",
+      "n_spinouts": 9,
+      "total_funding": 2513476052.73,
+      "companies": [
+        "PsiQuantum",
+        "Phasecraft",
+        "QLM Technology"
+      ]
+    },
+    {
+      "institution": "Massachusetts Institute of Technology (MIT)",
+      "type": "University",
+      "country": "US",
+      "country_code": "us",
+      "n_spinouts": 7,
+      "total_funding": 2379740314.59,
+      "companies": [
+        "XtalPi Technology (晶泰科技)",
+        "QuEra Computing",
+        "Atlantic Quantum"
+      ]
+    },
+    {
+      "institution": "IBM",
+      "type": "Corporate",
+      "country": "US",
+      "country_code": "us",
+      "n_spinouts": 1,
+      "total_funding": 2000000000.0,
+      "companies": [
+        "Anderon"
+      ]
+    },
+    {
+      "institution": "University of British Columbia (UBC)",
+      "type": "University",
+      "country": "Canada",
+      "country_code": "ca",
+      "n_spinouts": 2,
+      "total_funding": 1552541027.43,
+      "companies": [
+        "D-Wave",
+        "Dream Photonics"
+      ]
+    },
+    {
+      "institution": "Google",
+      "type": "Corporate",
+      "country": "US",
+      "country_code": "us",
+      "n_spinouts": 1,
+      "total_funding": 1450100000.0,
+      "companies": [
+        "SandboxAQ"
+      ]
+    },
+    {
+      "institution": "University of Science and Technology of China (USTC)",
+      "type": "University",
+      "country": "China",
+      "country_code": "cn",
+      "n_spinouts": 12,
+      "total_funding": 1416148458.38,
+      "companies": [
+        "QuantumCTek (国盾量子)",
+        "CIQTEK (国仪量子)",
+        "CAS Quantum Network (国科量子)"
+      ]
+    },
+    {
+      "institution": "University of Colorado Boulder",
+      "type": "University",
+      "country": "US",
+      "country_code": "us",
+      "n_spinouts": 5,
+      "total_funding": 1308851523.54,
+      "companies": [
+        "Infleqtion",
+        "Atom Computing",
+        "Mesa Quantum"
+      ]
+    },
+    {
+      "institution": "Aalto University",
+      "type": "University",
+      "country": "Finland",
+      "country_code": "fi",
+      "n_spinouts": 2,
+      "total_funding": 1077070679.73,
+      "companies": [
+        "IQM Quantum Computers",
+        "Bluefors"
+      ]
+    },
+    {
+      "institution": "National Institute of Standards and Technology (NIST)",
+      "type": "Government agency",
+      "country": "US",
+      "country_code": "us",
+      "n_spinouts": 6,
+      "total_funding": 1026670582.54,
+      "companies": [
+        "Infleqtion",
+        "Mesa Quantum",
+        "QuSpin"
+      ]
+    },
+    {
+      "institution": "University of Oxford",
+      "type": "University",
+      "country": "UK",
+      "country_code": "gb",
+      "n_spinouts": 10,
+      "total_funding": 951980955.73,
+      "companies": [
+        "Oxford Quantum Circuits",
+        "Quantum Motion",
+        "PQShield"
+      ]
+    },
+    {
+      "institution": "VTT Technical Research Centre of Finland",
+      "type": "Public research institution",
+      "country": "Finland",
+      "country_code": "fi",
+      "n_spinouts": 4,
+      "total_funding": 896903511.44,
+      "companies": [
+        "IQM Quantum Computers",
+        "SemiQon",
+        "Arctic Instruments"
+      ]
+    },
+    {
+      "institution": "WISeKey International Holding",
+      "type": "Other startup or SME",
+      "country": "Switzerland",
+      "country_code": "ch",
+      "n_spinouts": 1,
+      "total_funding": 693905439.0,
+      "companies": [
+        "SEALSQ"
+      ]
+    },
+    {
+      "institution": "Harvard University",
+      "type": "University",
+      "country": "US",
+      "country_code": "us",
+      "n_spinouts": 6,
+      "total_funding": 616967162.0,
+      "companies": [
+        "QuEra Computing",
+        "HyperLight",
+        "Zapata Quantum"
+      ]
+    },
+    {
+      "institution": "Institut d'Optique Graduate School",
+      "type": "University",
+      "country": "France",
+      "country_code": "fr",
+      "n_spinouts": 1,
+      "total_funding": 596730828.16,
+      "companies": [
+        "PASQAL"
+      ]
+    },
+    {
+      "institution": "Cypress Semiconductor",
+      "type": "Corporate",
+      "country": "US",
+      "country_code": "us",
+      "n_spinouts": 1,
+      "total_funding": 525986000.0,
+      "companies": [
+        "SkyWater Technology"
+      ]
+    },
+    {
+      "institution": "Chinese Academy of Sciences (CAS)",
+      "type": "Public research institution",
+      "country": "China",
+      "country_code": "cn",
+      "n_spinouts": 2,
+      "total_funding": 499420000.0,
+      "companies": [
+        "CAS Quantum Network (国科量子)",
+        "Origin Quantum (本源量子)"
+      ]
+    },
+    {
+      "institution": "Simon Fraser University",
+      "type": "University",
+      "country": "Canada",
+      "country_code": "ca",
+      "n_spinouts": 1,
+      "total_funding": 357571994.7,
+      "companies": [
+        "Photonic Inc."
+      ]
+    },
+    {
+      "institution": "University College London (UCL)",
+      "type": "University",
+      "country": "UK",
+      "country_code": "gb",
+      "n_spinouts": 7,
+      "total_funding": 316433938.82,
+      "companies": [
+        "Quantum Motion",
+        "Phasecraft",
+        "Zero Point Motion"
+      ]
+    },
+    {
+      "institution": "California Institute of Technology (Caltech)",
+      "type": "University",
+      "country": "US",
+      "country_code": "us",
+      "n_spinouts": 4,
+      "total_funding": 311050000.0,
+      "companies": [
+        "Oratomic",
+        "PINC Technologies",
+        "Quantelix"
+      ]
+    },
+    {
+      "institution": "Paris Sciences et Lettres University (PSL)",
+      "type": "University",
+      "country": "France",
+      "country_code": "fr",
+      "n_spinouts": 3,
+      "total_funding": 307059023.09,
+      "companies": [
+        "Alice & Bob",
+        "AQEMIA",
+        "C12 Quantum Electronics"
+      ]
+    },
+    {
+      "institution": "QuTech",
+      "type": "Research institute",
+      "country": "Netherlands",
+      "country_code": "nl",
+      "n_spinouts": 7,
+      "total_funding": 301055019.13,
+      "companies": [
+        "QuantWare",
+        "Qblox",
+        "Groove Quantum"
+      ]
+    },
+    {
+      "institution": "University of Cambridge",
+      "type": "University",
+      "country": "UK",
+      "country_code": "gb",
+      "n_spinouts": 5,
+      "total_funding": 297862589.36,
+      "companies": [
+        "Riverlane",
+        "Nu Quantum",
+        "Optalysys"
+      ]
+    },
+    {
+      "institution": "Weizmann Institute of Science",
+      "type": "University",
+      "country": "Israel",
+      "country_code": "il",
+      "n_spinouts": 4,
+      "total_funding": 278527500.0,
+      "companies": [
+        "Quantum Art",
+        "Quantum Source",
+        "Q-Factor"
+      ]
+    },
+    {
+      "institution": "Shanghai Jiao Tong University (SJTU)",
+      "type": "University",
+      "country": "China",
+      "country_code": "cn",
+      "n_spinouts": 3,
+      "total_funding": 270166500.0,
+      "companies": [
+        "TuringQ (图灵量子)",
+        "XT Quantech (循态量子)",
+        "Youshu Quantum / UnitaryLab (酉术量子)"
+      ]
+    },
+    {
+      "institution": "University of New South Wales (UNSW)",
+      "type": "University",
+      "country": "Australia",
+      "country_code": "au",
+      "n_spinouts": 3,
+      "total_funding": 254048794.92,
+      "companies": [
+        "Silicon Quantum Computing",
+        "Diraq",
+        "Quantum Lock"
+      ]
+    },
+    {
+      "institution": "Centre for Quantum Technologies at the National University of Singapore (NUS)",
+      "type": "Research institute",
+      "country": "Singapore",
+      "country_code": "sg",
+      "n_spinouts": 5,
+      "total_funding": 210181607.79,
+      "companies": [
+        "Horizon Quantum",
+        "Atomionics",
+        "SpeQtral"
+      ]
+    },
+    {
+      "institution": "Laboratory of Electronics and Information Technologies (CEA-Leti)",
+      "type": "Government agency",
+      "country": "France",
+      "country_code": "fr",
+      "n_spinouts": 2,
+      "total_funding": 201249823.86,
+      "companies": [
+        "Quobly",
+        "MAG4Health"
+      ]
+    },
+    {
+      "institution": "French National Center for Scientific Research (CNRS)",
+      "type": "Public research institution",
+      "country": "France",
+      "country_code": "fr",
+      "n_spinouts": 2,
+      "total_funding": 199534810.85,
+      "companies": [
+        "Quobly",
+        "Welinq"
+      ]
+    },
+    {
+      "institution": "Eindhoven University of Technology (TU/e)",
+      "type": "University",
+      "country": "Netherlands",
+      "country_code": "nl",
+      "n_spinouts": 3,
+      "total_funding": 195488342.06,
+      "companies": [
+        "SMART Photonics",
+        "MicroAlign",
+        "CUbIQ Technologies"
+      ]
+    },
+    {
+      "institution": "Technical Institute of Physics and Chemistry, CAS",
+      "type": "Public research institution",
+      "country": "China",
+      "country_code": "cn",
+      "n_spinouts": 1,
+      "total_funding": 188760000.0,
+      "companies": [
+        "Fullcryo (中科富海)"
+      ]
+    },
+    {
+      "institution": "Philips",
+      "type": "Corporate",
+      "country": "Netherlands",
+      "country_code": "nl",
+      "n_spinouts": 1,
+      "total_funding": 187788605.93,
+      "companies": [
+        "SMART Photonics"
+      ]
+    },
+    {
+      "institution": "Technical University of Munich",
+      "type": "University",
+      "country": "Germany",
+      "country_code": "de",
+      "n_spinouts": 5,
+      "total_funding": 156366726.01,
+      "companies": [
+        "QuantumDiamonds",
+        "kiutra",
+        "Munich Quantum Instruments"
+      ]
+    },
+    {
+      "institution": "University of Sydney",
+      "type": "University",
+      "country": "Australia",
+      "country_code": "au",
+      "n_spinouts": 4,
+      "total_funding": 146626866.28,
+      "companies": [
+        "Q-CTRL",
+        "Iceberg Quantum",
+        "Deteqt"
+      ]
+    },
+    {
+      "institution": "HYPRES",
+      "type": "Quantum company",
+      "country": "US",
+      "country_code": "us",
+      "n_spinouts": 1,
+      "total_funding": 146071788.97,
+      "companies": [
+        "SEEQC"
+      ]
+    },
+    {
+      "institution": "Fudan University",
+      "type": "University",
+      "country": "China",
+      "country_code": "cn",
+      "n_spinouts": 1,
+      "total_funding": 145809500.0,
+      "companies": [
+        "Buchou Quantum (不筹量子)"
+      ]
+    },
+    {
+      "institution": "Karlsruhe Institute of Technology",
+      "type": "University",
+      "country": "Germany",
+      "country_code": "de",
+      "n_spinouts": 4,
+      "total_funding": 125963529.51,
+      "companies": [
+        "ParTec",
+        "HQS Quantum Simulations",
+        "Nanomatch"
+      ]
+    },
+    {
+      "institution": "Ulm University",
+      "type": "University",
+      "country": "Germany",
+      "country_code": "de",
+      "n_spinouts": 2,
+      "total_funding": 121495438.99,
+      "companies": [
+        "NVision Quantum",
+        "Diatope"
+      ]
+    },
+    {
+      "institution": "Key Laboratory of Quantum Information, CAS",
+      "type": "Public research institution",
+      "country": "China",
+      "country_code": "cn",
+      "n_spinouts": 3,
+      "total_funding": 102070690.0,
+      "companies": [
+        "Unitary Quantum / Yaozheng Quantum (幺正量子)",
+        "CHINAPROSP QUANTUM (国盛量子)",
+        "Qasky (问天量子)"
+      ]
+    },
+    {
+      "institution": "Tsinghua University",
+      "type": "University",
+      "country": "China",
+      "country_code": "cn",
+      "n_spinouts": 3,
+      "total_funding": 99760000.0,
+      "companies": [
+        "Huayi Quantum / HYQ Bit (华翊量子)",
+        "Veqton (维刻量光)",
+        "Qosmos / Liangyi Wanxiang (两仪万象)"
+      ]
+    },
+    {
+      "institution": "Australian National University (ANU)",
+      "type": "University",
+      "country": "Australia",
+      "country_code": "au",
+      "n_spinouts": 4,
+      "total_funding": 98597750.33,
+      "companies": [
+        "Quantum Brilliance",
+        "QuintessenceLabs",
+        "Nomad Atomics"
+      ]
+    },
+    {
+      "institution": "University of Sherbrooke",
+      "type": "University",
+      "country": "Canada",
+      "country_code": "ca",
+      "n_spinouts": 4,
+      "total_funding": 96091216.62,
+      "companies": [
+        "Nord Quantique",
+        "Quantum eMotion",
+        "SBQuantum"
+      ]
+    },
+    {
+      "institution": "TRUMPF",
+      "type": "Corporate",
+      "country": "Germany",
+      "country_code": "de",
+      "n_spinouts": 1,
+      "total_funding": 92038700.0,
+      "companies": [
+        "Q.ANT"
+      ]
+    },
+    {
+      "institution": "Centre for Nanosciences and Nanotechnologies (C2N)",
+      "type": "Research institute",
+      "country": "France",
+      "country_code": "fr",
+      "n_spinouts": 2,
+      "total_funding": 90638811.91,
+      "companies": [
+        "Quandela",
+        "CryoHEMT"
+      ]
+    },
+    {
+      "institution": "University of Siegen",
+      "type": "University",
+      "country": "Germany",
+      "country_code": "de",
+      "n_spinouts": 1,
+      "total_funding": 87424215.12,
+      "companies": [
+        "eleQtron"
+      ]
+    },
+    {
+      "institution": "Delft University of Technology (TU Delft)",
+      "type": "University",
+      "country": "Netherlands",
+      "country_code": "nl",
+      "n_spinouts": 7,
+      "total_funding": 85287082.33,
+      "companies": [
+        "QphoX",
+        "Delft Circuits",
+        "Single Quantum"
+      ]
+    },
+    {
+      "institution": "University College Dublin (UCD)",
+      "type": "University",
+      "country": "Ireland",
+      "country_code": "ie",
+      "n_spinouts": 1,
+      "total_funding": 84555665.84,
+      "companies": [
+        "Equal1"
+      ]
+    },
+    {
+      "institution": "Yale University",
+      "type": "University",
+      "country": "US",
+      "country_code": "us",
+      "n_spinouts": 1,
+      "total_funding": 80000000.0,
+      "companies": [
+        "Quantum Circuits"
+      ]
+    },
+    {
+      "institution": "University of Wisconsin-Madison",
+      "type": "University",
+      "country": "US",
+      "country_code": "us",
+      "n_spinouts": 2,
+      "total_funding": 76010000.0,
+      "companies": [
+        "Qolab",
+        "Dirac Labs"
+      ]
+    },
+    {
+      "institution": "University of Toronto",
+      "type": "University",
+      "country": "Canada",
+      "country_code": "ca",
+      "n_spinouts": 3,
+      "total_funding": 74715541.28,
+      "companies": [
+        "OTI Lumionics",
+        "Quantum Bridge",
+        "Xatoms"
+      ]
+    },
+    {
+      "institution": "University of Twente",
+      "type": "University",
+      "country": "Netherlands",
+      "country_code": "nl",
+      "n_spinouts": 3,
+      "total_funding": 61956883.79,
+      "companies": [
+        "QuiX Quantum",
+        "LioniX International",
+        "Aluvia Photonics"
+      ]
+    },
+    {
+      "institution": "IIT Madras",
+      "type": "University",
+      "country": "India",
+      "country_code": "in",
+      "n_spinouts": 3,
+      "total_funding": 58711520.0,
+      "companies": [
+        "QNu Labs",
+        "Quanfluence",
+        "Quarkitech"
+      ]
+    },
+    {
+      "institution": "ETH Zurich",
+      "type": "University",
+      "country": "Switzerland",
+      "country_code": "ch",
+      "n_spinouts": 6,
+      "total_funding": 49871609.54,
+      "companies": [
+        "ZuriQ",
+        "Chiral",
+        "Zurich Instruments"
+      ]
+    },
+    {
+      "institution": "University of Copenhagen",
+      "type": "University",
+      "country": "Denmark",
+      "country_code": "dk",
+      "n_spinouts": 4,
+      "total_funding": 45674215.17,
+      "companies": [
+        "Sparrow Quantum",
+        "QDevil",
+        "Beamfox Technologies"
+      ]
+    },
+    {
+      "institution": "University of Waterloo",
+      "type": "University",
+      "country": "Canada",
+      "country_code": "ca",
+      "n_spinouts": 16,
+      "total_funding": 40958141.94,
+      "companies": [
+        "QuantumCore",
+        "High Q Technologies",
+        "evolutionQ"
+      ]
+    },
+    {
+      "institution": "Beijing Academy of Quantum Information Sciences",
+      "type": "Research institute",
+      "country": "China",
+      "country_code": "cn",
+      "n_spinouts": 2,
+      "total_funding": 33859500.0,
+      "companies": [
+        "Quanta-Well (科微量子)",
+        "Vector Singularity (向量奇点)"
+      ]
+    },
+    {
+      "institution": "Aarhus University",
+      "type": "University",
+      "country": "Denmark",
+      "country_code": "dk",
+      "n_spinouts": 2,
+      "total_funding": 32891625.62,
+      "companies": [
+        "Kvantify",
+        "Cryptomathic"
+      ]
+    },
+    {
+      "institution": "Institute of Photonic Sciences (ICFO), BIST",
+      "type": "Research institute",
+      "country": "Spain",
+      "country_code": "es",
+      "n_spinouts": 3,
+      "total_funding": 31761331.45,
+      "companies": [
+        "Quside",
+        "LuxQuanta",
+        "Arq Quantum Technologies"
+      ]
+    },
+    {
+      "institution": "Austrian Academy of Sciences (ÖAW)",
+      "type": "Public research institution",
+      "country": "Austria",
+      "country_code": "at",
+      "n_spinouts": 3,
+      "total_funding": 25708592.66,
+      "companies": [
+        "Alpine Quantum Technologies",
+        "Quantum Technology Laboratories / qtlabs",
+        "ParityQC"
+      ]
+    },
+    {
+      "institution": "University of Chicago",
+      "type": "University",
+      "country": "US",
+      "country_code": "us",
+      "n_spinouts": 4,
+      "total_funding": 24453997.0,
+      "companies": [
+        "memQ",
+        "CavilinQ",
+        "Super.tech"
+      ]
+    },
+    {
+      "institution": "University of Glasgow",
+      "type": "University",
+      "country": "UK",
+      "country_code": "gb",
+      "n_spinouts": 3,
+      "total_funding": 22393046.63,
+      "companies": [
+        "Vector Photonics",
+        "Quantcore",
+        "Kelvin Nanotechnology"
+      ]
+    },
+    {
+      "institution": "Swiss Federal Institute of Technology Lausanne (EPFL)",
+      "type": "University",
+      "country": "Switzerland",
+      "country_code": "ch",
+      "n_spinouts": 4,
+      "total_funding": 19879853.52,
+      "companies": [
+        "LIGENTEC",
+        "Miraex",
+        "Rhonexum"
+      ]
+    },
+    {
+      "institution": "Chalmers University of Technology",
+      "type": "University",
+      "country": "Sweden",
+      "country_code": "se",
+      "n_spinouts": 6,
+      "total_funding": 19007642.42,
+      "companies": [
+        "Atlantic Quantum",
+        "Low Noise Factory",
+        "SCALINQ"
+      ]
+    },
+    {
+      "institution": "University of Manchester",
+      "type": "University",
+      "country": "UK",
+      "country_code": "gb",
+      "n_spinouts": 3,
+      "total_funding": 12002833.21,
+      "companies": [
+        "Imperagen",
+        "Laser Quantum",
+        "SpinOr"
+      ]
+    },
+    {
+      "institution": "University of Basel",
+      "type": "University",
+      "country": "Switzerland",
+      "country_code": "ch",
+      "n_spinouts": 3,
+      "total_funding": 10622806.15,
+      "companies": [
+        "Qnami",
+        "Basel Precision Instruments",
+        "YQuantum"
+      ]
+    },
+    {
+      "institution": "Ludwig Maximilian University of Munich (LMU)",
+      "type": "University",
+      "country": "Germany",
+      "country_code": "de",
+      "n_spinouts": 3,
+      "total_funding": 8074825.87,
+      "companies": [
+        "Aqarios",
+        "Qlibri",
+        "qutools"
+      ]
+    },
+    {
+      "institution": "Technical University of Denmark (DTU)",
+      "type": "University",
+      "country": "Denmark",
+      "country_code": "dk",
+      "n_spinouts": 4,
+      "total_funding": 7480360.12,
+      "companies": [
+        "Alea Quantum Technologies",
+        "SiC Systems",
+        "Diasense"
+      ]
+    },
+    {
+      "institution": "Leiden University",
+      "type": "University",
+      "country": "Netherlands",
+      "country_code": "nl",
+      "n_spinouts": 3,
+      "total_funding": 5526880.75,
+      "companies": [
+        "QuantaMap",
+        "Leiden Cryogenics",
+        "Onnes Technologies"
+      ]
+    },
+    {
+      "institution": "KTH Royal Institute of Technology",
+      "type": "University",
+      "country": "Sweden",
+      "country_code": "se",
+      "n_spinouts": 4,
+      "total_funding": 4560953.56,
+      "companies": [
+        "Cobolt",
+        "SLF Quantum",
+        "Intermodulation Products"
+      ]
+    },
+    {
+      "institution": "Nanyang Technological University",
+      "type": "University",
+      "country": "Singapore",
+      "country_code": "sg",
+      "n_spinouts": 3,
+      "total_funding": 574200.0,
+      "companies": [
+        "PQStation",
+        "AQSolotl",
+        "aQuila Photonics"
+      ]
+    },
+    {
+      "institution": "University of Technology Sydney (UTS)",
+      "type": "University",
+      "country": "Australia",
+      "country_code": "au",
+      "n_spinouts": 3,
+      "total_funding": 17367.5,
+      "companies": [
+        "Eigensystems",
+        "H-Bar Consultants",
+        "Photon Foundry"
+      ]
+    }
+  ]
+}

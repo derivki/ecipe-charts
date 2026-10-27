@@ -292,8 +292,8 @@ QT.boot(async function () {
 
       QT.mockNote("#mocknote-country", state.metric === "government_funding" && govProvisional
         ? "<b>Government figures are provisional.</b> They cover identified public funding "
-          + "only. Company and government funding should not be added together, as "
-          + "the two categories may overlap."
+          + "only, including grants and public equity that can also be recorded in company "
+          + "funding, so company and government funding should not be added together."
         : "");
       d3.select("#mocknote-country").style("display",
         state.metric === "government_funding" && govProvisional ? null : "none");

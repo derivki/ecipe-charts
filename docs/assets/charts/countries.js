@@ -39,7 +39,9 @@ QT.boot(async function () {
   const collabByCountry = new Map(collabCountry.data.map(d => [d.country, d]));
   // Government funding here is Dyuti's register alone (see QT.govByCountry),
   // matching the Overview tab. Company funding (below) is a fully separate
-  // measure and is never summed into this one (AP-36, reaffirmed AP-57).
+  // measure and is never summed into this one (AP-36, reaffirmed AP-57). The two overlap: government
+  // funding includes grants and public equity, part of which reaches companies and is also in company
+  // funding, which is why they are never added together (Elena, 2026-10-27).
   const govByCountry = QT.govByCountry(gov.data);
   const govProvisional = !!gov.meta.provisional;
   QT.vintage("#vintage", country.meta);
@@ -269,8 +271,8 @@ QT.boot(async function () {
     const noDataNote = hasSelection ? "" : `<b>No ${S.title} available.</b>`;
     const govNote = state.source === "government_funding" && govProvisional
       ? "<b>Government figures are provisional.</b> They cover identified public funding "
-        + "only. Grants and public equity received by companies are counted under "
-        + "company funding." : "";
+        + "only. They include grants and public equity, which can also be recorded in company "
+        + "funding, so company and government funding should not be added together." : "";
     const note = [noDataNote, govNote].filter(Boolean).join(" ");
     d3.select("#mocknote-ranked").html(note).style("display", note ? null : "none");
 

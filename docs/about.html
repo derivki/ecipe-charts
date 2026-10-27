@@ -15,7 +15,6 @@
 <div class="wrap">
   <div id="nav"></div>
   <h1>About this tracker</h1>
-  <div class="vintage" id="vintage"></div>
 
   <div class="about-body">
 
@@ -55,8 +54,7 @@
         The tracker is produced by ECIPE. Questions about the data or methodology can be sent to
         <a href="mailto:info@ecipe.org">info@ecipe.org</a>. The
         <a href="https://github.com/derivki/ecipe-charts/blob/main/METHODOLOGY.md" target="_blank" rel="noopener">full methodology</a>
-        is on GitHub: part one covers the company data, and part two covers public funding in more detail,
-        including the treatment of China, the Anhui quantum-industry fund and cross-country comparisons.
+        is on GitHub.
       </p>
       <details class="about-more">
         <summary>How to cite this tracker</summary>
@@ -68,12 +66,6 @@
       </p>
         </div>
       </details>
-      <nav class="about-jump" aria-label="On this page">
-        <a href="#companies">Companies</a>
-        <a href="#public-funding">Public funding</a>
-        <a href="#faq">FAQ</a>
-        <a href="#glossary">Glossary</a>
-      </nav>
     </section>
 
     <section class="about-section" id="companies">
@@ -151,7 +143,7 @@
     <section class="about-section" id="public-funding">
       <h2>Public funding for quantum technologies</h2>
       <p>
-        <b>Government funding</b> is a separate measure from company funding: identified public funding and funding commitments for quantum technologies, covering national and supranational programmes and sourced from ECIPE's public funding dataset. Company and government funding should not be added together, as the two categories may overlap (for example, when governments provide grants, acquire equity stakes directly, or participate in broader financing rounds).
+        <b>Government funding</b> is a separate measure from company funding: identified public funding and funding commitments for quantum technologies, covering national and supranational programmes and sourced from ECIPE's public funding dataset. It <b>includes grants and public equity</b>: equity stakes, loans and other investment by public bodies, as well as research grants and programme budgets. Part of that money reaches companies and is also recorded in company funding, as grant and equity rounds, so the two categories overlap (for example, when governments provide grants, acquire equity stakes directly, or participate in broader financing rounds). This is why <b>company and government funding are never added together</b> into one total.
       </p>
       <p style="margin-top:10px;">
         Public funding is analysed across
@@ -392,35 +384,63 @@
       <h2>Glossary</h2>
       <p>Definitions of the terms used across the tracker.</p>
       <details class="about-more">
-        <summary>Show all 17 terms</summary>
+        <summary>Show all 33 terms</summary>
         <div class="about-more-body">
       <dl>
+        <dt>Additional funding</dt>
+        <dd>Public funding that sits outside a jurisdiction's main funding architecture: regional initiatives, stand-alone projects, later programme additions, supplementary infrastructure, and government equity, loans or other investment capital. See Core funding.</dd>
         <dt>Aggregated funding stage</dt>
-        <dd>How mature a company is when it raises a round: Seed and Angel, Early-stage equity, Late-stage equity, Growth equity, Public equity, Debt or Grant. Overview Figure 5 shows the equity ladder, in which late-stage and growth equity are combined and debt and grants are excluded.</dd>
+        <dd>How mature a company is when it raises a round: Seed and Angel, Early-stage equity, Late-stage equity, Growth equity, Public equity, Debt or Grant. Named stages such as Series A are never overridden; round types that do not name a stage (for example Convertible note or Equity) are assigned by amount: under USD 3 million is Seed and Angel, USD 3&ndash;15 million is Early-stage equity and over USD 15 million is Late-stage equity. Overview Figure 5 shows the equity ladder, in which late-stage and growth equity are combined and debt and grants are excluded.</dd>
         <dt>Archetype</dt>
         <dd>One of four groups of countries: Global Innovation Hubs (above the median on both measures), Research Networkers (more connected, less commercial), Regional Commercial Leaders (more commercial, less connected) and Emerging Ecosystems (below the median on both). A country's archetype is the quadrant it falls in when plotted by global connectedness and industry-involving collaborations to GDP (Countries, Figure 6). Method: ECIPE Occasional Paper 08/2025.</dd>
         <dt>Cluster</dt>
-        <dd>A place where quantum companies and institutions are concentrated, and which clears minimum thresholds for funding and institutional density. Clusters are ranked on Market Orientation, Collaboration Intensity and Ecosystem Maturity (Clusters tab).</dd>
+        <dd>A geographically concentrated ecosystem of startups, corporates, research institutions and government agencies. In the 2025 edition shown on the Clusters page, institutions within about 20 km of each other are grouped, independent of administrative boundaries, and a place qualifies as a cluster if it hosts either two or more startups with at least USD 10 million in combined disclosed funding or a single startup with USD 25 million or more, <b>and</b> is home to at least five institutions (research, industry or government) active in quantum. Clusters are ranked on Market Orientation, Collaboration Intensity and Ecosystem Maturity (Clusters tab).</dd>
         <dt>Collaboration</dt>
-        <dd>One pair of institutions working together, counted once however many publications or announcements support it, and attributed to the two institutions' countries.</dd>
+        <dd>A partnership between two institutions active in quantum, such as a joint research project, formal partnership or memorandum of understanding, joint venture, laboratory or testbed, consortium membership or co-authored peer-reviewed paper. A pair of institutions is counted once however many papers or announcements support it, and is attributed to the two institutions' countries. Purchases, reseller agreements, investments and acquisitions are not collaborations.</dd>
+        <dt>Collaboration Intensity</dt>
+        <dd>One of the three dimensions on which clusters are ranked: partnerships and connectivity. See Overall rank.</dd>
+        <dt>Company funding</dt>
+        <dd>All capital raised by the tracked quantum companies themselves, across every financing instrument (VC / private equity, debt, grant and public equity). Procurement and commercial contracts are not funding, secondary share sales are excluded, and the in-house quantum spending of large corporations is not measured. Company funding overlaps with government funding and the two are never added together.</dd>
         <dt>Connectedness, industry-involving collaborations to GDP</dt>
         <dd>Global connectedness is a country's degree centrality in the collaboration network: the share of all other countries it has at least one cross-border collaboration with, from 0 to 1 (Countries, Figures 3 and 6). Industry-involving collaborations to GDP counts the collaborations in which at least one partner is a company, per trillion USD of GDP, as a proxy for commercial intensity (Countries, Figure 6).</dd>
+        <dt>Core funding</dt>
+        <dd>The principal public quantum effort of a jurisdiction: the main national or federal programmes, major research funding streams and national infrastructure investments. See Additional funding.</dd>
+        <dt>Ecosystem Maturity</dt>
+        <dd>One of the three dimensions on which clusters are ranked: institutional strength and productivity. See Overall rank.</dd>
         <dt>Financing instrument</dt>
         <dd>The kind of money in a funding round. Four are used. <b>VC / private equity:</b> equity and equity-linked financing of private companies, from angel and seed rounds to growth rounds, including convertible notes issued while private. <b>Debt:</b> borrowed money, including debt issued after an IPO. <b>Grant:</b> non-repayable public funding. <b>Public equity:</b> equity raised on public markets, such as IPOs and placements after an IPO.</dd>
+        <dt>Full Stack</dt>
+        <dd>The stack layer reserved for companies that build all three of the qubit platform, the control and readout layer that operates it and the software through which users program it. Integrators of third-party hardware are excluded, and Full Stack applies only to computing, not to QKD, QRNG, sensing or PQC companies.</dd>
         <dt>GDP</dt>
         <dd>Gross domestic product in current US dollars, from the World Bank (World Development Indicators, indicator NY.GDP.MKTP.CD), for 2025. A country the World Bank has not yet published for 2025 uses its latest earlier year. Taiwan, which the World Bank does not cover, uses a figure carried over from an earlier version of this tracker. GDP is the denominator of the funding-to-GDP views and of industry-involving collaborations to GDP (Countries, Figure 6).</dd>
-        <dt>Nominal US dollars</dt>
-        <dd>Dollar values in the year they were recorded, not adjusted for inflation.</dd>
-        <dt>Pillar, stack layer, stream</dt>
-        <dd>Defined above, under How companies are classified.</dd>
-        <dt>PQC (post-quantum cryptography)</dt>
-        <dd>Encryption designed to resist attack by quantum computers.</dd>
-        <dt>Provisional</dt>
-        <dd>Applied to government funding figures that are still under review. Entries with soft qualifiers (such as proposed or up to), draft or superseded status, blended public-private amounts or several amounts in one cell are excluded until reviewed.</dd>
-        <dt>Quasi-cluster</dt>
-        <dd>A place with real quantum activity that has not yet cleared the funding or institutional-density bar for full cluster status.</dd>
+        <dt>Government funding</dt>
+        <dd>Identified public funding and funding commitments for quantum technologies, from national and supranational programmes. It includes grants and public equity, loans and other investment by public bodies, and covers realised expenditure, awards, allocations, commitments and announced or planned funding, so it is not annual spending or cash already disbursed. General technology programmes whose quantum share cannot be isolated are excluded. The EU is reported separately and is not added to national figures.</dd>
+        <dt>Institution active in quantum</dt>
+        <dd>Any organisation that contributes to the research, development, funding or commercialisation of quantum technologies: research institutions (universities and research institutes), government institutions (public research organisations and agencies) and industry (quantum companies, other startups and SMEs, and large corporations). It need not focus exclusively on quantum, but needs identifiable activity in the sector, such as a documented collaboration.</dd>
+        <dt>Jurisdiction</dt>
+        <dd>A country or other public authority whose public quantum funding is tracked. There are 36, with the EU treated as a separate supranational jurisdiction.</dd>
+        <dt>Listed company</dt>
+        <dd>A tracked quantum company whose shares trade on a stock exchange. The market capitalisation and stock exchange figures cover these companies (Companies, Figures 6 and 7).</dd>
+        <dt>Market capitalisation</dt>
+        <dd>The value of a listed company's shares at the date shown on the figure (Companies, Figure 6).</dd>
+        <dt>Market Orientation</dt>
+        <dd>One of the three dimensions on which clusters are ranked: commercialisation. See Overall rank.</dd>
         <dt>Median</dt>
         <dd>The middle value of the countries shown: half have more, half have less. The two lines in Countries, Figure 6 mark the median for each axis.</dd>
+        <dt>Nominal US dollars</dt>
+        <dd>Dollar values in the year they were recorded, not adjusted for inflation or purchasing power. Amounts in other currencies are converted at the average annual exchange rate for the year, with the 2026 year-to-date average used for 2026.</dd>
+        <dt>Origin</dt>
+        <dd>How a company came into being: as a university, research or corporate spinout, a hybrid spinout, a joint venture, a merger, a subsidiary, or founded independently (Companies, Figure 4).</dd>
+        <dt>Overall rank</dt>
+        <dd>A cluster's average ranking across Market Orientation, Collaboration Intensity and Ecosystem Maturity. Clusters with the same score share a rank, and 1 is the highest-ranked cluster (Clusters, Figure 1).</dd>
+        <dt>Pillar</dt>
+        <dd>The technology domain of a company: Quantum Computing and Simulation, Quantum Communication and Networking, Quantum Sensing and Metrology, Enabling Technologies, or Quantum-Safe Security / PQC. Each company has one primary pillar. Pillars record the quantum function, not the market served.</dd>
+        <dt>PQC (post-quantum cryptography)</dt>
+        <dd>Encryption designed to resist attack by quantum computers.</dd>
+        <dt>Quantum company</dt>
+        <dd>A company whose core products, services, components or R&amp;D materially develop, commercialise, integrate or enable technologies that exploit quantum physics to achieve functions or performance not attainable with classical technologies. The test is the quantum function, not the underlying physics. See What counts as a quantum company.</dd>
+        <dt>Quasi-cluster</dt>
+        <dd>A place with real quantum activity that has not yet cleared the funding or institutional-density bar for full cluster status.</dd>
         <dt>RCA (revealed comparative advantage)</dt>
         <dd>A country's share of its international collaborations that involve its companies in a given industry sector (ICB3), divided by that sector's share of all such collaborations worldwide. Above 1.0 means the sector plays a bigger part in the country's collaborations than the world average; below 1.0, a smaller one. A sector is recorded for most but not all of these collaborations, and countries with too few sector-tagged collaborations are not scored (Countries, Figure 7). Method: ECIPE Occasional Paper 08/2025.</dd>
         <dt>Round type</dt>
@@ -428,7 +448,11 @@
         <dt>Specialisation index</dt>
         <dd>A country's share of companies in one stack layer divided by that layer's share of all tracked companies. Above 1.0 means proportionally more companies in the layer than the world; below 1.0, fewer (Countries, Figure 7).</dd>
         <dt>Spinout</dt>
-        <dd>A company that originated from a university, research organisation or corporation.</dd>
+        <dd>A company that originated from a university, research organisation or corporation, usually to commercialise research or technology developed there. Joint ventures, mergers and subsidiaries are classified separately and are not counted as spinouts.</dd>
+        <dt>Stack layer</dt>
+        <dd>A company's position in the value chain: Materials &amp; Fabrication, Components &amp; Control, Core Quantum Hardware, Software &amp; Platforms, Applications &amp; Services, or Full Stack. Each company has one layer.</dd>
+        <dt>Stream</dt>
+        <dd>A finer category within a stack layer naming what a company actually makes, such as Trapped Ion or Cryogenic Systems. Streams record what a company technically is, not the markets it serves.</dd>
       </dl>
         </div>
       </details>
@@ -480,9 +504,6 @@ h1{font-size:26px;}
 .about-section dt{font-size:15px;font-weight:650;margin-top:16px;color:var(--ink);}
 .about-section dt:first-child{margin-top:0;}
 .about-section dd{font-size:15px;line-height:1.65;margin:2px 0 0;color:var(--ink);}
-.about-jump{display:flex;flex-wrap:wrap;gap:8px;margin-top:20px;}
-.about-jump a{display:inline-flex;align-items:center;min-height:40px;padding:0 18px;border:1px solid var(--pill);border-radius:999px;font-size:15px;font-weight:600;text-decoration:none;}
-.about-jump a:hover{background:var(--pill);color:#fff;}
 @media (max-width:600px){.about-more-body{padding-left:16px;}}
 @media (prefers-reduced-motion:reduce){.about-more summary::before{transition:none;}}
 </style>
@@ -493,7 +514,6 @@ h1{font-size:26px;}
 
   QT.nav("#nav", "about");
   const manifest = await QT.loadData("manifest");
-  QT.vintage("#vintage", manifest);
   // APA 7: the tracker is updated quarterly, so the citation carries a version and a retrieval date.
   d3.select("#cite-year").text(String(manifest.data_vintage).slice(0, 4));
   d3.select("#cite-version").text(manifest.data_vintage);

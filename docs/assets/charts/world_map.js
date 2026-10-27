@@ -75,13 +75,14 @@
      "Government" is the public-investment workbook alone
      (docs/data/government_funding.json, built by src/build_government_funding.py) – never
      summed with any company-side figure. Per BACKLOG.md AP-36 (Elena, 2026-09-08) and
-     reaffirmed AP-57 (Elena, 2026-09-16): a government grant into a funding round counts
-     once, as company funding, never a second time as government funding. AP-53's
+     reaffirmed AP-57 (Elena, 2026-09-16): the two measures are never added together. (Corrected
+     2026-10-27: they DO overlap, because government funding includes grants and public equity that
+     reach companies and are also recorded in company funding rounds; that is why there is no sum.) AP-53's
      2026-09-09 combined measure (QT.combinedGovByCountry summing this register with
      company-round Grant/Public-equity money) was a mistake and has been reverted. The
      caller (Overview/Countries) passes the government-only map in as opts.government, so
      this file just renders whatever number it is given – Company and Government are two
-     independent measures with no overlap. */
+     separate measures that overlap in part, and are not summed. */
   const METRICS = {
     company_funding: {
       title: "Company funding by country", label: "Company funding",
