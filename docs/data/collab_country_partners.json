@@ -30,7 +30,7 @@
       {
         "country": "Algeria",
         "partners": 34,
-        "partners_industry": 2,
+        "partners_industry": 3,
         "connectedness": 0.25,
         "top_partners": [
           {
@@ -222,7 +222,7 @@
       {
         "country": "Belgium",
         "partners": 49,
-        "partners_industry": 17,
+        "partners_industry": 15,
         "connectedness": 0.3603,
         "top_partners": [
           {
@@ -343,7 +343,7 @@
         "top_partners": [
           {
             "country": "US",
-            "collaborations": 241
+            "collaborations": 238
           },
           {
             "country": "Germany",
@@ -459,11 +459,11 @@
         "top_partners": [
           {
             "country": "US",
-            "collaborations": 874
+            "collaborations": 871
           },
           {
             "country": "China",
-            "collaborations": 374
+            "collaborations": 372
           },
           {
             "country": "Germany",
@@ -511,15 +511,15 @@
         "top_partners": [
           {
             "country": "US",
-            "collaborations": 2952
+            "collaborations": 2939
           },
           {
             "country": "Germany",
-            "collaborations": 951
+            "collaborations": 950
           },
           {
             "country": "Japan",
-            "collaborations": 685
+            "collaborations": 681
           }
         ]
       },
@@ -639,7 +639,7 @@
           },
           {
             "country": "India",
-            "collaborations": 58
+            "collaborations": 57
           }
         ]
       },
@@ -810,16 +810,16 @@
       {
         "country": "France",
         "partners": 82,
-        "partners_industry": 30,
+        "partners_industry": 29,
         "connectedness": 0.6029,
         "top_partners": [
           {
             "country": "US",
-            "collaborations": 662
+            "collaborations": 661
           },
           {
             "country": "Germany",
-            "collaborations": 492
+            "collaborations": 489
           },
           {
             "country": "Italy",
@@ -887,15 +887,15 @@
         "top_partners": [
           {
             "country": "US",
-            "collaborations": 1707
+            "collaborations": 1700
           },
           {
             "country": "China",
-            "collaborations": 951
+            "collaborations": 950
           },
           {
             "country": "UK",
-            "collaborations": 590
+            "collaborations": 593
           }
         ]
       },
@@ -921,9 +921,9 @@
       },
       {
         "country": "Greece",
-        "partners": 51,
-        "partners_industry": 12,
-        "connectedness": 0.375,
+        "partners": 50,
+        "partners_industry": 11,
+        "connectedness": 0.3676,
         "top_partners": [
           {
             "country": "US",
@@ -975,7 +975,7 @@
         "top_partners": [
           {
             "country": "Germany",
-            "collaborations": 75
+            "collaborations": 77
           },
           {
             "country": "US",
@@ -1015,7 +1015,7 @@
         "top_partners": [
           {
             "country": "US",
-            "collaborations": 600
+            "collaborations": 598
           },
           {
             "country": "Germany",
@@ -1110,20 +1110,20 @@
       {
         "country": "Israel",
         "partners": 51,
-        "partners_industry": 24,
+        "partners_industry": 23,
         "connectedness": 0.375,
         "top_partners": [
           {
             "country": "US",
-            "collaborations": 341
-          },
-          {
-            "country": "China",
-            "collaborations": 164
+            "collaborations": 334
           },
           {
             "country": "Germany",
-            "collaborations": 145
+            "collaborations": 143
+          },
+          {
+            "country": "China",
+            "collaborations": 142
           }
         ]
       },
@@ -1166,16 +1166,16 @@
       {
         "country": "Japan",
         "partners": 75,
-        "partners_industry": 33,
+        "partners_industry": 34,
         "connectedness": 0.5515,
         "top_partners": [
           {
             "country": "US",
-            "collaborations": 864
+            "collaborations": 849
           },
           {
             "country": "China",
-            "collaborations": 685
+            "collaborations": 681
           },
           {
             "country": "Germany",
@@ -1671,7 +1671,7 @@
         "top_partners": [
           {
             "country": "US",
-            "collaborations": 324
+            "collaborations": 323
           },
           {
             "country": "Germany",
@@ -1738,7 +1738,7 @@
       {
         "country": "Norway",
         "partners": 39,
-        "partners_industry": 9,
+        "partners_industry": 8,
         "connectedness": 0.2868,
         "top_partners": [
           {
@@ -1899,11 +1899,11 @@
         "top_partners": [
           {
             "country": "Germany",
-            "collaborations": 247
+            "collaborations": 248
           },
           {
             "country": "US",
-            "collaborations": 228
+            "collaborations": 227
           },
           {
             "country": "China",
@@ -1914,7 +1914,7 @@
       {
         "country": "Portugal",
         "partners": 49,
-        "partners_industry": 11,
+        "partners_industry": 10,
         "connectedness": 0.3603,
         "top_partners": [
           {
@@ -1967,19 +1967,19 @@
           },
           {
             "country": "Germany",
-            "collaborations": 14
+            "collaborations": 15
           }
         ]
       },
       {
         "country": "Russia",
         "partners": 80,
-        "partners_industry": 19,
+        "partners_industry": 17,
         "connectedness": 0.5882,
         "top_partners": [
           {
             "country": "China",
-            "collaborations": 292
+            "collaborations": 291
           },
           {
             "country": "US",
@@ -2070,7 +2070,7 @@
       {
         "country": "Singapore",
         "partners": 55,
-        "partners_industry": 23,
+        "partners_industry": 21,
         "connectedness": 0.4044,
         "top_partners": [
           {
@@ -2109,9 +2109,9 @@
       },
       {
         "country": "Slovenia",
-        "partners": 39,
-        "partners_industry": 5,
-        "connectedness": 0.2868,
+        "partners": 38,
+        "partners_industry": 4,
+        "connectedness": 0.2794,
         "top_partners": [
           {
             "country": "US",
@@ -2130,7 +2130,7 @@
       {
         "country": "South Africa",
         "partners": 46,
-        "partners_industry": 3,
+        "partners_industry": 2,
         "connectedness": 0.3382,
         "top_partners": [
           {
@@ -2155,7 +2155,7 @@
         "top_partners": [
           {
             "country": "US",
-            "collaborations": 483
+            "collaborations": 488
           },
           {
             "country": "China",
@@ -2175,7 +2175,7 @@
         "top_partners": [
           {
             "country": "US",
-            "collaborations": 503
+            "collaborations": 500
           },
           {
             "country": "Germany",
@@ -2230,32 +2230,32 @@
       {
         "country": "Sweden",
         "partners": 61,
-        "partners_industry": 24,
+        "partners_industry": 20,
         "connectedness": 0.4485,
         "top_partners": [
           {
             "country": "US",
-            "collaborations": 176
+            "collaborations": 174
           },
           {
             "country": "Germany",
-            "collaborations": 168
+            "collaborations": 166
           },
           {
             "country": "China",
-            "collaborations": 138
+            "collaborations": 127
           }
         ]
       },
       {
         "country": "Switzerland",
         "partners": 57,
-        "partners_industry": 28,
+        "partners_industry": 27,
         "connectedness": 0.4191,
         "top_partners": [
           {
             "country": "US",
-            "collaborations": 358
+            "collaborations": 357
           },
           {
             "country": "Germany",
@@ -2303,7 +2303,7 @@
           },
           {
             "country": "Japan",
-            "collaborations": 100
+            "collaborations": 101
           }
         ]
       },
@@ -2435,7 +2435,7 @@
         "top_partners": [
           {
             "country": "US",
-            "collaborations": 1092
+            "collaborations": 1087
           },
           {
             "country": "China",
@@ -2443,7 +2443,7 @@
           },
           {
             "country": "Germany",
-            "collaborations": 590
+            "collaborations": 593
           }
         ]
       },
@@ -2455,15 +2455,15 @@
         "top_partners": [
           {
             "country": "China",
-            "collaborations": 2952
+            "collaborations": 2939
           },
           {
             "country": "Germany",
-            "collaborations": 1707
+            "collaborations": 1700
           },
           {
             "country": "UK",
-            "collaborations": 1092
+            "collaborations": 1087
           }
         ]
       },

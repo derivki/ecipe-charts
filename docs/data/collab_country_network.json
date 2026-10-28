@@ -73,7 +73,7 @@
       "Egypt": 0.01471,
       "Finland": 0.0,
       "France": 0.12135,
-      "Germany": 0.17157,
+      "Germany": 0.17179,
       "Greece": 0.0,
       "Hungary": 0.0,
       "India": 0.11253,
@@ -103,7 +103,7 @@
       "Turkey": 0.00011,
       "UAE": 0.0,
       "UK": 0.0,
-      "US": 0.76547,
+      "US": 0.76525,
       "Ukraine": 0.0,
       "Vietnam": 0.0
     },
@@ -115,7 +115,7 @@
       "Brazil": 0.0,
       "Canada": 0.02469,
       "Chile": 0.0,
-      "China": 0.04985,
+      "China": 0.04954,
       "Colombia": 0.0,
       "Czech Republic": 0.0,
       "Denmark": 0.0,
@@ -130,7 +130,7 @@
       "Ireland": 0.0,
       "Israel": 0.0,
       "Italy": 0.0,
-      "Japan": 0.02284,
+      "Japan": 0.02315,
       "Malaysia": 0.0,
       "Mexico": 0.0,
       "Netherlands": 0.0,
@@ -151,8 +151,8 @@
       "Taiwan": 0.0,
       "Turkey": 0.0,
       "UAE": 0.02469,
-      "UK": 0.14198,
-      "US": 0.95355,
+      "UK": 0.14136,
+      "US": 0.95694,
       "Ukraine": 0.0,
       "Vietnam": 0.0
     },
@@ -160,234 +160,234 @@
       {
         "a": "China",
         "b": "US",
-        "collaborations": 2952,
-        "industry": 188,
-        "rca": 1.774,
-        "rca_industry": 1.43
+        "collaborations": 2939,
+        "industry": 175,
+        "rca": 1.777,
+        "rca_industry": 1.473
       },
       {
         "a": "Germany",
         "b": "US",
-        "collaborations": 1707,
-        "industry": 182,
-        "rca": 1.232,
-        "rca_industry": 1.171
+        "collaborations": 1700,
+        "industry": 174,
+        "rca": 1.229,
+        "rca_industry": 1.138
       },
       {
         "a": "UK",
         "b": "US",
-        "collaborations": 1092,
-        "industry": 310,
-        "rca": 1.286,
-        "rca_industry": 1.516
+        "collaborations": 1087,
+        "industry": 305,
+        "rca": 1.284,
+        "rca_industry": 1.505
       },
       {
         "a": "China",
         "b": "Germany",
-        "collaborations": 951,
-        "industry": 20,
-        "rca": 0.943,
-        "rca_industry": 0.543
+        "collaborations": 950,
+        "industry": 19,
+        "rca": 0.945,
+        "rca_industry": 0.564
       },
       {
         "a": "Canada",
         "b": "US",
-        "collaborations": 874,
-        "industry": 202,
+        "collaborations": 871,
+        "industry": 199,
         "rca": 1.929,
-        "rca_industry": 1.77
+        "rca_industry": 1.762
       },
       {
         "a": "Japan",
         "b": "US",
-        "collaborations": 864,
-        "industry": 224,
-        "rca": 1.446,
-        "rca_industry": 1.828
+        "collaborations": 849,
+        "industry": 209,
+        "rca": 1.431,
+        "rca_industry": 1.764
       },
       {
         "a": "China",
         "b": "Japan",
-        "collaborations": 685,
+        "collaborations": 681,
         "industry": 28,
-        "rca": 1.577,
-        "rca_industry": 0.964
+        "rca": 1.58,
+        "rca_industry": 1.072
       },
       {
         "a": "France",
         "b": "US",
-        "collaborations": 662,
-        "industry": 73,
+        "collaborations": 661,
+        "industry": 72,
         "rca": 1.005,
-        "rca_industry": 0.862
+        "rca_industry": 0.864
       },
       {
         "a": "China",
         "b": "UK",
         "collaborations": 632,
         "industry": 48,
-        "rca": 1.024,
-        "rca_industry": 0.989
+        "rca": 1.028,
+        "rca_industry": 1.075
       },
       {
         "a": "Italy",
         "b": "US",
         "collaborations": 618,
         "industry": 79,
-        "rca": 0.924,
-        "rca_industry": 1.669
+        "rca": 0.926,
+        "rca_industry": 1.678
       },
       {
         "a": "India",
         "b": "US",
-        "collaborations": 600,
-        "industry": 56,
-        "rca": 1.123,
-        "rca_industry": 1.348
+        "collaborations": 598,
+        "industry": 52,
+        "rca": 1.122,
+        "rca_industry": 1.319
       },
       {
         "a": "Germany",
         "b": "UK",
-        "collaborations": 590,
-        "industry": 61,
-        "rca": 1.148,
-        "rca_industry": 1.064
+        "collaborations": 593,
+        "industry": 64,
+        "rca": 1.153,
+        "rca_industry": 1.114
       },
       {
         "a": "Germany",
         "b": "Italy",
         "collaborations": 560,
         "industry": 14,
-        "rca": 1.383,
-        "rca_industry": 1.055
+        "rca": 1.382,
+        "rca_industry": 1.048
       },
       {
         "a": "Australia",
         "b": "China",
         "collaborations": 548,
         "industry": 12,
-        "rca": 2.125,
-        "rca_industry": 0.829
+        "rca": 2.13,
+        "rca_industry": 0.88
       },
       {
         "a": "China",
         "b": "Singapore",
         "collaborations": 517,
         "industry": 11,
-        "rca": 2.991,
-        "rca_industry": 1.604
+        "rca": 3.013,
+        "rca_industry": 1.815
       },
       {
         "a": "Spain",
         "b": "US",
-        "collaborations": 503,
-        "industry": 55,
-        "rca": 0.918,
-        "rca_industry": 1.016
+        "collaborations": 500,
+        "industry": 52,
+        "rca": 0.914,
+        "rca_industry": 0.978
       },
       {
         "a": "France",
         "b": "Germany",
-        "collaborations": 492,
-        "industry": 32,
-        "rca": 1.233,
-        "rca_industry": 1.348
+        "collaborations": 489,
+        "industry": 29,
+        "rca": 1.224,
+        "rca_industry": 1.227
       },
       {
         "a": "South Korea",
         "b": "US",
-        "collaborations": 483,
-        "industry": 74,
-        "rca": 1.861,
-        "rca_industry": 1.902
+        "collaborations": 488,
+        "industry": 73,
+        "rca": 1.878,
+        "rca_industry": 1.89
       },
       {
         "a": "Australia",
         "b": "US",
         "collaborations": 448,
         "industry": 101,
-        "rca": 1.264,
-        "rca_industry": 1.656
+        "rca": 1.265,
+        "rca_industry": 1.632
       },
       {
         "a": "Germany",
         "b": "Spain",
         "collaborations": 445,
-        "industry": 33,
-        "rca": 1.341,
-        "rca_industry": 2.173
+        "industry": 32,
+        "rca": 1.339,
+        "rca_industry": 2.122
       },
       {
         "a": "Canada",
         "b": "China",
-        "collaborations": 374,
-        "industry": 21,
-        "rca": 1.135,
-        "rca_industry": 0.776
+        "collaborations": 372,
+        "industry": 19,
+        "rca": 1.134,
+        "rca_industry": 0.763
       },
       {
         "a": "Italy",
         "b": "UK",
         "collaborations": 370,
         "industry": 9,
-        "rca": 1.491,
-        "rca_industry": 0.515
+        "rca": 1.492,
+        "rca_industry": 0.509
       },
       {
         "a": "Switzerland",
         "b": "US",
-        "collaborations": 358,
-        "industry": 73,
+        "collaborations": 357,
+        "industry": 72,
         "rca": 1.17,
-        "rca_industry": 1.187
+        "rca_industry": 1.178
       },
       {
         "a": "Austria",
         "b": "Germany",
         "collaborations": 350,
         "industry": 38,
-        "rca": 2.202,
-        "rca_industry": 3.58
+        "rca": 2.199,
+        "rca_industry": 3.542
       },
       {
         "a": "Israel",
         "b": "US",
-        "collaborations": 341,
-        "industry": 61,
-        "rca": 1.704,
-        "rca_industry": 1.333
+        "collaborations": 334,
+        "industry": 54,
+        "rca": 1.729,
+        "rca_industry": 1.582
       },
       {
         "a": "France",
         "b": "Italy",
         "collaborations": 332,
         "industry": 13,
-        "rca": 1.725,
-        "rca_industry": 1.798
+        "rca": 1.722,
+        "rca_industry": 1.786
       },
       {
         "a": "Netherlands",
         "b": "US",
-        "collaborations": 324,
-        "industry": 66,
-        "rca": 1.142,
-        "rca_industry": 1.249
+        "collaborations": 323,
+        "industry": 65,
+        "rca": 1.146,
+        "rca_industry": 1.241
       },
       {
         "a": "Germany",
         "b": "Japan",
         "collaborations": 321,
         "industry": 15,
-        "rca": 0.887,
-        "rca_industry": 0.437
+        "rca": 0.891,
+        "rca_industry": 0.446
       },
       {
         "a": "France",
         "b": "UK",
         "collaborations": 314,
         "industry": 37,
-        "rca": 1.285,
-        "rca_industry": 1.184
+        "rca": 1.284,
+        "rca_industry": 1.181
       },
       {
         "a": "Germany",
@@ -395,79 +395,79 @@
         "collaborations": 312,
         "industry": 10,
         "rca": 0.964,
-        "rca_industry": 0.859
+        "rca_industry": 0.895
+      },
+      {
+        "a": "China",
+        "b": "France",
+        "collaborations": 305,
+        "industry": 12,
+        "rca": 0.638,
+        "rca_industry": 0.654
       },
       {
         "a": "China",
         "b": "Italy",
         "collaborations": 304,
         "industry": 3,
-        "rca": 0.625,
-        "rca_industry": 0.267
-      },
-      {
-        "a": "China",
-        "b": "France",
-        "collaborations": 302,
-        "industry": 12,
-        "rca": 0.63,
-        "rca_industry": 0.598
+        "rca": 0.627,
+        "rca_industry": 0.289
       },
       {
         "a": "China",
         "b": "Spain",
         "collaborations": 294,
         "industry": 12,
-        "rca": 0.738,
-        "rca_industry": 0.934
-      },
-      {
-        "a": "China",
-        "b": "Russia",
-        "collaborations": 292,
-        "industry": 11,
-        "rca": 1.125,
-        "rca_industry": 2.051
+        "rca": 0.74,
+        "rca_industry": 1.024
       },
       {
         "a": "Germany",
         "b": "Netherlands",
         "collaborations": 292,
         "industry": 33,
-        "rca": 1.699,
-        "rca_industry": 2.227
+        "rca": 1.705,
+        "rca_industry": 2.221
+      },
+      {
+        "a": "China",
+        "b": "Russia",
+        "collaborations": 291,
+        "industry": 10,
+        "rca": 1.126,
+        "rca_industry": 2.118
       },
       {
         "a": "Russia",
         "b": "US",
         "collaborations": 287,
         "industry": 23,
-        "rca": 0.804,
-        "rca_industry": 1.017
+        "rca": 0.807,
+        "rca_industry": 1.073
       },
       {
         "a": "Italy",
         "b": "Spain",
         "collaborations": 283,
         "industry": 4,
-        "rca": 1.767,
-        "rca_industry": 0.865
+        "rca": 1.766,
+        "rca_industry": 0.861
       },
       {
         "a": "Germany",
         "b": "Switzerland",
         "collaborations": 281,
         "industry": 27,
-        "rca": 1.517,
-        "rca_industry": 1.565
+        "rca": 1.516,
+        "rca_industry": 1.558
       },
       {
         "a": "China",
         "b": "India",
         "collaborations": 269,
         "industry": 4,
-        "rca": 0.692,
-        "rca_industry": 0.406
+        "rca": 0.695,
+        "rca_industry": 0.461
       },
       {
         "a": "Germany",
@@ -475,71 +475,71 @@
         "collaborations": 268,
         "industry": 7,
         "rca": 1.24,
-        "rca_industry": 1.104
+        "rca_industry": 1.152
       },
       {
         "a": "Germany",
         "b": "Poland",
-        "collaborations": 247,
-        "industry": 6,
-        "rca": 1.377,
-        "rca_industry": 1.357
+        "collaborations": 248,
+        "industry": 7,
+        "rca": 1.38,
+        "rca_industry": 1.555
       },
       {
         "a": "Brazil",
         "b": "US",
-        "collaborations": 241,
-        "industry": 15,
-        "rca": 1.059,
-        "rca_industry": 2.194
+        "collaborations": 238,
+        "industry": 12,
+        "rca": 1.049,
+        "rca_industry": 1.972
       },
       {
         "a": "Austria",
         "b": "US",
         "collaborations": 229,
         "industry": 32,
-        "rca": 0.873,
-        "rca_industry": 0.845
+        "rca": 0.874,
+        "rca_industry": 0.846
       },
       {
         "a": "Taiwan",
         "b": "US",
         "collaborations": 229,
         "industry": 22,
-        "rca": 1.343,
-        "rca_industry": 1.116
+        "rca": 1.341,
+        "rca_industry": 1.109
       },
       {
         "a": "Poland",
         "b": "US",
-        "collaborations": 228,
-        "industry": 19,
-        "rca": 0.77,
-        "rca_industry": 1.204
+        "collaborations": 227,
+        "industry": 18,
+        "rca": 0.767,
+        "rca_industry": 1.134
       },
       {
         "a": "Canada",
         "b": "Germany",
         "collaborations": 219,
         "industry": 24,
-        "rca": 0.798,
-        "rca_industry": 0.75
+        "rca": 0.799,
+        "rca_industry": 0.749
       },
       {
         "a": "France",
         "b": "Spain",
         "collaborations": 217,
         "industry": 10,
-        "rca": 1.376,
-        "rca_industry": 1.209
+        "rca": 1.373,
+        "rca_industry": 1.217
       },
       {
         "a": "Singapore",
         "b": "US",
         "collaborations": 213,
         "industry": 35,
-        "rca": 0.896,
-        "rca_industry": 1.21
+        "rca": 0.902,
+        "rca_industry": 1.272
       },
       {
         "a": "Spain",
@@ -554,31 +554,31 @@
         "b": "Taiwan",
         "collaborations": 204,
         "industry": 13,
-        "rca": 1.645,
-        "rca_industry": 2.78
+        "rca": 1.644,
+        "rca_industry": 2.974
       },
       {
         "a": "Australia",
         "b": "Germany",
         "collaborations": 195,
         "industry": 6,
-        "rca": 0.908,
-        "rca_industry": 0.351
+        "rca": 0.906,
+        "rca_industry": 0.342
       },
       {
         "a": "Japan",
         "b": "UK",
         "collaborations": 193,
         "industry": 45,
-        "rca": 0.871,
-        "rca_industry": 0.995
+        "rca": 0.875,
+        "rca_industry": 1.01
       },
       {
         "a": "China",
         "b": "Switzerland",
         "collaborations": 183,
         "industry": 2,
-        "rca": 0.822,
+        "rca": 0.825,
         "rca_industry": null
       },
       {
@@ -586,8 +586,8 @@
         "b": "UK",
         "collaborations": 183,
         "industry": 14,
-        "rca": 0.923,
-        "rca_industry": 0.913
+        "rca": 0.924,
+        "rca_industry": 0.945
       },
       {
         "a": "China",
@@ -595,46 +595,46 @@
         "collaborations": 182,
         "industry": 5,
         "rca": 0.964,
-        "rca_industry": 0.542
+        "rca_industry": 0.588
       },
       {
         "a": "Denmark",
         "b": "US",
         "collaborations": 182,
         "industry": 18,
-        "rca": 1.112,
-        "rca_industry": 1.022
+        "rca": 1.116,
+        "rca_industry": 1.063
       },
       {
         "a": "India",
         "b": "Japan",
-        "collaborations": 178,
+        "collaborations": 179,
         "industry": 4,
-        "rca": 1.276,
-        "rca_industry": 0.436
+        "rca": 1.289,
+        "rca_industry": 0.462
       },
       {
         "a": "Sweden",
         "b": "US",
-        "collaborations": 176,
-        "industry": 18,
-        "rca": 0.86,
-        "rca_industry": 0.64
+        "collaborations": 174,
+        "industry": 16,
+        "rca": 0.873,
+        "rca_industry": 0.829
       },
       {
         "a": "Canada",
         "b": "UK",
-        "collaborations": 173,
-        "industry": 34,
-        "rca": 1.029,
-        "rca_industry": 0.807
+        "collaborations": 172,
+        "industry": 33,
+        "rca": 1.025,
+        "rca_industry": 0.777
       },
       {
         "a": "China",
         "b": "Pakistan",
         "collaborations": 171,
         "industry": 1,
-        "rca": 2.491,
+        "rca": 2.497,
         "rca_industry": null
       },
       {
@@ -642,24 +642,16 @@
         "b": "UK",
         "collaborations": 170,
         "industry": 30,
-        "rca": 1.293,
-        "rca_industry": 1.333
+        "rca": 1.292,
+        "rca_industry": 1.289
       },
       {
         "a": "China",
         "b": "Poland",
         "collaborations": 168,
         "industry": 4,
-        "rca": 0.78,
-        "rca_industry": 1.069
-      },
-      {
-        "a": "Germany",
-        "b": "Sweden",
-        "collaborations": 168,
-        "industry": 8,
-        "rca": 1.355,
-        "rca_industry": 1.014
+        "rca": 0.782,
+        "rca_industry": 1.144
       },
       {
         "a": "India",
@@ -667,79 +659,79 @@
         "collaborations": 168,
         "industry": 4,
         "rca": 1.076,
-        "rca_industry": 1.128
+        "rca_industry": 1.162
       },
       {
-        "a": "China",
-        "b": "Israel",
-        "collaborations": 164,
-        "industry": 28,
-        "rca": 1.127,
-        "rca_industry": 2.581
+        "a": "Germany",
+        "b": "Sweden",
+        "collaborations": 166,
+        "industry": 6,
+        "rca": 1.37,
+        "rca_industry": 1.096
       },
       {
         "a": "Italy",
         "b": "Switzerland",
         "collaborations": 150,
         "industry": 12,
-        "rca": 1.678,
-        "rca_industry": 2.284
+        "rca": 1.677,
+        "rca_industry": 2.248
       },
       {
         "a": "France",
         "b": "Switzerland",
         "collaborations": 147,
         "industry": 13,
-        "rca": 1.669,
-        "rca_industry": 1.383
-      },
-      {
-        "a": "Germany",
-        "b": "Israel",
-        "collaborations": 145,
-        "industry": 16,
-        "rca": 1.197,
-        "rca_industry": 1.248
+        "rca": 1.667,
+        "rca_industry": 1.376
       },
       {
         "a": "Germany",
         "b": "South Korea",
         "collaborations": 145,
         "industry": 6,
-        "rca": 0.922,
-        "rca_industry": 0.55
+        "rca": 0.918,
+        "rca_industry": 0.548
+      },
+      {
+        "a": "Germany",
+        "b": "Israel",
+        "collaborations": 143,
+        "industry": 14,
+        "rca": 1.219,
+        "rca_industry": 1.447
+      },
+      {
+        "a": "China",
+        "b": "Israel",
+        "collaborations": 142,
+        "industry": 6,
+        "rca": 1.012,
+        "rca_industry": 0.798
       },
       {
         "a": "France",
         "b": "Japan",
         "collaborations": 140,
         "industry": 9,
-        "rca": 0.814,
-        "rca_industry": 0.481
-      },
-      {
-        "a": "China",
-        "b": "Sweden",
-        "collaborations": 138,
-        "industry": 17,
-        "rca": 0.927,
-        "rca_industry": 2.548
+        "rca": 0.817,
+        "rca_industry": 0.491
       },
       {
         "a": "Netherlands",
         "b": "UK",
         "collaborations": 136,
         "industry": 23,
-        "rca": 1.292,
-        "rca_industry": 1.179
+        "rca": 1.298,
+        "rca_industry": 1.168
       },
       {
         "a": "France",
         "b": "India",
         "collaborations": 134,
         "industry": 7,
-        "rca": 0.871,
-        "rca_industry": 1.103
+        "rca": 0.87,
+        "rca_industry": 1.149
       },
       {
         "a": "Brazil",
@@ -754,8 +746,8 @@
         "b": "US",
         "collaborations": 133,
         "industry": 38,
-        "rca": 0.931,
-        "rca_industry": 0.927
+        "rca": 0.929,
+        "rca_industry": 0.921
       },
       {
         "a": "France",
@@ -768,34 +760,34 @@
       {
         "a": "Italy",
         "b": "Japan",
-        "collaborations": 132,
+        "collaborations": 130,
         "industry": 12,
-        "rca": 0.756,
-        "rca_industry": 1.147
+        "rca": 0.748,
+        "rca_industry": 1.159
+      },
+      {
+        "a": "China",
+        "b": "Sweden",
+        "collaborations": 127,
+        "industry": 6,
+        "rca": 0.877,
+        "rca_industry": 1.41
       },
       {
         "a": "Switzerland",
         "b": "UK",
-        "collaborations": 127,
-        "industry": 26,
-        "rca": 1.119,
-        "rca_industry": 1.145
+        "collaborations": 126,
+        "industry": 25,
+        "rca": 1.111,
+        "rca_industry": 1.088
       },
       {
         "a": "Russia",
         "b": "UK",
-        "collaborations": 123,
-        "industry": 2,
-        "rca": 0.929,
-        "rca_industry": null
-      },
-      {
-        "a": "China",
-        "b": "Netherlands",
         "collaborations": 122,
-        "industry": 3,
-        "rca": 0.591,
-        "rca_industry": 0.239
+        "industry": 1,
+        "rca": 0.923,
+        "rca_industry": null
       },
       {
         "a": "Canada",
@@ -803,38 +795,46 @@
         "collaborations": 121,
         "industry": 21,
         "rca": 0.928,
-        "rca_industry": 1.205
+        "rca_industry": 1.203
       },
       {
         "a": "China",
         "b": "Saudi Arabia",
         "collaborations": 120,
         "industry": 3,
-        "rca": 1.206,
-        "rca_industry": 2.092
+        "rca": 1.208,
+        "rca_industry": 2.238
+      },
+      {
+        "a": "China",
+        "b": "Netherlands",
+        "collaborations": 119,
+        "industry": 3,
+        "rca": 0.581,
+        "rca_industry": 0.26
       },
       {
         "a": "Japan",
         "b": "South Korea",
         "collaborations": 119,
         "industry": 3,
-        "rca": 1.756,
-        "rca_industry": 0.349
+        "rca": 1.758,
+        "rca_industry": 0.353
       },
       {
         "a": "China",
         "b": "Finland",
         "collaborations": 118,
         "industry": 14,
-        "rca": 1.136,
-        "rca_industry": 1.439
+        "rca": 1.135,
+        "rca_industry": 1.54
       },
       {
         "a": "Egypt",
         "b": "Saudi Arabia",
         "collaborations": 118,
         "industry": 0,
-        "rca": 28.156,
+        "rca": 28.075,
         "rca_industry": null
       },
       {
@@ -842,40 +842,40 @@
         "b": "UK",
         "collaborations": 118,
         "industry": 8,
-        "rca": 1.074,
-        "rca_industry": 1.374
-      },
-      {
-        "a": "India",
-        "b": "Israel",
-        "collaborations": 116,
-        "industry": 9,
-        "rca": 2.484,
-        "rca_industry": 2.625
-      },
-      {
-        "a": "Japan",
-        "b": "Russia",
-        "collaborations": 116,
-        "industry": 11,
-        "rca": 1.245,
-        "rca_industry": 2.201
+        "rca": 1.073,
+        "rca_industry": 1.341
       },
       {
         "a": "France",
         "b": "Netherlands",
-        "collaborations": 115,
+        "collaborations": 116,
         "industry": 13,
-        "rca": 1.408,
-        "rca_industry": 1.61
+        "rca": 1.424,
+        "rca_industry": 1.606
+      },
+      {
+        "a": "Japan",
+        "b": "Russia",
+        "collaborations": 115,
+        "industry": 11,
+        "rca": 1.241,
+        "rca_industry": 2.335
+      },
+      {
+        "a": "India",
+        "b": "Israel",
+        "collaborations": 113,
+        "industry": 6,
+        "rca": 2.499,
+        "rca_industry": 2.405
       },
       {
         "a": "Austria",
         "b": "Italy",
         "collaborations": 112,
         "industry": 4,
-        "rca": 1.46,
-        "rca_industry": 1.237
+        "rca": 1.459,
+        "rca_industry": 1.211
       },
       {
         "a": "Denmark",
@@ -883,46 +883,46 @@
         "collaborations": 112,
         "industry": 5,
         "rca": 1.13,
-        "rca_industry": 1.012
+        "rca_industry": 1.041
       },
       {
         "a": "Australia",
         "b": "Japan",
         "collaborations": 111,
         "industry": 11,
-        "rca": 1.199,
-        "rca_industry": 0.816
-      },
-      {
-        "a": "Canada",
-        "b": "India",
-        "collaborations": 110,
-        "industry": 4,
-        "rca": 1.04,
-        "rca_industry": 0.468
+        "rca": 1.203,
+        "rca_industry": 0.808
       },
       {
         "a": "Canada",
         "b": "Japan",
         "collaborations": 110,
         "industry": 23,
-        "rca": 0.93,
-        "rca_industry": 0.912
+        "rca": 0.935,
+        "rca_industry": 0.926
+      },
+      {
+        "a": "Canada",
+        "b": "India",
+        "collaborations": 109,
+        "industry": 3,
+        "rca": 1.031,
+        "rca_industry": 0.363
       },
       {
         "a": "India",
         "b": "Poland",
         "collaborations": 109,
         "industry": 3,
-        "rca": 1.577,
-        "rca_industry": 2.537
+        "rca": 1.574,
+        "rca_industry": 2.585
       },
       {
         "a": "Brazil",
         "b": "Italy",
         "collaborations": 106,
         "industry": 0,
-        "rca": 1.593,
+        "rca": 1.594,
         "rca_industry": null
       },
       {
@@ -930,16 +930,16 @@
         "b": "Spain",
         "collaborations": 105,
         "industry": 14,
-        "rca": 0.734,
-        "rca_industry": 1.169
+        "rca": 0.737,
+        "rca_industry": 1.198
       },
       {
         "a": "Australia",
         "b": "India",
         "collaborations": 104,
         "industry": 7,
-        "rca": 1.257,
-        "rca_industry": 1.531
+        "rca": 1.254,
+        "rca_industry": 1.547
       },
       {
         "a": "Austria",
@@ -954,7 +954,7 @@
         "b": "Spain",
         "collaborations": 104,
         "industry": 1,
-        "rca": 1.467,
+        "rca": 1.464,
         "rca_industry": null
       },
       {
@@ -962,23 +962,23 @@
         "b": "China",
         "collaborations": 102,
         "industry": 7,
-        "rca": 0.534,
-        "rca_industry": 0.78
+        "rca": 0.536,
+        "rca_industry": 0.84
       },
       {
         "a": "Japan",
         "b": "Taiwan",
-        "collaborations": 100,
+        "collaborations": 101,
         "industry": 4,
-        "rca": 2.246,
-        "rca_industry": 0.918
+        "rca": 2.27,
+        "rca_industry": 0.917
       },
       {
         "a": "India",
         "b": "Taiwan",
         "collaborations": 99,
         "industry": 0,
-        "rca": 2.487,
+        "rca": 2.476,
         "rca_industry": null
       },
       {
@@ -986,15 +986,15 @@
         "b": "US",
         "collaborations": 99,
         "industry": 6,
-        "rca": 1.218,
-        "rca_industry": 1.521
+        "rca": 1.22,
+        "rca_industry": 1.512
       },
       {
         "a": "Brazil",
         "b": "France",
         "collaborations": 98,
         "industry": 2,
-        "rca": 1.496,
+        "rca": 1.495,
         "rca_industry": null
       },
       {
@@ -1002,7 +1002,7 @@
         "b": "South Korea",
         "collaborations": 97,
         "industry": 1,
-        "rca": 1.601,
+        "rca": 1.594,
         "rca_industry": null
       },
       {
@@ -1010,7 +1010,7 @@
         "b": "Poland",
         "collaborations": 95,
         "industry": 0,
-        "rca": 1.098,
+        "rca": 1.096,
         "rca_industry": null
       },
       {
@@ -1018,79 +1018,79 @@
         "b": "Saudi Arabia",
         "collaborations": 95,
         "industry": 0,
-        "rca": 16.831,
+        "rca": 16.783,
         "rca_industry": null
-      },
-      {
-        "a": "Sweden",
-        "b": "UK",
-        "collaborations": 93,
-        "industry": 13,
-        "rca": 1.225,
-        "rca_industry": 1.252
       },
       {
         "a": "Belgium",
         "b": "Germany",
         "collaborations": 91,
         "industry": 2,
-        "rca": 1.312,
+        "rca": 1.32,
         "rca_industry": null
-      },
-      {
-        "a": "Austria",
-        "b": "Spain",
-        "collaborations": 90,
-        "industry": 7,
-        "rca": 1.432,
-        "rca_industry": 1.892
       },
       {
         "a": "Belgium",
         "b": "US",
         "collaborations": 90,
         "industry": 5,
-        "rca": 0.786,
-        "rca_industry": 0.488
+        "rca": 0.793,
+        "rca_industry": 0.573
+      },
+      {
+        "a": "Austria",
+        "b": "Spain",
+        "collaborations": 89,
+        "industry": 6,
+        "rca": 1.415,
+        "rca_industry": 1.608
       },
       {
         "a": "Czech Republic",
         "b": "Germany",
         "collaborations": 88,
         "industry": 3,
-        "rca": 1.348,
-        "rca_industry": 1.357
+        "rca": 1.351,
+        "rca_industry": 1.481
       },
       {
         "a": "Finland",
         "b": "Germany",
         "collaborations": 87,
         "industry": 17,
-        "rca": 1.006,
-        "rca_industry": 1.478
+        "rca": 1.001,
+        "rca_industry": 1.452
       },
       {
         "a": "France",
         "b": "Poland",
         "collaborations": 87,
         "industry": 2,
-        "rca": 1.021,
+        "rca": 1.018,
         "rca_industry": null
+      },
+      {
+        "a": "Sweden",
+        "b": "UK",
+        "collaborations": 87,
+        "industry": 7,
+        "rca": 1.174,
+        "rca_industry": 0.964
       },
       {
         "a": "Australia",
         "b": "France",
         "collaborations": 86,
         "industry": 20,
-        "rca": 0.843,
-        "rca_industry": 2.147
+        "rca": 0.841,
+        "rca_industry": 2.09
       },
       {
         "a": "Brazil",
         "b": "Spain",
         "collaborations": 86,
         "industry": 1,
-        "rca": 1.577,
+        "rca": 1.578,
         "rca_industry": null
       },
       {
@@ -1098,7 +1098,7 @@
         "b": "Spain",
         "collaborations": 85,
         "industry": 11,
-        "rca": 0.783,
+        "rca": 0.784,
         "rca_industry": 0.987
       },
       {
@@ -1106,7 +1106,7 @@
         "b": "Denmark",
         "collaborations": 85,
         "industry": 2,
-        "rca": 0.714,
+        "rca": 0.717,
         "rca_industry": null
       },
       {
@@ -1114,15 +1114,7 @@
         "b": "Portugal",
         "collaborations": 84,
         "industry": 1,
-        "rca": 1.453,
-        "rca_industry": null
-      },
-      {
-        "a": "Italy",
-        "b": "Netherlands",
-        "collaborations": 84,
-        "industry": 2,
-        "rca": 1.013,
+        "rca": 1.462,
         "rca_industry": null
       },
       {
@@ -1130,15 +1122,15 @@
         "b": "Spain",
         "collaborations": 84,
         "industry": 4,
-        "rca": 1.236,
-        "rca_industry": 0.775
+        "rca": 1.241,
+        "rca_industry": 0.774
       },
       {
         "a": "China",
         "b": "Iran",
         "collaborations": 83,
         "industry": 0,
-        "rca": 0.93,
+        "rca": 0.932,
         "rca_industry": null
       },
       {
@@ -1146,7 +1138,7 @@
         "b": "Saudi Arabia",
         "collaborations": 83,
         "industry": 0,
-        "rca": 2.598,
+        "rca": 2.593,
         "rca_industry": null
       },
       {
@@ -1154,23 +1146,39 @@
         "b": "Spain",
         "collaborations": 83,
         "industry": 0,
-        "rca": 0.971,
+        "rca": 0.972,
         "rca_industry": null
+      },
+      {
+        "a": "Australia",
+        "b": "Canada",
+        "collaborations": 82,
+        "industry": 12,
+        "rca": 1.168,
+        "rca_industry": 0.925
       },
       {
         "a": "Canada",
         "b": "Italy",
         "collaborations": 82,
         "industry": 7,
-        "rca": 0.619,
-        "rca_industry": 0.718
+        "rca": 0.62,
+        "rca_industry": 0.71
       },
       {
         "a": "Denmark",
         "b": "Italy",
         "collaborations": 82,
         "industry": 2,
-        "rca": 1.714,
+        "rca": 1.716,
+        "rca_industry": null
+      },
+      {
+        "a": "Italy",
+        "b": "Netherlands",
+        "collaborations": 82,
+        "industry": 2,
+        "rca": 0.993,
         "rca_industry": null
       },
       {
@@ -1182,35 +1190,27 @@
         "rca_industry": null
       },
       {
-        "a": "Australia",
-        "b": "Canada",
-        "collaborations": 80,
-        "industry": 10,
-        "rca": 1.14,
-        "rca_industry": 0.796
-      },
-      {
         "a": "France",
         "b": "Singapore",
         "collaborations": 80,
         "industry": 7,
-        "rca": 1.17,
-        "rca_industry": 1.585
+        "rca": 1.172,
+        "rca_industry": 1.646
       },
       {
         "a": "Denmark",
         "b": "UK",
         "collaborations": 78,
         "industry": 12,
-        "rca": 1.284,
-        "rca_industry": 1.846
+        "rca": 1.287,
+        "rca_industry": 1.886
       },
       {
         "a": "Germany",
         "b": "Singapore",
         "collaborations": 78,
         "industry": 2,
-        "rca": 0.542,
+        "rca": 0.544,
         "rca_industry": null
       },
       {
@@ -1234,7 +1234,7 @@
         "b": "France",
         "collaborations": 77,
         "industry": 0,
-        "rca": 2.336,
+        "rca": 2.349,
         "rca_industry": null
       },
       {
@@ -1242,7 +1242,15 @@
         "b": "China",
         "collaborations": 77,
         "industry": 0,
-        "rca": 0.465,
+        "rca": 0.467,
+        "rca_industry": null
+      },
+      {
+        "a": "Germany",
+        "b": "Hungary",
+        "collaborations": 77,
+        "industry": 0,
+        "rca": 1.826,
         "rca_industry": null
       },
       {
@@ -1250,8 +1258,8 @@
         "b": "Taiwan",
         "collaborations": 77,
         "industry": 3,
-        "rca": 0.745,
-        "rca_industry": 0.543
+        "rca": 0.742,
+        "rca_industry": 0.533
       },
       {
         "a": "Spain",
@@ -1259,46 +1267,38 @@
         "collaborations": 77,
         "industry": 5,
         "rca": 1.051,
-        "rca_industry": 0.832
+        "rca_industry": 0.83
       },
       {
         "a": "Turkey",
         "b": "US",
         "collaborations": 77,
         "industry": 6,
-        "rca": 1.085,
-        "rca_industry": 1.902
+        "rca": 1.086,
+        "rca_industry": 1.89
       },
       {
         "a": "Japan",
         "b": "Netherlands",
         "collaborations": 76,
         "industry": 9,
-        "rca": 1.026,
-        "rca_industry": 0.77
-      },
-      {
-        "a": "Germany",
-        "b": "Hungary",
-        "collaborations": 75,
-        "industry": 0,
-        "rca": 1.794,
-        "rca_industry": null
+        "rca": 1.035,
+        "rca_industry": 0.782
       },
       {
         "a": "South Korea",
         "b": "UK",
         "collaborations": 75,
         "industry": 5,
-        "rca": 0.779,
-        "rca_industry": 0.348
+        "rca": 0.777,
+        "rca_industry": 0.344
       },
       {
         "a": "India",
         "b": "Singapore",
         "collaborations": 73,
         "industry": 1,
-        "rca": 1.316,
+        "rca": 1.32,
         "rca_industry": null
       },
       {
@@ -1306,7 +1306,7 @@
         "b": "US",
         "collaborations": 71,
         "industry": 1,
-        "rca": 0.966,
+        "rca": 0.967,
         "rca_industry": null
       },
       {
@@ -1314,7 +1314,7 @@
         "b": "Ukraine",
         "collaborations": 69,
         "industry": 1,
-        "rca": 1.824,
+        "rca": 1.82,
         "rca_industry": null
       },
       {
@@ -1322,7 +1322,7 @@
         "b": "China",
         "collaborations": 68,
         "industry": 1,
-        "rca": 1.272,
+        "rca": 1.275,
         "rca_industry": null
       },
       {
@@ -1330,31 +1330,31 @@
         "b": "France",
         "collaborations": 67,
         "industry": 6,
-        "rca": 0.887,
-        "rca_industry": 1.038
+        "rca": 0.885,
+        "rca_industry": 1.026
       },
       {
         "a": "Israel",
         "b": "UK",
         "collaborations": 67,
         "industry": 10,
-        "rca": 0.903,
-        "rca_industry": 0.592
+        "rca": 0.933,
+        "rca_industry": 0.78
       },
       {
         "a": "Japan",
         "b": "Switzerland",
         "collaborations": 67,
         "industry": 4,
-        "rca": 0.839,
-        "rca_industry": 0.294
+        "rca": 0.843,
+        "rca_industry": 0.298
       },
       {
         "a": "Argentina",
         "b": "US",
         "collaborations": 66,
         "industry": 0,
-        "rca": 1.132,
+        "rca": 1.133,
         "rca_industry": null
       },
       {
@@ -1363,22 +1363,22 @@
         "collaborations": 66,
         "industry": 6,
         "rca": 1.401,
-        "rca_industry": 2.23
+        "rca_industry": 2.293
       },
       {
         "a": "Saudi Arabia",
         "b": "US",
         "collaborations": 66,
         "industry": 4,
-        "rca": 0.482,
-        "rca_industry": 0.661
+        "rca": 0.483,
+        "rca_industry": 0.657
       },
       {
         "a": "Belgium",
         "b": "China",
         "collaborations": 64,
         "industry": 1,
-        "rca": 0.769,
+        "rca": 0.776,
         "rca_industry": null
       },
       {
@@ -1386,7 +1386,7 @@
         "b": "Spain",
         "collaborations": 63,
         "industry": 0,
-        "rca": 3.31,
+        "rca": 3.317,
         "rca_industry": null
       },
       {
@@ -1394,23 +1394,23 @@
         "b": "UK",
         "collaborations": 63,
         "industry": 7,
-        "rca": 0.715,
-        "rca_industry": 0.656
+        "rca": 0.718,
+        "rca_industry": 0.677
       },
       {
         "a": "Czech Republic",
         "b": "US",
         "collaborations": 62,
         "industry": 5,
-        "rca": 0.575,
-        "rca_industry": 0.634
+        "rca": 0.578,
+        "rca_industry": 0.7
       },
       {
         "a": "Finland",
         "b": "Italy",
         "collaborations": 62,
         "industry": 0,
-        "rca": 1.485,
+        "rca": 1.478,
         "rca_industry": null
       },
       {
@@ -1418,7 +1418,7 @@
         "b": "Spain",
         "collaborations": 60,
         "industry": 0,
-        "rca": 4.298,
+        "rca": 4.29,
         "rca_industry": null
       },
       {
@@ -1426,31 +1426,15 @@
         "b": "US",
         "collaborations": 59,
         "industry": 9,
-        "rca": 1.137,
-        "rca_industry": 1.369
-      },
-      {
-        "a": "Italy",
-        "b": "Sweden",
-        "collaborations": 59,
-        "industry": 6,
-        "rca": 0.986,
-        "rca_industry": 2.498
-      },
-      {
-        "a": "Japan",
-        "b": "Singapore",
-        "collaborations": 59,
-        "industry": 6,
-        "rca": 0.951,
-        "rca_industry": 0.939
+        "rca": 1.142,
+        "rca_industry": 1.418
       },
       {
         "a": "Australia",
         "b": "Singapore",
         "collaborations": 58,
         "industry": 2,
-        "rca": 1.575,
+        "rca": 1.579,
         "rca_industry": null
       },
       {
@@ -1458,47 +1442,47 @@
         "b": "UK",
         "collaborations": 58,
         "industry": 3,
-        "rca": 0.687,
-        "rca_industry": 1.189
-      },
-      {
-        "a": "Czech Republic",
-        "b": "India",
-        "collaborations": 58,
-        "industry": 5,
-        "rca": 2.305,
-        "rca_industry": 8.458
-      },
-      {
-        "a": "France",
-        "b": "Sweden",
-        "collaborations": 58,
-        "industry": 3,
-        "rca": 0.984,
-        "rca_industry": 0.698
+        "rca": 0.688,
+        "rca_industry": 1.312
       },
       {
         "a": "Iran",
         "b": "Italy",
         "collaborations": 58,
         "industry": 0,
-        "rca": 1.617,
+        "rca": 1.615,
         "rca_industry": null
+      },
+      {
+        "a": "Japan",
+        "b": "Singapore",
+        "collaborations": 58,
+        "industry": 6,
+        "rca": 0.943,
+        "rca_industry": 0.992
       },
       {
         "a": "Austria",
         "b": "Switzerland",
         "collaborations": 57,
         "industry": 8,
-        "rca": 1.625,
-        "rca_industry": 1.904
+        "rca": 1.623,
+        "rca_industry": 1.866
+      },
+      {
+        "a": "Czech Republic",
+        "b": "India",
+        "collaborations": 57,
+        "industry": 4,
+        "rca": 2.271,
+        "rca_industry": 7.66
       },
       {
         "a": "Denmark",
         "b": "Spain",
         "collaborations": 57,
         "industry": 0,
-        "rca": 1.454,
+        "rca": 1.455,
         "rca_industry": null
       },
       {
@@ -1506,23 +1490,23 @@
         "b": "Iran",
         "collaborations": 57,
         "industry": 0,
-        "rca": 0.767,
+        "rca": 0.765,
         "rca_industry": null
       },
       {
-        "a": "Israel",
-        "b": "Russia",
-        "collaborations": 56,
-        "industry": 3,
-        "rca": 1.795,
-        "rca_industry": 1.607
+        "a": "Italy",
+        "b": "Sweden",
+        "collaborations": 57,
+        "industry": 4,
+        "rca": 0.975,
+        "rca_industry": 2.372
       },
       {
         "a": "Poland",
         "b": "Russia",
         "collaborations": 56,
         "industry": 0,
-        "rca": 1.213,
+        "rca": 1.212,
         "rca_industry": null
       },
       {
@@ -1530,31 +1514,47 @@
         "b": "US",
         "collaborations": 56,
         "industry": 13,
-        "rca": 0.829,
-        "rca_industry": 1.595
+        "rca": 0.832,
+        "rca_industry": 1.638
+      },
+      {
+        "a": "France",
+        "b": "Sweden",
+        "collaborations": 55,
+        "industry": 0,
+        "rca": 0.955,
+        "rca_industry": null
       },
       {
         "a": "India",
         "b": "Sweden",
         "collaborations": 55,
         "industry": 5,
-        "rca": 1.151,
-        "rca_industry": 2.371
+        "rca": 1.178,
+        "rca_industry": 3.541
       },
       {
         "a": "Ireland",
         "b": "US",
         "collaborations": 55,
         "industry": 13,
-        "rca": 0.878,
-        "rca_industry": 1.236
+        "rca": 0.879,
+        "rca_industry": 1.229
+      },
+      {
+        "a": "Israel",
+        "b": "Russia",
+        "collaborations": 55,
+        "industry": 2,
+        "rca": 1.823,
+        "rca_industry": null
       },
       {
         "a": "Mexico",
         "b": "Spain",
         "collaborations": 55,
         "industry": 0,
-        "rca": 2.826,
+        "rca": 2.821,
         "rca_industry": null
       },
       {
@@ -1562,7 +1562,7 @@
         "b": "Germany",
         "collaborations": 54,
         "industry": 0,
-        "rca": 1.53,
+        "rca": 1.526,
         "rca_industry": null
       },
       {
@@ -1570,15 +1570,15 @@
         "b": "South Korea",
         "collaborations": 54,
         "industry": 12,
-        "rca": 1.051,
-        "rca_industry": 1.498
+        "rca": 1.048,
+        "rca_industry": 1.483
       },
       {
         "a": "Hungary",
         "b": "US",
         "collaborations": 54,
         "industry": 1,
-        "rca": 0.782,
+        "rca": 0.778,
         "rca_industry": null
       },
       {
@@ -1586,15 +1586,15 @@
         "b": "UK",
         "collaborations": 52,
         "industry": 3,
-        "rca": 2.239,
-        "rca_industry": 0.773
+        "rca": 2.237,
+        "rca_industry": 0.754
       },
       {
         "a": "Japan",
         "b": "Poland",
         "collaborations": 52,
         "industry": 2,
-        "rca": 0.673,
+        "rca": 0.675,
         "rca_industry": null
       },
       {
@@ -1602,15 +1602,15 @@
         "b": "Switzerland",
         "collaborations": 52,
         "industry": 6,
-        "rca": 1.371,
-        "rca_industry": 1.023
+        "rca": 1.376,
+        "rca_industry": 1.011
       },
       {
         "a": "Spain",
         "b": "Sweden",
         "collaborations": 52,
         "industry": 2,
-        "rca": 1.061,
+        "rca": 1.086,
         "rca_industry": null
       },
       {
@@ -1618,7 +1618,7 @@
         "b": "Ukraine",
         "collaborations": 51,
         "industry": 3,
-        "rca": 0.816,
+        "rca": 0.817,
         "rca_industry": null
       },
       {
@@ -1626,15 +1626,15 @@
         "b": "UK",
         "collaborations": 50,
         "industry": 5,
-        "rca": 1.177,
-        "rca_industry": 1.321
+        "rca": 1.185,
+        "rca_industry": 1.524
       },
       {
         "a": "Japan",
         "b": "Vietnam",
         "collaborations": 50,
         "industry": 0,
-        "rca": 4.793,
+        "rca": 4.808,
         "rca_industry": null
       },
       {
@@ -1642,7 +1642,7 @@
         "b": "Egypt",
         "collaborations": 49,
         "industry": 0,
-        "rca": 0.962,
+        "rca": 0.963,
         "rca_industry": null
       },
       {
@@ -1650,15 +1650,15 @@
         "b": "Switzerland",
         "collaborations": 49,
         "industry": 5,
-        "rca": 1.027,
-        "rca_industry": 1.992
+        "rca": 1.028,
+        "rca_industry": 2.059
       },
       {
         "a": "Russia",
         "b": "Ukraine",
         "collaborations": 49,
         "industry": 0,
-        "rca": 5.029,
+        "rca": 5.027,
         "rca_industry": null
       },
       {
@@ -1666,7 +1666,7 @@
         "b": "Iran",
         "collaborations": 48,
         "industry": 0,
-        "rca": 1.976,
+        "rca": 1.975,
         "rca_industry": null
       },
       {
@@ -1674,31 +1674,31 @@
         "b": "Israel",
         "collaborations": 48,
         "industry": 3,
-        "rca": 0.833,
-        "rca_industry": 0.429
+        "rca": 0.86,
+        "rca_industry": 0.569
       },
       {
         "a": "India",
         "b": "Netherlands",
         "collaborations": 48,
         "industry": 3,
-        "rca": 0.725,
-        "rca_industry": 0.757
+        "rca": 0.727,
+        "rca_industry": 0.783
       },
       {
         "a": "Israel",
         "b": "Spain",
         "collaborations": 48,
         "industry": 3,
-        "rca": 1.002,
-        "rca_industry": 0.671
+        "rca": 1.035,
+        "rca_industry": 0.891
       },
       {
         "a": "Brazil",
         "b": "Chile",
         "collaborations": 47,
         "industry": 0,
-        "rca": 6.428,
+        "rca": 6.422,
         "rca_industry": null
       },
       {
@@ -1714,23 +1714,15 @@
         "b": "Switzerland",
         "collaborations": 46,
         "industry": 7,
-        "rca": 0.759,
-        "rca_industry": 0.553
-      },
-      {
-        "a": "China",
-        "b": "Czech Republic",
-        "collaborations": 46,
-        "industry": 2,
-        "rca": 0.587,
-        "rca_industry": null
+        "rca": 0.76,
+        "rca_industry": 0.547
       },
       {
         "a": "Czech Republic",
         "b": "Poland",
         "collaborations": 46,
         "industry": 0,
-        "rca": 3.298,
+        "rca": 3.302,
         "rca_industry": null
       },
       {
@@ -1738,7 +1730,7 @@
         "b": "Russia",
         "collaborations": 46,
         "industry": 2,
-        "rca": 0.552,
+        "rca": 0.553,
         "rca_industry": null
       },
       {
@@ -1762,7 +1754,15 @@
         "b": "China",
         "collaborations": 45,
         "industry": 0,
-        "rca": 2.843,
+        "rca": 2.848,
+        "rca_industry": null
+      },
+      {
+        "a": "China",
+        "b": "Czech Republic",
+        "collaborations": 45,
+        "industry": 1,
+        "rca": 0.578,
         "rca_industry": null
       },
       {
@@ -1770,7 +1770,7 @@
         "b": "Ireland",
         "collaborations": 45,
         "industry": 1,
-        "rca": 0.988,
+        "rca": 0.99,
         "rca_industry": null
       },
       {
@@ -1778,7 +1778,7 @@
         "b": "South Africa",
         "collaborations": 45,
         "industry": 0,
-        "rca": 4.028,
+        "rca": 4.034,
         "rca_industry": null
       },
       {
@@ -1786,7 +1786,7 @@
         "b": "Russia",
         "collaborations": 45,
         "industry": 0,
-        "rca": 1.017,
+        "rca": 1.022,
         "rca_industry": null
       },
       {
@@ -1794,8 +1794,8 @@
         "b": "US",
         "collaborations": 45,
         "industry": 6,
-        "rca": 0.566,
-        "rca_industry": 0.913
+        "rca": 0.569,
+        "rca_industry": 0.986
       },
       {
         "a": "Austria",
@@ -1803,22 +1803,22 @@
         "collaborations": 44,
         "industry": 5,
         "rca": 1.075,
-        "rca_industry": 3.237
+        "rca_industry": 3.326
       },
       {
         "a": "China",
         "b": "Mexico",
         "collaborations": 44,
         "industry": 4,
-        "rca": 0.745,
-        "rca_industry": 4.276
+        "rca": 0.746,
+        "rca_industry": 4.576
       },
       {
         "a": "Russia",
         "b": "Sweden",
         "collaborations": 44,
         "industry": 0,
-        "rca": 1.378,
+        "rca": 1.413,
         "rca_industry": null
       },
       {
@@ -1827,14 +1827,14 @@
         "collaborations": 43,
         "industry": 4,
         "rca": 0.506,
-        "rca_industry": 0.671
+        "rca_industry": 0.655
       },
       {
         "a": "Austria",
         "b": "Netherlands",
         "collaborations": 43,
         "industry": 1,
-        "rca": 1.322,
+        "rca": 1.326,
         "rca_industry": null
       },
       {
@@ -1842,7 +1842,7 @@
         "b": "Canada",
         "collaborations": 43,
         "industry": 1,
-        "rca": 0.954,
+        "rca": 0.956,
         "rca_industry": null
       },
       {
@@ -1850,15 +1850,15 @@
         "b": "UK",
         "collaborations": 43,
         "industry": 6,
-        "rca": 0.847,
-        "rca_industry": 2.688
+        "rca": 0.846,
+        "rca_industry": 2.624
       },
       {
         "a": "Belgium",
         "b": "Italy",
         "collaborations": 42,
         "industry": 2,
-        "rca": 1.255,
+        "rca": 1.263,
         "rca_industry": null
       },
       {
@@ -1866,7 +1866,7 @@
         "b": "US",
         "collaborations": 42,
         "industry": 2,
-        "rca": 1.514,
+        "rca": 1.516,
         "rca_industry": null
       },
       {
@@ -1874,15 +1874,15 @@
         "b": "UK",
         "collaborations": 42,
         "industry": 9,
-        "rca": 0.793,
-        "rca_industry": 0.595
+        "rca": 0.79,
+        "rca_industry": 0.58
       },
       {
         "a": "Netherlands",
         "b": "Poland",
         "collaborations": 42,
         "industry": 0,
-        "rca": 1.144,
+        "rca": 1.147,
         "rca_industry": null
       },
       {
@@ -1890,7 +1890,7 @@
         "b": "South Korea",
         "collaborations": 42,
         "industry": 0,
-        "rca": 1.251,
+        "rca": 1.244,
         "rca_industry": null
       },
       {
@@ -1898,23 +1898,15 @@
         "b": "Italy",
         "collaborations": 41,
         "industry": 0,
-        "rca": 2.406,
+        "rca": 2.403,
         "rca_industry": null
-      },
-      {
-        "a": "Australia",
-        "b": "Netherlands",
-        "collaborations": 41,
-        "industry": 4,
-        "rca": 0.933,
-        "rca_industry": 0.688
       },
       {
         "a": "Chile",
         "b": "Spain",
         "collaborations": 41,
         "industry": 0,
-        "rca": 2.329,
+        "rca": 2.325,
         "rca_industry": null
       },
       {
@@ -1922,7 +1914,7 @@
         "b": "South Korea",
         "collaborations": 41,
         "industry": 1,
-        "rca": 1.013,
+        "rca": 1.01,
         "rca_industry": null
       },
       {
@@ -1930,7 +1922,7 @@
         "b": "Ukraine",
         "collaborations": 40,
         "industry": 1,
-        "rca": 0.88,
+        "rca": 0.882,
         "rca_industry": null
       },
       {
@@ -1938,16 +1930,16 @@
         "b": "US",
         "collaborations": 40,
         "industry": 13,
-        "rca": 0.972,
-        "rca_industry": 1.831
+        "rca": 0.977,
+        "rca_industry": 1.89
       },
       {
         "a": "Poland",
         "b": "Switzerland",
         "collaborations": 40,
         "industry": 3,
-        "rca": 1.011,
-        "rca_industry": 1.713
+        "rca": 1.009,
+        "rca_industry": 1.668
       },
       {
         "a": "Singapore",
@@ -1962,7 +1954,7 @@
         "b": "Spain",
         "collaborations": 40,
         "industry": 0,
-        "rca": 0.703,
+        "rca": 0.705,
         "rca_industry": null
       },
       {
@@ -1970,23 +1962,31 @@
         "b": "US",
         "collaborations": 40,
         "industry": 2,
-        "rca": 0.958,
+        "rca": 0.963,
         "rca_industry": null
+      },
+      {
+        "a": "Australia",
+        "b": "Netherlands",
+        "collaborations": 39,
+        "industry": 4,
+        "rca": 0.889,
+        "rca_industry": 0.665
       },
       {
         "a": "Austria",
         "b": "Japan",
         "collaborations": 39,
         "industry": 6,
-        "rca": 0.569,
-        "rca_industry": 0.717
+        "rca": 0.571,
+        "rca_industry": 0.722
       },
       {
         "a": "Brazil",
         "b": "Poland",
         "collaborations": 39,
         "industry": 0,
-        "rca": 1.324,
+        "rca": 1.323,
         "rca_industry": null
       },
       {
@@ -1994,7 +1994,7 @@
         "b": "Portugal",
         "collaborations": 39,
         "industry": 0,
-        "rca": 4.933,
+        "rca": 4.947,
         "rca_industry": null
       },
       {
@@ -2002,7 +2002,7 @@
         "b": "Malaysia",
         "collaborations": 39,
         "industry": 0,
-        "rca": 1.578,
+        "rca": 1.581,
         "rca_industry": null
       },
       {
@@ -2010,7 +2010,7 @@
         "b": "New Zealand",
         "collaborations": 39,
         "industry": 0,
-        "rca": 1.168,
+        "rca": 1.17,
         "rca_industry": null
       },
       {
@@ -2018,7 +2018,7 @@
         "b": "New Zealand",
         "collaborations": 39,
         "industry": 1,
-        "rca": 1.402,
+        "rca": 1.4,
         "rca_industry": null
       },
       {
@@ -2026,7 +2026,7 @@
         "b": "Slovenia",
         "collaborations": 39,
         "industry": 2,
-        "rca": 1.543,
+        "rca": 1.545,
         "rca_industry": null
       },
       {
@@ -2042,15 +2042,23 @@
         "b": "Japan",
         "collaborations": 38,
         "industry": 6,
-        "rca": 0.889,
-        "rca_industry": 1.541
+        "rca": 0.894,
+        "rca_industry": 1.612
+      },
+      {
+        "a": "Finland",
+        "b": "France",
+        "collaborations": 38,
+        "industry": 8,
+        "rca": 0.919,
+        "rca_industry": 1.254
       },
       {
         "a": "Germany",
         "b": "Norway",
         "collaborations": 38,
         "industry": 1,
-        "rca": 1.525,
+        "rca": 1.527,
         "rca_industry": null
       },
       {
@@ -2058,7 +2066,7 @@
         "b": "US",
         "collaborations": 38,
         "industry": 3,
-        "rca": 0.794,
+        "rca": 0.797,
         "rca_industry": null
       },
       {
@@ -2066,39 +2074,31 @@
         "b": "UK",
         "collaborations": 38,
         "industry": 9,
-        "rca": 0.601,
-        "rca_industry": 1.237
+        "rca": 0.599,
+        "rca_industry": 1.207
       },
       {
         "a": "Australia",
         "b": "South Korea",
         "collaborations": 37,
         "industry": 0,
-        "rca": 0.92,
+        "rca": 0.915,
         "rca_industry": null
-      },
-      {
-        "a": "Finland",
-        "b": "France",
-        "collaborations": 37,
-        "industry": 8,
-        "rca": 0.9,
-        "rca_industry": 1.277
       },
       {
         "a": "Finland",
         "b": "India",
         "collaborations": 37,
         "industry": 8,
-        "rca": 1.11,
-        "rca_industry": 2.602
+        "rca": 1.104,
+        "rca_industry": 2.652
       },
       {
         "a": "Germany",
         "b": "Greece",
         "collaborations": 37,
         "industry": 1,
-        "rca": 1.178,
+        "rca": 1.179,
         "rca_industry": null
       },
       {
@@ -2106,7 +2106,7 @@
         "b": "Singapore",
         "collaborations": 37,
         "industry": 0,
-        "rca": 0.533,
+        "rca": 0.535,
         "rca_industry": null
       },
       {
@@ -2114,31 +2114,23 @@
         "b": "Sweden",
         "collaborations": 37,
         "industry": 3,
-        "rca": 0.692,
-        "rca_industry": 0.482
+        "rca": 0.712,
+        "rca_industry": 0.707
       },
       {
         "a": "Netherlands",
         "b": "Sweden",
         "collaborations": 37,
         "industry": 2,
-        "rca": 1.458,
+        "rca": 1.498,
         "rca_industry": null
-      },
-      {
-        "a": "Canada",
-        "b": "Netherlands",
-        "collaborations": 36,
-        "industry": 4,
-        "rca": 0.641,
-        "rca_industry": 0.368
       },
       {
         "a": "Germany",
         "b": "Mexico",
         "collaborations": 36,
         "industry": 0,
-        "rca": 0.732,
+        "rca": 0.73,
         "rca_industry": null
       },
       {
@@ -2146,8 +2138,16 @@
         "b": "US",
         "collaborations": 36,
         "industry": 5,
-        "rca": 0.784,
+        "rca": 0.785,
         "rca_industry": null
+      },
+      {
+        "a": "Canada",
+        "b": "Netherlands",
+        "collaborations": 35,
+        "industry": 4,
+        "rca": 0.626,
+        "rca_industry": 0.364
       },
       {
         "a": "Canada",
@@ -2162,7 +2162,7 @@
         "b": "Spain",
         "collaborations": 35,
         "industry": 1,
-        "rca": 1.356,
+        "rca": 1.359,
         "rca_industry": null
       },
       {
@@ -2170,7 +2170,7 @@
         "b": "Poland",
         "collaborations": 34,
         "industry": 1,
-        "rca": 1.001,
+        "rca": 0.999,
         "rca_industry": null
       },
       {
@@ -2178,7 +2178,7 @@
         "b": "Sweden",
         "collaborations": 34,
         "industry": 1,
-        "rca": 1.67,
+        "rca": 1.71,
         "rca_industry": null
       },
       {
@@ -2186,7 +2186,7 @@
         "b": "Italy",
         "collaborations": 34,
         "industry": 2,
-        "rca": 1.079,
+        "rca": 1.082,
         "rca_industry": null
       },
       {
@@ -2194,8 +2194,8 @@
         "b": "South Korea",
         "collaborations": 34,
         "industry": 8,
-        "rca": 0.455,
-        "rca_industry": 1.346
+        "rca": 0.453,
+        "rca_industry": 1.34
       },
       {
         "a": "India",
@@ -2210,7 +2210,7 @@
         "b": "Taiwan",
         "collaborations": 34,
         "industry": 0,
-        "rca": 0.682,
+        "rca": 0.679,
         "rca_industry": null
       },
       {
@@ -2218,7 +2218,7 @@
         "b": "Sweden",
         "collaborations": 34,
         "industry": 0,
-        "rca": 1.284,
+        "rca": 1.313,
         "rca_industry": null
       },
       {
@@ -2226,7 +2226,7 @@
         "b": "Taiwan",
         "collaborations": 34,
         "industry": 1,
-        "rca": 1.92,
+        "rca": 1.919,
         "rca_industry": null
       },
       {
@@ -2234,31 +2234,31 @@
         "b": "Israel",
         "collaborations": 33,
         "industry": 3,
-        "rca": 0.833,
-        "rca_industry": 0.319
+        "rca": 0.862,
+        "rca_industry": 0.42
       },
       {
         "a": "Finland",
         "b": "Spain",
         "collaborations": 33,
         "industry": 4,
-        "rca": 0.965,
-        "rca_industry": 0.998
+        "rca": 0.96,
+        "rca_industry": 0.983
       },
       {
         "a": "France",
         "b": "Portugal",
         "collaborations": 33,
         "industry": 3,
-        "rca": 1.443,
-        "rca_industry": 2.988
+        "rca": 1.444,
+        "rca_industry": 3.19
       },
       {
         "a": "Germany",
         "b": "Ireland",
         "collaborations": 33,
         "industry": 2,
-        "rca": 0.87,
+        "rca": 0.868,
         "rca_industry": null
       },
       {
@@ -2266,7 +2266,7 @@
         "b": "Spain",
         "collaborations": 33,
         "industry": 0,
-        "rca": 1.996,
+        "rca": 1.98,
         "rca_industry": null
       },
       {
@@ -2274,7 +2274,7 @@
         "b": "UK",
         "collaborations": 33,
         "industry": 0,
-        "rca": 1.119,
+        "rca": 1.123,
         "rca_industry": null
       },
       {
@@ -2282,7 +2282,7 @@
         "b": "Poland",
         "collaborations": 32,
         "industry": 1,
-        "rca": 0.698,
+        "rca": 0.696,
         "rca_industry": null
       },
       {
@@ -2290,7 +2290,7 @@
         "b": "Czech Republic",
         "collaborations": 32,
         "industry": 0,
-        "rca": 2.589,
+        "rca": 2.594,
         "rca_industry": null
       },
       {
@@ -2298,7 +2298,7 @@
         "b": "Spain",
         "collaborations": 32,
         "industry": 0,
-        "rca": 1.167,
+        "rca": 1.174,
         "rca_industry": null
       },
       {
@@ -2306,7 +2306,7 @@
         "b": "Russia",
         "collaborations": 32,
         "industry": 2,
-        "rca": 0.453,
+        "rca": 0.454,
         "rca_industry": null
       },
       {
@@ -2314,15 +2314,15 @@
         "b": "Russia",
         "collaborations": 32,
         "industry": 5,
-        "rca": 1.436,
-        "rca_industry": 2.988
+        "rca": 1.431,
+        "rca_industry": 3.048
       },
       {
         "a": "Russia",
         "b": "Taiwan",
         "collaborations": 32,
         "industry": 1,
-        "rca": 1.203,
+        "rca": 1.199,
         "rca_industry": null
       },
       {
@@ -2330,7 +2330,7 @@
         "b": "UAE",
         "collaborations": 32,
         "industry": 0,
-        "rca": 7.922,
+        "rca": 7.917,
         "rca_industry": null
       },
       {
@@ -2338,23 +2338,15 @@
         "b": "Netherlands",
         "collaborations": 31,
         "industry": 3,
-        "rca": 2.184,
-        "rca_industry": 3.069
-      },
-      {
-        "a": "Canada",
-        "b": "Sweden",
-        "collaborations": 31,
-        "industry": 7,
-        "rca": 0.765,
-        "rca_industry": 1.209
+        "rca": 2.206,
+        "rca_industry": 3.537
       },
       {
         "a": "Chile",
         "b": "France",
         "collaborations": 31,
         "industry": 1,
-        "rca": 1.465,
+        "rca": 1.461,
         "rca_industry": null
       },
       {
@@ -2362,7 +2354,7 @@
         "b": "India",
         "collaborations": 31,
         "industry": 0,
-        "rca": 0.811,
+        "rca": 0.812,
         "rca_industry": null
       },
       {
@@ -2370,7 +2362,7 @@
         "b": "Turkey",
         "collaborations": 31,
         "industry": 1,
-        "rca": 0.721,
+        "rca": 0.72,
         "rca_industry": null
       },
       {
@@ -2378,15 +2370,15 @@
         "b": "Italy",
         "collaborations": 31,
         "industry": 3,
-        "rca": 0.53,
-        "rca_industry": 0.768
+        "rca": 0.548,
+        "rca_industry": 1.007
       },
       {
         "a": "Pakistan",
         "b": "US",
         "collaborations": 31,
         "industry": 0,
-        "rca": 0.328,
+        "rca": 0.329,
         "rca_industry": null
       },
       {
@@ -2394,7 +2386,7 @@
         "b": "Vietnam",
         "collaborations": 31,
         "industry": 1,
-        "rca": 0.776,
+        "rca": 0.777,
         "rca_industry": null
       },
       {
@@ -2402,7 +2394,7 @@
         "b": "Russia",
         "collaborations": 30,
         "industry": 0,
-        "rca": 0.845,
+        "rca": 0.846,
         "rca_industry": null
       },
       {
@@ -2410,8 +2402,8 @@
         "b": "Singapore",
         "collaborations": 30,
         "industry": 7,
-        "rca": 0.638,
-        "rca_industry": 1.176
+        "rca": 0.641,
+        "rca_industry": 1.214
       },
       {
         "a": "Finland",
@@ -2426,24 +2418,16 @@
         "b": "Portugal",
         "collaborations": 30,
         "industry": 3,
-        "rca": 0.623,
-        "rca_industry": 1.628
-      },
-      {
-        "a": "Sweden",
-        "b": "Switzerland",
-        "collaborations": 30,
-        "industry": 1,
-        "rca": 1.096,
-        "rca_industry": null
+        "rca": 0.624,
+        "rca_industry": 1.739
       },
       {
         "a": "South Korea",
         "b": "Switzerland",
         "collaborations": 29,
         "industry": 12,
-        "rca": 0.836,
-        "rca_industry": 2.778
+        "rca": 0.833,
+        "rca_industry": 2.741
       }
     ]
   }

@@ -1,0 +1,5617 @@
+{
+  "meta": {
+    "data_vintage": "2026-Q3",
+    "coverage": "industry (curated) + academic (OpenAlex, primary_topic.id, 2018-2026, <=5 institutions/paper); company detail: 888 companies from the 2026-Q3 startup tracker projection",
+    "counting": "binary (v1): one dyad = one collaboration regardless of how many underlying records support it; no weight or time series yet (v2, Phase 8)"
+  },
+  "data": [
+    {
+      "entity": "French National Center for Scientific Research (CNRS)",
+      "type": "Public research institution",
+      "category": "Government",
+      "city": "Paris",
+      "country": "France",
+      "collaborations": 862
+    },
+    {
+      "entity": "Chinese Academy of Sciences (CAS)",
+      "type": "Public research institution",
+      "category": "Government",
+      "city": "Beijing",
+      "country": "China",
+      "collaborations": 691
+    },
+    {
+      "entity": "University of Science and Technology of China (USTC)",
+      "type": "University",
+      "category": "Research",
+      "city": "Hefei",
+      "country": "China",
+      "collaborations": 637
+    },
+    {
+      "entity": "Institute of Physics, CAS",
+      "type": "Public research institution",
+      "category": "Government",
+      "city": "Beijing",
+      "country": "China",
+      "collaborations": 609
+    },
+    {
+      "entity": "University of Chinese Academy of Sciences (UCAS)",
+      "type": "University",
+      "category": "Research",
+      "city": "Beijing",
+      "country": "China",
+      "collaborations": 538
+    },
+    {
+      "entity": "Massachusetts Institute of Technology (MIT)",
+      "type": "University",
+      "category": "Research",
+      "city": "Cambridge, MA",
+      "country": "US",
+      "collaborations": 528
+    },
+    {
+      "entity": "Tsinghua University",
+      "type": "University",
+      "category": "Research",
+      "city": "Beijing",
+      "country": "China",
+      "collaborations": 512
+    },
+    {
+      "entity": "University of Oxford",
+      "type": "University",
+      "category": "Research",
+      "city": "Oxford",
+      "country": "UK",
+      "collaborations": 511
+    },
+    {
+      "entity": "University of Tokyo",
+      "type": "University",
+      "category": "Research",
+      "city": "Tokyo",
+      "country": "Japan",
+      "collaborations": 504
+    },
+    {
+      "entity": "University of Maryland",
+      "type": "University",
+      "category": "Research",
+      "city": "College Park, MD",
+      "country": "US",
+      "collaborations": 473
+    },
+    {
+      "entity": "National University of Singapore (NUS)",
+      "type": "University",
+      "category": "Research",
+      "city": "Singapore",
+      "country": "Singapore",
+      "collaborations": 469
+    },
+    {
+      "entity": "ETH Zurich",
+      "type": "University",
+      "category": "Research",
+      "city": "Zurich",
+      "country": "Switzerland",
+      "collaborations": 459
+    },
+    {
+      "entity": "Aalto University",
+      "type": "University",
+      "category": "Research",
+      "city": "Espoo",
+      "country": "Finland",
+      "collaborations": 449
+    },
+    {
+      "entity": "University of Cambridge",
+      "type": "University",
+      "category": "Research",
+      "city": "Cambridge",
+      "country": "UK",
+      "collaborations": 435
+    },
+    {
+      "entity": "Harvard University",
+      "type": "University",
+      "category": "Research",
+      "city": "Cambridge, MA",
+      "country": "US",
+      "collaborations": 434
+    },
+    {
+      "entity": "University of Waterloo",
+      "type": "University",
+      "category": "Research",
+      "city": "Waterloo",
+      "country": "Canada",
+      "collaborations": 415
+    },
+    {
+      "entity": "Nanyang Technological University",
+      "type": "University",
+      "category": "Research",
+      "city": "Singapore",
+      "country": "Singapore",
+      "collaborations": 401
+    },
+    {
+      "entity": "Swiss Federal Institute of Technology Lausanne (EPFL)",
+      "type": "University",
+      "category": "Research",
+      "city": "Lausanne",
+      "country": "Switzerland",
+      "collaborations": 376
+    },
+    {
+      "entity": "Los Alamos National Laboratory, DoE",
+      "type": "Government agency",
+      "category": "Government",
+      "city": "Los Alamos, NM",
+      "country": "US",
+      "collaborations": 375
+    },
+    {
+      "entity": "Max Planck Institute for the Physics of Complex Systems",
+      "type": "Research institute",
+      "category": "Research",
+      "city": "Dresden",
+      "country": "Germany",
+      "collaborations": 364
+    },
+    {
+      "entity": "Imperial College London",
+      "type": "University",
+      "category": "Research",
+      "city": "London",
+      "country": "UK",
+      "collaborations": 361
+    },
+    {
+      "entity": "IBM",
+      "type": "Corporate",
+      "category": "Industry",
+      "city": "New York, NY",
+      "country": "US",
+      "collaborations": 358
+    },
+    {
+      "entity": "Technical University of Munich",
+      "type": "University",
+      "category": "Research",
+      "city": "Munich",
+      "country": "Germany",
+      "collaborations": 353
+    },
+    {
+      "entity": "University of Paris-Saclay",
+      "type": "University",
+      "category": "Research",
+      "city": "Orsay",
+      "country": "France",
+      "collaborations": 352
+    },
+    {
+      "entity": "Delft University of Technology (TU Delft)",
+      "type": "University",
+      "category": "Research",
+      "city": "Delft",
+      "country": "Netherlands",
+      "collaborations": 350
+    },
+    {
+      "entity": "National Institute of Standards and Technology (NIST)",
+      "type": "Government agency",
+      "category": "Government",
+      "city": "Gaithersburg, MD",
+      "country": "US",
+      "collaborations": 345
+    },
+    {
+      "entity": "University of Copenhagen",
+      "type": "University",
+      "category": "Research",
+      "city": "Copenhagen",
+      "country": "Denmark",
+      "collaborations": 336
+    },
+    {
+      "entity": "Institute of Photonic Sciences (ICFO), BIST",
+      "type": "Research institute",
+      "category": "Research",
+      "city": "Castelldefels",
+      "country": "Spain",
+      "collaborations": 315
+    },
+    {
+      "entity": "Free University of Berlin",
+      "type": "University",
+      "category": "Research",
+      "city": "Berlin",
+      "country": "Germany",
+      "collaborations": 313
+    },
+    {
+      "entity": "University of Warsaw",
+      "type": "University",
+      "category": "Research",
+      "city": "Warsaw",
+      "country": "Poland",
+      "collaborations": 310
+    },
+    {
+      "entity": "Technical University of Denmark (DTU)",
+      "type": "University",
+      "category": "Research",
+      "city": "Kongens Lyngby",
+      "country": "Denmark",
+      "collaborations": 307
+    },
+    {
+      "entity": "Polish Academy of Sciences (PAS)",
+      "type": "Public research institution",
+      "category": "Government",
+      "city": "Warsaw",
+      "country": "Poland",
+      "collaborations": 304
+    },
+    {
+      "entity": "Weizmann Institute of Science",
+      "type": "University",
+      "category": "Research",
+      "city": "Rehovot",
+      "country": "Israel",
+      "collaborations": 304
+    },
+    {
+      "entity": "Aarhus University",
+      "type": "University",
+      "category": "Research",
+      "city": "Aarhus",
+      "country": "Denmark",
+      "collaborations": 303
+    },
+    {
+      "entity": "University of Innsbruck",
+      "type": "University",
+      "category": "Research",
+      "city": "Innsbruck",
+      "country": "Austria",
+      "collaborations": 301
+    },
+    {
+      "entity": "Lawrence Berkeley National Laboratory, DoE",
+      "type": "Government agency",
+      "category": "Government",
+      "city": "Berkeley, CA",
+      "country": "US",
+      "collaborations": 296
+    },
+    {
+      "entity": "Tohoku University",
+      "type": "University",
+      "category": "Research",
+      "city": "Sendai",
+      "country": "Japan",
+      "collaborations": 294
+    },
+    {
+      "entity": "Perimeter Institute for Theoretical Physics",
+      "type": "Research institute",
+      "category": "Research",
+      "city": "Waterloo",
+      "country": "Canada",
+      "collaborations": 289
+    },
+    {
+      "entity": "Kyoto University",
+      "type": "University",
+      "category": "Research",
+      "city": "Kyoto",
+      "country": "Japan",
+      "collaborations": 282
+    },
+    {
+      "entity": "Autonomous University of Madrid",
+      "type": "University",
+      "category": "Research",
+      "city": "Madrid",
+      "country": "Spain",
+      "collaborations": 273
+    },
+    {
+      "entity": "Sorbonne University",
+      "type": "University",
+      "category": "Research",
+      "city": "Paris",
+      "country": "France",
+      "collaborations": 272
+    },
+    {
+      "entity": "Institute of Physical and Chemical Research (RIKEN)",
+      "type": "Public research institution",
+      "category": "Government",
+      "city": "Wako",
+      "country": "Japan",
+      "collaborations": 270
+    },
+    {
+      "entity": "Tel Aviv University",
+      "type": "University",
+      "category": "Research",
+      "city": "Tel Aviv",
+      "country": "Israel",
+      "collaborations": 269
+    },
+    {
+      "entity": "Centre for Quantum Technologies at the National University of Singapore (NUS)",
+      "type": "Research institute",
+      "category": "Research",
+      "city": "Singapore",
+      "country": "Singapore",
+      "collaborations": 265
+    },
+    {
+      "entity": "National Institute for Materials Science (NIMS)",
+      "type": "Public research institution",
+      "category": "Government",
+      "city": "Tsukuba",
+      "country": "Japan",
+      "collaborations": 265
+    },
+    {
+      "entity": "University of the Basque Country",
+      "type": "University",
+      "category": "Research",
+      "city": "Leioa",
+      "country": "Spain",
+      "collaborations": 257
+    },
+    {
+      "entity": "Chalmers University of Technology",
+      "type": "University",
+      "category": "Research",
+      "city": "Gothenburg",
+      "country": "Sweden",
+      "collaborations": 253
+    },
+    {
+      "entity": "Vienna University of Technology",
+      "type": "University",
+      "category": "Research",
+      "city": "Vienna",
+      "country": "Austria",
+      "collaborations": 253
+    },
+    {
+      "entity": "University of Toronto",
+      "type": "University",
+      "category": "Research",
+      "city": "Toronto",
+      "country": "Canada",
+      "collaborations": 252
+    },
+    {
+      "entity": "International School of Advanced Studies (SISSA)",
+      "type": "University",
+      "category": "Research",
+      "city": "Trieste",
+      "country": "Italy",
+      "collaborations": 249
+    },
+    {
+      "entity": "KTH Royal Institute of Technology",
+      "type": "University",
+      "category": "Research",
+      "city": "Stockholm",
+      "country": "Sweden",
+      "collaborations": 249
+    },
+    {
+      "entity": "University of Geneva",
+      "type": "University",
+      "category": "Research",
+      "city": "Geneva",
+      "country": "Switzerland",
+      "collaborations": 247
+    },
+    {
+      "entity": "Institute of Theoretical Physics, CAS",
+      "type": "Public research institution",
+      "category": "Government",
+      "city": "Beijing",
+      "country": "China",
+      "collaborations": 244
+    },
+    {
+      "entity": "University of Amsterdam",
+      "type": "University",
+      "category": "Research",
+      "city": "Amsterdam",
+      "country": "Netherlands",
+      "collaborations": 238
+    },
+    {
+      "entity": "Jagiellonian University",
+      "type": "University",
+      "category": "Research",
+      "city": "Krakow",
+      "country": "Poland",
+      "collaborations": 231
+    },
+    {
+      "entity": "Abdus Salam International Centre for Theoretical Physics (ICTP)",
+      "type": "Research institute",
+      "category": "Research",
+      "city": "Trieste",
+      "country": "Italy",
+      "collaborations": 222
+    },
+    {
+      "entity": "RIKEN Center for Emergent Matter Science",
+      "type": "Public research institution",
+      "category": "Government",
+      "city": "Wako",
+      "country": "Japan",
+      "collaborations": 220
+    },
+    {
+      "entity": "University of Vienna",
+      "type": "University",
+      "category": "Research",
+      "city": "Vienna",
+      "country": "Austria",
+      "collaborations": 216
+    },
+    {
+      "entity": "Austrian Academy of Sciences (ÖAW)",
+      "type": "Public research institution",
+      "category": "Government",
+      "city": "Vienna",
+      "country": "Austria",
+      "collaborations": 215
+    },
+    {
+      "entity": "University of Trento",
+      "type": "University",
+      "category": "Research",
+      "city": "Trento",
+      "country": "Italy",
+      "collaborations": 215
+    },
+    {
+      "entity": "Stockholm University",
+      "type": "University",
+      "category": "Research",
+      "city": "Stockholm",
+      "country": "Sweden",
+      "collaborations": 214
+    },
+    {
+      "entity": "University of São Paulo",
+      "type": "University",
+      "category": "Research",
+      "city": "São Paulo",
+      "country": "Brazil",
+      "collaborations": 214
+    },
+    {
+      "entity": "Korea Advanced Institute of Science and Technology (KAIST)",
+      "type": "University",
+      "category": "Research",
+      "city": "Daejeon",
+      "country": "South Korea",
+      "collaborations": 213
+    },
+    {
+      "entity": "Australian National University (ANU)",
+      "type": "University",
+      "category": "Research",
+      "city": "Canberra",
+      "country": "Australia",
+      "collaborations": 211
+    },
+    {
+      "entity": "ITMO University",
+      "type": "University",
+      "category": "Research",
+      "city": "St. Petersburg",
+      "country": "Russia",
+      "collaborations": 210
+    },
+    {
+      "entity": "National Autonomous University of Mexico",
+      "type": "University",
+      "category": "Research",
+      "city": "Mexico City",
+      "country": "Mexico",
+      "collaborations": 208
+    },
+    {
+      "entity": "Paris Sciences et Lettres University (PSL)",
+      "type": "University",
+      "category": "Research",
+      "city": "Paris",
+      "country": "France",
+      "collaborations": 205
+    },
+    {
+      "entity": "Indian Institute of Science",
+      "type": "University",
+      "category": "Research",
+      "city": "Bangalore",
+      "country": "India",
+      "collaborations": 199
+    },
+    {
+      "entity": "Institute for Basic Science",
+      "type": "Public research institution",
+      "category": "Government",
+      "city": "Daejeon",
+      "country": "South Korea",
+      "collaborations": 199
+    },
+    {
+      "entity": "Center for Theoretical Physics, PAS",
+      "type": "Public research institution",
+      "category": "Government",
+      "city": "Warsaw",
+      "country": "Poland",
+      "collaborations": 198
+    },
+    {
+      "entity": "Basque Foundation for Science",
+      "type": "Public research institution",
+      "category": "Government",
+      "city": "Bilbao",
+      "country": "Spain",
+      "collaborations": 192
+    },
+    {
+      "entity": "ARC Centre for Quantum Computation and Communication Technology",
+      "type": "Research institute",
+      "category": "Research",
+      "city": "Sydney",
+      "country": "Australia",
+      "collaborations": 187
+    },
+    {
+      "entity": "Leiden University",
+      "type": "University",
+      "category": "Research",
+      "city": "Leiden",
+      "country": "Netherlands",
+      "collaborations": 184
+    },
+    {
+      "entity": "University of Lisbon",
+      "type": "University",
+      "category": "Research",
+      "city": "Lisbon",
+      "country": "Portugal",
+      "collaborations": 184
+    },
+    {
+      "entity": "University of Queensland",
+      "type": "University",
+      "category": "Research",
+      "city": "Brisbane",
+      "country": "Australia",
+      "collaborations": 184
+    },
+    {
+      "entity": "Google",
+      "type": "Corporate",
+      "category": "Industry",
+      "city": "Mountain View, CA",
+      "country": "US",
+      "collaborations": 183
+    },
+    {
+      "entity": "Microsoft",
+      "type": "Corporate",
+      "category": "Industry",
+      "city": "Redmond, WA",
+      "country": "US",
+      "collaborations": 183
+    },
+    {
+      "entity": "IIT Bombay",
+      "type": "University",
+      "category": "Research",
+      "city": "Mumbai",
+      "country": "India",
+      "collaborations": 181
+    },
+    {
+      "entity": "Moscow Institute of Physics and Technology",
+      "type": "University",
+      "category": "Research",
+      "city": "Dolgoprudny",
+      "country": "Russia",
+      "collaborations": 181
+    },
+    {
+      "entity": "Technion – Israel Institute of Technology",
+      "type": "University",
+      "category": "Research",
+      "city": "Haifa",
+      "country": "Israel",
+      "collaborations": 180
+    },
+    {
+      "entity": "Lomonosov Moscow State University",
+      "type": "University",
+      "category": "Research",
+      "city": "Moscow",
+      "country": "Russia",
+      "collaborations": 176
+    },
+    {
+      "entity": "National Cheng Kung University",
+      "type": "University",
+      "category": "Research",
+      "city": "Tainan",
+      "country": "Taiwan",
+      "collaborations": 172
+    },
+    {
+      "entity": "Seoul National University",
+      "type": "University",
+      "category": "Research",
+      "city": "Seoul",
+      "country": "South Korea",
+      "collaborations": 172
+    },
+    {
+      "entity": "National Institute of Optics (CNR INO)",
+      "type": "Public research institution",
+      "category": "Government",
+      "city": "Florence",
+      "country": "Italy",
+      "collaborations": 171
+    },
+    {
+      "entity": "Homi Bhabha National Institute",
+      "type": "University",
+      "category": "Research",
+      "city": "Mumbai",
+      "country": "India",
+      "collaborations": 170
+    },
+    {
+      "entity": "Russian Academy of Sciences (RAS)",
+      "type": "Public research institution",
+      "category": "Government",
+      "city": "Moscow",
+      "country": "Russia",
+      "collaborations": 170
+    },
+    {
+      "entity": "Agency for Science, Technology and Research (A*STAR)",
+      "type": "Government agency",
+      "category": "Government",
+      "city": "Singapore",
+      "country": "Singapore",
+      "collaborations": 168
+    },
+    {
+      "entity": "National Tsing Hua University",
+      "type": "University",
+      "category": "Research",
+      "city": "Hsinchu",
+      "country": "Taiwan",
+      "collaborations": 163
+    },
+    {
+      "entity": "Paul Scherrer Institute (PSI)",
+      "type": "Public research institution",
+      "category": "Government",
+      "city": "Würenlingen",
+      "country": "Switzerland",
+      "collaborations": 163
+    },
+    {
+      "entity": "Wigner Research Centre for Physics",
+      "type": "Public research institution",
+      "category": "Government",
+      "city": "Budapest",
+      "country": "Hungary",
+      "collaborations": 160
+    },
+    {
+      "entity": "Tata Institute of Fundamental Research (TIFR) – Quantum Measurement and Control Laboratory",
+      "type": "Public research institution",
+      "category": "Government",
+      "city": "Mumbai",
+      "country": "India",
+      "collaborations": 156
+    },
+    {
+      "entity": "Université libre de Bruxelles (ULB)",
+      "type": "University",
+      "category": "Research",
+      "city": "Brussels",
+      "country": "Belgium",
+      "collaborations": 155
+    },
+    {
+      "entity": "Palacký University Olomouc",
+      "type": "University",
+      "category": "Research",
+      "city": "Olomouc",
+      "country": "Czech Republic",
+      "collaborations": 154
+    },
+    {
+      "entity": "National Taiwan University",
+      "type": "University",
+      "category": "Research",
+      "city": "Taipei",
+      "country": "Taiwan",
+      "collaborations": 153
+    },
+    {
+      "entity": "University of Ljubljana",
+      "type": "University",
+      "category": "Research",
+      "city": "Ljubljana",
+      "country": "Slovenia",
+      "collaborations": 151
+    },
+    {
+      "entity": "Budapest University of Technology and Economics (BME)",
+      "type": "University",
+      "category": "Research",
+      "city": "Budapest",
+      "country": "Hungary",
+      "collaborations": 149
+    },
+    {
+      "entity": "Trinity College Dublin",
+      "type": "University",
+      "category": "Research",
+      "city": "Dublin",
+      "country": "Ireland",
+      "collaborations": 149
+    },
+    {
+      "entity": "Pohang University of Science and Technology",
+      "type": "University",
+      "category": "Research",
+      "city": "Pohang",
+      "country": "South Korea",
+      "collaborations": 142
+    },
+    {
+      "entity": "NTT (Nippon Telegraph and Telephone)",
+      "type": "Corporate",
+      "category": "Industry",
+      "city": "Tokyo",
+      "country": "Japan",
+      "collaborations": 140
+    },
+    {
+      "entity": "Fluminense Federal University",
+      "type": "University",
+      "category": "Research",
+      "city": "Niterói",
+      "country": "Brazil",
+      "collaborations": 138
+    },
+    {
+      "entity": "University of Luxembourg",
+      "type": "University",
+      "category": "Research",
+      "city": "Esch-sur-Alzette",
+      "country": "Luxembourg",
+      "collaborations": 138
+    },
+    {
+      "entity": "Institute of Fundamental Physics (IFF-CSIC)",
+      "type": "Public research institution",
+      "category": "Government",
+      "city": "Madrid",
+      "country": "Spain",
+      "collaborations": 137
+    },
+    {
+      "entity": "State University of Campinas",
+      "type": "University",
+      "category": "Research",
+      "city": "Campinas",
+      "country": "Brazil",
+      "collaborations": 136
+    },
+    {
+      "entity": "University of Gdańsk",
+      "type": "University",
+      "category": "Research",
+      "city": "Gdańsk",
+      "country": "Poland",
+      "collaborations": 135
+    },
+    {
+      "entity": "Institute for Quantum Optics and Quantum Information (IQOQI), ÖAW",
+      "type": "Public research institution",
+      "category": "Government",
+      "city": "Innsbruck",
+      "country": "Austria",
+      "collaborations": 133
+    },
+    {
+      "entity": "National Center for Theoretical Sciences",
+      "type": "Public research institution",
+      "category": "Government",
+      "city": "Taipei",
+      "country": "Taiwan",
+      "collaborations": 133
+    },
+    {
+      "entity": "Institute of Nanoscience (CNR Nano)",
+      "type": "Public research institution",
+      "category": "Government",
+      "city": "Pisa",
+      "country": "Italy",
+      "collaborations": 132
+    },
+    {
+      "entity": "Institute of Mathematical Sciences",
+      "type": "Public research institution",
+      "category": "Government",
+      "city": "Chennai",
+      "country": "India",
+      "collaborations": 130
+    },
+    {
+      "entity": "Technology Innovation Institute (TII)",
+      "type": "Public research institution",
+      "category": "Government",
+      "city": "Abu Dhabi",
+      "country": "UAE",
+      "collaborations": 129
+    },
+    {
+      "entity": "Xanadu",
+      "type": "Quantum company",
+      "category": "Industry",
+      "city": "Toronto",
+      "country": "Canada",
+      "collaborations": 129
+    },
+    {
+      "entity": "German Aerospace Center (DLR)",
+      "type": "Government agency",
+      "category": "Government",
+      "city": "Cologne",
+      "country": "Germany",
+      "collaborations": 127
+    },
+    {
+      "entity": "Korea Institute for Advanced Study (KIAS)",
+      "type": "Public research institution",
+      "category": "Government",
+      "city": "Seoul",
+      "country": "South Korea",
+      "collaborations": 120
+    },
+    {
+      "entity": "KU Leuven",
+      "type": "University",
+      "category": "Research",
+      "city": "Leuven",
+      "country": "Belgium",
+      "collaborations": 117
+    },
+    {
+      "entity": "National Scientific and Technical Research Council (CONICET)",
+      "type": "Government agency",
+      "category": "Government",
+      "city": "Buenos Aires",
+      "country": "Argentina",
+      "collaborations": 117
+    },
+    {
+      "entity": "Italian National Institute for Nuclear Physics (INFN)",
+      "type": "Public research institution",
+      "category": "Government",
+      "city": "Rome",
+      "country": "Italy",
+      "collaborations": 116
+    },
+    {
+      "entity": "Harish-Chandra Research Institute (HRI) – Quantum Information and Computation Group",
+      "type": "Public research institution",
+      "category": "Government",
+      "city": "Prayagraj",
+      "country": "India",
+      "collaborations": 114
+    },
+    {
+      "entity": "FZU ‒ Institute of Physics of the Academy of Sciences of the Czech Republic",
+      "type": "Research institute",
+      "category": "Research",
+      "city": "Prague",
+      "country": "Czech Republic",
+      "collaborations": 112
+    },
+    {
+      "entity": "German National Metrology Institute",
+      "type": "Public research institution",
+      "category": "Government",
+      "city": "Braunschweig",
+      "country": "Germany",
+      "collaborations": 112
+    },
+    {
+      "entity": "Lebedev Physical Institute, RAS",
+      "type": "Public research institution",
+      "category": "Government",
+      "city": "Moscow",
+      "country": "Russia",
+      "collaborations": 112
+    },
+    {
+      "entity": "Institute for Research in Fundamental Sciences",
+      "type": "Public research institution",
+      "category": "Government",
+      "city": "Tehran",
+      "country": "Iran",
+      "collaborations": 108
+    },
+    {
+      "entity": "University of Antwerp",
+      "type": "University",
+      "category": "Research",
+      "city": "Antwerp",
+      "country": "Belgium",
+      "collaborations": 108
+    },
+    {
+      "entity": "Sharif University of Technology",
+      "type": "University",
+      "category": "Research",
+      "city": "Tehran",
+      "country": "Iran",
+      "collaborations": 104
+    },
+    {
+      "entity": "Computing Center, RAS",
+      "type": "Public research institution",
+      "category": "Government",
+      "city": "Khabarovsk",
+      "country": "Russia",
+      "collaborations": 103
+    },
+    {
+      "entity": "Materials Science Institute of Madrid (ICMM-CSIC)",
+      "type": "Public research institution",
+      "category": "Government",
+      "city": "Madrid",
+      "country": "Spain",
+      "collaborations": 103
+    },
+    {
+      "entity": "Dodd-Walls Centre for Photonic and Quantum Technologies",
+      "type": "Research institute",
+      "category": "Research",
+      "city": "Dunedin",
+      "country": "New Zealand",
+      "collaborations": 100
+    },
+    {
+      "entity": "COMSATS University Islamabad",
+      "type": "University",
+      "category": "Research",
+      "city": "Islamabad",
+      "country": "Pakistan",
+      "collaborations": 96
+    },
+    {
+      "entity": "King Saud University",
+      "type": "University",
+      "category": "Research",
+      "city": "Riyadh",
+      "country": "Saudi Arabia",
+      "collaborations": 95
+    },
+    {
+      "entity": "Institute of Physics, Academia Sinica",
+      "type": "Public research institution",
+      "category": "Government",
+      "city": "Taipei",
+      "country": "Taiwan",
+      "collaborations": 92
+    },
+    {
+      "entity": "Princess Nourah Bint Abdul Rahman University",
+      "type": "University",
+      "category": "Research",
+      "city": "Riyadh",
+      "country": "Saudi Arabia",
+      "collaborations": 92
+    },
+    {
+      "entity": "DESY (Deutsches Elektronen-Synchrotron)",
+      "type": "Public research institution",
+      "category": "Government",
+      "city": "Hamburg",
+      "country": "Germany",
+      "collaborations": 91
+    },
+    {
+      "entity": "Brazilian Center for Research in Physics (CBPF)",
+      "type": "Public research institution",
+      "category": "Government",
+      "city": "Rio de Janeiro",
+      "country": "Brazil",
+      "collaborations": 90
+    },
+    {
+      "entity": "University of Latvia (UL)",
+      "type": "University",
+      "category": "Research",
+      "city": "Riga",
+      "country": "Latvia",
+      "collaborations": 89
+    },
+    {
+      "entity": "Charles University",
+      "type": "University",
+      "category": "Research",
+      "city": "Prague",
+      "country": "Czech Republic",
+      "collaborations": 85
+    },
+    {
+      "entity": "University of Jyväskylä",
+      "type": "University",
+      "category": "Research",
+      "city": "Jyväskylä",
+      "country": "Finland",
+      "collaborations": 84
+    },
+    {
+      "entity": "China Electronics Technology Group Corporation (CETC)",
+      "type": "Corporate",
+      "category": "Industry",
+      "city": "Beijing",
+      "country": "China",
+      "collaborations": 83
+    },
+    {
+      "entity": "Jožef Stefan Institute",
+      "type": "Public research institution",
+      "category": "Government",
+      "city": "Ljubljana",
+      "country": "Slovenia",
+      "collaborations": 83
+    },
+    {
+      "entity": "China Mobile",
+      "type": "Corporate",
+      "category": "Industry",
+      "city": "Beijing",
+      "country": "China",
+      "collaborations": 81
+    },
+    {
+      "entity": "National Center for Theoretical Sciences, Physics",
+      "type": "Public research institution",
+      "category": "Government",
+      "city": "Taipei",
+      "country": "Taiwan",
+      "collaborations": 81
+    },
+    {
+      "entity": "King Abdulaziz University",
+      "type": "University",
+      "category": "Research",
+      "city": "Jeddah",
+      "country": "Saudi Arabia",
+      "collaborations": 80
+    },
+    {
+      "entity": "Korea Institute of Science and Technology (KIST)",
+      "type": "Public research institution",
+      "category": "Government",
+      "city": "Seoul",
+      "country": "South Korea",
+      "collaborations": 80
+    },
+    {
+      "entity": "National Research Council of Canada (NRC)",
+      "type": "Government agency",
+      "category": "Government",
+      "city": "Ottawa",
+      "country": "Canada",
+      "collaborations": 80
+    },
+    {
+      "entity": "Telecommunications Institute",
+      "type": "Public research institution",
+      "category": "Government",
+      "city": "Lisbon",
+      "country": "Portugal",
+      "collaborations": 80
+    },
+    {
+      "entity": "Norwegian Univesity of Science and Technology",
+      "type": "University",
+      "category": "Research",
+      "city": "Trondheim",
+      "country": "Norway",
+      "collaborations": 79
+    },
+    {
+      "entity": "International Iberian Nanotechnology Laboratory (INL)",
+      "type": "Research institute",
+      "category": "Research",
+      "city": "Braga",
+      "country": "Portugal",
+      "collaborations": 78
+    },
+    {
+      "entity": "Mohammed V University in Rabat",
+      "type": "University",
+      "category": "Research",
+      "city": "Rabat",
+      "country": "Morocco",
+      "collaborations": 78
+    },
+    {
+      "entity": "Al-Azhar University",
+      "type": "University",
+      "category": "Research",
+      "city": "Cairo",
+      "country": "Egypt",
+      "collaborations": 77
+    },
+    {
+      "entity": "National Academy of Sciences of Ukraine (NASU)",
+      "type": "Public research institution",
+      "category": "Government",
+      "city": "Kyiv",
+      "country": "Ukraine",
+      "collaborations": 77
+    },
+    {
+      "entity": "University of Belgrade",
+      "type": "University",
+      "category": "Research",
+      "city": "Belgrade",
+      "country": "Serbia",
+      "collaborations": 77
+    },
+    {
+      "entity": "Khalifa University",
+      "type": "University",
+      "category": "Research",
+      "city": "Abu Dhabi",
+      "country": "UAE",
+      "collaborations": 76
+    },
+    {
+      "entity": "Néel Institute, CNRS",
+      "type": "Public research institution",
+      "category": "Government",
+      "city": "Grenoble",
+      "country": "France",
+      "collaborations": 75
+    },
+    {
+      "entity": "Slovak Academy of Sciences (SAS)",
+      "type": "Public research institution",
+      "category": "Government",
+      "city": "Bratislava",
+      "country": "Slovakia",
+      "collaborations": 75
+    },
+    {
+      "entity": "Eötvös Loránd University",
+      "type": "University",
+      "category": "Research",
+      "city": "Budapest",
+      "country": "Hungary",
+      "collaborations": 73
+    },
+    {
+      "entity": "South African National Institute for Theoretical and Computational Sciences",
+      "type": "Public research institution",
+      "category": "Government",
+      "city": "Stellenbosch",
+      "country": "South Africa",
+      "collaborations": 73
+    },
+    {
+      "entity": "University of Malakand",
+      "type": "University",
+      "category": "Research",
+      "city": "Chakdara",
+      "country": "Pakistan",
+      "collaborations": 73
+    },
+    {
+      "entity": "University of Otago",
+      "type": "University",
+      "category": "Research",
+      "city": "Dunedin",
+      "country": "New Zealand",
+      "collaborations": 73
+    },
+    {
+      "entity": "Commissariat à l'Énergie Atomique et aux Énergies Alternatives",
+      "type": "Government agency",
+      "category": "Government",
+      "city": "Paris",
+      "country": "France",
+      "collaborations": 72
+    },
+    {
+      "entity": "National Physical Laboratory (NPL)",
+      "type": "Public research institution",
+      "category": "Government",
+      "city": "London",
+      "country": "UK",
+      "collaborations": 72
+    },
+    {
+      "entity": "Tarapaca University",
+      "type": "University",
+      "category": "Research",
+      "city": "Arica",
+      "country": "Chile",
+      "collaborations": 72
+    },
+    {
+      "entity": "University of Chile",
+      "type": "University",
+      "category": "Research",
+      "city": "Santiago",
+      "country": "Chile",
+      "collaborations": 72
+    },
+    {
+      "entity": "University of Iceland",
+      "type": "University",
+      "category": "Research",
+      "city": "Reykjavik",
+      "country": "Iceland",
+      "collaborations": 72
+    },
+    {
+      "entity": "Diamond Light Source",
+      "type": "Public research institution",
+      "category": "Government",
+      "city": "Chilton",
+      "country": "UK",
+      "collaborations": 71
+    },
+    {
+      "entity": "Rutherford Appleton Laboratory",
+      "type": "Government agency",
+      "category": "Government",
+      "city": "Chilton",
+      "country": "UK",
+      "collaborations": 71
+    },
+    {
+      "entity": "University of Helsinki",
+      "type": "University",
+      "category": "Research",
+      "city": "Helsinki",
+      "country": "Finland",
+      "collaborations": 71
+    },
+    {
+      "entity": "QuantumCTek (国盾量子)",
+      "type": "Quantum company",
+      "category": "Industry",
+      "city": "Hefei",
+      "country": "China",
+      "collaborations": 69
+    },
+    {
+      "entity": "University College Dublin (UCD)",
+      "type": "University",
+      "category": "Research",
+      "city": "Dublin",
+      "country": "Ireland",
+      "collaborations": 68
+    },
+    {
+      "entity": "Bilkent University",
+      "type": "University",
+      "category": "Research",
+      "city": "Ankara",
+      "country": "Turkey",
+      "collaborations": 67
+    },
+    {
+      "entity": "Quaid-i-Azam University",
+      "type": "University",
+      "category": "Research",
+      "city": "Islamabad",
+      "country": "Pakistan",
+      "collaborations": 67
+    },
+    {
+      "entity": "University of Guilan",
+      "type": "University",
+      "category": "Research",
+      "city": "Rasht",
+      "country": "Iran",
+      "collaborations": 67
+    },
+    {
+      "entity": "Vilnius University",
+      "type": "University",
+      "category": "Research",
+      "city": "Vilnius",
+      "country": "Lithuania",
+      "collaborations": 67
+    },
+    {
+      "entity": "National and Kapodistrian University of Athens",
+      "type": "University",
+      "category": "Research",
+      "city": "Athens",
+      "country": "Greece",
+      "collaborations": 65
+    },
+    {
+      "entity": "Australian Research Council (ARC)",
+      "type": "Government agency",
+      "category": "Government",
+      "city": "Canberra",
+      "country": "Australia",
+      "collaborations": 63
+    },
+    {
+      "entity": "Fujitsu",
+      "type": "Corporate",
+      "category": "Industry",
+      "city": "Tokyo",
+      "country": "Japan",
+      "collaborations": 63
+    },
+    {
+      "entity": "National Polytechnic Institute",
+      "type": "University",
+      "category": "Research",
+      "city": "Mexico City",
+      "country": "Mexico",
+      "collaborations": 62
+    },
+    {
+      "entity": "Monterrey Institute of Technology and Higher Education (ITESM)",
+      "type": "University",
+      "category": "Research",
+      "city": "Monterrey",
+      "country": "Mexico",
+      "collaborations": 61
+    },
+    {
+      "entity": "Centrum Wiskunde & Informatica (CWI), Dutch Research Council",
+      "type": "Public research institution",
+      "category": "Government",
+      "city": "Amsterdam",
+      "country": "Netherlands",
+      "collaborations": 60
+    },
+    {
+      "entity": "Czech Academy of Sciences",
+      "type": "Public research institution",
+      "category": "Government",
+      "city": "Prague",
+      "country": "Czech Republic",
+      "collaborations": 60
+    },
+    {
+      "entity": "Institute for Advanced Studies in Basic Sciences",
+      "type": "University",
+      "category": "Research",
+      "city": "Zanjan",
+      "country": "Iran",
+      "collaborations": 60
+    },
+    {
+      "entity": "University of Concepción",
+      "type": "University",
+      "category": "Research",
+      "city": "Concepción",
+      "country": "Chile",
+      "collaborations": 60
+    },
+    {
+      "entity": "University of Crete",
+      "type": "University",
+      "category": "Research",
+      "city": "Rethymno",
+      "country": "Greece",
+      "collaborations": 60
+    },
+    {
+      "entity": "Taras Shevchenko National University of Kyiv",
+      "type": "University",
+      "category": "Research",
+      "city": "Kyiv",
+      "country": "Ukraine",
+      "collaborations": 59
+    },
+    {
+      "entity": "University of KwaZulu-Natal",
+      "type": "University",
+      "category": "Research",
+      "city": "Durban",
+      "country": "South Africa",
+      "collaborations": 59
+    },
+    {
+      "entity": "University of Minho",
+      "type": "University",
+      "category": "Research",
+      "city": "Braga",
+      "country": "Portugal",
+      "collaborations": 59
+    },
+    {
+      "entity": "Cambridge Quantum Computing",
+      "type": "Quantum company",
+      "category": "Industry",
+      "city": "Cambridge",
+      "country": "UK",
+      "collaborations": 58
+    },
+    {
+      "entity": "Ghent University Hospital",
+      "type": "Public research institution",
+      "category": "Government",
+      "city": "Ghent",
+      "country": "Belgium",
+      "collaborations": 58
+    },
+    {
+      "entity": "Universidad de Buenos Aires",
+      "type": "University",
+      "category": "Research",
+      "city": "Buenos Aires",
+      "country": "Argentina",
+      "collaborations": 58
+    },
+    {
+      "entity": "Hamad Bin Khalifa University (HBKU)",
+      "type": "University",
+      "category": "Research",
+      "city": "Ar-Rayyan",
+      "country": "Qatar",
+      "collaborations": 57
+    },
+    {
+      "entity": "University of Sharjah",
+      "type": "University",
+      "category": "Research",
+      "city": "Sharjah",
+      "country": "UAE",
+      "collaborations": 57
+    },
+    {
+      "entity": "University of Oslo",
+      "type": "University",
+      "category": "Research",
+      "city": "Oslo",
+      "country": "Norway",
+      "collaborations": 56
+    },
+    {
+      "entity": "Sohag University",
+      "type": "University",
+      "category": "Research",
+      "city": "Sohag",
+      "country": "Egypt",
+      "collaborations": 55
+    },
+    {
+      "entity": "Institute of Physics La Plata (IFLP), CONICET-UNLP",
+      "type": "Research institute",
+      "category": "Research",
+      "city": "La Plata",
+      "country": "Argentina",
+      "collaborations": 54
+    },
+    {
+      "entity": "Institute of Physics, SAS",
+      "type": "Public research institution",
+      "category": "Government",
+      "city": "Bratislava",
+      "country": "Slovakia",
+      "collaborations": 54
+    },
+    {
+      "entity": "Koç University",
+      "type": "University",
+      "category": "Research",
+      "city": "Istanbul",
+      "country": "Turkey",
+      "collaborations": 54
+    },
+    {
+      "entity": "Sofia University",
+      "type": "University",
+      "category": "Research",
+      "city": "Sofia",
+      "country": "Bulgaria",
+      "collaborations": 53
+    },
+    {
+      "entity": "University of Auckland",
+      "type": "University",
+      "category": "Research",
+      "city": "Auckland",
+      "country": "New Zealand",
+      "collaborations": 53
+    },
+    {
+      "entity": "VTT Technical Research Centre of Finland",
+      "type": "Public research institution",
+      "category": "Government",
+      "city": "Espoo",
+      "country": "Finland",
+      "collaborations": 52
+    },
+    {
+      "entity": "Abu Dhabi University",
+      "type": "University",
+      "category": "Research",
+      "city": "Abu Dhabi",
+      "country": "UAE",
+      "collaborations": 51
+    },
+    {
+      "entity": "Institute of Theoretical and Applied Informatics, PAS",
+      "type": "Public research institution",
+      "category": "Government",
+      "city": "Gliwice",
+      "country": "Poland",
+      "collaborations": 51
+    },
+    {
+      "entity": "Stellenbosch University",
+      "type": "University",
+      "category": "Research",
+      "city": "Stellenbosch",
+      "country": "South Africa",
+      "collaborations": 51
+    },
+    {
+      "entity": "University of the Witwatersrand",
+      "type": "University",
+      "category": "Research",
+      "city": "Johannesburg",
+      "country": "South Africa",
+      "collaborations": 51
+    },
+    {
+      "entity": "Bariloche Atomic Centre",
+      "type": "Government agency",
+      "category": "Government",
+      "city": "San Carlos de Bariloche",
+      "country": "Argentina",
+      "collaborations": 50
+    },
+    {
+      "entity": "Riverlane",
+      "type": "Quantum company",
+      "category": "Industry",
+      "city": "Cambridge",
+      "country": "UK",
+      "collaborations": 49
+    },
+    {
+      "entity": "Toshiba",
+      "type": "Corporate",
+      "category": "Industry",
+      "city": "Tokyo",
+      "country": "Japan",
+      "collaborations": 48
+    },
+    {
+      "entity": "Dublin Institute for Advanced Studies (DIAS)",
+      "type": "Research institute",
+      "category": "Research",
+      "city": "Dublin",
+      "country": "Ireland",
+      "collaborations": 47
+    },
+    {
+      "entity": "Ibn Zohr University",
+      "type": "University",
+      "category": "Research",
+      "city": "Agadir",
+      "country": "Morocco",
+      "collaborations": 47
+    },
+    {
+      "entity": "National Technical University of Athens",
+      "type": "University",
+      "category": "Research",
+      "city": "Athens",
+      "country": "Greece",
+      "collaborations": 47
+    },
+    {
+      "entity": "PASQAL",
+      "type": "Quantum company",
+      "category": "Industry",
+      "city": "Palaiseau",
+      "country": "France",
+      "collaborations": 47
+    },
+    {
+      "entity": "Balseiro Institute",
+      "type": "University",
+      "category": "Research",
+      "city": "Bariloche",
+      "country": "Argentina",
+      "collaborations": 46
+    },
+    {
+      "entity": "IQM Quantum Computers",
+      "type": "Quantum company",
+      "category": "Industry",
+      "city": "Espoo",
+      "country": "Finland",
+      "collaborations": 46
+    },
+    {
+      "entity": "Ain Shams University",
+      "type": "University",
+      "category": "Research",
+      "city": "Cairo",
+      "country": "Egypt",
+      "collaborations": 45
+    },
+    {
+      "entity": "Bogolyubov Institute for Theoretical Physics, NASU",
+      "type": "Public research institution",
+      "category": "Government",
+      "city": "Kyiv",
+      "country": "Ukraine",
+      "collaborations": 45
+    },
+    {
+      "entity": "Quandela",
+      "type": "Quantum company",
+      "category": "Industry",
+      "city": "Massy",
+      "country": "France",
+      "collaborations": 45
+    },
+    {
+      "entity": "University of Zagreb",
+      "type": "University",
+      "category": "Research",
+      "city": "Zagreb",
+      "country": "Croatia",
+      "collaborations": 45
+    },
+    {
+      "entity": "AMOLF – Physics of Functional Complex Matter, Dutch Research Council",
+      "type": "Public research institution",
+      "category": "Government",
+      "city": "Amsterdam",
+      "country": "Netherlands",
+      "collaborations": 44
+    },
+    {
+      "entity": "Institute of Physics Belgrade",
+      "type": "Public research institution",
+      "category": "Government",
+      "city": "Belgrade",
+      "country": "Serbia",
+      "collaborations": 44
+    },
+    {
+      "entity": "University of Malaya",
+      "type": "University",
+      "category": "Research",
+      "city": "Kuala Lumpur",
+      "country": "Malaysia",
+      "collaborations": 44
+    },
+    {
+      "entity": "University of Malta",
+      "type": "University",
+      "category": "Research",
+      "city": "Msida",
+      "country": "Malta",
+      "collaborations": 44
+    },
+    {
+      "entity": "Commonwealth Scientific and Industrial Research Organisation (CSIRO)",
+      "type": "Government agency",
+      "category": "Government",
+      "city": "Canberra",
+      "country": "Australia",
+      "collaborations": 42
+    },
+    {
+      "entity": "Ministry of Education",
+      "type": "Government agency",
+      "category": "Government",
+      "city": "Dhaka",
+      "country": "Bangladesh",
+      "collaborations": 42
+    },
+    {
+      "entity": "National University of Colombia",
+      "type": "University",
+      "category": "Research",
+      "city": "Bogotá",
+      "country": "Colombia",
+      "collaborations": 42
+    },
+    {
+      "entity": "Abdelmalek Essaâdi University",
+      "type": "University",
+      "category": "Research",
+      "city": "Tétouan",
+      "country": "Morocco",
+      "collaborations": 41
+    },
+    {
+      "entity": "Alpine Quantum Technologies",
+      "type": "Quantum company",
+      "category": "Industry",
+      "city": "Innsbruck",
+      "country": "Austria",
+      "collaborations": 41
+    },
+    {
+      "entity": "Phasecraft",
+      "type": "Quantum company",
+      "category": "Industry",
+      "city": "London",
+      "country": "UK",
+      "collaborations": 41
+    },
+    {
+      "entity": "Rosatom",
+      "type": "Corporate",
+      "category": "Industry",
+      "city": "Moscow",
+      "country": "Russia",
+      "collaborations": 41
+    },
+    {
+      "entity": "B. Verkin Institute for Low Temperature Physics and Engineering, NASU",
+      "type": "Public research institution",
+      "category": "Government",
+      "city": "Kharkiv",
+      "country": "Ukraine",
+      "collaborations": 40
+    },
+    {
+      "entity": "Nokia",
+      "type": "Corporate",
+      "category": "Industry",
+      "city": "Espoo",
+      "country": "Finland",
+      "collaborations": 40
+    },
+    {
+      "entity": "Quantum Machines",
+      "type": "Quantum company",
+      "category": "Industry",
+      "city": "Tel Aviv",
+      "country": "Israel",
+      "collaborations": 40
+    },
+    {
+      "entity": "Terra Quantum",
+      "type": "Quantum company",
+      "category": "Industry",
+      "city": "St. Gallen",
+      "country": "Switzerland",
+      "collaborations": 40
+    },
+    {
+      "entity": "Thales",
+      "type": "Corporate",
+      "category": "Industry",
+      "city": "Courbevoie",
+      "country": "France",
+      "collaborations": 40
+    },
+    {
+      "entity": "University of the Andes",
+      "type": "University",
+      "category": "Research",
+      "city": "Bogotá",
+      "country": "Colombia",
+      "collaborations": 40
+    },
+    {
+      "entity": "V. N. Karazin Kharkiv National University",
+      "type": "University",
+      "category": "Research",
+      "city": "Kharkiv",
+      "country": "Ukraine",
+      "collaborations": 40
+    },
+    {
+      "entity": "Alikhanyan National Science Laboratory",
+      "type": "Public research institution",
+      "category": "Government",
+      "city": "Yerevan",
+      "country": "Armenia",
+      "collaborations": 39
+    },
+    {
+      "entity": "Texas A&M University at Qatar",
+      "type": "University",
+      "category": "Research",
+      "city": "Doha",
+      "country": "Qatar",
+      "collaborations": 39
+    },
+    {
+      "entity": "Duy Tan University",
+      "type": "University",
+      "category": "Research",
+      "city": "Da Nang",
+      "country": "Vietnam",
+      "collaborations": 38
+    },
+    {
+      "entity": "Q-CTRL",
+      "type": "Quantum company",
+      "category": "Industry",
+      "city": "Sydney",
+      "country": "Australia",
+      "collaborations": 38
+    },
+    {
+      "entity": "Vietnam Academy of Science and Technology (VAST)",
+      "type": "Public research institution",
+      "category": "Government",
+      "city": "Hanoi",
+      "country": "Vietnam",
+      "collaborations": 38
+    },
+    {
+      "entity": "Middle East Technical University",
+      "type": "University",
+      "category": "Research",
+      "city": "Ankara",
+      "country": "Turkey",
+      "collaborations": 37
+    },
+    {
+      "entity": "National Centre of Scientific Research \"Demokritos\"",
+      "type": "Public research institution",
+      "category": "Government",
+      "city": "Agia Paraskevi",
+      "country": "Greece",
+      "collaborations": 37
+    },
+    {
+      "entity": "National University of Uzbekistan",
+      "type": "University",
+      "category": "Research",
+      "city": "Tashkent",
+      "country": "Uzbekistan",
+      "collaborations": 37
+    },
+    {
+      "entity": "Nazarbayev University",
+      "type": "University",
+      "category": "Research",
+      "city": "Almaty",
+      "country": "Kazakhstan",
+      "collaborations": 37
+    },
+    {
+      "entity": "Ton Duc Thang University",
+      "type": "University",
+      "category": "Research",
+      "city": "Ho Chi Minh City",
+      "country": "Vietnam",
+      "collaborations": 37
+    },
+    {
+      "entity": "Université de Yaoundé I",
+      "type": "University",
+      "category": "Research",
+      "city": "Yaoundé",
+      "country": "Cameroon",
+      "collaborations": 36
+    },
+    {
+      "entity": "Horia Hulubei National Institute for R&D in Physics and Nuclear Engineering (IFIN-HH)",
+      "type": "Public research institution",
+      "category": "Government",
+      "city": "Măgurele",
+      "country": "Romania",
+      "collaborations": 35
+    },
+    {
+      "entity": "National Institute of Astrophysics, Optics and Electronics",
+      "type": "Public research institution",
+      "category": "Government",
+      "city": "San Andrés Cholula",
+      "country": "Mexico",
+      "collaborations": 35
+    },
+    {
+      "entity": "Ruđer Bošković Institute",
+      "type": "Public research institution",
+      "category": "Government",
+      "city": "Zagreb",
+      "country": "Croatia",
+      "collaborations": 35
+    },
+    {
+      "entity": "Academy of Sciences Republic of Uzbekistan",
+      "type": "Government agency",
+      "category": "Government",
+      "city": "Tashkent",
+      "country": "Uzbekistan",
+      "collaborations": 34
+    },
+    {
+      "entity": "Deutsche Telekom",
+      "type": "Corporate",
+      "category": "Industry",
+      "city": "Bonn",
+      "country": "Germany",
+      "collaborations": 34
+    },
+    {
+      "entity": "Institute of Experimental Physics, SAS",
+      "type": "Public research institution",
+      "category": "Government",
+      "city": "Košice",
+      "country": "Slovakia",
+      "collaborations": 34
+    },
+    {
+      "entity": "University of Technology Malaysia",
+      "type": "University",
+      "category": "Research",
+      "city": "Skudai",
+      "country": "Malaysia",
+      "collaborations": 34
+    },
+    {
+      "entity": "1QBit",
+      "type": "Quantum company",
+      "category": "Industry",
+      "city": "Vancouver",
+      "country": "Canada",
+      "collaborations": 33
+    },
+    {
+      "entity": "Foundation for Research and Technology – Hellas",
+      "type": "Public research institution",
+      "category": "Government",
+      "city": "Heraklion",
+      "country": "Greece",
+      "collaborations": 33
+    },
+    {
+      "entity": "Multiverse Computing",
+      "type": "Quantum company",
+      "category": "Industry",
+      "city": "San Sebastián",
+      "country": "Spain",
+      "collaborations": 33
+    },
+    {
+      "entity": "University of Antioquia",
+      "type": "University",
+      "category": "Research",
+      "city": "Medellín",
+      "country": "Colombia",
+      "collaborations": 33
+    },
+    {
+      "entity": "University of Carthage",
+      "type": "University",
+      "category": "Research",
+      "city": "Tunis",
+      "country": "Tunisia",
+      "collaborations": 33
+    },
+    {
+      "entity": "Bulgarian Academy of Sciences (BAS)",
+      "type": "Public research institution",
+      "category": "Government",
+      "city": "Sofia",
+      "country": "Bulgaria",
+      "collaborations": 32
+    },
+    {
+      "entity": "Hungarian Academy of Sciences (HAS)",
+      "type": "Public research institution",
+      "category": "Government",
+      "city": "Budapest",
+      "country": "Hungary",
+      "collaborations": 32
+    },
+    {
+      "entity": "University of Dschang",
+      "type": "University",
+      "category": "Research",
+      "city": "Dschang",
+      "country": "Cameroon",
+      "collaborations": 32
+    },
+    {
+      "entity": "Classiq",
+      "type": "Quantum company",
+      "category": "Industry",
+      "city": "Tel Aviv",
+      "country": "Israel",
+      "collaborations": 31
+    },
+    {
+      "entity": "Siemens",
+      "type": "Corporate",
+      "category": "Industry",
+      "city": "Munich",
+      "country": "Germany",
+      "collaborations": 31
+    },
+    {
+      "entity": "Belarusian State University",
+      "type": "University",
+      "category": "Research",
+      "city": "Minsk",
+      "country": "Belarus",
+      "collaborations": 30
+    },
+    {
+      "entity": "Cyprus Institute",
+      "type": "Research institute",
+      "category": "Research",
+      "city": "Nicosia",
+      "country": "Cyprus",
+      "collaborations": 30
+    },
+    {
+      "entity": "Samsung",
+      "type": "Corporate",
+      "category": "Industry",
+      "city": "Seoul",
+      "country": "South Korea",
+      "collaborations": 30
+    },
+    {
+      "entity": "University of Jordan",
+      "type": "University",
+      "category": "Research",
+      "city": "Amman",
+      "country": "Jordan",
+      "collaborations": 30
+    },
+    {
+      "entity": "Vietnam National University Ho Chi Minh City",
+      "type": "University",
+      "category": "Research",
+      "city": "Ho Chi Minh City",
+      "country": "Vietnam",
+      "collaborations": 30
+    },
+    {
+      "entity": "Chulalongkorn University",
+      "type": "University",
+      "category": "Research",
+      "city": "Bangkok",
+      "country": "Thailand",
+      "collaborations": 29
+    },
+    {
+      "entity": "National Institute of Materials Physics",
+      "type": "Public research institution",
+      "category": "Government",
+      "city": "Măgurele",
+      "country": "Romania",
+      "collaborations": 29
+    },
+    {
+      "entity": "Quantropi",
+      "type": "Quantum company",
+      "category": "Industry",
+      "city": "Ottawa",
+      "country": "Canada",
+      "collaborations": 29
+    },
+    {
+      "entity": "University of Tunis El Manar",
+      "type": "University",
+      "category": "Research",
+      "city": "Tunis",
+      "country": "Tunisia",
+      "collaborations": 29
+    },
+    {
+      "entity": "Institute for Physical Research, NAS RA",
+      "type": "Public research institution",
+      "category": "Government",
+      "city": "Ashtarak",
+      "country": "Armenia",
+      "collaborations": 28
+    },
+    {
+      "entity": "Institute of Nuclear Physics of Uzbekistan Academy of Sciences",
+      "type": "Public research institution",
+      "category": "Government",
+      "city": "Tashkent",
+      "country": "Uzbekistan",
+      "collaborations": 28
+    },
+    {
+      "entity": "Moldova State University",
+      "type": "University",
+      "category": "Research",
+      "city": "Chisinau",
+      "country": "Moldova",
+      "collaborations": 28
+    },
+    {
+      "entity": "University of Bahrain",
+      "type": "University",
+      "category": "Research",
+      "city": "Zallaq",
+      "country": "Bahrain",
+      "collaborations": 28
+    },
+    {
+      "entity": "FORTH Institute of Electronic Structure and Laser",
+      "type": "Public research institution",
+      "category": "Government",
+      "city": "Heraklion",
+      "country": "Greece",
+      "collaborations": 27
+    },
+    {
+      "entity": "Foxconn",
+      "type": "Corporate",
+      "category": "Industry",
+      "city": "Taipei",
+      "country": "Taiwan",
+      "collaborations": 27
+    },
+    {
+      "entity": "National Atomic Energy Commission (CNEA)",
+      "type": "Government agency",
+      "category": "Government",
+      "city": "Buenos Aires",
+      "country": "Argentina",
+      "collaborations": 27
+    },
+    {
+      "entity": "National Research and Innovation Agency",
+      "type": "Government agency",
+      "category": "Government",
+      "city": "Jakarta",
+      "country": "Indonesia",
+      "collaborations": 27
+    },
+    {
+      "entity": "University of Dhaka",
+      "type": "University",
+      "category": "Research",
+      "city": "Dhaka",
+      "country": "Bangladesh",
+      "collaborations": 27
+    },
+    {
+      "entity": "University of Kurdistan",
+      "type": "University",
+      "category": "Research",
+      "city": "Erbil",
+      "country": "Iraq",
+      "collaborations": 27
+    },
+    {
+      "entity": "Baku State University",
+      "type": "University",
+      "category": "Research",
+      "city": "Baku",
+      "country": "Azerbaijan",
+      "collaborations": 26
+    },
+    {
+      "entity": "Pavol Jozef Šafárik University",
+      "type": "University",
+      "category": "Research",
+      "city": "Košice",
+      "country": "Slovakia",
+      "collaborations": 26
+    },
+    {
+      "entity": "Yerevan State University",
+      "type": "University",
+      "category": "Research",
+      "city": "Yerevan",
+      "country": "Armenia",
+      "collaborations": 26
+    },
+    {
+      "entity": "Chiang Mai University",
+      "type": "University",
+      "category": "Research",
+      "city": "Chiang Mai",
+      "country": "Thailand",
+      "collaborations": 25
+    },
+    {
+      "entity": "Institute of Mathematics, Physics, and Mechanics",
+      "type": "Research institute",
+      "category": "Research",
+      "city": "Ljubljana",
+      "country": "Slovenia",
+      "collaborations": 25
+    },
+    {
+      "entity": "Kuwait University",
+      "type": "University",
+      "category": "Research",
+      "city": "Kuwait City",
+      "country": "Kuwait",
+      "collaborations": 25
+    },
+    {
+      "entity": "National University of Malaysia",
+      "type": "University",
+      "category": "Research",
+      "city": "Bandar Baru Bangi",
+      "country": "Malaysia",
+      "collaborations": 25
+    },
+    {
+      "entity": "Pakistan Institute of Nuclear Science and Technology (PINSTECH)",
+      "type": "Public research institution",
+      "category": "Government",
+      "city": "Islamabad",
+      "country": "Pakistan",
+      "collaborations": 25
+    },
+    {
+      "entity": "University of Bergen",
+      "type": "University",
+      "category": "Research",
+      "city": "Bergen",
+      "country": "Norway",
+      "collaborations": 25
+    },
+    {
+      "entity": "University of Havana",
+      "type": "University",
+      "category": "Research",
+      "city": "Havana",
+      "country": "Cuba",
+      "collaborations": 25
+    },
+    {
+      "entity": "University of Ngaoundéré",
+      "type": "University",
+      "category": "Research",
+      "city": "Ngaoundéré",
+      "country": "Cameroon",
+      "collaborations": 25
+    },
+    {
+      "entity": "V.E. Lashkaryov Institute of Semiconductor Physics",
+      "type": "Research institute",
+      "category": "Research",
+      "city": "Kyiv",
+      "country": "Ukraine",
+      "collaborations": 24
+    },
+    {
+      "entity": "ID Quantique",
+      "type": "Quantum company",
+      "category": "Industry",
+      "city": "Geneva",
+      "country": "Switzerland",
+      "collaborations": 23
+    },
+    {
+      "entity": "J. Heyrovsky Institute of Physical Chemistry of the Czech Academy of Sciences",
+      "type": "Public research institution",
+      "category": "Government",
+      "city": "Prague",
+      "country": "Czech Republic",
+      "collaborations": 23
+    },
+    {
+      "entity": "Laboratório Nacional de Computação Científica",
+      "type": "Government agency",
+      "category": "Government",
+      "city": "Petrópolis",
+      "country": "Brazil",
+      "collaborations": 23
+    },
+    {
+      "entity": "National Academy of Sciences of the Republic of Armenia (NAS RA)",
+      "type": "Public research institution",
+      "category": "Government",
+      "city": "Yerevan",
+      "country": "Armenia",
+      "collaborations": 23
+    },
+    {
+      "entity": "Türkiye Bilimsel ve Teknolojik Araştırma Kurumu",
+      "type": "Government agency",
+      "category": "Government",
+      "city": "Ankara",
+      "country": "Turkey",
+      "collaborations": 23
+    },
+    {
+      "entity": "B.I. Stepanov Institute of Physics, NASB",
+      "type": "Public research institution",
+      "category": "Government",
+      "city": "Minsk",
+      "country": "Belarus",
+      "collaborations": 22
+    },
+    {
+      "entity": "Bandung Institute of Technology",
+      "type": "University",
+      "category": "Research",
+      "city": "Kota Bandung",
+      "country": "Indonesia",
+      "collaborations": 22
+    },
+    {
+      "entity": "BMW",
+      "type": "Corporate",
+      "category": "Industry",
+      "city": "Munich",
+      "country": "Germany",
+      "collaborations": 22
+    },
+    {
+      "entity": "Government of Khyber Pakhtunkhwa",
+      "type": "Government agency",
+      "category": "Government",
+      "city": "Peshawar",
+      "country": "Pakistan",
+      "collaborations": 22
+    },
+    {
+      "entity": "Institute of Mathematics and Informatics, BAS",
+      "type": "Public research institution",
+      "category": "Government",
+      "city": "Sofia",
+      "country": "Bulgaria",
+      "collaborations": 22
+    },
+    {
+      "entity": "Khazar University",
+      "type": "University",
+      "category": "Research",
+      "city": "Baku",
+      "country": "Azerbaijan",
+      "collaborations": 22
+    },
+    {
+      "entity": "King Abdulaziz City for Science and Technology (KACST)",
+      "type": "Government agency",
+      "category": "Government",
+      "city": "Riyadh",
+      "country": "Saudi Arabia",
+      "collaborations": 22
+    },
+    {
+      "entity": "University of Costa Rica",
+      "type": "University",
+      "category": "Research",
+      "city": "San José",
+      "country": "Costa Rica",
+      "collaborations": 22
+    },
+    {
+      "entity": "University of Monastir",
+      "type": "University",
+      "category": "Research",
+      "city": "Monastir",
+      "country": "Tunisia",
+      "collaborations": 22
+    },
+    {
+      "entity": "Applied Science Private University",
+      "type": "University",
+      "category": "Research",
+      "city": "Amman",
+      "country": "Jordan",
+      "collaborations": 21
+    },
+    {
+      "entity": "Badji Mokhtar Annaba University",
+      "type": "University",
+      "category": "Research",
+      "city": "Annaba",
+      "country": "Algeria",
+      "collaborations": 21
+    },
+    {
+      "entity": "Mahidol University",
+      "type": "University",
+      "category": "Research",
+      "city": "Salaya",
+      "country": "Thailand",
+      "collaborations": 21
+    },
+    {
+      "entity": "Millennium Science Initiative",
+      "type": "Government agency",
+      "category": "Government",
+      "city": "Santiago",
+      "country": "Chile",
+      "collaborations": 21
+    },
+    {
+      "entity": "Reykjavík University",
+      "type": "University",
+      "category": "Research",
+      "city": "Reykjavik",
+      "country": "Iceland",
+      "collaborations": 21
+    },
+    {
+      "entity": "SDT",
+      "type": "Quantum company",
+      "category": "Industry",
+      "city": "Seoul",
+      "country": "South Korea",
+      "collaborations": 21
+    },
+    {
+      "entity": "CSIRO's Data61",
+      "type": "Government agency",
+      "category": "Government",
+      "city": "Sydney",
+      "country": "Australia",
+      "collaborations": 20
+    },
+    {
+      "entity": "Tbilisi State University",
+      "type": "University",
+      "category": "Research",
+      "city": "Tbilisi",
+      "country": "Georgia",
+      "collaborations": 20
+    },
+    {
+      "entity": "Telefónica",
+      "type": "Corporate",
+      "category": "Industry",
+      "city": "Madrid",
+      "country": "Spain",
+      "collaborations": 20
+    },
+    {
+      "entity": "Universidad de la República de Uruguay",
+      "type": "University",
+      "category": "Research",
+      "city": "Montevideo",
+      "country": "Uruguay",
+      "collaborations": 20
+    },
+    {
+      "entity": "Adama Science and Technology University",
+      "type": "University",
+      "category": "Research",
+      "city": "Adama",
+      "country": "Ethiopia",
+      "collaborations": 19
+    },
+    {
+      "entity": "Comenius University",
+      "type": "University",
+      "category": "Research",
+      "city": "Bratislava",
+      "country": "Slovakia",
+      "collaborations": 19
+    },
+    {
+      "entity": "HUN-REN Institute for Nuclear Research (ATOMKI)",
+      "type": "Public research institution",
+      "category": "Government",
+      "city": "Debrecen",
+      "country": "Hungary",
+      "collaborations": 19
+    },
+    {
+      "entity": "Lebanese University",
+      "type": "University",
+      "category": "Research",
+      "city": "Beirut",
+      "country": "Lebanon",
+      "collaborations": 19
+    },
+    {
+      "entity": "Qatar University",
+      "type": "University",
+      "category": "Research",
+      "city": "Doha",
+      "country": "Qatar",
+      "collaborations": 19
+    },
+    {
+      "entity": "QuintessenceLabs",
+      "type": "Quantum company",
+      "category": "Industry",
+      "city": "Canberra",
+      "country": "Australia",
+      "collaborations": 19
+    },
+    {
+      "entity": "University of Cyprus",
+      "type": "University",
+      "category": "Research",
+      "city": "Nicosia",
+      "country": "Cyprus",
+      "collaborations": 19
+    },
+    {
+      "entity": "University of Szeged",
+      "type": "University",
+      "category": "Research",
+      "city": "Szeged",
+      "country": "Hungary",
+      "collaborations": 19
+    },
+    {
+      "entity": "University of Tartu",
+      "type": "University",
+      "category": "Research",
+      "city": "Tartu",
+      "country": "Estonia",
+      "collaborations": 19
+    },
+    {
+      "entity": "Azerbaijan National Academy of Sciences",
+      "type": "Government agency",
+      "category": "Government",
+      "city": "Baku",
+      "country": "Azerbaijan",
+      "collaborations": 18
+    },
+    {
+      "entity": "Bluefors",
+      "type": "Quantum company",
+      "category": "Industry",
+      "city": "Helsinki",
+      "country": "Finland",
+      "collaborations": 18
+    },
+    {
+      "entity": "Ericsson",
+      "type": "Corporate",
+      "category": "Industry",
+      "city": "Stockholm",
+      "country": "Sweden",
+      "collaborations": 18
+    },
+    {
+      "entity": "QNu Labs",
+      "type": "Quantum company",
+      "category": "Industry",
+      "city": "Bangalore",
+      "country": "India",
+      "collaborations": 18
+    },
+    {
+      "entity": "Qunova Computing",
+      "type": "Quantum company",
+      "category": "Industry",
+      "city": "Daejeon",
+      "country": "South Korea",
+      "collaborations": 18
+    },
+    {
+      "entity": "Quside",
+      "type": "Quantum company",
+      "category": "Industry",
+      "city": "Castelldefels",
+      "country": "Spain",
+      "collaborations": 18
+    },
+    {
+      "entity": "Thales (Australia)",
+      "type": "Corporate",
+      "category": "Industry",
+      "city": "Sydney",
+      "country": "Australia",
+      "collaborations": 18
+    },
+    {
+      "entity": "Universidad Técnica Federico Santa María",
+      "type": "University",
+      "category": "Research",
+      "city": "Guayaquil",
+      "country": "Ecuador",
+      "collaborations": 18
+    },
+    {
+      "entity": "University of Indonesia",
+      "type": "University",
+      "category": "Research",
+      "city": "Depok",
+      "country": "Indonesia",
+      "collaborations": 18
+    },
+    {
+      "entity": "Arba Minch University",
+      "type": "University",
+      "category": "Research",
+      "city": "Arba Minch",
+      "country": "Ethiopia",
+      "collaborations": 17
+    },
+    {
+      "entity": "Department of Physics, Mathematics and Informatics",
+      "type": "Research institute",
+      "category": "Research",
+      "city": "Minsk",
+      "country": "Belarus",
+      "collaborations": 17
+    },
+    {
+      "entity": "National Academy of Sciences of Belarus (NASB)",
+      "type": "Public research institution",
+      "category": "Government",
+      "city": "Minsk",
+      "country": "Belarus",
+      "collaborations": 17
+    },
+    {
+      "entity": "Nuclear Physics Institute of the Czech Academy of Sciences",
+      "type": "Public research institution",
+      "category": "Government",
+      "city": "Prague",
+      "country": "Czech Republic",
+      "collaborations": 17
+    },
+    {
+      "entity": "Pakistani National Centre for Physics",
+      "type": "Public research institution",
+      "category": "Government",
+      "city": "Islamabad",
+      "country": "Pakistan",
+      "collaborations": 17
+    },
+    {
+      "entity": "Roche",
+      "type": "Corporate",
+      "category": "Industry",
+      "city": "Basel",
+      "country": "Switzerland",
+      "collaborations": 17
+    },
+    {
+      "entity": "Software Competence Center Hagenberg (Austria)",
+      "type": "Corporate",
+      "category": "Industry",
+      "city": "Linz",
+      "country": "Austria",
+      "collaborations": 17
+    },
+    {
+      "entity": "Sultan Qaboos University",
+      "type": "University",
+      "category": "Research",
+      "city": "Muscat",
+      "country": "Oman",
+      "collaborations": 17
+    },
+    {
+      "entity": "Thailand Center of Excellence in Physics (ThEP Center)",
+      "type": "Public research institution",
+      "category": "Government",
+      "city": "Chiang Mai",
+      "country": "Thailand",
+      "collaborations": 17
+    },
+    {
+      "entity": "Bangladesh University of Engineering and Technology",
+      "type": "University",
+      "category": "Research",
+      "city": "Dhaka",
+      "country": "Bangladesh",
+      "collaborations": 16
+    },
+    {
+      "entity": "Bikash's Quantum",
+      "type": "Quantum company",
+      "category": "Industry",
+      "city": "Mohanpur",
+      "country": "India",
+      "collaborations": 16
+    },
+    {
+      "entity": "Botswana International University of Science and Technology",
+      "type": "University",
+      "category": "Research",
+      "city": "Palapye",
+      "country": "Botswana",
+      "collaborations": 16
+    },
+    {
+      "entity": "Lebanese American University",
+      "type": "University",
+      "category": "Research",
+      "city": "Beirut",
+      "country": "Lebanon",
+      "collaborations": 16
+    },
+    {
+      "entity": "Ministry of Education",
+      "type": "Government agency",
+      "category": "Government",
+      "city": "Kigali",
+      "country": "Rwanda",
+      "collaborations": 16
+    },
+    {
+      "entity": "Transylvania University of Brașov",
+      "type": "University",
+      "category": "Research",
+      "city": "Brașov",
+      "country": "Romania",
+      "collaborations": 16
+    },
+    {
+      "entity": "University of Bucharest",
+      "type": "University",
+      "category": "Research",
+      "city": "Bucharest",
+      "country": "Romania",
+      "collaborations": 16
+    },
+    {
+      "entity": "University of Nova Gorica",
+      "type": "University",
+      "category": "Research",
+      "city": "Nova Gorica",
+      "country": "Slovenia",
+      "collaborations": 16
+    },
+    {
+      "entity": "University of Oradea",
+      "type": "University",
+      "category": "Research",
+      "city": "Oradea",
+      "country": "Romania",
+      "collaborations": 16
+    },
+    {
+      "entity": "University of Science and Technology Houari Boumediene",
+      "type": "University",
+      "category": "Research",
+      "city": "Bab Ezzouar",
+      "country": "Algeria",
+      "collaborations": 16
+    },
+    {
+      "entity": "Egyptian Atomic Energy Authority",
+      "type": "Government agency",
+      "category": "Government",
+      "city": "Nasr City",
+      "country": "Egypt",
+      "collaborations": 15
+    },
+    {
+      "entity": "Hassiba Benbouali University of Chlef",
+      "type": "University",
+      "category": "Research",
+      "city": "ash-Shalif",
+      "country": "Algeria",
+      "collaborations": 15
+    },
+    {
+      "entity": "Samarkand State University named after Sharof Rashidov",
+      "type": "University",
+      "category": "Research",
+      "city": "Samarkand",
+      "country": "Uzbekistan",
+      "collaborations": 15
+    },
+    {
+      "entity": "Tata Consultancy Services",
+      "type": "Corporate",
+      "category": "Industry",
+      "city": "Mumbai",
+      "country": "India",
+      "collaborations": 15
+    },
+    {
+      "entity": "Tribhuvan University",
+      "type": "University",
+      "category": "Research",
+      "city": "Kathmandu",
+      "country": "Nepal",
+      "collaborations": 15
+    },
+    {
+      "entity": "Center for Research in Optics (CIO)",
+      "type": "Public research institution",
+      "category": "Government",
+      "city": "León",
+      "country": "Mexico",
+      "collaborations": 14
+    },
+    {
+      "entity": "Interdisciplinary Centre for Security, Reliability and Trust",
+      "type": "University",
+      "category": "Research",
+      "city": "Belval",
+      "country": "Luxembourg",
+      "collaborations": 14
+    },
+    {
+      "entity": "Ministry of Education",
+      "type": "Government agency",
+      "category": "Government",
+      "city": "Santiago",
+      "country": "Chile",
+      "collaborations": 14
+    },
+    {
+      "entity": "QuantWare",
+      "type": "Quantum company",
+      "category": "Industry",
+      "city": "Delft",
+      "country": "Netherlands",
+      "collaborations": 14
+    },
+    {
+      "entity": "Russian-Armenian University",
+      "type": "University",
+      "category": "Research",
+      "city": "Yerevan",
+      "country": "Armenia",
+      "collaborations": 14
+    },
+    {
+      "entity": "Secretaría de Ciencia, Humanidades, Tecnología e Innovación",
+      "type": "Government agency",
+      "category": "Government",
+      "city": "Mexico City",
+      "country": "Mexico",
+      "collaborations": 14
+    },
+    {
+      "entity": "University of Niš",
+      "type": "University",
+      "category": "Research",
+      "city": "Niš",
+      "country": "Serbia",
+      "collaborations": 14
+    },
+    {
+      "entity": "University of Split",
+      "type": "University",
+      "category": "Research",
+      "city": "Split",
+      "country": "Croatia",
+      "collaborations": 14
+    },
+    {
+      "entity": "Al-Balqa Applied University",
+      "type": "University",
+      "category": "Research",
+      "city": "Salt",
+      "country": "Jordan",
+      "collaborations": 13
+    },
+    {
+      "entity": "City University",
+      "type": "University",
+      "category": "Research",
+      "city": "Dhaka",
+      "country": "Bangladesh",
+      "collaborations": 13
+    },
+    {
+      "entity": "European Space Research and Technology Centre (ESA/ESTEC)",
+      "type": "Government agency",
+      "category": "Government",
+      "city": "Noordwijk",
+      "country": "Netherlands",
+      "collaborations": 13
+    },
+    {
+      "entity": "Institute of Space Science Romania",
+      "type": "Government agency",
+      "category": "Government",
+      "city": "Măgurele",
+      "country": "Romania",
+      "collaborations": 13
+    },
+    {
+      "entity": "Instituto Nacional de Metrologia, Qualidade e Tecnologia",
+      "type": "Government agency",
+      "category": "Government",
+      "city": "Rio de Janeiro",
+      "country": "Brazil",
+      "collaborations": 13
+    },
+    {
+      "entity": "National Defense Institute",
+      "type": "Government agency",
+      "category": "Government",
+      "city": "Lisbon",
+      "country": "Portugal",
+      "collaborations": 13
+    },
+    {
+      "entity": "SpeQtral",
+      "type": "Quantum company",
+      "category": "Industry",
+      "city": "Singapore",
+      "country": "Singapore",
+      "collaborations": 13
+    },
+    {
+      "entity": "The Scarborough Hospital",
+      "type": "Public research institution",
+      "category": "Government",
+      "city": "Toronto",
+      "country": "Canada",
+      "collaborations": 13
+    },
+    {
+      "entity": "University of Baghdad",
+      "type": "University",
+      "category": "Research",
+      "city": "Baghdad",
+      "country": "Iraq",
+      "collaborations": 13
+    },
+    {
+      "entity": "University of Human Development",
+      "type": "University",
+      "category": "Research",
+      "city": "Sulaymaniyah",
+      "country": "Iraq",
+      "collaborations": 13
+    },
+    {
+      "entity": "University of the Philippines Diliman",
+      "type": "University",
+      "category": "Research",
+      "city": "Quezon City",
+      "country": "Philippines",
+      "collaborations": 13
+    },
+    {
+      "entity": "Yango University",
+      "type": "University",
+      "category": "Research",
+      "city": "Yangon",
+      "country": "Myanmar",
+      "collaborations": 13
+    },
+    {
+      "entity": "American University of Beirut",
+      "type": "University",
+      "category": "Research",
+      "city": "Beirut",
+      "country": "Lebanon",
+      "collaborations": 12
+    },
+    {
+      "entity": "Dominion University College",
+      "type": "University",
+      "category": "Research",
+      "city": "Accra",
+      "country": "Ghana",
+      "collaborations": 12
+    },
+    {
+      "entity": "Entropica Labs",
+      "type": "Quantum company",
+      "category": "Industry",
+      "city": "Singapore",
+      "country": "Singapore",
+      "collaborations": 12
+    },
+    {
+      "entity": "Federal University of Technology Owerri",
+      "type": "University",
+      "category": "Research",
+      "city": "Owerri",
+      "country": "Nigeria",
+      "collaborations": 12
+    },
+    {
+      "entity": "Institute of General and Inorganic Chemistry",
+      "type": "Research institute",
+      "category": "Research",
+      "city": "Sofia",
+      "country": "Bulgaria",
+      "collaborations": 12
+    },
+    {
+      "entity": "Riga Technical University",
+      "type": "University",
+      "category": "Research",
+      "city": "Riga",
+      "country": "Latvia",
+      "collaborations": 12
+    },
+    {
+      "entity": "Saudi Aramco",
+      "type": "Corporate",
+      "category": "Industry",
+      "city": "Dhahran",
+      "country": "Saudi Arabia",
+      "collaborations": 12
+    },
+    {
+      "entity": "Silicon Austria Labs (Austria)",
+      "type": "Corporate",
+      "category": "Industry",
+      "city": "Graz",
+      "country": "Austria",
+      "collaborations": 12
+    },
+    {
+      "entity": "Simula Research Laboratory",
+      "type": "Public research institution",
+      "category": "Government",
+      "city": "Oslo",
+      "country": "Norway",
+      "collaborations": 12
+    },
+    {
+      "entity": "Single Quantum",
+      "type": "Quantum company",
+      "category": "Industry",
+      "city": "Delft",
+      "country": "Netherlands",
+      "collaborations": 12
+    },
+    {
+      "entity": "Taiwan Semiconductor Manufacturing Company (Taiwan)",
+      "type": "Corporate",
+      "category": "Industry",
+      "city": "Hsinchu",
+      "country": "Taiwan",
+      "collaborations": 12
+    },
+    {
+      "entity": "Tallinn University of Technology",
+      "type": "University",
+      "category": "Research",
+      "city": "Tallinn",
+      "country": "Estonia",
+      "collaborations": 12
+    },
+    {
+      "entity": "Tashkent Institute of Irrigation and Agricultural Mechanization Engineers",
+      "type": "University",
+      "category": "Research",
+      "city": "Tashkent",
+      "country": "Uzbekistan",
+      "collaborations": 12
+    },
+    {
+      "entity": "Universitas Dian Nuswantoro",
+      "type": "University",
+      "category": "Research",
+      "city": "Semarang",
+      "country": "Indonesia",
+      "collaborations": 12
+    },
+    {
+      "entity": "University College of Bahrain",
+      "type": "University",
+      "category": "Research",
+      "city": "Al Janabiyah",
+      "country": "Bahrain",
+      "collaborations": 12
+    },
+    {
+      "entity": "Ahlia University",
+      "type": "University",
+      "category": "Research",
+      "city": "Manama",
+      "country": "Bahrain",
+      "collaborations": 11
+    },
+    {
+      "entity": "Danish National Metrology Institute",
+      "type": "Public research institution",
+      "category": "Government",
+      "city": "Hørsholm",
+      "country": "Denmark",
+      "collaborations": 11
+    },
+    {
+      "entity": "Escuela Superior Politecnica del Litoral",
+      "type": "University",
+      "category": "Research",
+      "city": "Guayaquil",
+      "country": "Ecuador",
+      "collaborations": 11
+    },
+    {
+      "entity": "Ilia State University",
+      "type": "University",
+      "category": "Research",
+      "city": "Tbilisi",
+      "country": "Georgia",
+      "collaborations": 11
+    },
+    {
+      "entity": "Kvantify",
+      "type": "Quantum company",
+      "category": "Industry",
+      "city": "Copenhagen",
+      "country": "Denmark",
+      "collaborations": 11
+    },
+    {
+      "entity": "Ministry of Education",
+      "type": "Government agency",
+      "category": "Government",
+      "city": "Podgorica",
+      "country": "Montenegro",
+      "collaborations": 11
+    },
+    {
+      "entity": "National Institute of Chemical Physics and Biophysics",
+      "type": "Research institute",
+      "category": "Research",
+      "city": "Tallinn",
+      "country": "Estonia",
+      "collaborations": 11
+    },
+    {
+      "entity": "Accenture",
+      "type": "Corporate",
+      "category": "Industry",
+      "city": "Dublin",
+      "country": "Ireland",
+      "collaborations": 10
+    },
+    {
+      "entity": "Aselsan",
+      "type": "Corporate",
+      "category": "Industry",
+      "city": "Ankara",
+      "country": "Turkey",
+      "collaborations": 10
+    },
+    {
+      "entity": "Azerbaijan State Oil and Industry University",
+      "type": "University",
+      "category": "Research",
+      "city": "Baku",
+      "country": "Azerbaijan",
+      "collaborations": 10
+    },
+    {
+      "entity": "Bayero University Kano",
+      "type": "University",
+      "category": "Research",
+      "city": "Kano",
+      "country": "Nigeria",
+      "collaborations": 10
+    },
+    {
+      "entity": "Equal1",
+      "type": "Quantum company",
+      "category": "Industry",
+      "city": "Dublin",
+      "country": "Ireland",
+      "collaborations": 10
+    },
+    {
+      "entity": "Federal University Lafia",
+      "type": "University",
+      "category": "Research",
+      "city": "Lafia",
+      "country": "Nigeria",
+      "collaborations": 10
+    },
+    {
+      "entity": "Georgi Nadjakov Institute of Solid State Physics, BAS",
+      "type": "Public research institution",
+      "category": "Government",
+      "city": "Sofia",
+      "country": "Bulgaria",
+      "collaborations": 10
+    },
+    {
+      "entity": "Microsoft (Norway)",
+      "type": "Corporate",
+      "category": "Industry",
+      "city": "Lysaker",
+      "country": "Norway",
+      "collaborations": 10
+    },
+    {
+      "entity": "pQCee",
+      "type": "Quantum company",
+      "category": "Industry",
+      "city": "Singapore",
+      "country": "Singapore",
+      "collaborations": 10
+    },
+    {
+      "entity": "Rafael Advanced Defense Systems",
+      "type": "Corporate",
+      "category": "Industry",
+      "city": "Haifa",
+      "country": "Israel",
+      "collaborations": 10
+    },
+    {
+      "entity": "Robert Bosch (Netherlands)",
+      "type": "Corporate",
+      "category": "Industry",
+      "city": "Breda",
+      "country": "Netherlands",
+      "collaborations": 10
+    },
+    {
+      "entity": "University of Abomey-Calavi",
+      "type": "University",
+      "category": "Research",
+      "city": "Abomey-Calavi",
+      "country": "Benin",
+      "collaborations": 10
+    },
+    {
+      "entity": "Université d'Abomey-Calavi",
+      "type": "University",
+      "category": "Research",
+      "city": "Cotonou",
+      "country": "Benin",
+      "collaborations": 10
+    },
+    {
+      "entity": "Université de Nouakchott",
+      "type": "University",
+      "category": "Research",
+      "city": "Nouakchott",
+      "country": "Mauritania",
+      "collaborations": 10
+    },
+    {
+      "entity": "Algebra Bernays University",
+      "type": "University",
+      "category": "Research",
+      "city": "Zagreb",
+      "country": "Croatia",
+      "collaborations": 9
+    },
+    {
+      "entity": "Eni",
+      "type": "Corporate",
+      "category": "Industry",
+      "city": "Rome",
+      "country": "Italy",
+      "collaborations": 9
+    },
+    {
+      "entity": "Georgian Technical University",
+      "type": "University",
+      "category": "Research",
+      "city": "Tbilisi",
+      "country": "Georgia",
+      "collaborations": 9
+    },
+    {
+      "entity": "Iraqi Ministry of Higher Education and Scientific Research",
+      "type": "Government agency",
+      "category": "Government",
+      "city": "Baghdad",
+      "country": "Iraq",
+      "collaborations": 9
+    },
+    {
+      "entity": "Luxembourg Institute of Science and Technology",
+      "type": "Research institute",
+      "category": "Research",
+      "city": "Belvaux",
+      "country": "Luxembourg",
+      "collaborations": 9
+    },
+    {
+      "entity": "Mediterranean University",
+      "type": "University",
+      "category": "Research",
+      "city": "Podgorica",
+      "country": "Montenegro",
+      "collaborations": 9
+    },
+    {
+      "entity": "Ministry of Education",
+      "type": "Government agency",
+      "category": "Government",
+      "city": "Addis Ababa",
+      "country": "Ethiopia",
+      "collaborations": 9
+    },
+    {
+      "entity": "National University of Mongolia",
+      "type": "University",
+      "category": "Research",
+      "city": "Ulaanbaatar",
+      "country": "Mongolia",
+      "collaborations": 9
+    },
+    {
+      "entity": "Pontificia Universidad Católica del Perú",
+      "type": "University",
+      "category": "Research",
+      "city": "Lima",
+      "country": "Peru",
+      "collaborations": 9
+    },
+    {
+      "entity": "Sohar University",
+      "type": "University",
+      "category": "Research",
+      "city": "Sohar",
+      "country": "Oman",
+      "collaborations": 9
+    },
+    {
+      "entity": "University of Sarajevo",
+      "type": "University",
+      "category": "Research",
+      "city": "Sarajevo",
+      "country": "Bosnia and Herzegovina",
+      "collaborations": 9
+    },
+    {
+      "entity": "Vinča Institute of Nuclear Sciences",
+      "type": "Research institute",
+      "category": "Research",
+      "city": "Vinča",
+      "country": "Serbia",
+      "collaborations": 9
+    },
+    {
+      "entity": "Addis Ababa University",
+      "type": "University",
+      "category": "Research",
+      "city": "Addis Ababa",
+      "country": "Ethiopia",
+      "collaborations": 8
+    },
+    {
+      "entity": "Defence Research and Development Canada",
+      "type": "Government agency",
+      "category": "Government",
+      "city": "Ottawa",
+      "country": "Canada",
+      "collaborations": 8
+    },
+    {
+      "entity": "Higher Institute of Technologies and Applied Sciences",
+      "type": "University",
+      "category": "Research",
+      "city": "Havana",
+      "country": "Cuba",
+      "collaborations": 8
+    },
+    {
+      "entity": "Institute of Information Technologies",
+      "type": "Research institute",
+      "category": "Research",
+      "city": "Sofia",
+      "country": "Bulgaria",
+      "collaborations": 8
+    },
+    {
+      "entity": "Institute of Materials Research of the Slovak Academy of Sciences",
+      "type": "Research institute",
+      "category": "Research",
+      "city": "Košice",
+      "country": "Slovakia",
+      "collaborations": 8
+    },
+    {
+      "entity": "Klaipėda University",
+      "type": "University",
+      "category": "Research",
+      "city": "Klaipėda",
+      "country": "Lithuania",
+      "collaborations": 8
+    },
+    {
+      "entity": "National Polytechnic School",
+      "type": "University",
+      "category": "Research",
+      "city": "Quito",
+      "country": "Ecuador",
+      "collaborations": 8
+    },
+    {
+      "entity": "Novo Nordisk",
+      "type": "Corporate",
+      "category": "Industry",
+      "city": "Copenhagen",
+      "country": "Denmark",
+      "collaborations": 8
+    },
+    {
+      "entity": "Physical and Technical Institute",
+      "type": "Research institute",
+      "category": "Research",
+      "city": "Minsk",
+      "country": "Belarus",
+      "collaborations": 8
+    },
+    {
+      "entity": "Reply",
+      "type": "Corporate",
+      "category": "Industry",
+      "city": "Milan",
+      "country": "Italy",
+      "collaborations": 8
+    },
+    {
+      "entity": "University of Benghazi",
+      "type": "University",
+      "category": "Research",
+      "city": "Benghazi",
+      "country": "Libya",
+      "collaborations": 8
+    },
+    {
+      "entity": "University of Kordofan",
+      "type": "University",
+      "category": "Research",
+      "city": "El-Obeid",
+      "country": "Sudan",
+      "collaborations": 8
+    },
+    {
+      "entity": "University of Rwanda",
+      "type": "University",
+      "category": "Research",
+      "city": "Butare",
+      "country": "Rwanda",
+      "collaborations": 8
+    },
+    {
+      "entity": "Université des Sciences et Techniques de Masuku",
+      "type": "University",
+      "category": "Research",
+      "city": "Franceville",
+      "country": "Gabon",
+      "collaborations": 8
+    },
+    {
+      "entity": "Council for Scientific and Industrial Research (CSIR)",
+      "type": "Government agency",
+      "category": "Government",
+      "city": "Pretoria",
+      "country": "South Africa",
+      "collaborations": 7
+    },
+    {
+      "entity": "Creotech Instruments",
+      "type": "Other startup or SME",
+      "category": "Industry",
+      "city": "Piaseczno",
+      "country": "Poland",
+      "collaborations": 7
+    },
+    {
+      "entity": "Hassan II Academy of Science and Technology",
+      "type": "Government agency",
+      "category": "Government",
+      "city": "Rabat",
+      "country": "Morocco",
+      "collaborations": 7
+    },
+    {
+      "entity": "IBM (Italy)",
+      "type": "Corporate",
+      "category": "Industry",
+      "city": "Milan",
+      "country": "Italy",
+      "collaborations": 7
+    },
+    {
+      "entity": "Institute for Informatics and Automation Problems",
+      "type": "Research institute",
+      "category": "Research",
+      "city": "Yerevan",
+      "country": "Armenia",
+      "collaborations": 7
+    },
+    {
+      "entity": "Instituto Venezolano de Investigaciones Científicas",
+      "type": "Research institute",
+      "category": "Research",
+      "city": "San Antonio de Los Altos",
+      "country": "Venezuela",
+      "collaborations": 7
+    },
+    {
+      "entity": "Kwame Nkrumah University of Science and Technology",
+      "type": "University",
+      "category": "Research",
+      "city": "Kumasi",
+      "country": "Ghana",
+      "collaborations": 7
+    },
+    {
+      "entity": "Ministry of Education",
+      "type": "Government agency",
+      "category": "Government",
+      "city": "Wellington",
+      "country": "New Zealand",
+      "collaborations": 7
+    },
+    {
+      "entity": "Sudan University of Science and Technology",
+      "type": "University",
+      "category": "Research",
+      "city": "Khartoum",
+      "country": "Sudan",
+      "collaborations": 7
+    },
+    {
+      "entity": "Universiti Brunei Darussalam",
+      "type": "University",
+      "category": "Research",
+      "city": "Bandar Seri Begawan",
+      "country": "Brunei",
+      "collaborations": 7
+    },
+    {
+      "entity": "University College of Applied Science",
+      "type": "University",
+      "category": "Research",
+      "city": "Gaza",
+      "country": "Palestine",
+      "collaborations": 7
+    },
+    {
+      "entity": "University of Lomé",
+      "type": "University",
+      "category": "Research",
+      "city": "Lomé",
+      "country": "Togo",
+      "collaborations": 7
+    },
+    {
+      "entity": "Volvo (Sweden)",
+      "type": "Corporate",
+      "category": "Industry",
+      "city": "Gothenburg",
+      "country": "Sweden",
+      "collaborations": 7
+    },
+    {
+      "entity": "Xpanceo",
+      "type": "Corporate",
+      "category": "Industry",
+      "city": "Dubai",
+      "country": "UAE",
+      "collaborations": 7
+    },
+    {
+      "entity": "Blackhills Quantum",
+      "type": "Quantum company",
+      "category": "Industry",
+      "city": "Hasselt",
+      "country": "Belgium",
+      "collaborations": 6
+    },
+    {
+      "entity": "Center for Physical Sciences and Technology",
+      "type": "Research institute",
+      "category": "Research",
+      "city": "Vilnius",
+      "country": "Lithuania",
+      "collaborations": 6
+    },
+    {
+      "entity": "Centro Nacional de Metrología de Panamá (CENAMEP AIP)",
+      "type": "Government agency",
+      "category": "Government",
+      "city": "Panama City",
+      "country": "Panama",
+      "collaborations": 6
+    },
+    {
+      "entity": "Chunghwa Telecom (Taiwan)",
+      "type": "Corporate",
+      "category": "Industry",
+      "city": "Taipei",
+      "country": "Taiwan",
+      "collaborations": 6
+    },
+    {
+      "entity": "Cryptomathic",
+      "type": "Quantum company",
+      "category": "Industry",
+      "city": "Aarhus",
+      "country": "Denmark",
+      "collaborations": 6
+    },
+    {
+      "entity": "Danish National Research Foundation",
+      "type": "Public research institution",
+      "category": "Government",
+      "city": "Copenhagen",
+      "country": "Denmark",
+      "collaborations": 6
+    },
+    {
+      "entity": "Instituto de Cibernética Matemática y Física",
+      "type": "Research institute",
+      "category": "Research",
+      "city": "Havana",
+      "country": "Cuba",
+      "collaborations": 6
+    },
+    {
+      "entity": "L. N. Gumilyov Eurasian National University",
+      "type": "University",
+      "category": "Research",
+      "city": "Astana",
+      "country": "Kazakhstan",
+      "collaborations": 6
+    },
+    {
+      "entity": "Ministry of Education",
+      "type": "Government agency",
+      "category": "Government",
+      "city": "Basseterre",
+      "country": "Saint Kitts and Nevis",
+      "collaborations": 6
+    },
+    {
+      "entity": "Museo De Arte Contemporaneo",
+      "type": "Research institute",
+      "category": "Research",
+      "city": "Ancón",
+      "country": "Panama",
+      "collaborations": 6
+    },
+    {
+      "entity": "National Electronics and Computer Technology Center (NECTEC)",
+      "type": "Government agency",
+      "category": "Government",
+      "city": "Rangsit",
+      "country": "Thailand",
+      "collaborations": 6
+    },
+    {
+      "entity": "National Nuclear Center of the Republic of Kazakhstan",
+      "type": "Government agency",
+      "category": "Government",
+      "city": "Kurchatov",
+      "country": "Kazakhstan",
+      "collaborations": 6
+    },
+    {
+      "entity": "Qatar Foundation",
+      "type": "Public research institution",
+      "category": "Government",
+      "city": "Doha",
+      "country": "Qatar",
+      "collaborations": 6
+    },
+    {
+      "entity": "Quantum-South",
+      "type": "Quantum company",
+      "category": "Industry",
+      "city": "Montevideo",
+      "country": "Uruguay",
+      "collaborations": 6
+    },
+    {
+      "entity": "Research Center in Semiconductors Technology for Energetics (CRTSE)",
+      "type": "Public research institution",
+      "category": "Government",
+      "city": "Algiers",
+      "country": "Algeria",
+      "collaborations": 6
+    },
+    {
+      "entity": "Sana'a University",
+      "type": "University",
+      "category": "Research",
+      "city": "Sanaa",
+      "country": "Yemen",
+      "collaborations": 6
+    },
+    {
+      "entity": "Satbayev University",
+      "type": "University",
+      "category": "Research",
+      "city": "Almaty",
+      "country": "Kazakhstan",
+      "collaborations": 6
+    },
+    {
+      "entity": "SeQure Quantum",
+      "type": "Quantum company",
+      "category": "Industry",
+      "city": "Concepción",
+      "country": "Chile",
+      "collaborations": 6
+    },
+    {
+      "entity": "Serbian Academy of Sciences and Arts",
+      "type": "Government agency",
+      "category": "Government",
+      "city": "Belgrade",
+      "country": "Serbia",
+      "collaborations": 6
+    },
+    {
+      "entity": "Simón Bolívar University",
+      "type": "University",
+      "category": "Research",
+      "city": "Caracas",
+      "country": "Venezuela",
+      "collaborations": 6
+    },
+    {
+      "entity": "Taiz University",
+      "type": "University",
+      "category": "Research",
+      "city": "Taiz",
+      "country": "Yemen",
+      "collaborations": 6
+    },
+    {
+      "entity": "Technical University of Moldova",
+      "type": "University",
+      "category": "Research",
+      "city": "Chisinau",
+      "country": "Moldova",
+      "collaborations": 6
+    },
+    {
+      "entity": "Toyota Motor Corporation (Belgium)",
+      "type": "Corporate",
+      "category": "Industry",
+      "city": "Brussels",
+      "country": "Belgium",
+      "collaborations": 6
+    },
+    {
+      "entity": "Universidad Nacional de San Martín",
+      "type": "University",
+      "category": "Research",
+      "city": "Tarapoto",
+      "country": "Peru",
+      "collaborations": 6
+    },
+    {
+      "entity": "University of Ghana",
+      "type": "University",
+      "category": "Research",
+      "city": "Accra",
+      "country": "Ghana",
+      "collaborations": 6
+    },
+    {
+      "entity": "Academy of Sciences of the Republic of Tajikistan",
+      "type": "University",
+      "category": "Research",
+      "city": "Dushanbe",
+      "country": "Tajikistan",
+      "collaborations": 5
+    },
+    {
+      "entity": "American University of the Middle East",
+      "type": "University",
+      "category": "Research",
+      "city": "Egaila",
+      "country": "Kuwait",
+      "collaborations": 5
+    },
+    {
+      "entity": "Cyprus University of Technology",
+      "type": "University",
+      "category": "Research",
+      "city": "Limassol",
+      "country": "Cyprus",
+      "collaborations": 5
+    },
+    {
+      "entity": "Development Agency of Serbia",
+      "type": "Government agency",
+      "category": "Government",
+      "city": "Belgrade",
+      "country": "Serbia",
+      "collaborations": 5
+    },
+    {
+      "entity": "Ho Chi Minh City Institute of Physics, VAST",
+      "type": "Public research institution",
+      "category": "Government",
+      "city": "Ho Chi Minh City",
+      "country": "Vietnam",
+      "collaborations": 5
+    },
+    {
+      "entity": "Ministry of Education Science and Technology",
+      "type": "Government agency",
+      "category": "Government",
+      "city": "Lilongwe",
+      "country": "Malawi",
+      "collaborations": 5
+    },
+    {
+      "entity": "Ministry of Science and Education Republic of Azerbaijan",
+      "type": "Government agency",
+      "category": "Government",
+      "city": "Baku",
+      "country": "Azerbaijan",
+      "collaborations": 5
+    },
+    {
+      "entity": "National Metrology Institute of South Africa (NMISA)",
+      "type": "Public research institution",
+      "category": "Government",
+      "city": "Pretoria",
+      "country": "South Africa",
+      "collaborations": 5
+    },
+    {
+      "entity": "National Science and Technology Council",
+      "type": "Research institute",
+      "category": "Research",
+      "city": "Lusaka",
+      "country": "Zambia",
+      "collaborations": 5
+    },
+    {
+      "entity": "Pidust Quantum Computing",
+      "type": "Quantum company",
+      "category": "Industry",
+      "city": "Patras",
+      "country": "Greece",
+      "collaborations": 5
+    },
+    {
+      "entity": "Quantum B",
+      "type": "Quantum company",
+      "category": "Industry",
+      "city": "Lublin",
+      "country": "Poland",
+      "collaborations": 5
+    },
+    {
+      "entity": "Quantum Technology Foundation",
+      "type": "Quantum company",
+      "category": "Industry",
+      "city": "Bangkok",
+      "country": "Thailand",
+      "collaborations": 5
+    },
+    {
+      "entity": "Qubitech",
+      "type": "Quantum company",
+      "category": "Industry",
+      "city": "Athens",
+      "country": "Greece",
+      "collaborations": 5
+    },
+    {
+      "entity": "Swiss Federal Institute of Metrology",
+      "type": "Government agency",
+      "category": "Government",
+      "city": "Wabern",
+      "country": "Switzerland",
+      "collaborations": 5
+    },
+    {
+      "entity": "Thinfilm (Sweden)",
+      "type": "Corporate",
+      "category": "Industry",
+      "city": "Linköping",
+      "country": "Sweden",
+      "collaborations": 5
+    },
+    {
+      "entity": "Universidad Bicentenaria de Aragua",
+      "type": "University",
+      "category": "Research",
+      "city": "Turmero",
+      "country": "Venezuela",
+      "collaborations": 5
+    },
+    {
+      "entity": "Universidad de Panamá",
+      "type": "University",
+      "category": "Research",
+      "city": "Panama City",
+      "country": "Panama",
+      "collaborations": 5
+    },
+    {
+      "entity": "Universidad Tecnológica de Panamá",
+      "type": "University",
+      "category": "Research",
+      "city": "Panama City",
+      "country": "Panama",
+      "collaborations": 5
+    },
+    {
+      "entity": "Universidad Tecnológica del Perú",
+      "type": "University",
+      "category": "Research",
+      "city": "Lima",
+      "country": "Peru",
+      "collaborations": 5
+    },
+    {
+      "entity": "University of Ruhuna",
+      "type": "University",
+      "category": "Research",
+      "city": "Galle",
+      "country": "Sri Lanka",
+      "collaborations": 5
+    },
+    {
+      "entity": "University of Sucre",
+      "type": "University",
+      "category": "Research",
+      "city": "Sucre",
+      "country": "Bolivia",
+      "collaborations": 5
+    },
+    {
+      "entity": "Aarhus University Hospital",
+      "type": "Public research institution",
+      "category": "Government",
+      "city": "Aarhus",
+      "country": "Denmark",
+      "collaborations": 4
+    },
+    {
+      "entity": "Abu Dhabi Health Services",
+      "type": "Corporate",
+      "category": "Industry",
+      "city": "Abu Dhabi",
+      "country": "UAE",
+      "collaborations": 4
+    },
+    {
+      "entity": "Academy of Scientific Research and Technology",
+      "type": "Public research institution",
+      "category": "Government",
+      "city": "Cairo",
+      "country": "Egypt",
+      "collaborations": 4
+    },
+    {
+      "entity": "Akdeniz University Hospital",
+      "type": "Public research institution",
+      "category": "Government",
+      "city": "Antalya",
+      "country": "Turkey",
+      "collaborations": 4
+    },
+    {
+      "entity": "Al-Zahra College for Women",
+      "type": "University",
+      "category": "Research",
+      "city": "Muscat",
+      "country": "Oman",
+      "collaborations": 4
+    },
+    {
+      "entity": "Alzaiem Alazhari University",
+      "type": "University",
+      "category": "Research",
+      "city": "Khartoum",
+      "country": "Sudan",
+      "collaborations": 4
+    },
+    {
+      "entity": "Atomic Energy Organization of Iran",
+      "type": "Government agency",
+      "category": "Government",
+      "city": "Tehran",
+      "country": "Iran",
+      "collaborations": 4
+    },
+    {
+      "entity": "B M Birla Science Centre",
+      "type": "Other organisation",
+      "category": "Other",
+      "city": "Hyderabad",
+      "country": "India",
+      "collaborations": 4
+    },
+    {
+      "entity": "Baltic International Academy",
+      "type": "University",
+      "category": "Research",
+      "city": "Riga",
+      "country": "Latvia",
+      "collaborations": 4
+    },
+    {
+      "entity": "Boehringer Ingelheim (Egypt)",
+      "type": "Corporate",
+      "category": "Industry",
+      "city": "Cairo",
+      "country": "Egypt",
+      "collaborations": 4
+    },
+    {
+      "entity": "Buckingham Browne & Nichols",
+      "type": "Other organisation",
+      "category": "Other",
+      "city": "Cambridge",
+      "country": "US",
+      "collaborations": 4
+    },
+    {
+      "entity": "Center for Energy Research and Technology (CRTEn)",
+      "type": "Public research institution",
+      "category": "Government",
+      "city": "Hammam-Lif",
+      "country": "Tunisia",
+      "collaborations": 4
+    },
+    {
+      "entity": "CeNTI (Portugal)",
+      "type": "Corporate",
+      "category": "Industry",
+      "city": "Braga",
+      "country": "Portugal",
+      "collaborations": 4
+    },
+    {
+      "entity": "Centre de Recherche sur l'Information Scientifique et Technique",
+      "type": "Government agency",
+      "category": "Government",
+      "city": "Algiers",
+      "country": "Algeria",
+      "collaborations": 4
+    },
+    {
+      "entity": "CJSC Ekran FEP (Russia)",
+      "type": "Corporate",
+      "category": "Industry",
+      "city": "Novosibirsk",
+      "country": "Russia",
+      "collaborations": 4
+    },
+    {
+      "entity": "College of Technological Studies",
+      "type": "University",
+      "category": "Research",
+      "city": "Ash Shuwaykh",
+      "country": "Kuwait",
+      "collaborations": 4
+    },
+    {
+      "entity": "Deloitte (Czechia)",
+      "type": "Corporate",
+      "category": "Industry",
+      "city": "Pilsen",
+      "country": "Czech Republic",
+      "collaborations": 4
+    },
+    {
+      "entity": "Dubai Health Authority",
+      "type": "Government agency",
+      "category": "Government",
+      "city": "Dubai",
+      "country": "UAE",
+      "collaborations": 4
+    },
+    {
+      "entity": "Eskişehir City Hospital",
+      "type": "Public research institution",
+      "category": "Government",
+      "city": "Eskişehir",
+      "country": "Turkey",
+      "collaborations": 4
+    },
+    {
+      "entity": "Financial Research (Hungary)",
+      "type": "Corporate",
+      "category": "Industry",
+      "city": "Budapest",
+      "country": "Hungary",
+      "collaborations": 4
+    },
+    {
+      "entity": "Government of Nepal",
+      "type": "Government agency",
+      "category": "Government",
+      "city": "Kathmandu",
+      "country": "Nepal",
+      "collaborations": 4
+    },
+    {
+      "entity": "Imam Khomeini Hospital",
+      "type": "Public research institution",
+      "category": "Government",
+      "city": "Tehran",
+      "country": "Iran",
+      "collaborations": 4
+    },
+    {
+      "entity": "Integrated Optoelectronics (Norway)",
+      "type": "Corporate",
+      "category": "Industry",
+      "city": "Trondheim",
+      "country": "Norway",
+      "collaborations": 4
+    },
+    {
+      "entity": "Joint Research Center",
+      "type": "Government agency",
+      "category": "Government",
+      "city": "Geel",
+      "country": "Belgium",
+      "collaborations": 4
+    },
+    {
+      "entity": "Kenya Bureau of Standards",
+      "type": "Government agency",
+      "category": "Government",
+      "city": "Nairobi",
+      "country": "Kenya",
+      "collaborations": 4
+    },
+    {
+      "entity": "Kim Il-sung University",
+      "type": "University",
+      "category": "Research",
+      "city": "Pyongyang",
+      "country": "North Korea",
+      "collaborations": 4
+    },
+    {
+      "entity": "Kurdistan Regional Government",
+      "type": "Government agency",
+      "category": "Government",
+      "city": "Erbil",
+      "country": "Iraq",
+      "collaborations": 4
+    },
+    {
+      "entity": "Kuwait Petroleum Corporation (Kuwait)",
+      "type": "Corporate",
+      "category": "Industry",
+      "city": "Kuwait City",
+      "country": "Kuwait",
+      "collaborations": 4
+    },
+    {
+      "entity": "Mahatma Gandhi University",
+      "type": "University",
+      "category": "Research",
+      "city": "Kigali",
+      "country": "Rwanda",
+      "collaborations": 4
+    },
+    {
+      "entity": "Mechanics' Institute",
+      "type": "Other organisation",
+      "category": "Other",
+      "city": "San Francisco",
+      "country": "US",
+      "collaborations": 4
+    },
+    {
+      "entity": "National Agency for Social Insurance",
+      "type": "Government agency",
+      "category": "Government",
+      "city": "Stockholm",
+      "country": "Sweden",
+      "collaborations": 4
+    },
+    {
+      "entity": "National Bank of Belgium",
+      "type": "Government agency",
+      "category": "Government",
+      "city": "Brussels",
+      "country": "Belgium",
+      "collaborations": 4
+    },
+    {
+      "entity": "National Centre for Nuclear Energy, Science and Technology (CNESTEN)",
+      "type": "Government agency",
+      "category": "Government",
+      "city": "Rabat",
+      "country": "Morocco",
+      "collaborations": 4
+    },
+    {
+      "entity": "National Space Research and Development Agency",
+      "type": "Government agency",
+      "category": "Government",
+      "city": "Abuja",
+      "country": "Nigeria",
+      "collaborations": 4
+    },
+    {
+      "entity": "Open University of Sri Lanka",
+      "type": "University",
+      "category": "Research",
+      "city": "Colombo",
+      "country": "Sri Lanka",
+      "collaborations": 4
+    },
+    {
+      "entity": "SickKids Foundation",
+      "type": "Other organisation",
+      "category": "Other",
+      "city": "Toronto",
+      "country": "Canada",
+      "collaborations": 4
+    },
+    {
+      "entity": "Skåne University Hospital",
+      "type": "Public research institution",
+      "category": "Government",
+      "city": "Lund",
+      "country": "Sweden",
+      "collaborations": 4
+    },
+    {
+      "entity": "SONOVERO R&D",
+      "type": "Quantum company",
+      "category": "Industry",
+      "city": "Goleniów",
+      "country": "Poland",
+      "collaborations": 4
+    },
+    {
+      "entity": "STMicroelectronics (Czechia)",
+      "type": "Corporate",
+      "category": "Industry",
+      "city": "Prague",
+      "country": "Czech Republic",
+      "collaborations": 4
+    },
+    {
+      "entity": "Thales (Portugal)",
+      "type": "Corporate",
+      "category": "Industry",
+      "city": "Paço de Arcos",
+      "country": "Portugal",
+      "collaborations": 4
+    },
+    {
+      "entity": "Universidad Autónoma Monterrey",
+      "type": "University",
+      "category": "Research",
+      "city": "San José",
+      "country": "Costa Rica",
+      "collaborations": 4
+    },
+    {
+      "entity": "Universidad Loyola",
+      "type": "University",
+      "category": "Research",
+      "city": "La Paz",
+      "country": "Bolivia",
+      "collaborations": 4
+    },
+    {
+      "entity": "Universidad Nacional de Asunción",
+      "type": "University",
+      "category": "Research",
+      "city": "San Lorenzo",
+      "country": "Paraguay",
+      "collaborations": 4
+    },
+    {
+      "entity": "University of Banja Luka",
+      "type": "University",
+      "category": "Research",
+      "city": "Banja Luka",
+      "country": "Bosnia and Herzegovina",
+      "collaborations": 4
+    },
+    {
+      "entity": "University of N'Djamena",
+      "type": "University",
+      "category": "Research",
+      "city": "N'Djamena",
+      "country": "Chad",
+      "collaborations": 4
+    },
+    {
+      "entity": "University of Science and Technology",
+      "type": "University",
+      "category": "Research",
+      "city": "Aden",
+      "country": "Yemen",
+      "collaborations": 4
+    },
+    {
+      "entity": "University of Sri Jayewardenepura",
+      "type": "University",
+      "category": "Research",
+      "city": "Colombo",
+      "country": "Sri Lanka",
+      "collaborations": 4
+    },
+    {
+      "entity": "University of the Philippines Los Baños",
+      "type": "University",
+      "category": "Research",
+      "city": "Los Baños",
+      "country": "Philippines",
+      "collaborations": 4
+    },
+    {
+      "entity": "Al Furat University",
+      "type": "University",
+      "category": "Research",
+      "city": "Dayr az Zawr",
+      "country": "Syria",
+      "collaborations": 3
+    },
+    {
+      "entity": "American University of Phnom Penh",
+      "type": "University",
+      "category": "Research",
+      "city": "Phnom Penh",
+      "country": "Cambodia",
+      "collaborations": 3
+    },
+    {
+      "entity": "Arab American University",
+      "type": "University",
+      "category": "Research",
+      "city": "Jenin",
+      "country": "Palestine",
+      "collaborations": 3
+    },
+    {
+      "entity": "Bangladesh Council of Scientific and Industrial Research",
+      "type": "Government agency",
+      "category": "Government",
+      "city": "Dhaka",
+      "country": "Bangladesh",
+      "collaborations": 3
+    },
+    {
+      "entity": "CAS South America Center for Astronomy",
+      "type": "Public research institution",
+      "category": "Government",
+      "city": "Santiago",
+      "country": "Chile",
+      "collaborations": 3
+    },
+    {
+      "entity": "Center for New American Media",
+      "type": "Other organisation",
+      "category": "Other",
+      "city": "New York",
+      "country": "US",
+      "collaborations": 3
+    },
+    {
+      "entity": "Centre National pour la Recherche Scientifique et Technique (CNRST)",
+      "type": "Government agency",
+      "category": "Government",
+      "city": "Rabat",
+      "country": "Morocco",
+      "collaborations": 3
+    },
+    {
+      "entity": "Charles Humbert 8",
+      "type": "Public research institution",
+      "category": "Government",
+      "city": "Geneva",
+      "country": "Switzerland",
+      "collaborations": 3
+    },
+    {
+      "entity": "De La Salle University",
+      "type": "University",
+      "category": "Research",
+      "city": "Manila",
+      "country": "Philippines",
+      "collaborations": 3
+    },
+    {
+      "entity": "Dhaka Residential Model College",
+      "type": "Other organisation",
+      "category": "Other",
+      "city": "Dhaka",
+      "country": "Bangladesh",
+      "collaborations": 3
+    },
+    {
+      "entity": "Facultad Latinoamericana de Ciencias Sociales",
+      "type": "University",
+      "category": "Research",
+      "city": "San Salvador",
+      "country": "El Salvador",
+      "collaborations": 3
+    },
+    {
+      "entity": "Flanders Make (Belgium)",
+      "type": "Corporate",
+      "category": "Industry",
+      "city": "Lommel",
+      "country": "Belgium",
+      "collaborations": 3
+    },
+    {
+      "entity": "Ghazni University",
+      "type": "University",
+      "category": "Research",
+      "city": "Ghazni",
+      "country": "Afghanistan",
+      "collaborations": 3
+    },
+    {
+      "entity": "GSP (Czechia)",
+      "type": "Corporate",
+      "category": "Industry",
+      "city": "Ostrava",
+      "country": "Czech Republic",
+      "collaborations": 3
+    },
+    {
+      "entity": "Ho Chi Minh National Academy of Politics",
+      "type": "Government agency",
+      "category": "Government",
+      "city": "Hanoi",
+      "country": "Vietnam",
+      "collaborations": 3
+    },
+    {
+      "entity": "Hospital Universiti Sains Malaysia",
+      "type": "Public research institution",
+      "category": "Government",
+      "city": "Kota Bharu",
+      "country": "Malaysia",
+      "collaborations": 3
+    },
+    {
+      "entity": "Kementerian Pendidikan Malaysia",
+      "type": "Government agency",
+      "category": "Government",
+      "city": "Putrajaya",
+      "country": "Malaysia",
+      "collaborations": 3
+    },
+    {
+      "entity": "King Abdullah University Hospital",
+      "type": "Public research institution",
+      "category": "Government",
+      "city": "Ar Ramtha",
+      "country": "Jordan",
+      "collaborations": 3
+    },
+    {
+      "entity": "Macedonian Academy of Sciences and Arts (MASA)",
+      "type": "Public research institution",
+      "category": "Government",
+      "city": "Skopje",
+      "country": "Macedonia",
+      "collaborations": 3
+    },
+    {
+      "entity": "Mahatma Gandhi Institute",
+      "type": "University",
+      "category": "Research",
+      "city": "Moka",
+      "country": "Mauritius",
+      "collaborations": 3
+    },
+    {
+      "entity": "Malaysian Ministry of Energy Transition and Water Transformation",
+      "type": "Government agency",
+      "category": "Government",
+      "city": "Putrajaya",
+      "country": "Malaysia",
+      "collaborations": 3
+    },
+    {
+      "entity": "Ministry of Education",
+      "type": "Government agency",
+      "category": "Government",
+      "city": "Riyadh",
+      "country": "Saudi Arabia",
+      "collaborations": 3
+    },
+    {
+      "entity": "Ministry of Science and Technology",
+      "type": "Government agency",
+      "category": "Government",
+      "city": "Banja Luka",
+      "country": "Bosnia and Herzegovina",
+      "collaborations": 3
+    },
+    {
+      "entity": "National Autonomous University of Honduras",
+      "type": "University",
+      "category": "Research",
+      "city": "Tegucigalpa",
+      "country": "Honduras",
+      "collaborations": 3
+    },
+    {
+      "entity": "National University of Lesotho",
+      "type": "University",
+      "category": "Research",
+      "city": "Maseru",
+      "country": "Lesotho",
+      "collaborations": 3
+    },
+    {
+      "entity": "Norrköping Hospital",
+      "type": "Public research institution",
+      "category": "Government",
+      "city": "Norrköping",
+      "country": "Sweden",
+      "collaborations": 3
+    },
+    {
+      "entity": "Office of the Higher Education Commission",
+      "type": "Government agency",
+      "category": "Government",
+      "city": "Bangkok",
+      "country": "Thailand",
+      "collaborations": 3
+    },
+    {
+      "entity": "Omar Bongo University",
+      "type": "University",
+      "category": "Research",
+      "city": "Libreville",
+      "country": "Gabon",
+      "collaborations": 3
+    },
+    {
+      "entity": "Oslo University Hospital",
+      "type": "Public research institution",
+      "category": "Government",
+      "city": "Oslo",
+      "country": "Norway",
+      "collaborations": 3
+    },
+    {
+      "entity": "Polyus Research Institute of M.F.Stelmakh (Russia)",
+      "type": "Corporate",
+      "category": "Industry",
+      "city": "Moscow",
+      "country": "Russia",
+      "collaborations": 3
+    },
+    {
+      "entity": "Quarks Interactive",
+      "type": "Quantum company",
+      "category": "Industry",
+      "city": "Miercurea Ciuc",
+      "country": "Romania",
+      "collaborations": 3
+    },
+    {
+      "entity": "Robert Bosch (Slovenia)",
+      "type": "Corporate",
+      "category": "Industry",
+      "city": "Krško",
+      "country": "Slovenia",
+      "collaborations": 3
+    },
+    {
+      "entity": "Taighde Éireann - Research Ireland",
+      "type": "Government agency",
+      "category": "Government",
+      "city": "Dublin",
+      "country": "Ireland",
+      "collaborations": 3
+    },
+    {
+      "entity": "Transpower (New Zealand)",
+      "type": "Corporate",
+      "category": "Industry",
+      "city": "Wellington",
+      "country": "New Zealand",
+      "collaborations": 3
+    },
+    {
+      "entity": "Universidad de San Carlos de Guatemala",
+      "type": "University",
+      "category": "Research",
+      "city": "Guatemala City",
+      "country": "Guatemala",
+      "collaborations": 3
+    },
+    {
+      "entity": "Universidad ORT Uruguay",
+      "type": "University",
+      "category": "Research",
+      "city": "Montevideo",
+      "country": "Uruguay",
+      "collaborations": 3
+    },
+    {
+      "entity": "University Of Information Technology",
+      "type": "University",
+      "category": "Research",
+      "city": "Yangon",
+      "country": "Myanmar",
+      "collaborations": 3
+    },
+    {
+      "entity": "University of the West Indies",
+      "type": "University",
+      "category": "Research",
+      "city": "Kingston",
+      "country": "Jamaica",
+      "collaborations": 3
+    },
+    {
+      "entity": "University of Zambia",
+      "type": "University",
+      "category": "Research",
+      "city": "Lusaka",
+      "country": "Zambia",
+      "collaborations": 3
+    },
+    {
+      "entity": "Université d’Antsiranana",
+      "type": "University",
+      "category": "Research",
+      "city": "Antsiranana",
+      "country": "Madagascar",
+      "collaborations": 3
+    },
+    {
+      "entity": "ValgrAI (Valencian Graduate School and Research Network of Artificial Intelligence)",
+      "type": "Other organisation",
+      "category": "Other",
+      "city": "Valencia",
+      "country": "Spain",
+      "collaborations": 3
+    },
+    {
+      "entity": "Academy of Economic Studies of Moldova",
+      "type": "University",
+      "category": "Research",
+      "city": "Chisinau",
+      "country": "Moldova",
+      "collaborations": 2
+    },
+    {
+      "entity": "An-Najah National University",
+      "type": "University",
+      "category": "Research",
+      "city": "Nablus",
+      "country": "Palestine",
+      "collaborations": 2
+    },
+    {
+      "entity": "Atom Quantum Labs",
+      "type": "Quantum company",
+      "category": "Industry",
+      "city": "Ljubljana",
+      "country": "Slovenia",
+      "collaborations": 2
+    },
+    {
+      "entity": "Centro Hospitalar do Porto",
+      "type": "Public research institution",
+      "category": "Government",
+      "city": "Porto",
+      "country": "Portugal",
+      "collaborations": 2
+    },
+    {
+      "entity": "Chuka University",
+      "type": "University",
+      "category": "Research",
+      "city": "Chuka",
+      "country": "Kenya",
+      "collaborations": 2
+    },
+    {
+      "entity": "Condensed Matter Physics Research Center",
+      "type": "Research institute",
+      "category": "Research",
+      "city": "Siddharthanagar",
+      "country": "Nepal",
+      "collaborations": 2
+    },
+    {
+      "entity": "Croatian Academy of Sciences and Arts",
+      "type": "Government agency",
+      "category": "Government",
+      "city": "Donji grad",
+      "country": "Croatia",
+      "collaborations": 2
+    },
+    {
+      "entity": "Department of Environment and Natural Resources",
+      "type": "Government agency",
+      "category": "Government",
+      "city": "Koronadal",
+      "country": "Philippines",
+      "collaborations": 2
+    },
+    {
+      "entity": "Eblana Photonics (Ireland)",
+      "type": "Corporate",
+      "category": "Industry",
+      "city": "Dublin",
+      "country": "Ireland",
+      "collaborations": 2
+    },
+    {
+      "entity": "Environmental Protection Engineering (Greece)",
+      "type": "Corporate",
+      "category": "Industry",
+      "city": "Piraeus",
+      "country": "Greece",
+      "collaborations": 2
+    },
+    {
+      "entity": "Estonian Academy of Sciences",
+      "type": "Government agency",
+      "category": "Government",
+      "city": "Tallinn",
+      "country": "Estonia",
+      "collaborations": 2
+    },
+    {
+      "entity": "Federal Office of Metrology and Surveying",
+      "type": "Government agency",
+      "category": "Government",
+      "city": "Vienna",
+      "country": "Austria",
+      "collaborations": 2
+    },
+    {
+      "entity": "Fiji National University",
+      "type": "University",
+      "category": "Research",
+      "city": "Suva",
+      "country": "Fiji",
+      "collaborations": 2
+    },
+    {
+      "entity": "Fraunhofer Singapore",
+      "type": "Public research institution",
+      "category": "Government",
+      "city": "Singapore",
+      "country": "Singapore",
+      "collaborations": 2
+    },
+    {
+      "entity": "Geological Survey of Finland",
+      "type": "Government agency",
+      "category": "Government",
+      "city": "Espoo",
+      "country": "Finland",
+      "collaborations": 2
+    },
+    {
+      "entity": "Inamori Foundation",
+      "type": "Other organisation",
+      "category": "Other",
+      "city": "Kyoto",
+      "country": "Japan",
+      "collaborations": 2
+    },
+    {
+      "entity": "Institut Supérieur de Commerce de Kinshasa",
+      "type": "University",
+      "category": "Research",
+      "city": "Kinshasa",
+      "country": "DR Congo",
+      "collaborations": 2
+    },
+    {
+      "entity": "Institute of Information and Computational Technologies (IICT)",
+      "type": "Public research institution",
+      "category": "Government",
+      "city": "Almaty",
+      "country": "Kazakhstan",
+      "collaborations": 2
+    },
+    {
+      "entity": "Institute of Natural Science",
+      "type": "University",
+      "category": "Research",
+      "city": "Pyongyang",
+      "country": "North Korea",
+      "collaborations": 2
+    },
+    {
+      "entity": "Instituto de Estudios Avanzados",
+      "type": "Government agency",
+      "category": "Government",
+      "city": "Caracas",
+      "country": "Venezuela",
+      "collaborations": 2
+    },
+    {
+      "entity": "Juffali Group",
+      "type": "Corporate",
+      "category": "Industry",
+      "city": "Jeddah",
+      "country": "Saudi Arabia",
+      "collaborations": 2
+    },
+    {
+      "entity": "Kenya Agricultural and Livestock Research Organization",
+      "type": "Research institute",
+      "category": "Research",
+      "city": "Nairobi",
+      "country": "Kenya",
+      "collaborations": 2
+    },
+    {
+      "entity": "LuxProvide",
+      "type": "Public research institution",
+      "category": "Government",
+      "city": "Bertrange",
+      "country": "Luxembourg",
+      "collaborations": 2
+    },
+    {
+      "entity": "Maanmittauslaitos",
+      "type": "Government agency",
+      "category": "Government",
+      "city": "Helsinki",
+      "country": "Finland",
+      "collaborations": 2
+    },
+    {
+      "entity": "Maseno University",
+      "type": "University",
+      "category": "Research",
+      "city": "Maseno",
+      "country": "Kenya",
+      "collaborations": 2
+    },
+    {
+      "entity": "Measurement Standards Laboratory of New Zealand",
+      "type": "Government agency",
+      "category": "Government",
+      "city": "Lower Hutt",
+      "country": "New Zealand",
+      "collaborations": 2
+    },
+    {
+      "entity": "Microelectronica (Romania)",
+      "type": "Corporate",
+      "category": "Industry",
+      "city": "Voluntari",
+      "country": "Romania",
+      "collaborations": 2
+    },
+    {
+      "entity": "Military Technical College",
+      "type": "Government agency",
+      "category": "Government",
+      "city": "Cairo",
+      "country": "Egypt",
+      "collaborations": 2
+    },
+    {
+      "entity": "Ministry of Education",
+      "type": "Government agency",
+      "category": "Government",
+      "city": "Malé",
+      "country": "Maldives",
+      "collaborations": 2
+    },
+    {
+      "entity": "Ministry of the Interior",
+      "type": "Government agency",
+      "category": "Government",
+      "city": "Nicosia",
+      "country": "Cyprus",
+      "collaborations": 2
+    },
+    {
+      "entity": "National University of Sciences, Technologies, Engineering and Mathematics",
+      "type": "University",
+      "category": "Research",
+      "city": "Abomey-Calavi",
+      "country": "Benin",
+      "collaborations": 2
+    },
+    {
+      "entity": "Oxford Research (Norway)",
+      "type": "Corporate",
+      "category": "Industry",
+      "city": "Kristiansand",
+      "country": "Norway",
+      "collaborations": 2
+    },
+    {
+      "entity": "Petrobras (Brazil)",
+      "type": "Corporate",
+      "category": "Industry",
+      "city": "Rio de Janeiro",
+      "country": "Brazil",
+      "collaborations": 2
+    },
+    {
+      "entity": "Phenikaa (Vietnam)",
+      "type": "Corporate",
+      "category": "Industry",
+      "city": "Hanoi",
+      "country": "Vietnam",
+      "collaborations": 2
+    },
+    {
+      "entity": "Pyongyang Medical University",
+      "type": "University",
+      "category": "Research",
+      "city": "Pyongyang",
+      "country": "North Korea",
+      "collaborations": 2
+    },
+    {
+      "entity": "QANplatform",
+      "type": "Quantum company",
+      "category": "Industry",
+      "city": "Tallinn",
+      "country": "Estonia",
+      "collaborations": 2
+    },
+    {
+      "entity": "Royal University of Bhutan",
+      "type": "University",
+      "category": "Research",
+      "city": "Thimphu",
+      "country": "Bhutan",
+      "collaborations": 2
+    },
+    {
+      "entity": "Royal University of Phnom Penh",
+      "type": "University",
+      "category": "Research",
+      "city": "Phnom Penh",
+      "country": "Cambodia",
+      "collaborations": 2
+    },
+    {
+      "entity": "Statistics New Zealand",
+      "type": "Government agency",
+      "category": "Government",
+      "city": "Wellington",
+      "country": "New Zealand",
+      "collaborations": 2
+    },
+    {
+      "entity": "Sultan Qaboos University Hospital",
+      "type": "Public research institution",
+      "category": "Government",
+      "city": "Muscat",
+      "country": "Oman",
+      "collaborations": 2
+    },
+    {
+      "entity": "Turkcell",
+      "type": "Corporate",
+      "category": "Industry",
+      "city": "Istanbul",
+      "country": "Turkey",
+      "collaborations": 2
+    },
+    {
+      "entity": "Universidad Central",
+      "type": "University",
+      "category": "Research",
+      "city": "San José",
+      "country": "Costa Rica",
+      "collaborations": 2
+    },
+    {
+      "entity": "Universidad de Montevideo",
+      "type": "University",
+      "category": "Research",
+      "city": "Montevideo",
+      "country": "Uruguay",
+      "collaborations": 2
+    },
+    {
+      "entity": "University of El Salvador",
+      "type": "University",
+      "category": "Research",
+      "city": "San Salvador",
+      "country": "El Salvador",
+      "collaborations": 2
+    },
+    {
+      "entity": "University of Lubumbashi",
+      "type": "University",
+      "category": "Research",
+      "city": "Lubumbashi",
+      "country": "DR Congo",
+      "collaborations": 2
+    },
+    {
+      "entity": "University of the South Pacific",
+      "type": "University",
+      "category": "Research",
+      "city": "Suva",
+      "country": "Fiji",
+      "collaborations": 2
+    },
+    {
+      "entity": "Université du Burundi",
+      "type": "University",
+      "category": "Research",
+      "city": "Bujumbura",
+      "country": "Burundi",
+      "collaborations": 2
+    },
+    {
+      "entity": "Abu Dhabi National Oil (United Arab Emirates)",
+      "type": "Corporate",
+      "category": "Industry",
+      "city": "Abu Dhabi",
+      "country": "UAE",
+      "collaborations": 1
+    },
+    {
+      "entity": "Agostinho Neto University",
+      "type": "University",
+      "category": "Research",
+      "city": "Luanda",
+      "country": "Angola",
+      "collaborations": 1
+    },
+    {
+      "entity": "Al Moammar Information Systems (MIS)",
+      "type": "Corporate",
+      "category": "Industry",
+      "city": "Riyadh",
+      "country": "Saudi Arabia",
+      "collaborations": 1
+    },
+    {
+      "entity": "Ayalon Highways",
+      "type": "Government agency",
+      "category": "Government",
+      "city": "Rishon LeZion",
+      "country": "Israel",
+      "collaborations": 1
+    },
+    {
+      "entity": "Ayks",
+      "type": "Other startup or SME",
+      "category": "Industry",
+      "city": "Klang",
+      "country": "Malaysia",
+      "collaborations": 1
+    },
+    {
+      "entity": "Blind and Sight Impaired Society",
+      "type": "Other organisation",
+      "category": "Other",
+      "city": "Chelmsford",
+      "country": "UK",
+      "collaborations": 1
+    },
+    {
+      "entity": "Bukhara State Medical Institute named after Abu Ali ibn Sino",
+      "type": "Public research institution",
+      "category": "Government",
+      "city": "Bukhara",
+      "country": "Uzbekistan",
+      "collaborations": 1
+    },
+    {
+      "entity": "Catholic University of Asunción",
+      "type": "University",
+      "category": "Research",
+      "city": "Asunción",
+      "country": "Paraguay",
+      "collaborations": 1
+    },
+    {
+      "entity": "Cemex",
+      "type": "Corporate",
+      "category": "Industry",
+      "city": "San Pedro",
+      "country": "Mexico",
+      "collaborations": 1
+    },
+    {
+      "entity": "Centre for Research and Development",
+      "type": "Research institute",
+      "category": "Research",
+      "city": "Mutare",
+      "country": "Zimbabwe",
+      "collaborations": 1
+    },
+    {
+      "entity": "Civita",
+      "type": "Other organisation",
+      "category": "Other",
+      "city": "Rome",
+      "country": "Italy",
+      "collaborations": 1
+    },
+    {
+      "entity": "College of Medical Sciences",
+      "type": "Public research institution",
+      "category": "Government",
+      "city": "Bharatpur",
+      "country": "Nepal",
+      "collaborations": 1
+    },
+    {
+      "entity": "Damascus University",
+      "type": "University",
+      "category": "Research",
+      "city": "Damascus",
+      "country": "Syria",
+      "collaborations": 1
+    },
+    {
+      "entity": "Directorate of Health",
+      "type": "Government agency",
+      "category": "Government",
+      "city": "Reykjavik",
+      "country": "Iceland",
+      "collaborations": 1
+    },
+    {
+      "entity": "DMI St. Eugene University",
+      "type": "University",
+      "category": "Research",
+      "city": "Lusaka",
+      "country": "Zambia",
+      "collaborations": 1
+    },
+    {
+      "entity": "DSTA",
+      "type": "Government agency",
+      "category": "Government",
+      "city": "Singapore",
+      "country": "Singapore",
+      "collaborations": 1
+    },
+    {
+      "entity": "EBU",
+      "type": "Government agency",
+      "category": "Government",
+      "city": "Wiltz",
+      "country": "Luxembourg",
+      "collaborations": 1
+    },
+    {
+      "entity": "FPT Corporation",
+      "type": "Corporate",
+      "category": "Industry",
+      "city": "Hanoi",
+      "country": "Vietnam",
+      "collaborations": 1
+    },
+    {
+      "entity": "Goce Delcev University",
+      "type": "University",
+      "category": "Research",
+      "city": "Shtip",
+      "country": "Macedonia",
+      "collaborations": 1
+    },
+    {
+      "entity": "Herzliya Medical Center",
+      "type": "Public research institution",
+      "category": "Government",
+      "city": "Herzliya",
+      "country": "Israel",
+      "collaborations": 1
+    },
+    {
+      "entity": "Imagelink",
+      "type": "Other startup or SME",
+      "category": "Industry",
+      "city": "Petaling Jaya",
+      "country": "Malaysia",
+      "collaborations": 1
+    },
+    {
+      "entity": "Instituto Tecnológico de Santo Domingo",
+      "type": "University",
+      "category": "Research",
+      "city": "Santo Domingo",
+      "country": "Dominican Republic",
+      "collaborations": 1
+    },
+    {
+      "entity": "International University of Sarajevo",
+      "type": "University",
+      "category": "Research",
+      "city": "Ilidža",
+      "country": "Bosnia and Herzegovina",
+      "collaborations": 1
+    },
+    {
+      "entity": "Invest Qatar",
+      "type": "Government agency",
+      "category": "Government",
+      "city": "Doha",
+      "country": "Qatar",
+      "collaborations": 1
+    },
+    {
+      "entity": "IQCC",
+      "type": "Public research institution",
+      "category": "Government",
+      "city": "Tel Aviv",
+      "country": "Israel",
+      "collaborations": 1
+    },
+    {
+      "entity": "Kigali Independent University",
+      "type": "University",
+      "category": "Research",
+      "city": "Kigali",
+      "country": "Rwanda",
+      "collaborations": 1
+    },
+    {
+      "entity": "Kohler (New Zealand)",
+      "type": "Corporate",
+      "category": "Industry",
+      "city": "Auckland",
+      "country": "New Zealand",
+      "collaborations": 1
+    },
+    {
+      "entity": "Latakia University",
+      "type": "University",
+      "category": "Research",
+      "city": "Latakia",
+      "country": "Syria",
+      "collaborations": 1
+    },
+    {
+      "entity": "Latvian Ministry of Defence",
+      "type": "Government agency",
+      "category": "Government",
+      "city": "Riga",
+      "country": "Latvia",
+      "collaborations": 1
+    },
+    {
+      "entity": "Latvian Ministry of Environmental Protection and Regional Development",
+      "type": "Government agency",
+      "category": "Government",
+      "city": "Riga",
+      "country": "Latvia",
+      "collaborations": 1
+    },
+    {
+      "entity": "Latvian Ministry of Transport",
+      "type": "Government agency",
+      "category": "Government",
+      "city": "Riga",
+      "country": "Latvia",
+      "collaborations": 1
+    },
+    {
+      "entity": "Libyan Academy",
+      "type": "University",
+      "category": "Research",
+      "city": "Tripoli",
+      "country": "Libya",
+      "collaborations": 1
+    },
+    {
+      "entity": "Lotería",
+      "type": "Other startup or SME",
+      "category": "Industry",
+      "city": "Concepción",
+      "country": "Chile",
+      "collaborations": 1
+    },
+    {
+      "entity": "MikroTik",
+      "type": "Other startup or SME",
+      "category": "Industry",
+      "city": "Riga",
+      "country": "Latvia",
+      "collaborations": 1
+    },
+    {
+      "entity": "Ministry of Education and Higher Education",
+      "type": "Government agency",
+      "category": "Government",
+      "city": "Doha",
+      "country": "Qatar",
+      "collaborations": 1
+    },
+    {
+      "entity": "Ministry of Natural Resources",
+      "type": "Government agency",
+      "category": "Government",
+      "city": "Kigali",
+      "country": "Rwanda",
+      "collaborations": 1
+    },
+    {
+      "entity": "Mongolian Academy of Sciences",
+      "type": "Government agency",
+      "category": "Government",
+      "city": "Ulaanbaatar",
+      "country": "Mongolia",
+      "collaborations": 1
+    },
+    {
+      "entity": "NanoAvionics (now part of Kongsberg Gruppen)",
+      "type": "Corporate",
+      "category": "Industry",
+      "city": "Vilnius",
+      "country": "Lithuania",
+      "collaborations": 1
+    },
+    {
+      "entity": "National Administration of Power Plants and Electrical Transmissions (Uruguay)",
+      "type": "Corporate",
+      "category": "Industry",
+      "city": "Montevideo",
+      "country": "Uruguay",
+      "collaborations": 1
+    },
+    {
+      "entity": "National Centre for Nuclear Science and Technology",
+      "type": "Government agency",
+      "category": "Government",
+      "city": "Sidi Thabet",
+      "country": "Tunisia",
+      "collaborations": 1
+    },
+    {
+      "entity": "Navrongo Health Research Centre",
+      "type": "Public research institution",
+      "category": "Government",
+      "city": "Navrongo",
+      "country": "Ghana",
+      "collaborations": 1
+    },
+    {
+      "entity": "Norwegian Metrology Service",
+      "type": "Government agency",
+      "category": "Government",
+      "city": "Kjeller",
+      "country": "Norway",
+      "collaborations": 1
+    },
+    {
+      "entity": "Omar Al-Mukhtar University",
+      "type": "University",
+      "category": "Research",
+      "city": "Bayda",
+      "country": "Libya",
+      "collaborations": 1
+    },
+    {
+      "entity": "Ooredoo",
+      "type": "Corporate",
+      "category": "Industry",
+      "city": "Doha",
+      "country": "Qatar",
+      "collaborations": 1
+    },
+    {
+      "entity": "Pulchowk Campus",
+      "type": "University",
+      "category": "Research",
+      "city": "Patan",
+      "country": "Nepal",
+      "collaborations": 1
+    },
+    {
+      "entity": "QUCAN",
+      "type": "Other startup or SME",
+      "category": "Industry",
+      "city": "Tallinn",
+      "country": "Estonia",
+      "collaborations": 1
+    },
+    {
+      "entity": "Risk Engineering (Bulgaria)",
+      "type": "Corporate",
+      "category": "Industry",
+      "city": "Sofia",
+      "country": "Bulgaria",
+      "collaborations": 1
+    },
+    {
+      "entity": "Rosa Luxemburg Foundation",
+      "type": "Other organisation",
+      "category": "Other",
+      "city": "Berlin",
+      "country": "Germany",
+      "collaborations": 1
+    },
+    {
+      "entity": "SES",
+      "type": "Corporate",
+      "category": "Industry",
+      "city": "Betzdorf",
+      "country": "Luxembourg",
+      "collaborations": 1
+    },
+    {
+      "entity": "Sinar Mas",
+      "type": "Corporate",
+      "category": "Industry",
+      "city": "Jakarta",
+      "country": "Indonesia",
+      "collaborations": 1
+    },
+    {
+      "entity": "Superpositions",
+      "type": "Quantum company",
+      "category": "Industry",
+      "city": "Limassol",
+      "country": "Cyprus",
+      "collaborations": 1
+    },
+    {
+      "entity": "Tajik National University",
+      "type": "University",
+      "category": "Research",
+      "city": "Dushanbe",
+      "country": "Tajikistan",
+      "collaborations": 1
+    },
+    {
+      "entity": "Tet",
+      "type": "Corporate",
+      "category": "Industry",
+      "city": "Riga",
+      "country": "Latvia",
+      "collaborations": 1
+    },
+    {
+      "entity": "The Honourable Society of Lincoln's Inn",
+      "type": "Other organisation",
+      "category": "Other",
+      "city": "London",
+      "country": "UK",
+      "collaborations": 1
+    },
+    {
+      "entity": "TR Consultores",
+      "type": "Other startup or SME",
+      "category": "Industry",
+      "city": "Panama City",
+      "country": "Panama",
+      "collaborations": 1
+    },
+    {
+      "entity": "Turkish Aerospace Industries (Turkey)",
+      "type": "Corporate",
+      "category": "Industry",
+      "city": "Ankara",
+      "country": "Turkey",
+      "collaborations": 1
+    },
+    {
+      "entity": "United Arab Emirates Quantum Research Center, TII",
+      "type": "Public research institution",
+      "category": "Government",
+      "city": "Abu Dhabi",
+      "country": "UAE",
+      "collaborations": 1
+    },
+    {
+      "entity": "Universidad Autónoma de Asunción",
+      "type": "University",
+      "category": "Research",
+      "city": "Asunción",
+      "country": "Paraguay",
+      "collaborations": 1
+    },
+    {
+      "entity": "Universidad Autónoma de Santo Domingo",
+      "type": "University",
+      "category": "Research",
+      "city": "Santo Domingo",
+      "country": "Dominican Republic",
+      "collaborations": 1
+    },
+    {
+      "entity": "Universidad Panamericana",
+      "type": "University",
+      "category": "Research",
+      "city": "Guatemala City",
+      "country": "Guatemala",
+      "collaborations": 1
+    },
+    {
+      "entity": "University for Business and Technology",
+      "type": "University",
+      "category": "Research",
+      "city": "Pristina",
+      "country": "Kosovo",
+      "collaborations": 1
+    },
+    {
+      "entity": "University Hospital Dubrava",
+      "type": "Public research institution",
+      "category": "Government",
+      "city": "Zagreb",
+      "country": "Croatia",
+      "collaborations": 1
+    },
+    {
+      "entity": "University of Botswana",
+      "type": "University",
+      "category": "Research",
+      "city": "Gaborone",
+      "country": "Botswana",
+      "collaborations": 1
+    },
+    {
+      "entity": "University of Finance and Economics",
+      "type": "University",
+      "category": "Research",
+      "city": "Ulaanbaatar",
+      "country": "Mongolia",
+      "collaborations": 1
+    },
+    {
+      "entity": "University of the Gambia",
+      "type": "University",
+      "category": "Research",
+      "city": "Banjul",
+      "country": "Gambia",
+      "collaborations": 1
+    },
+    {
+      "entity": "Vegacomp Consulting",
+      "type": "Other startup or SME",
+      "category": "Industry",
+      "city": "Bucharest",
+      "country": "Romania",
+      "collaborations": 1
+    },
+    {
+      "entity": "Venturus",
+      "type": "Corporate",
+      "category": "Industry",
+      "city": "Campinas",
+      "country": "Brazil",
+      "collaborations": 1
+    },
+    {
+      "entity": "Yangon University Of Distance Education",
+      "type": "University",
+      "category": "Research",
+      "city": "Yangon",
+      "country": "Myanmar",
+      "collaborations": 1
+    }
+  ]
+}

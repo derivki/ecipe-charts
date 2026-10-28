@@ -653,7 +653,6 @@ QT.boot(async function () {
      and where the numbers come from (below the chart). */
   function specText(kind) {
     if (kind === "sector") {
-      const o = SPEC.sector.observations;
       return {
         why: `Which industry sectors play the biggest part in ${state.country}'s international quantum collaborations, ` +
           `compared with the rest of the world. The ten highest are shown.`,
@@ -662,13 +661,8 @@ QT.boot(async function () {
           `international collaborations as it does worldwide. Above 1.0, ${state.country} is more active in that sector than ` +
           `the world average (2.0 is twice the world's share); below 1.0, less. <b>Lighter bars rest on fewer than ` +
           `${SPEC_THIN} collaborations, so treat them with care.</b>`,
-        note: `Counts collaborations between a company in ${state.country} and a partner in another country, by the ` +
-          `company's industry sector (ICB3). A collaboration between companies in two countries counts once for each. ` +
-          `A sector is recorded for ${QT.fmt.pct0(o.with_sector / o.industry_side)} of the companies in these ` +
-          `collaborations: taken from the tracker's company records or, for companies found through OpenAlex, coded ` +
-          `from the company's own description. Public research centres and activities that match no ICB3 sector are ` +
-          `left untagged. Countries with fewer than ${SPEC.sector.min_observations} sector-tagged collaborations are ` +
-          `not scored, and the world average is taken over the countries that are.`,
+        note: `Counts international collaborations of companies in ${state.country}, by the company's industry sector (ICB3). ` +
+          `Countries with fewer than ${SPEC.sector.min_observations} sector-tagged collaborations are not scored.`,
         src: `Source: ECIPE Quantum Database; sector (ICB3) of the company; method of ECIPE Occasional Paper 08/2025.`,
       };
     }
@@ -829,7 +823,7 @@ QT.boot(async function () {
       .style("background", d => POLICY_COLORS[d.type] || QT.tokens.muted)
       .style("color", "#fff").text(d => d.type);
     // The title links to the official document. The announced amount is printed as the register
-    // words it, in its own currency: it is not converted and not part of the Government funding totals.
+    // words it, in its own national currency, never converted.
     card.append("div").attr("class", "policy-title").each(function (d) {
       const t = d3.select(this);
       if (d.url) t.append("a").attr("href", d.url).attr("target", "_blank").attr("rel", "noopener").text(d.title);

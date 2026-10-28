@@ -8,25 +8,25 @@
     "sector": {
       "min_observations": 10,
       "observations": {
-        "industry_side": 5032,
-        "with_sector": 4543
+        "industry_side": 4869,
+        "with_sector": 4505
       },
-      "total": 4477,
+      "total": 4439,
       "sectors": [
         {
           "sector": "Software & Computer Services",
           "short": "ICT services",
-          "collaborations": 1526
+          "collaborations": 1531
         },
         {
           "sector": "Technology Hardware & Equipment",
           "short": "ICT producers",
-          "collaborations": 1359
+          "collaborations": 1320
         },
         {
           "sector": "Electronic & Electrical Equipment",
           "short": "ICT producers",
-          "collaborations": 537
+          "collaborations": 536
         },
         {
           "sector": "Aerospace & Defence",
@@ -41,17 +41,17 @@
         {
           "sector": "Automobiles & Parts",
           "short": "Automobiles & Parts",
-          "collaborations": 116
+          "collaborations": 115
         },
         {
           "sector": "Fixed Line Telecommunications",
           "short": "ICT services",
-          "collaborations": 105
+          "collaborations": 104
         },
         {
           "sector": "Support Services",
           "short": "Others",
-          "collaborations": 57
+          "collaborations": 58
         },
         {
           "sector": "Chemicals",
@@ -76,7 +76,7 @@
         {
           "sector": "Construction & Materials",
           "short": "Construction & Materials",
-          "collaborations": 42
+          "collaborations": 41
         },
         {
           "sector": "Banks",
@@ -126,7 +126,7 @@
         {
           "sector": "Industrial Metals & Mining",
           "short": "Industrials",
-          "collaborations": 5
+          "collaborations": 4
         },
         {
           "sector": "Food Producers",
@@ -163,49 +163,49 @@
               "sector": "Mining",
               "short": "Industrials",
               "collaborations": 1,
-              "rca": 38.595
+              "rca": 38.267
             },
             {
               "sector": "Alternative Energy",
               "short": "Energy",
               "collaborations": 1,
-              "rca": 5.514
+              "rca": 5.467
             },
             {
               "sector": "Aerospace & Defence",
               "short": "Aerospace & Defence",
               "collaborations": 25,
-              "rca": 4.366
+              "rca": 4.329
             },
             {
               "sector": "Banks",
               "short": "Financial",
               "collaborations": 4,
-              "rca": 4.288
+              "rca": 4.252
             },
             {
               "sector": "Pharmaceuticals & Biotechnology",
               "short": "Health industries",
               "collaborations": 8,
-              "rca": 2.431
+              "rca": 2.411
             },
             {
               "sector": "Software & Computer Services",
               "short": "ICT services",
               "collaborations": 55,
-              "rca": 1.391
+              "rca": 1.375
             },
             {
               "sector": "Technology Hardware & Equipment",
               "short": "ICT producers",
               "collaborations": 20,
-              "rca": 0.568
+              "rca": 0.58
             },
             {
               "sector": "Electronic & Electrical Equipment",
               "short": "ICT producers",
               "collaborations": 2,
-              "rca": 0.144
+              "rca": 0.143
             }
           ]
         },
@@ -217,19 +217,19 @@
               "sector": "Technology Hardware & Equipment",
               "short": "ICT producers",
               "collaborations": 52,
-              "rca": 2.039
+              "rca": 2.082
             },
             {
               "sector": "Electronic & Electrical Equipment",
               "short": "ICT producers",
               "collaborations": 15,
-              "rca": 1.489
+              "rca": 1.479
             },
             {
               "sector": "Software & Computer Services",
               "short": "ICT services",
               "collaborations": 17,
-              "rca": 0.594
+              "rca": 0.587
             }
           ]
         },
@@ -241,181 +241,181 @@
               "sector": "Automobiles & Parts",
               "short": "Automobiles & Parts",
               "collaborations": 6,
-              "rca": 16.541
+              "rca": 16.543
             },
             {
               "sector": "Chemicals",
               "short": "Chemicals",
               "collaborations": 1,
-              "rca": 5.814
+              "rca": 5.765
             },
             {
               "sector": "Fixed Line Telecommunications",
               "short": "ICT services",
               "collaborations": 1,
-              "rca": 3.046
+              "rca": 3.049
             },
             {
               "sector": "Software & Computer Services",
               "short": "ICT services",
               "collaborations": 6,
-              "rca": 1.257
+              "rca": 1.243
             }
           ]
         },
         {
           "country": "Canada",
-          "observations": 259,
+          "observations": 262,
           "rows": [
             {
               "sector": "Electronic & Electrical Equipment",
               "short": "ICT producers",
               "collaborations": 113,
-              "rca": 3.637
+              "rca": 3.572
             },
             {
               "sector": "Banks",
               "short": "Financial",
               "collaborations": 5,
-              "rca": 2.401
+              "rca": 2.353
             },
             {
               "sector": "Chemicals",
               "short": "Chemicals",
               "collaborations": 6,
-              "rca": 1.886
+              "rca": 1.848
             },
             {
               "sector": "Pharmaceuticals & Biotechnology",
               "short": "Health industries",
               "collaborations": 11,
-              "rca": 1.497
+              "rca": 1.467
             },
             {
               "sector": "Software & Computer Services",
               "short": "ICT services",
               "collaborations": 112,
-              "rca": 1.269
+              "rca": 1.239
             },
             {
               "sector": "Health Care Equipment & Services",
               "short": "Health industries",
               "collaborations": 1,
-              "rca": 1.152
+              "rca": 1.13
             },
             {
               "sector": "Financial Services",
               "short": "Financial",
               "collaborations": 1,
-              "rca": 0.393
+              "rca": 0.385
             },
             {
               "sector": "General Retailers",
               "short": "Others",
               "collaborations": 1,
-              "rca": 0.353
+              "rca": 0.346
             },
             {
               "sector": "Industrial Engineering",
               "short": "Industrials",
               "collaborations": 1,
-              "rca": 0.314
+              "rca": 0.308
             },
             {
               "sector": "Technology Hardware & Equipment",
               "short": "ICT producers",
-              "collaborations": 7,
-              "rca": 0.089
+              "collaborations": 10,
+              "rca": 0.128
             },
             {
               "sector": "Aerospace & Defence",
               "short": "Aerospace & Defence",
               "collaborations": 1,
-              "rca": 0.078
+              "rca": 0.077
             }
           ]
         },
         {
           "country": "China",
-          "observations": 230,
+          "observations": 229,
           "rows": [
             {
               "sector": "Industrial Transportation",
               "short": "Industrials",
               "collaborations": 11,
-              "rca": 11.895
+              "rca": 11.846
             },
             {
               "sector": "Construction & Materials",
               "short": "Construction & Materials",
-              "collaborations": 22,
-              "rca": 10.196
+              "collaborations": 21,
+              "rca": 9.929
             },
             {
               "sector": "Electricity",
               "short": "Energy",
               "collaborations": 10,
-              "rca": 8.111
+              "rca": 8.077
             },
             {
               "sector": "General Retailers",
               "short": "Others",
               "collaborations": 9,
-              "rca": 3.575
+              "rca": 3.56
             },
             {
               "sector": "Fixed Line Telecommunications",
               "short": "ICT services",
               "collaborations": 18,
-              "rca": 3.337
+              "rca": 3.355
             },
             {
               "sector": "Pharmaceuticals & Biotechnology",
               "short": "Health industries",
               "collaborations": 9,
-              "rca": 1.379
+              "rca": 1.374
             },
             {
               "sector": "Industrial Engineering",
               "short": "Industrials",
               "collaborations": 3,
-              "rca": 1.062
+              "rca": 1.057
             },
             {
               "sector": "Aerospace & Defence",
               "short": "Aerospace & Defence",
               "collaborations": 11,
-              "rca": 0.969
+              "rca": 0.965
             },
             {
               "sector": "Financial Services",
               "short": "Financial",
               "collaborations": 2,
-              "rca": 0.885
-            },
-            {
-              "sector": "Software & Computer Services",
-              "short": "ICT services",
-              "collaborations": 60,
-              "rca": 0.765
-            },
-            {
-              "sector": "Electronic & Electrical Equipment",
-              "short": "ICT producers",
-              "collaborations": 21,
-              "rca": 0.761
+              "rca": 0.881
             },
             {
               "sector": "Technology Hardware & Equipment",
               "short": "ICT producers",
               "collaborations": 53,
+              "rca": 0.778
+            },
+            {
+              "sector": "Software & Computer Services",
+              "short": "ICT services",
+              "collaborations": 60,
+              "rca": 0.76
+            },
+            {
+              "sector": "Electronic & Electrical Equipment",
+              "short": "ICT producers",
+              "collaborations": 21,
               "rca": 0.759
             },
             {
               "sector": "Chemicals",
               "short": "Chemicals",
               "collaborations": 1,
-              "rca": 0.354
+              "rca": 0.352
             }
           ]
         },
@@ -427,19 +427,19 @@
               "sector": "Pharmaceuticals & Biotechnology",
               "short": "Health industries",
               "collaborations": 11,
-              "rca": 12.509
+              "rca": 12.403
             },
             {
               "sector": "Software & Computer Services",
               "short": "ICT services",
               "collaborations": 12,
-              "rca": 1.136
+              "rca": 1.122
             },
             {
               "sector": "Technology Hardware & Equipment",
               "short": "ICT producers",
               "collaborations": 8,
-              "rca": 0.85
+              "rca": 0.868
             }
           ]
         },
@@ -451,19 +451,19 @@
               "sector": "Technology Hardware & Equipment",
               "short": "ICT producers",
               "collaborations": 84,
-              "rca": 2.214
+              "rca": 2.26
             },
             {
               "sector": "Electronic & Electrical Equipment",
               "short": "ICT producers",
               "collaborations": 21,
-              "rca": 1.401
+              "rca": 1.391
             },
             {
               "sector": "Software & Computer Services",
               "short": "ICT services",
               "collaborations": 20,
-              "rca": 0.469
+              "rca": 0.464
             }
           ]
         },
@@ -475,187 +475,187 @@
               "sector": "Aerospace & Defence",
               "short": "Aerospace & Defence",
               "collaborations": 55,
-              "rca": 5.409
+              "rca": 5.363
             },
             {
               "sector": "Oil & Gas Producers",
               "short": "Energy",
               "collaborations": 5,
-              "rca": 4.725
+              "rca": 4.684
             },
             {
               "sector": "Electronic & Electrical Equipment",
               "short": "ICT producers",
               "collaborations": 66,
-              "rca": 2.671
+              "rca": 2.653
             },
             {
               "sector": "Support Services",
               "short": "Others",
               "collaborations": 6,
-              "rca": 2.288
+              "rca": 2.229
             },
             {
               "sector": "Financial Services",
               "short": "Financial",
               "collaborations": 4,
-              "rca": 1.976
+              "rca": 1.959
             },
             {
               "sector": "Media",
               "short": "Others",
               "collaborations": 1,
-              "rca": 1.976
+              "rca": 1.959
             },
             {
               "sector": "Construction & Materials",
               "short": "Construction & Materials",
               "collaborations": 3,
-              "rca": 1.552
+              "rca": 1.577
             },
             {
               "sector": "Fixed Line Telecommunications",
               "short": "ICT services",
               "collaborations": 6,
-              "rca": 1.242
+              "rca": 1.243
             },
             {
               "sector": "Industrial Engineering",
               "short": "Industrials",
               "collaborations": 3,
-              "rca": 1.185
+              "rca": 1.175
             },
             {
               "sector": "Electricity",
               "short": "Energy",
               "collaborations": 1,
-              "rca": 0.906
+              "rca": 0.898
             },
             {
               "sector": "Pharmaceuticals & Biotechnology",
               "short": "Health industries",
               "collaborations": 5,
-              "rca": 0.856
+              "rca": 0.848
             },
             {
               "sector": "Banks",
               "short": "Financial",
               "collaborations": 1,
-              "rca": 0.604
+              "rca": 0.599
             },
             {
               "sector": "Technology Hardware & Equipment",
               "short": "ICT producers",
               "collaborations": 24,
-              "rca": 0.384
+              "rca": 0.392
             },
             {
               "sector": "Software & Computer Services",
               "short": "ICT services",
               "collaborations": 26,
-              "rca": 0.37
+              "rca": 0.366
             }
           ]
         },
         {
           "country": "Germany",
-          "observations": 313,
+          "observations": 319,
           "rows": [
             {
               "sector": "General Industrials",
               "short": "Industrials",
               "collaborations": 15,
-              "rca": 7.663
+              "rca": 7.455
             },
             {
               "sector": "Industrial Engineering",
               "short": "Industrials",
               "collaborations": 27,
-              "rca": 7.022
+              "rca": 6.831
             },
             {
               "sector": "Alternative Energy",
               "short": "Energy",
               "collaborations": 3,
-              "rca": 6.13
+              "rca": 5.964
             },
             {
               "sector": "Automobiles & Parts",
               "short": "Automobiles & Parts",
               "collaborations": 39,
-              "rca": 4.809
+              "rca": 4.719
             },
             {
               "sector": "Chemicals",
               "short": "Chemicals",
               "collaborations": 17,
-              "rca": 4.421
+              "rca": 4.301
             },
             {
               "sector": "Fixed Line Telecommunications",
               "short": "ICT services",
               "collaborations": 23,
-              "rca": 3.133
+              "rca": 3.077
             },
             {
               "sector": "Media",
               "short": "Others",
               "collaborations": 2,
-              "rca": 2.601
+              "rca": 2.53
             },
             {
               "sector": "Industrial Transportation",
               "short": "Industrials",
               "collaborations": 3,
-              "rca": 2.384
+              "rca": 2.319
             },
             {
               "sector": "Support Services",
               "short": "Others",
               "collaborations": 9,
-              "rca": 2.258
+              "rca": 2.159
             },
             {
               "sector": "Pharmaceuticals & Biotechnology",
               "short": "Health industries",
               "collaborations": 18,
-              "rca": 2.027
+              "rca": 1.972
             },
             {
               "sector": "Health Care Equipment & Services",
               "short": "Health industries",
               "collaborations": 1,
-              "rca": 0.954
+              "rca": 0.928
             },
             {
               "sector": "Electronic & Electrical Equipment",
               "short": "ICT producers",
-              "collaborations": 30,
-              "rca": 0.799
+              "collaborations": 29,
+              "rca": 0.753
             },
             {
               "sector": "Technology Hardware & Equipment",
               "short": "ICT producers",
-              "collaborations": 63,
-              "rca": 0.663
+              "collaborations": 65,
+              "rca": 0.685
             },
             {
               "sector": "Electricity",
               "short": "Energy",
               "collaborations": 1,
-              "rca": 0.596
+              "rca": 0.58
             },
             {
               "sector": "Software & Computer Services",
               "short": "ICT services",
-              "collaborations": 56,
-              "rca": 0.525
+              "collaborations": 61,
+              "rca": 0.554
             },
             {
               "sector": "Aerospace & Defence",
               "short": "Aerospace & Defence",
               "collaborations": 6,
-              "rca": 0.388
+              "rca": 0.378
             }
           ]
         },
@@ -667,43 +667,43 @@
               "sector": "Health Care Equipment & Services",
               "short": "Health industries",
               "collaborations": 4,
-              "rca": 18.367
+              "rca": 18.211
             },
             {
               "sector": "Chemicals",
               "short": "Chemicals",
               "collaborations": 4,
-              "rca": 5.009
+              "rca": 4.967
             },
             {
               "sector": "General Industrials",
               "short": "Industrials",
               "collaborations": 2,
-              "rca": 4.92
+              "rca": 4.878
             },
             {
               "sector": "Software & Computer Services",
               "short": "ICT services",
               "collaborations": 47,
-              "rca": 2.121
+              "rca": 2.096
             },
             {
               "sector": "Pharmaceuticals & Biotechnology",
               "short": "Health industries",
               "collaborations": 2,
-              "rca": 1.085
+              "rca": 1.075
             },
             {
               "sector": "Aerospace & Defence",
               "short": "Aerospace & Defence",
               "collaborations": 3,
-              "rca": 0.935
+              "rca": 0.927
             },
             {
               "sector": "Technology Hardware & Equipment",
               "short": "ICT producers",
               "collaborations": 3,
-              "rca": 0.152
+              "rca": 0.155
             }
           ]
         },
@@ -715,73 +715,73 @@
               "sector": "Fixed Line Telecommunications",
               "short": "ICT services",
               "collaborations": 1,
-              "rca": 1.777
+              "rca": 1.778
             },
             {
               "sector": "Aerospace & Defence",
               "short": "Aerospace & Defence",
               "collaborations": 2,
-              "rca": 1.688
+              "rca": 1.674
             },
             {
               "sector": "Software & Computer Services",
               "short": "ICT services",
               "collaborations": 11,
-              "rca": 1.345
+              "rca": 1.329
             },
             {
               "sector": "Technology Hardware & Equipment",
               "short": "ICT producers",
               "collaborations": 9,
-              "rca": 1.235
+              "rca": 1.261
             },
             {
               "sector": "Electronic & Electrical Equipment",
               "short": "ICT producers",
               "collaborations": 1,
-              "rca": 0.347
+              "rca": 0.345
             }
           ]
         },
         {
           "country": "Israel",
-          "observations": 143,
+          "observations": 98,
           "rows": [
-            {
-              "sector": "Technology Hardware & Equipment",
-              "short": "ICT producers",
-              "collaborations": 92,
-              "rca": 2.119
-            },
             {
               "sector": "Aerospace & Defence",
               "short": "Aerospace & Defence",
               "collaborations": 11,
-              "rca": 1.558
+              "rca": 2.255
             },
             {
               "sector": "Chemicals",
               "short": "Chemicals",
               "collaborations": 2,
-              "rca": 1.138
+              "rca": 1.647
+            },
+            {
+              "sector": "Technology Hardware & Equipment",
+              "short": "ICT producers",
+              "collaborations": 47,
+              "rca": 1.613
             },
             {
               "sector": "Software & Computer Services",
               "short": "ICT services",
               "collaborations": 33,
-              "rca": 0.677
+              "rca": 0.976
             },
             {
               "sector": "Pharmaceuticals & Biotechnology",
               "short": "Health industries",
               "collaborations": 1,
-              "rca": 0.247
+              "rca": 0.357
             },
             {
               "sector": "Electronic & Electrical Equipment",
               "short": "ICT producers",
               "collaborations": 4,
-              "rca": 0.233
+              "rca": 0.338
             }
           ]
         },
@@ -793,25 +793,25 @@
               "sector": "Oil & Gas Producers",
               "short": "Energy",
               "collaborations": 2,
-              "rca": 16.221
+              "rca": 16.083
             },
             {
               "sector": "Financial Services",
               "short": "Financial",
               "collaborations": 1,
-              "rca": 4.24
+              "rca": 4.204
             },
             {
               "sector": "Industrial Engineering",
               "short": "Industrials",
               "collaborations": 1,
-              "rca": 3.392
+              "rca": 3.363
             },
             {
               "sector": "Aerospace & Defence",
               "short": "Aerospace & Defence",
               "collaborations": 3,
-              "rca": 2.532
+              "rca": 2.511
             },
             {
               "sector": "Automobiles & Parts",
@@ -823,115 +823,115 @@
               "sector": "Software & Computer Services",
               "short": "ICT services",
               "collaborations": 12,
-              "rca": 1.467
+              "rca": 1.45
             },
             {
               "sector": "Electronic & Electrical Equipment",
               "short": "ICT producers",
               "collaborations": 3,
-              "rca": 1.042
+              "rca": 1.035
             },
             {
               "sector": "Technology Hardware & Equipment",
               "short": "ICT producers",
               "collaborations": 1,
-              "rca": 0.137
+              "rca": 0.14
             }
           ]
         },
         {
           "country": "Japan",
-          "observations": 313,
+          "observations": 312,
           "rows": [
             {
               "sector": "Food Producers",
               "short": "Others",
               "collaborations": 2,
-              "rca": 9.536
+              "rca": 9.485
             },
             {
               "sector": "Industrial Metals & Mining",
               "short": "Industrials",
-              "collaborations": 2,
-              "rca": 5.721
+              "collaborations": 1,
+              "rca": 3.557
             },
             {
               "sector": "General Industrials",
               "short": "Industrials",
               "collaborations": 6,
-              "rca": 3.065
-            },
-            {
-              "sector": "Media",
-              "short": "Others",
-              "collaborations": 2,
-              "rca": 2.601
+              "rca": 3.049
             },
             {
               "sector": "Automobiles & Parts",
               "short": "Automobiles & Parts",
               "collaborations": 21,
-              "rca": 2.589
+              "rca": 2.598
+            },
+            {
+              "sector": "Media",
+              "short": "Others",
+              "collaborations": 2,
+              "rca": 2.587
             },
             {
               "sector": "Electronic & Electrical Equipment",
               "short": "ICT producers",
               "collaborations": 64,
-              "rca": 1.705
+              "rca": 1.699
             },
             {
               "sector": "Software & Computer Services",
               "short": "ICT services",
               "collaborations": 163,
-              "rca": 1.528
+              "rca": 1.515
             },
             {
               "sector": "Chemicals",
               "short": "Chemicals",
               "collaborations": 4,
-              "rca": 1.04
+              "rca": 1.035
             },
             {
               "sector": "Financial Services",
               "short": "Financial",
               "collaborations": 3,
-              "rca": 0.975
-            },
-            {
-              "sector": "Fixed Line Telecommunications",
-              "short": "ICT services",
-              "collaborations": 6,
-              "rca": 0.817
+              "rca": 0.97
             },
             {
               "sector": "Banks",
               "short": "Financial",
               "collaborations": 2,
-              "rca": 0.795
+              "rca": 0.79
+            },
+            {
+              "sector": "Support Services",
+              "short": "Others",
+              "collaborations": 3,
+              "rca": 0.736
+            },
+            {
+              "sector": "Fixed Line Telecommunications",
+              "short": "ICT services",
+              "collaborations": 5,
+              "rca": 0.684
             },
             {
               "sector": "Industrial Engineering",
               "short": "Industrials",
               "collaborations": 2,
-              "rca": 0.52
-            },
-            {
-              "sector": "Support Services",
-              "short": "Others",
-              "collaborations": 2,
-              "rca": 0.502
+              "rca": 0.517
             },
             {
               "sector": "Technology Hardware & Equipment",
               "short": "ICT producers",
               "collaborations": 32,
-              "rca": 0.337
+              "rca": 0.345
             },
             {
               "sector": "Pharmaceuticals & Biotechnology",
               "short": "Health industries",
               "collaborations": 2,
-              "rca": 0.225
+              "rca": 0.224
             }
           ]
         },
@@ -943,7 +943,7 @@
               "sector": "Support Services",
               "short": "Others",
               "collaborations": 7,
-              "rca": 5.554
+              "rca": 5.412
             },
             {
               "sector": "Automobiles & Parts",
@@ -955,31 +955,31 @@
               "sector": "Electronic & Electrical Equipment",
               "short": "ICT producers",
               "collaborations": 24,
-              "rca": 2.021
+              "rca": 2.008
             },
             {
               "sector": "Technology Hardware & Equipment",
               "short": "ICT producers",
               "collaborations": 36,
-              "rca": 1.198
+              "rca": 1.223
             },
             {
               "sector": "Fixed Line Telecommunications",
               "short": "ICT services",
               "collaborations": 2,
-              "rca": 0.861
+              "rca": 0.862
             },
             {
               "sector": "Pharmaceuticals & Biotechnology",
               "short": "Health industries",
               "collaborations": 2,
-              "rca": 0.712
+              "rca": 0.706
             },
             {
               "sector": "Software & Computer Services",
               "short": "ICT services",
               "collaborations": 20,
-              "rca": 0.593
+              "rca": 0.586
             }
           ]
         },
@@ -991,13 +991,13 @@
               "sector": "Software & Computer Services",
               "short": "ICT services",
               "collaborations": 10,
-              "rca": 2.667
+              "rca": 2.636
             },
             {
               "sector": "Electronic & Electrical Equipment",
               "short": "ICT producers",
               "collaborations": 1,
-              "rca": 0.758
+              "rca": 0.753
             }
           ]
         },
@@ -1009,25 +1009,25 @@
               "sector": "Aerospace & Defence",
               "short": "Aerospace & Defence",
               "collaborations": 6,
-              "rca": 9.35
+              "rca": 9.27
             },
             {
               "sector": "Fixed Line Telecommunications",
               "short": "ICT services",
               "collaborations": 1,
-              "rca": 3.28
+              "rca": 3.283
             },
             {
               "sector": "Software & Computer Services",
               "short": "ICT services",
               "collaborations": 5,
-              "rca": 1.128
+              "rca": 1.115
             },
             {
               "sector": "Technology Hardware & Equipment",
               "short": "ICT producers",
               "collaborations": 1,
-              "rca": 0.253
+              "rca": 0.259
             }
           ]
         },
@@ -1039,7 +1039,7 @@
               "sector": "Electricity",
               "short": "Energy",
               "collaborations": 11,
-              "rca": 186.542
+              "rca": 184.958
             }
           ]
         },
@@ -1051,25 +1051,25 @@
               "sector": "Oil & Gas Producers",
               "short": "Energy",
               "collaborations": 9,
-              "rca": 125.134
+              "rca": 124.071
             },
             {
               "sector": "General Industrials",
               "short": "Industrials",
               "collaborations": 2,
-              "rca": 22.842
+              "rca": 22.648
             },
             {
               "sector": "Financial Services",
               "short": "Financial",
               "collaborations": 1,
-              "rca": 7.268
+              "rca": 7.206
             },
             {
               "sector": "Software & Computer Services",
               "short": "ICT services",
               "collaborations": 2,
-              "rca": 0.419
+              "rca": 0.414
             }
           ]
         },
@@ -1081,31 +1081,31 @@
               "sector": "Financial Services",
               "short": "Financial",
               "collaborations": 2,
-              "rca": 4.424
+              "rca": 4.386
             },
             {
               "sector": "Software & Computer Services",
               "short": "ICT services",
               "collaborations": 23,
-              "rca": 1.467
+              "rca": 1.45
             },
             {
               "sector": "Technology Hardware & Equipment",
               "short": "ICT producers",
               "collaborations": 19,
-              "rca": 1.361
+              "rca": 1.389
             },
             {
               "sector": "Aerospace & Defence",
               "short": "Aerospace & Defence",
               "collaborations": 1,
-              "rca": 0.44
+              "rca": 0.437
             },
             {
               "sector": "Electronic & Electrical Equipment",
               "short": "ICT producers",
               "collaborations": 1,
-              "rca": 0.181
+              "rca": 0.18
             }
           ]
         },
@@ -1114,34 +1114,34 @@
           "observations": 77,
           "rows": [
             {
-              "sector": "Household Goods & Home Construction",
-              "short": "Others",
-              "collaborations": 4,
-              "rca": 23.257
-            },
-            {
               "sector": "Industrial Metals & Mining",
               "short": "Industrials",
               "collaborations": 2,
-              "rca": 23.257
+              "rca": 28.825
+            },
+            {
+              "sector": "Household Goods & Home Construction",
+              "short": "Others",
+              "collaborations": 4,
+              "rca": 23.06
             },
             {
               "sector": "Fixed Line Telecommunications",
               "short": "ICT services",
               "collaborations": 6,
-              "rca": 3.322
+              "rca": 3.326
             },
             {
               "sector": "Electricity",
               "short": "Energy",
               "collaborations": 1,
-              "rca": 2.423
+              "rca": 2.402
             },
             {
               "sector": "Pharmaceuticals & Biotechnology",
               "short": "Health industries",
               "collaborations": 4,
-              "rca": 1.831
+              "rca": 1.816
             },
             {
               "sector": "Automobiles & Parts",
@@ -1153,31 +1153,31 @@
               "sector": "Software & Computer Services",
               "short": "ICT services",
               "collaborations": 36,
-              "rca": 1.372
+              "rca": 1.356
             },
             {
               "sector": "Chemicals",
               "short": "Chemicals",
               "collaborations": 1,
-              "rca": 1.057
+              "rca": 1.048
             },
             {
               "sector": "Industrial Engineering",
               "short": "Industrials",
               "collaborations": 1,
-              "rca": 1.057
+              "rca": 1.048
             },
             {
               "sector": "Technology Hardware & Equipment",
               "short": "ICT producers",
               "collaborations": 15,
-              "rca": 0.642
+              "rca": 0.655
             },
             {
               "sector": "Electronic & Electrical Equipment",
               "short": "ICT producers",
               "collaborations": 4,
-              "rca": 0.433
+              "rca": 0.43
             }
           ]
         },
@@ -1189,55 +1189,55 @@
               "sector": "Banks",
               "short": "Financial",
               "collaborations": 5,
-              "rca": 6.909
+              "rca": 6.85
             },
             {
               "sector": "Chemicals",
               "short": "Chemicals",
               "collaborations": 7,
-              "rca": 6.331
+              "rca": 6.277
             },
             {
               "sector": "Fixed Line Telecommunications",
               "short": "ICT services",
               "collaborations": 13,
-              "rca": 6.159
+              "rca": 6.165
             },
             {
               "sector": "Industrial Transportation",
               "short": "Industrials",
               "collaborations": 1,
-              "rca": 2.764
+              "rca": 2.74
             },
             {
               "sector": "Oil & Gas Producers",
               "short": "Energy",
               "collaborations": 1,
-              "rca": 2.163
-            },
-            {
-              "sector": "Software & Computer Services",
-              "short": "ICT services",
-              "collaborations": 37,
-              "rca": 1.206
-            },
-            {
-              "sector": "Electronic & Electrical Equipment",
-              "short": "ICT producers",
-              "collaborations": 13,
-              "rca": 1.204
+              "rca": 2.144
             },
             {
               "sector": "Construction & Materials",
               "short": "Construction & Materials",
               "collaborations": 1,
-              "rca": 1.184
+              "rca": 1.203
+            },
+            {
+              "sector": "Electronic & Electrical Equipment",
+              "short": "ICT producers",
+              "collaborations": 13,
+              "rca": 1.196
+            },
+            {
+              "sector": "Software & Computer Services",
+              "short": "ICT services",
+              "collaborations": 37,
+              "rca": 1.192
             },
             {
               "sector": "Technology Hardware & Equipment",
               "short": "ICT producers",
               "collaborations": 12,
-              "rca": 0.439
+              "rca": 0.448
             }
           ]
         },
@@ -1249,55 +1249,55 @@
               "sector": "Fixed Line Telecommunications",
               "short": "ICT services",
               "collaborations": 16,
-              "rca": 19.492
+              "rca": 19.512
             },
             {
               "sector": "Health Care Equipment & Services",
               "short": "Health industries",
               "collaborations": 2,
-              "rca": 17.055
+              "rca": 16.91
             },
             {
               "sector": "Industrial Engineering",
               "short": "Industrials",
               "collaborations": 6,
-              "rca": 13.954
+              "rca": 13.836
             },
             {
               "sector": "Industrial Transportation",
               "short": "Industrials",
               "collaborations": 1,
-              "rca": 7.106
+              "rca": 7.046
             },
             {
               "sector": "Pharmaceuticals & Biotechnology",
               "short": "Health industries",
               "collaborations": 3,
-              "rca": 3.022
+              "rca": 2.996
             },
             {
               "sector": "Support Services",
               "short": "Others",
               "collaborations": 1,
-              "rca": 2.244
+              "rca": 2.187
             },
             {
               "sector": "Electronic & Electrical Equipment",
               "short": "ICT producers",
               "collaborations": 3,
-              "rca": 0.715
+              "rca": 0.71
             },
             {
               "sector": "Technology Hardware & Equipment",
               "short": "ICT producers",
               "collaborations": 2,
-              "rca": 0.188
+              "rca": 0.192
             },
             {
               "sector": "Software & Computer Services",
               "short": "ICT services",
               "collaborations": 1,
-              "rca": 0.084
+              "rca": 0.083
             }
           ]
         },
@@ -1309,49 +1309,49 @@
               "sector": "Pharmaceuticals & Biotechnology",
               "short": "Health industries",
               "collaborations": 15,
-              "rca": 3.411
+              "rca": 3.383
             },
             {
               "sector": "Financial Services",
               "short": "Financial",
               "collaborations": 5,
-              "rca": 3.282
+              "rca": 3.254
             },
             {
               "sector": "Media",
               "short": "Others",
               "collaborations": 1,
-              "rca": 2.626
+              "rca": 2.604
             },
             {
               "sector": "Software & Computer Services",
               "short": "ICT services",
               "collaborations": 87,
-              "rca": 1.647
+              "rca": 1.627
             },
             {
               "sector": "Electronic & Electrical Equipment",
               "short": "ICT producers",
               "collaborations": 25,
-              "rca": 1.345
+              "rca": 1.336
             },
             {
               "sector": "Construction & Materials",
               "short": "Construction & Materials",
               "collaborations": 1,
-              "rca": 0.688
+              "rca": 0.699
             },
             {
               "sector": "Chemicals",
               "short": "Chemicals",
               "collaborations": 1,
-              "rca": 0.525
+              "rca": 0.521
             },
             {
               "sector": "Technology Hardware & Equipment",
               "short": "ICT producers",
               "collaborations": 20,
-              "rca": 0.425
+              "rca": 0.434
             }
           ]
         },
@@ -1363,7 +1363,7 @@
               "sector": "Technology Hardware & Equipment",
               "short": "ICT producers",
               "collaborations": 40,
-              "rca": 2.689
+              "rca": 2.745
             },
             {
               "sector": "Automobiles & Parts",
@@ -1375,103 +1375,103 @@
               "sector": "Electronic & Electrical Equipment",
               "short": "ICT producers",
               "collaborations": 6,
-              "rca": 1.021
+              "rca": 1.014
             }
           ]
         },
         {
           "country": "UK",
-          "observations": 478,
+          "observations": 479,
           "rows": [
             {
               "sector": "Personal Goods",
               "short": "Others",
               "collaborations": 1,
-              "rca": 9.366
+              "rca": 9.267
             },
             {
               "sector": "Banks",
               "short": "Financial",
               "collaborations": 17,
-              "rca": 4.423
+              "rca": 4.376
             },
             {
               "sector": "Industrial Engineering",
               "short": "Industrials",
               "collaborations": 10,
-              "rca": 1.703
+              "rca": 1.685
             },
             {
               "sector": "Media",
               "short": "Others",
               "collaborations": 2,
-              "rca": 1.703
+              "rca": 1.685
             },
             {
               "sector": "Support Services",
               "short": "Others",
               "collaborations": 10,
-              "rca": 1.643
+              "rca": 1.598
             },
             {
               "sector": "Software & Computer Services",
               "short": "ICT services",
               "collaborations": 236,
-              "rca": 1.448
+              "rca": 1.429
             },
             {
               "sector": "Pharmaceuticals & Biotechnology",
               "short": "Health industries",
               "collaborations": 18,
-              "rca": 1.327
+              "rca": 1.313
             },
             {
               "sector": "Health Care Equipment & Services",
               "short": "Health industries",
               "collaborations": 2,
-              "rca": 1.249
+              "rca": 1.236
             },
             {
               "sector": "Fixed Line Telecommunications",
               "short": "ICT services",
               "collaborations": 10,
-              "rca": 0.892
+              "rca": 0.891
             },
             {
               "sector": "Aerospace & Defence",
               "short": "Aerospace & Defence",
               "collaborations": 21,
-              "rca": 0.89
+              "rca": 0.881
             },
             {
               "sector": "Technology Hardware & Equipment",
               "short": "ICT producers",
-              "collaborations": 107,
-              "rca": 0.737
+              "collaborations": 108,
+              "rca": 0.758
             },
             {
               "sector": "Electronic & Electrical Equipment",
               "short": "ICT producers",
               "collaborations": 36,
-              "rca": 0.628
+              "rca": 0.622
             },
             {
               "sector": "Industrial Transportation",
               "short": "Industrials",
               "collaborations": 1,
-              "rca": 0.52
+              "rca": 0.515
             },
             {
               "sector": "Oil & Gas Producers",
               "short": "Energy",
               "collaborations": 1,
-              "rca": 0.407
+              "rca": 0.403
             },
             {
               "sector": "Chemicals",
               "short": "Chemicals",
               "collaborations": 2,
-              "rca": 0.341
+              "rca": 0.337
             },
             {
               "sector": "Automobiles & Parts",
@@ -1483,151 +1483,151 @@
               "sector": "Financial Services",
               "short": "Financial",
               "collaborations": 1,
-              "rca": 0.213
+              "rca": 0.211
             }
           ]
         },
         {
           "country": "US",
-          "observations": 1452,
+          "observations": 1451,
           "rows": [
             {
               "sector": "Oil Equipment, Services & Distribution",
               "short": "Energy",
               "collaborations": 1,
-              "rca": 3.083
+              "rca": 3.059
             },
             {
               "sector": "Real Estate Investment & Services",
               "short": "Financial",
               "collaborations": 1,
-              "rca": 3.083
+              "rca": 3.059
             },
             {
               "sector": "General Retailers",
               "short": "Others",
               "collaborations": 39,
-              "rca": 2.454
+              "rca": 2.435
             },
             {
               "sector": "Household Goods & Home Construction",
               "short": "Others",
               "collaborations": 6,
-              "rca": 1.85
+              "rca": 1.836
             },
             {
               "sector": "Financial Services",
               "short": "Financial",
               "collaborations": 24,
-              "rca": 1.682
+              "rca": 1.669
             },
             {
               "sector": "Technology Hardware & Equipment",
               "short": "ICT producers",
               "collaborations": 659,
-              "rca": 1.495
+              "rca": 1.527
             },
             {
               "sector": "Alternative Energy",
               "short": "Energy",
               "collaborations": 3,
-              "rca": 1.321
+              "rca": 1.311
             },
             {
               "sector": "Support Services",
               "short": "Others",
               "collaborations": 22,
-              "rca": 1.19
+              "rca": 1.16
             },
             {
               "sector": "Construction & Materials",
               "short": "Construction & Materials",
               "collaborations": 15,
-              "rca": 1.101
+              "rca": 1.119
             },
             {
               "sector": "Aerospace & Defence",
               "short": "Aerospace & Defence",
               "collaborations": 76,
-              "rca": 1.06
+              "rca": 1.052
             },
             {
               "sector": "Food Producers",
               "short": "Others",
               "collaborations": 1,
-              "rca": 1.028
+              "rca": 1.02
             },
             {
               "sector": "Health Care Equipment & Services",
               "short": "Health industries",
               "collaborations": 5,
-              "rca": 1.028
+              "rca": 1.02
             },
             {
               "sector": "Software & Computer Services",
               "short": "ICT services",
               "collaborations": 439,
-              "rca": 0.887
-            },
-            {
-              "sector": "Automobiles & Parts",
-              "short": "Automobiles & Parts",
-              "collaborations": 32,
-              "rca": 0.851
+              "rca": 0.877
             },
             {
               "sector": "Media",
               "short": "Others",
               "collaborations": 3,
-              "rca": 0.841
+              "rca": 0.834
             },
             {
-              "sector": "Oil & Gas Producers",
-              "short": "Energy",
-              "collaborations": 5,
-              "rca": 0.67
+              "sector": "Automobiles & Parts",
+              "short": "Automobiles & Parts",
+              "collaborations": 31,
+              "rca": 0.825
             },
             {
               "sector": "Industrial Metals & Mining",
               "short": "Industrials",
               "collaborations": 1,
-              "rca": 0.617
+              "rca": 0.765
+            },
+            {
+              "sector": "Oil & Gas Producers",
+              "short": "Energy",
+              "collaborations": 5,
+              "rca": 0.665
             },
             {
               "sector": "Chemicals",
               "short": "Chemicals",
               "collaborations": 9,
-              "rca": 0.505
+              "rca": 0.501
             },
             {
               "sector": "Electronic & Electrical Equipment",
               "short": "ICT producers",
               "collaborations": 84,
-              "rca": 0.482
+              "rca": 0.479
             },
             {
               "sector": "Pharmaceuticals & Biotechnology",
               "short": "Health industries",
               "collaborations": 18,
-              "rca": 0.437
+              "rca": 0.434
             },
             {
               "sector": "General Industrials",
               "short": "Industrials",
               "collaborations": 3,
-              "rca": 0.33
+              "rca": 0.328
             },
             {
               "sector": "Banks",
               "short": "Financial",
               "collaborations": 2,
-              "rca": 0.171
+              "rca": 0.17
             },
             {
               "sector": "Industrial Transportation",
               "short": "Industrials",
               "collaborations": 1,
-              "rca": 0.171
+              "rca": 0.17
             },
             {
               "sector": "Fixed Line Telecommunications",

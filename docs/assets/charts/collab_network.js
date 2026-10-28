@@ -90,6 +90,7 @@
             `<button data-m="${k}"${k === state.mode ? ' class="on"' : ""}>${m.label}</button>`).join("")}</div></div>
         <div class="ctl"><label>Minimum collaborations per country pair</label><div class="chiprow fused" id="cn-cuts"></div></div>
       </div>
+      <div class="cn-summary note" id="cn-summary" style="margin:4px 0 0;"></div>
       <div id="cn-stage"></div>
       <div class="cn-key" id="cn-key"></div>`);
 
@@ -153,6 +154,12 @@
       const g = build();
       const stage = root.select("#cn-stage");
       stage.selectAll(".cn-empty").remove();
+      // Say what is on screen: the minimum changes the count, so state it for every selection.
+      const allEdges = net.data.edges.filter(e => e[g.m.field] > 0);
+      const shown = d3.sum(g.links, l => l.w), total = d3.sum(allEdges, e => e[g.m.field]);
+      root.select("#cn-summary").html(`Showing <b>${QT.fmt.int(shown)}</b> of ${QT.fmt.int(total)} cross-border `
+        + `collaborations${state.mode === "industry" ? " involving industry" : ""} (${QT.fmt.int(g.links.length)} country pairs with at least `
+        + `${QT.fmt.int(state.cut)} each, ${QT.fmt.int(g.nodes.length)} countries).`);
       if (!g.nodes.length) {
         gEdges.selectAll("*").remove(); gHit.selectAll("*").remove(); gNodes.selectAll("*").remove(); gLabels.selectAll("*").remove();
         stage.append("div").attr("class", "cn-empty").text("No country pairs reach this minimum. Lower it to see more.");
