@@ -1,15 +1,15 @@
 {
  "meta": {
   "data_vintage": "2026-Q3",
-  "built_at_utc": "2026-10-28T11:22:38+00:00",
-  "source_xlsx": "raw/Quantum Public Investments.xlsx",
+  "built_at_utc": "2026-10-29T13:21:51+00:00",
+  "source_xlsx": "raw/FINAL - Quantum Public Investments - 29.06.26.xlsx",
   "verified_to": "2026-09-29",
   "mock": false,
   "provisional": false,
   "n_observations": 195,
   "n_jurisdictions": 36,
-  "headline_total_usd": 38616560288.18,
-  "total_incl_eu_usd": 41477214288.18,
+  "headline_total_usd": 38812326688.18,
+  "total_incl_eu_usd": 41672980688.18,
   "eu_usd": 2860654000.0,
   "source_note": "Identified public funding and funding commitments for quantum technologies, from ECIPE's public-investment workbook: one observation per programme or award, converted to nominal US dollars at the exchange rate recorded for each row. It is not total government spending, and a lower figure can reflect less public disclosure. The EU row is reported separately and is not added to Member States."
  },
@@ -17,9 +17,9 @@
   {
    "country": "US",
    "region": "US",
-   "government_funding": 10393500000.0,
+   "government_funding": 10497500000.0,
    "core": 6078000000.0,
-   "additional": 4315500000.0,
+   "additional": 4419500000.0,
    "n_policies_counted": 17,
    "n_policies_total": 17
   },
@@ -177,6 +177,15 @@
    "n_policies_total": 2
   },
   {
+   "country": "Finland",
+   "region": "EU",
+   "government_funding": 345092464.0,
+   "core": 214946340.0,
+   "additional": 130146124.0,
+   "n_policies_counted": 11,
+   "n_policies_total": 11
+  },
+  {
    "country": "Switzerland",
    "region": "RoW",
    "government_funding": 271601690.0,
@@ -193,15 +202,6 @@
    "additional": 19399902.69,
    "n_policies_counted": 2,
    "n_policies_total": 2
-  },
-  {
-   "country": "Finland",
-   "region": "EU",
-   "government_funding": 253326064.0,
-   "core": 214946340.0,
-   "additional": 38379724.0,
-   "n_policies_counted": 10,
-   "n_policies_total": 11
   },
   {
    "country": "Austria",

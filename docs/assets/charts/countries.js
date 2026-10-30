@@ -822,17 +822,13 @@ QT.boot(async function () {
     card.append("span").attr("class", "policy-type")
       .style("background", d => POLICY_COLORS[d.type] || QT.tokens.muted)
       .style("color", "#fff").text(d => d.type);
-    // The title links to the official document. The announced amount is printed as the register
-    // words it, in its own national currency, never converted.
-    card.append("div").attr("class", "policy-title").each(function (d) {
-      const t = d3.select(this);
-      if (d.url) t.append("a").attr("href", d.url).attr("target", "_blank").attr("rel", "noopener").text(d.title);
-      else t.text(d.title);
-    });
+    // The title is plain text (no links to the source documents). The announced amount is printed
+    // as the register words it, in its own national currency, never converted.
+    card.append("div").attr("class", "policy-title").text(d => d.title);
     card.append("div").attr("class", "policy-meta")
-      .html(d => [d.status, d.year].filter(Boolean).join(" · ") + (d.funding
-        ? ` · <span class="policy-money">${d.funding.replace(/[&<]/g, c => c === "&" ? "&amp;" : "&lt;")}</span>` : ""));
-    card.append("div").attr("class", "policy-desc").text(d => d.note);
+      .html(d => [d.status, d.year ? String(d.year) : "", d.funding
+        ? `<span class="policy-money">${d.funding.replace(/[&<]/g, c => c === "&" ? "&amp;" : "&lt;")}</span>` : ""]
+        .filter(Boolean).join(" · "));
 
     // A thin vertical rule between neighbouring cards, but not at the start of a row (the number
     // of cards per row depends on the width), so the first card of each row is marked in JS.

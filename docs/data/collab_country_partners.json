@@ -5,13 +5,13 @@
     "counting": "binary (v1): one dyad = one collaboration regardless of how many underlying records support it; no weight or time series yet (v2, Phase 8)"
   },
   "data": {
-    "network_countries": 137,
+    "network_countries": 134,
     "countries": [
       {
         "country": "Afghanistan",
         "partners": 3,
         "partners_industry": 0,
-        "connectedness": 0.0221,
+        "connectedness": 0.0226,
         "top_partners": [
           {
             "country": "Lebanon",
@@ -29,20 +29,20 @@
       },
       {
         "country": "Algeria",
-        "partners": 34,
-        "partners_industry": 3,
-        "connectedness": 0.25,
+        "partners": 33,
+        "partners_industry": 0,
+        "connectedness": 0.2481,
         "top_partners": [
           {
             "country": "France",
-            "collaborations": 25
+            "collaborations": 15
           },
           {
             "country": "China",
             "collaborations": 14
           },
           {
-            "country": "Canada",
+            "country": "US",
             "collaborations": 8
           }
         ]
@@ -51,7 +51,7 @@
         "country": "Angola",
         "partners": 1,
         "partners_industry": 0,
-        "connectedness": 0.0074,
+        "connectedness": 0.0075,
         "top_partners": [
           {
             "country": "Russia",
@@ -61,201 +61,201 @@
       },
       {
         "country": "Argentina",
-        "partners": 33,
-        "partners_industry": 0,
-        "connectedness": 0.2426,
+        "partners": 35,
+        "partners_industry": 1,
+        "connectedness": 0.2632,
         "top_partners": [
-          {
-            "country": "US",
-            "collaborations": 66
-          },
           {
             "country": "Spain",
             "collaborations": 60
           },
           {
+            "country": "US",
+            "collaborations": 47
+          },
+          {
             "country": "Germany",
-            "collaborations": 54
+            "collaborations": 45
           }
         ]
       },
       {
         "country": "Armenia",
-        "partners": 26,
-        "partners_industry": 1,
-        "connectedness": 0.1912,
+        "partners": 20,
+        "partners_industry": 0,
+        "connectedness": 0.1504,
         "top_partners": [
           {
             "country": "Russia",
-            "collaborations": 19
-          },
-          {
-            "country": "US",
-            "collaborations": 17
+            "collaborations": 23
           },
           {
             "country": "France",
-            "collaborations": 12
+            "collaborations": 17
+          },
+          {
+            "country": "US",
+            "collaborations": 16
           }
         ]
       },
       {
         "country": "Australia",
-        "partners": 63,
-        "partners_industry": 29,
-        "connectedness": 0.4632,
+        "partners": 60,
+        "partners_industry": 25,
+        "connectedness": 0.4511,
         "top_partners": [
           {
             "country": "China",
-            "collaborations": 548
+            "collaborations": 453
           },
           {
             "country": "US",
-            "collaborations": 448
+            "collaborations": 398
           },
           {
             "country": "Germany",
-            "collaborations": 195
+            "collaborations": 186
           }
         ]
       },
       {
         "country": "Austria",
-        "partners": 60,
-        "partners_industry": 26,
-        "connectedness": 0.4412,
+        "partners": 58,
+        "partners_industry": 28,
+        "connectedness": 0.4361,
         "top_partners": [
           {
             "country": "Germany",
-            "collaborations": 350
+            "collaborations": 325
           },
           {
             "country": "US",
-            "collaborations": 229
+            "collaborations": 220
           },
           {
             "country": "Italy",
-            "collaborations": 112
+            "collaborations": 103
           }
         ]
       },
       {
         "country": "Azerbaijan",
-        "partners": 24,
+        "partners": 10,
         "partners_industry": 0,
-        "connectedness": 0.1765,
+        "connectedness": 0.0752,
         "top_partners": [
           {
             "country": "Russia",
-            "collaborations": 16
+            "collaborations": 11
           },
           {
             "country": "China",
             "collaborations": 10
           },
           {
-            "country": "Ukraine",
-            "collaborations": 7
-          }
-        ]
-      },
-      {
-        "country": "Bahrain",
-        "partners": 15,
-        "partners_industry": 0,
-        "connectedness": 0.1103,
-        "top_partners": [
-          {
-            "country": "Egypt",
-            "collaborations": 21
-          },
-          {
-            "country": "Saudi Arabia",
-            "collaborations": 14
-          },
-          {
-            "country": "Morocco",
-            "collaborations": 4
-          }
-        ]
-      },
-      {
-        "country": "Bangladesh",
-        "partners": 27,
-        "partners_industry": 1,
-        "connectedness": 0.1985,
-        "top_partners": [
-          {
-            "country": "China",
-            "collaborations": 45
-          },
-          {
-            "country": "US",
-            "collaborations": 23
-          },
-          {
-            "country": "Australia",
+            "country": "Turkey",
             "collaborations": 9
           }
         ]
       },
       {
-        "country": "Belarus",
-        "partners": 28,
-        "partners_industry": 1,
-        "connectedness": 0.2059,
+        "country": "Bahrain",
+        "partners": 16,
+        "partners_industry": 0,
+        "connectedness": 0.1203,
         "top_partners": [
           {
-            "country": "Russia",
-            "collaborations": 18
-          },
-          {
-            "country": "China",
+            "country": "Egypt",
             "collaborations": 17
           },
           {
-            "country": "Italy",
-            "collaborations": 8
+            "country": "Saudi Arabia",
+            "collaborations": 9
+          },
+          {
+            "country": "India",
+            "collaborations": 3
+          }
+        ]
+      },
+      {
+        "country": "Bangladesh",
+        "partners": 20,
+        "partners_industry": 1,
+        "connectedness": 0.1504,
+        "top_partners": [
+          {
+            "country": "US",
+            "collaborations": 25
+          },
+          {
+            "country": "India",
+            "collaborations": 15
+          },
+          {
+            "country": "Australia",
+            "collaborations": 6
+          }
+        ]
+      },
+      {
+        "country": "Belarus",
+        "partners": 20,
+        "partners_industry": 1,
+        "connectedness": 0.1504,
+        "top_partners": [
+          {
+            "country": "Russia",
+            "collaborations": 17
+          },
+          {
+            "country": "China",
+            "collaborations": 9
+          },
+          {
+            "country": "France",
+            "collaborations": 4
           }
         ]
       },
       {
         "country": "Belgium",
         "partners": 49,
-        "partners_industry": 15,
-        "connectedness": 0.3603,
+        "partners_industry": 13,
+        "connectedness": 0.3684,
         "top_partners": [
           {
-            "country": "Germany",
-            "collaborations": 91
-          },
-          {
             "country": "US",
-            "collaborations": 90
+            "collaborations": 85
           },
           {
-            "country": "France",
-            "collaborations": 77
+            "country": "Germany",
+            "collaborations": 83
+          },
+          {
+            "country": "China",
+            "collaborations": 75
           }
         ]
       },
       {
         "country": "Benin",
-        "partners": 8,
+        "partners": 5,
         "partners_industry": 0,
-        "connectedness": 0.0588,
+        "connectedness": 0.0376,
         "top_partners": [
           {
             "country": "France",
-            "collaborations": 6
-          },
-          {
-            "country": "Cameroon",
             "collaborations": 4
           },
           {
-            "country": "Poland",
-            "collaborations": 3
+            "country": "Burundi",
+            "collaborations": 2
+          },
+          {
+            "country": "Cameroon",
+            "collaborations": 2
           }
         ]
       },
@@ -263,31 +263,31 @@
         "country": "Bhutan",
         "partners": 2,
         "partners_industry": 0,
-        "connectedness": 0.0147,
+        "connectedness": 0.015,
         "top_partners": [
           {
             "country": "Netherlands",
-            "collaborations": 1
+            "collaborations": 4
           },
           {
-            "country": "Slovenia",
-            "collaborations": 1
+            "country": "Poland",
+            "collaborations": 2
           }
         ]
       },
       {
         "country": "Bolivia",
-        "partners": 6,
+        "partners": 4,
         "partners_industry": 0,
-        "connectedness": 0.0441,
+        "connectedness": 0.0301,
         "top_partners": [
           {
             "country": "Colombia",
-            "collaborations": 3
+            "collaborations": 5
           },
           {
-            "country": "Spain",
-            "collaborations": 2
+            "country": "Argentina",
+            "collaborations": 1
           },
           {
             "country": "Chile",
@@ -297,10 +297,14 @@
       },
       {
         "country": "Bosnia and Herzegovina",
-        "partners": 14,
-        "partners_industry": 4,
-        "connectedness": 0.1029,
+        "partners": 10,
+        "partners_industry": 2,
+        "connectedness": 0.0752,
         "top_partners": [
+          {
+            "country": "Germany",
+            "collaborations": 4
+          },
           {
             "country": "Austria",
             "collaborations": 2
@@ -308,38 +312,34 @@
           {
             "country": "Czech Republic",
             "collaborations": 2
-          },
-          {
-            "country": "Poland",
-            "collaborations": 2
           }
         ]
       },
       {
         "country": "Botswana",
-        "partners": 8,
+        "partners": 7,
         "partners_industry": 0,
-        "connectedness": 0.0588,
+        "connectedness": 0.0526,
         "top_partners": [
           {
             "country": "Cameroon",
-            "collaborations": 7
+            "collaborations": 6
           },
           {
             "country": "South Africa",
-            "collaborations": 3
+            "collaborations": 2
           },
           {
-            "country": "India",
-            "collaborations": 2
+            "country": "Brazil",
+            "collaborations": 1
           }
         ]
       },
       {
         "country": "Brazil",
-        "partners": 75,
-        "partners_industry": 9,
-        "connectedness": 0.5515,
+        "partners": 70,
+        "partners_industry": 8,
+        "connectedness": 0.5263,
         "top_partners": [
           {
             "country": "US",
@@ -347,51 +347,51 @@
           },
           {
             "country": "Germany",
-            "collaborations": 133
+            "collaborations": 136
           },
           {
             "country": "Italy",
-            "collaborations": 106
+            "collaborations": 96
           }
         ]
       },
       {
         "country": "Brunei",
-        "partners": 3,
+        "partners": 6,
         "partners_industry": 0,
-        "connectedness": 0.0221,
+        "connectedness": 0.0451,
         "top_partners": [
           {
+            "country": "Australia",
+            "collaborations": 3
+          },
+          {
             "country": "Pakistan",
-            "collaborations": 4
+            "collaborations": 2
           },
           {
             "country": "Saudi Arabia",
             "collaborations": 2
-          },
-          {
-            "country": "Norway",
-            "collaborations": 1
           }
         ]
       },
       {
         "country": "Bulgaria",
-        "partners": 29,
-        "partners_industry": 4,
-        "connectedness": 0.2132,
+        "partners": 21,
+        "partners_industry": 1,
+        "connectedness": 0.1579,
         "top_partners": [
           {
-            "country": "US",
-            "collaborations": 25
-          },
-          {
             "country": "Germany",
-            "collaborations": 18
+            "collaborations": 17
           },
           {
-            "country": "Russia",
-            "collaborations": 17
+            "country": "UK",
+            "collaborations": 11
+          },
+          {
+            "country": "US",
+            "collaborations": 11
           }
         ]
       },
@@ -399,279 +399,275 @@
         "country": "Burundi",
         "partners": 2,
         "partners_industry": 0,
-        "connectedness": 0.0147,
+        "connectedness": 0.015,
         "top_partners": [
           {
             "country": "Benin",
-            "collaborations": 1
+            "collaborations": 2
           },
           {
-            "country": "France",
+            "country": "Belgium",
             "collaborations": 1
           }
         ]
       },
       {
         "country": "Cambodia",
-        "partners": 4,
+        "partners": 1,
         "partners_industry": 0,
-        "connectedness": 0.0294,
+        "connectedness": 0.0075,
         "top_partners": [
           {
-            "country": "US",
-            "collaborations": 2
-          },
-          {
-            "country": "China",
-            "collaborations": 1
-          },
-          {
-            "country": "India",
+            "country": "Laos",
             "collaborations": 1
           }
         ]
       },
       {
         "country": "Cameroon",
-        "partners": 24,
-        "partners_industry": 1,
-        "connectedness": 0.1765,
+        "partners": 23,
+        "partners_industry": 0,
+        "connectedness": 0.1729,
         "top_partners": [
           {
             "country": "India",
-            "collaborations": 13
+            "collaborations": 12
           },
           {
             "country": "South Africa",
-            "collaborations": 13
+            "collaborations": 9
           },
           {
-            "country": "France",
-            "collaborations": 9
+            "country": "Germany",
+            "collaborations": 8
           }
         ]
       },
       {
         "country": "Canada",
-        "partners": 73,
-        "partners_industry": 32,
-        "connectedness": 0.5368,
+        "partners": 66,
+        "partners_industry": 29,
+        "connectedness": 0.4962,
         "top_partners": [
           {
             "country": "US",
-            "collaborations": 871
+            "collaborations": 860
           },
           {
             "country": "China",
-            "collaborations": 372
+            "collaborations": 337
           },
           {
             "country": "Germany",
-            "collaborations": 219
+            "collaborations": 203
+          }
+        ]
+      },
+      {
+        "country": "Central African Republic",
+        "partners": 1,
+        "partners_industry": 0,
+        "connectedness": 0.0075,
+        "top_partners": [
+          {
+            "country": "Chad",
+            "collaborations": 1
           }
         ]
       },
       {
         "country": "Chad",
-        "partners": 1,
+        "partners": 2,
         "partners_industry": 0,
-        "connectedness": 0.0074,
+        "connectedness": 0.015,
         "top_partners": [
           {
             "country": "Cameroon",
-            "collaborations": 4
+            "collaborations": 2
+          },
+          {
+            "country": "Central African Republic",
+            "collaborations": 1
           }
         ]
       },
       {
         "country": "Chile",
-        "partners": 51,
-        "partners_industry": 5,
-        "connectedness": 0.375,
+        "partners": 41,
+        "partners_industry": 4,
+        "connectedness": 0.3083,
         "top_partners": [
           {
             "country": "US",
-            "collaborations": 71
+            "collaborations": 63
           },
           {
             "country": "China",
-            "collaborations": 68
+            "collaborations": 48
           },
           {
-            "country": "Brazil",
-            "collaborations": 47
+            "country": "Spain",
+            "collaborations": 45
           }
         ]
       },
       {
         "country": "China",
-        "partners": 103,
-        "partners_industry": 40,
-        "connectedness": 0.7574,
+        "partners": 92,
+        "partners_industry": 31,
+        "connectedness": 0.6917,
         "top_partners": [
           {
             "country": "US",
-            "collaborations": 2939
+            "collaborations": 2472
           },
           {
             "country": "Germany",
-            "collaborations": 950
+            "collaborations": 875
           },
           {
             "country": "Japan",
-            "collaborations": 681
+            "collaborations": 620
           }
         ]
       },
       {
         "country": "Colombia",
-        "partners": 34,
+        "partners": 33,
         "partners_industry": 2,
-        "connectedness": 0.25,
+        "connectedness": 0.2481,
         "top_partners": [
           {
             "country": "US",
-            "collaborations": 42
+            "collaborations": 36
           },
           {
             "country": "Spain",
             "collaborations": 26
           },
           {
-            "country": "Mexico",
-            "collaborations": 19
+            "country": "Brazil",
+            "collaborations": 15
           }
         ]
       },
       {
         "country": "Costa Rica",
-        "partners": 12,
-        "partners_industry": 1,
-        "connectedness": 0.0882,
+        "partners": 9,
+        "partners_industry": 0,
+        "connectedness": 0.0677,
         "top_partners": [
           {
             "country": "Germany",
-            "collaborations": 5
+            "collaborations": 7
+          },
+          {
+            "country": "Austria",
+            "collaborations": 6
           },
           {
             "country": "Spain",
-            "collaborations": 4
-          },
-          {
-            "country": "US",
-            "collaborations": 4
+            "collaborations": 3
           }
         ]
       },
       {
         "country": "Croatia",
-        "partners": 28,
+        "partners": 24,
         "partners_industry": 1,
-        "connectedness": 0.2059,
+        "connectedness": 0.1805,
         "top_partners": [
           {
             "country": "Italy",
-            "collaborations": 17
+            "collaborations": 21
           },
-          {
-            "country": "China",
-            "collaborations": 12
-          },
-          {
-            "country": "Spain",
-            "collaborations": 9
-          }
-        ]
-      },
-      {
-        "country": "Cuba",
-        "partners": 15,
-        "partners_industry": 0,
-        "connectedness": 0.1103,
-        "top_partners": [
           {
             "country": "Spain",
             "collaborations": 8
           },
           {
-            "country": "Germany",
-            "collaborations": 5
+            "country": "Switzerland",
+            "collaborations": 8
+          }
+        ]
+      },
+      {
+        "country": "Cuba",
+        "partners": 11,
+        "partners_industry": 0,
+        "connectedness": 0.0827,
+        "top_partners": [
+          {
+            "country": "Spain",
+            "collaborations": 7
           },
           {
-            "country": "Mexico",
-            "collaborations": 5
+            "country": "France",
+            "collaborations": 4
+          },
+          {
+            "country": "Brazil",
+            "collaborations": 3
           }
         ]
       },
       {
         "country": "Cyprus",
-        "partners": 20,
+        "partners": 13,
         "partners_industry": 3,
-        "connectedness": 0.1471,
+        "connectedness": 0.0977,
         "top_partners": [
           {
             "country": "Germany",
-            "collaborations": 12
+            "collaborations": 8
           },
           {
-            "country": "Italy",
-            "collaborations": 9
+            "country": "China",
+            "collaborations": 6
           },
           {
-            "country": "UK",
-            "collaborations": 7
+            "country": "Japan",
+            "collaborations": 3
           }
         ]
       },
       {
         "country": "Czech Republic",
-        "partners": 60,
-        "partners_industry": 11,
-        "connectedness": 0.4412,
+        "partners": 55,
+        "partners_industry": 7,
+        "connectedness": 0.4135,
         "top_partners": [
           {
             "country": "Germany",
-            "collaborations": 88
+            "collaborations": 68
           },
           {
             "country": "US",
-            "collaborations": 62
+            "collaborations": 47
           },
           {
             "country": "India",
-            "collaborations": 57
-          }
-        ]
-      },
-      {
-        "country": "DR Congo",
-        "partners": 1,
-        "partners_industry": 0,
-        "connectedness": 0.0074,
-        "top_partners": [
-          {
-            "country": "Morocco",
-            "collaborations": 4
+            "collaborations": 39
           }
         ]
       },
       {
         "country": "Denmark",
-        "partners": 56,
-        "partners_industry": 16,
-        "connectedness": 0.4118,
+        "partners": 55,
+        "partners_industry": 15,
+        "connectedness": 0.4135,
         "top_partners": [
           {
             "country": "US",
-            "collaborations": 182
+            "collaborations": 175
           },
           {
             "country": "Germany",
-            "collaborations": 112
+            "collaborations": 121
           },
           {
             "country": "China",
-            "collaborations": 85
+            "collaborations": 89
           }
         ]
       },
@@ -679,54 +675,50 @@
         "country": "Ecuador",
         "partners": 18,
         "partners_industry": 0,
-        "connectedness": 0.1324,
+        "connectedness": 0.1353,
         "top_partners": [
           {
-            "country": "Chile",
-            "collaborations": 7
+            "country": "Venezuela",
+            "collaborations": 8
           },
           {
             "country": "Spain",
-            "collaborations": 7
+            "collaborations": 4
           },
           {
-            "country": "US",
-            "collaborations": 6
+            "country": "France",
+            "collaborations": 3
           }
         ]
       },
       {
         "country": "Egypt",
-        "partners": 49,
-        "partners_industry": 6,
-        "connectedness": 0.3603,
+        "partners": 40,
+        "partners_industry": 1,
+        "connectedness": 0.3008,
         "top_partners": [
           {
             "country": "Saudi Arabia",
-            "collaborations": 118
+            "collaborations": 117
           },
           {
             "country": "China",
-            "collaborations": 49
+            "collaborations": 58
           },
           {
-            "country": "UAE",
-            "collaborations": 26
+            "country": "Morocco",
+            "collaborations": 25
           }
         ]
       },
       {
         "country": "El Salvador",
-        "partners": 3,
+        "partners": 2,
         "partners_industry": 0,
-        "connectedness": 0.0221,
+        "connectedness": 0.015,
         "top_partners": [
           {
-            "country": "Brazil",
-            "collaborations": 3
-          },
-          {
-            "country": "Guatemala",
+            "country": "Bolivia",
             "collaborations": 1
           },
           {
@@ -737,113 +729,117 @@
       },
       {
         "country": "Estonia",
-        "partners": 20,
-        "partners_industry": 4,
-        "connectedness": 0.1471,
+        "partners": 18,
+        "partners_industry": 3,
+        "connectedness": 0.1353,
         "top_partners": [
           {
             "country": "US",
-            "collaborations": 8
+            "collaborations": 6
           },
           {
-            "country": "UK",
-            "collaborations": 7
+            "country": "Finland",
+            "collaborations": 2
           },
           {
-            "country": "Italy",
-            "collaborations": 5
+            "country": "Germany",
+            "collaborations": 2
           }
         ]
       },
       {
         "country": "Ethiopia",
-        "partners": 15,
+        "partners": 9,
         "partners_industry": 0,
-        "connectedness": 0.1103,
+        "connectedness": 0.0677,
         "top_partners": [
           {
             "country": "China",
-            "collaborations": 11
+            "collaborations": 5
           },
           {
-            "country": "Cameroon",
-            "collaborations": 7
+            "country": "Morocco",
+            "collaborations": 5
           },
           {
-            "country": "Iran",
+            "country": "Pakistan",
             "collaborations": 5
           }
         ]
       },
       {
         "country": "Fiji",
-        "partners": 1,
+        "partners": 2,
         "partners_industry": 0,
-        "connectedness": 0.0074,
+        "connectedness": 0.015,
         "top_partners": [
           {
             "country": "China",
+            "collaborations": 2
+          },
+          {
+            "country": "Vietnam",
             "collaborations": 2
           }
         ]
       },
       {
         "country": "Finland",
-        "partners": 59,
-        "partners_industry": 28,
-        "connectedness": 0.4338,
+        "partners": 57,
+        "partners_industry": 26,
+        "connectedness": 0.4286,
         "top_partners": [
           {
             "country": "US",
-            "collaborations": 133
+            "collaborations": 117
           },
           {
             "country": "China",
-            "collaborations": 118
+            "collaborations": 91
           },
           {
             "country": "Germany",
-            "collaborations": 87
+            "collaborations": 91
           }
         ]
       },
       {
         "country": "France",
-        "partners": 82,
-        "partners_industry": 29,
-        "connectedness": 0.6029,
+        "partners": 66,
+        "partners_industry": 30,
+        "connectedness": 0.4962,
         "top_partners": [
           {
             "country": "US",
-            "collaborations": 661
+            "collaborations": 558
           },
           {
             "country": "Germany",
-            "collaborations": 489
+            "collaborations": 436
           },
           {
             "country": "Italy",
-            "collaborations": 332
+            "collaborations": 349
           }
         ]
       },
       {
         "country": "Gabon",
-        "partners": 4,
+        "partners": 3,
         "partners_industry": 0,
-        "connectedness": 0.0294,
+        "connectedness": 0.0226,
         "top_partners": [
           {
-            "country": "Cameroon",
-            "collaborations": 4
-          },
-          {
-            "country": "Belgium",
-            "collaborations": 2
-          },
-          {
             "country": "France",
+            "collaborations": 3
+          },
+          {
+            "country": "Cameroon",
             "collaborations": 2
+          },
+          {
+            "country": "Botswana",
+            "collaborations": 1
           }
         ]
       },
@@ -851,7 +847,7 @@
         "country": "Gambia",
         "partners": 1,
         "partners_industry": 0,
-        "connectedness": 0.0074,
+        "connectedness": 0.0075,
         "top_partners": [
           {
             "country": "Pakistan",
@@ -861,16 +857,16 @@
       },
       {
         "country": "Georgia",
-        "partners": 17,
-        "partners_industry": 1,
-        "connectedness": 0.125,
+        "partners": 16,
+        "partners_industry": 0,
+        "connectedness": 0.1203,
         "top_partners": [
           {
-            "country": "US",
+            "country": "Germany",
             "collaborations": 6
           },
           {
-            "country": "Germany",
+            "country": "Argentina",
             "collaborations": 4
           },
           {
@@ -881,185 +877,177 @@
       },
       {
         "country": "Germany",
-        "partners": 91,
-        "partners_industry": 40,
-        "connectedness": 0.6691,
+        "partners": 83,
+        "partners_industry": 35,
+        "connectedness": 0.6241,
         "top_partners": [
           {
             "country": "US",
-            "collaborations": 1700
+            "collaborations": 1542
           },
           {
             "country": "China",
-            "collaborations": 950
+            "collaborations": 875
           },
           {
             "country": "UK",
-            "collaborations": 593
+            "collaborations": 561
           }
         ]
       },
       {
         "country": "Ghana",
-        "partners": 11,
-        "partners_industry": 2,
-        "connectedness": 0.0809,
+        "partners": 7,
+        "partners_industry": 0,
+        "connectedness": 0.0526,
         "top_partners": [
           {
-            "country": "US",
-            "collaborations": 13
-          },
-          {
             "country": "China",
-            "collaborations": 4
+            "collaborations": 2
           },
           {
-            "country": "UK",
-            "collaborations": 4
+            "country": "South Korea",
+            "collaborations": 2
+          },
+          {
+            "country": "Vietnam",
+            "collaborations": 2
           }
         ]
       },
       {
         "country": "Greece",
-        "partners": 50,
-        "partners_industry": 11,
-        "connectedness": 0.3676,
+        "partners": 41,
+        "partners_industry": 8,
+        "connectedness": 0.3083,
         "top_partners": [
           {
             "country": "US",
-            "collaborations": 59
+            "collaborations": 53
+          },
+          {
+            "country": "China",
+            "collaborations": 34
           },
           {
             "country": "Germany",
-            "collaborations": 37
-          },
-          {
-            "country": "UK",
-            "collaborations": 29
+            "collaborations": 25
           }
         ]
       },
       {
         "country": "Guatemala",
-        "partners": 2,
+        "partners": 4,
         "partners_industry": 0,
-        "connectedness": 0.0147,
+        "connectedness": 0.0301,
         "top_partners": [
           {
-            "country": "Spain",
-            "collaborations": 3
+            "country": "Slovakia",
+            "collaborations": 2
           },
           {
-            "country": "El Salvador",
+            "country": "Brazil",
+            "collaborations": 1
+          },
+          {
+            "country": "Mexico",
             "collaborations": 1
           }
         ]
       },
       {
-        "country": "Honduras",
-        "partners": 1,
-        "partners_industry": 0,
-        "connectedness": 0.0074,
-        "top_partners": [
-          {
-            "country": "US",
-            "collaborations": 3
-          }
-        ]
-      },
-      {
         "country": "Hungary",
-        "partners": 51,
-        "partners_industry": 9,
-        "connectedness": 0.375,
+        "partners": 40,
+        "partners_industry": 8,
+        "connectedness": 0.3008,
         "top_partners": [
           {
             "country": "Germany",
-            "collaborations": 77
+            "collaborations": 71
           },
           {
             "country": "US",
-            "collaborations": 54
+            "collaborations": 53
           },
           {
             "country": "Spain",
-            "collaborations": 33
+            "collaborations": 31
           }
         ]
       },
       {
         "country": "Iceland",
-        "partners": 29,
-        "partners_industry": 1,
-        "connectedness": 0.2132,
+        "partners": 26,
+        "partners_industry": 0,
+        "connectedness": 0.1955,
         "top_partners": [
           {
             "country": "Russia",
-            "collaborations": 13
+            "collaborations": 12
           },
           {
             "country": "UK",
-            "collaborations": 10
+            "collaborations": 9
           },
           {
             "country": "Germany",
-            "collaborations": 7
+            "collaborations": 8
           }
         ]
       },
       {
         "country": "India",
-        "partners": 90,
-        "partners_industry": 27,
-        "connectedness": 0.6618,
+        "partners": 80,
+        "partners_industry": 23,
+        "connectedness": 0.6015,
         "top_partners": [
           {
             "country": "US",
-            "collaborations": 598
+            "collaborations": 528
           },
           {
             "country": "Germany",
-            "collaborations": 312
+            "collaborations": 283
           },
           {
             "country": "China",
-            "collaborations": 269
+            "collaborations": 191
           }
         ]
       },
       {
         "country": "Indonesia",
-        "partners": 31,
+        "partners": 24,
         "partners_industry": 2,
-        "connectedness": 0.2279,
+        "connectedness": 0.1805,
         "top_partners": [
           {
             "country": "Japan",
-            "collaborations": 23
+            "collaborations": 17
+          },
+          {
+            "country": "US",
+            "collaborations": 14
           },
           {
             "country": "Malaysia",
-            "collaborations": 15
-          },
-          {
-            "country": "China",
-            "collaborations": 11
+            "collaborations": 9
           }
         ]
       },
       {
         "country": "Iran",
-        "partners": 62,
+        "partners": 52,
         "partners_industry": 3,
-        "connectedness": 0.4559,
+        "connectedness": 0.391,
         "top_partners": [
           {
             "country": "China",
-            "collaborations": 83
+            "collaborations": 78
           },
           {
-            "country": "US",
-            "collaborations": 78
+            "country": "Germany",
+            "collaborations": 67
           },
           {
             "country": "Italy",
@@ -1069,205 +1057,137 @@
       },
       {
         "country": "Iraq",
-        "partners": 33,
+        "partners": 28,
         "partners_industry": 1,
-        "connectedness": 0.2426,
+        "connectedness": 0.2105,
         "top_partners": [
           {
             "country": "Iran",
-            "collaborations": 22
+            "collaborations": 11
           },
           {
-            "country": "China",
-            "collaborations": 9
-          },
-          {
-            "country": "Malaysia",
+            "country": "UK",
             "collaborations": 6
+          },
+          {
+            "country": "Turkey",
+            "collaborations": 5
           }
         ]
       },
       {
         "country": "Ireland",
-        "partners": 45,
-        "partners_industry": 18,
-        "connectedness": 0.3309,
+        "partners": 42,
+        "partners_industry": 17,
+        "connectedness": 0.3158,
         "top_partners": [
           {
             "country": "US",
-            "collaborations": 55
+            "collaborations": 64
           },
           {
             "country": "UK",
-            "collaborations": 52
+            "collaborations": 44
           },
           {
             "country": "China",
-            "collaborations": 45
+            "collaborations": 40
           }
         ]
       },
       {
         "country": "Israel",
-        "partners": 51,
-        "partners_industry": 23,
-        "connectedness": 0.375,
+        "partners": 50,
+        "partners_industry": 20,
+        "connectedness": 0.3759,
         "top_partners": [
           {
             "country": "US",
-            "collaborations": 334
+            "collaborations": 294
           },
           {
             "country": "Germany",
-            "collaborations": 143
+            "collaborations": 144
           },
           {
             "country": "China",
-            "collaborations": 142
+            "collaborations": 125
           }
         ]
       },
       {
         "country": "Italy",
-        "partners": 81,
-        "partners_industry": 19,
-        "connectedness": 0.5956,
+        "partners": 78,
+        "partners_industry": 20,
+        "connectedness": 0.5865,
         "top_partners": [
           {
-            "country": "US",
-            "collaborations": 618
+            "country": "Germany",
+            "collaborations": 534
           },
           {
-            "country": "Germany",
-            "collaborations": 560
+            "country": "US",
+            "collaborations": 511
           },
           {
             "country": "UK",
-            "collaborations": 370
+            "collaborations": 354
           }
         ]
       },
       {
         "country": "Jamaica",
-        "partners": 2,
+        "partners": 3,
         "partners_industry": 0,
-        "connectedness": 0.0147,
+        "connectedness": 0.0226,
         "top_partners": [
           {
-            "country": "China",
+            "country": "UK",
             "collaborations": 2
           },
           {
             "country": "Australia",
+            "collaborations": 1
+          },
+          {
+            "country": "US",
             "collaborations": 1
           }
         ]
       },
       {
         "country": "Japan",
-        "partners": 75,
-        "partners_industry": 34,
-        "connectedness": 0.5515,
+        "partners": 68,
+        "partners_industry": 31,
+        "connectedness": 0.5113,
         "top_partners": [
           {
             "country": "US",
-            "collaborations": 849
+            "collaborations": 805
           },
           {
             "country": "China",
-            "collaborations": 681
+            "collaborations": 620
           },
           {
             "country": "Germany",
-            "collaborations": 321
+            "collaborations": 328
           }
         ]
       },
       {
         "country": "Jordan",
-        "partners": 21,
+        "partners": 18,
         "partners_industry": 0,
-        "connectedness": 0.1544,
+        "connectedness": 0.1353,
         "top_partners": [
           {
             "country": "Saudi Arabia",
-            "collaborations": 18
+            "collaborations": 16
           },
           {
             "country": "China",
-            "collaborations": 11
-          },
-          {
-            "country": "UAE",
-            "collaborations": 8
-          }
-        ]
-      },
-      {
-        "country": "Kazakhstan",
-        "partners": 24,
-        "partners_industry": 0,
-        "connectedness": 0.1765,
-        "top_partners": [
-          {
-            "country": "China",
-            "collaborations": 9
-          },
-          {
-            "country": "Russia",
-            "collaborations": 8
-          },
-          {
-            "country": "France",
-            "collaborations": 3
-          }
-        ]
-      },
-      {
-        "country": "Kenya",
-        "partners": 5,
-        "partners_industry": 1,
-        "connectedness": 0.0368,
-        "top_partners": [
-          {
-            "country": "Germany",
-            "collaborations": 2
-          },
-          {
-            "country": "Indonesia",
-            "collaborations": 2
-          },
-          {
-            "country": "Nigeria",
-            "collaborations": 1
-          }
-        ]
-      },
-      {
-        "country": "Kosovo",
-        "partners": 1,
-        "partners_industry": 0,
-        "connectedness": 0.0074,
-        "top_partners": [
-          {
-            "country": "Saudi Arabia",
-            "collaborations": 1
-          }
-        ]
-      },
-      {
-        "country": "Kuwait",
-        "partners": 19,
-        "partners_industry": 1,
-        "connectedness": 0.1397,
-        "top_partners": [
-          {
-            "country": "Algeria",
-            "collaborations": 6
-          },
-          {
-            "country": "Saudi Arabia",
-            "collaborations": 5
+            "collaborations": 7
           },
           {
             "country": "Egypt",
@@ -1276,42 +1196,106 @@
         ]
       },
       {
+        "country": "Kazakhstan",
+        "partners": 15,
+        "partners_industry": 0,
+        "connectedness": 0.1128,
+        "top_partners": [
+          {
+            "country": "Russia",
+            "collaborations": 7
+          },
+          {
+            "country": "China",
+            "collaborations": 5
+          },
+          {
+            "country": "Italy",
+            "collaborations": 3
+          }
+        ]
+      },
+      {
+        "country": "Kenya",
+        "partners": 1,
+        "partners_industry": 0,
+        "connectedness": 0.0075,
+        "top_partners": [
+          {
+            "country": "South Africa",
+            "collaborations": 1
+          }
+        ]
+      },
+      {
+        "country": "Kuwait",
+        "partners": 14,
+        "partners_industry": 0,
+        "connectedness": 0.1053,
+        "top_partners": [
+          {
+            "country": "Egypt",
+            "collaborations": 5
+          },
+          {
+            "country": "Jordan",
+            "collaborations": 4
+          },
+          {
+            "country": "Algeria",
+            "collaborations": 3
+          }
+        ]
+      },
+      {
+        "country": "Laos",
+        "partners": 1,
+        "partners_industry": 0,
+        "connectedness": 0.0075,
+        "top_partners": [
+          {
+            "country": "Cambodia",
+            "collaborations": 1
+          }
+        ]
+      },
+      {
         "country": "Latvia",
-        "partners": 33,
-        "partners_industry": 2,
-        "connectedness": 0.2426,
+        "partners": 28,
+        "partners_industry": 1,
+        "connectedness": 0.2105,
         "top_partners": [
           {
             "country": "Russia",
             "collaborations": 11
           },
           {
-            "country": "Italy",
-            "collaborations": 9
+            "country": "UK",
+            "collaborations": 6
           },
           {
-            "country": "UK",
-            "collaborations": 7
+            "country": "China",
+            "collaborations": 4
           }
         ]
       },
       {
         "country": "Lebanon",
-        "partners": 20,
+        "partners": 11,
         "partners_industry": 1,
-        "connectedness": 0.1471,
+        "connectedness": 0.0827,
         "top_partners": [
           {
             "country": "France",
-            "collaborations": 14
-          },
-          {
-            "country": "US",
             "collaborations": 10
           },
           {
-            "country": "India",
-            "collaborations": 5
+            "country": "US",
+            "collaborations": 9
+          },
+          {
+            "country": "Germany",
+            "collaborations": 2
           }
         ]
       },
@@ -1319,11 +1303,11 @@
         "country": "Lesotho",
         "partners": 1,
         "partners_industry": 0,
-        "connectedness": 0.0074,
+        "connectedness": 0.0075,
         "top_partners": [
           {
             "country": "South Africa",
-            "collaborations": 3
+            "collaborations": 2
           }
         ]
       },
@@ -1331,231 +1315,171 @@
         "country": "Libya",
         "partners": 5,
         "partners_industry": 0,
-        "connectedness": 0.0368,
+        "connectedness": 0.0376,
         "top_partners": [
           {
             "country": "Malaysia",
             "collaborations": 4
           },
           {
-            "country": "Russia",
-            "collaborations": 1
+            "country": "UK",
+            "collaborations": 3
           },
           {
-            "country": "Sweden",
+            "country": "Qatar",
             "collaborations": 1
           }
         ]
       },
       {
         "country": "Lithuania",
-        "partners": 24,
-        "partners_industry": 2,
-        "connectedness": 0.1765,
+        "partners": 25,
+        "partners_industry": 1,
+        "connectedness": 0.188,
         "top_partners": [
           {
             "country": "US",
-            "collaborations": 13
+            "collaborations": 11
           },
           {
             "country": "China",
-            "collaborations": 8
+            "collaborations": 9
           },
           {
-            "country": "France",
+            "country": "Iran",
             "collaborations": 6
           }
         ]
       },
       {
         "country": "Luxembourg",
-        "partners": 37,
+        "partners": 33,
         "partners_industry": 5,
-        "connectedness": 0.2721,
+        "connectedness": 0.2481,
         "top_partners": [
           {
             "country": "Germany",
-            "collaborations": 28
+            "collaborations": 14
           },
           {
             "country": "US",
-            "collaborations": 16
+            "collaborations": 14
           },
           {
-            "country": "Spain",
+            "country": "Italy",
             "collaborations": 13
           }
         ]
       },
       {
         "country": "Macedonia",
-        "partners": 4,
+        "partners": 1,
         "partners_industry": 0,
-        "connectedness": 0.0294,
+        "connectedness": 0.0075,
         "top_partners": [
           {
-            "country": "Brazil",
-            "collaborations": 1
-          },
-          {
-            "country": "Czech Republic",
-            "collaborations": 1
-          },
-          {
-            "country": "Germany",
+            "country": "Austria",
             "collaborations": 1
           }
         ]
       },
       {
         "country": "Madagascar",
-        "partners": 2,
+        "partners": 1,
         "partners_industry": 0,
-        "connectedness": 0.0147,
+        "connectedness": 0.0075,
         "top_partners": [
           {
-            "country": "France",
-            "collaborations": 2
-          },
-          {
-            "country": "China",
-            "collaborations": 1
-          }
-        ]
-      },
-      {
-        "country": "Malawi",
-        "partners": 2,
-        "partners_industry": 0,
-        "connectedness": 0.0147,
-        "top_partners": [
-          {
-            "country": "China",
-            "collaborations": 4
-          },
-          {
-            "country": "Portugal",
+            "country": "Russia",
             "collaborations": 1
           }
         ]
       },
       {
         "country": "Malaysia",
-        "partners": 42,
+        "partners": 40,
         "partners_industry": 4,
-        "connectedness": 0.3088,
+        "connectedness": 0.3008,
         "top_partners": [
           {
             "country": "China",
-            "collaborations": 39
+            "collaborations": 28
+          },
+          {
+            "country": "Pakistan",
+            "collaborations": 20
           },
           {
             "country": "India",
-            "collaborations": 16
-          },
-          {
-            "country": "Indonesia",
-            "collaborations": 15
-          }
-        ]
-      },
-      {
-        "country": "Maldives",
-        "partners": 1,
-        "partners_industry": 0,
-        "connectedness": 0.0074,
-        "top_partners": [
-          {
-            "country": "China",
-            "collaborations": 2
+            "collaborations": 17
           }
         ]
       },
       {
         "country": "Malta",
-        "partners": 19,
+        "partners": 20,
         "partners_industry": 0,
-        "connectedness": 0.1397,
+        "connectedness": 0.1504,
         "top_partners": [
           {
             "country": "Italy",
-            "collaborations": 9
+            "collaborations": 11
+          },
+          {
+            "country": "Austria",
+            "collaborations": 4
           },
           {
             "country": "Germany",
-            "collaborations": 6
-          },
-          {
-            "country": "US",
             "collaborations": 4
           }
         ]
       },
       {
         "country": "Mauritania",
-        "partners": 5,
-        "partners_industry": 0,
-        "connectedness": 0.0368,
-        "top_partners": [
-          {
-            "country": "Italy",
-            "collaborations": 3
-          },
-          {
-            "country": "Saudi Arabia",
-            "collaborations": 3
-          },
-          {
-            "country": "Tunisia",
-            "collaborations": 2
-          }
-        ]
-      },
-      {
-        "country": "Mauritius",
         "partners": 1,
         "partners_industry": 0,
-        "connectedness": 0.0074,
+        "connectedness": 0.0075,
         "top_partners": [
           {
-            "country": "India",
-            "collaborations": 3
+            "country": "UAE",
+            "collaborations": 1
           }
         ]
       },
       {
         "country": "Mexico",
-        "partners": 53,
-        "partners_industry": 6,
-        "connectedness": 0.3897,
+        "partners": 51,
+        "partners_industry": 4,
+        "connectedness": 0.3835,
         "top_partners": [
           {
             "country": "US",
-            "collaborations": 99
+            "collaborations": 79
           },
           {
             "country": "Spain",
-            "collaborations": 55
+            "collaborations": 52
           },
           {
-            "country": "China",
-            "collaborations": 44
+            "country": "Germany",
+            "collaborations": 46
           }
         ]
       },
       {
         "country": "Moldova",
-        "partners": 10,
+        "partners": 12,
         "partners_industry": 0,
-        "connectedness": 0.0735,
+        "connectedness": 0.0902,
         "top_partners": [
           {
             "country": "Russia",
-            "collaborations": 10
+            "collaborations": 9
           },
           {
-            "country": "Chile",
-            "collaborations": 5
+            "country": "Germany",
+            "collaborations": 4
           },
           {
             "country": "Poland",
@@ -1565,81 +1489,97 @@
       },
       {
         "country": "Mongolia",
-        "partners": 5,
+        "partners": 4,
         "partners_industry": 0,
-        "connectedness": 0.0368,
+        "connectedness": 0.0301,
         "top_partners": [
-          {
-            "country": "Russia",
-            "collaborations": 4
-          },
           {
             "country": "US",
             "collaborations": 4
           },
           {
-            "country": "China",
+            "country": "Kazakhstan",
+            "collaborations": 2
+          },
+          {
+            "country": "Russia",
             "collaborations": 1
           }
         ]
       },
       {
         "country": "Montenegro",
-        "partners": 5,
+        "partners": 3,
         "partners_industry": 0,
-        "connectedness": 0.0368,
+        "connectedness": 0.0226,
         "top_partners": [
           {
-            "country": "China",
-            "collaborations": 9
+            "country": "Serbia",
+            "collaborations": 2
           },
           {
-            "country": "Greece",
-            "collaborations": 5
+            "country": "Estonia",
+            "collaborations": 1
           },
           {
-            "country": "Germany",
-            "collaborations": 3
+            "country": "Latvia",
+            "collaborations": 1
           }
         ]
       },
       {
         "country": "Morocco",
-        "partners": 46,
-        "partners_industry": 1,
-        "connectedness": 0.3382,
+        "partners": 37,
+        "partners_industry": 0,
+        "connectedness": 0.2782,
         "top_partners": [
           {
-            "country": "France",
-            "collaborations": 28
-          },
-          {
             "country": "Egypt",
-            "collaborations": 23
+            "collaborations": 25
           },
           {
             "country": "Saudi Arabia",
-            "collaborations": 22
+            "collaborations": 21
+          },
+          {
+            "country": "France",
+            "collaborations": 20
+          }
+        ]
+      },
+      {
+        "country": "Mozambique",
+        "partners": 2,
+        "partners_industry": 1,
+        "connectedness": 0.015,
+        "top_partners": [
+          {
+            "country": "US",
+            "collaborations": 2
+          },
+          {
+            "country": "Ukraine",
+            "collaborations": 1
           }
         ]
       },
       {
         "country": "Myanmar",
-        "partners": 5,
+        "partners": 6,
         "partners_industry": 0,
-        "connectedness": 0.0368,
+        "connectedness": 0.0451,
         "top_partners": [
           {
             "country": "China",
-            "collaborations": 13
+            "collaborations": 8
           },
           {
-            "country": "Canada",
-            "collaborations": 1
+            "country": "Japan",
+            "collaborations": 3
           },
           {
-            "country": "Kazakhstan",
-            "collaborations": 1
+            "country": "Australia",
+            "collaborations": 2
           }
         ]
       },
@@ -1647,15 +1587,15 @@
         "country": "Nepal",
         "partners": 5,
         "partners_industry": 0,
-        "connectedness": 0.0368,
+        "connectedness": 0.0376,
         "top_partners": [
           {
             "country": "US",
-            "collaborations": 7
+            "collaborations": 10
           },
           {
-            "country": "China",
-            "collaborations": 4
+            "country": "India",
+            "collaborations": 5
           },
           {
             "country": "Germany",
@@ -1665,29 +1605,29 @@
       },
       {
         "country": "Netherlands",
-        "partners": 58,
-        "partners_industry": 25,
-        "connectedness": 0.4265,
+        "partners": 51,
+        "partners_industry": 20,
+        "connectedness": 0.3835,
         "top_partners": [
           {
             "country": "US",
-            "collaborations": 323
+            "collaborations": 286
           },
           {
             "country": "Germany",
-            "collaborations": 292
+            "collaborations": 258
           },
           {
             "country": "UK",
-            "collaborations": 136
+            "collaborations": 123
           }
         ]
       },
       {
         "country": "New Zealand",
-        "partners": 33,
-        "partners_industry": 5,
-        "connectedness": 0.2426,
+        "partners": 31,
+        "partners_industry": 4,
+        "connectedness": 0.2331,
         "top_partners": [
           {
             "country": "China",
@@ -1695,31 +1635,31 @@
           },
           {
             "country": "Germany",
-            "collaborations": 39
+            "collaborations": 35
           },
           {
-            "country": "US",
-            "collaborations": 36
+            "country": "Australia",
+            "collaborations": 27
           }
         ]
       },
       {
         "country": "Nigeria",
-        "partners": 19,
+        "partners": 14,
         "partners_industry": 2,
-        "connectedness": 0.1397,
+        "connectedness": 0.1053,
         "top_partners": [
           {
-            "country": "China",
-            "collaborations": 15
-          },
-          {
             "country": "US",
-            "collaborations": 13
+            "collaborations": 14
           },
           {
-            "country": "UK",
-            "collaborations": 6
+            "country": "China",
+            "collaborations": 8
+          },
+          {
+            "country": "Italy",
+            "collaborations": 4
           }
         ]
       },
@@ -1727,31 +1667,31 @@
         "country": "North Korea",
         "partners": 1,
         "partners_industry": 0,
-        "connectedness": 0.0074,
+        "connectedness": 0.0075,
         "top_partners": [
           {
             "country": "China",
-            "collaborations": 4
+            "collaborations": 1
           }
         ]
       },
       {
         "country": "Norway",
         "partners": 39,
-        "partners_industry": 8,
-        "connectedness": 0.2868,
+        "partners_industry": 4,
+        "connectedness": 0.2932,
         "top_partners": [
           {
             "country": "US",
-            "collaborations": 40
+            "collaborations": 37
           },
           {
             "country": "Germany",
-            "collaborations": 38
+            "collaborations": 28
           },
           {
-            "country": "China",
-            "collaborations": 18
+            "country": "Italy",
+            "collaborations": 14
           }
         ]
       },
@@ -1759,79 +1699,59 @@
         "country": "Oman",
         "partners": 14,
         "partners_industry": 0,
-        "connectedness": 0.1029,
+        "connectedness": 0.1053,
         "top_partners": [
           {
+            "country": "India",
+            "collaborations": 6
+          },
+          {
             "country": "Saudi Arabia",
-            "collaborations": 11
+            "collaborations": 6
           },
           {
             "country": "Egypt",
-            "collaborations": 5
-          },
-          {
-            "country": "India",
             "collaborations": 5
           }
         ]
       },
       {
         "country": "Pakistan",
-        "partners": 60,
-        "partners_industry": 2,
-        "connectedness": 0.4412,
+        "partners": 56,
+        "partners_industry": 1,
+        "connectedness": 0.4211,
         "top_partners": [
           {
             "country": "China",
-            "collaborations": 171
+            "collaborations": 192
           },
           {
             "country": "Saudi Arabia",
-            "collaborations": 95
+            "collaborations": 73
           },
           {
             "country": "US",
-            "collaborations": 31
-          }
-        ]
-      },
-      {
-        "country": "Palestine",
-        "partners": 5,
-        "partners_industry": 0,
-        "connectedness": 0.0368,
-        "top_partners": [
-          {
-            "country": "China",
-            "collaborations": 7
-          },
-          {
-            "country": "Germany",
-            "collaborations": 3
-          },
-          {
-            "country": "India",
-            "collaborations": 1
+            "collaborations": 37
           }
         ]
       },
       {
         "country": "Panama",
-        "partners": 10,
+        "partners": 5,
         "partners_industry": 1,
-        "connectedness": 0.0735,
+        "connectedness": 0.0376,
         "top_partners": [
           {
             "country": "US",
-            "collaborations": 6
+            "collaborations": 3
+          },
+          {
+            "country": "China",
+            "collaborations": 2
           },
           {
             "country": "Mexico",
-            "collaborations": 4
-          },
-          {
-            "country": "Brazil",
-            "collaborations": 3
+            "collaborations": 2
           }
         ]
       },
@@ -1839,503 +1759,499 @@
         "country": "Paraguay",
         "partners": 2,
         "partners_industry": 0,
-        "connectedness": 0.0147,
+        "connectedness": 0.015,
         "top_partners": [
           {
-            "country": "Argentina",
-            "collaborations": 3
+            "country": "Brazil",
+            "collaborations": 1
           },
           {
-            "country": "Brazil",
+            "country": "Guatemala",
             "collaborations": 1
           }
         ]
       },
       {
         "country": "Peru",
-        "partners": 11,
+        "partners": 15,
         "partners_industry": 1,
-        "connectedness": 0.0809,
+        "connectedness": 0.1128,
         "top_partners": [
           {
             "country": "Brazil",
-            "collaborations": 6
+            "collaborations": 7
           },
           {
             "country": "Germany",
-            "collaborations": 5
+            "collaborations": 4
           },
           {
-            "country": "Spain",
+            "country": "US",
             "collaborations": 4
           }
         ]
       },
       {
         "country": "Philippines",
-        "partners": 15,
-        "partners_industry": 1,
-        "connectedness": 0.1103,
+        "partners": 10,
+        "partners_industry": 0,
+        "connectedness": 0.0752,
         "top_partners": [
           {
             "country": "Germany",
-            "collaborations": 5
+            "collaborations": 6
           },
           {
-            "country": "Japan",
-            "collaborations": 4
-          },
-          {
-            "country": "Taiwan",
+            "country": "China",
             "collaborations": 3
+          },
+          {
+            "country": "Russia",
+            "collaborations": 2
           }
         ]
       },
       {
         "country": "Poland",
-        "partners": 74,
+        "partners": 73,
         "partners_industry": 15,
-        "connectedness": 0.5441,
+        "connectedness": 0.5489,
         "top_partners": [
           {
-            "country": "Germany",
-            "collaborations": 248
+            "country": "US",
+            "collaborations": 221
           },
           {
-            "country": "US",
-            "collaborations": 227
+            "country": "Germany",
+            "collaborations": 213
           },
           {
             "country": "China",
-            "collaborations": 168
+            "collaborations": 118
           }
         ]
       },
       {
         "country": "Portugal",
-        "partners": 49,
-        "partners_industry": 10,
-        "connectedness": 0.3603,
+        "partners": 38,
+        "partners_industry": 4,
+        "connectedness": 0.2857,
         "top_partners": [
           {
-            "country": "China",
-            "collaborations": 84
-          },
-          {
             "country": "Spain",
-            "collaborations": 63
+            "collaborations": 69
           },
           {
-            "country": "US",
-            "collaborations": 45
+            "country": "China",
+            "collaborations": 54
+          },
+          {
+            "country": "Brazil",
+            "collaborations": 42
           }
         ]
       },
       {
         "country": "Qatar",
-        "partners": 35,
-        "partners_industry": 6,
-        "connectedness": 0.2574,
+        "partners": 29,
+        "partners_industry": 5,
+        "connectedness": 0.218,
         "top_partners": [
           {
+            "country": "US",
+            "collaborations": 19
+          },
+          {
             "country": "China",
-            "collaborations": 17
+            "collaborations": 15
           },
           {
             "country": "South Korea",
-            "collaborations": 13
-          },
-          {
-            "country": "US",
-            "collaborations": 13
+            "collaborations": 11
           }
         ]
       },
       {
         "country": "Romania",
-        "partners": 40,
-        "partners_industry": 5,
-        "connectedness": 0.2941,
+        "partners": 29,
+        "partners_industry": 2,
+        "connectedness": 0.218,
         "top_partners": [
           {
+            "country": "Hungary",
+            "collaborations": 15
+          },
+          {
             "country": "China",
-            "collaborations": 23
+            "collaborations": 10
           },
           {
             "country": "US",
-            "collaborations": 21
-          },
-          {
-            "country": "Germany",
-            "collaborations": 15
+            "collaborations": 10
           }
         ]
       },
       {
         "country": "Russia",
-        "partners": 80,
-        "partners_industry": 17,
-        "connectedness": 0.5882,
+        "partners": 76,
+        "partners_industry": 12,
+        "connectedness": 0.5714,
         "top_partners": [
           {
-            "country": "China",
-            "collaborations": 291
+            "country": "Germany",
+            "collaborations": 233
           },
           {
             "country": "US",
-            "collaborations": 287
+            "collaborations": 209
           },
           {
-            "country": "Germany",
-            "collaborations": 268
+            "country": "China",
+            "collaborations": 201
           }
         ]
       },
       {
         "country": "Rwanda",
-        "partners": 10,
+        "partners": 4,
         "partners_industry": 0,
-        "connectedness": 0.0735,
+        "connectedness": 0.0301,
         "top_partners": [
           {
-            "country": "China",
-            "collaborations": 13
-          },
-          {
-            "country": "India",
+            "country": "France",
             "collaborations": 4
           },
           {
             "country": "Italy",
             "collaborations": 4
-          }
-        ]
-      },
-      {
-        "country": "Saint Kitts and Nevis",
-        "partners": 2,
-        "partners_industry": 0,
-        "connectedness": 0.0147,
-        "top_partners": [
-          {
-            "country": "China",
-            "collaborations": 3
           },
           {
-            "country": "Japan",
-            "collaborations": 3
+            "country": "US",
+            "collaborations": 2
           }
         ]
       },
       {
         "country": "Saudi Arabia",
-        "partners": 64,
-        "partners_industry": 9,
-        "connectedness": 0.4706,
+        "partners": 58,
+        "partners_industry": 6,
+        "connectedness": 0.4361,
         "top_partners": [
           {
-            "country": "China",
-            "collaborations": 120
+            "country": "Egypt",
+            "collaborations": 117
           },
           {
-            "country": "Egypt",
-            "collaborations": 118
+            "country": "China",
+            "collaborations": 107
           },
           {
             "country": "Pakistan",
-            "collaborations": 95
+            "collaborations": 73
+          }
+        ]
+      },
+      {
+        "country": "Senegal",
+        "partners": 3,
+        "partners_industry": 0,
+        "connectedness": 0.0226,
+        "top_partners": [
+          {
+            "country": "France",
+            "collaborations": 1
+          },
+          {
+            "country": "Italy",
+            "collaborations": 1
+          },
+          {
+            "country": "South Africa",
+            "collaborations": 1
           }
         ]
       },
       {
         "country": "Serbia",
-        "partners": 37,
-        "partners_industry": 1,
-        "connectedness": 0.2721,
+        "partners": 29,
+        "partners_industry": 2,
+        "connectedness": 0.218,
         "top_partners": [
           {
-            "country": "US",
-            "collaborations": 15
-          },
-          {
             "country": "Germany",
-            "collaborations": 14
+            "collaborations": 18
           },
           {
             "country": "Russia",
             "collaborations": 12
+          },
+          {
+            "country": "Austria",
+            "collaborations": 9
+          }
+        ]
+      },
+      {
+        "country": "Sierra Leone",
+        "partners": 1,
+        "partners_industry": 0,
+        "connectedness": 0.0075,
+        "top_partners": [
+          {
+            "country": "US",
+            "collaborations": 1
           }
         ]
       },
       {
         "country": "Singapore",
-        "partners": 55,
-        "partners_industry": 21,
-        "connectedness": 0.4044,
+        "partners": 51,
+        "partners_industry": 20,
+        "connectedness": 0.3835,
         "top_partners": [
           {
             "country": "China",
-            "collaborations": 517
+            "collaborations": 498
           },
           {
             "country": "US",
             "collaborations": 213
           },
           {
-            "country": "France",
-            "collaborations": 80
+            "country": "Germany",
+            "collaborations": 89
           }
         ]
       },
       {
         "country": "Slovakia",
-        "partners": 37,
+        "partners": 34,
         "partners_industry": 3,
-        "connectedness": 0.2721,
+        "connectedness": 0.2556,
         "top_partners": [
           {
             "country": "Germany",
             "collaborations": 23
           },
           {
-            "country": "Czech Republic",
-            "collaborations": 19
+            "country": "Brazil",
+            "collaborations": 13
           },
           {
-            "country": "US",
-            "collaborations": 17
+            "country": "Iran",
+            "collaborations": 12
           }
         ]
       },
       {
         "country": "Slovenia",
-        "partners": 38,
-        "partners_industry": 4,
-        "connectedness": 0.2794,
+        "partners": 34,
+        "partners_industry": 3,
+        "connectedness": 0.2556,
         "top_partners": [
           {
-            "country": "US",
-            "collaborations": 40
-          },
-          {
             "country": "Germany",
-            "collaborations": 39
+            "collaborations": 43
           },
           {
-            "country": "Italy",
-            "collaborations": 18
+            "country": "US",
+            "collaborations": 35
+          },
+          {
+            "country": "China",
+            "collaborations": 17
           }
         ]
       },
       {
         "country": "South Africa",
-        "partners": 46,
+        "partners": 39,
         "partners_industry": 2,
-        "connectedness": 0.3382,
+        "connectedness": 0.2932,
         "top_partners": [
           {
             "country": "India",
-            "collaborations": 45
+            "collaborations": 37
           },
           {
             "country": "US",
-            "collaborations": 38
+            "collaborations": 30
           },
           {
-            "country": "China",
-            "collaborations": 25
+            "country": "Germany",
+            "collaborations": 27
           }
         ]
       },
       {
         "country": "South Korea",
-        "partners": 65,
-        "partners_industry": 17,
-        "connectedness": 0.4779,
+        "partners": 60,
+        "partners_industry": 18,
+        "connectedness": 0.4511,
         "top_partners": [
           {
             "country": "US",
-            "collaborations": 488
+            "collaborations": 451
           },
           {
             "country": "China",
-            "collaborations": 182
+            "collaborations": 149
           },
           {
             "country": "Germany",
-            "collaborations": 145
+            "collaborations": 134
           }
         ]
       },
       {
         "country": "Spain",
-        "partners": 78,
-        "partners_industry": 29,
-        "connectedness": 0.5735,
+        "partners": 70,
+        "partners_industry": 24,
+        "connectedness": 0.5263,
         "top_partners": [
           {
             "country": "US",
-            "collaborations": 500
+            "collaborations": 449
           },
           {
             "country": "Germany",
-            "collaborations": 445
+            "collaborations": 433
           },
           {
-            "country": "China",
-            "collaborations": 294
+            "country": "Italy",
+            "collaborations": 291
           }
         ]
       },
       {
         "country": "Sri Lanka",
-        "partners": 8,
+        "partners": 9,
         "partners_industry": 0,
-        "connectedness": 0.0588,
+        "connectedness": 0.0677,
         "top_partners": [
           {
             "country": "China",
-            "collaborations": 5
+            "collaborations": 3
           },
           {
             "country": "Brazil",
             "collaborations": 2
           },
           {
-            "country": "Sweden",
+            "country": "Ireland",
             "collaborations": 2
           }
         ]
       },
       {
         "country": "Sudan",
-        "partners": 5,
-        "partners_industry": 1,
-        "connectedness": 0.0368,
+        "partners": 4,
+        "partners_industry": 0,
+        "connectedness": 0.0301,
         "top_partners": [
           {
             "country": "Saudi Arabia",
-            "collaborations": 5
-          },
-          {
-            "country": "US",
-            "collaborations": 3
+            "collaborations": 7
           },
           {
             "country": "China",
-            "collaborations": 2
+            "collaborations": 4
+          },
+          {
+            "country": "Pakistan",
+            "collaborations": 3
           }
         ]
       },
       {
         "country": "Sweden",
-        "partners": 61,
-        "partners_industry": 20,
-        "connectedness": 0.4485,
+        "partners": 52,
+        "partners_industry": 19,
+        "connectedness": 0.391,
         "top_partners": [
           {
-            "country": "US",
-            "collaborations": 174
+            "country": "Germany",
+            "collaborations": 167
           },
           {
-            "country": "Germany",
-            "collaborations": 166
+            "country": "US",
+            "collaborations": 148
           },
           {
             "country": "China",
-            "collaborations": 127
+            "collaborations": 104
           }
         ]
       },
       {
         "country": "Switzerland",
-        "partners": 57,
-        "partners_industry": 27,
-        "connectedness": 0.4191,
+        "partners": 53,
+        "partners_industry": 26,
+        "connectedness": 0.3985,
         "top_partners": [
           {
             "country": "US",
-            "collaborations": 357
+            "collaborations": 383
           },
           {
             "country": "Germany",
-            "collaborations": 281
+            "collaborations": 311
           },
           {
-            "country": "China",
-            "collaborations": 183
+            "country": "France",
+            "collaborations": 162
           }
         ]
       },
       {
         "country": "Syria",
-        "partners": 3,
+        "partners": 7,
         "partners_industry": 0,
-        "connectedness": 0.0221,
+        "connectedness": 0.0526,
         "top_partners": [
           {
-            "country": "China",
-            "collaborations": 1
+            "country": "Russia",
+            "collaborations": 3
           },
           {
-            "country": "Romania",
-            "collaborations": 1
+            "country": "India",
+            "collaborations": 2
           },
           {
-            "country": "Turkey",
+            "country": "Egypt",
             "collaborations": 1
           }
         ]
       },
       {
         "country": "Taiwan",
-        "partners": 60,
-        "partners_industry": 17,
-        "connectedness": 0.4412,
+        "partners": 53,
+        "partners_industry": 15,
+        "connectedness": 0.3985,
         "top_partners": [
           {
             "country": "US",
-            "collaborations": 229
+            "collaborations": 208
           },
           {
             "country": "China",
-            "collaborations": 204
+            "collaborations": 165
           },
           {
             "country": "Japan",
-            "collaborations": 101
-          }
-        ]
-      },
-      {
-        "country": "Tajikistan",
-        "partners": 3,
-        "partners_industry": 0,
-        "connectedness": 0.0221,
-        "top_partners": [
-          {
-            "country": "Pakistan",
-            "collaborations": 3
-          },
-          {
-            "country": "China",
-            "collaborations": 2
-          },
-          {
-            "country": "Russia",
-            "collaborations": 1
+            "collaborations": 100
           }
         ]
       },
       {
         "country": "Thailand",
-        "partners": 31,
-        "partners_industry": 5,
-        "connectedness": 0.2279,
+        "partners": 27,
+        "partners_industry": 6,
+        "connectedness": 0.203,
         "top_partners": [
           {
             "country": "US",
-            "collaborations": 15
+            "collaborations": 17
           },
           {
             "country": "China",
@@ -2343,15 +2259,31 @@
           },
           {
             "country": "Germany",
-            "collaborations": 10
+            "collaborations": 9
+          }
+        ]
+      },
+      {
+        "country": "Timor-Leste",
+        "partners": 2,
+        "partners_industry": 0,
+        "connectedness": 0.015,
+        "top_partners": [
+          {
+            "country": "India",
+            "collaborations": 2
+          },
+          {
+            "country": "Indonesia",
+            "collaborations": 1
           }
         ]
       },
       {
         "country": "Togo",
-        "partners": 5,
+        "partners": 3,
         "partners_industry": 0,
-        "connectedness": 0.0368,
+        "connectedness": 0.0226,
         "top_partners": [
           {
             "country": "France",
@@ -2362,143 +2294,155 @@
             "collaborations": 1
           },
           {
-            "country": "Ghana",
+            "country": "Italy",
             "collaborations": 1
           }
         ]
       },
       {
         "country": "Tunisia",
-        "partners": 21,
-        "partners_industry": 2,
-        "connectedness": 0.1544,
+        "partners": 14,
+        "partners_industry": 0,
+        "connectedness": 0.1053,
         "top_partners": [
-          {
-            "country": "Saudi Arabia",
-            "collaborations": 27
-          },
           {
             "country": "France",
             "collaborations": 12
           },
           {
+            "country": "Saudi Arabia",
+            "collaborations": 10
+          },
+          {
             "country": "UAE",
-            "collaborations": 12
+            "collaborations": 10
           }
         ]
       },
       {
         "country": "Turkey",
-        "partners": 62,
-        "partners_industry": 7,
-        "connectedness": 0.4559,
-        "top_partners": [
-          {
-            "country": "US",
-            "collaborations": 77
-          },
-          {
-            "country": "Germany",
-            "collaborations": 31
-          },
-          {
-            "country": "UK",
-            "collaborations": 26
-          }
-        ]
-      },
-      {
-        "country": "UAE",
-        "partners": 58,
-        "partners_industry": 12,
-        "connectedness": 0.4265,
+        "partners": 53,
+        "partners_industry": 10,
+        "connectedness": 0.3985,
         "top_partners": [
           {
             "country": "US",
             "collaborations": 56
           },
           {
-            "country": "Saudi Arabia",
-            "collaborations": 32
+            "country": "Germany",
+            "collaborations": 33
           },
           {
-            "country": "Egypt",
-            "collaborations": 26
+            "country": "Japan",
+            "collaborations": 16
+          }
+        ]
+      },
+      {
+        "country": "UAE",
+        "partners": 51,
+        "partners_industry": 7,
+        "connectedness": 0.3835,
+        "top_partners": [
+          {
+            "country": "US",
+            "collaborations": 50
+          },
+          {
+            "country": "China",
+            "collaborations": 29
+          },
+          {
+            "country": "Germany",
+            "collaborations": 25
           }
         ]
       },
       {
         "country": "UK",
-        "partners": 82,
-        "partners_industry": 42,
-        "connectedness": 0.6029,
+        "partners": 79,
+        "partners_industry": 37,
+        "connectedness": 0.594,
         "top_partners": [
           {
             "country": "US",
-            "collaborations": 1087
+            "collaborations": 1011
           },
           {
             "country": "China",
-            "collaborations": 632
+            "collaborations": 568
           },
           {
             "country": "Germany",
-            "collaborations": 593
+            "collaborations": 561
           }
         ]
       },
       {
         "country": "US",
-        "partners": 103,
-        "partners_industry": 64,
-        "connectedness": 0.7574,
+        "partners": 98,
+        "partners_industry": 53,
+        "connectedness": 0.7368,
         "top_partners": [
           {
             "country": "China",
-            "collaborations": 2939
+            "collaborations": 2472
           },
           {
             "country": "Germany",
-            "collaborations": 1700
+            "collaborations": 1542
           },
           {
             "country": "UK",
-            "collaborations": 1087
+            "collaborations": 1011
+          }
+        ]
+      },
+      {
+        "country": "Uganda",
+        "partners": 1,
+        "partners_industry": 0,
+        "connectedness": 0.0075,
+        "top_partners": [
+          {
+            "country": "Poland",
+            "collaborations": 2
           }
         ]
       },
       {
         "country": "Ukraine",
-        "partners": 39,
-        "partners_industry": 3,
-        "connectedness": 0.2868,
+        "partners": 38,
+        "partners_industry": 1,
+        "connectedness": 0.2857,
         "top_partners": [
           {
             "country": "Germany",
-            "collaborations": 69
-          },
-          {
-            "country": "US",
             "collaborations": 51
           },
           {
+            "country": "US",
+            "collaborations": 24
+          },
+          {
             "country": "Russia",
-            "collaborations": 49
+            "collaborations": 22
           }
         ]
       },
       {
         "country": "Uruguay",
-        "partners": 16,
-        "partners_industry": 3,
-        "connectedness": 0.1176,
+        "partners": 14,
+        "partners_industry": 5,
+        "connectedness": 0.1053,
         "top_partners": [
           {
             "country": "Argentina",
-            "collaborations": 5
+            "collaborations": 9
           },
           {
-            "country": "Brazil",
+            "country": "Italy",
             "collaborations": 4
           },
           {
@@ -2509,16 +2453,16 @@
       },
       {
         "country": "Uzbekistan",
-        "partners": 36,
+        "partners": 28,
         "partners_industry": 0,
-        "connectedness": 0.2647,
+        "connectedness": 0.2105,
         "top_partners": [
           {
             "country": "Russia",
-            "collaborations": 21
+            "collaborations": 17
           },
           {
-            "country": "Italy",
+            "country": "India",
             "collaborations": 14
           },
           {
@@ -2529,93 +2473,73 @@
       },
       {
         "country": "Venezuela",
-        "partners": 6,
+        "partners": 4,
         "partners_industry": 0,
-        "connectedness": 0.0441,
+        "connectedness": 0.0301,
         "top_partners": [
           {
-            "country": "US",
-            "collaborations": 5
-          },
-          {
             "country": "Ecuador",
-            "collaborations": 4
+            "collaborations": 8
           },
           {
-            "country": "Spain",
-            "collaborations": 4
+            "country": "Colombia",
+            "collaborations": 3
+          },
+          {
+            "country": "Chile",
+            "collaborations": 2
           }
         ]
       },
       {
         "country": "Vietnam",
-        "partners": 39,
-        "partners_industry": 2,
-        "connectedness": 0.2868,
+        "partners": 30,
+        "partners_industry": 3,
+        "connectedness": 0.2256,
         "top_partners": [
           {
             "country": "Japan",
-            "collaborations": 50
+            "collaborations": 28
+          },
+          {
+            "country": "South Korea",
+            "collaborations": 21
           },
           {
             "country": "US",
-            "collaborations": 31
-          },
-          {
-            "country": "China",
-            "collaborations": 26
+            "collaborations": 19
           }
         ]
       },
       {
         "country": "Yemen",
         "partners": 8,
-        "partners_industry": 1,
-        "connectedness": 0.0588,
+        "partners_industry": 0,
+        "connectedness": 0.0602,
         "top_partners": [
           {
             "country": "Saudi Arabia",
-            "collaborations": 7
-          },
-          {
-            "country": "India",
-            "collaborations": 5
+            "collaborations": 4
           },
           {
             "country": "Egypt",
+            "collaborations": 3
+          },
+          {
+            "country": "Sweden",
             "collaborations": 3
           }
         ]
       },
       {
         "country": "Zambia",
-        "partners": 6,
-        "partners_industry": 0,
-        "connectedness": 0.0441,
-        "top_partners": [
-          {
-            "country": "Taiwan",
-            "collaborations": 3
-          },
-          {
-            "country": "South Africa",
-            "collaborations": 2
-          },
-          {
-            "country": "China",
-            "collaborations": 1
-          }
-        ]
-      },
-      {
-        "country": "Zimbabwe",
         "partners": 1,
         "partners_industry": 0,
-        "connectedness": 0.0074,
+        "connectedness": 0.0075,
         "top_partners": [
           {
             "country": "India",
-            "collaborations": 1
+            "collaborations": 3
           }
         ]
       }

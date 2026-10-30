@@ -4,8 +4,8 @@
     "built_at_utc": "2026-10-28T11:22:38+00:00",
     "source_xlsx": "raw/Quantum Policies List.xlsx",
     "mock": false,
-    "n_policies": 74,
-    "n_jurisdictions": 28,
+    "n_policies": 101,
+    "n_jurisdictions": 33,
     "source_note": "ECIPE Quantum Policies List. Amounts are the announced figures exactly as the register words them, in their original currency; they are not converted and are not part of the Government funding totals."
   },
   "data": {
@@ -63,6 +63,48 @@
         "funding": null,
         "note": "Federal initiative bringing together government bodies, research and industry to coordinate Belgian quantum technology policy and ecosystem development.",
         "url": "https://bosa.belgium.be/fr/quantum4belgium"
+      }
+    ],
+    "Brazil": [
+      {
+        "title": "MCTI Quantum Technologies Residency Programme",
+        "type": "Programme",
+        "policy_type": "National Quantum Program",
+        "status": "Active",
+        "year": 2026,
+        "funding": "R$20 million",
+        "note": "",
+        "url": "https://www.gov.br/mcti/pt-br/acompanhe-o-mcti/noticias/2026/06/mcti-lanca-programa-de-residencia-em-tecnologias-quanticas-para-formar-especialistas-e-impulsionar-deeptechs-brasileiras"
+      },
+      {
+        "title": "CIQUANTA-PB International Quantum Computing Centre",
+        "type": "Investment",
+        "policy_type": "Government Investment Program",
+        "status": "Active",
+        "year": 2025,
+        "funding": "R$200 million (R$140m Paraíba State + R$60m federal)",
+        "note": "",
+        "url": "https://www.gov.br/mcti/pt-br/acompanhe-o-mcti/noticias/2026/06/mcti-lanca-programa-de-residencia-em-tecnologias-quanticas-para-formar-especialistas-e-impulsionar-deeptechs-brasileiras"
+      },
+      {
+        "title": "FAPESP Quantum Technologies Initiative (QuTIa)",
+        "type": "Programme",
+        "policy_type": "National Quantum Program",
+        "status": "Active",
+        "year": 2024,
+        "funding": "R$150 million",
+        "note": "",
+        "url": "https://fapesp.br/qutia/"
+      },
+      {
+        "title": "Embrapii Quantum Technologies Competence Centre (QuIIN)",
+        "type": "Programme",
+        "policy_type": "National Quantum Program",
+        "status": "Active",
+        "year": 2023,
+        "funding": "R$60 million",
+        "note": "",
+        "url": "https://web.archive.org/web/20260604142515/https://embrapii.org.br/futuro-da-industria-iniciativa-oferece-r-60-milhoes-para-desenvolver-computacao-quantica/"
       }
     ],
     "Canada": [
@@ -125,6 +167,38 @@
         "funding": null,
         "note": "DND/CAF implementation plan translating the defence quantum strategy into targeted capability development through 2030.",
         "url": "https://publications.gc.ca/site/eng/9.919592/publication.html"
+      }
+    ],
+    "China": [
+      {
+        "title": "14th Five-Year Plan: Quantum Information Priorities",
+        "type": "Strategy",
+        "policy_type": "National Quantum Strategy",
+        "status": "Active",
+        "year": 2021,
+        "funding": null,
+        "note": "",
+        "url": "https://en.wikipedia.org/wiki/14th_Five-Year_Plan"
+      },
+      {
+        "title": "National Laboratory for Quantum Information Sciences, Hefei, Phase 1",
+        "type": "Investment",
+        "policy_type": "Government Investment Program",
+        "status": "Active",
+        "year": 2017,
+        "funding": "CNY 7 billion",
+        "note": "",
+        "url": "https://www.chinadaily.com.cn/a/201903/11/WS5c85a605a3106c65c34edce6.html"
+      },
+      {
+        "title": "National Key R&D Programme: Quantum Control and Quantum Information",
+        "type": "Programme",
+        "policy_type": "National Quantum Program",
+        "status": "Active",
+        "year": 2016,
+        "funding": null,
+        "note": "",
+        "url": "https://iopscience.iop.org/article/10.1088/2058-9565/ab4bea"
       }
     ],
     "Czech Republic": [
@@ -245,6 +319,16 @@
         "url": "https://julkaisut.valtioneuvosto.fi/items/74f50aa5-8b60-4441-af1f-41ff5718e147"
       },
       {
+        "title": "VTT Quantum Computer Scale-up to 300 Qubits",
+        "type": "Investment",
+        "policy_type": "Government Investment Program",
+        "status": "Active",
+        "year": 2024,
+        "funding": "€70 million",
+        "note": "",
+        "url": null
+      },
+      {
         "title": "Business Finland Quantum Program",
         "type": "Investment",
         "policy_type": "Government Investment Program",
@@ -253,6 +337,16 @@
         "funding": null,
         "note": "State-run innovation programme supporting RDI, commercialization, ecosystem development and international collaboration in quantum technologies.",
         "url": "https://www.businessfinland.fi/en/services/Programs-and-ecosystems/Programs/quantum/"
+      },
+      {
+        "title": "VTT National Quantum Computer, 50-qubit programme",
+        "type": "Investment",
+        "policy_type": "Government Investment Program",
+        "status": "Active",
+        "year": 2020,
+        "funding": "€20.7 million",
+        "note": "",
+        "url": null
       }
     ],
     "France": [
@@ -299,6 +393,16 @@
         "url": "https://dserver.bundestag.de/btd/20/066/2006610.pdf"
       },
       {
+        "title": "Munich Quantum Valley",
+        "type": "Investment",
+        "policy_type": "Government Investment Program",
+        "status": "Active",
+        "year": 2021,
+        "funding": "Approx. €300 million",
+        "note": "",
+        "url": null
+      },
+      {
         "title": "Konjunktur- und Zukunftspaket 2020: Quantentechnologien (Item 44)",
         "type": "Investment",
         "policy_type": "Government Investment Program",
@@ -321,6 +425,16 @@
     ],
     "India": [
       {
+        "title": "Karnataka State Quantum Mission",
+        "type": "Programme",
+        "policy_type": "National Quantum Program",
+        "status": "Active",
+        "year": 2025,
+        "funding": "₹1,000 crore",
+        "note": "",
+        "url": null
+      },
+      {
         "title": "National Quantum Mission",
         "type": "Programme",
         "policy_type": "National Quantum Mission",
@@ -329,6 +443,16 @@
         "funding": "₹6,003.65 crore",
         "note": "Cabinet-approved national mission supporting quantum computing, secure communications, sensing/metrology, materials, thematic hubs, talent and industry through 2030–31.",
         "url": "https://dst.gov.in/cabinet-approves-national-quantum-mission-scale-scientific-industrial-rd-quantum-technologies"
+      },
+      {
+        "title": "Quantum Enabled Science and Technology (QuEST)",
+        "type": "Programme",
+        "policy_type": "National Quantum Program",
+        "status": "Active",
+        "year": 2019,
+        "funding": "₹186.95 crore",
+        "note": "",
+        "url": null
       },
       {
         "title": "National Mission on Quantum Technologies & Applications (NM-QTA)",
@@ -343,6 +467,16 @@
     ],
     "Ireland": [
       {
+        "title": "Rinn Quantum: Research & Innovation in Quantum Information Science and Technology",
+        "type": "Programme",
+        "policy_type": "National Quantum Program",
+        "status": "Active",
+        "year": 2026,
+        "funding": "€39,621,376",
+        "note": "",
+        "url": null
+      },
+      {
         "title": "Quantum 2030: A National Quantum Technologies Strategy for Ireland",
         "type": "Strategy",
         "policy_type": "National Quantum Strategy",
@@ -351,6 +485,16 @@
         "funding": null,
         "note": "Ireland's national strategy to develop research, talent, infrastructure, enterprise adoption and international links in quantum technologies through 2030.",
         "url": "https://assets.gov.ie/static/documents/quantum-2030-a-national-quantum-technologies-strategy-for-ireland.pdf"
+      },
+      {
+        "title": "IrelandQCI: National Quantum Communications Infrastructure",
+        "type": "Investment",
+        "policy_type": "Government Investment Program",
+        "status": "Active",
+        "year": 2022,
+        "funding": "€10 million (€5m Irish Government + €5m EU)",
+        "note": "",
+        "url": null
       }
     ],
     "Israel": [
@@ -385,6 +529,16 @@
         "funding": "~€1 billion recommended additional public funding over five years - NOT yet a committed/appropriated strategy budget",
         "note": "Italy's national strategy for quantum technologies, setting priorities for research, industry, skills, infrastructure, security and European positioning.",
         "url": "https://www.mur.gov.it/it/strategia-italiana-le-tecnologie-quantistiche"
+      },
+      {
+        "title": "Campania Quantum Valley (PR FESR Campania 2021–2027)",
+        "type": "Investment",
+        "policy_type": "Government Investment Program",
+        "status": "Active",
+        "year": 2023,
+        "funding": "€100 million",
+        "note": "",
+        "url": null
       }
     ],
     "Japan": [
@@ -399,6 +553,16 @@
         "url": "https://www8.cao.go.jp/cstp/ryoshigijutsu/240409_q_measures.pdf"
       },
       {
+        "title": "SIP Phase 3: Promoting Application of Advanced Quantum Technologies to Social Challenges",
+        "type": "Programme",
+        "policy_type": "National Quantum Program",
+        "status": "Active",
+        "year": 2023,
+        "funding": null,
+        "note": "",
+        "url": null
+      },
+      {
         "title": "Strategy of Quantum Future Industry Development",
         "type": "Strategy",
         "policy_type": "National Quantum Strategy",
@@ -407,6 +571,16 @@
         "funding": null,
         "note": "Industrial strategy focused on business creation, supply chains, quantum use cases, startup growth and industrial ecosystem development.",
         "url": "https://www8.cao.go.jp/cstp/english/quantum/index.html"
+      },
+      {
+        "title": "Quantum Technology Innovation Hubs (QIH)",
+        "type": "Programme",
+        "policy_type": "National Quantum Program",
+        "status": "Active",
+        "year": 2021,
+        "funding": null,
+        "note": "",
+        "url": null
       },
       {
         "title": "Moonshot Research and Development Program - Goal 6",
@@ -427,6 +601,16 @@
         "funding": null,
         "note": "Cabinet-level strategy establishing Japan's national direction for quantum technology R&D, hubs, industry, security, talent and international cooperation.",
         "url": "https://www8.cao.go.jp/cstp/ryoshigijutsu/roadmap_220422.pdf"
+      },
+      {
+        "title": "MEXT Quantum Leap Flagship Program (Q-LEAP)",
+        "type": "Programme",
+        "policy_type": "National Quantum Program",
+        "status": "Active",
+        "year": 2018,
+        "funding": null,
+        "note": "",
+        "url": null
       }
     ],
     "Latvia": [
@@ -521,6 +705,50 @@
         "url": "https://www.gov.pl/attachment/b8297716-9ff0-489f-8a7b-e995a69b41e5"
       }
     ],
+    "Romania": [
+      {
+        "title": "Romanian Excellence in Quantum Technologies enhancing Cybersecurity (RExQTCS)",
+        "type": "Programme",
+        "policy_type": "National Quantum Program",
+        "status": "Active",
+        "year": 2026,
+        "funding": "RON 85.9 million",
+        "note": "",
+        "url": null
+      },
+      {
+        "title": "Romanian National Quantum Communication Infrastructure (RoNaQCI)",
+        "type": "Investment",
+        "policy_type": "Government Investment Program",
+        "status": "Active",
+        "year": 2023,
+        "funding": "Approx. €10 million (€5m national + €5m EU)",
+        "note": "",
+        "url": null
+      }
+    ],
+    "Russia": [
+      {
+        "title": "Quantum Communications Development Roadmap, Russian Railways",
+        "type": "Roadmap",
+        "policy_type": "National Quantum Roadmap",
+        "status": "Active",
+        "year": 2020,
+        "funding": "RUB 10.2425 billion federal funding",
+        "note": "",
+        "url": null
+      },
+      {
+        "title": "Quantum Computing Development Roadmap, Rosatom",
+        "type": "Roadmap",
+        "policy_type": "National Quantum Roadmap",
+        "status": "Active",
+        "year": 2020,
+        "funding": "RUB 13.253 billion federal funding",
+        "note": "",
+        "url": null
+      }
+    ],
     "Singapore": [
       {
         "title": "National Quantum Strategy",
@@ -541,6 +769,18 @@
         "funding": null,
         "note": "National hub combining research institutions to build quantum-computing capabilities, talent, applications and industry partnerships.",
         "url": "https://nqo.sg/programmes/"
+      }
+    ],
+    "South Africa": [
+      {
+        "title": "South African Quantum Technologies Initiative (SAQuTI)",
+        "type": "Programme",
+        "policy_type": "National Quantum Program",
+        "status": "Active",
+        "year": 2023,
+        "funding": "R196 million (R54m initial funding + R142m Phase 2)",
+        "note": "",
+        "url": null
       }
     ],
     "South Korea": [
@@ -599,6 +839,16 @@
     ],
     "Sweden": [
       {
+        "title": "Nordic Quantum Communication Infrastructure (NordicQCI)",
+        "type": "Investment",
+        "policy_type": "Government Investment Program",
+        "status": "Active",
+        "year": 2026,
+        "funding": "SEK 30 million (Vinnova contribution)",
+        "note": "",
+        "url": null
+      },
+      {
         "title": "Sveriges strategi för kvantteknikområdet",
         "type": "Strategy",
         "policy_type": "National Quantum Strategy",
@@ -607,6 +857,16 @@
         "funding": null,
         "note": "National strategy establishing a coordinated and long-term Swedish approach to quantum technology, spanning research and innovation, industrial leadership, skills, coordination, security and international cooperation.",
         "url": "https://www.regeringen.se/contentassets/3b82dc6d3f2d4e299cb288237dc4a988/sveriges-strategi-for-kvantteknikomradet.pdf"
+      },
+      {
+        "title": "National Quantum Communication Infrastructure in Sweden (NQCIS)",
+        "type": "Investment",
+        "policy_type": "Government Investment Program",
+        "status": "Active",
+        "year": 2023,
+        "funding": "SEK 30 million",
+        "note": "",
+        "url": null
       }
     ],
     "Switzerland": [
@@ -703,6 +963,26 @@
         "funding": null,
         "note": "Executive order refreshing U.S. quantum policy by directing an updated National Quantum Strategy and launching measures to accelerate quantum computing, sensing, networking, commercialization, manufacturing, supply chains, workforce development, technology protection, and international cooperation.",
         "url": "https://www.whitehouse.gov/presidential-actions/2026/06/ushering-in-the-next-frontier-of-quantum-innovation/"
+      },
+      {
+        "title": "New York State Quantum Research and Innovation Initiative",
+        "type": "Programme",
+        "policy_type": "National Quantum Program",
+        "status": "Active",
+        "year": 2025,
+        "funding": "US$360 million (US$300m Stony Brook Quantum Hub + US$60m regional commercialisation hubs)",
+        "note": "",
+        "url": null
+      },
+      {
+        "title": "Illinois Quantum and Microelectronics Park (IQMP)",
+        "type": "Investment",
+        "policy_type": "Government Investment Program",
+        "status": "Active",
+        "year": 2024,
+        "funding": "US$500 million state investment",
+        "note": "",
+        "url": null
       },
       {
         "title": "National Security Memorandum on Promoting United States Leadership in Quantum Computing While Mitigating Risks to Vulnerable Cryptographic Systems",

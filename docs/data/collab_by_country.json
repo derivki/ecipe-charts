@@ -7,492 +7,462 @@
   "data": [
     {
       "country": "China",
-      "entities": 1356,
-      "collaborations": 24861
+      "entities": 1337,
+      "collaborations": 21312
     },
     {
       "country": "US",
-      "entities": 1425,
-      "collaborations": 22475
+      "entities": 1142,
+      "collaborations": 20338
     },
     {
       "country": "Germany",
-      "entities": 407,
-      "collaborations": 11003
+      "entities": 389,
+      "collaborations": 10326
     },
     {
       "country": "UK",
-      "entities": 327,
-      "collaborations": 6446
-    },
-    {
-      "country": "France",
-      "entities": 494,
-      "collaborations": 6074
+      "entities": 270,
+      "collaborations": 5953
     },
     {
       "country": "Japan",
-      "entities": 415,
-      "collaborations": 5849
+      "entities": 484,
+      "collaborations": 5932
+    },
+    {
+      "country": "France",
+      "entities": 466,
+      "collaborations": 5398
     },
     {
       "country": "Italy",
-      "entities": 223,
-      "collaborations": 5748
+      "entities": 208,
+      "collaborations": 5351
     },
     {
       "country": "India",
-      "entities": 588,
-      "collaborations": 5687
+      "entities": 597,
+      "collaborations": 5032
     },
     {
       "country": "Spain",
-      "entities": 188,
-      "collaborations": 4215
-    },
-    {
-      "country": "Russia",
-      "entities": 271,
-      "collaborations": 3519
+      "entities": 193,
+      "collaborations": 4038
     },
     {
       "country": "Canada",
-      "entities": 192,
-      "collaborations": 3410
+      "entities": 179,
+      "collaborations": 3246
+    },
+    {
+      "country": "Russia",
+      "entities": 232,
+      "collaborations": 2696
     },
     {
       "country": "Australia",
-      "entities": 108,
-      "collaborations": 2673
+      "entities": 102,
+      "collaborations": 2482
     },
     {
       "country": "South Korea",
-      "entities": 200,
-      "collaborations": 2478
-    },
-    {
-      "country": "Poland",
-      "entities": 85,
-      "collaborations": 2246
-    },
-    {
-      "country": "Brazil",
-      "entities": 166,
-      "collaborations": 2166
+      "entities": 171,
+      "collaborations": 2254
     },
     {
       "country": "Switzerland",
-      "entities": 79,
-      "collaborations": 2141
+      "entities": 86,
+      "collaborations": 2220
+    },
+    {
+      "country": "Poland",
+      "entities": 76,
+      "collaborations": 2032
+    },
+    {
+      "country": "Brazil",
+      "entities": 153,
+      "collaborations": 1988
     },
     {
       "country": "Netherlands",
-      "entities": 83,
-      "collaborations": 2052
+      "entities": 73,
+      "collaborations": 1825
     },
     {
       "country": "Austria",
-      "entities": 54,
-      "collaborations": 1837
+      "entities": 56,
+      "collaborations": 1715
     },
     {
       "country": "Singapore",
-      "entities": 43,
-      "collaborations": 1639
-    },
-    {
-      "country": "Taiwan",
-      "entities": 105,
-      "collaborations": 1523
+      "entities": 58,
+      "collaborations": 1642
     },
     {
       "country": "Sweden",
-      "entities": 47,
-      "collaborations": 1402
+      "entities": 41,
+      "collaborations": 1354
+    },
+    {
+      "country": "Taiwan",
+      "entities": 94,
+      "collaborations": 1300
     },
     {
       "country": "Israel",
-      "entities": 50,
-      "collaborations": 1357
-    },
-    {
-      "country": "Iran",
-      "entities": 162,
-      "collaborations": 1261
+      "entities": 44,
+      "collaborations": 1210
     },
     {
       "country": "Denmark",
-      "entities": 33,
-      "collaborations": 1137
+      "entities": 30,
+      "collaborations": 1113
+    },
+    {
+      "country": "Iran",
+      "entities": 121,
+      "collaborations": 999
+    },
+    {
+      "country": "Finland",
+      "entities": 28,
+      "collaborations": 941
     },
     {
       "country": "Saudi Arabia",
       "entities": 44,
-      "collaborations": 1021
-    },
-    {
-      "country": "Finland",
-      "entities": 38,
-      "collaborations": 1016
+      "collaborations": 837
     },
     {
       "country": "Pakistan",
-      "entities": 93,
-      "collaborations": 805
-    },
-    {
-      "country": "Czech Republic",
-      "entities": 49,
-      "collaborations": 802
+      "entities": 96,
+      "collaborations": 780
     },
     {
       "country": "Belgium",
-      "entities": 32,
-      "collaborations": 789
+      "entities": 24,
+      "collaborations": 704
+    },
+    {
+      "country": "Czech Republic",
+      "entities": 39,
+      "collaborations": 595
     },
     {
       "country": "Mexico",
-      "entities": 78,
-      "collaborations": 717
-    },
-    {
-      "country": "Turkey",
-      "entities": 120,
-      "collaborations": 636
+      "entities": 56,
+      "collaborations": 551
     },
     {
       "country": "Portugal",
-      "entities": 34,
-      "collaborations": 587
-    },
-    {
-      "country": "Chile",
-      "entities": 43,
-      "collaborations": 584
+      "entities": 37,
+      "collaborations": 548
     },
     {
       "country": "Egypt",
-      "entities": 54,
-      "collaborations": 577
-    },
-    {
-      "country": "Argentina",
-      "entities": 47,
-      "collaborations": 542
+      "entities": 55,
+      "collaborations": 533
     },
     {
       "country": "Hungary",
-      "entities": 30,
-      "collaborations": 529
+      "entities": 29,
+      "collaborations": 507
     },
     {
-      "country": "Ukraine",
-      "entities": 62,
-      "collaborations": 513
+      "country": "Argentina",
+      "entities": 46,
+      "collaborations": 481
     },
     {
-      "country": "UAE",
-      "entities": 32,
-      "collaborations": 471
+      "country": "Chile",
+      "entities": 29,
+      "collaborations": 472
+    },
+    {
+      "country": "Turkey",
+      "entities": 100,
+      "collaborations": 457
     },
     {
       "country": "Ireland",
-      "entities": 31,
-      "collaborations": 453
+      "entities": 29,
+      "collaborations": 444
+    },
+    {
+      "country": "UAE",
+      "entities": 28,
+      "collaborations": 418
     },
     {
       "country": "Vietnam",
-      "entities": 64,
-      "collaborations": 439
+      "entities": 80,
+      "collaborations": 379
     },
     {
       "country": "Greece",
-      "entities": 31,
-      "collaborations": 394
+      "entities": 28,
+      "collaborations": 343
     },
     {
-      "country": "South Africa",
-      "entities": 24,
-      "collaborations": 355
-    },
-    {
-      "country": "New Zealand",
-      "entities": 17,
+      "country": "Ukraine",
+      "entities": 66,
       "collaborations": 337
     },
     {
+      "country": "New Zealand",
+      "entities": 12,
+      "collaborations": 318
+    },
+    {
+      "country": "South Africa",
+      "entities": 20,
+      "collaborations": 290
+    },
+    {
       "country": "Morocco",
-      "entities": 22,
-      "collaborations": 301
+      "entities": 23,
+      "collaborations": 271
     },
     {
       "country": "Slovenia",
-      "entities": 13,
-      "collaborations": 296
-    },
-    {
-      "country": "Norway",
-      "entities": 28,
-      "collaborations": 296
-    },
-    {
-      "country": "Slovakia",
-      "entities": 20,
-      "collaborations": 285
+      "entities": 10,
+      "collaborations": 265
     },
     {
       "country": "Malaysia",
-      "entities": 42,
-      "collaborations": 255
+      "entities": 37,
+      "collaborations": 244
+    },
+    {
+      "country": "Norway",
+      "entities": 21,
+      "collaborations": 238
+    },
+    {
+      "country": "Slovakia",
+      "entities": 13,
+      "collaborations": 202
     },
     {
       "country": "Colombia",
-      "entities": 33,
-      "collaborations": 215
-    },
-    {
-      "country": "Romania",
-      "entities": 39,
-      "collaborations": 206
-    },
-    {
-      "country": "Bangladesh",
       "entities": 35,
-      "collaborations": 188
+      "collaborations": 200
+    },
+    {
+      "country": "Thailand",
+      "entities": 34,
+      "collaborations": 159
+    },
+    {
+      "country": "Indonesia",
+      "entities": 70,
+      "collaborations": 153
     },
     {
       "country": "Algeria",
-      "entities": 40,
-      "collaborations": 184
+      "entities": 42,
+      "collaborations": 145
+    },
+    {
+      "country": "Luxembourg",
+      "entities": 7,
+      "collaborations": 137
     },
     {
       "country": "Serbia",
       "entities": 16,
-      "collaborations": 173
-    },
-    {
-      "country": "Iraq",
-      "entities": 41,
-      "collaborations": 166
-    },
-    {
-      "country": "Indonesia",
-      "entities": 48,
-      "collaborations": 165
-    },
-    {
-      "country": "Luxembourg",
-      "entities": 6,
-      "collaborations": 163
-    },
-    {
-      "country": "Bulgaria",
-      "entities": 19,
-      "collaborations": 159
-    },
-    {
-      "country": "Cameroon",
-      "entities": 13,
-      "collaborations": 155
+      "collaborations": 129
     },
     {
       "country": "Uzbekistan",
-      "entities": 21,
-      "collaborations": 149
+      "entities": 22,
+      "collaborations": 128
     },
     {
-      "country": "Thailand",
-      "entities": 28,
-      "collaborations": 141
+      "country": "Iraq",
+      "entities": 47,
+      "collaborations": 123
+    },
+    {
+      "country": "Cameroon",
+      "entities": 15,
+      "collaborations": 119
+    },
+    {
+      "country": "Bangladesh",
+      "entities": 32,
+      "collaborations": 117
     },
     {
       "country": "Armenia",
-      "entities": 12,
-      "collaborations": 137
-    },
-    {
-      "country": "Tunisia",
-      "entities": 17,
-      "collaborations": 137
-    },
-    {
-      "country": "Nigeria",
-      "entities": 51,
-      "collaborations": 133
+      "entities": 9,
+      "collaborations": 115
     },
     {
       "country": "Qatar",
       "entities": 7,
-      "collaborations": 120
+      "collaborations": 114
+    },
+    {
+      "country": "Nigeria",
+      "entities": 54,
+      "collaborations": 113
+    },
+    {
+      "country": "Romania",
+      "entities": 26,
+      "collaborations": 109
     },
     {
       "country": "Croatia",
-      "entities": 10,
-      "collaborations": 112
-    },
-    {
-      "country": "Belarus",
-      "entities": 10,
-      "collaborations": 106
-    },
-    {
-      "country": "Azerbaijan",
-      "entities": 17,
+      "entities": 9,
       "collaborations": 105
     },
     {
-      "country": "Latvia",
+      "country": "Bulgaria",
       "entities": 10,
-      "collaborations": 104
-    },
-    {
-      "country": "Jordan",
-      "entities": 17,
-      "collaborations": 100
+      "collaborations": 98
     },
     {
       "country": "Iceland",
-      "entities": 3,
-      "collaborations": 93
+      "entities": 2,
+      "collaborations": 86
     },
     {
-      "country": "Ethiopia",
-      "entities": 28,
-      "collaborations": 86
+      "country": "Tunisia",
+      "entities": 16,
+      "collaborations": 85
+    },
+    {
+      "country": "Jordan",
+      "entities": 15,
+      "collaborations": 79
     },
     {
       "country": "Lithuania",
       "entities": 7,
-      "collaborations": 84
+      "collaborations": 76
     },
     {
-      "country": "Kazakhstan",
-      "entities": 18,
+      "country": "Latvia",
+      "entities": 10,
+      "collaborations": 76
+    },
+    {
+      "country": "Ethiopia",
+      "entities": 28,
       "collaborations": 75
     },
     {
-      "country": "Cyprus",
-      "entities": 10,
-      "collaborations": 68
+      "country": "Belarus",
+      "entities": 7,
+      "collaborations": 65
     },
     {
-      "country": "Bahrain",
-      "entities": 4,
-      "collaborations": 60
+      "country": "Azerbaijan",
+      "entities": 13,
+      "collaborations": 62
     },
     {
       "country": "Ecuador",
-      "entities": 10,
-      "collaborations": 60
-    },
-    {
-      "country": "Lebanon",
-      "entities": 5,
-      "collaborations": 57
-    },
-    {
-      "country": "Oman",
       "entities": 11,
-      "collaborations": 48
+      "collaborations": 50
     },
     {
-      "country": "Estonia",
-      "entities": 6,
-      "collaborations": 45
-    },
-    {
-      "country": "Ghana",
-      "entities": 14,
-      "collaborations": 44
+      "country": "Kazakhstan",
+      "entities": 20,
+      "collaborations": 49
     },
     {
       "country": "Malta",
       "entities": 1,
-      "collaborations": 44
+      "collaborations": 47
     },
     {
-      "country": "Kuwait",
-      "entities": 6,
-      "collaborations": 42
-    },
-    {
-      "country": "Cuba",
-      "entities": 6,
-      "collaborations": 42
+      "country": "Bahrain",
+      "entities": 4,
+      "collaborations": 46
     },
     {
       "country": "Georgia",
-      "entities": 4,
-      "collaborations": 41
+      "entities": 5,
+      "collaborations": 43
+    },
+    {
+      "country": "Oman",
+      "entities": 10,
+      "collaborations": 40
+    },
+    {
+      "country": "Cyprus",
+      "entities": 9,
+      "collaborations": 38
     },
     {
       "country": "Moldova",
-      "entities": 4,
+      "entities": 6,
       "collaborations": 35
     },
     {
-      "country": "Philippines",
-      "entities": 15,
+      "country": "Peru",
+      "entities": 8,
+      "collaborations": 35
+    },
+    {
+      "country": "Lebanon",
+      "entities": 4,
       "collaborations": 33
     },
     {
       "country": "Uruguay",
+      "entities": 7,
+      "collaborations": 33
+    },
+    {
+      "country": "Kuwait",
       "entities": 6,
       "collaborations": 31
     },
     {
-      "country": "Rwanda",
-      "entities": 5,
-      "collaborations": 30
-    },
-    {
-      "country": "Peru",
-      "entities": 9,
-      "collaborations": 30
-    },
-    {
-      "country": "Costa Rica",
-      "entities": 4,
+      "country": "Estonia",
+      "entities": 6,
       "collaborations": 29
     },
     {
-      "country": "Panama",
-      "entities": 6,
-      "collaborations": 23
-    },
-    {
-      "country": "Yemen",
-      "entities": 6,
-      "collaborations": 22
-    },
-    {
-      "country": "Benin",
+      "country": "Cuba",
       "entities": 4,
-      "collaborations": 22
-    },
-    {
-      "country": "Venezuela",
-      "entities": 5,
-      "collaborations": 21
+      "collaborations": 28
     },
     {
       "country": "Nepal",
       "entities": 5,
-      "collaborations": 21
+      "collaborations": 26
+    },
+    {
+      "country": "Costa Rica",
+      "entities": 3,
+      "collaborations": 25
+    },
+    {
+      "country": "Philippines",
+      "entities": 6,
+      "collaborations": 25
     },
     {
       "country": "Sudan",
-      "entities": 7,
+      "entities": 6,
       "collaborations": 20
     },
     {
-      "country": "Montenegro",
+      "country": "Myanmar",
       "entities": 2,
-      "collaborations": 20
+      "collaborations": 18
     },
     {
-      "country": "Botswana",
-      "entities": 2,
+      "country": "Yemen",
+      "entities": 3,
       "collaborations": 17
     },
     {
@@ -501,128 +471,123 @@
       "collaborations": 17
     },
     {
+      "country": "Venezuela",
+      "entities": 3,
+      "collaborations": 17
+    },
+    {
       "country": "Bosnia and Herzegovina",
-      "entities": 4,
-      "collaborations": 17
-    },
-    {
-      "country": "Myanmar",
       "entities": 3,
       "collaborations": 17
-    },
-    {
-      "country": "Palestine",
-      "entities": 4,
-      "collaborations": 13
-    },
-    {
-      "country": "Kenya",
-      "entities": 11,
-      "collaborations": 13
-    },
-    {
-      "country": "Mongolia",
-      "entities": 3,
-      "collaborations": 11
     },
     {
       "country": "Libya",
+      "entities": 6,
+      "collaborations": 13
+    },
+    {
+      "country": "Botswana",
+      "entities": 1,
+      "collaborations": 13
+    },
+    {
+      "country": "Benin",
+      "entities": 3,
+      "collaborations": 13
+    },
+    {
+      "country": "Rwanda",
+      "entities": 3,
+      "collaborations": 12
+    },
+    {
+      "country": "Ghana",
+      "entities": 6,
+      "collaborations": 11
+    },
+    {
+      "country": "Syria",
       "entities": 5,
       "collaborations": 10
     },
     {
-      "country": "Gabon",
-      "entities": 2,
+      "country": "Panama",
+      "entities": 5,
       "collaborations": 10
-    },
-    {
-      "country": "Mauritania",
-      "entities": 1,
-      "collaborations": 10
-    },
-    {
-      "country": "Zambia",
-      "entities": 3,
-      "collaborations": 9
-    },
-    {
-      "country": "Bolivia",
-      "entities": 2,
-      "collaborations": 9
-    },
-    {
-      "country": "North Korea",
-      "entities": 4,
-      "collaborations": 7
     },
     {
       "country": "Brunei",
-      "entities": 1,
+      "entities": 2,
+      "collaborations": 10
+    },
+    {
+      "country": "Kenya",
+      "entities": 11,
+      "collaborations": 8
+    },
+    {
+      "country": "Mongolia",
+      "entities": 3,
+      "collaborations": 8
+    },
+    {
+      "country": "Bolivia",
+      "entities": 3,
+      "collaborations": 8
+    },
+    {
+      "country": "Bhutan",
+      "entities": 2,
       "collaborations": 7
     },
     {
-      "country": "Togo",
-      "entities": 1,
-      "collaborations": 7
-    },
-    {
-      "country": "Tajikistan",
-      "entities": 2,
-      "collaborations": 6
-    },
-    {
-      "country": "Saint Kitts and Nevis",
+      "country": "Gabon",
       "entities": 1,
       "collaborations": 6
-    },
-    {
-      "country": "Cambodia",
-      "entities": 2,
-      "collaborations": 5
-    },
-    {
-      "country": "Paraguay",
-      "entities": 3,
-      "collaborations": 5
-    },
-    {
-      "country": "El Salvador",
-      "entities": 2,
-      "collaborations": 5
-    },
-    {
-      "country": "Malawi",
-      "entities": 1,
-      "collaborations": 5
-    },
-    {
-      "country": "Syria",
-      "entities": 3,
-      "collaborations": 4
-    },
-    {
-      "country": "Macedonia",
-      "entities": 2,
-      "collaborations": 4
-    },
-    {
-      "country": "DR Congo",
-      "entities": 2,
-      "collaborations": 4
-    },
-    {
-      "country": "Guatemala",
-      "entities": 2,
-      "collaborations": 4
-    },
-    {
-      "country": "Chad",
-      "entities": 1,
-      "collaborations": 4
     },
     {
       "country": "Fiji",
       "entities": 2,
+      "collaborations": 5
+    },
+    {
+      "country": "Guatemala",
+      "entities": 1,
+      "collaborations": 5
+    },
+    {
+      "country": "Togo",
+      "entities": 1,
+      "collaborations": 5
+    },
+    {
+      "country": "Montenegro",
+      "entities": 2,
+      "collaborations": 4
+    },
+    {
+      "country": "Jamaica",
+      "entities": 1,
+      "collaborations": 4
+    },
+    {
+      "country": "Senegal",
+      "entities": 1,
+      "collaborations": 3
+    },
+    {
+      "country": "Paraguay",
+      "entities": 4,
+      "collaborations": 3
+    },
+    {
+      "country": "Mozambique",
+      "entities": 2,
+      "collaborations": 3
+    },
+    {
+      "country": "Zambia",
+      "entities": 1,
       "collaborations": 3
     },
     {
@@ -631,42 +596,37 @@
       "collaborations": 3
     },
     {
-      "country": "Mauritius",
+      "country": "Timor-Leste",
       "entities": 1,
       "collaborations": 3
     },
     {
-      "country": "Honduras",
+      "country": "Chad",
       "entities": 1,
       "collaborations": 3
     },
     {
-      "country": "Lesotho",
-      "entities": 1,
-      "collaborations": 3
-    },
-    {
-      "country": "Jamaica",
+      "country": "Burundi",
       "entities": 1,
       "collaborations": 3
     },
     {
       "country": "Madagascar",
-      "entities": 1,
-      "collaborations": 3
+      "entities": 3,
+      "collaborations": 2
     },
     {
-      "country": "Maldives",
+      "country": "Lesotho",
       "entities": 1,
       "collaborations": 2
     },
     {
-      "country": "Bhutan",
-      "entities": 1,
+      "country": "El Salvador",
+      "entities": 2,
       "collaborations": 2
     },
     {
-      "country": "Burundi",
+      "country": "Uganda",
       "entities": 1,
       "collaborations": 2
     },
@@ -676,22 +636,47 @@
       "collaborations": 1
     },
     {
-      "country": "Zimbabwe",
-      "entities": 1,
-      "collaborations": 1
-    },
-    {
-      "country": "Dominican Republic",
+      "country": "DR Congo",
       "entities": 2,
       "collaborations": 1
     },
     {
-      "country": "Kosovo",
+      "country": "North Korea",
+      "entities": 1,
+      "collaborations": 1
+    },
+    {
+      "country": "Laos",
+      "entities": 1,
+      "collaborations": 1
+    },
+    {
+      "country": "Sierra Leone",
+      "entities": 1,
+      "collaborations": 1
+    },
+    {
+      "country": "Cambodia",
+      "entities": 1,
+      "collaborations": 1
+    },
+    {
+      "country": "Macedonia",
+      "entities": 1,
+      "collaborations": 1
+    },
+    {
+      "country": "Central African Republic",
       "entities": 1,
       "collaborations": 1
     },
     {
       "country": "Gambia",
+      "entities": 1,
+      "collaborations": 1
+    },
+    {
+      "country": "Mauritania",
       "entities": 1,
       "collaborations": 1
     }
