@@ -8,7 +8,7 @@
     "min_ratio": 1.0,
     "network_countries": 134,
     "thresholds": {
-      "industry_to_gdp": 44.31,
+      "industry_to_gdp": 43.93,
       "connectedness": 0.3045
     },
     "countries": [
@@ -23,10 +23,10 @@
       },
       {
         "country": "Australia",
-        "collaborations": 2482,
-        "industry_collaborations": 245,
+        "collaborations": 2481,
+        "industry_collaborations": 244,
         "partners": 60,
-        "industry_to_gdp": 136.22,
+        "industry_to_gdp": 135.67,
         "connectedness": 0.4511,
         "archetype": "Global Innovation Hubs"
       },
@@ -41,7 +41,7 @@
       },
       {
         "country": "Bangladesh",
-        "collaborations": 117,
+        "collaborations": 116,
         "industry_collaborations": 1,
         "partners": 20,
         "industry_to_gdp": 2.19,
@@ -77,10 +77,10 @@
       },
       {
         "country": "Brazil",
-        "collaborations": 1988,
-        "industry_collaborations": 31,
+        "collaborations": 1987,
+        "industry_collaborations": 30,
         "partners": 70,
-        "industry_to_gdp": 13.6,
+        "industry_to_gdp": 13.16,
         "connectedness": 0.5263,
         "archetype": "Research Networkers"
       },
@@ -95,10 +95,10 @@
       },
       {
         "country": "Canada",
-        "collaborations": 3246,
-        "industry_collaborations": 529,
+        "collaborations": 3245,
+        "industry_collaborations": 528,
         "partners": 66,
-        "industry_to_gdp": 228.03,
+        "industry_to_gdp": 227.6,
         "connectedness": 0.4962,
         "archetype": "Global Innovation Hubs"
       },
@@ -113,10 +113,10 @@
       },
       {
         "country": "China",
-        "collaborations": 21312,
-        "industry_collaborations": 1092,
+        "collaborations": 21300,
+        "industry_collaborations": 1080,
         "partners": 92,
-        "industry_to_gdp": 56.01,
+        "industry_to_gdp": 55.39,
         "connectedness": 0.6917,
         "archetype": "Global Innovation Hubs"
       },
@@ -158,10 +158,10 @@
       },
       {
         "country": "Denmark",
-        "collaborations": 1113,
-        "industry_collaborations": 88,
+        "collaborations": 1111,
+        "industry_collaborations": 86,
         "partners": 55,
-        "industry_to_gdp": 190.26,
+        "industry_to_gdp": 185.94,
         "connectedness": 0.4135,
         "archetype": "Global Innovation Hubs"
       },
@@ -230,10 +230,10 @@
       },
       {
         "country": "India",
-        "collaborations": 5032,
-        "industry_collaborations": 168,
+        "collaborations": 5026,
+        "industry_collaborations": 165,
         "partners": 80,
-        "industry_to_gdp": 42.47,
+        "industry_to_gdp": 41.71,
         "connectedness": 0.6015,
         "archetype": "Research Networkers"
       },
@@ -293,10 +293,10 @@
       },
       {
         "country": "Japan",
-        "collaborations": 5932,
-        "industry_collaborations": 856,
+        "collaborations": 5928,
+        "industry_collaborations": 852,
         "partners": 68,
-        "industry_to_gdp": 193.0,
+        "industry_to_gdp": 192.1,
         "connectedness": 0.5113,
         "archetype": "Global Innovation Hubs"
       },
@@ -536,10 +536,10 @@
       },
       {
         "country": "Spain",
-        "collaborations": 4038,
-        "industry_collaborations": 290,
+        "collaborations": 4037,
+        "industry_collaborations": 289,
         "partners": 70,
-        "industry_to_gdp": 152.11,
+        "industry_to_gdp": 151.59,
         "connectedness": 0.5263,
         "archetype": "Global Innovation Hubs"
       },
@@ -608,10 +608,10 @@
       },
       {
         "country": "US",
-        "collaborations": 20338,
-        "industry_collaborations": 3132,
+        "collaborations": 20337,
+        "industry_collaborations": 3131,
         "partners": 98,
-        "industry_to_gdp": 101.79,
+        "industry_to_gdp": 101.76,
         "connectedness": 0.7368,
         "archetype": "Global Innovation Hubs"
       },

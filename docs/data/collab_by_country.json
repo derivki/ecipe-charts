@@ -7,13 +7,13 @@
   "data": [
     {
       "country": "China",
-      "entities": 1337,
-      "collaborations": 21312
+      "entities": 1333,
+      "collaborations": 21300
     },
     {
       "country": "US",
       "entities": 1142,
-      "collaborations": 20338
+      "collaborations": 20337
     },
     {
       "country": "Germany",
@@ -27,8 +27,8 @@
     },
     {
       "country": "Japan",
-      "entities": 484,
-      "collaborations": 5932
+      "entities": 478,
+      "collaborations": 5928
     },
     {
       "country": "France",
@@ -42,18 +42,18 @@
     },
     {
       "country": "India",
-      "entities": 597,
-      "collaborations": 5032
+      "entities": 595,
+      "collaborations": 5026
     },
     {
       "country": "Spain",
-      "entities": 193,
-      "collaborations": 4038
+      "entities": 192,
+      "collaborations": 4037
     },
     {
       "country": "Canada",
-      "entities": 179,
-      "collaborations": 3246
+      "entities": 178,
+      "collaborations": 3245
     },
     {
       "country": "Russia",
@@ -63,7 +63,7 @@
     {
       "country": "Australia",
       "entities": 102,
-      "collaborations": 2482
+      "collaborations": 2481
     },
     {
       "country": "South Korea",
@@ -83,7 +83,7 @@
     {
       "country": "Brazil",
       "entities": 153,
-      "collaborations": 1988
+      "collaborations": 1987
     },
     {
       "country": "Netherlands",
@@ -117,8 +117,8 @@
     },
     {
       "country": "Denmark",
-      "entities": 30,
-      "collaborations": 1113
+      "entities": 29,
+      "collaborations": 1111
     },
     {
       "country": "Iran",
@@ -293,7 +293,7 @@
     {
       "country": "Bangladesh",
       "entities": 32,
-      "collaborations": 117
+      "collaborations": 116
     },
     {
       "country": "Armenia",

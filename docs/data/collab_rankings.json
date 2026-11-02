@@ -67,7 +67,7 @@
       "category": "Research",
       "city": "Beijing",
       "country": "China",
-      "collaborations": 459
+      "collaborations": 458
     },
     {
       "entity": "National University of Singapore (NUS)",
@@ -235,7 +235,7 @@
       "category": "Research",
       "city": "Kongens Lyngby",
       "country": "Denmark",
-      "collaborations": 305
+      "collaborations": 303
     },
     {
       "entity": "University of Warsaw",
@@ -654,19 +654,19 @@
       "collaborations": 166
     },
     {
-      "entity": "NTT (Nippon Telegraph and Telephone)",
-      "type": "Corporate",
-      "category": "Industry",
-      "city": "Tokyo",
-      "country": "Japan",
-      "collaborations": 166
-    },
-    {
       "entity": "Agency for Science, Technology and Research (A*STAR)",
       "type": "Government agency",
       "category": "Government",
       "city": "Singapore",
       "country": "Singapore",
+      "collaborations": 165
+    },
+    {
+      "entity": "NTT (Nippon Telegraph and Telephone)",
+      "type": "Corporate",
+      "category": "Industry",
+      "city": "Tokyo",
+      "country": "Japan",
       "collaborations": 165
     },
     {
@@ -3118,6 +3118,14 @@
       "collaborations": 9
     },
     {
+      "entity": "NKT Photonics",
+      "type": "Quantum company",
+      "category": "Industry",
+      "city": "Birkerød",
+      "country": "Denmark",
+      "collaborations": 9
+    },
+    {
       "entity": "Single Quantum",
       "type": "Quantum company",
       "category": "Industry",
@@ -3467,14 +3475,6 @@
       "category": "Research",
       "city": "San Pedro",
       "country": "Costa Rica",
-      "collaborations": 6
-    },
-    {
-      "entity": "Cryptomathic",
-      "type": "Quantum company",
-      "category": "Industry",
-      "city": "Aarhus",
-      "country": "Denmark",
       "collaborations": 6
     },
     {
