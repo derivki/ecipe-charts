@@ -1,7 +1,7 @@
 {
   "meta": {
     "data_vintage": "2026-Q3",
-    "built_at_utc": "2026-11-06T10:29:47+00:00",
+    "built_at_utc": "2026-11-06T11:41:30+00:00",
     "source_xlsx": "raw/Quantum Policies List.xlsx",
     "mock": false,
     "n_policies": 101,

@@ -234,7 +234,9 @@ select:hover{background-color:#F4F4F4;}
 .lg.off{opacity:.35;}
 svg{display:block;width:100%;height:auto;overflow:visible;}
 .axis path,.axis line{stroke:var(--line);}
-.axis text{fill:var(--muted);font-size:11px;font-family:var(--font);}
+.axis{font-family:var(--font);}  /* on the group, not just its text: d3 stamps font-family="sans-serif" on it, and
+  labels drawn as HTML inside a foreignObject (companies Figures 5 and 7) inherit from the group */
+.axis text{fill:var(--muted);font-size:11px;}
 .gridline{stroke:var(--line);stroke-width:1px;}
 .partial-band{fill:#F4F4F4;} .partial-label{fill:var(--muted);font-size:10px;font-style:italic;}
 /* the number at the end of a bar: bold dark purple, as in the Figma */
